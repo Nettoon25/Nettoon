@@ -1,0 +1,1915 @@
+/* ========================================================================== */
+/* GLOBAL CSS RESET & BASE STYLES                                             */
+/* Establishes a consistent baseline for all elements across browsers.        */
+/* ========================================================================== */
+
+html {
+  /*
+   * Ensures smooth scrolling behavior when navigating to anchor links.
+   * Enhances user experience by providing a fluid transition rather than an abrupt jump.
+   */
+  scroll-behavior: smooth;
+
+  /*
+   * Universal Box-Sizing Model:
+   * Sets 'border-box' globally for predictable and intuitive box model calculations.
+   * This ensures that padding and border are included within an element's specified width/height,
+   * simplifying layout calculations significantly.
+   */
+  box-sizing: border-box;
+
+  /*
+   * Base Font Settings for Accessibility and Scalability:
+   * 'font-size: 100%' ensures the base font size is relative to the user's browser default settings
+   * (typically 16px). This is crucial for accessibility, allowing users to scale text.
+   * All 'rem' units throughout the stylesheet will be based on this root font size.
+   * 'font-family' provides a default fallback before the main body font is applied.
+   */
+  font-size: 100%; /* 1rem = 16px by default */
+  font-family: 'Segoe UI', sans-serif; /* Fallback font before Poppins is loaded/applied */
+}
+
+/*
+* Inherit Box-Sizing for All Elements:
+* Applies 'box-sizing: inherit' to all elements and pseudo-elements.
+* This practice allows any element to inherit the 'box-sizing' value set on its parent (html in this case),
+* providing consistent box model behavior throughout the entire document structure.
+*/
+*,
+*::before,
+*::after {
+  margin: 0;   /* Resets default browser margins for all elements */
+  padding: 0;  /* Resets default browser paddings for all elements */
+  box-sizing: inherit; /* Ensures consistent box-sizing inherited from html */
+}
+
+/* ========================================================================== */
+/* CSS ROOT VARIABLES (DESIGN TOKENS)                                         */
+/* Defines a centralized system for design values (colors, spacing, etc.).    */
+/* These variables act as design tokens, enabling rapid theming, consistency, */
+/* and future-proofing your UI across the entire application.                */
+/* ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------------- */
+  /* Spacing System (using 'rem' for scalable and consistent dimensions)    */
+  /* Defines a modular scale for all internal and external spacing,         */
+  /* padding, and margins, ensuring visual harmony and predictability.      */
+  /* ---------------------------------------------------------------------- */
+  --spacing-xxxs: 0.125rem; /* 2px - For very fine adjustments */
+  --spacing-xxs: 0.25rem;   /* 4px */
+  --spacing-xs: 0.5rem;     /* 8px */
+  --spacing-sm: 1rem;       /* 16px */
+  --spacing-md: 1.5rem;     /* 24px */
+  --spacing-lg: 2rem;       /* 32px */
+  --spacing-xl: 3rem;       /* 48px */
+  --spacing-xxl: 4rem;      /* 64px */
+  --spacing-xxxl: 6rem;     /* 96px - For large sections */
+
+  /* ---------------------------------------------------------------------- */
+  /* Color Palette (organized for Light Mode and Dark Mode theming)         */
+  /* Provides a comprehensive set of semantic colors for various UI states. */
+  /* ---------------------------------------------------------------------- */
+
+  /* Brand/Accent Colors (adapt as per your brand guidelines) */
+  --color-brand-primary: #ff5722; /* A vibrant orange for primary actions/accents */
+  --color-brand-secondary: #007bff; /* A complementary blue for secondary elements */
+  --color-brand-accent: #673ab7; /* A complementary purple for highlights */
+
+  /* Text Colors */
+  --color-text-light: #f8f9fa; /* Text color for dark backgrounds */
+  --color-text-dark: #212529;  /* Default text color for light backgrounds (high contrast) */
+  --color-text-muted: #6c757d; /* Lighter text for secondary information/placeholders */
+
+  /* Background Colors */
+  --color-bg-light: #ffffff; /* Default background for most content (white) */
+  --color-bg-light-alt: #f8f9fa; /* Slightly off-white for subtle section separation */
+  --color-bg-overlay: rgba(0, 0, 0, 0.7); /* For modals, popups, etc. */
+
+  /* Border & Shadow Colors */
+  --color-border-light: #e0e0e0; /* Light border color for light mode */
+  --color-shadow-light: rgba(0, 0, 0, 0.1); /* Subtle shadow for light mode */
+
+  /* Dark Mode Counterparts (These will be updated by a '.dark-mode' class) */
+  --color-dark-mode-bg-primary: #121212; /* Primary dark background */
+  --color-dark-mode-bg-secondary: #1e1e1e; /* Secondary dark background for sections/cards */
+  --color-dark-mode-text-primary: #e0e0e0; /* Light text for dark backgrounds */
+  --color-dark-mode-text-secondary: #b0b0b0; /* Muted light text for dark backgrounds */
+  --color-dark-mode-border: #333333; /* Darker borders for dark mode */
+  --color-dark-mode-shadow: rgba(0, 0, 0, 0.3); /* More pronounced shadow for dark mode */
+  --color-dark-mode-accent-overlay: rgba(255, 255, 255, 0.08); /* Subtle highlight in dark mode */
+
+  /* ---------------------------------------------------------------------- */
+  /* Typography System (Scalable font sizes and line heights)               */
+  /* Defines a clear hierarchy for text elements, ensuring readability      */
+  /* and visual balance across different screen sizes.                      */
+  /* ---------------------------------------------------------------------- */
+
+  --font-family-primary: 'Poppins', sans-serif; /* Main content font, modern & legible */
+  --font-family-secondary: 'Segoe UI', sans-serif; /* Alternative/fallback font */
+  --font-family-display: 'Montserrat', sans-serif; /* Optional: For bold headings/branding */
+
+  /* Fluid Font Sizes (using clamp() for responsive scaling) */
+  /* These variables define the min, preferred (viewport-based), and max font sizes */
+  --font-size-xxs: clamp(0.75rem, 0.9vw, 0.875rem); /* ~12px to 14px */
+  --font-size-xs: clamp(0.875rem, 1.1vw, 1rem);     /* ~14px to 16px */
+  --font-size-sm: clamp(0.8rem, 0.8vw, 0.8rem);    /* ~16px to 18px */
+  --font-size-base: clamp(1rem, 1.3vw, 1.25rem);    /* ~16px to 20px (default body text) */
+  --font-size-md: clamp(1.125rem, 1.5vw, 1.5rem);  /* ~18px to 24px */
+  --font-size-lg: clamp(1.25rem, 1.8vw, 1.75rem);  /* ~20px to 28px */
+  --font-size-xl: clamp(1.5rem, 2.2vw, 2rem);      /* ~24px to 32px */
+  --font-size-xxl: clamp(2rem, 3vw, 2.5rem);       /* ~32px to 40px */
+  --font-size-heading: clamp(2.5rem, 4vw, 3.5rem); /* ~40px to 56px - for main headings */
+
+  /* Line Heights for Readability */
+  --line-height-text: 1.6; /* Optimal line height for body text */
+  --line-height-heading: 1.2; /* Tighter line height for headings */
+  --line-height-tight: 1.0; /* For very compact text */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* ---------------------------------------------------------------------- */
+  /* Layout & Component Standards                                           */
+  /* Defines reusable properties for common UI elements and structural layout.*/
+  /* ---------------------------------------------------------------------- */
+
+  --container-max-width: 1440px; /* Maximum width for main content containers */
+  --border-radius-sm: 0.25rem; /* Small rounded corners (4px) */
+  --border-radius-md: 0.5rem;  /* Medium rounded corners (8px) - default for cards/buttons */
+  --border-radius-lg: 1rem;    /* Large rounded corners (16px) */
+  --border-radius-full: 50%;   /* For perfect circles (e.g., avatars) */
+
+  /* Box Shadows (subtle depth for UI elements) */
+  --shadow-sm: 0 1px 3px var(--color-shadow-light); /* Light, subtle shadow */
+  --shadow-md: 0 4px 6px var(--color-shadow-light); /* Medium depth shadow */
+  --shadow-lg: 0 8px 15px var(--color-shadow-light); /* Deeper shadow */
+
+  /* Transitions (for smooth UI interactions) */
+  --transition-duration-fast: 0.15s;
+  --transition-duration-normal: 0.3s;
+  --transition-duration-slow: 0.5s;
+  --transition-timing-ease: ease-in-out; /* Standard easing function */
+  --transition-timing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy spring effect */
+}
+
+/* Dark Mode Theme Variables (applied when a '.dark-mode' class is active on a parent) */
+.dark-mode {
+  /* Background Colors */
+  --color-bg-light: var(--color-dark-mode-bg-primary); /* Overrides light background */
+  --color-bg-light-alt: var(--color-dark-mode-bg-secondary);
+
+  /* Text Colors */
+  --color-text-dark: var(--color-dark-mode-text-primary);
+  --color-text-muted: var(--color-dark-mode-text-secondary);
+
+  /* Border & Shadow Colors */
+  --color-border-light: var(--color-dark-mode-border);
+  --color-shadow-light: var(--color-dark-mode-shadow);
+}/* ========================================================================== */
+/* GENERAL BODY STYLING                                                       */
+/* Defines the foundational styles for the entire document body.              */
+/* ========================================================================== */
+
+body {
+  /* Layout & Sizing */
+  display: flex;         /* Enables Flexbox for full-page layout */
+  flex-direction: column; /* Stacks content vertically (e.g., header, main, footer) */
+  min-height: 100vh;     /* Ensures the body takes at least the full viewport height,
+                            allowing a sticky footer pattern if content is short. */
+  margin: 0;             /* Removes default browser margin for the body */
+
+  /* Typography */
+  font-family: var(--font-family-primary); /* Primary font for all body text */
+  font-size: var(--font-size-base);     /* Base font size, fluidly scales via clamp() in :root */
+  line-height: var(--line-height-text); /* Optimal line height for text readability */
+  color: var(--color-text-dark);        /* Default text color for light mode */
+
+  /* Appearance */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+
+  /* Overflow & Scrolling Behavior */
+  overflow-x: hidden; /* Prevents horizontal scrollbar, crucial for responsive designs */
+  overflow-y: auto;   /* Allows vertical scrolling when content exceeds viewport height */
+  -webkit-overflow-scrolling: touch; /* Enhances smooth scrolling on iOS devices */
+
+  /* Custom Scrollbar Styling (Firefox) */
+  scrollbar-width: thin; /* Sets the scrollbar to a thin style */
+  /* Defines thumb and track colors for Firefox scrollbars */
+  scrollbar-color: var(--color-brand-primary) var(--color-bg-light); 
+}
+
+/* Custom Scrollbar Styling (WebKit Browsers: Chrome, Edge, Safari) */
+/* Targets the scrollbar track (the background area of the scrollbar). */
+body::-webkit-scrollbar {
+  width: 0.6rem; /* Sets a consistent width for the vertical scrollbar */
+}
+
+/* Targets the scrollbar track (the background area of the scrollbar). */
+body::-webkit-scrollbar-track {
+  background: var(--color-bg-light); /* Matches the body background for a cohesive look */
+}
+
+/* Targets the scrollbar thumb (the draggable part of the scrollbar). */
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand-primary); /* Uses brand primary color for visual emphasis */
+  border-radius: var(--border-radius-md); /* Applies rounded corners to the scrollbar thumb */
+  border: 2px solid var(--color-bg-light); /* Adds a subtle border for definition */
+}
+
+
+/* ========================================================================== */
+/* HEADER & FOOTER GENERAL STYLING                                            */
+/* Provides base styles common to both the header and footer sections.        */
+/* ========================================================================== */
+
+.header,
+.footer {
+  width: 100%; /* Ensures both header and footer span the full width of the viewport */
+  padding: var(--spacing-md) 0; /* Applies consistent vertical padding (e.g., 24px), no horizontal padding */
+  
+  /* Appearance */
+  background-color: var(--color-dark-mode-bg-primary); /* Uses a dark background variable, suitable for header/footer */
+  color: var(--color-text-light); /* Uses a light text color for contrast on dark backgrounds */
+}
+
+
+/* ========================================================================== */
+/* HEADER CONTAINER SPECIFIC STYLING                                          */
+/* Defines styles for the main fixed header bar at the top of the viewport.  */
+/* (Specific layout/content for the header goes here if it's not .header)    */
+/* ========================================================================== */
+
+/* The comment block indicates that specific header layout/content styles
+ would follow here if 'header' refers to a wrapper. If '.header' is the
+ main header element, then the styles above are sufficient.
+ No changes needed based on the provided input, just clarification. *//* ========================================================================== */
+/* HEADER COMPONENT STYLING                                                   */
+/* Defines the main fixed header bar at the top of the viewport, including    */
+/* the platform logo/title and general header layout.                         */
+/* ========================================================================== */
+
+/* ==== MAIN HEADER CONTAINER (.container) ==== */
+.container {
+  /* Positioning */
+  position: fixed; /* Keeps the header at the top of the viewport when scrolling */
+  top: 0;          /* Aligns to the very top */
+  left: 0;         /* Aligns to the very left */
+  z-index:1000; /* Ensures it stays on top of other content */
+
+  /* Sizing & Layout */
+  width: 100%;     /* Spans the full width of the screen */
+  height: 3rem;    /* Fixed height for the header (48px based on 16px root font-size) */
+  display: flex;   /* Enables flexbox layout for arranging children (logo, nav) */
+  flex-direction: row; /* Arranges children horizontally */
+  align-items: center; /* Vertically centers children within the header */
+  justify-content: space-between; /* Distributes space to push logo to left, nav to right */
+
+  /* Appearance & Spacing */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+  padding-inline-start: 0; /* Ensures no left padding pushes content initially */
+  /* margin-inline: auto; is redundant here as width is 100% and position is fixed */
+}
+
+/* Dark Mode adjustment for the main header container */
+.dark-mode .container {
+  background-color: var(--color-dark-mode-bg-primary); /* Darker background for dark mode */
+}
+
+
+/* ==== LOGO/TITLE SECTION CONTAINER (.Table) ==== */
+/* This flexible container holds the platform's main title/logo. */
+.Table {
+  /* Flex Item Properties within .container */
+  flex: 0 0 15%; /* Prevents growing/shrinking and sets initial base width to 15% of parent */
+  height: 100%; /* Matches the height of its parent (.container) */
+  
+  /* Internal Layout */
+  display: flex;   /* Enables flexbox for its content (.overlay-text) */
+  align-items: center; /* Vertically centers content within the Table container */
+  
+  /* Appearance & Positioning */
+  background-color: transparent; /* Transparent background for the logo section */
+  position: relative; /* Allows for absolute positioning of its children (e.g., .overlay-text) */
+  inset-inline-start: 0; /* Aligns to the start (left) edge of the container */
+}
+
+
+/* ==== OVERLAY TEXT CONTAINER (.overlay-text) ==== */
+/* This absolutely positioned container holds the actual text of the logo,
+ allowing for special text-clipping effects. */
+ .overlay-text {
+  /* Positioning */
+  position: absolute; /* Positions precisely within its parent (.Table) */
+  inset: 0;           /* Stretches to cover the entire parent (top, right, bottom, left at 0) */
+  z-index: var(--z-index-logo-text); /* Ensures logo text is layered correctly */
+  
+  /* Layout */
+  display: flex;       /* Enables flexbox for centering the text content */
+  align-items: center; /* Vertically centers the text */
+  justify-content: center; /* Horizontally centers the text */
+  
+  /* Typography */
+  font-family: var(--font-family-primary); /* Uses the primary brand font */
+  font-size: 0.8em; /* Sets the base font size for the logo text (24px) */
+  font-weight: var(--font-weight-extrabold); /* Extra bold for prominence */
+  
+  /* Text Handling */
+  white-space: nowrap; /* Prevents the text from wrapping */
+  overflow: hidden;    /* Hides any text that overflows its container */
+  text-overflow: ellipsis; /* Adds "..." if text is truncated */
+  
+  /* Appearance & Spacing */
+  background-color: transparent; /* Transparent background for the text overlay */
+  padding-inline-start: 0; /* Ensures no left padding */
+}
+
+
+/* ==== "NET" TEXT STYLING (.net-text) ==== */
+/* Styles for the "NET" part of the logo title, using a background clipped to text. */
+.net-text {
+  /* Background Clip for Text Effect */
+  background: red; /* Uses the vibrant brand primary color (red) */
+  -webkit-background-clip: text;           /* Clips the background to the shape of the text */
+  -webkit-text-fill-color: transparent;    /* Makes the text transparent to reveal the clipped background */
+  
+  /* Typography */
+  /* Typography */
+  font-size: 0.8em; /* Sets the base font size for the logo text (24px) */
+  letter-spacing: var(--spacing-xxxs); /* Adds subtle letter spacing (2px) */
+  font-weight: inherit; /* Inherits font weight from parent (.overlay-text) */
+  display: inline-block; /* Ensures consistent rendering with text-clip effect */
+}
+
+/* ==== "TOON" TEXT STYLING (.toon-text) ==== */
+/* Styles for the "TOON" part of the logo title. */
+.toon-text {
+  /* Background Clip for Text Effect */
+  background: var(--color-text-dark); /* Default dark text color for light mode (black) */
+  -webkit-background-clip: text;           /* Clips the background to the shape of the text */
+  -webkit-text-fill-color: transparent;    /* Makes the text transparent to reveal the clipped background */
+  
+  /* Typography */
+  font-size: 0.8em; /* Sets the base font size for the logo text (24px) */
+  
+  /* Spacing */
+  margin-inline-start: var(--spacing-xxs); /* Adds a small space to the left (5px) */
+  
+  font-weight: inherit; /* Inherits font weight from parent */
+  display: inline-block; /* Ensures consistent rendering with text-clip effect */
+}
+
+
+/* ========================================================================== */
+/* DARK MODE THEME ADJUSTMENTS FOR HEADER                                     */
+/* Styles applied when a '.dark-mode' class is active on a parent element     */
+/* (e.g., <body> or <html>), overriding light mode defaults.                */
+/* ========================================================================== */
+
+/* Dark Mode adjustment for "NET" text background */
+.dark-mode .net-text {
+  background: red; /* Keeps brand primary color vibrant in dark mode */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark Mode adjustment for "TOON" text background */
+.dark-mode .toon-text {
+  background: yellow; /* Uses light text for contrast in dark mode (yellow) */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark Mode adjustment for a hypothetical "SHORTS" text element */
+/* (This class was only present in your dark mode section of original code) */
+.dark-mode .shorts-text {
+  background: var(--color-brand-primary); /* Example: Use brand primary for background */
+  color: var(--color-text-light); /* Use light text color for contrast */
+  /* If this is also intended to be text-clipped, add those properties here */
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+}
+
+
+/* ========================================================================== */
+/* GLOBAL LINK STYLING                                                        */
+/* Ensures consistent appearance for all anchor tags and specific text.       */
+/* ========================================================================== */
+
+/* Removes the default underline from all anchor tags for a cleaner look. */
+a {
+  text-decoration: none;
+}
+
+/* Explicitly ensures no underline for .net-text and .toon-text,
+ especially if they are nested within an <a> tag. */
+.net-text,
+.toon-text {
+  text-decoration: none; 
+}/* ========================================================================== */
+/* NAVIGATION SECTION STYLING (.nav)                                          */
+/* This section occupies the remaining space in the header and contains       */
+/* the main navigation links, positioned to the right.                        */
+/* ========================================================================== */
+
+.nav {
+  /* Flex Item Properties (within the .container header) */
+  flex-grow: 1; /* Allows the navigation section to take up all available horizontal space */
+  height: 100%; /* Ensures the navigation section matches the height of its parent header */
+  
+  /* Flex Container Properties (for arranging navigation links/items) */
+  display: flex;   /* Enables flexbox for aligning internal navigation items */
+  align-items: center; /* Vertically centers the navigation items */
+  justify-content: space-around; /* Distributes navigation items with equal space around them */
+  gap: 5vw; /* Fluid spacing between navigation items, scales with viewport width */
+  
+  /* Appearance */
+  background-color: transparent; /* Ensures a transparent background for the navigation area */
+  
+  /* Positioning & Spacing */
+  margin-inline-start: 0; /* Ensures no left margin, relying on justify-content for spacing */
+}
+
+/*
+* NOTE ON REDUNDANT BLOCKS:
+* The following .container and .nav blocks are duplicates of definitions found elsewhere
+* in your CSS. While keeping them here as per your original provided code,
+* it's important to be aware that they might be redundant and could be removed
+* if the properties are consistently defined in single locations.
+*/
+.container {
+  display: flex;
+  flex-direction: row; /* Defines children layout as a row */
+}
+
+.nav {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.search {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  height:30px;
+  left: 2%;
+  background-color:transparent;
+  margin: 15px auto;
+  border-radius: 7px;
+  align-items: center;
+  border: 0.3px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures hidden children don't leak out */
+}
+
+.dark-mode .search
+{
+  background-color: transparent;
+}
+
+.search input[type="search"] {
+  flex: 1;
+  height: 4.5vh;
+height: 100%;
+  border-radius: 7px;
+  background-color:transparent;
+  border: none;
+  color: #333;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.search input[type="search"]:focus {
+  border: 1px solid white;
+  box-shadow: none;
+}
+
+
+.search input[type="search"]:valid ~ .clear-btn {
+  display: block;
+}
+
+body.dark-mode .search input[type="search"] {
+  color: #fff;
+}
+
+.search input[type="search"]::placeholder {
+  color: #36454F;
+  font-size: 0.9rem;
+}
+
+body.dark-mode .search input[type="search"]::placeholder {
+  color: #D3D3D3;
+}
+
+/* Optional mobile support */
+@media (max-width: 480px) {
+  .search {
+    width: 95%;
+    padding: 0.25rem;
+  }
+
+  .search input[type="search"] {
+    font-size: 0.95rem;
+    padding: 0.5rem 2rem 0.5rem 1.5rem;
+  }
+
+  .clear-btn {
+    font-size: 1rem;
+    right: 0.75rem;
+  }
+}
+
+/* Search icon to the left */
+.search .search-icon {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  padding: 1px;
+  background-color: transparent;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Clear button to the right */
+.clear-btn {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: red;
+  display: none;
+}
+
+.search input[type="search"] {
+  padding-left: 2rem; /* make room for icon */
+  padding-right: 3.5rem; /* make room for clear button */
+}
+
+
+.upload {
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  background-color: transparent;
+  margin-top: 0;
+  margin-left: 1vw;
+  border-radius: 50%;
+}
+
+.upload img {
+  width: 3vw;
+  height:3vw;
+  margin-top: 0.2vh;
+  padding: 0.5vh;
+  margin-left: 0vw;
+}
+
+
+.upload:hover .tooltip
+{
+visibility: visible;
+opacity: 1;
+
+}
+
+/* Notifications Icon */
+.Notifications {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+.Notifications img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Dropdown Container */
+.Notification-container {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 1%;
+  width: 24%;
+  min-width: 17rem;
+  max-height: 30em;
+  background-color: #333;
+  color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+
+  z-index: 30;
+}
+
+.Notification-container.active {
+  display: block;
+}
+
+.dark-mode .Notification-container
+{
+  background-color: #2a2d2f;
+}
+
+
+/* Sticky Header for Notification Count */
+.Notification-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: red; /* same as container background */
+  padding: 0rem;
+  border-bottom: 1px solid #444;
+}
+
+.Notification-header span {
+  width:100%;
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  color: black;
+  background-color: white;
+  border-radius: 0rem;
+  font-weight: bold;
+}
+
+.dark-mode .Notification-header span {
+  color: #fff;
+  background-color: #444;
+}
+
+
+
+.Notification {
+  display: flex;
+  padding: 0.75rem;
+  border-radius: 0.2rem;
+  background-color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: background 0.2s ease;
+  flex-direction: column; /* stack rows */
+  gap: 0.4rem;
+}
+
+.dark-mode .Notification
+{
+  background-color: var(--color-bg-metadata-dark); /* **YouTube-inspired dark gray background** */
+}
+
+
+
+.Notification:hover {
+border-color: #2a2d2f;
+}
+
+
+
+.User-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* push username left, timer right */
+  width: 100%;
+}
+
+
+.User-profile span
+{
+  color: #36454F;
+  background-color: transparent;
+}
+
+.dark-mode .User-profile span
+{
+  color: #D3D3D3;
+}
+
+.User-profile img {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Username stays left */
+.username {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #36454F;
+  margin-left: 0.5rem;
+  flex: 1;
+}
+
+/* Row 2: Message left, Thumb right */
+.message-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-row span
+{
+  color: black;
+  background-color: transparent;
+}
+
+.dark-mode .message-row span
+{
+  color: white;
+
+}
+
+.text {
+  color: black;
+  font-size: 0.9rem;
+  flex: 1;
+  margin-right: 0.5rem;
+}
+
+/* Thumbnail fixed right */
+.video-thumb {
+  flex-shrink: 0;
+}
+
+.video-thumb img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.3rem;
+  object-fit: cover;
+}
+
+/* Row 3: Timer */
+.timer {
+  flex: 1;
+  width: 5%;
+  height: 30px;
+  background-color: saddlebrown;
+  display:none;          /* let it be a full-width row */
+  padding-left: 2rem;    /* indent under username/message, same space as avatar */
+  margin-top: 0.2rem;
+}
+
+.timer span {
+  font-size: 0.3rem;
+  color: #aaa;
+  display:none;   /* makes sure it behaves like a label */
+}
+
+
+.Theme {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Theme img {
+  width: 1.6875em;
+  height: 1.6875em;
+  border-radius: 50%;
+  margin-left: 1em;
+}
+.Account {
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  background-color: transparent;
+  margin-top: 0.3125rem; /* 5px */
+  margin-right: 1rem;     /* 16px */
+  margin-bottom: 0.1875rem; /* 3px */
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  float: right;
+}
+
+.Account img {
+  width: 2vw;
+  height: 2vw;
+  margin-left: 0.4rem; /* 5px */
+  border-radius: 50%;
+  object-fit: cover; /* Ensures proper scaling inside circle */
+}
+
+/* Dark mode adjustment */
+.dark-mode .Account img {
+  filter: invert(1);
+}
+
+/* Dropdown wrapper */
+.account-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0.5%;
+  width: 24%;
+  min-width: 11.25em;
+  max-height: 25em;
+  background-color: #333;
+  box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  z-index: 30;
+  padding: 0em 0;
+  text-align: left;
+  align-items: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) white;
+}
+
+.dropdown-content a {
+  
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; /* Make links block elements */
+}
+
+.account-dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Profile Section */
+.proofile {
+  width: 100%;
+  min-height: 1.875em; /* 30px */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: white;
+  padding: 0.625em; /* 10px */
+  border-radius: 0.4375em; /* 7px */
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Hover Effect */
+.proofile:hover {
+  background-color: grey; /* Subtle purple hover effect */
+  color: white;
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Profile Image */
+.proofile img {
+  width: 1.6875em; /* 27px */
+  height: 1.6875em;
+  border-radius: 50%;
+  margin-right: 0.625em; /* 10px */
+}
+
+/* Profile Name */
+.proofile span {
+  font-weight: bold;
+  font-size: 0.875em; /* 14px */
+  color: black;
+  margin-left: 0.3125em; /* 5px */
+  text-align: left;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Change text color on hover */
+.proofile:hover span{
+  color: white;
+}
+
+
+.dropdown-content li {
+  list-style: none; /* Remove bullet points */
+}
+
+
+
+.tooltip {
+  position: absolute;
+  top: 100%; /* Show below the upload icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 0.4em 0.6em;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10;
+}
+
+
+/* Tooltip Hover Effect */
+.upload:hover .tooltip, 
+.Notifications:hover .tooltip, 
+.Account:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .tooltip {
+    font-size: 0.75em; /* Reduce text size on smaller screens */
+    padding: 0.4em 0.6em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tooltip {
+    font-size: 0.6875em; /* Further reduce size for compact screens */
+    bottom: -1.75rem; /* Adjust positioning */
+  }
+}
+    .sidebar {
+      display:block;
+      position: fixed;
+      width: 8.8%;
+      min-width: 5em; /* Converted from 80px */
+      height: 100vh; /* Full viewport height */
+      background-color:white;
+      top: 2.7rem;
+      left: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+      transition: width 0.3s ease-in-out;
+      z-index: 3;
+      border-style:none;
+      justify-content:space-evenly;
+    }
+    
+    .sidebar:hover {
+      width: 15%; /* Expands slightly on hover for better UX */
+    }
+    
+    .sidebar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .sidebar::-webkit-scrollbar-thumb {
+      background:gray;
+      border-radius: 5px;
+    }
+    .sidebar::-webkit-scrollbar-track {
+      background:gray;
+      scrollbar-color: rgba(0, 0, 0, 0.5) gray;
+    }
+    
+    .sidebar img {
+      width: 1.6875rem; /* Converted from 27px */
+      height: 1.6875rem;
+      margin: 1.25rem auto 1.0625rem auto; /* Adjusted spacing */
+      display: block; /* Centers image in flex-based layouts */
+    }
+    
+    .home {
+      width: 100%;
+      height: 3.125rem; /* Converted from 50px */
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      background-color: transparent;
+      border-radius: 0;
+      box-sizing: border-box;
+      padding: 0 0.9375rem; /* Converted from 15px */
+      margin: 3.125rem 0 2.5rem 0; /* Adjusted margin values */
+      gap:5px;
+      cursor: pointer;
+    }
+    
+    .home img {
+      width: 1.5625rem; /* Converted from 25px */
+      height: 1.5625rem;
+      margin-left: 0rem; /* Converted from 10px */
+    }
+    
+    .home label {
+      flex-grow: 1;
+      text-align: center;
+      color: #333333;
+      font-weight: 300; /* Use numerical weight for better compatibility */
+      font-size: 0.8125rem; /* Converted from 13px */
+      white-space: nowrap; /* Prevents text wrapping */
+      overflow: hidden;
+      text-overflow: ellipsis; /* Ensures long text is truncated */
+    }
+    
+    
+    .home:hover,
+    .dark-mode .home:hover {
+      background-color: grey;
+    }
+  
+    .signup-container {
+      background-color: #F8F8FF;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    
+      width: 95vw;
+      max-width: 800px;
+      height: 90vh;
+      max-height: 85vh;
+      overflow-y: auto;
+      overflow-x: hidden;
+    
+      margin: 7vh auto 1vh auto; /* Top: 5vh | Bottom: 1vh | Centered horizontally */
+    
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+    
+      display: flex;
+      flex-direction: column;
+   
+      justify-content: flex-start;
+    
+      padding: 0; /* 🛑 Removed all internal padding */
+      padding-bottom:10px;
+    }
+    
+.dark-mode .signup-container
+{
+  background-color: #222;
+    color: white;
+}
+
+
+h2 {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    text-align: center;
+    color: red;
+    background-color:white;
+    width: 100vw; /* Makes it span the entire viewport width */
+    max-width: 100%;
+    padding: 5px 0; /* Adds some spacing inside */
+    margin: 0; /* Removes any unwanted margin */
+    border-radius: 7px;
+    font-weight: 800; /* Slightly bolder */
+    font-size: 2rem;
+
+}
+
+
+  .net {
+    color: red;
+  }
+  
+  .toon {
+    color: var(--color-text-dark); /* Default dark text color for light mode (black) */
+  }
+  
+  /* Dark mode styles */
+  body.dark-mode .toon {
+    color: yellow;
+  }
+  
+  body.dark-mode .net {
+    color: red;
+  }
+
+
+.dark-mode h2 {  background-color: #222;
+    color: yellow;
+    border: 0.1rem solid #444;
+}
+
+.banner-upload {
+  display: none;
+  background-color: transparent;
+  width: 100%;
+  max-width: 100%;
+  margin: 1rem auto;
+  text-align: center;
+}
+
+.banner-upload span
+{
+  font-weight: bold;
+}
+
+.banner-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.5rem;
+  width: 100%;
+}
+
+/* Hide input */
+#bannerImageInput {
+  display: none;
+}
+
+/* Banner preview container */
+.banner-preview-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 4; /* Clean responsive banner */
+  overflow: hidden;
+  border-radius: 0.75rem;
+  border: 2px solid #ccc;
+  padding: 0;
+  margin: 0;
+}
+
+/* Image fills banner area fully */
+.banner-preview-wrapper img,
+#bannerPreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  padding: 0;
+  margin: 0;
+  border: none;
+
+}
+
+/* Hover effect */
+.banner-label:hover #bannerPreview {
+  transform: scale(1.01);
+  transition: transform 0.2s ease;
+}
+
+.banner-label span {
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  font-weight: bold;
+  margin: 0;
+}
+.profile-image-upload {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem auto;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  padding-top:0px;
+padding-bottom: 10px;
+z-index: 0;
+}
+
+.profile-image-label {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hide file input */
+#profileImageInput {
+  display: none;
+}
+
+/* 🔥 Fill image preview completely inside container */
+.profile-image-upload img,
+#profilePreview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  border: none;
+  display: block;
+  padding: 0;
+  margin: 0;
+  
+}
+
+/* 🔥 Fill image preview completely inside container */
+.dark-mode .profile-image-upload img
+{
+filter: invert(1);
+}
+
+/* 🔥 Fill image preview completely inside container */
+.dark-mode #profilePreview 
+{
+filter: invert(1);
+}
+
+/* Hover effect on the whole label area */
+.profile-image-label:hover img {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+/* Upload instruction text */
+.profile-image-label span {
+  font-size: 0.95rem;
+  color: var(--color-text-dark);
+  margin-top: 0.5rem;
+}
+
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    margin-top: 50px;
+    margin-inline: auto; /* This pushes the image to the center horizontally within its flex container */
+}
+input, select, textarea {
+    width: 100%;
+    max-width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-inline: auto; /* This pushes the image to the center horizontally within its flex container */
+}
+
+.phone-input {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    overflow: hidden;
+    width:100%;
+    background-color: transparent;
+    gap:10px;
+    margin-top: 20px;
+    border-style:none;
+    border: 1px solid #ccc;
+}
+
+.phone-input input
+{
+  border: 1px solid #ccc;
+}
+
+#country-code {    background-color: #f8f8f8;
+  
+    border: none;
+    padding: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    outline: none;
+    margin-top: 10px;
+}
+
+#phone {
+/* Expands to fill remaining space */
+    padding: 10px;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    width: 100%; /* Ensures full use of available space */
+    min-width: 200px; /* Prevents it from shrinking too much */
+    background-color: #f8f8f8;
+
+    margin-top: 10px;
+}
+
+
+.signup-btn {
+    width: 100%;
+    padding: 10px;
+    background: green;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+    margin-top: 30px;
+    z-index: 0;
+    position: sticky;
+}
+.signup-btn:hover {
+    background: blue;
+}
+
+
+/* ===== Password Container ===== */
+.password-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden;
+  width: 100%;
+  background-color: #f8f8f8;
+}
+
+.password-container input {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 16px;
+}
+
+.password-container .toggle-password {
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background-color: transparent;
+  border-left: 1px solid transparent;
+}
+
+.password-container .toggle-password:hover {
+  background-color: transparent;
+}
+
+/* Password error message */
+.password-error {
+  color: red;
+  display: none;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+/* Dark mode styling */
+.dark-mode .password-container {
+  background-color: #222;
+  border-color: #555;
+}
+
+.dark-mode .password-container input {
+  color: #eee;
+}
+
+.dark-mode .toggle-password {
+  background-color: transparent;
+  border-left: 1px solid transparent;
+  filter: invert(1);
+}
+
+.dark-mode .toggle-password:hover {
+  background-color: transparent;
+}
+
+.consent-wrapper {
+  display: flex;
+  align-items: stretch; /* make children fill height */
+  justify-content: flex-start;
+  background-color: transparent;
+  width: 100%;
+  height: 30px; /* consistent fixed height */
+  padding: 0; /* remove all internal padding */
+  margin-top: 20px;
+}
+
+.consent-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1%;
+  background-color: transparent;
+  width: 100%;
+  margin: 0; /* remove vertical offsets */
+  padding: 0; /* ensure no internal space */
+  box-sizing: border-box;
+}
+
+.consent-item input {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin: 0; /* remove browser default offset */
+  margin-left: 35%;
+}
+
+.consent-item span {
+  color: black;
+  font-size: 15px;
+  line-height: 1; /* remove extra height from text */
+  margin-left: 1%;
+}
+
+.dark-mode .consent-item span
+{
+  color:white;
+}
+
+.consent-item a {
+  color:blue;
+  text-decoration: underline;
+}
+
+.dark-mode .consent-item a {
+  color:yellow;
+
+}
+
+.consent-item a:hover {
+  text-decoration: none;
+}
+
+
+
+
+.reminder {
+  width: 50%;
+  height: 30px;
+  display: flex;
+  justify-content: center; /* Centers content inside the flex container */
+  align-items: center;     /* Vertically center the label */
+  background:transparent;
+  margin: 30px auto 0 auto; /* Top margin + horizontal centering */
+  gap: 30px;
+}
+
+.reminder label {
+  margin: 0; /* No need for auto margin if parent is flex-centered */
+  font-weight: 750;
+  color: black;
+  cursor: pointer;
+}
+
+/* Container to wrap label + input */
+.form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* ⬅️ This centers labels and inputs */
+}
+
+/* Adjust label styling */
+label {
+  display: block;
+  font-weight: bold;
+  text-align: center; /* ⬅️ Ensure label text is centered */
+  margin: 20px 0 10px;
+}
+
+input, select, textarea {
+  width: 100%;        /* 🟢 Full width */
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Prevents padding from affecting width */
+}
+
+
+.dark-mode .reminder label
+{
+color: white;
+
+}
+
+/* Light Mode Styles */
+.light-mode {
+    background-color:  #FAFAFA; /* White background for Light Mode */
+    color: black; /* Black text for Light Mode */
+  }
+  
+  /* Dark Mode Styles */
+  .dark-mode {
+    background-color: #121212; /* Black background for Dark Mode */
+    color: white; /* White text for Dark Mode */
+  }
+  
+
+.net-text {
+    color: red; /* Black color for NET in light mode */
+    font-size: 2em; /* Adjust size as needed */
+  }
+  
+  .toon-text {
+    color: red; /* Red color for TOON in light mode */
+    font-size: 2em; /* Adjust size as needed */
+  }
+  
+  
+  
+  .dark-mode .net-text {
+    color: red; /* White color for NET in dark mode */
+  }
+  
+  .dark-mode .toon-text {
+    color: red;  /* Yellow color for TOON in dark mode */
+  }
+
+.dark-mode .container .nav{
+background-color: #121212; 
+ }
+
+ .dark-mode .container .Table{
+  background-color: #121212; 
+   }
+
+   .dark-mode .container .Table .overlay-text{
+    background-color: #121212; 
+     }
+
+
+.dark-mode .container .search img,
+.dark-mode .container .upload img,
+.dark-mode .container .Notifications img,
+.dark-mode .container .Settings img,
+.dark-mode .container .Account img
+{
+filter: invert(1);
+
+}
+
+
+/* Small Mobile Devices (Portrait phones, e.g., 320px - 480px) */
+/* Targets devices like older iPhones, basic Android phones */
+@media (min-width: 320px) and (max-width: 480px) {
+  /* Adjustments for slightly larger phone screens */
+  body {
+      font-size: 15px;
+  }
+  .video-thumbnail {
+      width: 100%; /* Full width thumbnails */
+  }
+  /* Specific layout for single-column mobile view */
+}
+
+
+/* Medium phones / small tablets (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+
+
+  .container
+  {
+    background-color: saddlebrown;
+  }
+  
+  .nav
+  {
+    background-color: darkkhaki;
+    margin-left: 0px;
+  }
+  
+  .Table {
+    /* Flex Item Properties within .container */
+    flex: 0 0 20%; /* Prevents growing/shrinking and sets initial base width to 15% of parent */
+    height: 100%; /* Matches the height of its parent (.container) */
+  
+    background-color: violet; /* Transparent background for the logo section */
+  
+    inset-inline-start: 0px; /* Aligns to the start (left) edge of the container */
+  }
+  
+  .overlay-text
+  {
+    background-color: darkblue;
+    font-size: 0.7rem;
+    
+  }
+
+
+.signup-container
+{
+
+  
+  width: 95vw;
+  max-width: 800px;
+  height: 90vh;
+  max-height:80vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  margin: 10vh auto 1vh auto; /* Top: 5vh | Bottom: 1vh | Centered horizontally */
+
+}
+}
+
+/* Tablets / small laptops (769px–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  body {
+    font-size: 17px;
+}
+
+
+.container
+{
+  background-color: darkgreen; /* Default background color for light mode */
+}
+
+
+
+.nav
+{
+background-color: transparent;
+}
+
+.overlay-text
+{
+font-size: 1.1rem;
+}
+
+
+.upload
+{
+background-color: transparent;
+width: 3vw;
+height: 3vw;
+}
+
+.Notifications
+{
+background-color: transparent;
+width: 3vw;
+height: 3vw;
+}
+
+.Account 
+{
+background-color: transparent;
+width: 3vw;
+height: 3vw;
+}
+
+.upload
+{
+background-color: transparent;
+width: 3vw;
+height: 3vw;
+}
+
+
+.upload img {
+width: 100%;
+height:  100%;
+margin: 0 auto;
+}
+
+.Notifications img {
+width: 100%;
+height:  100%;
+margin: 0 auto;
+}
+
+
+.Account img {
+width: 100%;
+height:  100%;
+margin: 0 auto;
+}
+
+
+.dropdown-content 
+{
+z-index: 20;
+}
+
+.Table
+{
+  background-color: transparent;
+}
+
+.overlay-text 
+{
+  background-color: transparent;
+  font-size: 0.7rem;
+}
+
+ 
+.signup-container {
+  background-color: #F8F8FF; /* Ghost White */
+  z-index: 11;
+  width: 800px;
+  min-height: 550px;
+  max-height: 600px;
+
+  margin: 4rem auto 0 auto; /* ✅ Margin-top now works */
+  padding-bottom: 20px;
+}
+
+h2
+{
+  font-size: 1.2rem;
+  padding: 2px 0; /* Adds some spacing inside */
+}
+
+.reminder {
+  width: 50%;
+  height: 30px;  /* Vertically center the label */
+  background:transparent;
+  margin: 10px auto 0 auto; /* Top margin + horizontal centering */
+  gap: 30px;
+}
+
+.reminder label {
+  margin: 0; /* No need for auto margin if parent is flex-centered */
+  font-weight: 750;
+  color: black;
+}
+
+
+
+
+}
+
+/* Desktops (1025px–1279px) */
+@media (min-width: 1025px) and (max-width: 1279px) {
+
+  .container
+  {
+    background-color: var(--color-bg-light); /* Default background color for light mode */
+  }
+  
+  .Table
+  {
+    background-color: transparent;
+  }
+  
+  .overlay-text
+  {
+    background-color: transparent;
+    font-size: 0.8rem;
+  }
+  
+  .nav
+  {
+    background-color: transparent;
+  }
+  
+  .search input[type="search"] {
+  
+    min-height: 20px;
+    max-height: 25px;
+  
+  }
+  
+  
+  .upload
+  {
+    background-color: transparent;
+    width: 3vw;
+    height: 3vw;
+  }
+  
+  .Notifications
+  {
+    background-color: transparent;
+    width: 3vw;
+    height: 3vw;
+  }
+  
+  .Account 
+  {
+    background-color: transparent;
+    width: 3vw;
+    height: 3vw;
+  }
+  
+  
+  
+  .upload img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  .Notifications img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  
+  
+  .Account img {
+    width: 100%;
+    height:  100%;
+  margin: 0 auto;
+  }
+  
+  
+  
+  .suggestionss
+  {
+    background-color: #ffffff;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: calc(100% - 5.8%); 
+    left: 3.6rem;
+  }
+  
+  .rectanglee
+  {
+    background-color: transparent;
+  }
+  
+  
+  .sidebar
+  {
+    background-color: #ffffff;
+    width:5.5%; 
+  }
+  
+  .sidebar:hover {
+    width: 14.9%; /* Expands slightly on hover for better UX */
+  }
+
+}
+
+/* Large desktops (1280px–1599px) */
+@media (min-width: 1280px) and (max-width: 1599px) {
+.signup-container
+{
+  margin: 7.5vh auto 0.5vh auto; /* Top: 5vh | Bottom: 1vh | Centered horizontally */
+}
+
+h2 {
+
+  padding: 2px 0; /* Adds some spacing inside */
+  font-size:2rem;
+
+}
+
+
+}
+
+/* Ultra-wide (1600px and up) */
+@media (min-width: 1600px) {
+.signup-container {
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+  z-index: 11;
+  width: 850px;
+  min-height: 700px;
+  max-height: 750px;
+
+
+  padding-bottom: 20px;
+}
+
+h2
+{
+  font-size: 1.5rem;
+}
+
+.reminder {
+  width: 50%;
+  height: 30px;  /* Vertically center the label */
+  background:transparent;
+  margin: 60px auto 1rem auto; /* Top margin + horizontal centering */
+  gap: 30px;
+}
+
+.reminder label {
+  margin: 0; /* No need for auto margin if parent is flex-centered */
+  font-weight: 750;
+  color: black;
+}
+
+
+}
+
+/* Dark mode override */
+@media (prefers-color-scheme: dark) {
+  body { background: #121212; color: #e0e0e0; }
+  .navbar { background: #1f1f1f; }
+  /* etc. */
+}

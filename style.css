@@ -1,0 +1,3392 @@
+/* ========================================================================== */
+/* GLOBAL CSS RESET & BASE STYLES                                             */
+/* Establishes a consistent baseline for all elements across browsers.        */
+/* ========================================================================== */
+
+html {
+  /*
+   * Ensures smooth scrolling behavior when navigating to anchor links.
+   * Enhances user experience by providing a fluid transition rather than an abrupt jump.
+   */
+  scroll-behavior: smooth;
+
+  /*
+   * Universal Box-Sizing Model:
+   * Sets 'border-box' globally for predictable and intuitive box model calculations.
+   * This ensures that padding and border are included within an element's specified width/height,
+   * simplifying layout calculations significantly.
+   */
+  box-sizing: border-box;
+
+  /*
+   * Base Font Settings for Accessibility and Scalability:
+   * 'font-size: 100%' ensures the base font size is relative to the user's browser default settings
+   * (typically 16px). This is crucial for accessibility, allowing users to scale text.
+   * All 'rem' units throughout the stylesheet will be based on this root font size.
+   * 'font-family' provides a default fallback before the main body font is applied.
+   */
+  font-size: 100%; /* 1rem = 16px by default */
+  font-family: 'Segoe UI', sans-serif; /* Fallback font before Poppins is loaded/applied */
+}
+
+/*
+* Inherit Box-Sizing for All Elements:
+* Applies 'box-sizing: inherit' to all elements and pseudo-elements.
+* This practice allows any element to inherit the 'box-sizing' value set on its parent (html in this case),
+* providing consistent box model behavior throughout the entire document structure.
+*/
+*,
+*::before,
+*::after {
+  margin: 0;   /* Resets default browser margins for all elements */
+  padding: 0;  /* Resets default browser paddings for all elements */
+  box-sizing: inherit; /* Ensures consistent box-sizing inherited from html */
+}
+
+/* ========================================================================== */
+/* CSS ROOT VARIABLES (DESIGN TOKENS)                                         */
+/* Defines a centralized system for design values (colors, spacing, etc.).    */
+/* These variables act as design tokens, enabling rapid theming, consistency, */
+/* and future-proofing your UI across the entire application.                */
+/* ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------------- */
+  /* Spacing System (using 'rem' for scalable and consistent dimensions)    */
+  /* Defines a modular scale for all internal and external spacing,         */
+  /* padding, and margins, ensuring visual harmony and predictability.      */
+  /* ---------------------------------------------------------------------- */
+  --spacing-xxxs: 0.125rem; /* 2px - For very fine adjustments */
+  --spacing-xxs: 0.25rem;   /* 4px */
+  --spacing-xs: 0.5rem;     /* 8px */
+  --spacing-sm: 1rem;       /* 16px */
+  --spacing-md: 1.5rem;     /* 24px */
+  --spacing-lg: 2rem;       /* 32px */
+  --spacing-xl: 3rem;       /* 48px */
+  --spacing-xxl: 4rem;      /* 64px */
+  --spacing-xxxl: 6rem;     /* 96px - For large sections */
+
+  /* ---------------------------------------------------------------------- */
+  /* Color Palette (organized for Light Mode and Dark Mode theming)         */
+  /* Provides a comprehensive set of semantic colors for various UI states. */
+  /* ---------------------------------------------------------------------- */
+
+  /* Brand/Accent Colors (adapt as per your brand guidelines) */
+  --color-brand-primary: #ff5722; /* A vibrant orange for primary actions/accents */
+  --color-brand-secondary: #007bff; /* A complementary blue for secondary elements */
+  --color-brand-accent: #673ab7; /* A complementary purple for highlights */
+
+  /* Text Colors */
+  --color-text-light: #f8f9fa; /* Text color for dark backgrounds */
+  --color-text-dark: #212529;  /* Default text color for light backgrounds (high contrast) */
+  --color-text-muted: #6c757d; /* Lighter text for secondary information/placeholders */
+
+  /* Background Colors */
+  --color-bg-light: #ffffff; /* Default background for most content (white) */
+  --color-bg-light-alt: #f8f9fa; /* Slightly off-white for subtle section separation */
+  --color-bg-overlay: rgba(0, 0, 0, 0.7); /* For modals, popups, etc. */
+
+  /* Border & Shadow Colors */
+  --color-border-light: #e0e0e0; /* Light border color for light mode */
+  --color-shadow-light: rgba(0, 0, 0, 0.1); /* Subtle shadow for light mode */
+
+  /* Dark Mode Counterparts (These will be updated by a '.dark-mode' class) */
+  --color-dark-mode-bg-primary: #121212; /* Primary dark background */
+  --color-dark-mode-bg-secondary: #1e1e1e; /* Secondary dark background for sections/cards */
+  --color-dark-mode-text-primary: #e0e0e0; /* Light text for dark backgrounds */
+  --color-dark-mode-text-secondary: #b0b0b0; /* Muted light text for dark backgrounds */
+  --color-dark-mode-border: #333333; /* Darker borders for dark mode */
+  --color-dark-mode-shadow: rgba(0, 0, 0, 0.3); /* More pronounced shadow for dark mode */
+  --color-dark-mode-accent-overlay: rgba(255, 255, 255, 0.08); /* Subtle highlight in dark mode */
+
+  /* ---------------------------------------------------------------------- */
+  /* Typography System (Scalable font sizes and line heights)               */
+  /* Defines a clear hierarchy for text elements, ensuring readability      */
+  /* and visual balance across different screen sizes.                      */
+  /* ---------------------------------------------------------------------- */
+
+  --font-family-primary: 'Poppins', sans-serif; /* Main content font, modern & legible */
+  --font-family-secondary: 'Segoe UI', sans-serif; /* Alternative/fallback font */
+  --font-family-display: 'Montserrat', sans-serif; /* Optional: For bold headings/branding */
+
+  /* Fluid Font Sizes (using clamp() for responsive scaling) */
+  /* These variables define the min, preferred (viewport-based), and max font sizes */
+  --font-size-xxs: clamp(0.75rem, 0.9vw, 0.875rem); /* ~12px to 14px */
+  --font-size-xs: clamp(0.875rem, 1.1vw, 1rem);     /* ~14px to 16px */
+  --font-size-sm: clamp(1rem, 1.2vw, 1.125rem);    /* ~16px to 18px */
+  --font-size-base: clamp(1rem, 1.3vw, 1.25rem);    /* ~16px to 20px (default body text) */
+  --font-size-md: clamp(1.125rem, 1.5vw, 1.5rem);  /* ~18px to 24px */
+  --font-size-lg: clamp(1.25rem, 1.8vw, 1.75rem);  /* ~20px to 28px */
+  --font-size-xl: clamp(1.5rem, 2.2vw, 2rem);      /* ~24px to 32px */
+  --font-size-xxl: clamp(2rem, 3vw, 2.5rem);       /* ~32px to 40px */
+  --font-size-heading: clamp(2.5rem, 4vw, 3.5rem); /* ~40px to 56px - for main headings */
+
+  /* Line Heights for Readability */
+  --line-height-text: 1.6; /* Optimal line height for body text */
+  --line-height-heading: 1.2; /* Tighter line height for headings */
+  --line-height-tight: 1.0; /* For very compact text */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* ---------------------------------------------------------------------- */
+  /* Layout & Component Standards                                           */
+  /* Defines reusable properties for common UI elements and structural layout.*/
+  /* ---------------------------------------------------------------------- */
+
+  --container-max-width: 1440px; /* Maximum width for main content containers */
+  --border-radius-sm: 0.25rem; /* Small rounded corners (4px) */
+  --border-radius-md: 0.5rem;  /* Medium rounded corners (8px) - default for cards/buttons */
+  --border-radius-lg: 1rem;    /* Large rounded corners (16px) */
+  --border-radius-full: 50%;   /* For perfect circles (e.g., avatars) */
+
+  /* Box Shadows (subtle depth for UI elements) */
+  --shadow-sm: 0 1px 3px var(--color-shadow-light); /* Light, subtle shadow */
+  --shadow-md: 0 4px 6px var(--color-shadow-light); /* Medium depth shadow */
+  --shadow-lg: 0 8px 15px var(--color-shadow-light); /* Deeper shadow */
+
+  /* Transitions (for smooth UI interactions) */
+  --transition-duration-fast: 0.15s;
+  --transition-duration-normal: 0.3s;
+  --transition-duration-slow: 0.5s;
+  --transition-timing-ease: ease-in-out; /* Standard easing function */
+  --transition-timing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy spring effect */
+}
+
+/* Dark Mode Theme Variables (applied when a '.dark-mode' class is active on a parent) */
+.dark-mode {
+  /* Background Colors */
+  --color-bg-light: var(--color-dark-mode-bg-primary); /* Overrides light background */
+  --color-bg-light-alt: var(--color-dark-mode-bg-secondary);
+
+  /* Text Colors */
+  --color-text-dark: var(--color-dark-mode-text-primary);
+  --color-text-muted: var(--color-dark-mode-text-secondary);
+
+  /* Border & Shadow Colors */
+  --color-border-light: var(--color-dark-mode-border);
+  --color-shadow-light: var(--color-dark-mode-shadow);
+}/* ========================================================================== */
+/* GENERAL BODY STYLING                                                       */
+/* Defines the foundational styles for the entire document body.              */
+/* ========================================================================== */
+
+body {
+  /* Layout & Sizing */
+  display: flex;         /* Enables Flexbox for full-page layout */
+  flex-direction: column; /* Stacks content vertically (e.g., header, main, footer) */
+  min-height: 100vh;     /* Ensures the body takes at least the full viewport height,
+                            allowing a sticky footer pattern if content is short. */
+  margin: 0;             /* Removes default browser margin for the body */
+
+  /* Typography */
+  font-family: var(--font-family-primary); /* Primary font for all body text */
+  font-size: var(--font-size-base);     /* Base font size, fluidly scales via clamp() in :root */
+  line-height: var(--line-height-text); /* Optimal line height for text readability */
+  color: var(--color-text-dark);        /* Default text color for light mode */
+
+  /* Appearance */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+
+  /* Overflow & Scrolling Behavior */
+  overflow-x: hidden; /* Prevents horizontal scrollbar, crucial for responsive designs */
+  overflow-y: auto;   /* Allows vertical scrolling when content exceeds viewport height */
+  -webkit-overflow-scrolling: touch; /* Enhances smooth scrolling on iOS devices */
+
+  /* Custom Scrollbar Styling (Firefox) */
+  scrollbar-width: thin; /* Sets the scrollbar to a thin style */
+  /* Defines thumb and track colors for Firefox scrollbars */
+  scrollbar-color: var(--color-brand-primary) var(--color-bg-light); 
+}
+
+/* Custom Scrollbar Styling (WebKit Browsers: Chrome, Edge, Safari) */
+/* Targets the scrollbar track (the background area of the scrollbar). */
+body::-webkit-scrollbar {
+  width: 0.6rem; /* Sets a consistent width for the vertical scrollbar */
+}
+
+/* Targets the scrollbar track (the background area of the scrollbar). */
+body::-webkit-scrollbar-track {
+  background: var(--color-bg-light); /* Matches the body background for a cohesive look */
+}
+
+/* Targets the scrollbar thumb (the draggable part of the scrollbar). */
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand-primary); /* Uses brand primary color for visual emphasis */
+  border-radius: var(--border-radius-md); /* Applies rounded corners to the scrollbar thumb */
+  border: 2px solid var(--color-bg-light); /* Adds a subtle border for definition */
+}
+
+
+/* ========================================================================== */
+/* HEADER & FOOTER GENERAL STYLING                                            */
+/* Provides base styles common to both the header and footer sections.        */
+/* ========================================================================== */
+
+.header,
+.footer {
+  width: 100%; /* Ensures both header and footer span the full width of the viewport */
+  padding: var(--spacing-md) 0; /* Applies consistent vertical padding (e.g., 24px), no horizontal padding */
+  
+  /* Appearance */
+  background-color: var(--color-dark-mode-bg-primary); /* Uses a dark background variable, suitable for header/footer */
+  color: var(--color-text-light); /* Uses a light text color for contrast on dark backgrounds */
+}
+
+
+/* ========================================================================== */
+/* HEADER CONTAINER SPECIFIC STYLING                                          */
+/* Defines styles for the main fixed header bar at the top of the viewport.  */
+/* (Specific layout/content for the header goes here if it's not .header)    */
+/* ========================================================================== */
+
+/* The comment block indicates that specific header layout/content styles
+ would follow here if 'header' refers to a wrapper. If '.header' is the
+ main header element, then the styles above are sufficient.
+ No changes needed based on the provided input, just clarification. *//* ========================================================================== */
+/* HEADER COMPONENT STYLING                                                   */
+/* Defines the main fixed header bar at the top of the viewport, including    */
+/* the platform logo/title and general header layout.                         */
+/* ========================================================================== */
+
+/* ==== MAIN HEADER CONTAINER (.container) ==== */
+.container {
+  /* Positioning */
+  position: fixed; /* Keeps the header at the top of the viewport when scrolling */
+  top: 0;          /* Aligns to the very top */
+  left: 0;         /* Aligns to the very left */
+  z-index:10; /* Ensures it stays on top of other content */
+
+  /* Sizing & Layout */
+  width: 100%;     /* Spans the full width of the screen */
+  height: 3rem;    /* Fixed height for the header (48px based on 16px root font-size) */
+  display: flex;   /* Enables flexbox layout for arranging children (logo, nav) */
+  flex-direction: row; /* Arranges children horizontally */
+  align-items: center; /* Vertically centers children within the header */
+  justify-content: space-between; /* Distributes space to push logo to left, nav to right */
+
+  /* Appearance & Spacing */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+ 
+  padding-inline-start: 0; /* Ensures no left padding pushes content initially */
+  /* margin-inline: auto; is redundant here as width is 100% and position is fixed */
+}
+
+/* Dark Mode adjustment for the main header container */
+.dark-mode .container {
+  background-color: var(--color-dark-mode-bg-primary); /* Darker background for dark mode */
+  box-shadow: var(--shadow-dark-md); /* More pronounced shadow in dark mode */
+}
+
+
+/* ==== LOGO/TITLE SECTION CONTAINER (.Table) ==== */
+/* This flexible container holds the platform's main title/logo. */
+.Table {
+  /* Flex Item Properties within .container */
+  flex: 0 0 15%; /* Prevents growing/shrinking and sets initial base width to 15% of parent */
+  height: 100%; /* Matches the height of its parent (.container) */
+  
+  /* Internal Layout */
+  display: flex;   /* Enables flexbox for its content (.overlay-text) */
+  align-items: center; /* Vertically centers content within the Table container */
+  
+  /* Appearance & Positioning */
+  background-color: transparent; /* Transparent background for the logo section */
+  position: relative; /* Allows for absolute positioning of its children (e.g., .overlay-text) */
+  inset-inline-start: 0; /* Aligns to the start (left) edge of the container */
+}
+
+
+/* ==== OVERLAY TEXT CONTAINER (.overlay-text) ==== */
+/* This absolutely positioned container holds the actual text of the logo,
+ allowing for special text-clipping effects. */
+ .overlay-text {
+  /* Positioning */
+  position: absolute; /* Positions precisely within its parent (.Table) */
+  inset: 0;           /* Stretches to cover the entire parent (top, right, bottom, left at 0) */
+  z-index: var(--z-index-logo-text); /* Ensures logo text is layered correctly */
+  
+  /* Layout */
+  display: flex;       /* Enables flexbox for centering the text content */
+  align-items: center; /* Vertically centers the text */
+  justify-content: center; /* Horizontally centers the text */
+  
+  /* Typography */
+  font-family: var(--font-family-primary); /* Uses the primary brand font */
+  font-size: 1.4em; /* Sets the base font size for the logo text (24px) */
+  font-weight: var(--font-weight-extrabold); /* Extra bold for prominence */
+  
+  /* Text Handling */
+  white-space: nowrap; /* Prevents the text from wrapping */
+  overflow: hidden;    /* Hides any text that overflows its container */
+  text-overflow: ellipsis; /* Adds "..." if text is truncated */
+  
+  /* Appearance & Spacing */
+  background-color: transparent; /* Transparent background for the text overlay */
+  padding-inline-start: 0; /* Ensures no left padding */
+}
+
+
+/* ==== "NET" TEXT STYLING (.net-text) ==== */
+/* Styles for the "NET" part of the logo title, using a background clipped to text. */
+.net-text {
+  /* Background Clip for Text Effect */
+  background: red; /* Uses the vibrant brand primary color (red) */
+  -webkit-background-clip: text;           /* Clips the background to the shape of the text */
+  -webkit-text-fill-color: transparent;    /* Makes the text transparent to reveal the clipped background */
+  
+  /* Typography */
+  /* Typography */
+  font-size: 1.4em; /* Sets the base font size for the logo text (24px) */
+  letter-spacing: var(--spacing-xxxs); /* Adds subtle letter spacing (2px) */
+  font-weight: inherit; /* Inherits font weight from parent (.overlay-text) */
+  display: inline-block; /* Ensures consistent rendering with text-clip effect */
+}
+
+/* ==== "TOON" TEXT STYLING (.toon-text) ==== */
+/* Styles for the "TOON" part of the logo title. */
+.toon-text {
+  /* Background Clip for Text Effect */
+  background: var(--color-text-dark); /* Default dark text color for light mode (black) */
+  -webkit-background-clip: text;           /* Clips the background to the shape of the text */
+  -webkit-text-fill-color: transparent;    /* Makes the text transparent to reveal the clipped background */
+  
+  /* Typography */
+  font-size: 1.4em; /* Sets the base font size for the logo text (24px) */
+  
+  /* Spacing */
+  margin-inline-start: var(--spacing-xxs); /* Adds a small space to the left (5px) */
+  
+  font-weight: inherit; /* Inherits font weight from parent */
+  display: inline-block; /* Ensures consistent rendering with text-clip effect */
+}
+
+/* ========================================================================== */
+/* DARK MODE THEME ADJUSTMENTS FOR HEADER                                     */
+/* Styles applied when a '.dark-mode' class is active on a parent element     */
+/* (e.g., <body> or <html>), overriding light mode defaults.                */
+/* ========================================================================== */
+
+/* Dark Mode adjustment for "NET" text background */
+.dark-mode .net-text {
+  background: red; /* Keeps brand primary color vibrant in dark mode */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark Mode adjustment for "TOON" text background */
+.dark-mode .toon-text {
+  background: yellow; /* Uses light text for contrast in dark mode (yellow) */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark Mode adjustment for a hypothetical "SHORTS" text element */
+/* (This class was only present in your dark mode section of original code) */
+.dark-mode .shorts-text {
+  background: var(--color-brand-primary); /* Example: Use brand primary for background */
+  color: var(--color-text-light); /* Use light text color for contrast */
+  /* If this is also intended to be text-clipped, add those properties here */
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+}
+
+
+/* ========================================================================== */
+/* GLOBAL LINK STYLING                                                        */
+/* Ensures consistent appearance for all anchor tags and specific text.       */
+/* ========================================================================== */
+
+/* Removes the default underline from all anchor tags for a cleaner look. */
+a {
+  text-decoration: none;
+}
+
+/* Explicitly ensures no underline for .net-text and .toon-text,
+ especially if they are nested within an <a> tag. */
+.net-text,
+.toon-text {
+  text-decoration: none; 
+}/* ========================================================================== */
+/* NAVIGATION SECTION STYLING (.nav)                                          */
+/* This section occupies the remaining space in the header and contains       */
+/* the main navigation links, positioned to the right.                        */
+/* ========================================================================== */
+
+.nav {
+  /* Flex Item Properties (within the .container header) */
+  flex-grow: 1; /* Allows the navigation section to take up all available horizontal space */
+  height: 100%; /* Ensures the navigation section matches the height of its parent header */
+  
+  /* Flex Container Properties (for arranging navigation links/items) */
+  display: flex;   /* Enables flexbox for aligning internal navigation items */
+  align-items: center; /* Vertically centers the navigation items */
+  justify-content: flex-end; /* All nav items stick to the right */
+  gap: 1.5rem; /* Even spacing between them */
+  
+  /* Appearance */
+  background-color: transparent; /* Ensures a transparent background for the navigation area */
+  
+  /* Positioning & Spacing */
+  margin-inline-start: 0; /* Ensures no left margin, relying on justify-content for spacing */
+}
+
+/*
+* NOTE ON REDUNDANT BLOCKS:
+* The following .container and .nav blocks are duplicates of definitions found elsewhere
+* in your CSS. While keeping them here as per your original provided code,
+* it's important to be aware that they might be redundant and could be removed
+* if the properties are consistently defined in single locations.
+*/
+.container {
+  display: flex;
+  flex-direction: row; /* Defines children layout as a row */
+}
+
+.nav {
+  flex-grow: 1;
+  height: 100%;
+}
+
+
+
+.search {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  height:30px;
+  left: 2%;
+  background-color:transparent;
+  margin: 15px auto;
+  border-radius: 7px;
+  align-items: center;
+  border: 0.3px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures hidden children don't leak out */
+}
+
+.dark-mode .search
+{
+  background-color: transparent;
+}
+
+.search input[type="search"] {
+  flex: 1;
+height: 100%;
+  border-radius: 7px;
+  background-color:transparent;
+  border: none;
+  color: #333;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.search input[type="search"]:focus {
+  border: 1px solid white;
+  box-shadow: none;
+}
+
+
+.search input[type="search"]:valid ~ .clear-btn {
+  display: block;
+}
+
+body.dark-mode .search input[type="search"] {
+  color: #fff;
+}
+
+.search input[type="search"]::placeholder {
+  color: #36454F;
+  font-size: 0.9rem;
+}
+
+body.dark-mode .search input[type="search"]::placeholder {
+  color: #D3D3D3;
+}
+
+/* Optional mobile support */
+@media (max-width: 480px) {
+  .search {
+    width: 95%;
+    padding: 0.25rem;
+  }
+
+  .search input[type="search"] {
+    font-size: 0.95rem;
+    padding: 0.5rem 2rem 0.5rem 1.5rem;
+  }
+
+  .clear-btn {
+    font-size: 1rem;
+    right: 0.75rem;
+  }
+}
+
+/* Search icon to the left */
+.search .search-icon {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  padding: 1px;
+  background-color: transparent;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+/* Clear button to the right */
+.clear-btn {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: red;
+  display: none;
+}
+
+.search input[type="search"] {
+  padding-left: 2rem; /* make room for icon */
+  padding-right: 3.5rem; /* make room for clear button */
+}
+
+
+.upload {
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  background-color: transparent;
+  margin-top: 0;
+  margin-left: 1vw;
+  border-radius: 50%;
+}
+
+.upload img {
+  width: 3vw;
+  height:3vw;
+  margin-top: 0.2vh;
+  padding: 0.5vh;
+  margin-left: 0vw;
+}
+
+
+.upload:hover .tooltip
+{
+visibility: visible;
+opacity: 1;
+
+}
+
+
+/* Notifications Icon */
+.Notifications {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+.Notifications img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Dropdown Container */
+.Notification-container {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 1%;
+  width: 24%;
+  min-width: 17rem;
+  max-height: 30em;
+  background-color: #333;
+  color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+
+  z-index: 30;
+}
+
+.Notification-container.active {
+  display: block;
+}
+
+.dark-mode .Notification-container
+{
+  background-color: #2a2d2f;
+}
+
+/* Sticky Header for Notification Count */
+.Notification-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: red; /* same as container background */
+  padding: 0rem;
+  border-bottom: 1px solid #444;
+}
+
+.Notification-header span {
+  width:100%;
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  color: black;
+  background-color: white;
+  border-radius: 0rem;
+  font-weight: bold;
+}
+
+.dark-mode .Notification-header span {
+  color: #fff;
+  background-color: #444;
+}
+
+
+
+.Notification {
+  display: flex;
+  padding: 0.75rem;
+  border-radius: 0.2rem;
+  background-color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: background 0.2s ease;
+  flex-direction: column; /* stack rows */
+  gap: 0.4rem;
+  border: 0.3px solid #ccc;
+}
+
+.dark-mode .Notification
+{
+  background-color: var(--color-bg-metadata-dark); /* **YouTube-inspired dark gray background** */
+}
+
+
+.Notification:hover {
+border-color: #2a2d2f;
+}
+
+
+
+.User-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* push username left, timer right */
+  width: 100%;
+}
+
+
+.User-profile span
+{
+  color: #36454F;
+  background-color: transparent;
+}
+
+.dark-mode .User-profile span
+{
+  color: #D3D3D3;
+}
+
+.User-profile img {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.dark-mode .User-profile img
+{
+  filter: invert(1);
+}
+
+/* Username stays left */
+.username {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #36454F;
+  margin-left: 0.5rem;
+  flex: 1;
+}
+
+/* Row 2: Message left, Thumb right */
+.message-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-row span
+{
+  color: black;
+  background-color: transparent;
+}
+
+.dark-mode .message-row span
+{
+  color: white;
+
+}
+
+.text {
+  color: black;
+  font-size: 0.9rem;
+  flex: 1;
+  margin-right: 0.5rem;
+}
+
+/* Thumbnail fixed right */
+.video-thumb {
+  flex-shrink: 0;
+}
+
+.video-thumb img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.3rem;
+  object-fit: cover;
+}
+
+/* Row 3: Timer */
+.timer {
+  flex-shrink: 0;
+  margin-left: auto;     /* pushes it to the right */
+  background: transparent;
+  height: auto;
+  padding: 0;            /* no extra padding */
+  display: block;        /* make it visible */
+}
+
+.timer span {
+  font-size: 0.75rem;
+  color: #aaa;
+  display: inline;       /* make text inline */
+}
+
+
+
+.Theme {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Theme img {
+  width: 1.6875em;
+  height: 1.6875em;
+  border-radius: 50%;
+  margin-left: 1em;
+}
+
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 2rem; /* equal spacing between Upload, Notifications, Account */
+}
+
+
+.Account {
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  background-color: transparent;
+  margin: 0; /* remove extra margins */
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  float: right;
+}
+
+.Account img {
+  width: 2vw;
+  height: 2vw;
+  margin-left: 0.4rem; /* 5px */
+  border-radius: 50%;
+  object-fit: cover; /* Ensures proper scaling inside circle */
+}
+
+/* Dark mode adjustment */
+.dark-mode .Account img {
+  filter: invert(1);
+}
+
+/* Dropdown wrapper */
+.account-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0.5%;
+  width: 24%;
+  min-width: 11.25em;
+  max-height: 25em;
+  background-color: #333;
+  box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  z-index: 30;
+  padding: 0em 0;
+  text-align: left;
+  align-items: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) white;
+}
+
+.dropdown-content a {
+  
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; /* Make links block elements */
+}
+
+.account-dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Profile Section */
+.proofile {
+  width: 100%;
+  min-height: 1.875em; /* 30px */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: white;
+  padding: 0.625em; /* 10px */
+  border-radius: 0.4375em; /* 7px */
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Hover Effect */
+.proofile:hover {
+  background-color: grey; /* Subtle purple hover effect */
+  color: white;
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Profile Image */
+.proofile img {
+  width: 1.6875em; /* 27px */
+  height: 1.6875em;
+  border-radius: 50%;
+  margin-right: 0.625em; /* 10px */
+}
+
+.proofile img {
+  width: 1.3rem;
+  height: 1.3rem;
+  object-fit: contain;
+  background: none !important;  /* Remove any background */
+  border: none !important;      /* Remove border */
+  padding: 0 !important;        /* Remove internal spacing */
+  border-radius: 0 !important;  /* Remove circular shape */
+  box-shadow: none !important;  /* Remove glow/shadow */
+}
+
+
+/* Profile Name */
+.proofile span {
+  font-weight: bold;
+  font-size: 0.875em; /* 14px */
+  color: black;
+  margin-left: 0.3125em; /* 5px */
+  text-align: left;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Change text color on hover */
+.proofile:hover span{
+  color: white;
+}
+
+
+.dropdown-content li {
+  list-style: none; /* Remove bullet points */
+}
+
+
+
+.tooltip {
+  position: absolute;
+  top: 100%; /* Show below the upload icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 0.4em 0.6em;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10;
+}
+
+
+/* Tooltip Hover Effect */
+.upload:hover .tooltip, 
+.Notifications:hover .tooltip, 
+.Account:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .tooltip {
+    font-size: 0.75em; /* Reduce text size on smaller screens */
+    padding: 0.4em 0.6em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tooltip {
+    font-size: 0.6875em; /* Further reduce size for compact screens */
+    bottom: -1.75rem; /* Adjust positioning */
+  }
+}
+/* ==== VIDEO CONTAINER (.video-container) ==== */
+/* This is the main wrapper for your video player and related content. */
+.sidebar {
+    display:block;
+    position: fixed;
+    width:4.7%;
+    max-width: 12em; /* Converted from 80px */
+    height: 100vh; /* Full viewport height */
+    background-color: var(--color-bg-light); /* Default background color for light mode */
+    top: 2.7rem;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+    transition: width 0.3s ease-in-out;
+    z-index: 3;
+    border-style:none;
+    justify-content:space-evenly;
+  }
+  
+  .sidebar:hover {
+    width: 13%; /* Expands slightly on hover for better UX */
+  }
+  
+  .sidebar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .sidebar::-webkit-scrollbar-thumb {
+    background:gray;
+    border-radius: 5px;
+  }
+  .sidebar::-webkit-scrollbar-track {
+    background:gray;
+    scrollbar-color: rgba(0, 0, 0, 0.5) gray;
+  }
+  
+  .sidebar img {
+    width: 1.6875rem; /* Converted from 27px */
+    height: 1.6875rem;
+    margin: 1.25rem auto 1.0625rem auto; /* Adjusted spacing */
+    display: block; /* Centers image in flex-based layouts */
+  }
+  
+  .home {
+    
+    width: 100%;
+    height: 3.125rem; /* Converted from 50px */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color:transparent;
+    border-radius: 0px;
+    box-sizing: border-box;
+    padding: 0 0.9375rem; /* Converted from 15px */
+    margin: 4rem 0 0.5rem 0rem; /* Adjusted margin values */
+    gap:5px;
+    cursor: pointer;
+  }
+  
+  .home img {
+    width: 1.5625rem; /* Converted from 25px */
+    height: 1.5625rem;
+    margin-left: 0rem; /* Converted from 10px */
+
+
+  }
+  
+  .home span {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    font-weight: 500;          /* Medium */
+    font-size: 1rem;           /* ~16px */
+    line-height: 1.5;
+    color: black;   
+    font-family: 'Poppins', sans-serif;
+    flex-grow: 1;
+    margin-left: 10px;
+    text-align: center;
+    font-size: 0.8125rem; /* Converted from 13px */  white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Ensures long text is truncated */
+  }
+  
+      
+.home:hover {
+  background-color: #2a2d2f;
+  color: white;
+}
+
+/* Apply image invert and span color change on hover */
+.home:hover img {
+  filter: invert(1);
+}
+
+.home:hover span {
+  color: white;
+}
+
+  .home:hover span {
+    color: white;
+  }
+  
+  .dark-mode .home:hover {
+    background-color: #2a2d2f;
+  }
+  
+
+/* ==== SUGGESTIONS BAR CONTAINER (.suggestionss) ==== */
+/* This fixed container holds the horizontal scrollable list of category pills,
+   providing a persistent navigation element at the top of the content. */
+   .suggestionss {
+    /* Positioning */
+    position: fixed;       /* Keeps the suggestions bar fixed on screen while scrolling */
+    top: var(--header-height); /* Vertically positioned below the header (adjust variable as needed) */
+    /* Dynamic left positioning and width based on sidebar or main content area */
+    left: var(--sidebar-width-plus-gap); /* Example: 4.8% or specific width of sidebar + gap */
+    width: var(--suggestions-bar-width); /* Example: calc(100% - 4.9%) */
+    height: var(--suggestions-bar-height); /* Fixed height (48px) for the bar */
+    z-index:1; 
+
+    /* Flex Container Properties (for arranging category pills horizontally) */
+    display: flex;         /* Enables Flexbox for its children (.rectanglee pills) */
+    flex-wrap: nowrap;     /* Ensures pills stay in a single row, preventing wrapping */
+    justify-content: space-between; /* Aligns pills to the start, allowing for scroll */
+    align-items: center;   /* Vertically centers pills within the bar */
+
+    /* Appearance & Spacing */
+    background-color: var(--color-bg-light); /* Default background color for light mode */
+    padding-inline: var(--spacing-xs); /* Horizontal padding (16px) inside the bar */
+    gap: var(--spacing-md-half); /* **Increased spacing (15px) between individual category pills** */
+
+    /* Scrolling for Horizontal Overflow */
+    overflow-x: auto;      /* Allows horizontal scrolling if pills exceed container width */
+    overflow-y: hidden;    /* Hides vertical scrollbar, as content is single row */
+    scrollbar-width: thin; /* Makes the scrollbar thinner (Firefox) */
+    scrollbar-color: var(--color-scrollbar-thumb) transparent; /* Custom scrollbar color (thumb and track) */
+    /* NO TRANSITIONS as per user request */
+}
+
+/* Dark Mode adjustment for suggestions bar background */
+.dark-mode .suggestionss {
+    background-color: var(--color-bg-suggestions-dark); /* Dark background for dark mode */
+    scrollbar-color: var(--color-scrollbar-thumb-dark) var(--color-scrollbar-track-dark); /* Dark mode scrollbar colors */
+}/* ==== CATEGORY PILL (.rectanglee) ==== */
+/* Styles for an individual category suggestion pill (e.g., "Gaming", "Music"). */
+.rectanglee {
+  /* Flex Item Properties */
+  flex-shrink: 0;        /* Prevents pills from shrinking too much when space is limited */
+  flex-grow: 0;          /* Prevents pills from growing excessively */
+  min-width: 5rem;       /* Minimum width (80px) to ensure readability */
+  max-width: 12%;        /* Limits maximum width to prevent single pills from dominating */
+
+  /* Sizing & Appearance */
+  height: var(--category-pill-height); /* Fixed height (30px) for the pill */
+  background-color: #F5F5F5;
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  
+  /* Spacing & Positioning */
+  /* Consider if margin-top is needed, as align-items: center handles vertical positioning.
+     If it's for specific vertical alignment, use margin-block-start. */
+  margin-block-start: var(--spacing-xxs-half); /* Example: Top margin (5px), if specifically needed */
+  z-index: 0;            /* Default stacking context */
+
+  /* Content Layout */
+  display: flex;         /* Enables flexbox for centering text inside the pill */
+  justify-content: center; /* Horizontally centers the text */
+  align-items: center;   /* Vertically centers the text */
+  
+  /* Text Handling */
+  white-space: nowrap;     /* Prevents text from wrapping to a new line */
+  overflow: hidden;        /* Hides any overflowing text */
+  text-overflow: ellipsis; /* Adds "..." for truncated text */
+  
+  cursor: pointer;       /* Changes cursor to pointer to indicate clickability */
+  /* NO TRANSITIONS as per user request */
+}/* ==== CATEGORY PILL TEXT (.rectanglee span) ==== */
+/* Styles for the text content within each category pill. */
+.rectanglee span {
+  /* Flex Item Properties */
+  flex: 1;               /* Allows text to grow and fill available space within the pill */
+
+  /* Typography */
+  font-weight: var(--font-weight-bold); /* Bold font weight */
+  font-size: var(--font-size-base); /* Font size (15px) */
+  color: var(--color-text-pill-light); /* Default text color (Dark Grey) for light mode */
+  
+  /* Spacing & Alignment */
+  padding: var(--spacing-xxxs); /* Small padding (3px) around the text */
+  margin: 0;               /* Removes default margins */
+  text-align: center;      /* Centers the text within its flex container */
+
+  /* Text Handling */
+  white-space: nowrap;     /* Prevents text wrapping */
+  overflow: hidden;        /* Hides overflowing text */
+  text-overflow: ellipsis; /* Truncates long text with ellipsis */
+  
+  cursor: pointer;       /* Inherits cursor style from parent (redundant but harmless) */
+  /* NO TRANSITIONS as per user request */
+}
+
+
+/* ==== HOVER & ACTIVE STATES (Light Mode) ==== */
+/* These styles define the visual feedback for hovering over and selecting a category pill in light mode. */
+.rectanglee:hover {
+  background-color: grey; /* Hover background (Gray) */
+
+}
+
+.rectanglee:hover span {
+  color:black;
+}
+
+/* Active Style (Light Mode) - MODIFIED */
+.rectanglee.active {
+  background-color: var(--color-bg-pill-active-light); /* **Black background for active tab** */
+}
+
+.rectanglee.active span {
+  color: var(--color-text-pill-active-light); /* **White text color for active tab** */
+}
+
+/* ==== DARK MODE DEFAULTS & STATES ==== */
+/* These styles ensure the category pills adapt seamlessly to dark mode,
+   providing appropriate contrasts and active states. */
+   .dark-mode .rectanglee {
+    background-color: var(--color-bg-pill-dark); /* Dark mode default background */
+}
+
+.dark-mode .rectanglee span {
+    color: var(--color-text-pill-dark); /* Dark mode default text color (White) */
+}
+
+.dark-mode .rectanglee:hover {
+    background-color: var(--color-bg-pill-hover-dark); /* Dark mode hover background */
+}
+
+.dark-mode .rectanglee:hover span {
+    color: var(--color-text-pill-hover-dark); /* Dark mode hover text color (White) */
+}
+
+/* Active Style (Dark Mode) - MODIFIED */
+.dark-mode .rectanglee.active {
+    background-color: var(--color-bg-pill-active-dark); /* **White background for active tab** */
+}
+
+.dark-mode .rectanglee.active span {
+    color: var(--color-text-pill-active-dark); /* **Black text color for active tab** */
+}
+
+:root {
+  /* ... existing variables ... */
+
+  /* Suggestions Bar & Category Pills */
+  --header-height: 3rem; /* Example: adjust to your actual header height */
+  --sidebar-width-plus-gap: 4.8%; /* Example: adjust based on your sidebar + gap */
+  --suggestions-bar-width: calc(100% - 4.9%); /* Example: adjust based on layout */
+  --suggestions-bar-height: 3rem; /* 48px */
+  --z-index-fixed-elements: 1000; /* Example: ensure it's higher than other content */
+
+  --category-pill-height: 1.875rem; /* 30px */
+  --border-radius-pill: 0.375rem; /* 6px */
+
+  /* Colors - Light Mode */
+  --color-bg-pill-light: #FAFAFA; /* Pale Grey default pill background */
+  --color-text-pill-light: #333; /* Dark Grey default pill text */
+  --color-bg-pill-hover-light: #E0E0E0; /* Lighter grey on hover */
+  --color-text-pill-hover-light: #333; /* Dark text on hover */
+  --color-bg-pill-active-light: black; /* **Black background for active in light mode** */
+  --color-text-pill-active-light: white; /* **White text for active in light mode** */
+
+  /* Colors - Dark Mode */
+  --color-bg-suggestions-dark: #202020; /* Dark background for the bar in dark mode */
+  --color-bg-pill-dark: #383838; /* Dark mode default pill background */
+  --color-text-pill-dark: white; /* White default pill text in dark mode */
+  --color-bg-pill-hover-dark: #555; /* Slightly lighter dark grey on hover */
+  --color-text-pill-hover-dark: white; /* White text on hover */
+  --color-bg-pill-active-dark: white; /* **White background for active in dark mode** */
+  --color-text-pill-active-dark: black; /* **Black text for active in dark mode** */
+
+  /* Responsive Variables for Suggestions Bar */
+  --suggestions-bar-width-md: calc(100% - 12%);
+  --suggestions-bar-left-md: 10%;
+  --suggestions-bar-width-sm: calc(100% - 15%);
+  --suggestions-bar-left-sm: 12%;
+  --suggestions-bar-height-sm: 3.5rem;
+  --suggestions-bar-width-xs: calc(100% - 18%);
+  --suggestions-bar-left-xs: 14%;
+  --suggestions-bar-height-xs: 3.2rem;
+
+  /* New font sizes (adjust as per your base font definitions) */
+  --font-size-base: 0.9375rem; /* 15px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-xxs: 0.8125rem; /* 13px */
+
+  /* ... other existing variables ... */
+}
+
+/* ✅ Responsive Adjustments */
+/* Tablet & Small Desktop Optimization */
+@media screen and (max-width: 1024px) {
+  .suggestionss {
+      /* Adjust width and left position to accommodate narrower screens */
+      width: calc(100% - 12%);
+      left: 10%;
+  }
+  .rectanglee {
+      /* Use clamp for more flexible width scaling on various screen sizes */
+      width: clamp(4.5rem, 9%, 10%);
+  }
+}
+
+/* Medium Tablets & Larger Phones */
+@media screen and (max-width: 768px) {
+  .suggestionss {
+      /* Further adjust width, left position, and height for smaller viewports */
+      width: calc(100% - 15%);
+      left: 12%;
+      height: 3.5rem;
+  }
+  .rectanglee {
+      /* Scale down pill width and font size */
+      width: clamp(4rem, 8%, 9%);
+      font-size: 0.875rem; /* Adjust text size for smaller screens */
+  }
+}
+
+/* Small Phones */
+@media screen and (max-width: 480px) {
+  .suggestionss {
+      /* Final adjustments for very small screens */
+      width: calc(100% - 18%);
+      left: 14%;
+      height: 3.2rem;
+  }
+  .rectanglee {
+      /* Fixed size for very small screens to ensure minimum readability */
+      width: 4rem;
+      font-size: 0.8125rem; /* Smaller text (13px) for tiny screens */
+  }
+}
+
+
+
+
+/* ==== MAIN CONTENT GRID CONTAINER (.container-1) ==== */
+/* This container serves as the main grid for arranging individual video cards. */
+.container-1 {
+  /* Positioning */
+  position: absolute; /* Positions the grid relative to its parent, often <body> or a main wrapper */
+  width: calc(100% - 4.9%); /* Occupies the remaining width after considering the sidebar and gap */
+  top: 6rem;        /* Positions the grid below the header and suggestions bar */
+  left: 4.8%;         /* Aligns it to the right of the sidebar, maintaining a consistent gap */
+  z-index: var(--z-index-content); /* Ensures it's layered correctly below header/sidebar */
+
+  /* Sizing & Layout */
+
+  height: auto;       /* Allows height to adjust dynamically based on the content */
+  display: flex;      /* Enables Flexbox for arranging video cards within the grid */
+  flex-wrap: wrap;    /* Allows video cards to wrap to the next row when space runs out */
+  justify-content: flex-start; /* Aligns video cards to the start (left) of the container */
+  
+  /* Appearance & Spacing */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+  border-radius: var(--border-radius-none); /* No border radius, for a clean rectangular grid area */
+  border-style: none; /* Applied a 'ridge' border style as per your original code.
+                          Consider if a 'none' or a subtle 'solid' border from variables
+                          might be more visually appealing for a final product. */
+  overflow: hidden;   /* Hides any content that overflows the container boundaries */
+  margin: 0;          /* Removes default margins */
+  padding: var(--spacing-xs); /* Consistent internal padding (8px) for grid edges */
+  gap: var(--spacing-sm); /* Consistent spacing (16px) between video cards within the grid */
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total size */
+}
+
+/* Specific background colors for individual content containers (e.g., #container-2 to #container-12) */
+/* It appears these are intended for debugging or specific section coloring.
+ For a dynamic, consistent UI, consider using a single variable for video card backgrounds
+ or applying these specific colors only when needed. */
+#container-2, #container-3, #container-4, #container-5, #container-6,
+#container-7, #container-8, #container-9, #container-10, #container-11,
+#container-12 {
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+}
+
+/* Dark mode adjustment for the main content grid container */
+.dark-mode .container-1 {
+  background-color: transparent; /* Default background color for light mode */
+}
+  /* ==== INDIVIDUAL VIDEO CONTAINERS (.kontainer) ==== */
+  /* Each of these containers represents a single video card. */
+ /* ==== INDIVIDUAL VIDEO CONTAINERS (.kontainer) ==== */
+/* Each of these containers represents a single video card displaying a thumbnail and details. */
+.kontainer {
+  /* Positioning */
+  position: relative; /* Allows for precise positioning of child elements (e.g., overlays, captions) */
+
+  /* Sizing & Responsiveness */
+  /* `clamp()` provides fluid width: min-width (28%), preferred (30%), max-width (32%).
+     This ensures optimal scaling across different screen sizes within the grid. */
+  width: clamp(28%, 30%, 32%); 
+  height: auto; /* Height adjusts dynamically based on its content (video thumbnail, title, etc.) */
+  
+  /* Appearance */
+  background-color: transparent; /* Uses a light background variable for the card */
+  border-radius: var(--border-radius-md); /* Consistent medium rounded corners for the card */
+  border-style:none; /* No border style, relying on shadow for separation */
+
+  padding: 0;
+  /* Spacing */
+  margin-inline-start:1.9%; /* Maintains your specified left margin for precise grid alignment */
+  margin-block-end: var(--spacing-xs); /* Consistent bottom margin (8px) for vertical spacing */
+  padding-block-end: 0; /* No bottom padding, content fills to the bottom edge */
+  margin-top: 10px;
+  cursor: pointer; /* Indicates that the card is interactive and clickable */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustments for .kontainer */
+.dark-mode .kontainer {
+  background-color:transparent; /* Darker background for cards in dark mode */
+  box-shadow: var(--shadow-dark-sm); /* Adjust shadow for dark mode contrast */
+}
+
+/* ==== VIDEO THUMBNAILS (.kontainer img) ==== */
+/* Styles for the video thumbnail image within each video card. */
+.kontainer img {
+  width: 100%;       /* Ensures the image fills the width of its parent card */
+  height: auto;      /* Allows height to adjust proportionally to maintain aspect ratio */
+  border-radius: var(--border-radius-sm); /* Small rounded corners for the image, matching the card */
+  object-fit: cover; /* Ensures the image covers the entire area without distortion, cropping if necessary */
+  display: block;    /* Ensures image behaves as a block element, removing extra space below it */
+}/* ==== PROFILE CONTAINER (.profilee) ==== */
+/* This container holds the profile avatar and name, typically within a video card. */
+.profilee {
+  /* Sizing & Layout */
+  width: 100%;       /* Spans the full width of its parent (.kontainer) */
+  height: 2.5rem;    /* Consistent height (40px) for uniform presentation */
+  max-width: 100%;   /* Ensures it doesn't exceed its parent's width */
+  
+  /* Flex Container Properties */
+  display: flex;         /* Enables a flexible, horizontal layout for its content (image and name) */
+  align-items: center;   /* Vertically centers the profile image and name within this container */
+  gap: var(--spacing-xs); /* Consistent spacing (8px) between the profile image and name */
+  
+  /* Appearance & Spacing */
+  background-color:transparent; /* No background color by default, relies on parent card */
+  border-radius: var(--border-radius-none); /* No border-radius for this container itself */
+  padding: 0;          /* Removes any default inner padding */
+  margin-block-end: 0; /* Removes bottom margin, allowing parent .kontainer to manage vertical spacing */
+}
+
+/* Dark mode adjustment for .profilee container */
+.dark-mode .profilee {
+  background-color: transparent; /* Remains transparent in dark mode */
+}
+/* ==== PROFILE IMAGE (.profilee img) ==== */
+/* Styles for the circular profile avatar image. */
+.profilee img {
+  /* Sizing & Shape */
+  width: 2.2rem;   /* Consistent width (35.2px) for the avatar */
+  height: 2.2rem;  /* Consistent height, maintaining aspect ratio for a perfect circle */
+  border-radius: var(--border-radius-full); /* Creates a perfect circular shape */
+  object-fit: cover; /* Ensures the image fills the area without distortion, cropping if needed */
+  
+  /* Spacing */
+  margin-block: var(--spacing-xxs); /* Consistent vertical margin (4px) for fine-tuning alignment */
+  margin-inline-start: 1%; /* Maintains a left margin relative to the container's width */
+  
+  /* Appearance */
+  background-color: transparent; /* Ensures transparent background for the image itself */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for profile image */
+.dark-mode .profilee img {
+  filter: invert(1); /* Inverts colors for better visibility on dark backgrounds */
+}
+
+/* Dark mode: only invert the placeholder, not uploaded images */
+.dark-mode .profilee img.placeholder {
+  filter: invert(1);
+}
+
+/* ==== PROFILE NAME CONTAINER (.profilee-name) ==== */
+/* This container holds the profile name text. *//* ==== PROFILE NAME CONTAINER (.profilee-name) ==== */
+/* This flexible container holds the profile name text, managing its layout. */
+.profilee-name {
+  /* Flex Item Properties */
+  flex-grow: 1.1; /* Allows the container to take up all available horizontal space */
+  height: 100%; /* Fills the height of its parent (.profilee) */
+  
+  /* Flex Container Properties (for aligning the name text) */
+  display: flex;       /* Uses flexbox to align the name text */
+  align-items: center; /* Vertically centers the name text within this container */
+  
+  /* Overflow & Text Handling */
+  overflow: hidden;    /* Hides any text that overflows the container */
+  white-space: nowrap; /* Prevents the text from wrapping to a new line */
+  
+  /* Appearance */
+  background-color:transparent; /* No background, allowing parent's background to show */
+  border-radius: var(--border-radius-none); /* No border-radius */
+}
+
+/* ==== PROFILE NAME TEXT (.profilee-name span) ==== */
+/* Styles for the actual profile name text, ensuring proper typography and truncation. */
+.profilee-name span {
+  /* Typography */
+  font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+  font-size: var(--font-size-md); /* Responsive font size (24px) for clear legibility */
+  font-weight: 700; /* Bold font for prominence */
+  color: #36454F;
+  
+  /* Text Handling */
+  white-space: nowrap;     /* Prevents text wrapping */
+  overflow: hidden;        /* Hides overflowing text */
+  text-overflow: ellipsis; /* Displays "..." for truncated text */
+  max-width: 100%;         /* Ensures text doesn't push its parent container's width */
+  
+  /* Spacing */
+  padding: var(--spacing-xxs); /* Small responsive padding (4px) around the text */
+  margin-inline-start: 0; /* No left margin, relies on parent's gap for spacing */
+}
+
+/* Dark mode adjustment for profile name text */
+.dark-mode .profilee-name span {
+  color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode */
+}
+/* 📱 TABLET/SMALL DESKTOP OPTIMIZATION (e.g., up to 768px wide) */
+@media screen and (max-width: 768px) {
+  .profilee {
+      /* Adjusted padding for more compact display on tablets. */
+      padding: var(--spacing-xxs) var(--spacing-sm); /* (4px vertical, 16px horizontal) */
+  }
+
+  .profilee img {
+      /* Maintained original size for consistency at this breakpoint, ensuring visibility. */
+      width: 2.2rem;
+      height: 2.2rem;
+  }
+
+  .profilee-name span {
+      /* Slightly smaller text for better fit on tablet screens. */
+      font-size: var(--font-size-xs); /* (16px) */
+  }
+}
+
+/* 📱 MOBILE OPTIMIZATION (e.g., up to 480px wide) */
+@media screen and (max-width: 480px) {
+  .profilee {
+      /* Ensures row layout and vertical centering (explicit for clarity, often default). */
+      flex-direction: row;
+      align-items: center;
+      /* Further adjusted padding for very small screens. */
+      padding: var(--spacing-xxs) var(--spacing-xs); /* (4px vertical, 8px horizontal) */
+  }
+
+  .profilee img {
+      /* Slightly smaller image for very compact mobile displays. */
+      width: var(--size-icon-md); /* (24px) - using a general icon size variable */
+      height: var(--size-icon-md); /* Maintains aspect ratio */
+  }
+
+  .profilee-name span {
+      /* Even smaller text for tiny mobile screens, prioritizing content fit. */
+      font-size: var(--font-size-sm); /* (14px) */
+  }
+}
+  .opttions {
+    position: relative;
+    background-color:transparent;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .opttions img {
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+  
+  /* === Popup Styling === */
+  .opttions-popup {
+    position: absolute;
+    top: 0;
+    right: -1%;
+    transform: translate(-5% /* Center horizontally, float above */);
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 5000;
+    padding: 0.1rem 0.5rem;
+    min-width: 150px;
+    padding-bottom: 0px;
+  }
+  
+  .dark-mode .opttions-popup
+  {
+    background-color: #333;
+  }
+  
+  .opttions-popup .popup-item {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0rem 0rem;
+    margin-top: 3px;
+    margin-bottom: 5px;
+    font-size: 0.7rem;
+    color: #111;
+    background-color: white;
+    border-radius: 0.4rem;
+    white-space: nowrap;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .opttions-popup .popup-item:hover {
+    background-color: grey;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .dark-mode .opttions-popup .popup-item:hover {
+    background-color: grey;
+  
+  }
+  
+  /* === Icon Styling === */
+  .opttions-popup .popup-item img {
+    width: 1.3rem;
+    height: 1.3rem;
+    object-fit: contain;
+    transition: filter 0.3s;
+  }
+  
+  /* === Dark Mode === */
+  .dark-mode .opttions-popup .popup-item {
+    background-color: #333;
+    color: white;
+  }
+  
+  .dark-mode .opttions-popup .popup-item img {
+    filter: invert(1) brightness(1.2);
+  }
+  
+  .hidden {
+    display: none !important;
+  }
+  
+  /* Reset unwanted icon housing styles */
+  .opttions-popup .popup-item img,
+  .shareee-popup .popup-item img,
+  .metadata-popup .popup-item img,
+  .optionn-popup .popup-item img,
+  .share-popup .popup-item img {
+    width: 1.3rem;
+    height: 1.3rem;
+    object-fit: contain;
+    background: none !important;  /* Remove any background */
+    border: none !important;      /* Remove border */
+    padding: 0 !important;        /* Remove internal spacing */
+    border-radius: 0 !important;  /* Remove circular shape */
+    box-shadow: none !important;  /* Remove glow/shadow */
+  }
+  
+
+
+
+/* ==== CAPTION CONTAINER (.caption) ==== */
+/* This container holds the video title or description within a video card. */
+.caption {
+  /* Sizing & Layout */
+  width: 100%;       /* Ensures it spans the full width of its parent (.kontainer) */
+  height: 2.5rem;  /* Consistent height (30px) for single-line captions */
+  
+  /* Flex Container Properties */
+  display: flex;         /* Enables a flexible layout for its content (caption text) */
+  align-items: center;   /* Vertically centers content within the container */
+  justify-content: center; /* Horizontally centers content within the container */
+  
+  /* Appearance & Overflow */
+  background-color:transparent; /* No background color, allowing parent's background to show */
+  overflow: hidden;    /* Hides any content that overflows the container boundaries */
+  /* `background: scroll` is often default and not needed here for visual styling. */
+  margin-bottom: 0%;
+  /* Spacing */
+  padding: 0 var(--spacing-xs); /* Responsive horizontal padding (8px) for internal spacing */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .caption container */
+.dark-mode .caption {
+  background-color: transparent; /* Remains transparent in dark mode */
+}
+/* ==== CAPTION TEXT (.caption span) ==== */
+/* Styles for the actual text content of the caption. *//* ==== CAPTION TEXT (.caption span) ==== */
+/* Styles for the actual text content of the caption, ensuring readability and truncation. */
+.caption span {
+  font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+  font-weight: 700; /* Bold font for prominence */
+  font-size: var(--font-size-base-md); /* Responsive font size (0.96875rem approx 15.5px) */
+  color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
+  
+  /* Sizing & Flex Item Properties */
+  height: 100%; /* Fills the height of its parent container for vertical centering */
+  flex-grow: 1; /* Allows the text to grow and take available space */
+
+  /* Text Handling */
+  white-space: nowrap;     /* Prevents text from wrapping to the next line */
+  overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
+  text-overflow: ellipsis; /* Displays "..." to indicate truncated text */
+  text-align: center;      /* Centers the text within its own allocated space */
+  max-width: 100%;         /* Ensures text doesn't push parent width */
+  
+  /* Spacing */
+margin-top: 10%;
+margin-bottom: 5%;
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .caption span */
+.dark-mode .caption span {
+  color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode contrast */
+}
+/* 📱 TABLET/SMALL DESKTOP OPTIMIZATION (e.g., up to 768px wide) */
+@media screen and (max-width: 768px) {
+  .caption {
+      height: auto;     /* Allows the container to expand vertically for multiple lines */
+      flex-wrap: wrap;  /* Allows text to wrap to the next line within the container */
+      text-align: center; /* Centers text within the wrapped container if it spans multiple lines */
+      padding: var(--spacing-xxs) var(--spacing-sm); /* Adjusted padding for better fit */
+  }
+
+  .caption span {
+      font-size: var(--font-size-xs); /* Slightly smaller font for tablet screens (16px) */
+  }
+}
+
+/* 📱 MOBILE OPTIMIZATION (e.g., up to 480px wide) */
+@media screen and (max-width: 480px) {
+  .caption {
+      height: auto; /* Maintains auto height for flexible line wrapping */
+      padding: var(--spacing-xxs); /* Adjusted padding for very compact screens (4px) */
+  }
+
+  .caption span {
+      font-size: var(--font-size-sm); /* Even smaller font size for mobile (14px) */
+  }
+}
+/* ==== VIDEO CONTAINER (.videoo) ==== */
+/* This container holds the video player itself, managing its layout and overflow. */
+.videoo {
+  /* Positioning */
+  position: relative; /* Allows for absolute positioning of child elements (e.g., controls, overlays) */
+
+  /* Sizing & Layout */
+  width: 100%;       /* Spans the full width of its parent container (.kontainer) */
+  height: auto;      /* Height adjusts based on the video's aspect ratio and object-fit */
+  
+  /* Flex Container Properties */
+  display: flex;         /* Uses flexbox to center the video element */
+  justify-content: center; /* Horizontally centers the video within its container */
+  align-items: center;   /* Vertically centers the video within its container */
+  
+  /* Spacing */
+  margin-block-start: var(--spacing-xxxs-half); /* Small responsive top margin (0.5px) */
+  
+  /* Overflow */
+  overflow: hidden; /* Hides any content that extends beyond the container's bounds */
+  /* NO TRANSITIONS as per user request */
+}/* ==== VIDEO ELEMENT INSIDE .videoo (.videoo video) ==== */
+/* Styles for the HTML <video> tag itself, ensuring proper sizing and fit. */
+.videoo video {
+  width: 100%;       /* Ensures the video fills the container's width */
+  height: 12.5rem;   /* Consistent height (200px) across devices for initial display */
+  
+  /* Visuals & Fit */
+  object-fit: cover; /* **Crucial:** Ensures the video covers the entire area without stretching or distortion, cropping if necessary */
+  border-radius: var(--border-radius-md); /* Consistent medium rounded corners for the video player */
+  display: block;    /* Removes any default inline-block spacing below the video element */
+  
+  /* Interactivity */
+  pointer-events: none; /* Prevents direct mouse events on the video itself, useful if you have custom controls layered above */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* 📱 TABLET/SMALL DESKTOP OPTIMIZATION (e.g., up to 768px wide) */
+@media screen and (max-width: 768px) {
+  .videoo video {
+      height: 10rem; /* Adjusted height (160px) for smaller screens */
+  }
+}
+
+/* 📱 MOBILE OPTIMIZATION (e.g., up to 480px wide) */
+@media screen and (max-width: 480px) {
+  .videoo video {
+      height: 8.5rem; /* Adjusted height (136px) for mobile screens, saving vertical space */
+  }
+}
+
+
+/* ==== VIDEO OVERLAY TEXT (.overlay-textt) ==== */
+/* This element displays information (e.g., video duration) positioned over a video thumbnail or player. */
+.overlay-textt {
+  /* Positioning */
+  position: absolute; /* Positions the element precisely over its parent container (.videoo or .kontainer) */
+  left: 2%;          /* Positioned 2% from the left edge of its parent */
+  bottom: 4%;        /* Adjusted vertical position for optimal alignment above the bottom edge */
+
+  /* Sizing & Responsiveness */
+  min-width: 12%;    /* Ensures the overlay text doesn't get too small on larger screens */
+  max-width: 25%;    /* Controls its maximum size relative to the parent, preventing excessive width */
+  height: auto;      /* Height adjusts dynamically based on its content */
+
+  /* Background and Text Styling */
+  background-color: rgba(0, 0, 0, 0.65); /* Keeps the specified semi-transparent dark background */
+  color: var(--color-text-light);      /* White text color for clear readability */
+  font-family: var(--font-family-primary); /* Ensures a consistent, high-quality font */
+  /* Fluid font size: scales between 0.75rem (12px) and 1rem (16px) with viewport width */
+  font-size: clamp(0.75rem, 1.2vw, 1rem);
+  
+  /* Shape & Spacing */
+  border-radius: 0.4375rem; /* Consistent medium rounded corners for the video player *//* Consistent small rounded corners for the overlay */
+  padding: var(--spacing-xxxs-half);     /* Small responsive padding (0.8px) around the text */
+
+  /* Text Handling */
+  white-space: nowrap;     /* Prevents text from wrapping to the next line */
+  overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
+  text-overflow: ellipsis; /* Displays "..." to indicate truncated text */
+  word-break: break-word;  /* Allows long words to break and wrap in specific overflow scenarios */
+
+  /* Flexbox for Centering Content */
+  display: flex;         /* Uses flexbox for precise alignment of inner text */
+  align-items: center;   /* Vertically centers the text within the overlay */
+  justify-content: center; /* Horizontally centers the text within the overlay */
+
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustments for .overlay-textt */
+.dark-mode .overlay-textt {
+  /* As per your instruction, the background color is explicitly not changed.
+     If specific text color changes are needed for dark mode, they would go here: */
+  /* color: var(--color-text-light-dark-mode); */
+}/* 📱 TABLET/SMALL DESKTOP OPTIMIZATION (e.g., up to 768px wide) */
+@media screen and (max-width: 768px) {
+  .overlay-textt {
+      max-width: 35%; /* Increases max-width to allow more text on tablets */
+      /* Fluid font size: scales between 0.7rem (11.2px) and 0.875rem (14px) */
+      font-size: clamp(0.7rem, 2vw, 0.875rem);
+      bottom: 3.5%; /* Slightly adjusted vertical position for better fit */
+      left: 3%;     /* Slightly adjusted horizontal position */
+  }
+}
+
+/* 📱 MOBILE OPTIMIZATION (e.g., up to 480px wide) */
+@media screen and (max-width: 480px) {
+  .overlay-textt {
+      max-width: 45%; /* Further increases max-width for compact mobile screens */
+      font-size: var(--font-size-xs); /* Fixed smaller font size (12px) for consistent mobile display */
+      padding: var(--spacing-xxs-half) var(--spacing-xxs); /* Adjusted padding (2.4px vertical, 4px horizontal) */
+      bottom: 3%; /* Further adjusted vertical position for mobile */
+      left: 3%;     /* Maintains consistent horizontal position */
+  }
+}
+
+/* ==== META-DATA SECTION CONTAINER (.sectiionn) ==== */
+/* This container arranges meta-data elements (views, time, category) horizontally. */
+.sectiionn {
+  /* Layout Properties */
+  display: flex;         /* Enables a flexible, horizontal layout for its children */
+  flex-wrap: nowrap;     /* Ensures items stay in a single row, preventing unwanted wrapping */
+  justify-content: space-between; /* Distributes space to push items to the start and end */
+  align-items: center;   /* Vertically centers the items within this section */
+  
+  /* Sizing */
+  width: 100%;       /* Spans the full width of its parent (.kontainer) */
+  
+  /* Spacing & Appearance */
+  margin-block: var(--spacing-xxxs-half); /* Responsive vertical margin (0.8px) for spacing */
+  border-radius: var(--border-radius-sm); /* Consistent rounded edges (6px) for subtle styling */
+  gap: var(--spacing-xxs-half); /* Responsive spacing (3.2px) between elements within the section */
+  padding: 0;          /* Removes default inner padding, controlled by children's margins */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .sectiionn container */
+.dark-mode .sectiionn {
+  background-color: transparent; /* Remains transparent in dark mode */
+}
+/* ==== CHILD SECTIONS (.views, .time, .category) ==== */
+/* These individual sections within .sectiionn display specific data like views, time, or category. */
+.views,
+.time,
+.category {
+    /* Flex Item Properties (within .sectiionn) */
+    flex: 1 1 0; /* Default flex behavior: allows growing and shrinking from a 0 base width */
+    max-width: 33.3%; /* Limits the maximum width to ensure a balanced 3-column layout */
+    min-width: 0; /* Allows flex items to shrink below their content size, preventing overflow */
+
+    /* Sizing & Layout */
+    height: 1.8rem; /* Consistent height (28.8px) for all meta-data sections */
+    display: flex;         /* Uses flexbox for inner alignment of content (icon and text) */
+    align-items: center;   /* Vertically centers content within each section */
+    justify-content: center; /* Horizontally centers content by default */
+    
+    /* Appearance & Spacing */
+    background-color: transparent; /* Ensures transparent background */
+    margin-block: var(--spacing-xxxs-half); /* Responsive vertical margin (0.8px) */
+    border-radius: var(--border-radius-sm); /* Consistent rounded edges (6px) */
+    overflow: hidden;    /* Hides any overflowing content (e.g., long text) */
+    /* NO TRANSITIONS as per user request */
+}
+
+/* Specific styling for the .views section (e.g., for view count and icon) */
+.views {
+    flex: 0.8 1 0; /* MODIFIED: Makes 'views' section grow slightly less to accommodate icon */
+    justify-content: flex-start; /* Aligns content (icon and text) to the start (left) */
+    margin-inline-start: 0; /* Removes any default left margin, aligning to parent edge */
+    gap: var(--spacing-xxs); /* Responsive spacing (4px) between the icon and text */
+}
+
+/* Specific styling for the .time section (e.g., for upload time) */
+.time {
+    flex: 1.2 1 0; /* MODIFIED: Makes 'time' section grow slightly more, often for longer text */
+    justify-content: flex-end; /* Aligns content to the end (right) */
+}/* ==== IMAGE INSIDE VIEWS (.views img) ==== */
+/* Styles for the icon (e.g., eye icon) within the views section. */
+.views img {
+  /* Sizing & Responsiveness */
+  /* Fluid image width and height using clamp(): scales between 1rem (16px) and 1.5rem (24px) */
+  width: clamp(1rem, 1.8vw, 1.5rem);
+  height: clamp(1rem, 1.8vw, 1.5rem);
+  
+  /* Spacing */
+  margin-inline-start: var(--spacing-xxs); /* Responsive left margin (4px) to push icon slightly */
+
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for views icon */
+.dark-mode .views img {
+  filter: invert(1); /* Inverts colors for better visibility on dark backgrounds */
+}/* ==== TEXT CONTENT (.views span, .time span, .category span) ==== */
+/* Styles for the text labels within the views, time, and category sections. */
+.views span,
+.time span,
+.category span {
+    /* Typography */
+    font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+    /* Fluid font size using clamp(): scales between 0.75rem (12px) and 0.875rem (14px) */
+    font-size: clamp(0.75rem, 1vw, 0.875rem);
+    color: var(--color-text-dark); /* Dark text color for light mode */
+    
+    /* Layout & Overflow */
+    display: flex;         /* Uses flexbox for inner alignment of text */
+    align-items: center;   /* Vertically centers text */
+    white-space: nowrap;   /* Prevents text from wrapping */
+    overflow: hidden;      /* Hides overflowing text */
+    text-overflow: ellipsis; /* Displays "..." for truncated text */
+    
+    /* Spacing */
+    margin: 0; /* Removes default margins for precise control */
+    /* NO TRANSITIONS as per user request */
+}
+
+/* Specific right margin for time text to ensure spacing from right edge */
+.time span {
+    margin-inline-end: var(--spacing-xs); /* Responsive right margin (8px) */
+}
+
+/* Dark mode adjustment for all meta-data text spans */
+.dark-mode .views span,
+.dark-mode .time span,
+.dark-mode .category span {
+    color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode */
+}
+
+/* 📱 TABLET/SMALL DESKTOP OPTIMIZATION (e.g., up to 768px wide) */
+@media screen and (max-width: 768px) {
+  .sectiionn {
+      flex-wrap: wrap;     /* Allows items to wrap to the next line for better spacing */
+      justify-content: center; /* Centers items when they wrap */
+      gap: var(--spacing-xxs); /* Adjusted spacing (4px) between wrapped elements */
+  }
+
+  .views,
+  .time,
+  .category {
+      flex: 1 1 100%; /* Each item takes full width when wrapped, displaying vertically */
+      max-width: 100%; /* Ensures they don't exceed container width */
+      justify-content: center; /* Centers content within each full-width item */
+  }
+
+  .views img {
+      max-width: 1.25rem; /* Limits image width to 20px for consistency */
+      height: 1.25rem; /* Maintains aspect ratio */
+  }
+}
+
+/* Base styles for all devices */
+body {
+  font-size: 16px;
+  /* Other base styles */
+}
+
+/* Extra large screens (≥1400px) */
+@media (min-width: 1400px) {
+  body {
+    font-size: 18px;
+    /* Additional styles for extra large screens */
+  }
+}
+
+/* Light Mode Styles */
+.light-mode {
+  background-color:  #FAFAFA; /* White background for Light Mode */
+  color: black; /* Black text for Light Mode */
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #121212; /* Black background for Dark Mode */
+  color: white; /* White text for Dark Mode */
+}
+
+
+.dark-mode .sectiionn .views span,
+.dark-mode .sectiionn .time span,
+.dark-mode .sectiionn .category span
+
+
+{
+  color:white;
+
+}
+
+.dark-mode .sectiionn .views img
+
+
+{
+  filter: invert(1);
+
+}
+
+
+.dark-mode .sidebar{
+  background-color: #121212; 
+  }
+
+  .dark-mode .sidebar img
+  {
+    filter: invert(1);
+  
+  }
+
+.dark-mode .home
+{background-color:transparent;
+  }
+
+  .dark-mode .sidebar .home img
+
+
+{
+  filter: invert(1);
+
+}
+
+
+.dark-mode .home span{
+  color:#FFFFFF;
+}
+
+
+.dark-mode .container-1{
+  background-color: #121212; 
+  }
+
+
+.dark-mode .suggestionss{
+  background-color: #121212; 
+  }
+
+
+.dark-mode .rectanglee{
+  background-color: #2a2d2f;
+  }
+
+.dark-mode .rectanglee span{
+  color:#FFFFFF;
+}
+
+
+  .dark-mode .profilee-name span{
+    color: #D3D3D3;
+    }
+
+    .dark-mode .caption span{
+      color:white; 
+      }
+
+.dark-mode .container .nav{
+  background-color: #121212; 
+   }
+
+   .dark-mode .container .Table{
+    background-color: #121212; 
+     }
+
+     .dark-mode .container .Table .overlay-text{
+      background-color: #121212; 
+       }
+
+
+.dark-mode .container .search img,
+.dark-mode .container .upload img,
+.dark-mode .container .Notifications img,
+.dark-mode .container .Settings img
+
+{
+  filter: invert(1);
+
+}
+
+:root {
+  --size-icon-md: 1.5rem;
+  --font-size-sm: 0.875rem;
+  --font-size-xs: 0.75rem;
+  --font-size-md: 1rem;
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --border-radius-full: 50%;
+  --font-family-primary: 'Arial', sans-serif;
+  --color-dark-mode-text-primary: #eee;
+}
+
+
+body {
+  /* Default styles for content, typography, base layout */
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 10px;
+  /* Example: Hide certain elements on very small screens */
+  .desktop-only-element {
+      display: none;
+  }
+}
+
+/* Small Mobile Devices (Portrait phones, e.g., 320px - 480px) */
+/* Targets devices like older iPhones, basic Android phones */
+@media (min-width: 320px) and (max-width: 480px) {
+  /* Adjustments for slightly larger phone screens */
+  body {
+      font-size: 15px;}
+
+      .container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        width: 100%;
+        height: 3rem;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--color-bg-light);
+        padding: 0;
+        box-shadow: var(--shadow-md);
+      }
+    
+      .Table {
+        flex-grow: 5;
+        flex: 0 0 auto;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        margin-left: 2px;
+        padding-left: 8rem;
+        background-color: transparent;
+      }
+    
+      .overlay-text {
+        font-size: 1rem;
+        padding: 0;
+        margin-left: 1px;
+        white-space: nowrap;
+        background-color: transparent;
+      }
+    
+      .nav {
+        flex-grow: 01;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 0.1rem;
+        padding-right: 0.1rem;
+        background-color: transparent;
+        margin-left: 0rem;
+      }
+    
+      .search {
+        position: relative;
+        flex: 0.9;
+        width: 100%;
+        max-width: 900px;
+        height:30px;
+        left: 0%;
+        background-color:transparent;
+        margin: 0px auto;
+        background-color: transparent;
+        border: 0.5px solid #ccc;
+        border-radius: 5px;
+        margin: 0 auto;
+        padding: 0 0.5rem;
+        display: flex;
+        align-items: center;
+        box-shadow: none;
+   
+      }
+    
+      .search input[type="search"] {
+        flex: 2;
+        width: 100%;
+        max-width: 100%;
+        height: 100%;
+        font-size: 0.9rem;
+        padding: 0 0rem;
+        background-color: transparent;
+        border: none;
+        color: #333;
+        outline: none;
+      }
+    
+      .search .search-icon,
+      .clear-btn {
+        display: none; /* hide icons for compact header */
+      }
+    
+      .upload,
+      .Notifications,
+      .Account {
+        width: 2rem;
+        height: 2rem;
+        background-color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      
+      .upload,
+      .Notifications
+       {
+      display:none;
+      }
+    
+      .upload img,
+      .Notifications img,
+      .Account img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    
+      .dropdown-content {
+        width: 90vw; /* Make dropdown full width on small screens */
+        right: 5%;
+      }
+    
+      .Notification-container {
+        width: 90vw;
+        max-height: 60vh;
+        right: 5%;
+        top: 3rem;
+        padding: 0.5rem;
+      }
+    
+      .dark-mode .container {
+        background-color: var(--color-dark-mode-bg-primary);
+        box-shadow: var(--shadow-dark-md);
+      }
+    
+      .dark-mode .search input[type="search"] {
+        color: #fff;
+      }
+    
+      .dark-mode .search input[type="search"]::placeholder {
+        color: #ccc;
+      }
+    
+      .dark-mode .Account img,
+      .dark-mode .upload img,
+      .dark-mode .Notifications img {
+        filter: invert(1);
+      }
+
+      .Account {
+        margin-top: 0.3125rem; /* 5px */
+        margin-right: 0.5rem;     /* 16px */
+        margin-bottom: 0.1875rem; /* 3px */
+
+      }
+      
+      .Account img {
+        margin-left: 0.4rem; /* 5px */
+
+      }
+      
+
+
+   .dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0.5%;
+  width: 90vw; /* Full-width on small screens */
+  max-width: 20rem;
+  max-height: 60vh;
+  background-color: #333;
+  box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  z-index: 30;
+  padding: 0rem 0; /* Much smaller vertical padding */
+  text-align: left;
+  align-items: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) white;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 0.5rem 0.75rem; /* Reduced padding for a tighter feel */
+  text-decoration: none;
+  display: block;
+  font-size: 0.875rem;
+}
+
+/* Profile Section */
+.proofile {
+  width: 100%;
+  min-height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: white;
+  padding: 0.4rem 0.6rem; /* Reduced padding */
+  border-radius: 0.375rem;
+  margin: 0.3rem 0.5rem; /* Smaller margins */
+}
+
+/* Hover Effect */
+.proofile:hover {
+  background-color: grey;
+  color: white;
+  transform: scale(1.02);
+  cursor: pointer;
+  box-shadow: none;
+}
+
+/* Profile Image */
+.proofile img {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  margin-right: 0.4rem;
+}
+
+/* Profile Name */
+.proofile span {
+  font-weight: 600;
+  font-size: 0.5rem;
+  color: black;
+  margin-left: 0.2rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.proofile:hover span {
+  color: white;
+}
+
+/* Remove bullet points */
+.dropdown-content li {
+  list-style: none;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .dropdown-content {
+    right: 1%;
+    width: 10vw;
+    padding: 0.25rem 0;
+  }
+
+  .proofile {
+    padding: 0.3rem 0.5rem;
+    margin: 0.2rem 0.4rem;
+  }
+
+  .proofile img {
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .proofile span {
+    font-size: 0.8rem;
+  }
+
+  .dropdown-content a {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+}
+
+
+
+        .suggestionss {
+          position: fixed;
+          top: var(--header-height); /* Below header */
+          left: 0;
+          width: 100vw;
+          height: var(--suggestions-bar-height, 2.5rem);
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: flex-start;
+          align-items: center;
+          background-color: var(--color-bg-light);
+          gap: 0.5rem;
+          padding: 0 0.5rem;
+      
+          overflow-x: hidden; /* ✅ Allow horizontal scroll */
+          overflow-y: hidden;
+          scrollbar-width: thin;
+          scrollbar-color: var(--color-scrollbar-thumb) transparent;
+          z-index: 1;
+        }
+      
+        .rectanglee {
+          flex: 0 0 auto;             /* ✅ Prevent resize/shrink */
+          min-width: fit-content;     /* Only as wide as needed */
+          padding: 0.3rem 0.3rem;
+          height: 2rem;
+          background-color: var(--color-bg-pill-light);
+          border-radius: 5px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-size: 0.75rem;
+          cursor: pointer;
+        }
+      
+        .rectanglee span {
+          font-size: 0.75rem;
+          color: var(--color-text-pill-light);
+          padding: 0;
+          margin: 0;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          text-align: center;
+        }
+      
+        .dark-mode .suggestionss {
+          background-color: var(--color-bg-suggestions-dark);
+          scrollbar-color: var(--color-scrollbar-thumb-dark) var(--color-scrollbar-track-dark);
+        }
+      .sidebar
+      {
+        display: none;
+        background-color:sienna; /* Default background color for light mode */
+        width:5.5%;
+        z-index: -1;
+        justify-content: flex-start;
+      }
+      
+      .sidebar:hover {
+        width: 16.5%; /* Expands slightly on hover for better UX */
+      }
+      
+      .home
+      {
+        margin-left: 0px;
+      }
+      
+      .suggestionss
+      {
+        background-color: violet;
+      }
+      
+      .rectanglee
+      {
+        background-color: rebeccapurple;
+        font-weight: var(--font-weight-bold); /* Bold font weight */
+      }
+      /* 📱 MOBILE LAYOUT: Clean & Compact */
+
+.container-1 {
+  top: 6rem;
+  width: 100%;
+  left: 0;
+  background-color: grey;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0rem; /* Removed gap between kontainers */
+  padding: 0;
+  margin: 0;
+}
+
+.kontainer {
+  background-color: pink;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Profile section (image + name) */
+.profilee {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background-color: darkcyan;
+  border-radius: 0;
+  margin: 0;
+  padding: 0.3rem 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.profilee img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.profilee-name {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.profilee-name span {
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.opttions img {
+  width: 17px;
+  height: 17px;
+  margin-top: 0px;
+ 
+}
+
+
+/* Caption (title) */
+.caption {
+  height: 2rem;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  border-radius: 0;
+  margin: 0;
+  z-index: 1000;
+}
+
+.caption span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  font-family: var(--font-family-primary);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
+}
+
+/* Video Section */
+.videoo {
+  width: 100%;
+  height: auto;
+  background-color: black;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.videoo video {
+  width: 100%;
+  height: 14rem;
+  object-fit: cover;
+  border-radius: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.overlay-textt {
+
+padding: 5px;
+
+}
+
+.sectiion {
+  display: flex;
+  flex-wrap: nowrap;               /* ❗ Prevent wrapping */
+  justify-content: space-between;  /* Spread out items */
+  align-items: center;
+  width: 100%;
+  height: 2rem;
+  padding: 0;
+  margin: 0;
+  background-color: saddlebrown;
+  box-sizing: border-box;
+  gap: 0rem; /* Small gap between items */
+}
+
+/* All children share flex space equally */
+.views,
+.category,
+.time {
+  flex: 1 1 0;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.4rem 0.4rem;
+  height: 100%;
+  border-radius: 0;
+  box-sizing: border-box;
+}
+
+/* Alignments */
+.views     { justify-content: flex-start;  background-color: violet; }
+.category  { justify-content: center;      background-color: transparent; }
+.time      { justify-content: flex-end;    background-color: seagreen; }
+
+/* Icon sizing (inside .views) */
+.views img {
+  width: 5rem;
+
+  object-fit: contain;
+  margin-right: 0.2rem;
+}
+
+/* Text styling */
+.views span,
+.category span,
+.time span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-dark-alt, #fff);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+}
+
+
+
+/* Medium Mobile Devices / Small Tablets (Landscape phones, small tablets, e.g., 481px - 768px) */
+/* Targets devices like larger smartphones in landscape, smaller iPads in portrait */
+@media (min-width: 481px) and (max-width: 768px) {
+  body {
+      font-size: 16px;
+  }
+  .container
+  {
+    background-color: saddlebrown;
+  }
+
+  .nav
+  {
+    background-color: darkkhaki;
+    margin-left: 0px;
+  }
+  
+  .Table {
+    /* Flex Item Properties within .container */
+    flex: 0 0 20%; /* Prevents growing/shrinking and sets initial base width to 15% of parent */
+    height: 100%; /* Matches the height of its parent (.container) */
+  
+    background-color: violet; /* Transparent background for the logo section */
+  
+    inset-inline-start: 0px; /* Aligns to the start (left) edge of the container */
+  }
+  
+  .overlay-text
+  {
+    background-color: darkblue;
+    font-size: 0.9rem;
+    
+  }
+  
+  .search
+  {
+    background-color: seagreen;
+    height:30px;
+  }
+
+  .upload
+  {
+    background-color: transparent;
+    width: 3vw;
+    height: 3vw;
+  }
+  
+  .Notifications
+  {
+    background-color: transparent;
+    width: 3vw;
+    height: 3vw;
+  }
+  
+  .Account 
+  {
+    background-color: transparent;
+    width: 3vw;
+    height: 3vw;
+  }
+  
+  .upload
+  {
+    background-color: transparent;
+    width: 3vw;
+    height: 3vw;
+  }
+  
+  
+  .upload img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  .Notifications img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  
+  .Account img {
+    width: 100%;
+    height:  100%;
+  margin: 0 auto;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0.5%;
+    z-index:40;
+    width: 30%;}
+    
+
+  .suggestionss
+  {
+    width:100%; /* Occupies the remaining width after considering the sidebar and gap */
+    left: 0%;  
+    gap:5px;
+    z-index: 1;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    background-color: transparent;
+  }
+  
+  .rectanglee span
+  {
+    font-size: clamp(0.75rem, 0.75vw, 0.75rem); 
+  }
+  
+  .sidebar
+  {
+    background-color:sienna; /* Default background color for light mode */
+    width:7%;
+  
+    justify-content: flex-start;
+  }
+  
+  .sidebar:hover {
+    width: 28%; /* Expands slightly on hover for better UX */
+  }
+  
+  .home
+  {
+    margin-left: 0px;
+  }
+  
+  .suggestionss
+  {
+    background-color: violet;
+    z-index: 10;
+  }
+  
+  .rectanglee
+  {
+    background-color: rebeccapurple;
+    font-weight: var(--font-weight-bold); /* Bold font weight */
+  }
+  
+    .container-1
+    {
+      top: 6.6rem;
+      width: calc(100% - 5.8%); /* Occupies the remaining width after considering the sidebar and gap */
+      left: 5.6%;  
+        /* Positions the grid below the header and suggestions bar */
+            /* Aligns it to the right of the sidebar, maintaining a consistent gap */
+      background-color:indianred;
+    gap: 0.6rem;
+    }
+    
+    .kontainer
+    {
+      background-color:grey;
+      width: clamp(48%, 58%, 48%);
+    margin-left: 5px;
+    }
+    
+    .caption
+  {
+    height: 2rem;  /* Consistent height (30px) for single-line captions */
+    background-color: fuchsia;
+  }
+  
+    .caption span
+    {
+      font-size: 13px; /* Responsive font size (0.96875rem approx 15.5px) */
+      font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+      font-weight: 700; /* Bold font for prominence */
+    }
+  
+    
+    .videoo {
+      width: 100%;
+      height: auto;
+    }
+    
+    .videoo video {
+      width: 100%;
+      height: 10rem; /* 200px */
+    
+    }
+
+ 
+.sectiion {
+  background-color: saddlebrown;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem; /* Adds breathing room between .views and .time */
+  padding-inline: 0.1rem; /* Adds horizontal padding */
+  margin-block: 0.1rem; /* Adds vertical margin */
+}
+
+.views,
+.time {
+  flex: 1;
+  min-width: 40%;
+  max-width: 50%;
+  height: 1.8rem;
+  background-color: transparent;
+  padding-inline: 0.2rem;
+  border-radius: 0.375rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.views {
+  background-color: violet;
+  justify-content: flex-start;
+  gap: 0.5rem;
+}
+
+.time {
+  background-color: seagreen;
+  justify-content: flex-end;
+}
+
+  /* Views Icon */
+  .views img {
+    width: clamp(1.5rem, 1.5vw, 1.5rem); /* Responsive width for icons, scaling between 18px and 30px */
+    height: clamp(1.5rem, 1.5vw, 1.5rem); /* Responsive height for icons, maintaining aspect ratio */}
+
+/* Optional: Ensure icons/text scale nicely */
+.views span,
+.time span {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-dark-alt);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dark-mode .views span,
+.dark-mode .time span {
+  color: var(--color-text-light-alt);
+}
+
+
+
+}
+
+/* Tablets / Small Laptops (e.g., 769px - 1024px) */
+/* Targets devices like iPads in landscape, smaller laptops, or larger tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+      font-size: 17px;
+  }
+
+
+  .container
+  {
+    background-color: darkgreen; /* Default background color for light mode */
+  }
+
+
+
+.nav
+{
+  background-color: transparent;
+}
+
+.overlay-text
+{
+  font-size: 1.1rem;
+}
+
+
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.Notifications
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.Account 
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+
+.upload img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+.Notifications img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+
+.Account img {
+  width: 100%;
+  height:  100%;
+margin: 0 auto;
+}
+
+.dropdown-content 
+{
+  z-index: 20;
+}
+
+.suggestionss
+{
+  width:100%; /* Occupies the remaining width after considering the sidebar and gap */
+  left: 0%;  
+  gap:5px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-color: saddlebrown;
+  z-index: 2;
+}
+
+.rectanglee
+{
+  background-color: seagreen;
+  font-weight: var(--font-weight-bold); /* Bold font weight */
+  font-size: clamp(0.75rem, 0.75vw, 0.75rem); 
+}
+
+
+.sidebar
+{
+  background-color:sienna; /* Default background color for light mode */
+  width:5.5%;
+  z-index: 1;
+}
+
+.sidebar:hover {
+  width: 16.5%; /* Expands slightly on hover for better UX */
+}
+
+.home
+{
+  margin-left: 0px;
+}
+
+
+
+  .container-1
+  {
+    top: 6.1rem;
+    width: calc(100% - 5.8%); /* Occupies the remaining width after considering the sidebar and gap */
+    left: 5.6%;  
+      /* Positions the grid below the header and suggestions bar */
+          /* Aligns it to the right of the sidebar, maintaining a consistent gap */
+    background-color:violet;
+  gap: 0.6rem;
+  }
+  
+  .kontainer
+  {
+    background-color:pink;
+    width: clamp(28%, 37%, 32%);
+  margin-left: 5px;
+  }
+  
+  .caption
+{
+  height: 2rem;  /* Consistent height (30px) for single-line captions */
+  background-color: fuchsia;
+}
+
+  .caption span
+  {
+    font-size: 13px; /* Responsive font size (0.96875rem approx 15.5px) */
+    font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+    font-weight: 700; /* Bold font for prominence */
+  }
+
+  
+  .videoo {
+    width: 100%;
+    height: auto;
+  }
+  
+  .videoo video {
+    width: 100%;
+    height: 12rem; /* 200px */
+  
+  }
+
+}
+
+/* Desktops / Medium Laptops (e.g., 1025px - 1279px) */
+/* Standard desktop monitor size */
+@media (min-width: 1025px) and (max-width: 1279px) {
+  body {
+      font-size: 18px;
+  }
+
+  .container
+  {
+    background-color: fuchsia; /* Default background color for light mode */
+  }
+
+.nav
+{
+  background-color: transparent;
+}
+
+.overlay-text
+{
+  font-size: 1.2rem;
+}
+
+
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.Notifications
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.Account 
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+
+.upload img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+.Notifications img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+
+.Account img {
+  width: 100%;
+  height:  100%;
+margin: 0 auto;
+}
+
+.suggestionss
+{
+  gap:10px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-color: transparent;
+}
+
+.rectanglee span
+{
+  font-size: 0.7rem; /* Adjust for better fit */
+}
+
+
+.sidebar
+{
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+  width:5.5%; 
+}
+
+.sidebar:hover {
+  width: 15%; /* Expands slightly on hover for better UX */
+}
+
+.home
+{
+  margin-left: 5px;
+}
+
+  .container-1
+  {
+    background-color: grey;
+  gap: 0.5rem;
+  margin: 0 auto; /* ✅ Centers the block */
+  }
+  
+  .kontainer
+  {
+    background-color: pink;
+    width: clamp(28%, 37%, 32%);
+    margin-inline-start:0.75%; /* Maintains your specified left margin for precise grid alignment */
+  }
+
+  .profilee img
+{
+  width:1.9rem ;
+  height:1.9rem ;
+  margin-left: 5px;
+}
+
+  
+  .caption
+  {
+    height: 1.5rem;  /* Consistent height (30px) for single-line captions */
+    background-color: fuchsia;
+  }
+  
+    .caption span
+    {
+      font-size: 13px; /* Responsive font size (0.96875rem approx 15.5px) */
+      font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+      font-weight: 700; /* Bold font for prominence */
+      margin-top: 5px;
+      margin-bottom: 0px;
+    }
+
+    .opttions img {
+      width: 17px;
+      height: 17px;
+      margin-top: 0px;
+     
+    }
+    
+  
+  .videoo {
+    width: 100%;
+    height: auto;
+  }
+  
+  .videoo video {
+    width: 100%;
+    height: 10.5rem; /* 200px */
+  
+  }
+  
+  
+}
+
+/* Large Desktops / High-Resolution Screens (e.g., 1280px - 1599px) */
+/* For larger monitors or dual-monitor setups */
+@media (min-width: 1280px) and (max-width: 1599px) {
+
+
+
+  .caption span {
+    font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+    font-weight: 700;
+    font-size: 0.9rem; /* 15.5px */
+    color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
+  }  
+}
+
+/* Ultra-wide Displays (e.g., 1600px and up) */
+/* For very large monitors, TVs, or multi-monitor environments */
+@media (min-width: 1600px) {
+  body {
+      font-size: 19px;
+.container
+{
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+}
+  
+
+.nav
+{
+  background-color: transparent;
+}
+
+.overlay-text
+{
+   font-size: 1.5rem;
+}
+
+
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.Notifications
+{
+  background-color: transparent;
+ width: 2vw;
+  height: 2vw;
+}
+
+.Account 
+{
+  background-color: transparent;
+  width: 2vw;
+  height: 2vw;
+}
+
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+
+.upload img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+.Notifications img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+
+.Account img {
+  width: 100%;
+  height:  100%;
+margin: 0 auto;
+}
+
+.suggestionss
+{
+   top: 5.1%; /* Vertically positioned below the header (adjust variable as needed) */
+    /* Dynamic left positioning and width based on sidebar or main content area */
+    left: 0%; /* Example: 4.8% or specific width of sidebar + gap */
+    width:100%; /* Example: calc(100% - 4.9%) */
+  gap:2px;
+    z-index: 10;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  background-color: transparent;
+  border-style: ridge;
+  justify-content: flex-start;
+}
+
+
+.sidebar
+{
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+   width: 11%; 
+   z-index: 1;
+     border-style: ridge;
+}
+
+.sidebar:hover {
+  width: 0%; /* Expands slightly on hover for better UX */
+}
+
+.home
+{
+  margin-left: 5px;
+}
+
+  .container-1
+  {
+    background-color: transparent;
+  gap: 0.8rem;
+  width: calc(100% - 11.2%); /* Occupies the remaining width after considering the sidebar and gap */
+  top: 6.1rem;        /* Positions the grid below the header and suggestions bar */
+  left: 11%; 
+  border-style: ridge;
+  }
+  
+  .kontainer
+  {
+    background-color: transparent;
+    width: clamp(28%, 37%, 32%);
+    margin-inline-start:10px; /* Maintains your specified left margin for precise grid alignment */
+  margin-block-end: 1%; /* Consistent bottom margin (8px) for vertical spacing */
+  border-style: ridge;
+  }
+  
+  
+  .videoo {
+    width: 100%;
+    height: auto;
+  }
+  
+  .videoo video {
+    width: 100%;
+    height: 17rem; /* 200px */
+  
+  }
+  
+
+
+
+}}

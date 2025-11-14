@@ -1,0 +1,2208 @@
+/* ========================================================================== */
+/* GLOBAL CSS RESET & BASE STYLES                                             */
+/* Establishes a consistent baseline for all elements across browsers.        */
+/* ========================================================================== */
+
+html {
+  /*
+   * Ensures smooth scrolling behavior when navigating to anchor links.
+   * Enhances user experience by providing a fluid transition rather than an abrupt jump.
+   */
+  scroll-behavior: smooth;
+
+  /*
+   * Universal Box-Sizing Model:
+   * Sets 'border-box' globally for predictable and intuitive box model calculations.
+   * This ensures that padding and border are included within an element's specified width/height,
+   * simplifying layout calculations significantly.
+   */
+  box-sizing: border-box;
+
+  /*
+   * Base Font Settings for Accessibility and Scalability:
+   * 'font-size: 100%' ensures the base font size is relative to the user's browser default settings
+   * (typically 16px). This is crucial for accessibility, allowing users to scale text.
+   * All 'rem' units throughout the stylesheet will be based on this root font size.
+   * 'font-family' provides a default fallback before the main body font is applied.
+   */
+  font-size: 100%; /* 1rem = 16px by default */
+  font-family: 'Segoe UI', sans-serif; /* Fallback font before Poppins is loaded/applied */
+}
+
+/*
+* Inherit Box-Sizing for All Elements:
+* Applies 'box-sizing: inherit' to all elements and pseudo-elements.
+* This practice allows any element to inherit the 'box-sizing' value set on its parent (html in this case),
+* providing consistent box model behavior throughout the entire document structure.
+*/
+*,
+*::before,
+*::after {
+  margin: 0;   /* Resets default browser margins for all elements */
+  padding: 0;  /* Resets default browser paddings for all elements */
+  box-sizing: inherit; /* Ensures consistent box-sizing inherited from html */
+}
+
+/* ========================================================================== */
+/* CSS ROOT VARIABLES (DESIGN TOKENS)                                         */
+/* Defines a centralized system for design values (colors, spacing, etc.).    */
+/* These variables act as design tokens, enabling rapid theming, consistency, */
+/* and future-proofing your UI across the entire application.                */
+/* ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------------- */
+  /* Spacing System (using 'rem' for scalable and consistent dimensions)    */
+  /* Defines a modular scale for all internal and external spacing,         */
+  /* padding, and margins, ensuring visual harmony and predictability.      */
+  /* ---------------------------------------------------------------------- */
+  --spacing-xxxs: 0.125rem; /* 2px - For very fine adjustments */
+  --spacing-xxs: 0.25rem;   /* 4px */
+  --spacing-xs: 0.5rem;     /* 8px */
+  --spacing-sm: 1rem;       /* 16px */
+  --spacing-md: 1.5rem;     /* 24px */
+  --spacing-lg: 2rem;       /* 32px */
+  --spacing-xl: 3rem;       /* 48px */
+  --spacing-xxl: 4rem;      /* 64px */
+  --spacing-xxxl: 6rem;     /* 96px - For large sections */
+
+  /* ---------------------------------------------------------------------- */
+  /* Color Palette (organized for Light Mode and Dark Mode theming)         */
+  /* Provides a comprehensive set of semantic colors for various UI states. */
+  /* ---------------------------------------------------------------------- */
+
+  /* Brand/Accent Colors (adapt as per your brand guidelines) */
+  --color-brand-primary: #ff5722; /* A vibrant orange for primary actions/accents */
+  --color-brand-secondary: #007bff; /* A complementary blue for secondary elements */
+  --color-brand-accent: #673ab7; /* A complementary purple for highlights */
+
+  /* Text Colors */
+  --color-text-light: #f8f9fa; /* Text color for dark backgrounds */
+  --color-text-dark: #212529;  /* Default text color for light backgrounds (high contrast) */
+  --color-text-muted: #6c757d; /* Lighter text for secondary information/placeholders */
+
+  /* Background Colors */
+  --color-bg-light: #ffffff; /* Default background for most content (white) */
+  --color-bg-light-alt: #f8f9fa; /* Slightly off-white for subtle section separation */
+  --color-bg-overlay: rgba(0, 0, 0, 0.7); /* For modals, popups, etc. */
+
+  /* Border & Shadow Colors */
+  --color-border-light: #e0e0e0; /* Light border color for light mode */
+  --color-shadow-light: rgba(0, 0, 0, 0.1); /* Subtle shadow for light mode */
+
+  /* Dark Mode Counterparts (These will be updated by a '.dark-mode' class) */
+  --color-dark-mode-bg-primary: #121212; /* Primary dark background */
+  --color-dark-mode-bg-secondary: #1e1e1e; /* Secondary dark background for sections/cards */
+  --color-dark-mode-text-primary: #e0e0e0; /* Light text for dark backgrounds */
+  --color-dark-mode-text-secondary: #b0b0b0; /* Muted light text for dark backgrounds */
+  --color-dark-mode-border: #333333; /* Darker borders for dark mode */
+  --color-dark-mode-shadow: rgba(0, 0, 0, 0.3); /* More pronounced shadow for dark mode */
+  --color-dark-mode-accent-overlay: rgba(255, 255, 255, 0.08); /* Subtle highlight in dark mode */
+
+  /* ---------------------------------------------------------------------- */
+  /* Typography System (Scalable font sizes and line heights)               */
+  /* Defines a clear hierarchy for text elements, ensuring readability      */
+  /* and visual balance across different screen sizes.                      */
+  /* ---------------------------------------------------------------------- */
+
+  --font-family-primary: 'Poppins', sans-serif; /* Main content font, modern & legible */
+  --font-family-secondary: 'Segoe UI', sans-serif; /* Alternative/fallback font */
+  --font-family-display: 'Montserrat', sans-serif; /* Optional: For bold headings/branding */
+
+  /* Fluid Font Sizes (using clamp() for responsive scaling) */
+  /* These variables define the min, preferred (viewport-based), and max font sizes */
+  --font-size-xxs: clamp(0.75rem, 0.9vw, 0.875rem); /* ~12px to 14px */
+  --font-size-xs: clamp(0.875rem, 1.1vw, 1rem);     /* ~14px to 16px */
+  --font-size-sm: clamp(0.8rem, 0.8vw, 0.8rem);    /* ~16px to 18px */
+  --font-size-base: clamp(1rem, 1.3vw, 1.25rem);    /* ~16px to 20px (default body text) */
+  --font-size-md: clamp(1.125rem, 1.5vw, 1.5rem);  /* ~18px to 24px */
+  --font-size-lg: clamp(1.25rem, 1.8vw, 1.75rem);  /* ~20px to 28px */
+  --font-size-xl: clamp(1.5rem, 2.2vw, 2rem);      /* ~24px to 32px */
+  --font-size-xxl: clamp(2rem, 3vw, 2.5rem);       /* ~32px to 40px */
+  --font-size-heading: clamp(2.5rem, 4vw, 3.5rem); /* ~40px to 56px - for main headings */
+
+  /* Line Heights for Readability */
+  --line-height-text: 1.6; /* Optimal line height for body text */
+  --line-height-heading: 1.2; /* Tighter line height for headings */
+  --line-height-tight: 1.0; /* For very compact text */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* ---------------------------------------------------------------------- */
+  /* Layout & Component Standards                                           */
+  /* Defines reusable properties for common UI elements and structural layout.*/
+  /* ---------------------------------------------------------------------- */
+
+  --container-max-width: 1440px; /* Maximum width for main content containers */
+  --border-radius-sm: 0.25rem; /* Small rounded corners (4px) */
+  --border-radius-md: 0.5rem;  /* Medium rounded corners (8px) - default for cards/buttons */
+  --border-radius-lg: 1rem;    /* Large rounded corners (16px) */
+  --border-radius-full: 50%;   /* For perfect circles (e.g., avatars) */
+
+  /* Box Shadows (subtle depth for UI elements) */
+  --shadow-sm: 0 1px 3px var(--color-shadow-light); /* Light, subtle shadow */
+  --shadow-md: 0 4px 6px var(--color-shadow-light); /* Medium depth shadow */
+  --shadow-lg: 0 8px 15px var(--color-shadow-light); /* Deeper shadow */
+
+  /* Transitions (for smooth UI interactions) */
+  --transition-duration-fast: 0.15s;
+  --transition-duration-normal: 0.3s;
+  --transition-duration-slow: 0.5s;
+  --transition-timing-ease: ease-in-out; /* Standard easing function */
+  --transition-timing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy spring effect */
+}
+
+/* Dark Mode Theme Variables (applied when a '.dark-mode' class is active on a parent) */
+.dark-mode {
+  /* Background Colors */
+  --color-bg-light: var(--color-dark-mode-bg-primary); /* Overrides light background */
+  --color-bg-light-alt: var(--color-dark-mode-bg-secondary);
+
+  /* Text Colors */
+  --color-text-dark: var(--color-dark-mode-text-primary);
+  --color-text-muted: var(--color-dark-mode-text-secondary);
+
+  /* Border & Shadow Colors */
+  --color-border-light: var(--color-dark-mode-border);
+  --color-shadow-light: var(--color-dark-mode-shadow);
+}/* ========================================================================== */
+/* GENERAL BODY STYLING                                                       */
+/* Defines the foundational styles for the entire document body.              */
+/* ========================================================================== */
+
+body {
+  /* Layout & Sizing */
+  display: flex;         /* Enables Flexbox for full-page layout */
+  flex-direction: column; /* Stacks content vertically (e.g., header, main, footer) */
+  min-height: 100vh;     /* Ensures the body takes at least the full viewport height,
+                            allowing a sticky footer pattern if content is short. */
+  margin: 0;             /* Removes default browser margin for the body */
+
+  /* Typography */
+  font-family: var(--font-family-primary); /* Primary font for all body text */
+  font-size: var(--font-size-base);     /* Base font size, fluidly scales via clamp() in :root */
+  line-height: var(--line-height-text); /* Optimal line height for text readability */
+  color: var(--color-text-dark);        /* Default text color for light mode */
+
+  /* Appearance */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+
+  /* Overflow & Scrolling Behavior */
+  overflow-x: hidden; /* Prevents horizontal scrollbar, crucial for responsive designs */
+  overflow-y: auto;   /* Allows vertical scrolling when content exceeds viewport height */
+  -webkit-overflow-scrolling: touch; /* Enhances smooth scrolling on iOS devices */
+
+  /* Custom Scrollbar Styling (Firefox) */
+  scrollbar-width: thin; /* Sets the scrollbar to a thin style */
+  /* Defines thumb and track colors for Firefox scrollbars */
+  scrollbar-color: var(--color-brand-primary) var(--color-bg-light); 
+
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-text);
+  font-family: var(--font-family-primary);
+}
+
+/* Custom Scrollbar Styling (WebKit Browsers: Chrome, Edge, Safari) */
+/* Targets the scrollbar track (the background area of the scrollbar). */
+body::-webkit-scrollbar {
+  width: 0.6rem; /* Sets a consistent width for the vertical scrollbar */
+}
+
+/* Targets the scrollbar track (the background area of the scrollbar). */
+body::-webkit-scrollbar-track {
+  background: var(--color-bg-light); /* Matches the body background for a cohesive look */
+}
+
+/* Targets the scrollbar thumb (the draggable part of the scrollbar). */
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand-primary); /* Uses brand primary color for visual emphasis */
+  border-radius: var(--border-radius-md); /* Applies rounded corners to the scrollbar thumb */
+  border: 2px solid var(--color-bg-light); /* Adds a subtle border for definition */
+}
+
+
+h1 { font-size: var(--font-size-heading); }
+h2 { font-size: var(--font-size-xxl); }
+h3 { font-size: var(--font-size-xl); }
+p, span, li { font-size: var(--font-size-base); }
+small { font-size: var(--font-size-xs); }
+
+
+/* ========================================================================== */
+/* HEADER & FOOTER GENERAL STYLING                                            */
+/* Provides base styles common to both the header and footer sections.        */
+/* ========================================================================== */
+
+.header,
+.footer {
+  width: 100%; /* Ensures both header and footer span the full width of the viewport */
+  padding: var(--spacing-md) 0; /* Applies consistent vertical padding (e.g., 24px), no horizontal padding */
+  
+  /* Appearance */
+  background-color: var(--color-dark-mode-bg-primary); /* Uses a dark background variable, suitable for header/footer */
+  color: var(--color-text-light); /* Uses a light text color for contrast on dark backgrounds */
+}
+
+
+/* ========================================================================== */
+/* HEADER CONTAINER SPECIFIC STYLING                                          */
+/* Defines styles for the main fixed header bar at the top of the viewport.  */
+/* (Specific layout/content for the header goes here if it's not .header)    */
+/* ========================================================================== */
+
+/* The comment block indicates that specific header layout/content styles
+ would follow here if 'header' refers to a wrapper. If '.header' is the
+ main header element, then the styles above are sufficient.
+ No changes needed based on the provided input, just clarification. *//* ========================================================================== */
+/* HEADER COMPONENT STYLING                                                   */
+/* Defines the main fixed header bar at the top of the viewport, including    */
+/* the platform logo/title and general header layout.                         */
+/* ========================================================================== */
+
+/* ==== MAIN HEADER CONTAINER (.container) ==== */
+.container {
+  /* Positioning */
+  position: fixed; /* Keeps the header at the top of the viewport when scrolling */
+  top: 0;          /* Aligns to the very top */
+  left: 0;         /* Aligns to the very left */
+  z-index:1000; /* Ensures it stays on top of other content */
+
+  /* Sizing & Layout */
+  width: 100%;     /* Spans the full width of the screen */
+  height: 3rem;    /* Fixed height for the header (48px based on 16px root font-size) */
+  display: flex;   /* Enables flexbox layout for arranging children (logo, nav) */
+  flex-direction: row; /* Arranges children horizontally */
+  align-items: center; /* Vertically centers children within the header */
+  justify-content: space-between; /* Distributes space to push logo to left, nav to right */
+  /* Appearance & Spacing */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+  padding-inline-start: 0; /* Ensures no left padding pushes content initially */
+  /* margin-inline: auto; is redundant here as width is 100% and position is fixed */
+}
+
+/* Dark Mode adjustment for the main header container */
+.dark-mode .container {
+  background-color: var(--color-dark-mode-bg-primary); /* Darker background for dark mode */
+  box-shadow: var(--shadow-dark-md); /* More pronounced shadow in dark mode */
+}
+
+
+/* ==== LOGO/TITLE SECTION CONTAINER (.Table) ==== */
+/* This flexible container holds the platform's main title/logo. */
+.Table {
+  /* Flex Item Properties within .container */
+  flex: 0 0 15%; /* Prevents growing/shrinking and sets initial base width to 15% of parent */
+  height: 100%; /* Matches the height of its parent (.container) */
+  
+  /* Internal Layout */
+  display: flex;   /* Enables flexbox for its content (.overlay-text) */
+  align-items: center; /* Vertically centers content within the Table container */
+  
+  /* Appearance & Positioning */
+  background-color: transparent; /* Transparent background for the logo section */
+  position: relative; /* Allows for absolute positioning of its children (e.g., .overlay-text) */
+  inset-inline-start: 0; /* Aligns to the start (left) edge of the container */
+}
+
+
+/* ==== OVERLAY TEXT CONTAINER (.overlay-text) ==== */
+/* This absolutely positioned container holds the actual text of the logo,
+ allowing for special text-clipping effects. */
+.overlay-text {
+  /* Positioning */
+  position: absolute; /* Positions precisely within its parent (.Table) */
+  inset: 0;           /* Stretches to cover the entire parent (top, right, bottom, left at 0) */
+  z-index: var(--z-index-logo-text); /* Ensures logo text is layered correctly */
+  
+  /* Layout */
+  display: flex;       /* Enables flexbox for centering the text content */
+  align-items: center; /* Vertically centers the text */
+  justify-content: center; /* Horizontally centers the text */
+  
+  /* Typography */
+  font-family: var(--font-family-primary); /* Uses the primary brand font */
+  font-size: 0.9rem; /* Sets the base font size for the logo text (24px) */
+  font-weight: var(--font-weight-extrabold); /* Extra bold for prominence */
+  
+  /* Text Handling */
+  white-space: nowrap; /* Prevents the text from wrapping */
+  overflow: hidden;    /* Hides any text that overflows its container */
+  text-overflow: ellipsis; /* Adds "..." if text is truncated */
+  
+  /* Appearance & Spacing */
+  background-color: transparent; /* Transparent background for the text overlay */
+  padding-inline-start: 0; /* Ensures no left padding */
+}
+
+
+
+
+/* ==== "NET" TEXT STYLING (.net-text) ==== */
+/* Styles for the "NET" part of the logo title, using a background clipped to text. */
+.net-text {
+  /* Background Clip for Text Effect */
+  background: red; /* Uses the vibrant brand primary color (red) */
+  -webkit-background-clip: text;           /* Clips the background to the shape of the text */
+  -webkit-text-fill-color: transparent;    /* Makes the text transparent to reveal the clipped background */
+  
+  /* Typography */
+  /* Typography */
+  font-size: 1.3em; /* Sets the base font size for the logo text (24px) */
+  letter-spacing: var(--spacing-xxxs); /* Adds subtle letter spacing (2px) */
+  font-weight: inherit; /* Inherits font weight from parent (.overlay-text) */
+  display: inline-block; /* Ensures consistent rendering with text-clip effect */
+}
+
+/* ==== "TOON" TEXT STYLING (.toon-text) ==== */
+/* Styles for the "TOON" part of the logo title. */
+.toon-text {
+  /* Background Clip for Text Effect */
+  background: var(--color-text-dark); /* Default dark text color for light mode (black) */
+  -webkit-background-clip: text;           /* Clips the background to the shape of the text */
+  -webkit-text-fill-color: transparent;    /* Makes the text transparent to reveal the clipped background */
+  
+  /* Typography */
+  font-size: 1.3em; /* Sets the base font size for the logo text (24px) */
+  
+  /* Spacing */
+  margin-inline-start: var(--spacing-xxs); /* Adds a small space to the left (5px) */
+  
+  font-weight: inherit; /* Inherits font weight from parent */
+  display: inline-block; /* Ensures consistent rendering with text-clip effect */
+}
+
+
+/* ========================================================================== */
+/* DARK MODE THEME ADJUSTMENTS FOR HEADER                                     */
+/* Styles applied when a '.dark-mode' class is active on a parent element     */
+/* (e.g., <body> or <html>), overriding light mode defaults.                */
+/* ========================================================================== */
+
+/* Dark Mode adjustment for "NET" text background */
+.dark-mode .net-text {
+  background: red; /* Keeps brand primary color vibrant in dark mode */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark Mode adjustment for "TOON" text background */
+.dark-mode .toon-text {
+  background: yellow; /* Uses light text for contrast in dark mode (yellow) */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark Mode adjustment for a hypothetical "SHORTS" text element */
+/* (This class was only present in your dark mode section of original code) */
+.dark-mode .shorts-text {
+  background: var(--color-brand-primary); /* Example: Use brand primary for background */
+  color: var(--color-text-light); /* Use light text color for contrast */
+  /* If this is also intended to be text-clipped, add those properties here */
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+}
+
+/* ========================================================================== */
+/* GLOBAL LINK STYLING                                                        */
+/* Ensures consistent appearance for all anchor tags and specific text.       */
+/* ========================================================================== */
+
+/* Removes the default underline from all anchor tags for a cleaner look. */
+a {
+  text-decoration: none;
+}
+
+/* Explicitly ensures no underline for .net-text and .toon-text,
+ especially if they are nested within an <a> tag. */
+.net-text,
+.toon-text {
+  text-decoration: none; 
+}/* ========================================================================== */
+/* NAVIGATION SECTION STYLING (.nav)                                          */
+/* This section occupies the remaining space in the header and contains       */
+/* the main navigation links, positioned to the right.                        */
+/* ========================================================================== */
+
+.nav {
+  /* Flex Item Properties (within the .container header) */
+  flex-grow: 1; /* Allows the navigation section to take up all available horizontal space */
+  height: 100%; /* Ensures the navigation section matches the height of its parent header */
+  
+  /* Flex Container Properties (for arranging navigation links/items) */
+  display: flex;   /* Enables flexbox for aligning internal navigation items */
+  align-items: center; /* Vertically centers the navigation items */
+  justify-content: space-around; /* Distributes navigation items with equal space around them */
+  gap: 5vw; /* Fluid spacing between navigation items, scales with viewport width */
+  
+  /* Appearance */
+  background-color: transparent; /* Ensures a transparent background for the navigation area */
+  
+  /* Positioning & Spacing */
+  margin-inline-start: 0; /* Ensures no left margin, relying on justify-content for spacing */
+}
+
+/*
+* NOTE ON REDUNDANT BLOCKS:
+* The following .container and .nav blocks are duplicates of definitions found elsewhere
+* in your CSS. While keeping them here as per your original provided code,
+* it's important to be aware that they might be redundant and could be removed
+* if the properties are consistently defined in single locations.
+*/
+.container {
+  display: flex;
+  flex-direction: row; /* Defines children layout as a row */
+}
+
+.nav {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.search {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  height:30px;
+  left: 2%;
+  background-color:transparent;
+  margin: 15px auto;
+  border-radius: 7px;
+  align-items: center;
+  border: 0.3px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures hidden children don't leak out */
+}
+
+.dark-mode .search
+{
+  background-color: transparent;
+}
+
+.search input[type="search"] {
+  flex: 1;
+  height: 4.5vh;
+height: 100%;
+  border-radius: 7px;
+  background-color:transparent;
+  border: none;
+  color: #333;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.search input[type="search"]:focus {
+  border: 1px solid white;
+  box-shadow: none;
+}
+
+
+.search input[type="search"]:valid ~ .clear-btn {
+  display: block;
+}
+
+body.dark-mode .search input[type="search"] {
+  color: #fff;
+}
+
+.search input[type="search"]::placeholder {
+  color: #36454F;
+  font-size: 0.9rem;
+}
+
+body.dark-mode .search input[type="search"]::placeholder {
+  color: #D3D3D3;
+}
+
+/* Optional mobile support */
+@media (max-width: 480px) {
+  .search {
+    width: 95%;
+    padding: 0.25rem;
+  }
+
+  .search input[type="search"] {
+    font-size: 0.95rem;
+    padding: 0.5rem 2rem 0.5rem 1.5rem;
+  }
+
+  .clear-btn {
+    font-size: 1rem;
+    right: 0.75rem;
+  }
+}
+
+/* Search icon to the left */
+.search .search-icon {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  padding: 1px;
+  background-color: transparent;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Clear button to the right */
+.clear-btn {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: red;
+  display: none;
+}
+
+.search input[type="search"] {
+  padding-left: 2rem; /* make room for icon */
+  padding-right: 3.5rem; /* make room for clear button */
+}
+
+
+.upload {
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  background-color: transparent;
+  margin-top: 0;
+  margin-left: 1vw;
+  border-radius: 50%;
+}
+
+.upload img {
+  width: 3vw;
+  height:3vw;
+  margin-top: 0.2vh;
+  padding: 0.5vh;
+  margin-left: 0vw;
+}
+
+
+.upload:hover .tooltip
+{
+visibility: visible;
+opacity: 1;
+
+}
+
+/* Notifications Icon */
+.Notifications {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+.Notifications img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Dropdown Container */
+.Notification-container {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 1%;
+  width: 24%;
+  min-width: 17rem;
+  max-height: 30em;
+  background-color: #333;
+  color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+
+  z-index: 30;
+}
+
+.Notification-container.active {
+  display: block;
+}
+
+.dark-mode .Notification-container
+{
+  background-color: #2a2d2f;
+}
+
+
+/* Sticky Header for Notification Count */
+.Notification-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: red; /* same as container background */
+  padding: 0rem;
+  border-bottom: 1px solid #444;
+}
+
+.Notification-header span {
+  width:100%;
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  color: black;
+  background-color: white;
+  border-radius: 0rem;
+  font-weight: bold;
+}
+
+.dark-mode .Notification-header span {
+  color: #fff;
+  background-color: #444;
+}
+
+
+
+.Notification {
+  display: flex;
+  padding: 0.75rem;
+  border-radius: 0.2rem;
+  background-color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: background 0.2s ease;
+  flex-direction: column; /* stack rows */
+  gap: 0.4rem;
+}
+
+.dark-mode .Notification
+{
+  background-color: var(--color-bg-metadata-dark); /* **YouTube-inspired dark gray background** */
+}
+
+
+
+.Notification:hover {
+border-color: #2a2d2f;
+}
+
+
+
+.User-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* push username left, timer right */
+  width: 100%;
+}
+
+
+.User-profile span
+{
+  color: #36454F;
+  background-color: transparent;
+}
+
+.dark-mode .User-profile span
+{
+  color: #D3D3D3;
+}
+
+.User-profile img {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Username stays left */
+.username {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #36454F;
+  margin-left: 0.5rem;
+  flex: 1;
+}
+
+/* Row 2: Message left, Thumb right */
+.message-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-row span
+{
+  color: black;
+  background-color: transparent;
+}
+
+.dark-mode .message-row span
+{
+  color: white;
+
+}
+
+.text {
+  color: black;
+  font-size: 0.9rem;
+  flex: 1;
+  margin-right: 0.5rem;
+}
+
+/* Thumbnail fixed right */
+.video-thumb {
+  flex-shrink: 0;
+}
+
+.video-thumb img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.3rem;
+  object-fit: cover;
+}
+
+/* Row 3: Timer */
+.timer {
+  flex: 1;
+  width: 5%;
+  height: 30px;
+  background-color: saddlebrown;
+  display:none;          /* let it be a full-width row */
+  padding-left: 2rem;    /* indent under username/message, same space as avatar */
+  margin-top: 0.2rem;
+}
+
+.timer span {
+  font-size: 0.3rem;
+  color: #aaa;
+  display:none;   /* makes sure it behaves like a label */
+}
+
+.Theme {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Theme {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Theme img {
+  width: 1.6875em;
+  height: 1.6875em;
+  border-radius: 50%;
+  margin-left: 1em;
+}
+.Account {
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  background-color: transparent;
+  margin-top: 0.3125rem; /* 5px */
+  margin-right: 1rem;     /* 16px */
+  margin-bottom: 0.1875rem; /* 3px */
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  float: right;
+}
+
+.Account img {
+  width: 2vw;
+  height: 2vw;
+  margin-left: 0.4rem; /* 5px */
+  border-radius: 50%;
+  object-fit: cover; /* Ensures proper scaling inside circle */
+}
+
+/* Dark mode adjustment */
+.dark-mode .Account img {
+  filter: invert(1);
+}
+
+/* Dropdown wrapper */
+.account-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0.5%;
+  width: 24%;
+  min-width: 11.25em;
+  max-height: 25em;
+  background-color: #333;
+  box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  z-index: 30;
+  padding: 0em 0;
+  text-align: left;
+  align-items: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) white;
+}
+
+.dropdown-content a {
+  
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; /* Make links block elements */
+}
+
+.account-dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Profile Section */
+.proofile {
+  width: 100%;
+  min-height: 1.875em; /* 30px */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: white;
+  padding: 0.625em; /* 10px */
+  border-radius: 0.4375em; /* 7px */
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Hover Effect */
+.proofile:hover {
+  background-color: grey; /* Subtle purple hover effect */
+  color: white;
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Profile Image */
+.proofile img {
+  width: 1.6875em; /* 27px */
+  height: 1.6875em;
+  border-radius: 50%;
+  margin-right: 0.625em; /* 10px */
+}
+
+/* Profile Name */
+.proofile span {
+  font-weight: bold;
+  font-size: 0.875em; /* 14px */
+  color: black;
+  margin-left: 0.3125em; /* 5px */
+  text-align: left;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Change text color on hover */
+.proofile:hover span{
+  color: white;
+}
+
+
+.dropdown-content li {
+  list-style: none; /* Remove bullet points */
+}
+
+
+
+.tooltip {
+  position: absolute;
+  top: 100%; /* Show below the upload icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 0.4em 0.6em;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10;
+}
+
+
+/* Tooltip Hover Effect */
+.upload:hover .tooltip, 
+.Notifications:hover .tooltip, 
+.Account:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .tooltip {
+    font-size: 0.75em; /* Reduce text size on smaller screens */
+    padding: 0.4em 0.6em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tooltip {
+    font-size: 0.6875em; /* Further reduce size for compact screens */
+    bottom: -1.75rem; /* Adjust positioning */
+  }
+}
+/* =========================
+   NETTOON SETTINGS — CLEAN CSS
+   Consolidated & de-duplicated
+   ========================= */
+/* ===== Layout ===== */
+.settings-container {
+  display: flex;
+  height: 100vh;
+  margin-top: 3rem;
+  background-color: transparent;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  width: 15rem; /* Converted from 240px */
+  background-color: var(--color-sidebar-light, #ffffff); /* Added professional light background */
+  display: flex;
+  flex-direction: column;
+  padding-top: 1.25rem; /* Converted from 20px */
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0.0625rem 0 0.5rem rgba(0, 0, 0, 0.05); /* Subtle separation */
+}
+
+/* 🌙 Dark Mode Sidebar */
+.dark-mode .sidebar {
+  background-color: var(--color-sidebar-dark, #1f2937);
+  box-shadow: 0.0625rem 0 0.5rem rgba(0, 0, 0, 0.4);
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 1.25rem; /* Converted from 20px */
+  font-size: 1.2rem;
+  color: var(--color-text-primary, #333);
+}
+
+.dark-mode .sidebar h2 {
+  color: var(--color-text-dark-primary, #f1f1f1);
+}
+
+.menu-item {
+  padding: 0.875rem 1.25rem; /* Converted from 14px 20px */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.625rem; /* Converted from 10px */
+  font-size: 1rem;
+  border-left: 0.25rem solid transparent; /* Converted from 4px */
+  color: var(--color-text-secondary, #666);
+  transition: 0.3s;
+  margin-bottom: 0.5rem; /* Converted from 50px */
+}
+
+.dark-mode .menu-item {
+  color: var(--color-text-dark-secondary, #b3b3b3);
+}
+
+.menu-item i { 
+  width: 1.25rem; /* Converted from 20px */
+  text-align: center; 
+  color: inherit; 
+}
+.menu-item span { 
+  flex: 1; 
+  color: inherit; 
+}
+
+/* hover / active */
+.menu-item:hover,
+.menu-item.active {
+  background: #2d313a; /* User's color */
+  color: white;
+  border-left-color: var(--color-accent, #007bff); /* Enhanced with accent color */
+}
+
+/* 🌙 Dark Mode Override for Hover/Active - Ensures quality */
+.dark-mode .menu-item:hover,
+.dark-mode .menu-item.active {
+  background: var(--color-accent-dark, #3c4451);
+  color: white;
+  border-left-color: var(--color-accent, #007bff);
+}
+
+/* 📱 Mobile Responsiveness (Sidebar to horizontal nav) */
+@media (max-width: 48rem) {
+  .settings-container {
+    flex-direction: column;
+    margin-top: 0;
+  }
+  
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 0.5rem;
+    box-shadow: none;
+    border-bottom: 1px solid var(--color-border, #ccc);
+  }
+  
+  .dark-mode .sidebar {
+    border-bottom: 1px solid var(--color-border-dark, #444);
+  }
+
+  .sidebar h2 {
+    display: none;
+  }
+  
+  .menu-item {
+    flex-direction: column;
+    padding: 0.625rem 0.25rem;
+    margin-bottom: 0;
+    gap: 0.125rem;
+    font-size: 0.75rem;
+    border-left: none;
+    border-bottom: 0.125rem solid transparent;
+    text-align: center;
+  }
+  
+  .menu-item i {
+    width: 100%;
+    font-size: 1.1rem;
+  }
+  
+  .menu-item span {
+    display: none;
+  }
+
+  .menu-item:hover,
+  .menu-item.active {
+    background: transparent;
+    color: var(--color-accent, #007bff);
+    border-bottom-color: var(--color-accent, #007bff);
+    border-left-color: transparent;
+  }
+  
+  .dark-mode .menu-item:hover,
+  .dark-mode .menu-item.active {
+    background: transparent;
+    color: var(--color-accent, #007bff);
+  }
+}
+
+
+/* ===== Right Content ===== */
+.content {
+  flex: 1;
+  padding: 30px;
+  background: transparent;
+  overflow-y: auto;
+}
+
+/* sections */
+.content-section { display: none; }
+.content-section.active { display: block; }
+
+.content-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;/* ===== Right Content ===== */
+  .content {
+    flex: 1;
+    padding: 30px;
+    background: transparent;
+    overflow-y: auto;
+  }
+  
+  /* sections */
+  .content-section { display: none; }
+  .content-section.active { display: block; }
+  
+  .content-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+  }
+  .content-header i { color: #ff4444; }
+  
+  
+  /* UNIVERSAL alignment for BOTH profile pic & banner */
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: left !important;   /* force left alignment */
+  }
+  
+  /* Wrapper for both image containers */
+  .profile-pic-wrapper,
+  .banner-wrapper {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* ALIGN LEFT */
+    gap: 8px;
+  }
+  
+  
+  /* ======================================
+     PROFILE PICTURE
+     ====================================== */
+  .profile-pic-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ddd;
+    cursor: pointer;
+  }
+  
+  /* Apply invert ONLY to placeholder */
+  .dark-mode .profile-pic.placeholder {
+    filter: invert(1);
+  }
+  
+  /* Never invert uploaded images */
+  .profile-pic:not(.placeholder) {
+    filter: none !important;
+  }
+  
+  
+  /* ======================================
+     BANNER
+     ====================================== */
+  .profile-banner {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 2px solid #ddd;
+    cursor: pointer;
+  }
+  
+  /* No invert for banner ever */
+  .profile-banner {
+    filter: none !important;
+  }
+  
+  
+  /* ======================================
+     Upload Text
+     ====================================== */
+  .upload-text {
+    color: #1877f2;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+    margin-top: 2px;
+  }
+  
+  
+  /* ======================================
+     RESET BUTTON (hidden via JS)
+     ====================================== */
+  .reset-btn {
+    background: #ff4444;
+    border: none;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .reset-btn:hover {
+    background: #cc0000;
+  }
+  
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+.content-header i { color: #ff4444; }
+
+
+/* Banner Section */
+.banner-group label {
+  margin-top: 25px;
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+
+.banner-wrapper {
+  width: 100%;
+  max-width: 380px;  /* same alignment width */
+  text-align: left;
+  margin: 0px;
+}
+
+.profile-banner {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  cursor: pointer;
+}
+
+.upload-text {
+  display: block;
+  margin-top: 10px;
+  color: #1877f2;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+
+/* Profile picture styles */
+.profile-pic-group
+ { display: flex; 
+  flex-direction: column; 
+  gap: 10px; }
+
+.profile-pic-
+ { display:flex;
+   align-items:center;
+    gap:15px; }
+
+
+.profile-pic {
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+#profilePic { cursor:pointer; }
+
+/* ⬇️ Apply invert ONLY to placeholder when in dark mode */
+.dark-mode .profile-pic-wrapper img.placeholder {
+  filter: invert(1);
+}
+
+/* Uploaded images stay natural */
+.profile-pic-wrapper img:not(.placeholder) {
+  filter: none;
+}
+
+
+/* Reset button (hidden by default via JS) */
+.reset-btn {
+  margin-top: 8px;
+  background: #ff4444;
+  border: none;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.reset-btn:hover {
+  background: #cc0000;
+}
+
+
+/* === Password Visibility Container === */
+.password-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-container input {
+  width: 100%;
+  padding: 10px 40px 10px 10px; /* Space for the eye icon */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  background: transparent;
+  color: inherit;
+}
+
+/* Eye icon button */
+.toggle-password {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: #666;
+  transition: color 0.2s ease-in-out;
+}
+
+.toggle-password:hover {
+  color: #000;
+}
+
+/* Form layout adjustments */
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.form-group small {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.85rem;
+  color: #888;
+}
+
+
+/* Save button style */
+.save-btn {
+  background-color: #28a745;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.save-btn:hover {
+  background-color: #218838;
+}
+
+/* Password match message */
+#passwordMatchMessage {
+  font-size: 0.9rem;
+  margin-top: 5px;
+  display: block;
+}
+
+
+.dark-mode .password-container input {
+  border-color: #555;
+  background: #222;
+  color: #eee;
+}
+
+.dark-mode .toggle-password {
+  color: #bbb;
+}
+
+.dark-mode .toggle-password:hover {
+  color: #fff;
+}
+
+
+
+/* ===== Generic form styles ===== */
+.settings-form,
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 12px;
+}
+
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 1.05rem;
+}
+
+/* dark-mode label fallback (keep your var if defined) */
+.dark-mode .form-group label {
+  color: var(--color-text-light-alt, #ddd);
+}
+
+/* inputs */
+.form-group input,
+.form-group textarea,
+.select-input,
+.styled-select {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.25s;
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.select-input:focus,
+.styled-select:focus {
+  border-color: #ff4444;
+  outline: none;
+}
+
+/* FORCE override fallback */
+.form-group.toggle-row.left-align {
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
+  gap: 14px !important;
+  max-width: 140px !important;
+  margin-left: 0 !important;
+  height: 80px;
+  background-color: transparent;
+}
+
+.form-group.toggle-row.left-align > label[for="autoRenew"] {
+  margin: 0 !important;
+  white-space: nowrap !important;
+}
+
+.form-group.toggle-row.left-align .switch {
+  margin: 0 !important;
+  flex: 0 0 auto !important;
+
+}
+
+
+/* small helper text */
+.setting-desc {
+  font-size: 0.9rem;
+  color: #666;
+  margin: 0 0 10px 0;
+}
+
+
+
+
+/* ===== Primary buttons (single canonical style) =====
+   Use .save-btn for main action. For small variant: .save-btn.small */
+.save-btn {
+  background: #ff4444;        /* platform accent — consistent */
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  font-size: 1rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.25s;
+  align-self: flex-start;
+}
+.save-btn:hover { background: #e63939; }
+
+.save-btn.small {
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  margin-top: 8px;
+}
+
+/* account form specifics */
+.account-form .form-group { margin-bottom: 16px; }
+.account-form label { font-weight: bold; display:block; margin-bottom:8px; }
+.account-form input { width:100%; padding:10px; border-radius:8px; }
+
+/* small notes */
+.account-form small.note { font-size:0.85rem; color:gray; }
+#passwordMatchMessage { font-size:0.9rem; font-weight:500; }
+
+/* ===== Universal Switch Styling (single canonical definition) =====
+   This is used by most toggle inputs across the settings page. */
+/* ===== Switch Base ===== */
+
+.upload-text {
+  display: inline-block;
+  background-color: #F5F5F5;
+  color: #ff4444;              /* brand red text */
+  cursor: pointer;
+  font-weight: 600;
+  padding: 6px 12px;           /* breathing space */
+  border-radius: 8px;          /* rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-decoration: none;       /* remove underline */
+}
+
+.upload-text:hover {
+  background-color: #ff4444;   /* bold red on hover */
+  color: #fff;                 /* white text on hover */
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 28px;
+
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  
+}
+
+/* ==== Display Section Tweaks ==== */
+#display .form-group {
+  margin-top: 20px;   /* extra space above */
+  margin-bottom: 20px; /* extra space below */
+}
+
+#display label {
+  margin-bottom: 8px;  /* space between label and input */
+  display: block;
+}
+
+#display .styled-select {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+
+/* 💡 Toggle Switch Styling (part of .switch) */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  transition: 0.4s;
+  border-radius: 30px;   /* fully rounded track */
+}
+
+.dark-mode .slider
+{
+  background-color: grey;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.25rem; /* 20px */
+  width: 1.25rem; /* 20px */
+  left: 0.25rem; /* 4px */
+  bottom: 0.25rem; /* 4px */
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.dark-mode .slider:before
+{
+  background-color: white;
+}
+
+input:checked + .slider {
+  background-color: #ff4444;
+}
+
+.dark-mode :checked + .slider {
+  background-color: #ff4444;
+}
+
+
+input:focus + .slider {
+  box-shadow: 0 0 0.0625rem var(--color-accent, #2196f3);
+  outline: none;
+}
+
+
+input:checked + .slider:before {
+  /* Calculated slide distance based on 60px width */
+  transform: translateX(2rem); /* 32px */
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 30px;   /* fully rounded track */
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/* ===== Theme Icons ===== */
+.slider img {
+  position: absolute;
+  width: 1.25rem; /* Converted from 20px */
+  height: 1.25rem; /* Converted from 20px */
+  opacity: 0;
+  transform: scale(0.85);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+/* show only ONE icon at a time */
+.switch input:not(:checked) + .slider .icon-light {
+  opacity: 1;
+  transform: scale(1);
+}
+.switch input:checked + .slider .icon-dark {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* rounded variant */
+.slider.round { border-radius: 2.125rem; } /* Converted from 34px */
+.slider.round:before { border-radius: 50%; }
+/* Theme switch container */
+.theme-switch {
+  position: relative;
+  display: inline-block;
+  width: 4.375rem; /* Converted from 70px */
+  height: 2.125rem; /* Converted from 34px */
+}
+
+.theme-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* Slider track */
+.theme-slider {
+  position: absolute;
+  inset: 0;
+  background-color: #ccc;
+  border-radius: 2.125rem; /* Converted from 34px */
+  display: flex;
+  align-items: center;
+  justify-content: center; /* center the active icon */
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-top: 0.5rem;
+}
+
+/* Hide both icons by default */
+.theme-slider img {
+  position: absolute;
+  width: 1.25rem; /* Converted from 20px */
+  height: 1.25rem; /* Converted from 20px */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Show light icon when NOT checked */
+.theme-switch input:not(:checked) + .theme-slider .icon-light {
+  opacity: 1;
+}
+
+/* Show dark icon when checked */
+.theme-switch input:checked + .theme-slider .icon-dark {
+  opacity: 1;
+}
+
+/* Dark background when checked */
+.theme-switch input:checked + .theme-slider {
+  background-color: #444;
+}
+/* ===== Display Options (single copy) ===== */
+body.font-small  { font-size: 0.875rem; } /* Converted from 14px */
+body.font-medium { font-size: 1rem; }     /* Converted from 16px */
+body.font-large  { font-size: 1.125rem; } /* Converted from 18px */
+
+body.line-normal { line-height: 1.5; }
+body.line-wide   { line-height: 2; }
+
+body.compact-mode .content-section { 
+    padding: 0.625rem; /* Converted from 10px */
+    margin: 0.3125rem; /* Converted from 5px */
+}
+
+/* ===== Toggle group helper ===== */
+.toggle-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ===== Settings form specific layout (single copy) ===== */
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5625rem; /* Converted from 25px */
+  margin-top: 1.25rem; /* Converted from 20px */
+}
+
+.form-group label {
+  font-size: 1.1rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 0.625rem; /* Converted from 10px */
+  color: #333;
+}
+
+.toggle-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.625rem; /* Converted from 10px */
+  margin: 0.5rem 0; /* Converted from 8px */
+  font-size: 0.95rem;
+}
+
+/* select styling */
+.styled-select,
+.select-input {
+  padding: 0.5rem 0.625rem; /* Converted from 8px 10px */
+  border: 1px solid #ddd;
+  border-radius: 0.375rem; /* Converted from 6px */
+  width: 100%;
+  font-size: 0.95rem;
+  background: #fff;
+  cursor: pointer;
+}
+
+.blocked-list li:last-child { border-bottom: none; }
+.blocked-list button { background: transparent; border: none; color: #ff4444; cursor: pointer; font-weight: bold; }
+
+/* ===== Payment list ===== */
+.payments-list {
+  list-style: none;
+  padding: 0;
+  margin: 0.625rem 0; /* Converted from 10px */
+  border: 1px solid #eee;
+  border-radius: 0.375rem; /* Converted from 6px */
+}
+.payments-list li {
+  display:flex; 
+  justify-content:space-between; 
+  align-items:center;
+  padding: 0.625rem; /* Converted from 10px */
+  border-bottom:1px solid #f1f1f1; 
+  font-size:0.95rem;
+}
+.payments-list li:last-child { border-bottom: none; }
+.payments-list button { 
+  background: transparent; 
+  border: none; 
+  color:#ff4444; 
+  cursor:pointer; 
+  font-weight:bold; 
+  font-size:0.85rem; 
+  transition: color .25s; 
+}
+.payments-list button:hover { color:#cc0000; }
+
+/* ===== Transactions table ===== */
+.transactions-table { 
+  width:100%; 
+  border-collapse: collapse; 
+  margin-top: 0.625rem; /* Converted from 10px */
+}
+.transactions-table th, 
+.transactions-table td { 
+  padding:0.625rem; /* Converted from 10px */
+  border:1px solid #eee; 
+  font-size:0.9rem; 
+  text-align:left; 
+}
+.transactions-table th { 
+  background:#f9f9f9; 
+  font-weight:600; 
+}
+.transactions-table tr:nth-child(even) { background-color:#fafafa; }
+.transactions-table tr:hover { background-color:#f1f1f1; }
+
+.dark-mode .transactions-table th { background:#333; color:#fff; }
+.dark-mode .transactions-table td { background:#222; color:#ddd; }
+
+/* ===== Modal (overlay + content) =====
+   Keep both overlay and content selectors so either pattern works. */
+.modal-overlay {
+  position: fixed; top:0; left:0; width:100%; height:100%;
+  background: rgba(0,0,0,0.6); display:none; justify-content:center; align-items:center; z-index:1000;
+}
+
+.modal { /* modal can be used as overlay or as content depending on markup */
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  display: flex; justify-content: center; align-items: center;
+  background: rgba(0,0,0,0.6);
+  z-index: 1000;
+}
+.modal.hidden { display:none; }
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 350px;
+  height: auto;
+  max-width: 90%;
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+.modal:not(.hidden) .modal-content,
+.modal-overlay:not(.hidden) .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* close button for modal */
+.close-btn {
+  position: absolute; top:10px; right:10px;
+  background: transparent; border:none; font-size:1.2rem; cursor:pointer; color:#666; transition:color .2s;
+}
+.close-btn:hover { color:#ff4444; }
+
+@media (max-width:480px) {
+  .modal-content { width:90%; padding:15px; }
+}
+
+.modal-content h2
+{
+align-items: center;
+text-align: center;
+margin: 0 auto;
+}
+
+/* modal content helpers */
+.modal-content h3 { margin-bottom:15px; font-size:1.2rem; }
+.modal-row { display:flex; gap:10px; }
+.modal-actions { margin-top:15px; display:flex; justify-content:space-between; }
+.cancel-btn { background:#ccc; color:#333; border:none; border-radius:6px; padding:8px 12px; cursor:pointer; }
+.cancel-btn:hover { filter:brightness(.95); }
+
+/* dark-mode override for modal content */
+.dark-mode .modal-content { background:#1e1e1e; color:#f1f1f1; }
+/* ===== Plans / Pricing cards ===== */
+.plans { 
+  display:flex; 
+  gap: 1.25rem; /* Converted from 20px */
+  margin: 0.9375rem 0; /* Converted from 15px */
+  flex-wrap:wrap; 
+}
+.plan-card {
+flex:1; 
+min-width:200px;
+ border:1px solid #eee; 
+ padding:20px; 
+ text-align:center;
+ border-radius: 0.4375rem;
+  padding: 1.25rem; /* Converted from 20px */
+  text-align:center;
+background-color: #F5F5F5;
+  transition: transform .2s, border-color .2s;
+}
+.plan-card:hover { 
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+.plan-card button { 
+    background:#ff4444; 
+    color:#fff; 
+    border:none; 
+    padding: 0.625rem 0.9375rem; /* Converted from 10px 15px */
+    border-radius: 0.375rem; /* Converted from 6px */
+    cursor:pointer; 
+    margin-top: 0.625rem; /* Converted from 10px */
+    transition: background .2s; 
+}
+.plan-card button:hover { background:#cc0000; }
+.plan-card h3 { 
+    margin-bottom: 0.625rem; /* Converted from 10px */
+    color:#ff4444; 
+}
+.plan-card p, .plan-card .price { color:#000; }
+.plan-card .price { 
+    margin: 0.625rem 0; /* Converted from 10px 0 */
+    font-weight:bold; 
+    font-size:1.1rem; 
+}
+.plan-card.active { 
+    border: 2px solid #ff4444; 
+    box-shadow: 0 0.25rem 0.75rem rgba(255,68,68,0.2); /* Converted from 4px 12px */
+}
+
+/* dark-mode plan tweaks */
+.dark-mode .plan-card { background:#2a2a2a; border-color:#444; }
+.dark-mode .plan-card p, .dark-mode .plan-card .price { color:#f1f1f1; }
+
+@media (max-width:48rem) { /* Converted from 768px */
+    .plans { flex-direction: column; } 
+}
+
+/* ===== CTA and danger buttons (consolidated) ===== */
+.select-plan-btn { 
+    background:#ff4444; 
+    color:#fff; 
+    border:none; 
+    padding: 0.5rem 0.875rem; /* Converted from 8px 14px */
+    border-radius: 0.375rem; /* Converted from 6px */
+    cursor:pointer; 
+    transition:.2s; 
+}
+.select-plan-btn:hover { background:#e53935; }
+
+.confirm-btn { 
+    background:#dc3545; 
+    color:#fff; 
+    padding: 0.625rem 1.125rem; /* Converted from 10px 18px */
+    border:none; 
+    border-radius: 0.625rem; /* Converted from 10px */
+    cursor:pointer; 
+    font-weight:600; 
+}
+.confirm-btn:hover { background:#b71c1c; }
+
+.delete-btn { 
+    background:#dc3545; 
+    color:#fff; 
+    padding: 0.875rem 1.25rem; /* Converted from 14px 20px */
+    border:none; 
+    border-radius: 0.75rem; /* Converted from 12px */
+    font-size:1.05rem; 
+    font-weight:600; 
+    cursor:pointer; 
+    width:100%; 
+    transition:background .25s; 
+}
+.delete-btn:hover { background:#b71c1c; }
+
+/* current plan highlight */
+.current-plan { 
+    background:#f1f1f1; 
+    padding: 0.625rem 0.9375rem; /* Converted from 10px 15px */
+    border-radius: 0.5rem; /* Converted from 8px */
+    font-weight:500; 
+}
+
+/* compact toggle row helper */
+.toggle-row { 
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+    margin: 0.75rem 0; /* Converted from 12px 0 */
+    font-size:0.95rem; 
+}
+
+/* ===== Danger zone & delete section ===== */
+.danger-zone { 
+    margin-top: 1.25rem; /* Converted from 20px */
+    border-top:1px solid #eee; 
+    padding-top: 0.625rem; /* Converted from 10px */
+}
+.delete-warning {
+  background:#fff3cd; 
+  color:#856404; 
+  border:1px solid #ffeeba; 
+  padding: 0.9375rem; /* Converted from 15px */
+  border-radius: 0.625rem; /* Converted from 10px */
+  margin-bottom: 1.25rem; /* Converted from 20px */
+  display:flex; 
+  gap: 0.75rem; /* Converted from 12px */
+  align-items:center;
+}
+.delete-warning i { 
+    font-size:1.5rem; 
+    color:#ff9800; 
+}
+.delete-form .form-group { 
+    margin-bottom: 1.25rem; /* Converted from 20px */
+}
+.delete-form input[type="password"] { 
+    width:100%; 
+    padding: 0.75rem; /* Converted from 12px */
+    border-radius: 0.5rem; /* Converted from 8px */
+    border:1px solid #ccc; 
+    font-size:1rem; 
+}
+
+/* ===== Checkbox group ===== */
+.checkbox-group { 
+    display:flex; 
+    align-items:flex-start; 
+    gap: 0.625rem; /* Converted from 10px */
+    font-size:0.95rem; 
+}
+
+/* ===== Login Activity list ===== */
+.login-activity { 
+    margin-top: 1.875rem; /* Converted from 30px */
+}
+.login-activity h4 { 
+    font-size:1.1rem; 
+    margin-bottom: 0.625rem; /* Converted from 10px */
+    display:flex; 
+    align-items:center; 
+    gap: 0.5rem; /* Converted from 8px */
+    color:#444; 
+}
+.login-activity ul { list-style:none; padding:0; margin:0; }
+.login-activity li { 
+    padding: 0.625rem; /* Converted from 10px */
+    border-bottom:1px solid #eee; 
+    font-size:0.95rem; 
+    display:flex; 
+    justify-content:space-between; 
+    align-items:center; 
+}
+.login-activity li i { 
+    color:#ff4444; 
+    margin-right: 0.5rem; /* Converted from 8px */
+}
+.login-activity .time { 
+    font-size:0.85rem; 
+    color:gray; 
+}
+
+/* animation keyframes (modal etc) */
+@keyframes fadeIn { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
+
+
+
+/* Light Mode Styles */
+.light-mode {
+  background-color: white; /* White background for Light Mode */
+  color: black; /* Black text for Light Mode */
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #121212; /* Black background for Dark Mode */
+  color: white; /* White text for Dark Mode */
+}
+
+
+.net-text {
+  color: red; /* Black color for NET in light mode */
+  font-size: 2em; /* Adjust size as needed */
+}
+
+.toon-text {
+  color: red; /* Red color for TOON in light mode */
+  font-size: 2em; /* Adjust size as needed */
+}
+
+
+
+.dark-mode .net-text {
+  color: red; /* White color for NET in dark mode */
+}
+
+.dark-mode .toon-text {
+  color: red;  /* Yellow color for TOON in dark mode */
+}
+
+
+
+.dark-mode .nav input[type="text"]  {
+  color:   #F5F5DC; 
+}
+
+.dark-mode .nav input[type="text"]::placeholder  {
+  color:   #F5F5DC; 
+}
+
+.dark-mode .nav .fx-gap img
+{
+  filter: invert(1);
+
+}
+
+
+.dark-mode .container .nav{
+  background-color: #121212; 
+   }
+
+   .dark-mode .container .Table{
+    background-color: #121212; 
+     }
+
+     .dark-mode .container .Table .overlay-text{
+      background-color: #121212; 
+       }
+
+
+
+.dark-mode .container .search img,
+.dark-mode .container .upload img,
+.dark-mode .container .Notifications img,
+.dark-mode .container .Settings img
+
+{
+  filter: invert(1);
+
+}
+
+
+
+/* Light Mode */
+.light-mode .sidebar {
+  background-color: white;
+}
+
+.light-mode .menu-item span {
+  color: black;
+}
+
+.light-mode .menu-item i {
+  color: black;
+}
+
+/* Dark Mode */
+.dark-mode .sidebar {
+  background-color: #121212;
+}
+
+.dark-mode .menu-item span {
+  color: white;
+}
+
+.dark-mode .menu-item i {
+  color: white;
+}

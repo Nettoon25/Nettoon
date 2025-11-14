@@ -1,0 +1,4185 @@
+/* ========================================================================== */
+/* GLOBAL CSS RESET & BASE STYLES                                             */
+/* Establishes a consistent baseline for all elements across browsers.        */
+/* ========================================================================== */
+
+html {
+  /*
+   * Ensures smooth scrolling behavior when navigating to anchor links.
+   * Enhances user experience by providing a fluid transition rather than an abrupt jump.
+   */
+  scroll-behavior: smooth;
+
+  /*
+   * Universal Box-Sizing Model:
+   * Sets 'border-box' globally for predictable and intuitive box model calculations.
+   * This ensures that padding and border are included within an element's specified width/height,
+   * simplifying layout calculations significantly.
+   */
+  box-sizing: border-box;
+
+  /*
+   * Base Font Settings for Accessibility and Scalability:
+   * 'font-size: 100%' ensures the base font size is relative to the user's browser default settings
+   * (typically 16px). This is crucial for accessibility, allowing users to scale text.
+   * All 'rem' units throughout the stylesheet will be based on this root font size.
+   * 'font-family' provides a default fallback before the main body font is applied.
+   */
+  font-size: 100%; /* 1rem = 16px by default */
+  font-family: 'Segoe UI', sans-serif; /* Fallback font before Poppins is loaded/applied */
+}
+
+/*
+* Inherit Box-Sizing for All Elements:
+* Applies 'box-sizing: inherit' to all elements and pseudo-elements.
+* This practice allows any element to inherit the 'box-sizing' value set on its parent (html in this case),
+* providing consistent box model behavior throughout the entire document structure.
+*/
+*,
+*::before,
+*::after {
+  margin: 0;   /* Resets default browser margins for all elements */
+  padding: 0;  /* Resets default browser paddings for all elements */
+  box-sizing: inherit; /* Ensures consistent box-sizing inherited from html */
+}
+
+/* ========================================================================== */
+/* CSS ROOT VARIABLES (DESIGN TOKENS)                                         */
+/* Defines a centralized system for design values (colors, spacing, etc.).    */
+/* These variables act as design tokens, enabling rapid theming, consistency, */
+/* and future-proofing your UI across the entire application.                */
+/* ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------------- */
+  /* Spacing System (using 'rem' for scalable and consistent dimensions)    */
+  /* Defines a modular scale for all internal and external spacing,         */
+  /* padding, and margins, ensuring visual harmony and predictability.      */
+  /* ---------------------------------------------------------------------- */
+  --spacing-xxxs: 0.125rem; /* 2px - For very fine adjustments */
+  --spacing-xxs: 0.25rem;   /* 4px */
+  --spacing-xs: 0.5rem;     /* 8px */
+  --spacing-sm: 1rem;       /* 16px */
+  --spacing-md: 1.5rem;     /* 24px */
+  --spacing-lg: 2rem;       /* 32px */
+  --spacing-xl: 3rem;       /* 48px */
+  --spacing-xxl: 4rem;      /* 64px */
+  --spacing-xxxl: 6rem;     /* 96px - For large sections */
+
+  /* ---------------------------------------------------------------------- */
+  /* Color Palette (organized for Light Mode and Dark Mode theming)         */
+  /* Provides a comprehensive set of semantic colors for various UI states. */
+  /* ---------------------------------------------------------------------- */
+
+  /* Brand/Accent Colors (adapt as per your brand guidelines) */
+  --color-brand-primary: #ff5722; /* A vibrant orange for primary actions/accents */
+  --color-brand-secondary: #007bff; /* A complementary blue for secondary elements */
+  --color-brand-accent: #673ab7; /* A complementary purple for highlights */
+
+  /* Text Colors */
+  --color-text-light: #f8f9fa; /* Text color for dark backgrounds */
+  --color-text-dark: #212529;  /* Default text color for light backgrounds (high contrast) */
+  --color-text-muted: #6c757d; /* Lighter text for secondary information/placeholders */
+
+  /* Background Colors */
+  --color-bg-light: #ffffff; /* Default background for most content (white) */
+  --color-bg-light-alt: #f8f9fa; /* Slightly off-white for subtle section separation */
+  --color-bg-overlay: rgba(0, 0, 0, 0.7); /* For modals, popups, etc. */
+
+  /* Border & Shadow Colors */
+  --color-border-light: #e0e0e0; /* Light border color for light mode */
+  --color-shadow-light: rgba(0, 0, 0, 0.1); /* Subtle shadow for light mode */
+
+  /* Dark Mode Counterparts (These will be updated by a '.dark-mode' class) */
+  --color-dark-mode-bg-primary: #121212; /* Primary dark background */
+  --color-dark-mode-bg-secondary: #1e1e1e; /* Secondary dark background for sections/cards */
+  --color-dark-mode-text-primary: #e0e0e0; /* Light text for dark backgrounds */
+  --color-dark-mode-text-secondary: #b0b0b0; /* Muted light text for dark backgrounds */
+  --color-dark-mode-border: #333333; /* Darker borders for dark mode */
+  --color-dark-mode-shadow: rgba(0, 0, 0, 0.3); /* More pronounced shadow for dark mode */
+  --color-dark-mode-accent-overlay: rgba(255, 255, 255, 0.08); /* Subtle highlight in dark mode */
+
+  /* ---------------------------------------------------------------------- */
+  /* Typography System (Scalable font sizes and line heights)               */
+  /* Defines a clear hierarchy for text elements, ensuring readability      */
+  /* and visual balance across different screen sizes.                      */
+  /* ---------------------------------------------------------------------- */
+
+  --font-family-primary: 'Poppins', sans-serif; /* Main content font, modern & legible */
+  --font-family-secondary: 'Segoe UI', sans-serif; /* Alternative/fallback font */
+  --font-family-display: 'Montserrat', sans-serif; /* Optional: For bold headings/branding */
+
+  /* Fluid Font Sizes (using clamp() for responsive scaling) */
+  /* These variables define the min, preferred (viewport-based), and max font sizes */
+  --font-size-xxs: clamp(0.75rem, 0.9vw, 0.875rem); /* ~12px to 14px */
+  --font-size-xs: clamp(0.875rem, 1.1vw, 1rem);     /* ~14px to 16px */
+  --font-size-sm: clamp(0.8rem, 0.8vw, 0.8rem);    /* ~16px to 18px */
+  --font-size-base: clamp(1rem, 1.3vw, 1.25rem);    /* ~16px to 20px (default body text) */
+  --font-size-md: clamp(1.125rem, 1.5vw, 1.5rem);  /* ~18px to 24px */
+  --font-size-lg: clamp(1.25rem, 1.8vw, 1.75rem);  /* ~20px to 28px */
+  --font-size-xl: clamp(1.5rem, 2.2vw, 2rem);      /* ~24px to 32px */
+  --font-size-xxl: clamp(2rem, 3vw, 2.5rem);       /* ~32px to 40px */
+  --font-size-heading: clamp(2.5rem, 4vw, 3.5rem); /* ~40px to 56px - for main headings */
+
+  /* Line Heights for Readability */
+  --line-height-text: 1.6; /* Optimal line height for body text */
+  --line-height-heading: 1.2; /* Tighter line height for headings */
+  --line-height-tight: 1.0; /* For very compact text */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* ---------------------------------------------------------------------- */
+  /* Layout & Component Standards                                           */
+  /* Defines reusable properties for common UI elements and structural layout.*/
+  /* ---------------------------------------------------------------------- */
+
+  --container-max-width: 1440px; /* Maximum width for main content containers */
+  --border-radius-sm: 0.25rem; /* Small rounded corners (4px) */
+  --border-radius-md: 0.5rem;  /* Medium rounded corners (8px) - default for cards/buttons */
+  --border-radius-lg: 1rem;    /* Large rounded corners (16px) */
+  --border-radius-full: 50%;   /* For perfect circles (e.g., avatars) */
+
+  /* Box Shadows (subtle depth for UI elements) */
+  --shadow-sm: 0 1px 3px var(--color-shadow-light); /* Light, subtle shadow */
+  --shadow-md: 0 4px 6px var(--color-shadow-light); /* Medium depth shadow */
+  --shadow-lg: 0 8px 15px var(--color-shadow-light); /* Deeper shadow */
+
+  /* Transitions (for smooth UI interactions) */
+  --transition-duration-fast: 0.15s;
+  --transition-duration-normal: 0.3s;
+  --transition-duration-slow: 0.5s;
+  --transition-timing-ease: ease-in-out; /* Standard easing function */
+  --transition-timing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy spring effect */
+}
+
+/* Dark Mode Theme Variables (applied when a '.dark-mode' class is active on a parent) */
+.dark-mode {
+  /* Background Colors */
+  --color-bg-light: var(--color-dark-mode-bg-primary); /* Overrides light background */
+  --color-bg-light-alt: var(--color-dark-mode-bg-secondary);
+
+  /* Text Colors */
+  --color-text-dark: var(--color-dark-mode-text-primary);
+  --color-text-muted: var(--color-dark-mode-text-secondary);
+
+  /* Border & Shadow Colors */
+  --color-border-light: var(--color-dark-mode-border);
+  --color-shadow-light: var(--color-dark-mode-shadow);
+}/* ========================================================================== */
+/* GENERAL BODY STYLING                                                       */
+/* Defines the foundational styles for the entire document body.              */
+/* ========================================================================== */
+
+body {
+  /* Layout & Sizing */
+  display: flex;         /* Enables Flexbox for full-page layout */
+  flex-direction: column; /* Stacks content vertically (e.g., header, main, footer) */
+  min-height: 100vh;     /* Ensures the body takes at least the full viewport height,
+                            allowing a sticky footer pattern if content is short. */
+  margin: 0;             /* Removes default browser margin for the body */
+
+  /* Typography */
+  font-family: var(--font-family-primary); /* Primary font for all body text */
+  font-size: var(--font-size-base);     /* Base font size, fluidly scales via clamp() in :root */
+  line-height: var(--line-height-text); /* Optimal line height for text readability */
+  color: var(--color-text-dark);        /* Default text color for light mode */
+
+  /* Appearance */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+
+  /* Overflow & Scrolling Behavior */
+  overflow-x: hidden; /* Prevents horizontal scrollbar, crucial for responsive designs */
+  overflow-y: auto;   /* Allows vertical scrolling when content exceeds viewport height */
+  -webkit-overflow-scrolling: touch; /* Enhances smooth scrolling on iOS devices */
+
+  /* Custom Scrollbar Styling (Firefox) */
+  scrollbar-width: thin; /* Sets the scrollbar to a thin style */
+  /* Defines thumb and track colors for Firefox scrollbars */
+  scrollbar-color: var(--color-brand-primary) var(--color-bg-light); 
+}
+
+/* Custom Scrollbar Styling (WebKit Browsers: Chrome, Edge, Safari) */
+/* Targets the scrollbar track (the background area of the scrollbar). */
+body::-webkit-scrollbar {
+  width: 0.6rem; /* Sets a consistent width for the vertical scrollbar */
+}
+
+/* Targets the scrollbar track (the background area of the scrollbar). */
+body::-webkit-scrollbar-track {
+  background: var(--color-bg-light); /* Matches the body background for a cohesive look */
+}
+
+/* Targets the scrollbar thumb (the draggable part of the scrollbar). */
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand-primary); /* Uses brand primary color for visual emphasis */
+  border-radius: var(--border-radius-md); /* Applies rounded corners to the scrollbar thumb */
+  border: 2px solid var(--color-bg-light); /* Adds a subtle border for definition */
+}
+
+
+/* ========================================================================== */
+/* HEADER & FOOTER GENERAL STYLING                                            */
+/* Provides base styles common to both the header and footer sections.        */
+/* ========================================================================== */
+
+.header,
+.footer {
+  width: 100%; /* Ensures both header and footer span the full width of the viewport */
+  padding: var(--spacing-md) 0; /* Applies consistent vertical padding (e.g., 24px), no horizontal padding */
+  
+  /* Appearance */
+  background-color: var(--color-dark-mode-bg-primary); /* Uses a dark background variable, suitable for header/footer */
+  color: var(--color-text-light); /* Uses a light text color for contrast on dark backgrounds */
+}
+
+
+/* ========================================================================== */
+/* HEADER CONTAINER SPECIFIC STYLING                                          */
+/* Defines styles for the main fixed header bar at the top of the viewport.  */
+/* (Specific layout/content for the header goes here if it's not .header)    */
+/* ========================================================================== */
+
+/* The comment block indicates that specific header layout/content styles
+ would follow here if 'header' refers to a wrapper. If '.header' is the
+ main header element, then the styles above are sufficient.
+ No changes needed based on the provided input, just clarification. *//* ========================================================================== */
+/* HEADER COMPONENT STYLING                                                   */
+/* Defines the main fixed header bar at the top of the viewport, including    */
+/* the platform logo/title and general header layout.                         */
+/* ========================================================================== */
+
+/* ==== MAIN HEADER CONTAINER (.container) ==== */
+.container {
+  /* Positioning */
+  position: fixed; /* Keeps the header at the top of the viewport when scrolling */
+  top: 0;          /* Aligns to the very top */
+  left: 0;         /* Aligns to the very left */
+  z-index:1000; /* Ensures it stays on top of other content */
+
+  /* Sizing & Layout */
+  width: 100%;     /* Spans the full width of the screen */
+  height: 3rem;    /* Fixed height for the header (48px based on 16px root font-size) */
+  display: flex;   /* Enables flexbox layout for arranging children (logo, nav) */
+  flex-direction: row; /* Arranges children horizontally */
+  align-items: center; /* Vertically centers children within the header */
+  justify-content: space-between; /* Distributes space to push logo to left, nav to right */
+
+  /* Appearance & Spacing */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+  padding-inline-start: 0; /* Ensures no left padding pushes content initially */
+  /* margin-inline: auto; is redundant here as width is 100% and position is fixed */
+}
+
+/* Dark Mode adjustment for the main header container */
+.dark-mode .container {
+  background-color: var(--color-dark-mode-bg-primary); /* Darker background for dark mode */
+  box-shadow: var(--shadow-dark-md); /* More pronounced shadow in dark mode */
+}
+
+
+/* ==== LOGO/TITLE SECTION CONTAINER (.Table) ==== */
+/* This flexible container holds the platform's main title/logo. */
+.Table {
+  /* Flex Item Properties within .container */
+  flex: 0 0 15%; /* Prevents growing/shrinking and sets initial base width to 15% of parent */
+  height: 100%; /* Matches the height of its parent (.container) */
+  
+  /* Internal Layout */
+  display: flex;   /* Enables flexbox for its content (.overlay-text) */
+  align-items: center; /* Vertically centers content within the Table container */
+  
+  /* Appearance & Positioning */
+  background-color: transparent; /* Transparent background for the logo section */
+  position: relative; /* Allows for absolute positioning of its children (e.g., .overlay-text) */
+  inset-inline-start: 0; /* Aligns to the start (left) edge of the container */
+}
+
+
+/* ==== OVERLAY TEXT CONTAINER (.overlay-text) ==== */
+/* This absolutely positioned container holds the actual text of the logo,
+ allowing for special text-clipping effects. */
+.overlay-text {
+  /* Positioning */
+  position: absolute; /* Positions precisely within its parent (.Table) */
+  inset: 0;           /* Stretches to cover the entire parent (top, right, bottom, left at 0) */
+  z-index: var(--z-index-logo-text); /* Ensures logo text is layered correctly */
+  
+  /* Layout */
+  display: flex;       /* Enables flexbox for centering the text content */
+  align-items: center; /* Vertically centers the text */
+  justify-content: center; /* Horizontally centers the text */
+  
+  /* Typography */
+  font-family: var(--font-family-primary); /* Uses the primary brand font */
+  font-size: 0.9rem; /* Sets the base font size for the logo text (24px) */
+  font-weight: var(--font-weight-extrabold); /* Extra bold for prominence */
+  
+  /* Text Handling */
+  white-space: nowrap; /* Prevents the text from wrapping */
+  overflow: hidden;    /* Hides any text that overflows its container */
+  text-overflow: ellipsis; /* Adds "..." if text is truncated */
+  
+  /* Appearance & Spacing */
+  background-color: transparent; /* Transparent background for the text overlay */
+  padding-inline-start: 0; /* Ensures no left padding */
+}
+
+
+
+
+/* ==== "NET" TEXT STYLING (.net-text) ==== */
+/* Styles for the "NET" part of the logo title, using a background clipped to text. */
+.net-text {
+  /* Background Clip for Text Effect */
+  background: red; /* Uses the vibrant brand primary color (red) */
+  -webkit-background-clip: text;           /* Clips the background to the shape of the text */
+  -webkit-text-fill-color: transparent;    /* Makes the text transparent to reveal the clipped background */
+  
+  /* Typography */
+  /* Typography */
+  font-size: 1.3em; /* Sets the base font size for the logo text (24px) */
+  letter-spacing: var(--spacing-xxxs); /* Adds subtle letter spacing (2px) */
+  font-weight: inherit; /* Inherits font weight from parent (.overlay-text) */
+  display: inline-block; /* Ensures consistent rendering with text-clip effect */
+}
+
+/* ==== "TOON" TEXT STYLING (.toon-text) ==== */
+/* Styles for the "TOON" part of the logo title. */
+.toon-text {
+  /* Background Clip for Text Effect */
+  background: var(--color-text-dark); /* Default dark text color for light mode (black) */
+  -webkit-background-clip: text;           /* Clips the background to the shape of the text */
+  -webkit-text-fill-color: transparent;    /* Makes the text transparent to reveal the clipped background */
+  
+  /* Typography */
+  font-size: 1.3em; /* Sets the base font size for the logo text (24px) */
+  
+  /* Spacing */
+  margin-inline-start: var(--spacing-xxs); /* Adds a small space to the left (5px) */
+  
+  font-weight: inherit; /* Inherits font weight from parent */
+  display: inline-block; /* Ensures consistent rendering with text-clip effect */
+}
+
+
+/* ========================================================================== */
+/* DARK MODE THEME ADJUSTMENTS FOR HEADER                                     */
+/* Styles applied when a '.dark-mode' class is active on a parent element     */
+/* (e.g., <body> or <html>), overriding light mode defaults.                */
+/* ========================================================================== */
+
+/* Dark Mode adjustment for "NET" text background */
+.dark-mode .net-text {
+  background: red; /* Keeps brand primary color vibrant in dark mode */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark Mode adjustment for "TOON" text background */
+.dark-mode .toon-text {
+  background: yellow; /* Uses light text for contrast in dark mode (yellow) */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark Mode adjustment for a hypothetical "SHORTS" text element */
+/* (This class was only present in your dark mode section of original code) */
+.dark-mode .shorts-text {
+  background: var(--color-brand-primary); /* Example: Use brand primary for background */
+  color: var(--color-text-light); /* Use light text color for contrast */
+  /* If this is also intended to be text-clipped, add those properties here */
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+}
+
+/* ========================================================================== */
+/* GLOBAL LINK STYLING                                                        */
+/* Ensures consistent appearance for all anchor tags and specific text.       */
+/* ========================================================================== */
+
+/* Removes the default underline from all anchor tags for a cleaner look. */
+a {
+  text-decoration: none;
+}
+
+/* Explicitly ensures no underline for .net-text and .toon-text,
+ especially if they are nested within an <a> tag. */
+.net-text,
+.toon-text {
+  text-decoration: none; 
+}/* ========================================================================== */
+/* NAVIGATION SECTION STYLING (.nav)                                          */
+/* This section occupies the remaining space in the header and contains       */
+/* the main navigation links, positioned to the right.                        */
+/* ========================================================================== */
+
+.nav {
+  /* Flex Item Properties (within the .container header) */
+  flex-grow: 1; /* Allows the navigation section to take up all available horizontal space */
+  height: 100%; /* Ensures the navigation section matches the height of its parent header */
+  
+  /* Flex Container Properties (for arranging navigation links/items) */
+  display: flex;   /* Enables flexbox for aligning internal navigation items */
+  align-items: center; /* Vertically centers the navigation items */
+  justify-content: space-around; /* Distributes navigation items with equal space around them */
+  gap: 5vw; /* Fluid spacing between navigation items, scales with viewport width */
+  
+  /* Appearance */
+  background-color: transparent; /* Ensures a transparent background for the navigation area */
+  
+  /* Positioning & Spacing */
+  margin-inline-start: 0; /* Ensures no left margin, relying on justify-content for spacing */
+}
+
+/*
+* NOTE ON REDUNDANT BLOCKS:
+* The following .container and .nav blocks are duplicates of definitions found elsewhere
+* in your CSS. While keeping them here as per your original provided code,
+* it's important to be aware that they might be redundant and could be removed
+* if the properties are consistently defined in single locations.
+*/
+.container {
+  display: flex;
+  flex-direction: row; /* Defines children layout as a row */
+}
+
+.nav {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.search {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  height:30px;
+  left: 2%;
+  background-color:transparent;
+  margin: 15px auto;
+  border-radius: 7px;
+  align-items: center;
+  border: 0.3px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures hidden children don't leak out */
+}
+
+.dark-mode .search
+{
+  background-color: transparent;
+}
+
+.search input[type="search"] {
+  flex: 1;
+  height: 4.5vh;
+height: 100%;
+  border-radius: 7px;
+  background-color:transparent;
+  border: none;
+  color: #333;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.search input[type="search"]:focus {
+  border: 1px solid white;
+  box-shadow: none;
+}
+
+
+.search input[type="search"]:valid ~ .clear-btn {
+  display: block;
+}
+
+body.dark-mode .search input[type="search"] {
+  color: #fff;
+}
+
+.search input[type="search"]::placeholder {
+  color: #36454F;
+  font-size: 0.9rem;
+}
+
+body.dark-mode .search input[type="search"]::placeholder {
+  color: #D3D3D3;
+}
+
+/* Optional mobile support */
+@media (max-width: 480px) {
+  .search {
+    width: 95%;
+    padding: 0.25rem;
+  }
+
+  .search input[type="search"] {
+    font-size: 0.95rem;
+    padding: 0.5rem 2rem 0.5rem 1.5rem;
+  }
+
+  .clear-btn {
+    font-size: 1rem;
+    right: 0.75rem;
+  }
+}
+
+/* Search icon to the left */
+.search .search-icon {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  padding: 1px;
+  background-color: transparent;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Clear button to the right */
+.clear-btn {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: red;
+  display: none;
+}
+
+.search input[type="search"] {
+  padding-left: 2rem; /* make room for icon */
+  padding-right: 3.5rem; /* make room for clear button */
+}
+
+
+.upload {
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  background-color: transparent;
+  margin-top: 0;
+  margin-left: 1vw;
+  border-radius: 50%;
+}
+
+.upload img {
+  width: 3vw;
+  height:3vw;
+  margin-top: 0.2vh;
+  padding: 0.5vh;
+  margin-left: 0vw;
+}
+
+
+.upload:hover .tooltip
+{
+visibility: visible;
+opacity: 1;
+
+}
+
+/* Notifications Icon */
+.Notifications {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+.Notifications img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Dropdown Container */
+.Notification-container {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 1%;
+  width: 24%;
+  min-width: 17rem;
+  max-height: 30em;
+  background-color: #333;
+  color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+
+  z-index: 30;
+}
+
+.Notification-container.active {
+  display: block;
+}
+
+.dark-mode .Notification-container
+{
+  background-color: #2a2d2f;
+}
+
+
+/* Sticky Header for Notification Count */
+.Notification-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: red; /* same as container background */
+  padding: 0rem;
+  border-bottom: 1px solid #444;
+}
+
+.Notification-header span {
+  width:100%;
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  color: black;
+  background-color: white;
+  border-radius: 0rem;
+  font-weight: bold;
+}
+
+.dark-mode .Notification-header span {
+  color: #fff;
+  background-color: #444;
+}
+
+
+
+.Notification {
+  display: flex;
+  padding: 0.75rem;
+  border-radius: 0.2rem;
+  background-color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: background 0.2s ease;
+  flex-direction: column; /* stack rows */
+  gap: 0.4rem;
+}
+
+.dark-mode .Notification
+{
+  background-color: var(--color-bg-metadata-dark); /* **YouTube-inspired dark gray background** */
+}
+
+
+
+.Notification:hover {
+border-color: #2a2d2f;
+}
+
+
+
+.User-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* push username left, timer right */
+  width: 100%;
+}
+
+
+.User-profile span
+{
+  color: #36454F;
+  background-color: transparent;
+}
+
+.dark-mode .User-profile span
+{
+  color: #D3D3D3;
+}
+
+.User-profile img {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Username stays left */
+.username {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #36454F;
+  margin-left: 0.5rem;
+  flex: 1;
+}
+
+/* Row 2: Message left, Thumb right */
+.message-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-row span
+{
+  color: black;
+  background-color: transparent;
+}
+
+.dark-mode .message-row span
+{
+  color: white;
+
+}
+
+.text {
+  color: black;
+  font-size: 0.9rem;
+  flex: 1;
+  margin-right: 0.5rem;
+}
+
+/* Thumbnail fixed right */
+.video-thumb {
+  flex-shrink: 0;
+}
+
+.video-thumb img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.3rem;
+  object-fit: cover;
+}
+
+/* Row 3: Timer */
+.timer {
+  flex: 1;
+  width: 5%;
+  height: 30px;
+  background-color: saddlebrown;
+  display:none;          /* let it be a full-width row */
+  padding-left: 2rem;    /* indent under username/message, same space as avatar */
+  margin-top: 0.2rem;
+}
+
+.timer span {
+  font-size: 0.3rem;
+  color: #aaa;
+  display:none;   /* makes sure it behaves like a label */
+}
+
+
+.Theme {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Theme img {
+  width: 1.6875em;
+  height: 1.6875em;
+  border-radius: 50%;
+  margin-left: 1em;
+}
+.Account {
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  background-color: transparent;
+  margin-top: 0.3125rem; /* 5px */
+  margin-right: 1rem;     /* 16px */
+  margin-bottom: 0.1875rem; /* 3px */
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  float: right;
+}
+
+.Account img {
+  width: 2vw;
+  height: 2vw;
+  margin-left: 0.4rem; /* 5px */
+  border-radius: 50%;
+  object-fit: cover; /* Ensures proper scaling inside circle */
+}
+
+/* Dark mode adjustment */
+.dark-mode .Account img {
+  filter: invert(1);
+}
+
+/* Dropdown wrapper */
+.account-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0.5%;
+  width: 24%;
+  min-width: 11.25em;
+  max-height: 25em;
+  background-color: #333;
+  box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  z-index: 30;
+  padding: 0em 0;
+  text-align: left;
+  align-items: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) white;
+}
+
+.dropdown-content a {
+  
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; /* Make links block elements */
+}
+
+.account-dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Profile Section */
+.proofile {
+  width: 100%;
+  min-height: 1.875em; /* 30px */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: white;
+  padding: 0.625em; /* 10px */
+  border-radius: 0.4375em; /* 7px */
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Hover Effect */
+.proofile:hover {
+  background-color: grey; /* Subtle purple hover effect */
+  color: white;
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Profile Image */
+.proofile img {
+  width: 1.6875em; /* 27px */
+  height: 1.6875em;
+  border-radius: 50%;
+  margin-right: 0.625em; /* 10px */
+}
+
+/* Profile Name */
+.proofile span {
+  font-weight: bold;
+  font-size: 0.875em; /* 14px */
+  color: black;
+  margin-left: 0.3125em; /* 5px */
+  text-align: left;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Change text color on hover */
+.proofile:hover span{
+  color: white;
+}
+
+
+.dropdown-content li {
+  list-style: none; /* Remove bullet points */
+}
+
+
+
+.tooltip {
+  position: absolute;
+  top: 100%; /* Show below the upload icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 0.4em 0.6em;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10;
+}
+
+
+/* Tooltip Hover Effect */
+.upload:hover .tooltip, 
+.Notifications:hover .tooltip, 
+.Account:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .tooltip {
+    font-size: 0.75em; /* Reduce text size on smaller screens */
+    padding: 0.4em 0.6em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tooltip {
+    font-size: 0.6875em; /* Further reduce size for compact screens */
+    bottom: -1.75rem; /* Adjust positioning */
+  }
+}
+
+/* ==== PROFILE BANNER CONTAINER (.container-11) ==== */
+/* This container serves as the main wrapper for the profile's cover image or banner. */
+.container-11 {
+  /* Positioning & Layout */
+  position: relative; /* Allows for absolute positioning of child elements (e.g., profile avatar, buttons) */
+  width: 100%;       /* Spans the full width of its parent container */
+  max-width: 100%;    /* A specific max-width; consider if a parent's padding or a calc() might be more robust for gaps */
+  
+  /* Sizing */
+  height: 15rem;     /* Fixed height (240px) for the banner, ensuring consistent visual space */
+  
+  /* Spacing & Appearance */
+  margin-block-start: 3.5rem; /* REMOVED: Top margin set to 0 as requested, positioning it at the very start of its flow */
+  padding: 0;            /* REMOVED: Ensures no internal padding within the container */
+  border-radius: 0px; /* Consistent medium rounded corners (7px) for the banner */
+  background-color:transparent; /* Ensures no background color for the container itself, relying on the image */
+  
+  /* Overflow */
+  overflow: hidden; /* Hides any part of the image that might extend beyond the rounded corners */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .container-11 background */
+.dark-mode .container-11 {
+  background-color: transparent; /* Remains transparent in dark mode */
+}/* ==== PROFILE BANNER IMAGE (.container-11 img) ==== */
+/* Styles for the actual image within the profile banner, ensuring it fills its container. */
+
+.container-11 img {
+  width: 100%;       /* Ensures the image fills the entire width of its parent container */
+  height: 100%;      /* Ensures the image fills the entire height of its parent container */
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  object-fit: cover; /* **Crucial:** Ensures the image covers the entire area without distortion, cropping if necessary */
+                     /* Alternative: `object-fit: contain;` would show the whole image, potentially leaving gaps. */
+  box-shadow: var(--shadow-sm); /* A subtle default shadow for depth */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for profile banner image shadow */
+.dark-mode .container-11 img {
+  box-shadow: var(--shadow-dark-sm); /* Adjust shadow for better visibility/contrast in dark mode */
+ 
+}
+
+
+/* ==== PROFILE PICTURE (.pichaa img) ==== */
+/* Styles for the user's profile avatar image, ensuring it's circular and centered. */
+.pichaa img {
+  /* Sizing */
+  width: 20%;        /* Relative width (20% of its parent container) */
+  max-width: 90vw;   /* Ensures the image doesn't exceed 90% of the viewport width (safeguard) */
+  height: auto;      /* Maintains aspect ratio, adjusting height based on width */
+  
+  /* Centering & Spacing */
+  display: block;    /* Ensures the image behaves as a block element for margin auto to work */
+  margin-inline: auto; /* Horizontally centers the image within its parent */
+  margin-block-start: 2vh; /* Top margin (5% of viewport height) for vertical positioning */
+  margin-block-end: 2vh;   /* Bottom margin (2% of viewport height) for vertical spacing */
+  
+  /* Appearance */
+  border-radius: var(--border-radius-full); /* Creates a perfect circular shape (50%) */
+  object-fit: cover; /* Ensures the image covers the area without distortion, cropping if needed */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for profile picture (if needed, e.g., for borders or shadows) */
+.dark-mode .pichaa img {
+  filter: invert( 1);
+}
+
+
+/* ==== NAME SECTION (.Name) ==== */
+/* This container ensures the user's name is centrally aligned and styled for prominence. */
+.Name {
+  /* Flex Container Properties */
+  display: flex;         /* Enables flexbox for centering its content (the name span) */
+  justify-content: center; /* Horizontally centers the content */
+  align-items: center;   /* Vertically centers the content (if .Name had a defined height) */
+  background-color:transparent;
+  /* Spacing */
+  margin-block-start: 1vh; /* Top margin (1% of viewport height) for spacing below the profile picture */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for Name section (if needed for background etc.) */
+.dark-mode .Name {
+  background-color: transparent;
+}
+
+/* ==== NAME TEXT (.Name span) ==== */
+/* Styles for the actual text content of the user's name. */
+.Name span {
+  /* Typography */
+  font-size: var(--font-size-xxl); /* Large font size (32px) for prominence */
+  font-weight: var(--font-weight-bold); /* Bold font for clear readability */
+  color: #36454F;
+  font-family: var(--font-family-primary); /* Ensures consistent font style */
+  
+  /* Appearance & Spacing */
+  background-color: transparent; /* No background color */
+  border-radius: var(--border-radius-xs); /* Small rounded corners (8px) for subtle styling */
+  text-align: center;      /* Centers the text within its own space */
+  padding: var(--spacing-xxs) var(--spacing-xs); /* Responsive padding (4px vertical, 8px horizontal) */
+  
+  /* Text Handling & Overflow */
+  white-space: nowrap;     /* Prevents text from wrapping to the next line */
+  overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
+  text-overflow: ellipsis; /* Displays "..." to indicate truncated text for long names */
+  max-width: 90vw;         /* Ensures text doesn't push element width too far (safeguard) */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for Name text */
+.dark-mode .Name span {
+  color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode contrast */
+}
+
+/* ==== PROFILE HEADER/DESCRIPTION CONTAINER (.container-2) ==== */
+/* This container holds the profile's title and description, managing its collapsible state. */
+.container-2 {
+  /* Sizing & Layout */
+  width: 100%;     /* Specific width; consider if `width: 100%` with parent padding is more robust */
+  height: auto;      /* Height adjusts dynamically based on content */
+  
+  /* Spacing & Appearance */
+  background-color:transparent; /* No background color */
+  margin-inline-start: 0; /* Ensures no left margin */
+  margin-block-start: var(--spacing-xs); /* Top margin (8px) for spacing from elements above */
+  border-style: none; /* No border style */
+  border-radius: var(--border-radius-xs); /* Consistent small rounded corners (8px) */
+  padding: 0;          /* Ensures no internal padding within the container */
+  overflow: hidden;    /* Hides content that exceeds container boundaries (crucial for max-height animation) */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Default collapsed state for .container-2 */
+.container-2.collapsed {
+  max-height: 500px; /* Limits height when collapsed, allows content to be hidden */
+}
+
+/* Expanded state for .container-2 */
+.container-2.expanded {
+  max-height: 2000px; /* Large enough value to ensure all content is visible when expanded */
+}
+
+
+/* ==== PROFILE TITLE CONTAINER (.Title) ==== */
+/* This container holds the main title of the profile section. */
+.Title {
+  width: 100%;       /* Spans the full width of its parent */
+  background-color:transparent; /* No background color */
+  display: flex;     /* Enables flexbox for centering the title text */
+  align-items: center; /* Vertically centers the title text */
+  justify-content: center; /* Horizontally centers the title text */
+  padding: var(--spacing-xxs); /* Responsive padding (4px) around the title text */
+  border-radius: var(--border-radius-none); /* No border radius for the title container */
+  margin-block-end: 0; /* No bottom margin, spacing controlled by elements below */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* ==== PROFILE TITLE TEXT (.Title span) ==== */
+/* Styles for the actual text content of the profile title. */
+.Title span {
+  font-weight: var(--font-weight-bold); /* Bold font weight for prominence */
+  color: black; /* Dark text color for light mode */
+  /* Fluid font size: scales between 1.5rem (24px) and 3rem (48px) based on viewport */
+  font-size: clamp(1.5rem, 1vw, 3rem);
+  text-align: center;      /* Centers the text within its own space */
+  text-transform: uppercase; /* Converts text to uppercase for emphasis */
+  top: 2%; /* This `top` property has no effect on a static or flex item without absolute positioning */
+  padding: var(--spacing-xxs); /* Responsive padding (4px) around the text */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for profile title text */
+.dark-mode .Title span {
+  color: white;
+}
+
+/* ==== PROFILE DESCRIPTION CONTAINER (.Profile-description) ==== */
+/* This container holds the detailed text description for the profile. */
+.Profile-description {
+  width: 100%;       /* Spans the full width of its parent */
+  background-color: transparent; /* No background color */
+  height: auto;      /* Height adjusts dynamically based on its content */
+  overflow: hidden; /* Hides any overflowing content, essential for collapsible behavior */
+  /* NO TRANSITIONS as per user request */
+}
+
+
+/* ==== TOGGLE BUTTON (#toggleBtn) ==== */
+/* Styles for the button or link that expands/collapses the profile description. */
+#toggleBtn {
+  display: inline-block; /* Ensures it behaves like a block element but allows text flow */
+  color: var(--color-action-primary); /* Primary action color (red) for light mode */
+  font-weight: var(--font-weight-bold); /* Bold font for emphasis */
+  margin-block-start: var(--spacing-xxs); /* Top margin (4px) for spacing */
+  cursor: pointer; /* Changes cursor to pointer to indicate clickability */
+  text-decoration: none; /* Removes underline if it's an anchor tag */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for toggle button color */
+.dark-mode #toggleBtn {
+  color: var(--color-action-secondary); /* Secondary action color (yellow) for dark mode */
+}
+
+/* Hover state for toggle button */
+#toggleBtn:hover {
+  color: var(--color-action-primary-hover); /* Optional: a slightly different color on hover */
+}
+
+/* ==== STATS CONTAINER (.container-3) ==== */
+/* This container arranges various account statistics (views, followers, etc.) horizontally. */
+.container-3 {
+  /* Positioning & Layout */
+  position: relative; /* Allows for absolute positioning of children if needed */
+  left: 0%;          /* Aligns to the left edge of its parent */
+  display: flex;     /* Enables a flexible, horizontal layout for its children */
+  justify-content: space-evenly; /* Evenly distributes children with space between them */
+  align-items: center; /* Vertically centers the items within this container */
+  text-align: center; /* Centers text within the container (though children may override) */
+  
+  /* Sizing */
+  width: 100%;       /* Spans the full width of its parent */
+  height: 3rem;      /* Fixed height (48px) for consistent row presentation */
+  
+  /* Spacing & Appearance */
+  background-color:transparent;/* No background color */
+  border-style:none;/* No border style */
+  border-radius: var(--border-radius-xs); /* Consistent small rounded corners (8px) */
+  margin-block-start: var(--spacing-xs); /* Top margin (8px) for spacing from elements above */
+                                       /* Note: original code had margin-top: 1rem and margin-top: 2%;
+                                          I've consolidated to one variable-based margin-block-start. */
+  gap: 3vw; /* Dynamic gap between items, scaling with viewport width */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .container-3 background */
+.dark-mode .container-3 {
+  background-color: transparent; /* Remains transparent in dark mode */
+}/* ==== INDIVIDUAL STAT ITEMS (.viewws, .followers, .videos, .follow, .country) ==== */
+/* These individual sections within .container-3 display specific account statistics. */
+.viewws,
+.following,
+.followers,
+.videos,
+.follow,
+.country {
+    /* Positioning & Layout */
+    position: relative; /* Allows for internal positioning of elements */
+    display: flex;     /* Enables flexbox for inner alignment of content (icon and text) */
+    align-items: center; /* Vertically centers content within each stat item */
+    
+    /* Sizing & Flex Behavior */
+    height: 2.5rem;    /* Consistent height (40px) for each stat pill */
+    min-width: 9%;     /* Minimum width to prevent content from becoming too small */
+    max-width: 11%;    /* Maximum width to ensure a balanced distribution */
+    flex-shrink: 0;    /* Prevents items from shrinking below their content size if space is constrained */
+    /* Removed original `top: 1%` as it's not applicable here without absolute positioning. */
+
+    /* Appearance & Spacing */
+    background-color:transparent;/* Ensures transparent background */
+    border-radius: 0.4375rem;
+    padding-inline: var(--spacing-xxs); /* Horizontal padding (4px) for internal breathing room */
+    gap: var(--spacing-xxs); /* Consistent spacing (4px) between icon and text */
+    /* NO TRANSITIONS as per user request */
+}
+
+.country {
+
+  width: auto;
+  max-width: 20%;
+  white-space: normal;           /* Allow text to wrap */
+  overflow: hidden;              /* Hide any overflow */
+  text-overflow: ellipsis;       /* Optional: add "..." if there's too much text */
+  word-break: break-word; 
+  background-color: transparent;       /* Break long words if needed */
+}
+
+.country span {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* ==== STAT ICONS (.container-3 img) ==== */
+/* Styles for the icons (e.g., eye, user, video icons) within the stats container. */
+.container-3 img {
+  /* Fluid sizing: scales between 20px and 40px based on viewport width */
+  width: clamp(20px, 2.5vw, 40px);
+  height: clamp(20px, 2.5vw, 40px);
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for stat icons (if needed) */
+.dark-mode .container-3 img{
+  /* filter: invert(1); if icons are dark and need to be light in dark mode */
+}
+
+/* ==== STAT TEXT (.container-3 span) ==== */
+/* Styles for the numerical data or labels within each stat item (e.g., "1.2M", "25 videos"). */
+.container-3 span {
+  font-size: var(--font-size-base); /* Base font size (16px) for readability */
+  font-weight: var(--font-weight-bold); /* Bold font for emphasis */
+  color: #333333;
+  overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
+  text-overflow: ellipsis; /* Displays "..." to indicate truncated text */
+  white-space: nowrap;     /* Prevents text from wrapping to the next line */
+  display: block;          /* Ensures text takes up full available width for ellipsis */
+  width: 100%;             /* Ensures text takes up 100% of its available space within the flex item */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for stat text */
+.dark-mode .container-3 span {
+  color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode contrast */
+}
+/* ==== UTILITY CLASSES ==== */
+/* Class to hide elements completely from view and accessibility tree. */
+.hidden {
+  display: none !important; /* Forces element to be completely hidden */
+}
+
+/* Specific styling for 'follow' span - allows it to display inline if needed */
+.follow span {
+  display: inline; /* Overrides default block display for this specific span */
+}
+
+/* ==== FEATURED VIDEOS GRID CONTAINER (.video-container) ==== */
+/* This container serves as the main grid for arranging individual featured video cards. */
+.video-container {
+  /* Layout Properties */
+  display: flex;         /* Enables Flexbox for arranging video cards within the grid */
+  flex-wrap: wrap;       /* Allows video cards to wrap to the next row when space runs out */
+  justify-content: center; /* Horizontally centers video cards within the grid */
+  align-items: flex-start; /* Aligns video cards to the top of the container */
+  
+  /* Sizing & Spacing */
+  width: 100%;           /* Spans the full width of its parent */
+  margin-block-start: var(--spacing-sm); /* Responsive top margin (16px) for spacing from elements above */
+  margin-inline: auto;   /* Horizontally centers the entire video grid */
+  padding: var(--spacing-xxs); /* Consistent internal padding (4px) around the grid content */
+  gap: var(--spacing-xs); /* Consistent spacing (8px) between individual video cards */
+  box-sizing: border-box; /* Ensures padding is included in the element's total size */
+  
+  /* Appearance */
+  background-color: transparent; /* No background color for the main grid itself */
+  border-style:none;/* No border style */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .video-container (if needed for subtle background) */
+.dark-mode .video-container {
+  background-color: transparent;
+}
+
+/* ==== INDIVIDUAL FEATURED VIDEO CARD (.containerr) ==== */
+/* Each of these containers represents a single featured video card. */
+.containerr {
+  /* Flex Item Properties & Sizing */
+  /* Allows cards to grow/shrink, with a preferred basis of 320px. */
+  /* min/max-width provide robust control for smaller/larger screens. */
+  flex: 1 1 320px; 
+  max-width: 500px;  /* Limits the maximum width of individual video cards */
+  min-width: 280px;  /* Ensures cards don't shrink too much on very small screens */
+  
+  /* Aspect Ratio & Positioning */
+  aspect-ratio: 16 / 9; /* MAINTAINED: Ensures a consistent 16:9 aspect ratio for video content */
+  position: relative;    /* Allows for absolute positioning of the video element inside */
+  left: 0.3rem;               /* Ensures no horizontal offset from the parent's alignment */
+  
+  /* Spacing & Appearance */
+margin-top: 2.8%;
+background-color:transparent; /* No background for the container, image will fill */
+border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  overflow: hidden;      /* Hides any content that overflows the rounded corners */
+  box-shadow: var(--shadow-xl); /* Prominent shadow for depth and visual appeal */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .containerr shadow */
+.dark-mode .containerr {
+  box-shadow: var(--shadow-dark-xl); /* Adjust shadow for dark mode contrast */
+}
+
+/* ==== VIDEO ELEMENT WITHIN CARD (.containerr video) ==== */
+/* Styles for the HTML <video> tag itself, ensuring it fills its container elegantly. */
+.containerr video {
+  /* Positioning & Sizing */
+  position: absolute; /* Positions the video absolutely within its parent `.containerr` */
+  inset: 0;          /* Shorthand for top: 0; right: 0; bottom: 0; left: 0; ensures it covers the parent */
+  width: 100%;       /* Ensures the video fills the entire width of its parent */
+  height: 100%;      /* Ensures the video fills the entire height of its parent */
+  
+  /* Visuals & Fit */
+  object-fit: cover; /* **CRUCIAL:** Ensures the video covers the entire area without distortion, cropping if necessary */
+  border: none;      /* Removes any default video element border */
+  border-radius: inherit; /* Inherits the border-radius from its parent `.containerr` for seamless corners */
+  /* NO TRANSITIONS as per user request */
+}
+
+
+/* ==== SUPPLEMENTARY CONTENT CONTAINER (.rectangle) ==== */
+/* This flexible container is designed to hold various pieces of supplementary profile content. */
+.rectangle {
+  /* Flex Item Properties (if inside a flex parent like .video-container) */
+  flex: 1; /* Allows the rectangle to take up available space in a flex layout */
+  min-width: 280px; /* Ensures the rectangle doesn't become too small */
+
+  /* Layout & Sizing */
+  display: flex;         /* Enables Flexbox for arranging children vertically */
+  flex-direction: column; /* Stacks children vertically */
+  gap: 0;                /* No gap between direct children, allowing inner elements to control spacing */
+  width: 100%;           /* Spans the full width of its parent when not flexing */
+  border-style:none; /* No border style */
+  /* Spacing & Appearance */
+  background-color:transparent; /* No background color */
+  padding: var(--spacing-xxs); /* Responsive padding (4px) for internal breathing room */
+  border-radius: var(--border-radius-xs); /* Consistent small rounded corners (8px) */
+  margin-block-start: var(--spacing-xxs); /* Top margin (4px) for spacing from elements above */
+  box-sizing: border-box; /* Ensures padding is included in the element's total size */
+  overflow-wrap: break-word; /* Allows long words to break and wrap to prevent horizontal overflow */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .rectangle (if needed for subtle background) */
+.dark-mode .rectangle {
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    flex-direction: column;
+  }
+
+  .containerr, .rectangle {
+    width: 100%;
+    flex: none;
+  }
+}
+
+
+/* ==== PROFILE IMAGE AND NAME WRAPPER (.square) ==== */
+/* This container combines a profile image and text, optimized for compact display. */
+.square {
+  /* Layout & Sizing */
+  display: flex;         /* Enables Flexbox for horizontal arrangement of image and text */
+  align-items: center;   /* Vertically centers the image and text */
+  width: 100%;           /* Spans the full width of its parent */
+  max-width: 100%;       /* Ensures it doesn't exceed parent width */
+  border-style:none; /* No border style */
+  /* Spacing & Appearance */
+  background-color:transparent; /* No background color */
+  gap: var(--spacing-xxs); /* Consistent spacing (4px) between the image and span */
+  overflow: hidden;      /* Hides any content that overflows the container */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .square (if needed for subtle background) */
+.dark-mode .square {
+  background-color: transparent;
+}
+
+/* ==== PROFILE IMAGE WITHIN SQUARE (.square img) ==== */
+/* Styles for the profile avatar image within the .square container. */
+.square img {
+  /* Sizing */
+  /* Fluid image width and height: scales between 2.2rem (35.2px) and 2.8rem (44.8px) */
+  width: clamp(2.2rem, 2.5rem, 2.8rem); 
+  height: clamp(2.2rem, 2.5rem, 2.8rem);
+  
+  /* Appearance & Flex Behavior */
+  border-radius: var(--border-radius-full); /* Creates a perfect circular shape (50%) */
+  object-fit: cover; /* Ensures the image covers the area without distortion, cropping if needed */
+  flex-shrink: 0;    /* Prevents the image from shrinking when space is constrained */
+  
+  /* Spacing */
+  margin-inline-start: var(--spacing-sm); /* Left margin (16px) for alignment */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for square profile image */
+.dark-mode .square img {
+  filter: invert(1); /* Inverts colors for better visibility on dark backgrounds */
+}
+/* ==== NAME TEXT WITHIN SQUARE (.square span) ==== */
+/* Styles for the name or label text within the .square container. */
+.square span {
+  /* Typography */
+  font-size: var(--font-size-base); /* Base font size (16px) for readability */
+  font-weight: var(--font-weight-bold); /* Bold font for emphasis */
+ color: #36454F;
+  
+  /* Layout & Overflow */
+  flex-grow: 1;            /* Allows the text to take up available horizontal space */
+  min-width: 0;            /* Allows the text to shrink below its content size when needed */
+  max-width: 100%;         /* Ensures text doesn't push parent width */
+  white-space: nowrap;     /* Prevents text from wrapping to the next line */
+  overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
+  text-overflow: ellipsis; /* Displays "..." to indicate truncated text */
+  text-align: left;        /* Aligns text to the left */
+  
+  /* Appearance & Spacing */
+  background-color: transparent; /* No background color */
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (6px) */
+  padding: var(--spacing-xxxs-half) var(--spacing-xxxs-half); /* Small padding (0.8px) around the text */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for square name text */
+.dark-mode .square span {
+  color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode contrast */
+}
+
+/* 📱 TABLET & MOBILE OPTIMIZATION (e.g., up to 768px wide) */
+@media (max-width: 768px) {
+  .video-container {
+      flex-direction: column; /* Stacks featured video items vertically on smaller screens */
+      align-items: center; /* Centers stacked items */
+  }
+
+  .containerr,
+  .rectangle {
+      width: 100%; /* Forces both featured video cards and rectangles to take full width */
+      flex: none;  /* Removes flex-grow/shrink to explicitly control width */
+      max-width: none; /* Removes max-width constraint for full-width layout */
+  }
+}
+
+/* ==== GENERAL CAPTION CONTAINER (.caaption) ==== */
+/* This container serves as a flexible wrapper for general caption text. */
+.caaption {
+  /* Positioning & Layout */
+  position: relative;    /* Allows for absolute positioning of children if needed */
+  display: flex;         /* Enables Flexbox for arranging the caption text */
+  align-items: center;   /* Vertically centers the caption text */
+  justify-content: center; /* Horizontally centers the caption text */
+  
+  /* Sizing */
+  width: 100%;           /* Spans the full width of its parent */
+  max-width: 100%;       /* Ensures it does not exceed parent's width */
+  height: 1.875rem;      /* Consistent fixed height (30px) for uniform presentation */
+  
+  /* Appearance & Overflow */
+  background-color:transparent; /* No background color, allowing parent's background to show */
+  overflow: hidden;      /* Hides any content that extends beyond the container's bounds */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .caaption (if needed for subtle background) */
+.dark-mode .caaption {
+  background-color: transparent;
+}
+
+/* ==== CAPTION LABEL TEXT (.caaption span) ==== */
+/* Styles for the actual text content of the caption label. */
+.caaption span {
+  /* Typography */
+  color: black; /* Dark text color for light mode */
+  font-weight: var(--font-weight-bold); /* Bolder font weight for prominence */
+  font-size: var(--font-size-lg); /* Large font size (20px) for clear readability */
+  font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+  
+  /* Spacing & Appearance */
+  padding: var(--spacing-xxxs-half); /* Small padding (5px) around the text for breathing room */
+  margin-block-start: var(--spacing-xxxs-half); /* Small top margin (5px) for vertical alignment */
+  text-align: center;      /* Centers the text within its own allocated space */
+  
+  /* Text Handling & Overflow */
+  white-space: nowrap;     /* Prevents text from wrapping to the next line */
+  overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
+  text-overflow: ellipsis; /* Displays "..." to indicate truncated text for long captions */
+  flex-shrink: 1;          /* Allows the label to shrink if space is constrained */
+  max-width: 100%;         /* Ensures the text does not exceed the container's width */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .caaption span */
+.dark-mode .caaption span {
+  color: white;
+}
+
+/* ==== ABOUT SECTION (.about) ==== */
+/* This container holds the descriptive "About" text for the profile. */
+.about {
+  /* Sizing & Flex Behavior */
+  width: 100%;           /* Spans the full width of its parent container */
+  max-width: 100%;       /* Ensures it does not exceed the parent's width */
+  max-height: 18.75rem;  /* Limits the maximum height (300px), useful for containing long text */
+  flex: 1;               /* Allows this section to take available space in a flex parent */
+  
+  /* Spacing & Appearance */
+  margin-block-start: var(--spacing-xxxs); /* Small top margin (1.6px) for spacing */
+  margin-block-end: 0;   /* No bottom margin, allowing subsequent elements to manage spacing */
+  padding: var(--spacing-xxs); /* Responsive padding (4px) for internal breathing space around text */
+  background-color:transparent; /* No background color, allowing parent's background to show */
+  border-radius: var(--border-radius-none); /* No border-radius, maintaining sharp corners */
+  
+  /* Typography */
+  color: var(--color-text-dark); /* Ensures text is dark for better readability in light mode */
+  font-weight: var(--font-weight-normal); /* Normal font weight for body text */
+  font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+  /* REMOVED: font-size property as requested to maintain original sizing */
+
+  /* Overflow & Sizing Model */
+  overflow: hidden;      /* Hides any text content that exceeds the max-height */
+  box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .about text color */
+.dark-mode .about {
+  color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode contrast */
+}
+/* ==== MAIN SECTION CONTAINER (.secction) ==== */
+/* This primary container organizes action buttons and meta-data horizontally, adapting to various screen sizes. */
+.secction {
+  /* Layout Properties */
+  display: flex;         /* Enables Flexbox for arranging children horizontally */
+  flex-direction: row;   /* Explicitly sets children in a row */
+  flex-wrap: nowrap;     /* Prevents children from wrapping to the next line by default */
+  justify-content: space-evenly; /* Distributes space evenly between and around items */
+  
+  /* Sizing & Spacing */
+  width: 100%;           /* Spans the full width of its parent */
+  max-width: 100%;       /* Ensures it doesn't exceed parent's width */
+  height: clamp(3vh, 2.5rem, 4rem); /* Responsive height (e.g., between 3vh and 4rem/64px) */
+  margin-block-start: 0; /* No top margin, allowing previous sections to control spacing */
+  margin-block-end: var(--spacing-xxs); /* Small bottom margin (4px) for spacing */
+  padding: var(--spacing-xxxs); /* Small internal padding (3.2px) for content breathing room */
+  gap: clamp(0.5rem, 1.5vw, 1.5rem); /* Responsive gap between items (e.g., 8px to 24px) */
+  
+  /* Appearance */
+  background-color:transparent; /* No background color */
+  border-style: none; /* No border style */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .secction (if needed for subtle background) */
+.dark-mode .secction {
+  background-color: transparent;
+}
+/* ==== SHARED STYLES FOR ICON CONTAINERS (.viewss, .commentss, .likee, .dislikee, .optionn, .timess) ==== */
+/* These styles apply to all individual interactive elements, ensuring consistent appearance and behavior. */
+.viewss,
+.commentss,
+.likee,
+.dislikee,
+.optionn,
+.timess {
+    /* Flex Item Properties */
+    flex: 1;               /* Allows each item to take equal available space */
+    min-width: 3.5rem;     /* Ensures visibility on very small screens (56px) */
+    max-width: 18%;        /* Prevents excessive stretching on larger screens */
+    flex-shrink: 0;        /* Prevents items from shrinking below their content size by default */
+    
+    /* Sizing & Layout */
+    height: clamp(1.8rem, 3vh, 2rem); /* Responsive height (e.g., between 28.8px and 3vh or 32px) */
+    display: flex;         /* Enables Flexbox for internal alignment of icon and text */
+    align-items: center;   /* Vertically centers icon and text */
+    justify-content: center; /* Horizontally centers icon and text */
+    
+    /* Appearance & Interactivity */
+    background-color: #f0f0f0;
+    border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+    cursor: pointer;       /* Indicates the element is clickable */
+    margin-top: 0.4%;
+    /* Text Handling (for hidden overflow) */
+    overflow: hidden;      /* Hides any content that overflows the container */
+    text-overflow: ellipsis; /* Displays "..." for truncated text */
+    white-space: nowrap;   /* Prevents text from wrapping */
+    /* NO TRANSITIONS as per user request */
+}
+
+.viewss
+{
+  gap:2px;
+}
+
+
+
+/* Hover state for all icon containers */
+.viewss:hover,
+.commentss:hover,
+.likee:hover,
+.dislikee:hover,
+.optionn:hover,
+.timess:hover {
+    background-color: var(--color-bg-hover-light); /* Lighter gray on hover in light mode */
+}
+
+/* Dark mode adjustments for icon containers */
+.dark-mode .viewss,
+.dark-mode .commentss,
+.dark-mode .likee,
+.dark-mode .dislikee,
+.dark-mode .optionn,
+.dark-mode .timess {
+    background-color: var(--color-bg-dark-alt); /* Darker background for dark mode */
+}
+
+/* Dark mode hover state for icon containers */
+.dark-mode .viewss:hover,
+.dark-mode .commentss:hover,
+.dark-mode .likee:hover,
+.dark-mode .dislikee:hover,
+.dark-mode .optionn:hover,
+.dark-mode .timess:hover {
+    background-color: var(--color-bg-hover-dark); /* Specific hover color for dark mode */
+}
+
+/* ==== ADJUSTED FLEX FOR 'TIMESS' SECTION (.timess) ==== */
+/* The 'timess' section is given slightly more space to accommodate potentially longer text. */
+.timess {
+  flex: 1.5;             /* Slightly larger flex value than other items */
+  min-width: 6rem;       /* Ensures sufficient visibility on small screens (96px) */
+}
+/* ==== ICON IMAGES WITHIN SECTIONS (.viewss img, .commentss img, etc.) ==== */
+/* Styles for the icon images displayed within each action/meta-data container. */
+.viewss img,
+.commentss img,
+.likee img,
+.dislikee img,
+.timess img,
+.optionn img {
+    /* Sizing */
+    /* Responsive sizing: scales between 1.8rem (28.8px) and 3rem (48px) */
+    width: clamp(1.8rem, 2.5vh, 3rem);
+    height: clamp(1.8rem, 2.5vh, 3rem);
+    
+    /* Spacing */
+    padding: var(--spacing-xxxs); /* Small padding (3.2px) around the icon */
+    /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for icon images (if needed to invert colors) */
+.dark-mode .viewss img,
+.dark-mode .commentss img,
+.dark-mode .likee img,
+.dark-mode .dislikee img,
+.dark-mode .timess img,
+.dark-mode .optionn img {
+    /* filter: invert(1); if icons are dark and need to be light in dark mode */
+}
+
+/* ==== TEXT LABELS WITHIN SECTIONS (.viewss span, .commentss span, etc.) ==== */
+/* Styles for the numerical data or text labels displayed alongside icons. */
+.viewss span,
+.commentss span,
+.likee span,
+.dislikee span,
+.timess span,
+.optionn span {
+    /* Typography */
+    font-size: var(--font-size-sm); /* Consistent small font size (14px) for readability */
+    color: var(--color-text-primary); /* Default text color for light mode */
+    font-family: var(--font-family-primary); /* Ensures consistent font style */
+    
+    /* Layout & Overflow */
+    margin: 0;               /* Removes default margins for precise control */
+    display: flex;           /* Enables Flexbox for internal centering */
+    align-items: center;     /* Vertically centers text */
+    justify-content: center; /* Horizontally centers text */
+    overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
+    text-overflow: ellipsis; /* Displays "..." for truncated text */
+    white-space: nowrap;     /* Prevents text from wrapping to the next line */
+    /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for text labels */
+.dark-mode .viewss span,
+.dark-mode .commentss span,
+.dark-mode .likee span,
+.dark-mode .dislikee span,
+.dark-mode .timess span,
+.dark-mode .optionn span {
+    color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode contrast */
+}
+
+/* ==== UPLOADS NAVIGATION CONTAINER (.container-4) ==== */
+/* This container organizes navigation items (tabs like videos, playlists) horizontally. */
+.container-4 {
+  /* Layout Properties */
+  display: flex;         /* Enables Flexbox for arranging navigation items */
+  flex-wrap: nowrap;     /* Prevents items from wrapping to the next line by default */
+  justify-content: space-evenly; /* Distributes space evenly between and around items */
+  
+  /* Sizing & Spacing */
+  width: 100%;           /* Spans the full width of its parent */
+  /* Consolidating and converting margins to logical properties and variables */
+  margin-block: var(--spacing-md) var(--spacing-sm); /* Vertical margins (24px top, 8px bottom) */
+  margin-inline: auto;   /* Horizontally centers the container */
+  padding: var(--spacing-xxxs); /* Small internal padding (3.2px) for content breathing room */
+  gap: 3vw;              /* Dynamic gap between items, scaling with viewport width */
+  
+  /* Appearance */
+  background-color:transparent;/* No background color */
+  border-style: none; /* No border style */
+  border-radius: var(--border-radius-xs); /* Consistent small rounded corners (8px) */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .container-4 (if needed for subtle background) */
+.dark-mode .container-4 {
+  background-color: transparent;
+}
+/* ==== INDIVIDUAL NAVIGATION ITEMS (.my-videos, .watchlist, .favorites, .playlist) ==== */
+/* These styles apply to each interactive navigation tab, ensuring consistent appearance. */
+.my-videos,
+.watchlist,
+.favorites,
+.playlist {
+    /* Flex Item Properties */
+    flex-shrink: 0;        /* Prevents items from shrinking below their content size */
+    flex-grow: 0;          /* Prevents items from growing beyond their content size */
+    min-width: 100px;      /* Ensures visibility on small screens */
+    max-width: 180px;      /* Prevents excessive stretching on larger screens */
+    
+    /* Layout & Sizing */
+    display: flex;         /* Enables Flexbox for internal alignment of icon and text */
+    align-items: center;   /* Vertically centers icon and text */
+    gap: var(--spacing-xs); /* Consistent spacing (8px) between icon and text */
+    height: auto;          /* Height adjusts based on content */
+    
+    /* Appearance & Interactivity */
+    background-color: #f0f0f0;
+    border-radius: 0.4375rem;
+    padding: var(--spacing-xxs-half) var(--spacing-xxxs); /* Responsive padding (2.4px vertical, 3.2px horizontal) */
+    cursor: pointer;       /* Indicates the element is clickable */
+    /* NO TRANSITIONS as per user request */
+}
+
+/* Hover state for all navigation items */
+.my-videos:hover,
+.watchlist:hover,
+.favorites:hover,
+.playlist:hover {
+    background-color: transparent; /* No background change on hover as per original */
+}
+
+/* Dark mode adjustments for nav items (if needed for subtle background/borders) */
+.dark-mode .my-videos,
+.dark-mode .watchlist,
+.dark-mode .favorites,
+.dark-mode .playlist {
+    background-color: transparent;
+}
+
+/* ==== IMAGES INSIDE NAV ITEMS (.my-videos img, .watchlist img, etc.) ==== */
+/* Styles for the icons displayed within each navigation tab. */
+.my-videos img,
+.watchlist img,
+.favorites img,
+.playlist img {
+    /* Sizing */
+    width: 2.5vw;  /* Width scales with viewport width */
+    height: 2.5vw; /* Height scales with viewport width, maintaining aspect ratio */
+    /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for nav item images (if needed to invert colors) */
+.dark-mode .my-videos img,
+.dark-mode .watchlist img,
+.dark-mode .favorites img,
+.dark-mode .playlist img {
+    /* filter: invert(1); if icons are dark and need to be light in dark mode */
+}
+/* ==== TEXT LABELS INSIDE NAV ITEMS (.my-videos span, .watchlist span, etc.) ==== */
+/* Styles for the text labels displayed within each navigation tab. */
+.my-videos span,
+.watchlist span,
+.favorites span,
+.playlist span {
+    /* Typography */
+    /* Fluid font size: scales between 0.85rem (13.6px) and 1.1rem (17.6px) based on viewport */
+    font-size: clamp(0.85rem, 2.5vw, 1.1rem);
+    font-weight: var(--font-weight-semibold); /* Semibold font weight for clear readability */
+    color: #333333;
+    
+    /* Layout & Overflow */
+    white-space: nowrap;     /* Prevents text from wrapping */
+    overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
+    text-overflow: ellipsis; /* Displays "..." for truncated text */
+    margin-block-start: var(--spacing-xxxs-half); /* Small top margin (2.4px) for vertical alignment */
+    /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for text labels */
+.dark-mode .my-videos span,
+.dark-mode .watchlist span,
+.dark-mode .favorites span,
+.dark-mode .playlist span {
+  color: #FFFFFF; /* Lighter text color for dark mode contrast */
+}
+
+/* Optional: Improve responsiveness on very small screens */
+@media (max-width: 480px) {
+  .my-videos,
+  .watchlist,
+  .favorites,
+  .playlist {
+    min-width: 45%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .container-4 {
+    gap: 1rem;
+  }
+}
+
+/* ==== HIDDEN CONTAINERS (PLACEHOLDER/FUTURE USE) ==== */
+/* These containers are initially hidden, likely to be revealed dynamically. */
+.container-5,
+.container-6,
+.container-7 {
+    display: none; /* Hides these containers by default */
+}
+/* ==== TAB SPECIFIC STYLES (.tab) ==== */
+/* Base styles for individual navigation tabs. */
+.tab {
+  border-radius: var(--border-radius-xs); /* Consistent small rounded corners (8px) */
+  background-color: transparent; /* Transparent background by default */
+  color: black; /* Default text color for tabs in light mode */
+  border-block-end: 3px solid black; /* Default transparent bottom border */
+  border-block-start: 3px solid black; /* Default transparent top border */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Light Mode: Active Tab State - MODIFIED */
+/* Styles for the currently selected/active tab in light mode with black background and white text. */
+@media (prefers-color-scheme: light) {
+  .tab.active-tab {
+      background-color: black; /* Black background for active tab */
+      border-block-end: 3px solid black; /* Black bottom border for active tab */
+      border-block-start: 3px solid black; /* Black top border for active tab */
+    
+  }
+
+  .tab.active-tab span {
+      color: black; /* Ensures text color matches active tab background */
+  }
+}
+
+
+/* Dark Mode: Active Tab State - MODIFIED */
+/* Styles for the currently selected/active tab in dark mode with white background and black text. */
+@media (prefers-color-scheme: dark) {
+  .tab.active-tab {
+      background-color:transparent; /* White background for active tab */
+      border-block-end: 3px solid white; /* Greenyellow bottom border for active tab */
+      border-block-start: 3px solid white; /* Greenyellow top border for active tab */
+      color: var(--color-active-tab-dark-text); /* Black text color for active tab */
+  }
+  
+  .tab.active-tab span {
+      color: black; /* Ensures text color matches active tab background */
+  }
+
+  .dark-mode .tab.active-tab span {
+    color: white; /* Ensures text color matches active tab background */
+}
+
+}
+
+:root {
+  /* ... existing variables ... */
+
+  /* Active Tab Specific Colors - Light Mode */
+  --color-active-tab-light-bg: black;
+  --color-active-tab-light-text: white;
+  --color-active-tab-light-border: black; /* Assuming borders stay black in light mode */
+
+  /* Active Tab Specific Colors - Dark Mode */
+  --color-active-tab-dark-bg: white;
+  --color-active-tab-dark-text: black;
+  --color-active-tab-dark-border: greenyellow; /* Assuming borders stay greenyellow in dark mode */
+
+  /* ... other variables ... */
+}
+
+
+/* ==== MAIN CONTENT CONTAINER (.content-container) ==== */
+/* This is the primary wrapper for displaying various content items (videos, series, etc.),
+   setting up a flexible and responsive grid. */
+   .content-container {
+    /* Positioning & Flex Properties */
+    position: relative;        /* Allows for precise positioning of children if needed */
+    display: flex;             /* Enables Flexbox for arranging content items */
+    flex-wrap: wrap;           /* Allows content items to wrap to the next line as space dictates */
+    justify-content: flex-start; /* Aligns content items to the start of the container */
+    flex: 1;                   /* Allows this container to take available space in its parent */
+
+    /* Sizing & Spacing */
+    width: 100%;               /* Spans the full width of its parent */
+    height: auto;              /* Height adjusts dynamically based on content */
+    top: var(--spacing-xs);    /* Positions the container 1rem (16px) down from its natural flow */
+    padding-block: var(--spacing-xs); /* Adds vertical padding (16px top/bottom) for content breathing room */
+    gap:20px;
+
+    /* Appearance & Overflow */
+    background-color: transparent; /* Ensures a transparent background */
+    border-radius: var(--border-radius-xs); /* Consistent small rounded corners (7px) */
+    border-style: none; /* No border style */       /* Removes any default border style */
+    overflow: hidden;          /* Hides any content that extends beyond the container's bounds */
+    /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .content-container (if needed for subtle background) */
+.dark-mode .content-container {
+    background-color: transparent;
+}
+
+/* ==== UNIQUE BACKGROUNDS FOR CONTENT SECTIONS (.container-1, .container-5, .container-6, .container-7) ==== */
+/* These specific containers, likely for different content types (videos, series, etc.),
+   are set to have transparent backgrounds by default. */
+   .container-1,
+   .container-5,
+   .container-6,
+   .container-7 {
+       background-color: transparent; /* Ensures all these containers have a transparent background */
+   }
+   
+   /* Dark mode adjustment for these specific containers */
+   .dark-mode .container-1,
+   .dark-mode .container-5,
+   .dark-mode .container-6,
+   .dark-mode .container-7 {
+       background-color: transparent; /* Remain transparent in dark mode */
+   }
+/* 💻 DESKTOP & TABLET OPTIMIZATION (up to 1024px wide) */
+@media screen and (max-width: 1024px) {
+  .container-1 {
+      /* Adjusts width to create slight side margins and centers it */
+      width: calc(100% - var(--spacing-lg)); /* Example: 10% combined margin (102.4px at 1024px screen) */
+      margin-inline: auto;                   /* Centers the container horizontally */
+      justify-content: space-around;         /* Distributes items with space around them */
+      left: auto;                            /* Ensures left is auto, not fixed to 5% */
+  }
+
+  /* .kontainer would typically be the individual content item within .content-container.
+     Its responsive sizing is crucial for grid adaptability. */
+  .kontainer {
+      /* Fluid width: scales between 40% and 48% of its parent, clamping to 45% as preferred */
+      width: clamp(40%, 45%, 48%);
+  }
+}
+
+/* tablet OPTIMIZATION (up to 768px wide) */
+@media screen and (max-width: 768px) {
+  .container-1 {
+      width: 100%;           /* Takes full width to maximize space */
+      left: auto;            /* Ensures no fixed left offset */
+      gap: var(--spacing-xs); /* Sets a consistent gap (16px) between items */
+  }
+
+  .kontainer {
+      width: 48%;            /* Allows two items per row */
+  }
+}
+
+/* 📱 MOBILE OPTIMIZATION (up to 480px wide) */
+@media screen and (max-width: 480px) {
+  .container-1 {
+      width: 100%;           /* Ensures full width */
+      left: auto;            /* Removes any left offset */
+      justify-content: center; /* Centers items when they stack */
+  }
+
+  .kontainer {
+      width: 90%;            /* Allows one large item per row, with some side padding */
+      margin-block-end: var(--spacing-md); /* Adds extra bottom margin (24px) for spacing between stacked items */
+  }
+}
+
+
+/* ==== HORIZONTAL SCROLL AREA CONTAINER (.scroll-area) ==== */
+/* This container displays content items side-by-side, enabling smooth horizontal scrolling with snap-points. */
+.scroll-area {
+  /* Layout Properties */
+  display: flex;         /* Enables Flexbox for arranging items horizontally */
+  flex-wrap: wrap;     /* Prevents items from wrapping to the next line */
+  flex-direction: row;   /* Explicitly sets items in a row */
+  justify-content: flex-start; /* Aligns content items to the start of the container */
+  align-items: center;   /* Vertically centers content items within the scroll area */
+  
+  /* Sizing & Spacing */
+  width: 100%;           /* Spans the full width of its parent */
+  height: 100%;          /* Takes full height of its parent */
+  gap:5px;
+  padding-inline: 0;     /* No horizontal padding */
+  padding-block: 0;      /* No vertical padding */
+  
+  /* Scrolling & Appearance */
+  overflow-x:hidden;    /* Enables horizontal scrolling */
+  overflow-y: hidden;    /* Hides vertical scrollbar */
+  scroll-snap-type: x mandatory; /* Ensures content snaps to defined points horizontally */
+  background-color:transparent; /* Transparent background */
+  z-index: 0;            /* Default stacking context */
+  
+  /* Scrollbar Styling (Modern Browsers) */
+  scrollbar-width: thin; /* Makes the scrollbar thinner */
+  scrollbar-color: var(--color-scrollbar-thumb) transparent; /* Custom scrollbar color (thumb and track) */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for scrollbar color */
+.dark-mode .scroll-area {
+  scrollbar-color: var(--color-scrollbar-thumb-dark) var(--color-scrollbar-track-dark); /* Dark mode scrollbar colors */
+}
+
+/* ==== INDIVIDUAL SHORT VIDEO CONTAINER (.shorts) ==== */
+/* This container acts as a card for a single short video, maintaining a vertical aspect ratio. */
+.shorts {
+  /* Positioning & Sizing */
+  position: relative;    /* Allows for absolute positioning of child elements (video, overlay) */
+  width: 100%;           /* Takes full width of its designated column in layout */
+  max-width: 250px;      /* Limits the maximum width of the short video card */
+  aspect-ratio: 9 / 16;  /* Crucial: Ensures a vertical 9:16 aspect ratio for shorts */
+  /* Spacing & Appearance */
+  margin-block: var(--spacing-xs); /* Top and bottom margin (16px) */
+  margin-inline-start: var(--spacing-xs); /* **Adjusted left margin (4px) for slight offset** */
+  border-radius: var(--border-radius-md); /* Consistent medium rounded corners (12px) */
+  background-color:transparent; /* Transparent background */
+  overflow: hidden;      /* Hides any content that overflows the rounded corners */
+  /* NO TRANSITIONS as per user request */
+gap:1rem;
+border-style: none;
+  margin: 1rem 0 1rem 3rem;
+}
+
+/* Dark mode adjustment for .shorts (if needed for subtle background/shadows) */
+.dark-mode .shorts {
+  background-color: transparent;
+}
+
+/* ==== SHORT VIDEO ELEMENT (.short-video) ==== */
+/* Styles for the actual video element within the short video card. */
+.short-video {
+  width: 100%;           /* Ensures the video fills the entire width of its parent */
+  height: 100%;          /* Ensures the video fills the entire height of its parent */
+  object-fit: cover;     /* Ensures the video covers the area without distortion, cropping if necessary */
+  border-radius: inherit; /* Inherits the border-radius from its parent `.shorts` for seamless corners */
+  display: block;        /* Ensures the video behaves as a block element */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* ==== PLAY OVERLAY BUTTON (.play-overlay) ==== */
+/* Styles for the play button overlay displayed on top of the short video. */
+.play-overlay {
+  position: absolute;    /* Positions the button absolutely within its parent `.shorts` */
+  top: 50%;              /* Aligns its top edge to the vertical center */
+  left: 50%;             /* Aligns its left edge to the horizontal center */
+  transform: translate(-50%, -50%); /* Precisely centers the button */
+  width: 40px;           /* Fixed width for the play button */
+  height: 40px;          /* Fixed height for the play button */
+  display: block;        /* Ensures it behaves as a block element */
+  cursor: pointer;       /* Changes cursor to pointer to indicate clickability */
+  opacity: 1;            /* Fully opaque by default */
+  z-index: 2;            /* Ensures it appears above the video but below the overlay link */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for play overlay (if using an image icon) */
+.dark-mode .play-overlay {
+  /* filter: invert(1); if the play icon is dark and needs to be light in dark mode */
+}
+
+/* ==== OVERLAY LINK (.overlay-link) ==== */
+/* This element provides a clickable area covering the entire video card for navigation. */
+.overlay-link {
+  position: absolute;    /* Positions the link absolutely within its parent `.shorts` */
+  inset: 0;              /* Shorthand for top: 0; right: 0; bottom: 0; left: 0; covers the entire parent */
+  z-index: 3;            /* Ensures it is on top of both the video and the play overlay for clickability */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* ==== VIEWS OVERLAY (.views-overlay) ==== */
+.views-overlay {
+  position: absolute;
+  top: 8px;           /* ⬆️ Move to the top */
+  left: 8px;          /* Slight inset from the left */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+  padding: 4px 8px;
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  z-index: 4;         /* Always above video and play button */
+}
+
+/* 👁️ Icon inside views overlay */
+.views-icon {
+  width: 17px;
+  height: 17px;
+  filter: invert(1); /* Keeps icon visible even if dark */
+}
+
+/* 🔢 Text inside views overlay */
+.views-text {
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 🌙 Dark Mode Adjustments */
+.dark-mode .views-overlay {
+  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+}
+
+.dark-mode .views-text {
+  color: #f5f5f5;
+}
+
+
+/* ==== INDIVIDUAL VIDEO CONTAINERS (.kontainer) ==== */
+/* These containers are sized for a higher density of videos per row, ideal for a full uploads gallery. */
+.kontainer {
+  /* Positioning & Sizing */
+  position: relative;    /* Allows for precise positioning of child elements */
+  /* Fluid width: scales between 18% and 22% of its parent, aiming for 20% by default.
+     This enables 4-5 videos per row on larger screens. */
+  width: clamp(18%, 20vw, 22%); 
+  height: auto;          /* Height adjusts dynamically based on content and aspect ratio */
+  
+  /* Spacing & Appearance */
+  background-color:violet;/* Light background for the video card */
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  cursor: pointer;       /* Indicates the element is clickable */
+  margin-inline-start: 2.7%; /* Left margin (1.8% of parent) for initial alignment */
+  margin-block-end:20px; /* Small bottom margin (4px) for spacing between rows */
+  padding-block-end: 0;  /* No bottom padding */
+  border-style: none;    /* Removes any default border style */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .kontainer background and shadow */
+.dark-mode .kontainer {
+  background-color: transparent; /* Darker background for dark mode */
+  /* Consider adding: box-shadow: var(--shadow-sm-dark); if needed for depth in dark mode */
+}
+
+/* ==== VIDEO THUMBNAILS (.kontainer img) ==== */
+/* These styles ensure video thumbnails fit perfectly within their smaller container,
+   maintaining aspect ratio and visual appeal. */
+   .kontainer img {
+    width: 100%;           /* Ensures the image fills the entire width of its parent container */
+    height: auto;          /* Maintains aspect ratio, adjusting height automatically */
+    border-radius: var(--border-radius-xs); /* Consistent small rounded corners (8px) matching parent */
+    object-fit: cover;     /* Ensures the image covers the area without distortion, cropping if necessary */
+    /* NO TRANSITIONS as per user request */
+}
+
+
+/* ==== PROFILE SECTION WITHIN VIDEO CARD (.profilee) ==== */
+/* This section displays the account owner's profile image and name at the top of each video card. */
+.profilee {
+  /* Layout & Sizing */
+  display: flex;         /* Enables Flexbox for horizontal arrangement of profile image and name */
+  align-items: center;   /* Vertically centers the items */
+  width: 100%;           /* Spans the full width of its parent */
+  max-width: 100%;       /* Ensures it doesn't exceed parent width */
+  height: var(--size-profilee-height); /* Consistent height (32px) */
+  
+  /* Spacing & Appearance */
+  background-color:transparent; /* Transparent background */
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  gap: var(--spacing-xxs); /* Consistent spacing (8px) between image and name */
+  padding: 0;            /* No internal padding */
+  margin-block-end: 0;   /* No bottom margin */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .profilee */
+.dark-mode .profilee {
+  background-color: transparent;
+}
+
+/* Profile Image */
+.profilee img {
+  width: 2.2rem; /* 35px converted to rem */
+  height: 2.2rem;
+  border-radius: 50%;
+  margin-left: 1%;
+  object-fit: cover;
+  background-color: transparent;
+}
+
+.dark-mode .profilee img
+{
+  filter: invert(1);
+}
+
+/* ==== PROFILE NAME CONTAINER (.profilee-name) ==== */
+/* This container wraps the profile name, ensuring it behaves correctly within the flex layout. */
+.profilee-name {
+  /* Layout & Sizing */
+  flex-grow: 1;          /* Allows the name to take up available horizontal space */
+  height: 100%;          /* Takes full height of its parent */
+  display: flex;         /* Enables Flexbox for internal centering */
+  align-items: center;   /* Vertically centers the text */
+  overflow: hidden;      /* Hides overflowing content */
+  white-space: nowrap;   /* Prevents text from wrapping */
+  
+  /* Appearance */
+  background-color: transparent; /* Transparent background */
+  border-radius: var(--border-radius-none); /* No border radius */
+  /* NO TRANSITIONS as per user request */
+}
+/* ==== PROFILE NAME LABEL (.profilee-name span) ==== */
+/* Styles for the actual text content of the profile name. */
+.profilee-name span {
+  /* Typography */
+  font-size: var(--font-size-base-lg); /* Consistent font size (18px) */
+  font-weight: var(--font-weight-bold); /* Bold font weight */
+  color: #36454F;
+  /* Text Handling & Spacing */
+  white-space: nowrap;     /* Prevents text from wrapping */
+  overflow: hidden;        /* Hides overflowing text */
+  text-overflow: ellipsis; /* Displays "..." for truncated text */
+  max-width: 100%;         /* Ensures text doesn't exceed container width */
+  padding: var(--spacing-xxs-half); /* Small padding (5px) around the text */
+  margin-inline-start: 0; /* No left margin */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for profile name label */
+.dark-mode .profilee-name span {
+  color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode */
+}
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .profilee {
+    padding: 0.3125rem 0.75rem;
+  }
+
+  .profilee img {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .profilee-name span{
+    font-size: 0.9375rem; /* Slightly smaller text */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profilee {
+    flex-direction: row;
+    align-items: center;
+    padding: 0.3125rem 0.5rem;
+  }
+
+  .profilee img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .profilee-name span {
+    font-size: 0.875rem;
+  }
+}
+
+/* ========================================================================== */
+/* OPTIONS POPUP & BUTTON                                                     */
+/* Styles for the context menu (pop-up) and its associated button.            */
+/* ========================================================================== */
+.opttions {
+  position: relative;
+  background-color: transparent;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.opttions img {
+  width: var(--spacing-sm); /* 12px converted to rem */
+  height: var(--spacing-sm);
+  margin-top: var(--spacing-xs); /* 8px converted to rem */
+  cursor: pointer;
+}
+
+/* === Popup Styling === */
+.opttions-popup {
+  position: absolute;
+  top: calc(100% + var(--spacing-xs)); /* Position below the button */
+  right: 0;
+  background-color: var(--color-text-light);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-sm); /* Using variable for consistency */
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15); /* Rem-based shadow */
+  z-index: 5000;
+  padding: 0.1rem 0.5rem; /* Using rem units */
+  min-width: 9.375rem; /* 150px converted to rem */
+  padding-bottom: 0;
+}
+
+.dark-mode .opttions-popup {
+  background-color: var(--color-dark-mode-bg-primary);
+  border-color: var(--color-dark-mode-border);
+}
+
+/* === Popup Item Styling === */
+.opttions-popup .popup-item {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xxs); /* Using variable for consistency */
+  padding: 0;
+  margin-top: 0.1875rem; /* 3px converted to rem */
+  margin-bottom: 0.3125rem; /* 5px converted to rem */
+  font-size: var(--font-size-sm); /* Using a variable to scale with the design */
+  color: var(--color-text-dark);
+  background-color: var(--color-text-light);
+  border-radius: var(--border-radius-xs);
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.opttions-popup .popup-item:hover {
+  background-color: #e0e0e0;
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .opttions-popup .popup-item:hover {
+  background-color: #4a4a4a;
+  color: var(--color-dark-mode-text-primary);
+}
+
+
+/* === Icon Styling === */
+.opttions-popup .popup-item img {
+  width: 1.3rem;
+  height: 1.3rem;
+  object-fit: contain;
+  transition: filter 0.3s;
+}
+
+/* === Dark Mode === */
+.dark-mode .opttions-popup .popup-item {
+  background-color: #333;
+  color: white;
+}
+
+.dark-mode .opttions-popup .popup-item img {
+  filter: invert(1) brightness(1.2);
+}
+
+/* Reset unwanted icon housing styles */
+.opttions-popup .popup-item img,
+.shareee-popup .popup-item img,
+.metadata-popup .popup-item img,
+.optionn-popup .popup-item img,
+.share-popup .popup-item img {
+  width: 1.3rem;
+  height: 1.3rem;
+  object-fit: contain;
+  background: none !important;
+  /* Remove any background */
+  border: none !important;
+  /* Remove border */
+  padding: 0 !important;
+  /* Remove internal spacing */
+  border-radius: 0 !important;
+  /* Remove circular shape */
+  box-shadow: none !important;
+  /* Remove glow/shadow */
+}
+
+
+/* ========================================================================== */
+/* UTILITIES                                                                  */
+/* ========================================================================== */
+.hidden {
+  display: none !important;
+}
+
+
+
+
+
+/* ==== CAPTION CONTAINER (.caption) ==== */
+/* This container holds the video title or description within a video card. */
+.caption {
+  /* Sizing & Layout */
+  width: 100%;       /* Ensures it spans the full width of its parent (.kontainer) */
+  height: 2.5rem;  /* Consistent height (30px) for single-line captions */
+  
+  /* Flex Container Properties */
+  display: flex;         /* Enables a flexible layout for its content (caption text) */
+  align-items: center;   /* Vertically centers content within the container */
+  justify-content: center; /* Horizontally centers content within the container */
+  
+  /* Appearance & Overflow */
+  background-color:transparent; /* No background color, allowing parent's background to show */
+  overflow: hidden;    /* Hides any content that overflows the container boundaries */
+  /* `background: scroll` is often default and not needed here for visual styling. */
+  margin-bottom: 0%;
+  /* Spacing */
+  padding: 0 var(--spacing-xs); /* Responsive horizontal padding (8px) for internal spacing */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .caption container */
+.dark-mode .caption {
+  background-color: transparent; /* Remains transparent in dark mode */
+}
+/* ==== CAPTION TEXT (.caption span) ==== */
+/* Styles for the actual text content of the caption. *//* ==== CAPTION TEXT (.caption span) ==== */
+/* Styles for the actual text content of the caption, ensuring readability and truncation. */
+.caption span {
+  font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+  font-weight: var(--font-weight-bold); /* Bold font weight */
+  font-size: var(--font-size-sm-plus); /* Consistent font size (15.5px) */
+  color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
+  
+  /* Sizing & Flex Item Properties */
+  height: 100%; /* Fills the height of its parent container for vertical centering */
+  flex-grow: 1; /* Allows the text to grow and take available space */
+
+  /* Text Handling */
+  white-space: nowrap;     /* Prevents text from wrapping to the next line */
+  overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
+  text-overflow: ellipsis; /* Displays "..." to indicate truncated text */
+  text-align: center;      /* Centers the text within its own allocated space */
+  max-width: 100%;         /* Ensures text doesn't push parent width */
+  
+  /* Spacing */
+margin-top: 10%;
+margin-bottom: 5%;
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for caption text */
+.dark-mode .caption span {
+  color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode */
+}
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .caption {
+    height: auto; /* Allows for multiple lines if necessary */
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .caption span {
+    font-size: 0.9375rem; /* Slightly smaller for mobile */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .caption {
+    height: auto;
+    padding: 0.3125rem; /* Adjusted for compact screens */
+  }
+
+  .caption span {
+    font-size: 0.875rem; /* Smaller font size */
+  }
+}
+
+
+/* ==== VIDEO PLAYER CONTAINER (.videoo) ==== */
+/* This container holds the video player, ensuring it's centered and manages overflow. */
+.videoo {
+  /* Positioning & Layout */
+  position: relative;    /* Allows for absolute positioning of children (e.g., overlay text) */
+  display: flex;         /* Enables Flexbox for centering video */
+  justify-content: center; /* Horizontally centers the video */
+  align-items: center;   /* Vertically centers the video */
+  overflow: hidden;      /* Hides any content that extends beyond the container's bounds */
+  
+  /* Sizing & Spacing */
+  width: 100%;           /* Spans the full width of its parent */
+  height: auto;          /* Height adjusts dynamically based on video content */
+  margin-block-start: var(--spacing-xxxs); /* Small top margin (1px) */
+  /* NO TRANSITIONS as per user request */
+}
+/* ==== VIDEO ELEMENT (.videoo video) ==== */
+/* Styles for the actual HTML <video> element, ensuring it fits its container elegantly. */
+.videoo video {
+  width: 100%;           /* Ensures the video fills the entire width of its parent */
+  height: var(--size-video-player-height); /* Consistent height (200px) */
+  object-fit: cover;     /* Ensures the video covers the area without distortion, cropping if necessary */
+  border-radius:7px; /* Consistent small rounded corners (7px) */
+  display: block;        /* Ensures the video behaves as a block element */
+  pointer-events: none;  /* Prevents clicks on the video itself, allowing overlays to capture events */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for video element (if needed for filters) */
+.dark-mode .videoo video {
+  /* filter: brightness(0.8); if you want to slightly darken videos in dark mode */
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .videoo video {
+    height: 10rem; /* Adjusted for tablets */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .videoo video {
+    height: 8.5rem; /* Adjusted for mobile */
+  }
+}/* ==== OVERLAY TEXT (.overlay-textt) ==== */
+/* This text overlay typically displays video duration or other quick information. */
+.overlay-textt {
+  position: absolute;
+  inset-inline-start: 2%;
+  inset-block-end: 4%;
+  min-width: 12%;
+  max-width: 25%;
+  height: auto;
+
+  /* Typography & Appearance */
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  border-radius: var(--border-radius-sm);
+  padding: 3px 6px; /* ✅ More comfortable internal padding */
+  font-size: clamp(0.5rem, 1vw, 0.9rem);
+
+  /* Text Handling & Layout */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-word;
+}
+
+/* Mobile Adjustments */
+@media screen and (max-width: 768px) {
+  .overlay-textt {
+    max-width: 35%;
+    font-size: clamp(0.7rem, 2vw, 0.875rem);
+    bottom: 3.5%;
+    left: 3%;
+    padding: 4px 7px; /* Slightly bigger padding on mobile */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .overlay-textt {
+    max-width: 45%;
+    font-size: 0.75rem;
+    padding: 5px 8px; /* Even larger padding for readability */
+    bottom: 3%;
+    left: 3%;
+  }
+}
+
+/* ==== SECTION FOR VIDEO META-DATA (.sectiionn) ==== */
+/* This section typically holds meta-data like views, upload time, and category. */
+.sectiionn {
+  /* Layout & Sizing */
+  display: flex;         /* Enables Flexbox for horizontal arrangement */
+  width: 100%;           /* Spans the full width of its parent */
+  justify-content: space-between; /* Distributes items with space between them */
+  align-items: center;   /* Vertically centers items */
+  flex-wrap: nowrap;     /* Prevents items from wrapping by default */
+  gap: var(--spacing-xxxs); /* Small gap (3.2px) between items */
+  
+  /* Spacing & Appearance */
+  background-color:transparent; /* Transparent background */
+  margin-block-start: var(--spacing-xxxs); /* Small top margin (1px) */
+  margin-block-end: var(--spacing-xxxs); /* Small bottom margin (1px) */
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  padding-inline: 0;     /* No horizontal padding */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .sectiionn */
+.dark-mode .sectiionn {
+  background-color: transparent;
+}/* ==== INDIVIDUAL META-DATA ITEMS (.views, .time, .category) ==== */
+/* These are the individual containers for views, time, and category text/icons. */
+.views,
+.time,
+.category {
+    /* Flex Item Properties */
+    flex: 1 1 0;           /* Allows items to grow/shrink from a base of 0 */
+    max-width: 33.3%;      /* Ensures items don't take more than a third of the width */
+    min-width: 0;          /* Allows items to shrink as much as needed */
+    
+    /* Layout & Sizing */
+    height: var(--size-stat-item-height); /* Consistent height (28.8px) */
+    display: flex;         /* Enables Flexbox for internal alignment */
+    align-items: center;   /* Vertically centers content */
+    overflow: hidden;      /* Hides overflowing content */
+    
+    /* Spacing & Appearance */
+    background-color:transparent; /* Transparent background */
+    margin-block: var(--spacing-xxxs-quarter); /* Small vertical margin (1.6px) */
+    border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+    /* NO TRANSITIONS as per user request */
+}
+
+/* Specific adjustments for .views */
+.views {
+    margin-inline-start: 0; /* No left margin */
+    gap: 3px; /* Small gap (5px) between icon and text */
+    justify-content: flex-start; /* Aligns content to the start */
+    background-color: transparent;
+}
+
+/* Specific adjustments for .time */
+.time {
+    justify-content: flex-end; /* Aligns content to the end */
+}
+
+/* Dark mode adjustment for meta-data items */
+.dark-mode .views,
+.dark-mode .time,
+.dark-mode .category {
+    background-color: transparent;
+}
+
+
+/* ==== ICON IMAGES WITHIN META-DATA ITEMS (.views img) ==== */
+/* Styling for icons like a "views" eye icon. */
+.views img {
+  /* Sizing */
+  /* Fluid sizing: scales between 16px and 24px */
+  width: clamp(16px, 1.8vw, 24px);
+  height: clamp(16px, 1.8vw, 24px);
+  
+  /* Spacing */
+  margin-inline-start: var(--spacing-xxs-half); /* Left margin (5px) */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for meta-data images */
+.dark-mode .views img {
+  /* filter: invert(1); if icons are dark and need to be light in dark mode */
+}
+/* ==== INDIVIDUAL META-DATA TEXT LABELS (.views span, .time span, .category span) ==== */
+/* These styles ensure consistency in typography and text handling, with specific alignment adjustments for each data point. */
+.views span,
+.time span,
+.category span {
+    /* Typography */
+    color: var(--color-text-primary); /* Black text color for light mode */
+    font-size: clamp(0.75rem, 1vw, 0.875rem); /* Responsive font size */
+    
+    /* Layout & Text Handling */
+    margin: 0;               /* Removes default margins */
+    display: flex;           /* Enables Flexbox for internal alignment */
+    align-items: center;     /* Vertically centers text */
+    white-space: nowrap;     /* Prevents text from wrapping */
+    overflow: hidden;        /* Hides overflowing text */
+    text-overflow: ellipsis; /* Displays "..." for truncated text */
+    /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for meta-data text labels */
+.dark-mode .views span,
+.dark-mode .time span,
+.dark-mode .category span {
+    color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode */
+}
+
+/* Specific adjustment for .time span */
+.time span {
+    margin-inline-end: var(--spacing-xxs); /* Right margin (10px) */
+}
+
+/* Specific alignment for .views span */
+.views span {
+    justify-content: flex-start; /* Aligns content to the start */
+}
+
+/* Specific alignment for .time span */
+.time span {
+    justify-content: flex-end; /* Aligns content to the end */
+}
+
+/* Specific alignment for .category span - NEW */
+.category span {
+    justify-content: center; /* **Centers the category text** */
+    margin-left: 10px;
+}
+/* 💻 TABLET & MOBILE OPTIMIZATION (up to 768px wide) */
+@media screen and (max-width: 768px) {
+  /* Profile Section */
+  .profilee {
+      padding: var(--spacing-xxs-half) var(--spacing-xxs); /* Adjusted padding */
+  }
+
+  .profilee img {
+      width: var(--size-profilee-img); /* Maintain size */
+      height: var(--size-profilee-img); /* Maintain size */
+  }
+
+  .profilee-name span {
+      font-size: var(--font-size-base); /* Slightly smaller text (15px) */
+  }
+
+  /* Caption Section */
+  .caption {
+      height: auto;      /* Allows for multiple lines if necessary */
+      flex-wrap: wrap;   /* Allows text to wrap */
+      text-align: center; /* Centers text */
+  }
+
+  .caption span {
+      font-size: var(--font-size-base); /* Slightly smaller for tablets */
+  }
+
+  /* Video Player */
+  .videoo video {
+      height: 10rem; /* Adjusted height (160px) for tablets */
+  }
+
+  /* Overlay Text */
+  .overlay-textt {
+      max-width: 35%;    /* Wider on tablets */
+      font-size: clamp(0.7rem, 2vw, 0.875rem); /* Responsive font size for tablets */
+      inset-block-end: 3.5%; /* Adjusted bottom position */
+      inset-inline-start: 3%; /* Adjusted left position */
+  }
+
+  /* Meta-Data Section */
+  .sectiionn {
+      flex-wrap: wrap;       /* Allows meta-data items to wrap */
+      justify-content: center; /* Centers items when wrapped */
+      gap: var(--spacing-xxs-half); /* Increased gap (8px) between wrapped items */
+  }
+
+  .views,
+  .time,
+  .category {
+      flex: 1 1 100%;      /* Each item takes full width when wrapped */
+      max-width: 100%;     /* Max width also 100% */
+      justify-content: center; /* Centers content within item */
+  }
+
+  .views img {
+      max-width: 20px;     /* Limits image size */
+  }
+}
+
+/* 📱 MOBILE OPTIMIZATION (up to 480px wide) */
+@media screen and (max-width: 480px) {
+  /* Profile Section */
+  .profilee {
+      flex-direction: row; /* Ensure row direction */
+      align-items: center; /* Vertically center items */
+      padding: var(--spacing-xxs-half) var(--spacing-xxs-half); /* Compact padding */
+  }
+
+  .profilee img {
+      width: 2rem;         /* Smaller image (32px) */
+      height: 2rem;        /* Smaller image (32px) */
+  }
+
+  .profilee-name span {
+      font-size: var(--font-size-sm); /* Smaller text (14px) */
+  }
+
+  /* Caption Section */
+  .caption {
+      height: auto;      /* Maintain auto height */
+      padding: var(--spacing-xxs-half); /* More compact padding */
+  }
+
+  .caption span {
+      font-size: var(--font-size-sm); /* Smaller font size (14px) for mobile */
+  }
+
+  /* Video Player */
+  .videoo video {
+      height: 8.5rem; /* Even smaller height (136px) for mobile */
+  }
+
+  /* Overlay Text */
+  .overlay-textt {
+      max-width: 45%;    /* Wider on mobile */
+      font-size: 0.75rem; /* Fixed smaller font size (12px) */
+      padding: 0.3rem 0.5rem; /* Increased padding for better touch */
+      inset-block-end: 3%;   /* Adjusted bottom position */
+      inset-inline-start: 3%; /* Adjusted left position */
+  }
+}
+
+
+/* Light Mode Styles */
+.light-mode {
+  background-color: white; /* White background for Light Mode */
+  color: black; /* Black text for Light Mode */
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #121212; /* Black background for Dark Mode */
+  color: white; /* White text for Dark Mode */
+}
+
+
+.net-text {
+  color: red; /* Black color for NET in light mode */
+  font-size: 2em; /* Adjust size as needed */
+}
+
+.toon-text {
+  color: red; /* Red color for TOON in light mode */
+  font-size: 2em; /* Adjust size as needed */
+}
+
+
+
+.dark-mode .net-text {
+  color: red; /* White color for NET in dark mode */
+}
+
+.dark-mode .toon-text {
+  color: red;  /* Yellow color for TOON in dark mode */
+}
+
+
+
+.dark-mode .nav input[type="text"]  {
+  color:   #F5F5DC; 
+}
+
+.dark-mode .nav input[type="text"]::placeholder  {
+  color:   #F5F5DC; 
+}
+
+.dark-mode .nav .fx-gap img
+{
+  filter: invert(1);
+
+}
+
+
+.dark-mode .container .nav{
+  background-color: #121212; 
+   }
+
+   .dark-mode .container .Table{
+    background-color: #121212; 
+     }
+
+     .dark-mode .container .Table .overlay-text{
+      background-color: #121212; 
+       }
+
+
+
+.dark-mode .container .search img,
+.dark-mode .container .upload img,
+.dark-mode .container .Notifications img,
+.dark-mode .container .Settings img
+
+{
+  filter: invert(1);
+
+}
+
+.dark-mode .profilee-name span{
+  color: #D3D3D3;
+  }
+
+  .dark-mode .caption span{
+    color:white; 
+    }
+
+
+    .dark-mode .sectiionn .views span,
+    .dark-mode .sectiionn .time span,
+    .dark-mode .sectiionn .category span {
+      color: white;
+    }
+    
+    
+    .dark-mode .sectiionn .views img
+    
+    
+    {
+      filter: invert(1);
+    
+    }
+    
+    
+    .dark-mode .sectiionn .views img
+    {
+      filter: invert(1);
+    
+    }
+
+
+.dark-mode .hero h2{
+  color:white; /* Change to white in dark mode */
+}
+
+
+
+.dark-mode .profail-name h4 {
+  color: white; /* Change to white in dark mode */
+}
+
+.dark-mode .Name {
+ background-color: transparent;
+}
+
+.dark-mode .Name span {
+  color: #D3D3D3;
+ }
+ 
+ .dark-mode .container-2 {
+  background-color: transparent;
+ }
+ 
+ .dark-mode .container-2 h3 {
+  color:   #F5F5DC; 
+  }
+  
+  .dark-mode .container-3 .viewws,
+  .dark-mode .container-3 .followers,
+  .dark-mode .container-3 .videos,
+  .dark-mode .container-3 .country,
+  .dark-mode .container-3 .follow
+  
+  {
+    background-color: transparent;
+  
+  }
+  
+
+  .dark-mode .container-3 .viewws img,
+  .dark-mode .container-3 .followers img,
+  .dark-mode .container-3 .videos img,
+  .dark-mode .container-3 .country img,
+  .dark-mode .container-3 .follow img,
+  .dark-mode .container-3 .following img
+  {
+    filter: invert(1);
+  
+  }
+  
+  .dark-mode .container-3 .viewws span,
+  .dark-mode .container-3 .followers span,
+  .dark-mode .container-3 .videos span,
+  .dark-mode .container-3 .country span,
+  .dark-mode .container-3 .follow span {
+    color: #FFFFFF;
+  }
+  
+
+
+
+.dark-mode .container-4 .my-videos img,
+.dark-mode .container-4 .watchlist img,
+.dark-mode .container-4 .favorites img,
+.dark-mode .container-4 .playlist img,
+.dark-mode .container-4 .community img
+
+{
+  filter: invert(1);
+
+}
+
+/* Dark Mode */
+.dark-mode .square
+{
+  background-color: transparent;
+
+}
+
+.dark-mode .square span
+{
+  color: #D3D3D3;
+
+}
+
+.dark-mode .caaption span
+{
+  color:white; 
+
+}
+
+.dark-mode .about p
+{
+  color:white; 
+
+}
+
+
+.dark-mode .secction .viewss ,
+.dark-mode .secction .commentss ,
+.dark-mode .secction .likee,
+.dark-mode .secction .dislikee,
+.dark-mode .secction .timess,
+.dark-mode .secction .optionn
+{
+  background-color: #2a2d2f;
+
+}
+
+
+.dark-mode .secction .viewss img,
+.dark-mode .secction .commentss img,
+.dark-mode .secction .likee img,
+.dark-mode .secction .dislikee img,
+.dark-mode .secction .optionn img
+{
+  filter: invert(1);
+
+}
+
+.dark-mode .secction .viewss span,
+.dark-mode .secction .commentss span,
+.dark-mode .secction .likee span,
+.dark-mode .secction .dislikee span,
+.dark-mode .secction .timess span,
+.dark-mode .secction .optionn span {
+  color: white;
+}
+
+
+.dark-mode .captionn h3 {
+  color:#A4F4AE; 
+  }
+
+  .dark-mode .profail-name h3{
+    color: #D3D3D3;
+    }
+
+    .dark-mode .caption h4{
+      color:white; 
+      }
+    
+      .dark-mode .captionn h3 {
+        color:white; 
+        }
+      
+
+  .dark-mode .captiion span {
+    color:white; 
+  }
+
+
+  .dark-mode .container .search img,
+  .dark-mode .container .upload img,
+  .dark-mode .container .Notifications img,
+  .dark-mode .container .Settings img
+  
+  {
+    filter: invert(1);
+  
+  }
+
+
+
+  /* Mobile-first default styles (<=320px) */
+
+/* Small phones (up to 480px) */
+@media (max-width: 480px) {
+  .navbar { /* hide menu items, show hamburger */ }
+  .sidebar { display: none; }
+  .main-content { display: flex; flex-direction: column; }
+  .video-player { width: 100%; height: auto; }
+  button, .button { padding: 1rem; min-width: 48px; min-height: 48px; }
+}
+
+/* Medium phones / small tablets (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+ 
+  .container
+  {
+    background-color: saddlebrown;
+  }
+  
+  
+  .nav
+  {
+    background-color: darkkhaki;
+    margin-left: 0px;
+  }
+  
+  .Table {
+    /* Flex Item Properties within .container */
+    flex: 0 0 22%; /* Prevents growing/shrinking and sets initial base width to 15% of parent */
+    height: 100%; /* Matches the height of its parent (.container) */
+  
+    background-color: violet; /* Transparent background for the logo section */
+  
+    inset-inline-start: 0px; /* Aligns to the start (left) edge of the container */
+  }
+  
+  .overlay-text
+  {
+    background-color: darkblue;
+    font-size: 0.7rem;
+  
+    inset-inline-start: 0px;
+  }
+  .search
+  {
+    background-color: seagreen;
+    height:30px;
+  }
+  
+  .upload
+  {
+    background-color: transparent;
+    width: 5vw;
+    height: 5vw;
+  }
+  
+  .Notifications
+  {
+    background-color: transparent;
+    width: 3.5vw;
+    height: 3vw;
+  }
+  
+  .Account 
+  {
+    background-color: transparent;
+    width: 3vw;
+    height: 3vw;
+  }
+  
+  .upload
+  {
+    background-color: transparent;
+    width: 3vw;
+    height: 3vw;
+  }
+  
+  
+  .upload img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  .Notifications img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  
+  .Account img {
+    width: 100%;
+    height:  100%;
+  margin: 0 auto;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0.5%;
+    width: 30%;}
+
+.video-container
+{
+  background-color: transparent;
+  border-style:none;
+}
+
+
+.container-11 {
+
+ 
+  height: 12rem;   
+}
+
+.Name
+{
+  background-color: firebrick;
+  padding: 0px, 0px; /* Responsive padding (4px vertical, 8px horizontal) */
+}
+
+.Name span {
+  padding: 0px, 0px; /* Responsive padding (4px vertical, 8px horizontal) */
+  font-size: 21px; /* Large font size (32px) for prominence */}
+
+.container-2
+{
+  background-color: rebeccapurple;
+  border-style: ridge;
+  padding-bottom: 50px;
+}
+
+.Title
+{
+  background-color: sienna;
+}
+
+.Title span
+{
+  font-size: clamp(1rem, 0.5vw, 2rem);
+}
+
+/* Default collapsed state for .container-2 */
+.container-2.collapsed {
+  max-height: 500px; /* Limits height when collapsed, allows content to be hidden */
+  padding-bottom: 100px;
+}
+
+/* Expanded state for .container-2 */
+.container-2.expanded {
+  max-height: 1000px; /* Large enough value to ensure all content is visible when expanded */
+}
+
+.container-3
+{
+  background-color: darkcyan;
+  border-style: ridge;
+}
+
+ .container-3 .viewws span,
+ .container-3 .followers span,
+ .container-3 .videos span,
+ .container-3 .country span,
+ .container-3 .follow span
+  {
+  font-size: clamp(0.75rem, 0.75vw, 0.75rem); 
+}
+
+.video-container
+{
+  border-style: ridge;
+}
+
+.containerr
+{
+  background-color: springgreen;
+  margin-top: 3.5%;
+  flex: 1 1 320px; 
+ width: 100%;
+}
+
+
+/* Shared layout styles */
+.content-container {
+  width: 100%;
+  gap: 0.5rem;
+  background-color: darkorchid;
+
+}
+
+.rectangle
+{
+  background-color: darkgray;
+}
+
+.square
+{
+  background-color: sienna;
+}
+
+.about {
+  background-color: skyblue;
+  height: auto;
+  max-height: 10rem; /* 300px */
+ /* Added padding for better spacing */
+  box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
+  flex: 1; /* Allow this section to take available space */
+}
+
+/* Main Section Container */
+.secction {
+  height: clamp(3vh); /* Responsive height */
+  background-color: darkcyan;
+  gap: clamp(0.5rem, 1.5vw, 1.5rem); /* Responsive gap */
+  margin-bottom: 0px;
+  padding: 0rem;
+  margin-top: 5px;
+}
+
+/* Hover state for all icon containers */
+.viewss:hover,
+.commentss:hover,
+.likee:hover,
+.dislikee:hover,
+.optionn:hover,
+.timess:hover {
+    background-color:grey; /* Lighter gray on hover in light mode */
+
+}
+
+
+
+.scroll-area
+{
+  background-color: transparent;
+  gap:0.5rem; /* Slight space between items */
+  border-style: ridge;
+}
+
+.shorts {
+  width: 100%;
+  max-width: 230px;
+  aspect-ratio: 9 / 16;
+  margin: 1rem 0 1rem 0.6rem;
+
+}
+
+.short-video {
+  width: 100%;
+  height: 100%;
+
+}
+
+/* 🔷 Shared layout styles for all content containers */
+.content-container {
+  width: 100%;
+  margin-inline: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* 🟢 Distribute kontainers evenly */
+  gap: 0.6rem;
+  background-color: seagreen; /* For debug/testing */
+}
+
+/* 🔷 Targeting container-1 specifically */
+.container-1 {
+  background-color: violet; /* For debug/testing */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* 🟢 Same logic for even spacing */
+  gap: 0.9rem;
+  margin-inline: auto;
+  border-style: ridge;
+}
+
+/* 🔷 Individual video blocks */
+.kontainer {
+  width: clamp(30%, 30vw, 33%);
+  margin: 0; /* 🔴 Remove left margin that causes misalignment */
+  background-color: grey; /* For debug/testing */
+}
+
+
+  
+
+  .profilee img {
+    width: 1rem; /* 35px converted to rem */
+    height: 1rem;}
+
+  .caption
+{
+  height: 1.5rem;  /* Consistent height (30px) for single-line captions */
+  background-color: salmon;
+}
+
+  .caption span
+  {
+    font-size: 13px; /* Responsive font size (0.96875rem approx 15.5px) */
+    font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+    font-weight: 700; /* Bold font for prominence */
+    margin-top: 1%;
+margin-bottom: 1%;
+  }
+
+  .videoo video {
+    width: 100%;           /* Ensures the video fills the entire width of its parent */
+    height: 130px; /* Consistent height (200px) */}
+
+  /* Apply this to .sectiion inside any .kontainer */
+.content-container .kontainer .sectiion,
+.container-1 .kontainer .sectiion {
+  display: flex;
+  flex-wrap: nowrap;              /* 🔒 Prevent items from wrapping */
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.3rem;                    /* Smaller gap between items */
+  padding: 0.3rem 0.5rem;
+  margin-block: 0.2rem;
+  background-color: saddlebrown;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Each item fits tightly without wrapping */
+.content-container .kontainer .sectiion .views,
+.content-container .kontainer .sectiion .category,
+.content-container .kontainer .sectiion .time,
+.container-1 .kontainer .sectiion .views,
+.container-1 .kontainer .sectiion .category,
+.container-1 .kontainer .sectiion .time {
+  flex: 1 1 0;
+  min-width: 0;                      /* 🔑 Let items shrink properly */
+  height: 1.2rem;                    /* Smaller height */
+  background-color: transparent;
+  border-radius: 0.25rem;
+  padding-inline: 0.2rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Alignments */
+.views  { justify-content: flex-start;  background-color: violet;   }
+.category { justify-content: center;      background-color: purple; }
+.time   { justify-content: flex-end;    background-color: seagreen; }
+
+/* Smaller icons */
+.views img {
+  width: clamp(0.875rem, 1vw, 1rem);   /* ~14–16px */
+  height: clamp(0.875rem, 1vw, 1rem);
+}
+
+/* Smaller text */
+.views span,
+.category span,
+.time span {
+  font-size: clamp(0.6rem, 1.3vw, 0.75rem); /* ~10–12px */
+  color: var(--color-text-dark-alt);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.views, .category, .time {
+  flex: 0.5;}
+
+    
+    .dark-mode .views span,
+    .dark-mode .time span {
+      color: var(--color-text-light-alt);
+    }
+    
+.dark-mode .views span,
+.dark-mode .time span {
+  color: var(--color-text-light-alt);
+}
+
+
+}
+
+/* Tablets / small laptops (769px–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .container
+  {
+    background-color: violet}
+  
+  .overlay-text
+  {
+    font-size: 0.7rem;
+  }
+  
+  .nav
+  {
+    background-color: transparent;
+  }
+    
+  .upload
+  {
+    background-color: transparent;
+    width: 3.3vw;
+    height: 3.3vw;
+  }
+  
+  
+  .Notifications
+  {
+    background-color: transparent;
+    width: 3.3vw;
+    height: 3.3vw;
+  }
+  
+  
+  .Account 
+  {
+    background-color: transparent;
+    width: 3.3vw;
+    height: 3.3vw;
+  }
+  
+  
+  .upload img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  .Notifications img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+.video-container
+{
+  background-color: transparent;
+  border-style:none;
+}
+
+
+.container-11 {
+
+ 
+  height: 12rem;   
+}
+
+.Name
+{
+  background-color: firebrick;
+  padding: 0px, 0px; /* Responsive padding (4px vertical, 8px horizontal) */
+}
+
+.Name span {
+  padding: 0px, 0px; /* Responsive padding (4px vertical, 8px horizontal) */
+  font-size: 21px; /* Large font size (32px) for prominence */}
+
+.container-2
+{
+  background-color: transparent;
+  border-style: ridge;
+}
+
+.Title
+{
+  background-color: sienna;
+}
+
+.Title span
+{
+  font-size: clamp(1rem, 0.5vw, 2rem);
+}
+
+
+
+.containerr
+{
+  background-color: transparent;
+  margin-top: 3.5%;
+  flex: 1 1 320px; 
+  max-width: 400px;  /* Limits the maximum width of individual video cards */
+  min-width: 200px; 
+}
+
+
+/* Shared layout styles */
+.content-container {
+  width: 100%;
+  gap: 0.5rem;
+  background-color: transparent;
+
+}
+
+.rectangle
+{
+  background-color: transparent;
+}
+
+.square
+{
+  background-color: transparent;
+}
+
+.about {
+  background-color: transparent;
+  height: auto;
+  max-height: 10rem; /* 300px */
+ /* Added padding for better spacing */
+  box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
+  flex: 1; /* Allow this section to take available space */
+}
+
+/* Main Section Container */
+.secction {
+  height: clamp(3vh); /* Responsive height */
+  background-color: transparent;
+  gap: clamp(0.5rem, 1.5vw, 1.5rem); /* Responsive gap */
+  margin-bottom: 0px;
+  padding: 0rem;
+  margin-top: 5px;
+}
+
+
+.scroll-area
+{
+  background-color: transparent;
+  gap:1rem; /* Slight space between items */
+}
+
+.shorts {
+  width: 100%;
+  max-width: 230px;
+  aspect-ratio: 9 / 16;
+  margin: 1rem 0 1rem 0.3rem;
+
+}
+
+.short-video {
+  width: 100%;
+  height: 100%;
+
+}
+
+
+  /* Shared layout styles for all content containers */
+  .content-container {
+    width:100%;           /* Adds some breathing room from sides */
+    margin-inline: auto;              /* Center the container horizontally */
+    justify-content: space-around;    /* Evenly distribute .kontainer items */
+    gap: 0.6rem;
+    background-color: transparent;      /* For debug/testing */
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  /* Targeting container-1 specifically if needed */
+  .container-1 {
+    background-color: transparent;          /* For debug/testing */
+    gap: 0.6rem;
+    margin-inline: auto;
+    justify-content: space-around;
+  }
+
+  /* Reset kontainer spacing and adjust sizing */
+  .kontainer {
+    width: clamp(20%, 23vw, 24%); 
+    margin-left: 0;                   /* Removes default left offset */
+    margin-inline: 0;                 /* Ensures clean alignment */
+    background-color: transparent;        /* For debug/testing */
+  }
+
+  .profilee img {
+  width: 2rem; /* 35px converted to rem */
+  height: 2rem;
+  margin-top: 6px;
+  margin-left: 2px;
+}
+
+
+  .profilee-name 
+  {
+    background-color: transparent;
+    margin-top: 0px;
+  }
+
+  .profilee-name span
+  {
+    margin-top: 1px;
+  }
+
+
+  .opttions img {
+    width: 17px;
+    height: 17px;
+    margin-top: 0px;
+   
+  }
+  
+
+/* === Popup Styling === */
+.opttions-popup {
+  padding: 0.5rem 0.5rem;
+  min-width: 150px;
+
+}
+
+
+.opttions-popup .popup-item {
+
+  gap: 0.4rem;
+  padding: 0.3rem 0.3rem;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  font-size: 0.7rem;
+
+}
+
+
+  .caption
+{
+  height: 2rem;  /* Consistent height (30px) for single-line captions */
+  background-color: transparent;
+}
+
+  .caption span
+  {
+    font-size: 13px; /* Responsive font size (0.96875rem approx 15.5px) */
+    font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+    font-weight: 700; /* Bold font for prominence */
+  }
+
+  .videoo {
+    width: 100%;
+    height: auto;
+  }
+  
+  .videoo video {
+    width: 100%;
+    height: 9.5rem; /* 200px */
+  
+  }
+  
+
+  
+}
+/* Desktops (1025px–1279px) */
+@media (min-width: 1025px) and (max-width: 1279px) {
+
+  .nav {
+    background-color: transparent;
+  }
+
+  .overlay-text {
+    font-size: 0.7589rem;
+  }
+
+  .search input[type="search"] {
+    min-height: 10px;
+    max-height: 15px;
+  }
+
+  .upload,
+  .Notifications,
+  .Account {
+    background-color: transparent;
+    width: 3vw; /* Icon container width scales with viewport */
+    height: 3vw; /* Icon container height scales with viewport */
+  }
+
+  .upload img,
+  .Notifications img,
+  .Account img {
+    width: 100%; /* Image fills its parent container (3vw) */
+    height: 100%; /* Image fills its parent container (3vw) */
+    margin: 0 auto; /* Centers the image within its container if it doesn't fill it entirely */
+  }
+
+.container-11 {
+
+ 
+  height: 12rem;   
+}
+
+.Name
+{
+  background-color: transparent;
+  padding: 0px, 0px; /* Responsive padding (4px vertical, 8px horizontal) */
+}
+
+.Name span {
+  padding: 0px, 0px; /* Responsive padding (4px vertical, 8px horizontal) */
+  font-size: 25px; /* Large font size (32px) for prominence */}
+
+.container-2
+{
+  background-color: transparent;
+}
+
+.Title
+{
+  background-color: transparent;
+}
+
+.Title span
+{
+  font-size: clamp(1rem, 0.5vw, 2rem);
+}
+
+.container-3
+{
+  background-color: transparent;
+}
+
+.video-container
+{
+  background-color: transparent;
+  border-style: none;
+}
+
+.containerr
+{ background-color: transparent;
+  flex: 1 1 320px;
+  max-width: 400px;
+  min-width: 280px;
+  aspect-ratio: 16 / 9;
+  height: 250px;
+  margin-top: 6%;
+}
+
+.rectangle
+{
+  background-color: transparent;
+}
+
+.about
+{
+  background-color: transparent;
+  max-height: 15rem;  /* Limits the maximum height (300px), useful for containing long text */
+  flex: 1;               /* Allows this section to take available space in a flex parent */
+}
+
+.secction
+{
+  background-color: transparent;
+}
+
+/* Shared layout styles */
+.content-container {
+  width: 100%;
+  gap: 0.6rem;
+  background-color: transparent;
+
+}
+
+
+
+.container-1
+{
+  background-color: transparent;
+gap: 0.5rem;
+}
+
+.kontainer
+{
+  background-color: transparent;
+  width: clamp(20%, 23vw, 24%); 
+margin-left: 8px;
+}
+
+.profilee img {
+  width: 2rem; /* 35px converted to rem */
+  height: 2rem;
+  margin-top: 6px;
+  margin-left: 2px;
+}
+
+
+  .profilee-name 
+  {
+    background-color: transparent;
+    margin-top: 0px;
+  }
+
+  .profilee-name span
+  {
+    margin-top: 1px;
+  }
+
+
+  .opttions img {
+    width: 17px;
+    height: 17px;
+    margin-top: 0px;
+   
+  }
+  
+
+/* === Popup Styling === */
+.opttions-popup {
+  padding: 0.5rem 0.5rem;
+  min-width: 150px;
+
+}
+
+
+.opttions-popup .popup-item {
+
+  gap: 0.4rem;
+  padding: 0.3rem 0.3rem;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  font-size: 0.7rem;
+
+}
+
+
+
+.caption
+{
+  height: 2rem;  /* Consistent height (30px) for single-line captions */
+  background-color: transparent;
+}
+
+  .caption span
+  {
+    font-size: 13px; /* Responsive font size (0.96875rem approx 15.5px) */
+    font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+    font-weight: 700; /* Bold font for prominence */
+  }
+
+.scroll-area
+{
+  background-color: transparent;
+  gap:0.5rem; /* Slight space between items */
+}
+
+.shorts {
+  width: 100%;
+  max-width: 240px;
+  aspect-ratio: 9 / 16;
+  margin: 1rem 0 1rem 0.1rem;
+
+}
+
+.short-video {
+  width: 100%;
+  height: 100%;
+
+}
+
+
+
+
+}
+@media (min-width: 1280px) and (max-width: 1599px) {
+
+  .kontainer {
+    background-color: transparent;
+    width: clamp(20%, 23vw, 24%); 
+    margin-left: 0.35rem; /* Let the gap do the spacing */
+  }
+
+  .profilee
+  {
+    background-color: transparent;
+  }
+
+.caption
+{
+  background-color: transparent;
+}
+
+
+  .profilee img {
+    width: 2rem; /* 35px converted to rem */
+    height: 2rem;
+    margin-top: 6px;
+    margin-left: 2px;
+  }
+
+  .profilee-name 
+  {
+    background-color: transparent;
+    margin-top: 0px;
+  }
+
+  .profilee-name span
+  {
+    margin-top: 1px;
+  }
+
+
+  .opttions img {
+    width: 17px;
+    height: 17px;
+    margin-top: 0px;
+   
+  }
+  
+
+/* === Popup Styling === */
+.opttions-popup {
+  padding: 0.5rem 0.5rem;
+  min-width: 150px;
+
+}
+
+
+.opttions-popup .popup-item {
+
+  gap: 0.4rem;
+  padding: 0.3rem 0.3rem;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  font-size: 0.7rem;
+
+}
+
+/* This container holds the video title or description within a video card. */
+.caption {
+  /* Sizing & Layout */
+  width: 100%;       /* Ensures it spans the full width of its parent (.kontainer) */
+  height: 2rem;  /* Consistent height (30px) for single-line captions */
+}
+
+.caption span
+{
+  font-size: 15px;
+  margin-top: 6px;
+  margin-bottom: 0px;
+}
+
+.shorts {
+  max-width: 250px;      /* Limits the maximum width of the short video card */
+gap:3rem;
+  margin: 1rem 0 1rem 3rem;
+}
+
+
+
+}
+
+
+/* Ultra-wide (1600px and up) */
+@media (min-width: 1600px)
+{ 
+  body {
+      font-size: 19px;
+.container
+{
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+}
+  
+
+.nav
+{
+  background-color: transparent;
+}
+
+.overlay-text
+{
+   font-size: 1rem;
+}
+
+
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.Notifications
+{
+  background-color: transparent;
+ width: 2vw;
+  height: 2vw;
+}
+
+.Account 
+{
+  background-color: transparent;
+  width: 2vw;
+  height: 2vw;
+}
+
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+
+.upload img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+.Notifications img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+
+.Account img {
+  width: 100%;
+  height:  100%;
+margin: 0 auto;
+}
+
+  .container-2
+  {
+    background-color: transparent;
+    border-style: ridge;
+  }
+
+  .container-1
+  {
+  gap: 1rem;
+  border-style: ridge;
+  background-color: transparent;
+  }
+
+  .kontainer
+  {
+    background-color: transparent;
+    width: clamp(18%, 28%, 18%);
+    margin-left: 1rem;
+    border-style: ridge;
+  }
+
+    .views
+  {
+    background-color: transparent;
+  }
+
+
+.views img {
+  width: clamp(24px, 4.5vw, 30px);
+  height: clamp(24px, 4.5vw, 30px);
+  
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+  
+}
+}

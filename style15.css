@@ -1,0 +1,1742 @@
+html {
+  scroll-behavior: smooth; /* Enables smooth scrolling on anchor links */
+  box-sizing: border-box; /* Ensures padding/border don’t break layout */
+}
+
+
+  
+  body {
+    justify-content: center; /* Centers content vertically if needed */
+    align-items: center; /* Centers content horizontally */
+    text-align: center; /* Keeps text centered */
+    background-color: white; 
+    font-family: 'Poppins', sans-serif;
+    overflow-y:hidden;
+    overflow-x: hidden;
+    margin: 0; 
+    min-height: 100vh; /* Ensures full height on all screens */
+  }
+  
+  
+  .container {
+    position: fixed;
+    background-color: white; 
+    display: flex;
+    flex: 1;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    object-fit: cover;
+    top: 0px;
+    float: left;
+    width: 100%;
+    height: auto;
+    max-height:54px ;
+    border-radius: 0px;
+    left: 0px;
+    border-style: none;
+    z-index: 10;
+    margin-bottom: 0px;
+    justify-content: space-between;
+  }
+  
+  .Table {
+    position: relative;
+    min-width: 10%;  /* Slightly increased for better proportions */
+    max-width: 13.1%;
+    height: 3rem;  /* Adjusted for better spacing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+  }
+  
+  .overlay-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 1.25rem; /* Increased size for better readability */
+    font-weight: 800; /* Slightly bolder */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 3;
+    background-color:transparent;
+    margin-left: 0px;
+  }
+  
+  /* NET and TOON Styling */
+  .net-text {
+    background:red;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.3em;
+    letter-spacing: 2px;
+  }
+  
+  .toon-text {
+    background: black;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.3em;
+    margin-left: 5px;
+  }
+  
+  /* Dark Mode */
+  .dark-mode .net-text {
+    background:red;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .dark-mode .toon-text {
+    background:yellow;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .dark-mode .shorts-text {
+    background:red;
+    color: white;
+  }
+  
+  
+  /* Remove underline from anchor tags */
+  a, .net-text, .toon-text {
+    text-decoration: none;
+  }
+  
+  .nav {
+    position: absolute;
+    width: 87%;
+    float: left;
+    margin-left: 13vw; /* Keeps navigation aligned on all screen sizes */
+    height: auto;
+    background-color:transparent; 
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center; /* Center items vertically */
+    justify-content: space-around; /* Ensure equal spacing */
+    gap: 5vw; /* Adjusts dynamically */
+    max-height: 5.3vh; /* Scales well across different devices */
+    margin-bottom: 1vh;
+  }
+  
+  /* Main search container */
+  .search {
+    display: flex;
+    position: relative;
+    width: 90%;
+    max-width: 850px; /* was 600px */
+    height: auto;
+    background-color:transparent; 
+    margin: 2vh auto;
+    border-radius: 7px;
+    align-items: center;
+    border: 0.3px solid #ccc;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+    margin-top: 15px;
+    margin-left: 40px;
+  }
+  
+  /* Search input field */
+  .search input[type="search"] {
+    flex: 1;
+    height: 4.5vh;
+    min-height: 30px;
+    max-height: 30px;
+    border-radius: 7px;
+    background-color: transparent;
+    border: none;
+    padding: 0.7rem 3rem 0.7rem 2.5rem;
+    color: #333;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Search input focus effect */
+  .search input[type="search"]:focus {
+    border: 1px solid white;
+    box-shadow: 0px 0px 8px none;
+  }
+  
+  
+  /* Clear button */
+  .clear-btn {
+    position: absolute;
+    right: 1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #666;
+    display: none; /* Hidden by default */
+  }
+  
+  /* Show clear button when text is entered */
+  .search input[type="search"]:valid ~ .clear-btn {
+    display: block;
+  }
+  
+  
+  /* Dark mode input */
+  body.dark-mode .search input[type="search"] {
+    color: #fff;
+  }
+  
+  /* Placeholder styling */
+  .search input[type="search"]::placeholder {
+    color: #36454F;
+    font-size: 0.9rem; /* Ensures readability */
+  }
+  
+  body.dark-mode .search input[type="search"]::placeholder {
+    color: #D3D3D3;
+  }
+  
+  /* Search Icon Styling */
+  .search .search-icon {
+    position: absolute;
+    right: 12px; /* Adjust distance for better alignment */
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1.5rem;
+    height: 1.5rem;
+    min-width: 20px;
+    min-height: 20px;
+    background-color:transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Hide the clear button across all browsers */
+  .search input[type="search"]::-webkit-search-decoration,
+  .search input[type="search"]::-webkit-search-cancel-button,
+  .search input[type="search"]::-webkit-search-results-button,
+  .search input[type="search"]::-webkit-search-results-decoration {
+    display: none; 
+  }
+  
+  /* Prevent autofill background color change */
+  .search input[type="search"]:-webkit-autofill,
+  .search input[type="search"]:-webkit-autofill:hover,
+  .search input[type="search"]:-webkit-autofill:focus,
+  .search input[type="search"]:-webkit-autofill:active {
+    background-color:none !important;
+    color: #333 !important;
+    -webkit-box-shadow: 0 0 0px 1000px white inset !important;
+    box-shadow: 0 0 0px 1000px white inset !important;
+    transition: background-color 5000s ease-in-out 0s; /* Prevent flickering */
+  }
+  
+  
+  
+  .upload {
+    position: relative;
+    width: 3vw;
+    height: 3vw;
+    background-color: transparent;
+    margin-top: 0;
+    margin-left: 1vw;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  
+  }
+  
+  /* Upload Icon */
+  .upload img {
+    width: 2.4vw;
+    height: 2.4vw;
+    padding: 0.5vh;
+    object-fit: contain;
+  
+  }
+  
+  
+  /* Tooltip Styling */
+  .tooltip {
+    position: absolute;
+    top: 110%; /* Positioned below the icon */
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 0.3rem;
+    white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+  }
+  
+  /* Show tooltip on hover */
+  .upload:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(3px);
+  }
+  
+  /* Responsive Adjustments */
+  @media screen and (max-width: 768px) {
+    .upload {
+      width: 5vw;
+      height: 5vw;
+    }
+  
+    .upload img {
+      width: 3.5vw;
+      height: 3.5vw;
+    }
+  
+    .tooltip {
+      font-size: 0.8rem;
+      padding: 0.3rem 0.6rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .upload {
+      width: 7vw;
+      height: 7vw;
+    }
+  
+    .upload img {
+      width: 5vw;
+      height: 5vw;
+    }
+  
+    .tooltip {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+    }
+  }
+  
+  
+/* Notifications Icon */
+.Notifications {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+.Notifications img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Dropdown Container */
+.Notification-container {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 1%;
+  width: 24%;
+  min-width: 17rem;
+  max-height: 30em;
+  background-color: #333;
+  color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+
+  z-index: 30;
+}
+
+.Notification-container.active {
+  display: block;
+}
+
+.dark-mode .Notification-container
+{
+  background-color: #2a2d2f;
+}
+
+
+/* Sticky Header for Notification Count */
+.Notification-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: red; /* same as container background */
+  padding: 0rem;
+  border-bottom: 1px solid #444;
+}
+
+.Notification-header span {
+  width:100%;
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  color: black;
+  background-color: white;
+  border-radius: 0rem;
+  font-weight: bold;
+}
+
+.dark-mode .Notification-header span {
+  color: #fff;
+  background-color: #444;
+}
+
+
+
+.Notification {
+  display: flex;
+  padding: 0.75rem;
+  border-radius: 0.2rem;
+  background-color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: background 0.2s ease;
+  flex-direction: column; /* stack rows */
+  gap: 0.4rem;
+}
+
+.dark-mode .Notification
+{
+  background-color: var(--color-bg-metadata-dark); /* **YouTube-inspired dark gray background** */
+}
+
+
+
+.Notification:hover {
+border-color: #2a2d2f;
+}
+
+
+
+.User-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* push username left, timer right */
+  width: 100%;
+}
+
+
+.User-profile span
+{
+  color: #36454F;
+  background-color: transparent;
+}
+
+.dark-mode .User-profile span
+{
+  color: #D3D3D3;
+}
+
+.User-profile img {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Username stays left */
+.username {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #36454F;
+  margin-left: 0.5rem;
+  flex: 1;
+}
+
+/* Row 2: Message left, Thumb right */
+.message-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-row span
+{
+  color: black;
+  background-color: transparent;
+}
+
+.dark-mode .message-row span
+{
+  color: white;
+
+}
+
+.text {
+  color: black;
+  font-size: 0.9rem;
+  flex: 1;
+  margin-right: 0.5rem;
+}
+
+/* Thumbnail fixed right */
+.video-thumb {
+  flex-shrink: 0;
+}
+
+.video-thumb img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.3rem;
+  object-fit: cover;
+}
+
+/* Row 3: Timer */
+.timer {
+  flex: 1;
+  width: 5%;
+  height: 30px;
+  background-color: saddlebrown;
+  display:none;          /* let it be a full-width row */
+  padding-left: 2rem;    /* indent under username/message, same space as avatar */
+  margin-top: 0.2rem;
+}
+
+.timer span {
+  font-size: 0.3rem;
+  color: #aaa;
+  display:none;   /* makes sure it behaves like a label */
+}
+
+ /* Account Icon */
+  .Account {
+    position: relative;
+    width: 3vw;
+    height: 3vw;
+    background-color: transparent;
+    margin: 0 1.5625rem 0.1875rem 0; /* Right, Bottom */
+  
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    float: right;
+    margin-right: 1rem;
+  
+  }
+  
+  /* Profile Image inside Account Icon */
+  .Account img {
+    width: 2vw;
+    height: 2vw;
+    border-radius: 50%;
+  
+    margin-top: 6px;
+  }
+
+  .dark-mode .Account img
+{
+  filter: invert(1);
+}
+
+  
+  /* Dropdown Wrapper */
+  .account-dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 1%;
+  width: 24%;
+  min-width: 11.25em;
+  max-height: 25em;
+  background-color: #333;
+  box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  z-index: 30;
+  padding: 0.5em 0;
+  text-align: left;
+  align-items: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) white;
+}
+
+.dropdown-content a {
+  
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; /* Make links block elements */
+}
+
+.account-dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Profile Section */
+.proofile {
+  width: 85%;
+  min-height: 1.875em; /* 30px */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: white;
+  padding: 0.625em; /* 10px */
+  border-radius: 0.4375em; /* 7px */
+  max-width: 90%;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.proofile:hover {
+  background-color: grey; /* Subtle purple hover effect */
+  color: white;
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Profile Image */
+.proofile img {
+  width: 1.6875em; /* 27px */
+  height: 1.6875em;
+  border-radius: 50%;
+  margin-right: 0.625em; /* 10px */
+}
+
+/* Profile Name */
+.proofile label {
+  font-weight: bold;
+  font-size: 0.875em; /* 14px */
+  color: black;
+  margin-left: 0.3125em; /* 5px */
+  text-align: left;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Change text color on hover */
+.proofile:hover label {
+  color: white;
+}
+
+
+.dropdown-content li {
+  list-style: none; /* Remove bullet points */
+}
+
+  
+  /* Tooltip Base */
+  .tooltip {
+    position: absolute;
+    bottom: -2rem; /* Positions below the icon */
+    left: 50%;
+    transform: translateX(-50%) translateY(5px); /* Subtle offset */
+    background-color: #333;/* Slightly darker for better contrast */
+    color: white;
+    z-index: 10;
+    padding: 0.5em 1em; /* More padding for readability */
+    border-radius: 0.375em; /* Smooth rounded corners */
+    white-space: nowrap;
+    font-size: 0.875em; /* Optimized for readability */
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out, transform 0.2s ease-in-out;
+    pointer-events: none; /* Prevents accidental hover issues */
+  }
+  
+  /* Tooltip Hover Effect */
+  .upload:hover .tooltip, 
+  .Notifications:hover .tooltip, 
+  .Account:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  
+  /* Responsive Adjustments */
+  @media screen and (max-width: 768px) {
+    .tooltip {
+      font-size: 0.75em; /* Reduce text size on smaller screens */
+      padding: 0.4em 0.6em;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .tooltip {
+      font-size: 0.6875em; /* Further reduce size for compact screens */
+      bottom: -1.75rem; /* Adjust positioning */
+    }
+  }
+  .overlay {
+    position: absolute; /* Ensures it stays positioned over its parent */
+    bottom: 1.875rem; /* 30px */
+    width: 12.5rem; /* 200px */
+    height: 3.125rem; /* 50px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    border-radius: 0.4375rem; /* 7px */
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0; /* Initially hidden */
+    transform: translateY(10px); /* Subtle movement effect */
+  }
+  
+  /* Overlay Text Styling */
+  .overlay h3 {
+    color: white;
+    font-size: 1rem;
+    font-weight: 700;
+    margin: 0;
+    padding: 0 0.5rem; /* Adds a bit of spacing inside */
+  }
+  
+  /* Show overlay on hover */
+  .parent-container:hover .overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* ✅ Responsive Adjustments */
+  @media screen and (max-width: 768px) {
+    .overlay {
+      width: 10rem; /* Slightly smaller for tablets */
+      height: 2.8rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .overlay {
+      width: 8.5rem; /* Adjust for smaller screens */
+      height: 2.5rem;
+      font-size: 0.8rem;
+      bottom: 1rem; /* Adjust positioning */
+    }
+    .overlay h3 {
+      font-size: 0.75rem;
+    }
+  }
+  
+
+/* ==== Base Container ==== */
+.container-1 {
+  position: absolute;
+  width: 100%;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: saddlebrown;
+  padding: 10px;
+  margin: 0;
+  box-sizing: border-box;
+  z-index: 2;
+  margin-top: 3.0rem;
+  border-radius: 0px;
+  border: 0.1px solid transparent;
+  padding-bottom: 50px;
+  padding-top:10px;
+  border-style: ridge;
+}
+
+.dark-mode .container-1
+{
+  border: 0.1px solid transparent;
+}
+
+/* ==== Sticky Heading ==== */
+.Heading {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: auto;
+  max-height: 120px;
+  background-color:darkcyan;
+  z-index: 10;
+  display: flex;
+  padding: 10px;
+  margin: 0;
+  align-items: center;
+  padding-left: 0%;
+  border-radius: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.Heading span {
+  padding-left: 1%;
+  color: #333333;
+  font-weight: bold;
+  font-size: 20px;
+  padding-top: 0px;
+
+}
+
+.dark-mode .Heading {
+  background-color: #181818;; /* Black background for Dark Mode */
+}
+
+.dark-mode .Heading span {
+  color: #ffffff;
+}
+
+.Segment
+{
+position: relative;
+top: 0;
+width: 100%;
+height: auto;
+max-height: 120px;
+background-color:violet;
+z-index: 10;
+display: flex;
+padding: 10px;
+margin: 0;
+align-items: center;
+padding-left: 0%;
+border-radius: 0px;
+padding-top: 0px;
+padding-bottom: 0px;
+margin-bottom: 0px;
+
+}
+
+.Segment span {
+  padding-left: 1%;
+  color: #333333;
+  font-weight: bold;
+  font-size: 20px;
+  padding-top: 0px;
+
+}
+
+
+/* ==== Scrollable Section ==== */
+.Scroller {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  background-color:sienna;
+  border-radius: 0px;
+  border: 1px solid transparent;
+}
+
+/* Dark mode adjustments */
+.dark-mode .Scroller {
+  scrollbar-color: rgba(0, 0, 0, 0.5) grey;
+}
+
+/* ==== Playlist Layout ==== */
+.Playlist {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 99.5%;
+  background-color: transparent;
+  padding: 0px;
+  gap: 1rem;
+  border-style: ridge;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  border-radius: 7px;
+  border: 0.1px solid transparent;
+}
+
+/*
+.dark-mode .Playlist hr
+{
+  border: 100px solid red;
+}
+  */
+
+.dark-mode .Playlist {
+  border: 1px solid transparent;
+}
+
+/* ==== Sidebar List ==== */
+.List {
+  width: 40%;
+  background-color: transparent;
+}
+
+/* ==== Right Content Section ==== */
+.right-section {
+  width: 58%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 7px;
+  margin-right: 1%;
+  margin-top:1.3%;
+  padding: 0px;
+  height: 100%;
+}
+
+/* ==== About Section ==== */
+.About {
+  height: auto;
+  min-height: 190px;
+  max-height: 190px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1; /* both grow equally */
+  overflow-y: auto; /* enable internal scroll if content exceeds height */
+padding: 0px;
+margin: 0;
+padding-bottom: 0px;
+}
+
+/* ==== Description Area ==== */
+.description {
+  height: auto;
+  width: 100%;
+  height: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  scroll-behavior: smooth;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  overflow-y:auto;
+padding: 0px;
+}
+
+/* 
+.description span
+{
+  position: relative;
+top: 1%;
+}
+*/
+
+/* ==== Horizontal Scroll Video Row ==== */
+.vidoes {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  min-height: 150px;
+  max-height: 200px;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 16rem;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  scroll-behavior: smooth;
+  padding-top: 0%;
+  padding-bottom: 1%;
+  margin-top:0%;
+}
+
+/* Dark mode adjustments */
+.dark-mode .vidoes{
+  scrollbar-color: rgba(0, 0, 0, 0.5) grey;
+}
+
+/* Hide scrollbar for WebKit */
+.vidoes::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ==== Card Styling ==== */
+.cards {
+  position: absolute;
+  width: 33%;
+  padding: 0px;
+  height: 120px;
+  background-color: transparent;
+  border-radius: 7px;
+  cursor: pointer;
+  top:11%;
+  margin-left: 0.1%;
+  flex-shrink: 0; /* Don't shrink in horizontal layout */
+}
+
+.overlay-textttt {
+  position: absolute;
+  min-width: 10%;
+  max-width: 23%;
+  height: auto; /* Dynamic height */
+  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+  color: white;
+ right:5%;
+  bottom: 7%;
+  border-radius: 0.4375rem; /* 7px */
+  padding: 0.375rem 0.625rem; /* Increased padding for better readability */
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-word;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .overlay-textttt {
+    left: 50%; /* Center it better on smaller screens */
+    bottom: 10%;
+    max-width: 30%;
+    font-size: clamp(0.9rem, 2.5vw, 1rem); /* Adjusted font size for mobile */
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+  
+.cards img
+{
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: 7px;
+}
+
+
+
+.overlay-texttt {
+  position: absolute;
+  min-width: 10%; /* Prevents it from getting too small */
+  max-width: 22%; /* Ensures a good size balance */
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+  color: white;
+  left: 5%;
+  bottom: 7%;
+  border-radius: 7px;
+  padding: 6px 12px; /* Slightly better spacing */
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover Effect - Makes It More Interactive */
+.overlay-texttt:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Slightly more contrast */
+  transform: scale(1.05); /* Small pop effect */
+}
+
+/* 📱 Mobile Optimization */
+@media (max-width: 768px) {
+  .overlay-texttt {
+    font-size: 12px;
+    padding: 4px 8px;
+    min-width: 12%;
+    max-width: 25%;
+    bottom: 10%;
+  }
+}
+
+  /* Individual Video Containers */
+  .kontainer {
+    position: relative;
+    width: clamp(95%, 30%, 32%);
+    height: auto;
+    background-color: transparent;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  margin-left: 10px;
+  margin-bottom:10px;
+  margin-top:10px;
+  cursor: pointer;
+  }
+  
+  
+  /* Video Thumbnails */
+  .kontainer img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    object-fit: cover; /* Ensures consistent scaling */
+  }
+  
+  
+  
+  /* Responsive Adjustments */
+  @media screen and (max-width: 1024px) {
+    .container-1 {
+      width: calc(100% - 10%);
+      left: 5%;
+      justify-content: space-around;
+    }
+  
+    .kontainer {
+      width: clamp(40%, 45%, 48%);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .container-1 {
+      width: 95%;
+      left: 2.5%;
+      gap: 1rem;
+    }
+  
+    .kontainer {
+      width: 48%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .container-1 {
+      width: 100%;
+      left: 0;
+      justify-content: center;
+    }
+  
+    .kontainer {
+      width: 90%;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+  /* Profile Section */
+  .profilee {
+    width: 90.8%;
+    height: 2rem; /* 40px */
+    border-radius: 0rem; /* 7px */
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem; /* 10px */
+    padding: 0.3125rem 1rem; /* Adds subtle spacing */
+    margin-bottom: 0rem;
+    max-width: 100%;
+  }
+  
+  /* Profile Image */
+  .profilee img {
+    width: 2.2rem; /* 35px converted to rem */
+    height: 2.2rem;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: transparent;
+  }
+
+  .dark-mode .profilee img
+  {
+    filter: invert(1);
+  }
+  
+  /* Profile Name Container */
+  .profilee-name {
+    flex-grow: 1;
+    height: auto;
+    background-color: transparent;
+    border-radius: 0rem;
+    font-size: 1.125rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  /* Profile Name Label */
+  .profilee-name span {
+    font-size: 1.125rem; /* Adjusted for better scaling */
+    font-weight: 700;
+    color: #36454F;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    padding: 0.3125rem;
+    margin-left: 10px;
+  }
+  
+  /* Responsive Adjustments */
+  @media screen and (max-width: 768px) {
+    .profilee {
+      padding: 0.3125rem 0.75rem;
+    }
+  
+    .profilee img {
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+  
+    .profilee-name span {
+      font-size: 0.9375rem; /* Slightly smaller text */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .profilee {
+      flex-direction: row;
+      align-items: center;
+      padding: 0.3125rem 0.5rem;
+    }
+  
+    .profilee img {
+      width: 2rem;
+      height: 2rem;
+    }
+  
+    .profilee-name span {
+      font-size: 0.875rem;
+    }
+  }
+  
+  .caption {
+    width: 94%;
+    height: 1.875rem; /* 30px */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-color: transparent;
+    padding: 0 0.625rem; /* Adds slight padding for better spacing */
+  }
+  
+  /* Caption Text */
+  .caption span {
+    color: black;
+    font-weight: 700;
+    font-size: 0.96875rem; /* 15.5px */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    max-width: 100%;
+  }
+  
+  /* Responsive Adjustments */
+  @media screen and (max-width: 768px) {
+    .caption {
+      height: auto; /* Allows for multiple lines if necessary */
+      flex-wrap: wrap;
+      text-align: center;
+    }
+  
+    .caption span {
+      font-size: 0.9375rem; /* Slightly smaller for mobile */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .caption {
+      height: auto;
+      padding: 0.3125rem; /* Adjusted for compact screens */
+    }
+  
+    .caption span {
+      font-size: 0.875rem; /* Smaller font size */
+    }
+  }
+  .videoo {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 0.0625rem; /* 1px */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .videoo video {
+    width: 100%;
+    height: 16rem; /* 200px */
+    object-fit: cover;
+    border-radius: 0.4375em; /* Converted from 7px */
+    display: block;
+    pointer-events: none;
+  }
+  
+  
+  /* Responsive Adjustments */
+  @media screen and (max-width: 768px) {
+    .videoo video {
+      height: 10rem; /* Adjusted for tablets */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .videoo video {
+      height: 8.5rem; /* Adjusted for mobile */
+    }
+  }
+  .overlay-textt {
+    position: absolute;
+    min-width: 12%; /* Slightly increased for better visibility */
+    max-width: 25%;
+    height: auto; /* Allows dynamic height */
+    background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better contrast */
+    color: white;
+    left: 2%;
+    bottom: 4.5%; /* Adjusted for better alignment */
+    border-radius: 0.4375rem; /* 7px */
+    padding: 0.4rem 0.6rem; /* Slightly increased padding for better spacing */
+    font-size: clamp(0.75rem, 1.2vw, 1rem); /* Responsive font size */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word;
+  
+  }
+  
+  
+  /* Mobile Adjustments */
+  @media screen and (max-width: 768px) {
+    .overlay-textt {
+      max-width: 35%;
+      font-size: clamp(0.7rem, 2vw, 0.875rem);
+      bottom: 3.5%;
+      left: 3%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .overlay-textt {
+      max-width: 45%;
+      font-size: 0.75rem;
+      padding: 0.3rem 0.5rem;
+      bottom: 3%;
+      left: 3%;
+    }
+  }
+  
+  .sectiionn {
+    display: flex;
+    width: 100%;
+    height: auto;
+    background-color: transparent;
+    margin-top: 1px;
+    border-radius: 0rem; /* 7px */
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 0.3125rem; /* 5px */
+  }
+  
+  /* Common Styling for All Sections */
+  .views, .time, .category {
+    height: 1.875rem; /* 30px */
+    background-color: transparent;
+    margin: 0.3125rem 0;
+    border-radius: 0rem;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  /* Views Section */
+  .views {
+    max-width: 25%;
+    min-width: 22%;
+    display: flex;
+    align-items: center;
+    gap: 0.1875rem; /* 3px */
+  }
+  
+  .views img {
+    width: 1.8vw;
+    height: 1.8vw;
+    margin-left: 1rem;
+  }
+  
+  .views span {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 1;
+    max-width: 100%;
+    color: #36454F;
+    font-size: clamp(0.75rem, 1vw, 0.875rem); /* Responsive */
+  }
+  
+  /* Time Section */
+  .time {
+    flex-grow: 1;
+    max-width: 30%;
+    min-width: 27%;
+    margin: 0.3125rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+  
+  .time span {
+    margin: 0;
+    font-size: clamp(0.875rem, 1vw, 1rem); /* Responsive font size */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    color: #36454F;
+  }
+  
+  /* Category Section */
+  .category {
+    display: flex;
+    width: 30%;
+    margin: 0.3125rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0.4375rem;
+    flex: 2;
+    max-width: 11.25rem; /* 180px */
+  }
+  
+  /* Show Category Section on Larger Screens */
+  @media screen and (min-width: 1024px) {
+    .category {
+      display: flex;
+    }
+  }
+  
+  .category span {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex-shrink: 1;
+    max-width: 100%;
+    color: black;
+    font-size: 15px;
+  }
+  
+  
+     
+  /* Small phones */
+  @media (max-width: 375px) {}
+  
+  /* Large phones */
+  @media (max-width: 600px) 
+  {
+    .container
+    {
+      background-color: transparent;
+  
+    }
+  
+    .Table
+    {
+      background-color: transparent;
+  height: 58px;
+    }
+  
+    .overlay-text
+    {
+      background-color: transparent;
+  font-size: 18px;
+  margin-top: 7px;
+    }
+  
+    .nav
+    {
+      background-color: transparent;
+  float: left;
+  margin-left: 205px;
+  
+    }
+  
+    .container-1
+    {
+      background-color: transparent;
+    
+     }
+  
+     .kontainer
+     {
+  width: 100%;
+  margin-top: 30px;
+     }
+  
+     .videoo video
+     {
+  height: 320px;
+  width: 99%;
+     }
+  
+  
+  
+   }
+  
+  
+  /* Tablets */
+  @media (min-width: 601px) and (max-width: 991px)
+   {
+  
+   }
+  
+  /* Laptops */
+  @media (min-width: 992px) and (max-width: 1440px)
+   {
+  }
+  
+  
+  
+  /* Desktops */
+  @media (min-width: 1441px) and (max-width: 1920px)
+   {
+  .body
+  {
+    background-color: transparent;
+  
+  
+  }
+  
+  .Table
+  {
+    background-color: white;
+  
+  }
+  
+  .overlay-text
+  {
+    background-color: white;
+  width: 80%;
+  height: 57px;
+  margin-top: 0px;
+  
+  
+  }
+  
+  
+  .nav
+  {
+    width: 100%;
+    background-color: blueviolet;
+  gap:2px;
+  }
+  
+  .fx-gap
+  {
+  width: 30%;
+  
+  }
+  
+  .upload
+  {
+    float: left;
+  margin-left: 2px;
+  
+  }
+  
+  .Notifications
+  {
+  
+    float: left;
+  margin-left: 2px;
+  }
+  
+  
+  .Theme
+  {
+  
+    float: left;
+  margin-left: 2px;
+  }
+  
+  
+  .Account
+  {
+  
+    float:right;
+  margin-right: 300px;
+  }
+  
+  
+  
+  .kontainer
+  {
+  width: 24%;
+  }
+  
+   }
+  
+  /* Smart TVs and 4K Screens */
+  @media (min-width: 1921px)
+   {
+  
+    .body
+    {
+      background-color: transparent;
+    
+    
+    }
+    
+    .Table
+    {
+      background-color: green;
+    
+    }
+    
+    .overlay-text
+    {
+      background-color: blue;
+    width: 65%;
+    height: 57px;
+    margin-top: 0px;
+    
+    
+    }
+    
+    
+    .nav
+    {
+      width: 100%;
+      background-color: transparent;
+    gap:2px;
+    }
+  
+    .fx {
+   
+      margin-left: 10px;
+      background-color: transparent;
+    }
+    
+  
+  
+   }
+  
+  .dark-mode .nav input[type="text"]  {
+    color:   #F5F5DC; 
+  }
+  
+  .dark-mode .nav input[type="text"]::placeholder  {
+    color:   #F5F5DC; 
+  }
+  
+  .dark-mode .nav .fx-gap img
+  {
+    filter: invert(1);
+  
+  }
+  
+  /* Light Mode Styles */
+  .light-mode {
+    background-color:  #FAFAFA; /* White background for Light Mode */
+    color: black; /* Black text for Light Mode */
+  }
+  
+  /* Dark Mode Styles */
+  .dark-mode {
+    background-color: #121212; /* Black background for Dark Mode */
+    color: white; /* White text for Dark Mode */
+  }
+  
+  
+  .dark-mode .sectiionn .views span,
+  .dark-mode .sectiionn .time span,
+  .dark-mode .sectiionn .category span
+  
+  
+  {
+    color:white;
+  
+  }
+  
+  .dark-mode .sectiionn .views img
+  
+  
+  {
+    filter: invert(1);
+  
+  }
+  
+  
+  .dark-mode .container-1{
+    background-color: #121212; 
+    }
+  
+  
+  
+  .dark-mode .rectanglee:nth-child(1) {
+    background-color:white;
+  }
+  
+  .dark-mode .rectanglee:nth-child(1) label {
+    color: black;
+  }
+  
+  
+  
+  
+  
+    .dark-mode .profilee-name span{
+      color: #D3D3D3;
+      }
+  
+      .dark-mode .caption span{
+        color:white; 
+        }
+  
+  .dark-mode .container .nav{
+    background-color: #121212; 
+     }
+  
+     .dark-mode .container .Table{
+      background-color: #121212; 
+       }
+  
+       .dark-mode .container .Table .overlay-text{
+        background-color: #36454F; 
+         }
+  
+  
+  .dark-mode .container .search img,
+  .dark-mode .container .upload img,
+  .dark-mode .container .Notifications img,
+  .dark-mode .container .Settings img
+  
+  {
+    filter: invert(1);
+  
+  }
+  
+   

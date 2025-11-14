@@ -1,0 +1,2181 @@
+/* ========================================================================== */
+/* GLOBAL CSS RESET & BASE STYLES                                             */
+/* Establishes a consistent baseline for all elements across browsers.        */
+/* ========================================================================== */
+
+html {
+  /*
+   * Ensures smooth scrolling behavior when navigating to anchor links.
+   * Enhances user experience by providing a fluid transition rather than an abrupt jump.
+   */
+  scroll-behavior: smooth;
+
+  /*
+   * Universal Box-Sizing Model:
+   * Sets 'border-box' globally for predictable and intuitive box model calculations.
+   * This ensures that padding and border are included within an element's specified width/height,
+   * simplifying layout calculations significantly.
+   */
+  box-sizing: border-box;
+
+  /*
+   * Base Font Settings for Accessibility and Scalability:
+   * 'font-size: 100%' ensures the base font size is relative to the user's browser default settings
+   * (typically 16px). This is crucial for accessibility, allowing users to scale text.
+   * All 'rem' units throughout the stylesheet will be based on this root font size.
+   * 'font-family' provides a default fallback before the main body font is applied.
+   */
+  font-size: 100%; /* 1rem = 16px by default */
+  font-family: 'Segoe UI', sans-serif; /* Fallback font before Poppins is loaded/applied */
+}
+
+/*
+* Inherit Box-Sizing for All Elements:
+* Applies 'box-sizing: inherit' to all elements and pseudo-elements.
+* This practice allows any element to inherit the 'box-sizing' value set on its parent (html in this case),
+* providing consistent box model behavior throughout the entire document structure.
+*/
+*,
+*::before,
+*::after {
+  margin: 0;   /* Resets default browser margins for all elements */
+  padding: 0;  /* Resets default browser paddings for all elements */
+  box-sizing: inherit; /* Ensures consistent box-sizing inherited from html */
+}
+
+/* ========================================================================== */
+/* CSS ROOT VARIABLES (DESIGN TOKENS)                                         */
+/* Defines a centralized system for design values (colors, spacing, etc.).    */
+/* These variables act as design tokens, enabling rapid theming, consistency, */
+/* and future-proofing your UI across the entire application.                */
+/* ========================================================================== */
+
+:root {
+  /* ---------------------------------------------------------------------- */
+  /* Spacing System (using 'rem' for scalable and consistent dimensions)    */
+  /* Defines a modular scale for all internal and external spacing,         */
+  /* padding, and margins, ensuring visual harmony and predictability.      */
+  /* ---------------------------------------------------------------------- */
+  --spacing-xxxs: 0.125rem; /* 2px - For very fine adjustments */
+  --spacing-xxs: 0.25rem;   /* 4px */
+  --spacing-xs: 0.5rem;     /* 8px */
+  --spacing-sm: 1rem;       /* 16px */
+  --spacing-md: 1.5rem;     /* 24px */
+  --spacing-lg: 2rem;       /* 32px */
+  --spacing-xl: 3rem;       /* 48px */
+  --spacing-xxl: 4rem;      /* 64px */
+  --spacing-xxxl: 6rem;     /* 96px - For large sections */
+
+  /* ---------------------------------------------------------------------- */
+  /* Color Palette (organized for Light Mode and Dark Mode theming)         */
+  /* Provides a comprehensive set of semantic colors for various UI states. */
+  /* ---------------------------------------------------------------------- */
+
+  /* Brand/Accent Colors (adapt as per your brand guidelines) */
+  --color-brand-primary: #ff5722; /* A vibrant orange for primary actions/accents */
+  --color-brand-secondary: #007bff; /* A complementary blue for secondary elements */
+  --color-brand-accent: #673ab7; /* A complementary purple for highlights */
+
+  /* Text Colors */
+  --color-text-light: #f8f9fa; /* Text color for dark backgrounds */
+  --color-text-dark: #212529;  /* Default text color for light backgrounds (high contrast) */
+  --color-text-muted: #6c757d; /* Lighter text for secondary information/placeholders */
+
+  /* Background Colors */
+  --color-bg-light: #ffffff; /* Default background for most content (white) */
+  --color-bg-light-alt: #f8f9fa; /* Slightly off-white for subtle section separation */
+  --color-bg-overlay: rgba(0, 0, 0, 0.7); /* For modals, popups, etc. */
+
+  /* Border & Shadow Colors */
+  --color-border-light: #e0e0e0; /* Light border color for light mode */
+  --color-shadow-light: rgba(0, 0, 0, 0.1); /* Subtle shadow for light mode */
+
+  /* Dark Mode Counterparts (These will be updated by a '.dark-mode' class) */
+  --color-dark-mode-bg-primary: #121212; /* Primary dark background */
+  --color-dark-mode-bg-secondary: #1e1e1e; /* Secondary dark background for sections/cards */
+  --color-dark-mode-text-primary: #e0e0e0; /* Light text for dark backgrounds */
+  --color-dark-mode-text-secondary: #b0b0b0; /* Muted light text for dark backgrounds */
+  --color-dark-mode-border: #333333; /* Darker borders for dark mode */
+  --color-dark-mode-shadow: rgba(0, 0, 0, 0.3); /* More pronounced shadow for dark mode */
+  --color-dark-mode-accent-overlay: rgba(255, 255, 255, 0.08); /* Subtle highlight in dark mode */
+
+  /* ---------------------------------------------------------------------- */
+  /* Typography System (Scalable font sizes and line heights)               */
+  /* Defines a clear hierarchy for text elements, ensuring readability      */
+  /* and visual balance across different screen sizes.                      */
+  /* ---------------------------------------------------------------------- */
+
+  --font-family-primary: 'Poppins', sans-serif; /* Main content font, modern & legible */
+  --font-family-secondary: 'Segoe UI', sans-serif; /* Alternative/fallback font */
+  --font-family-display: 'Montserrat', sans-serif; /* Optional: For bold headings/branding */
+
+  /* Fluid Font Sizes (using clamp() for responsive scaling) */
+  /* These variables define the min, preferred (viewport-based), and max font sizes */
+  --font-size-xxs: clamp(0.75rem, 0.9vw, 0.875rem); /* ~12px to 14px */
+  --font-size-xs: clamp(0.875rem, 1.1vw, 1rem);     /* ~14px to 16px */
+  --font-size-sm: clamp(0.8rem, 0.8vw, 0.8rem);    /* ~16px to 18px */
+  --font-size-base: clamp(1rem, 1.3vw, 1.25rem);    /* ~16px to 20px (default body text) */
+  --font-size-md: clamp(1.125rem, 1.5vw, 1.5rem);  /* ~18px to 24px */
+  --font-size-lg: clamp(1.25rem, 1.8vw, 1.75rem);  /* ~20px to 28px */
+  --font-size-xl: clamp(1.5rem, 2.2vw, 2rem);      /* ~24px to 32px */
+  --font-size-xxl: clamp(2rem, 3vw, 2.5rem);       /* ~32px to 40px */
+  --font-size-heading: clamp(2.5rem, 4vw, 3.5rem); /* ~40px to 56px - for main headings */
+
+  /* Line Heights for Readability */
+  --line-height-text: 1.6; /* Optimal line height for body text */
+  --line-height-heading: 1.2; /* Tighter line height for headings */
+  --line-height-tight: 1.0; /* For very compact text */
+
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* ---------------------------------------------------------------------- */
+  /* Layout & Component Standards                                           */
+  /* Defines reusable properties for common UI elements and structural layout.*/
+  /* ---------------------------------------------------------------------- */
+
+  --container-max-width: 1440px; /* Maximum width for main content containers */
+  --border-radius-sm: 0.25rem; /* Small rounded corners (4px) */
+  --border-radius-md: 0.5rem;  /* Medium rounded corners (8px) - default for cards/buttons */
+  --border-radius-lg: 1rem;    /* Large rounded corners (16px) */
+  --border-radius-full: 50%;   /* For perfect circles (e.g., avatars) */
+
+  /* Box Shadows (subtle depth for UI elements) */
+  --shadow-sm: 0 1px 3px var(--color-shadow-light); /* Light, subtle shadow */
+  --shadow-md: 0 4px 6px var(--color-shadow-light); /* Medium depth shadow */
+  --shadow-lg: 0 8px 15px var(--color-shadow-light); /* Deeper shadow */
+
+  /* Transitions (for smooth UI interactions) */
+  --transition-duration-fast: 0.15s;
+  --transition-duration-normal: 0.3s;
+  --transition-duration-slow: 0.5s;
+  --transition-timing-ease: ease-in-out; /* Standard easing function */
+  --transition-timing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy spring effect */
+}
+
+/* Dark Mode Theme Variables (applied when a '.dark-mode' class is active on a parent) */
+.dark-mode {
+  /* Background Colors */
+  --color-bg-light: var(--color-dark-mode-bg-primary); /* Overrides light background */
+  --color-bg-light-alt: var(--color-dark-mode-bg-secondary);
+
+  /* Text Colors */
+  --color-text-dark: var(--color-dark-mode-text-primary);
+  --color-text-muted: var(--color-dark-mode-text-secondary);
+
+  /* Border & Shadow Colors */
+  --color-border-light: var(--color-dark-mode-border);
+  --color-shadow-light: var(--color-dark-mode-shadow);
+}/* ========================================================================== */
+/* GENERAL BODY STYLING                                                       */
+/* Defines the foundational styles for the entire document body.              */
+/* ========================================================================== */
+
+body {
+  /* Layout & Sizing */
+  display: flex;         /* Enables Flexbox for full-page layout */
+  flex-direction: column; /* Stacks content vertically (e.g., header, main, footer) */
+  min-height: 100vh;     /* Ensures the body takes at least the full viewport height,
+                            allowing a sticky footer pattern if content is short. */
+  margin: 0;             /* Removes default browser margin for the body */
+
+  /* Typography */
+  font-family: var(--font-family-primary); /* Primary font for all body text */
+  font-size: var(--font-size-base);     /* Base font size, fluidly scales via clamp() in :root */
+  line-height: var(--line-height-text); /* Optimal line height for text readability */
+  color: var(--color-text-dark);        /* Default text color for light mode */
+
+  /* Appearance */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+
+  /* Overflow & Scrolling Behavior */
+  overflow-x: hidden; /* Prevents horizontal scrollbar, crucial for responsive designs */
+  overflow-y: hidden;   /* Allows vertical scrolling when content exceeds viewport height */
+  -webkit-overflow-scrolling: touch; /* Enhances smooth scrolling on iOS devices */
+
+  /* Custom Scrollbar Styling (Firefox) */
+  scrollbar-width: thin; /* Sets the scrollbar to a thin style */
+  /* Defines thumb and track colors for Firefox scrollbars */
+  scrollbar-color: var(--color-brand-primary) var(--color-bg-light); 
+}
+
+/* Custom Scrollbar Styling (WebKit Browsers: Chrome, Edge, Safari) */
+/* Targets the scrollbar track (the background area of the scrollbar). */
+body::-webkit-scrollbar {
+  width: 0.6rem; /* Sets a consistent width for the vertical scrollbar */
+}
+
+/* Targets the scrollbar track (the background area of the scrollbar). */
+body::-webkit-scrollbar-track {
+  background: var(--color-bg-light); /* Matches the body background for a cohesive look */
+}
+
+/* Targets the scrollbar thumb (the draggable part of the scrollbar). */
+body::-webkit-scrollbar-thumb {
+  background-color: var(--color-brand-primary); /* Uses brand primary color for visual emphasis */
+  border-radius: var(--border-radius-md); /* Applies rounded corners to the scrollbar thumb */
+  border: 2px solid var(--color-bg-light); /* Adds a subtle border for definition */
+}
+
+
+/* ========================================================================== */
+/* HEADER & FOOTER GENERAL STYLING                                            */
+/* Provides base styles common to both the header and footer sections.        */
+/* ========================================================================== */
+
+.header,
+.footer {
+  width: 100%; /* Ensures both header and footer span the full width of the viewport */
+  padding: var(--spacing-md) 0; /* Applies consistent vertical padding (e.g., 24px), no horizontal padding */
+  
+  /* Appearance */
+  background-color: var(--color-dark-mode-bg-primary); /* Uses a dark background variable, suitable for header/footer */
+  color: var(--color-text-light); /* Uses a light text color for contrast on dark backgrounds */
+}
+
+
+/* ========================================================================== */
+/* HEADER CONTAINER SPECIFIC STYLING                                          */
+/* Defines styles for the main fixed header bar at the top of the viewport.  */
+/* (Specific layout/content for the header goes here if it's not .header)    */
+/* ========================================================================== */
+
+/* The comment block indicates that specific header layout/content styles
+ would follow here if 'header' refers to a wrapper. If '.header' is the
+ main header element, then the styles above are sufficient.
+ No changes needed based on the provided input, just clarification. *//* ========================================================================== */
+/* HEADER COMPONENT STYLING                                                   */
+/* Defines the main fixed header bar at the top of the viewport, including    */
+/* the platform logo/title and general header layout.                         */
+/* ========================================================================== */
+
+/* ==== MAIN HEADER CONTAINER (.container) ==== */
+.container {
+  /* Positioning */
+  position: fixed; /* Keeps the header at the top of the viewport when scrolling */
+  top: 0;          /* Aligns to the very top */
+  left: 0;         /* Aligns to the very left */
+  z-index:1000; /* Ensures it stays on top of other content */
+
+  /* Sizing & Layout */
+  width: 100%;     /* Spans the full width of the screen */
+  height: 3rem;    /* Fixed height for the header (48px based on 16px root font-size) */
+  display: flex;   /* Enables flexbox layout for arranging children (logo, nav) */
+  flex-direction: row; /* Arranges children horizontally */
+  align-items: center; /* Vertically centers children within the header */
+  justify-content: space-between; /* Distributes space to push logo to left, nav to right */
+
+  /* Appearance & Spacing */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+  padding-inline-start: 0; /* Ensures no left padding pushes content initially */
+  /* margin-inline: auto; is redundant here as width is 100% and position is fixed */
+}
+
+/* Dark Mode adjustment for the main header container */
+.dark-mode .container {
+  background-color: var(--color-dark-mode-bg-primary); /* Darker background for dark mode */
+  box-shadow: var(--shadow-dark-md); /* More pronounced shadow in dark mode */
+}
+
+
+/* ==== LOGO/TITLE SECTION CONTAINER (.Table) ==== */
+/* This flexible container holds the platform's main title/logo. */
+.Table {
+  /* Flex Item Properties within .container */
+  flex: 0 0 15%; /* Prevents growing/shrinking and sets initial base width to 15% of parent */
+  height: 100%; /* Matches the height of its parent (.container) */
+  
+  /* Internal Layout */
+  display: flex;   /* Enables flexbox for its content (.overlay-text) */
+  align-items: center; /* Vertically centers content within the Table container */
+  
+  /* Appearance & Positioning */
+  background-color: transparent; /* Transparent background for the logo section */
+  position: relative; /* Allows for absolute positioning of its children (e.g., .overlay-text) */
+  inset-inline-start: 0; /* Aligns to the start (left) edge of the container */
+}
+
+
+/* ==== OVERLAY TEXT CONTAINER (.overlay-text) ==== */
+/* This absolutely positioned container holds the actual text of the logo,
+ allowing for special text-clipping effects. */
+ .overlay-text {
+  /* Positioning */
+  position: absolute; /* Positions precisely within its parent (.Table) */
+  inset: 0;           /* Stretches to cover the entire parent (top, right, bottom, left at 0) */
+  z-index: var(--z-index-logo-text); /* Ensures logo text is layered correctly */
+  
+  /* Layout */
+  display: flex;       /* Enables flexbox for centering the text content */
+  align-items: center; /* Vertically centers the text */
+  justify-content: center; /* Horizontally centers the text */
+  
+  /* Typography */
+  font-family: var(--font-family-primary); /* Uses the primary brand font */
+  font-size: 1.3em; /* Sets the base font size for the logo text (24px) */
+  font-weight: var(--font-weight-extrabold); /* Extra bold for prominence */
+  
+  /* Text Handling */
+  white-space: nowrap; /* Prevents the text from wrapping */
+  overflow: hidden;    /* Hides any text that overflows its container */
+  text-overflow: ellipsis; /* Adds "..." if text is truncated */
+  
+  /* Appearance & Spacing */
+  background-color: transparent; /* Transparent background for the text overlay */
+  padding-inline-start: 0; /* Ensures no left padding */
+}
+
+
+/* ==== "NET" TEXT STYLING (.net-text) ==== */
+/* Styles for the "NET" part of the logo title, using a background clipped to text. */
+.net-text {
+  /* Background Clip for Text Effect */
+  background: red; /* Uses the vibrant brand primary color (red) */
+  -webkit-background-clip: text;           /* Clips the background to the shape of the text */
+  -webkit-text-fill-color: transparent;    /* Makes the text transparent to reveal the clipped background */
+  
+  /* Typography */
+  /* Typography */
+  font-size: 1.3em; /* Sets the base font size for the logo text (24px) */
+  letter-spacing: var(--spacing-xxxs); /* Adds subtle letter spacing (2px) */
+  font-weight: inherit; /* Inherits font weight from parent (.overlay-text) */
+  display: inline-block; /* Ensures consistent rendering with text-clip effect */
+}
+
+/* ==== "TOON" TEXT STYLING (.toon-text) ==== */
+/* Styles for the "TOON" part of the logo title. */
+.toon-text {
+  /* Background Clip for Text Effect */
+  background: var(--color-text-dark); /* Default dark text color for light mode (black) */
+  -webkit-background-clip: text;           /* Clips the background to the shape of the text */
+  -webkit-text-fill-color: transparent;    /* Makes the text transparent to reveal the clipped background */
+  
+  /* Typography */
+  font-size: 1.3em; /* Sets the base font size for the logo text (24px) */
+  
+  /* Spacing */
+  margin-inline-start: var(--spacing-xxs); /* Adds a small space to the left (5px) */
+  
+  font-weight: inherit; /* Inherits font weight from parent */
+  display: inline-block; /* Ensures consistent rendering with text-clip effect */
+}
+
+
+/* ========================================================================== */
+/* DARK MODE THEME ADJUSTMENTS FOR HEADER                                     */
+/* Styles applied when a '.dark-mode' class is active on a parent element     */
+/* (e.g., <body> or <html>), overriding light mode defaults.                */
+/* ========================================================================== */
+
+/* Dark Mode adjustment for "NET" text background */
+.dark-mode .net-text {
+  background: red; /* Keeps brand primary color vibrant in dark mode */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark Mode adjustment for "TOON" text background */
+.dark-mode .toon-text {
+  background: yellow; /* Uses light text for contrast in dark mode (yellow) */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Dark Mode adjustment for a hypothetical "SHORTS" text element */
+/* (This class was only present in your dark mode section of original code) */
+.dark-mode .shorts-text {
+  background: var(--color-brand-primary); /* Example: Use brand primary for background */
+  color: var(--color-text-light); /* Use light text color for contrast */
+  /* If this is also intended to be text-clipped, add those properties here */
+  /* -webkit-background-clip: text; */
+  /* -webkit-text-fill-color: transparent; */
+}
+
+
+/* ========================================================================== */
+/* GLOBAL LINK STYLING                                                        */
+/* Ensures consistent appearance for all anchor tags and specific text.       */
+/* ========================================================================== */
+
+/* Removes the default underline from all anchor tags for a cleaner look. */
+a {
+  text-decoration: none;
+}
+
+/* Explicitly ensures no underline for .net-text and .toon-text,
+ especially if they are nested within an <a> tag. */
+.net-text,
+.toon-text {
+  text-decoration: none; 
+}/* ========================================================================== */
+/* NAVIGATION SECTION STYLING (.nav)                                          */
+/* This section occupies the remaining space in the header and contains       */
+/* the main navigation links, positioned to the right.                        */
+/* ========================================================================== */
+
+
+.nav {
+  /* Flex Item Properties (within the .container header) */
+  flex-grow: 1; /* Allows the navigation section to take up all available horizontal space */
+  height: 100%; /* Ensures the navigation section matches the height of its parent header */
+  
+  /* Flex Container Properties (for arranging navigation links/items) */
+  display: flex;   /* Enables flexbox for aligning internal navigation items */
+  align-items: center; /* Vertically centers the navigation items */
+  justify-content: space-around; /* Distributes navigation items with equal space around them */
+  gap: 5vw; /* Fluid spacing between navigation items, scales with viewport width */
+  
+  /* Appearance */
+  background-color: transparent; /* Ensures a transparent background for the navigation area */
+  
+  /* Positioning & Spacing */
+  margin-inline-start: 0; /* Ensures no left margin, relying on justify-content for spacing */
+}
+
+/*
+* NOTE ON REDUNDANT BLOCKS:
+* The following .container and .nav blocks are duplicates of definitions found elsewhere
+* in your CSS. While keeping them here as per your original provided code,
+* it's important to be aware that they might be redundant and could be removed
+* if the properties are consistently defined in single locations.
+*/
+.container {
+  display: flex;
+  flex-direction: row; /* Defines children layout as a row */
+}
+
+.nav {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.search {
+  display: flex;
+  position: relative;
+  width: 100%;
+  max-width: 850px;
+  height:30px;
+  left: 2%;
+  background-color:transparent;
+  margin: 15px auto;
+  border-radius: 7px;
+  align-items: center;
+  border: 0.3px solid #ccc;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Ensures hidden children don't leak out */
+}
+
+.dark-mode .search
+{
+  background-color: transparent;
+}
+
+.search input[type="search"] {
+  flex: 1;
+  height: 4.5vh;
+height: 100%;
+  border-radius: 7px;
+  background-color:transparent;
+  border: none;
+  color: #333;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+
+.search input[type="search"]:focus {
+  border: 1px solid white;
+  box-shadow: none;
+}
+
+
+.search input[type="search"]:valid ~ .clear-btn {
+  display: block;
+}
+
+body.dark-mode .search input[type="search"] {
+  color: #fff;
+}
+
+.search input[type="search"]::placeholder {
+  color: #36454F;
+  font-size: 0.9rem;
+}
+
+body.dark-mode .search input[type="search"]::placeholder {
+  color: #D3D3D3;
+}
+
+/* Optional mobile support */
+@media (max-width: 480px) {
+  .search {
+    width: 95%;
+    padding: 0.25rem;
+  }
+
+  .search input[type="search"] {
+    font-size: 0.95rem;
+    padding: 0.5rem 2rem 0.5rem 1.5rem;
+  }
+
+  .clear-btn {
+    font-size: 1rem;
+    right: 0.75rem;
+  }
+}
+
+/* Search icon to the left */
+.search .search-icon {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  display: flex;
+  padding: 1px;
+  background-color: transparent;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* Clear button to the right */
+.clear-btn {
+  position: absolute;
+  right: 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: red;
+  display: none;
+}
+
+.search input[type="search"] {
+  padding-left: 2rem; /* make room for icon */
+  padding-right: 3.5rem; /* make room for clear button */
+}
+
+
+.upload {
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  background-color: transparent;
+  margin-top: 0;
+  margin-left: 1vw;
+  border-radius: 50%;
+}
+
+.upload img {
+  width: 3vw;
+  height:3vw;
+  margin-top: 0.2vh;
+  padding: 0.5vh;
+  margin-left: 0vw;
+}
+
+
+.upload:hover .tooltip
+{
+visibility: visible;
+opacity: 1;
+
+}
+
+/* Notifications Icon */
+.Notifications {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 2rem;
+}
+
+.Notifications img {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Dropdown Container */
+.Notification-container {
+  display: none;
+  position: absolute;
+  top: 110%;
+  right: 1%;
+  width: 24%;
+  min-width: 17rem;
+  max-height: 30em;
+  background-color: #333;
+  color: #fff;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.4);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+
+  z-index: 30;
+}
+
+.Notification-container.active {
+  display: block;
+}
+
+.dark-mode .Notification-container
+{
+  background-color: #2a2d2f;
+}
+
+
+/* Sticky Header for Notification Count */
+.Notification-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: red; /* same as container background */
+  padding: 0rem;
+  border-bottom: 1px solid #444;
+}
+
+.Notification-header span {
+  width:100%;
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  color: black;
+  background-color: white;
+  border-radius: 0rem;
+  font-weight: bold;
+}
+
+.dark-mode .Notification-header span {
+  color: #fff;
+  background-color: #444;
+}
+
+
+
+.Notification {
+  display: flex;
+  padding: 0.75rem;
+  border-radius: 0.2rem;
+  background-color: white;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+  transition: background 0.2s ease;
+  flex-direction: column; /* stack rows */
+  gap: 0.4rem;
+}
+
+.dark-mode .Notification
+{
+  background-color: var(--color-bg-metadata-dark); /* **YouTube-inspired dark gray background** */
+}
+
+
+
+.Notification:hover {
+border-color: #2a2d2f;
+}
+
+
+
+.User-profile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* push username left, timer right */
+  width: 100%;
+}
+
+
+.User-profile span
+{
+  color: #36454F;
+  background-color: transparent;
+}
+
+.dark-mode .User-profile span
+{
+  color: #D3D3D3;
+}
+
+.User-profile img {
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Username stays left */
+.username {
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #36454F;
+  margin-left: 0.5rem;
+  flex: 1;
+}
+
+/* Row 2: Message left, Thumb right */
+.message-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.message-row span
+{
+  color: black;
+  background-color: transparent;
+}
+
+.dark-mode .message-row span
+{
+  color: white;
+
+}
+
+.text {
+  color: black;
+  font-size: 0.9rem;
+  flex: 1;
+  margin-right: 0.5rem;
+}
+
+/* Thumbnail fixed right */
+.video-thumb {
+  flex-shrink: 0;
+}
+
+.video-thumb img {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.3rem;
+  object-fit: cover;
+}
+
+/* Row 3: Timer */
+.timer {
+  flex: 1;
+  width: 5%;
+  height: 30px;
+  background-color: saddlebrown;
+  display:none;          /* let it be a full-width row */
+  padding-left: 2rem;    /* indent under username/message, same space as avatar */
+  margin-top: 0.2rem;
+}
+
+.timer span {
+  font-size: 0.3rem;
+  color: #aaa;
+  display:none;   /* makes sure it behaves like a label */
+}
+
+.Theme {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Theme img {
+  width: 1.6875em;
+  height: 1.6875em;
+  border-radius: 50%;
+  margin-left: 1em;
+}
+.Account {
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  background-color: transparent;
+  margin-top: 0.3125rem; /* 5px */
+  margin-right: 1rem;     /* 16px */
+  margin-bottom: 0.1875rem; /* 3px */
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  float: right;
+}
+
+.Account img {
+  width: 2vw;
+  height: 2vw;
+  margin-left: 0.4rem; /* 5px */
+  border-radius: 50%;
+  object-fit: cover; /* Ensures proper scaling inside circle */
+}
+
+/* Dark mode adjustment */
+.dark-mode .Account img {
+  filter: invert(1);
+}
+
+/* Dropdown wrapper */
+.account-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0.5%;
+  width: 24%;
+  min-width: 11.25em;
+  max-height: 25em;
+  background-color: #333;
+  box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  z-index: 30;
+  padding: 0em 0;
+  text-align: left;
+  align-items: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) white;
+}
+
+.dropdown-content a {
+  
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; /* Make links block elements */
+}
+
+.account-dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Profile Section */
+.proofile {
+  width: 100%;
+  min-height: 1.875em; /* 30px */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: white;
+  padding: 0.625em; /* 10px */
+  border-radius: 0.4375em; /* 7px */
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Hover Effect */
+.proofile:hover {
+  background-color: grey; /* Subtle purple hover effect */
+  color: white;
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Profile Image */
+.proofile img {
+  width: 1.6875em; /* 27px */
+  height: 1.6875em;
+  border-radius: 50%;
+  margin-right: 0.625em; /* 10px */
+}
+
+/* Profile Name */
+.proofile span {
+  font-weight: bold;
+  font-size: 0.875em; /* 14px */
+  color: black;
+  margin-left: 0.3125em; /* 5px */
+  text-align: left;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Change text color on hover */
+.proofile:hover span{
+  color: white;
+}
+
+
+.dropdown-content li {
+  list-style: none; /* Remove bullet points */
+}
+
+
+
+.tooltip {
+  position: absolute;
+  top: 100%; /* Show below the upload icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 0.4em 0.6em;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10;
+}
+
+
+/* Tooltip Hover Effect */
+.upload:hover .tooltip, 
+.Notifications:hover .tooltip, 
+.Account:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .tooltip {
+    font-size: 0.75em; /* Reduce text size on smaller screens */
+    padding: 0.4em 0.6em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tooltip {
+    font-size: 0.6875em; /* Further reduce size for compact screens */
+    bottom: -1.75rem; /* Adjust positioning */
+  }
+}
+/* ==== Base Container ==== */
+.container-1 {
+  position: relative;
+  width: 100%;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0;
+  box-sizing: border-box;
+  z-index: 2;
+  margin-top: 3.0rem;
+  border-radius: 0px;
+  border: 0.1px solid transparent;
+  padding-bottom: 0px;
+  padding-top:1rem;
+  border-style: ridge;
+}
+
+.dark-mode .container-1
+{
+  border: 0.1px solid transparent;
+}
+
+/* ==== Sticky Heading ==== */
+.Heading {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: auto;
+  height: 30px;
+  background-color:white;
+  z-index: 10;
+  display: flex;
+  padding: 0px;
+  margin: 0;
+  align-items: center;
+  padding-left: 0%;
+  border-radius: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.Heading span {
+  padding-left: 1%;
+  color: #333333;
+  font-weight: bold;
+  font-size: 20px;
+  padding-top: 0px;
+
+}
+
+.dark-mode .Heading {
+  background-color:transparent; /* Black background for Dark Mode */
+}
+
+.dark-mode .Heading span {
+  color: #ffffff;
+}
+
+
+
+/* ==== Scrollable Section ==== */
+.Scroller {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y:scroll;
+  overflow-x: hidden;
+  scrollbar-width: auto;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  background-color: transparent;
+  border-radius: 0px;
+  border: 1px solid transparent;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+/* Dark mode adjustments */
+.dark-mode .Scroller {
+  scrollbar-color: rgba(7, 4, 4, 0.5) grey;
+}
+
+
+
+
+/* ==== Playlist Layout ==== */
+.Playlist {
+  position: relative;
+  display: flex;
+  height:auto;
+  max-height: 650px;
+  flex-direction:column;
+  width: 100%;
+  background-color: transparent;
+  padding: 0px;
+  gap: 1rem;
+  border-style: ridge;
+  margin-top: 20px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin-bottom: 20px;
+  border-radius: 7px;
+  border: 0.1px solid transparent;
+}
+
+
+
+.Segment
+{
+  position: sticky;
+  top: 0;
+  z-index: 5;
+width: 100%;
+height: 30px;
+background-color: #F5F5F5;
+display: flex;
+padding: 0px;
+margin: 0;
+align-items: center;
+padding-left: 0%;
+border-radius: 0px;
+margin-top:0px;
+padding-top: 0px;
+padding-bottom: 0px;
+margin-bottom: 0px;
+
+}
+
+.dark-mode .Segment
+{
+  background-color: #2a2d2f;
+}
+
+.Segment span {
+  padding-left: 1%;
+  color: #333333;
+  font-weight: bold;
+  font-size: 20px;
+  padding-top: 0px;
+
+}
+
+.dark-mode .Segment span 
+{
+  color:#FFFFFF;
+}
+
+.Heading, .Segment {
+  padding: 0.5rem 0.5rem;
+  height: auto;
+}
+
+
+.Playlist:first-of-type > .Segment:first-of-type {
+  margin-top: 1rem;
+  background: white;
+}
+
+.dark-mode .Playlist:first-of-type > .Segment:first-of-type {
+  margin-top: 1rem;
+  background-color: #2a2d2f;
+}
+
+
+
+
+.playlist-item {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  background-color: transparent;
+  margin-bottom: 0rem;
+  padding-bottom: 0px;
+  padding: 0.5rem;
+  gap: 1rem;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* Optional responsiveness */
+@media (max-width: 768px) {
+  .playlist-item {
+    flex-direction: column;
+  }
+}
+
+.left-section {
+  flex: 1;
+  margin-top: 0px;
+  max-width: 45%;
+  background-color: transparent;
+  margin-bottom: 0px;
+}
+
+
+
+.Container
+{
+width: 100%;
+height: 100%; /* or a defined px/rem/vh */
+background-color: transparent;
+display: flex;
+flex-direction: row;
+margin-top: 0px;
+flex-wrap: wrap;
+padding-top: 0px;
+padding-bottom: 0px;
+padding: 0px;
+}
+
+
+.scroll-area {
+  width: 100%;
+  height: 100%;
+  overflow-x:scroll;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: transparent;
+  z-index: 0;
+ padding-bottom: 0px;
+ margin-bottom:0px;
+  gap: 0.3rem; /* Slight space between items */
+  padding: 0rem 0rem;
+  scrollbar-width: thin;
+  overflow-y:hidden;
+  overflow-x: auto;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  scroll-snap-type: x mandatory; /* changed to x for horizontal */
+}
+
+/* Dark mode adjustments */
+.dark-mode .scroll-area {
+  scrollbar-color: rgba(7, 4, 4, 0.5) grey;
+}
+
+
+
+.shorts {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 9 / 16;
+  max-height: 70vh;
+  margin: 0; /* remove margin */
+  overflow: hidden;
+  border-radius: 12px;
+  flex-shrink: 0;
+  padding: 20px;
+  margin-bottom: 0px;
+  scroll-snap-align: start;
+  background-color: transparent;
+}
+  
+  /* 🔷 Video Element */
+  .shorts video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+  }
+  
+
+
+/* Play overlay button */
+.play-overlay {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+/*
+.dark-mode .play-overlay
+{
+  filter: invert(1);
+}
+  */
+
+.overlay-link {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+}
+
+.dark-mode .Playlist {
+  border: 1px solid transparent;
+}
+
+/* ==== Sidebar List ==== */
+.List {
+  width: 40%;
+  background-color: transparent;
+}
+
+/* ==== Right Content Section ==== */
+.right-section {
+  width: 58%;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-radius: 7px;
+  margin-right: 1%;
+  margin-top:0%;
+  padding: 0px;
+  height: 100%;
+  flex: 2;
+  margin-bottom: 0px;
+}
+
+
+.Playlist {
+  gap: 0;
+  margin-top: 0;
+  padding: 0;
+}
+
+.Segment {
+  padding: 0;
+  margin: 0;
+}
+
+.Heading, .Segment {
+  padding: 0;
+  margin: 0;
+  height: 30px;
+}
+
+.playlist-item {
+  margin: 0;
+  padding: 0.5rem; /* optional */
+}
+
+.playlist-item:not(:first-child) {
+  margin-top: 1rem;
+}
+
+
+/* ==== About Section ==== */
+.About {
+  height: auto;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1; /* both grow equally */
+  overflow-y: auto; /* enable internal scroll if content exceeds height */
+padding: 0px;
+margin: 0;
+padding-bottom: 0px;
+}
+
+/* 1st Playlist (Series) */
+.Playlist:nth-of-type(1) .About {
+  background-color: transparent;
+  max-height: 260px;
+  margin-top: 0.5rem;
+}
+
+/* 1st Playlist (Series) */
+.Playlist:nth-of-type(3) .About {
+  background-color: transparent;
+  max-height: 300px;
+}
+
+
+
+/* ==== Description Area ==== */
+.description {
+  height: auto;
+  width: 100%;
+  height:100%;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  scroll-behavior: smooth;
+  background-color: transparent;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  overflow-y:auto;
+padding: 0px;
+}
+
+
+.description span
+{
+  position: relative;
+margin-top: 3%;
+}
+
+/* 1st Playlist (Series) */
+.Playlist:nth-of-type(3) .description span
+{
+  background-color: transparent;
+margin-top: 3%;
+}
+
+
+/* ==== Horizontal Scroll Video Row ==== */
+.vidoes {
+  position: relative;
+  width: 100%;
+  background-color: transparent;
+  display: flex;
+  min-height: 150px;
+  max-height: 200px;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  scroll-behavior: smooth;
+  padding-top: 0%;
+  padding-bottom: 1%;
+  margin-top:0%;
+}
+
+/* Dark mode adjustments */
+.dark-mode .vidoes{
+  scrollbar-color: rgba(0, 0, 0, 0.5) grey;
+}
+
+/* Hide scrollbar for WebKit */
+.vidoes::-webkit-scrollbar {
+  display: none;
+}
+
+
+/* ==== Card Styling ==== */
+.cards {
+  position: relative; /* or remove this line entirely */
+  width: 200px; /* fixed width ensures spacing behaves as expected */
+  padding: 0px;
+  height: 120px;
+  background-color: transparent;
+  border-radius: 7px;
+  cursor: pointer;
+  top:11%;
+  margin-left: 3%;
+  flex-shrink: 0; /* Don't shrink in horizontal layout */
+}
+
+
+/* 1st Playlist (Series) */
+.Playlist:nth-of-type(1) .right-section {
+  background: transparent;
+}
+.Playlist:nth-of-type(1) .About .description {
+  background: transparent;
+  height: 100%;
+}
+
+/* 2nd Playlist (Shorts) */
+.Playlist:nth-of-type(2) .right-section {
+  background-color: transparent;
+}
+.Playlist:nth-of-type(2) .vidoes .cards {
+  border: 0px  solid transparent;
+}
+
+/* 3rd Playlist (Movies) */
+.Playlist:nth-of-type(3) .right-section {
+  background: transparent;
+}
+.Playlist:nth-of-type(3) .vidoes .cards {
+  border: 0px  solid transparent;
+}
+
+/* 4th Playlist (Playlist) */
+.Playlist:nth-of-type(4) .right-section {
+  background: transparent;
+}
+
+.Playlist:nth-of-type(4) {
+  background:transparent;
+margin-bottom: 50px;
+}
+
+.Playlist:nth-of-type(4) .vidoes {
+  background:transparent;
+  margin-top: 2%;
+height: 100%;
+}
+
+.Playlist:nth-of-type(4) .kontainer {
+  background: transparent;
+  margin-top: 5%;
+
+}
+
+
+
+.Playlist:nth-of-type(4) .vidoes .cards {
+  border: 0px  solid transparent;
+  margin-top: 4.5%;
+  margin-left: 3%;
+  height: 150px;
+  width: 250px; /* fixed width ensures spacing behaves as expected */
+}
+
+
+.overlay-textttt {
+  position: absolute;
+  min-width: 10%;
+  max-width: 23%;
+  height: auto; /* Dynamic height */
+  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+  color: white;
+ right:5%;
+  bottom: 7%;
+  border-radius: 0.4375rem; /* 7px */
+  padding: 0.1rem 0.1rem; /* Increased padding for better readability */
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-word;
+}
+
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .overlay-textttt {
+    left: 50%; /* Center it better on smaller screens */
+    bottom: 10%;
+    max-width: 30%;
+    font-size: clamp(0.9rem, 2.5vw, 1rem); /* Adjusted font size for mobile */
+    padding: 0.25rem 0.5rem;
+  }
+}
+
+  
+.cards img
+{
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: 7px;
+}
+
+
+
+.overlay-texttt {
+  position: absolute;
+  min-width: 10%; /* Prevents it from getting too small */
+  max-width: 22%; /* Ensures a good size balance */
+  height: auto;
+  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+  color: white;
+  left: 5%;
+  bottom: 7%;
+  border-radius: 7px;
+  padding: 0.1rem 0.1rem; /* Increased padding for better readability */
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover Effect - Makes It More Interactive */
+.overlay-texttt:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Slightly more contrast */
+  transform: scale(1.05); /* Small pop effect */
+}
+
+/* 📱 Mobile Optimization */
+@media (max-width: 768px) {
+  .overlay-texttt {
+    font-size: 12px;
+    padding: 4px 8px;
+    min-width: 12%;
+    max-width: 25%;
+    bottom: 10%;
+  }
+}
+
+  /* Individual Video Containers */
+  .kontainer {
+    position: relative;
+    width: clamp(100%, 30%, 32%);
+    height: auto;
+    background-color: transparent;
+    border-radius: 0.5rem;
+    cursor: pointer;
+  margin-left: 0px;
+  margin-bottom:10px;
+  margin-top:25%;
+  cursor: pointer;
+  }
+  
+.kontainer:nth-child(3)
+{
+  margin-bottom: 30px;
+
+}
+
+  
+  /* Video Thumbnails */
+  .kontainer img {
+    width: 100%;
+    height: auto;
+    border-radius: 0.5rem;
+    object-fit: cover; /* Ensures consistent scaling */
+  }
+  
+  
+  
+  /* Responsive Adjustments */
+  @media screen and (max-width: 1024px) {
+    .container-1 {
+      width: calc(100% - 10%);
+      left: 5%;
+      justify-content: space-around;
+    }
+  
+    .kontainer {
+      width: clamp(40%, 45%, 48%);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .container-1 {
+      width: 95%;
+      left: 2.5%;
+      gap: 1rem;
+    }
+  
+    .kontainer {
+      width: 48%;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .container-1 {
+      width: 100%;
+      left: 0;
+      justify-content: center;
+    }
+  
+    .kontainer {
+      width: 90%;
+      margin-bottom: 1.5rem;
+    }
+  }
+  
+/* Profile Section */
+.profilee {
+  display: flex;
+  width: 100%;
+  height: 2rem; /* 40px */
+  border-radius: 0rem; /* 7px */
+  background-color: transparent;
+  align-items: center;
+  gap: 0.625rem; /* 10px */
+  padding: 0rem; /* Adds subtle spacing */
+  margin-bottom: 0rem;
+  max-width: 100%;
+}
+
+/* Profile Image */
+.profilee img {
+  width: 2.2rem; /* 35px converted to rem */
+  height: 2.2rem;
+  border-radius: 50%;
+  margin-left: 1%;
+  object-fit: cover;
+  background-color: transparent;
+}
+
+.dark-mode .profilee img
+{
+  filter: invert(1);
+}
+
+/* Profile Name Container */
+.profilee-name {
+  flex-grow: 1;
+  height: 100%;
+  background-color: transparent;
+  border-radius: 0rem;
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* Profile Name Label */
+.profilee-name span {
+  font-size: 1.125rem; /* Adjusted for better scaling */
+  font-weight: 700;
+  color: #36454F;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  padding: 0.3125rem;
+  margin-left: 0px;
+  
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .profilee {
+    padding: 0.3125rem 0.75rem;
+  }
+
+  .profilee img {
+    width: 2.2rem;
+    height: 2.2rem;
+  }
+
+  .profilee-name span{
+    font-size: 0.9375rem; /* Slightly smaller text */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profilee {
+    flex-direction: row;
+    align-items: center;
+    padding: 0.3125rem 0.5rem;
+  }
+
+  .profilee img {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  .profilee-name span {
+    font-size: 0.875rem;
+  }
+}
+
+.caption {
+  width: 100%;
+  height: 1.875rem; /* 30px */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background-color: transparent;
+  padding: 0 0.625rem; /* Adds slight padding for better spacing */
+}
+
+/* Caption Text */
+.caption span {
+  color: black;
+  height: 100%;
+  font-weight: 700;
+  font-size: 0.96875rem; /* 15.5px */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+  max-width: 100%;
+  margin-top: 3%;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .caption {
+    height: auto; /* Allows for multiple lines if necessary */
+    flex-wrap: wrap;
+    text-align: center;
+  }
+
+  .caption span {
+    font-size: 0.9375rem; /* Slightly smaller for mobile */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .caption {
+    height: auto;
+    padding: 0.3125rem; /* Adjusted for compact screens */
+  }
+
+  .caption span {
+    font-size: 0.875rem; /* Smaller font size */
+  }
+}
+.videoo {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-top: 0.0625rem; /* 1px */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.videoo video {
+  width: 100%;
+  height: 12.5rem; /* 200px */
+  object-fit: cover;
+  border-radius: 0.4375em; /* Converted from 7px */
+  display: block;
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .videoo video {
+    height: 10rem; /* Adjusted for tablets */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .videoo video {
+    height: 8.5rem; /* Adjusted for mobile */
+  }
+}
+.overlay-textt {
+  position: absolute;
+  min-width: 12%; /* Slightly increased for better visibility */
+  max-width: 25%;
+  height: auto; /* Allows dynamic height */
+  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better contrast */
+  color: white;
+  left: 2%;
+  bottom: 4%; /* Adjusted for better alignment */
+  border-radius: 0.4375rem; /* 7px */
+  padding: 0.4rem 0.6rem; /* Slightly increased padding for better spacing */
+  font-size: clamp(0.75rem, 1.2vw, 1rem); /* Responsive font size */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-word;
+
+}
+
+
+/* Mobile Adjustments */
+@media screen and (max-width: 768px) {
+  .overlay-textt {
+    max-width: 35%;
+    font-size: clamp(0.7rem, 2vw, 0.875rem);
+    bottom: 3.5%;
+    left: 3%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .overlay-textt {
+    max-width: 45%;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.5rem;
+    bottom: 3%;
+    left: 3%;
+  }
+}
+
+.sectiionn {
+  display: flex;
+  width: 100%;
+  background-color: transparent;
+  margin-top: 1px;
+  border-radius: 7px;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 0.2rem;
+  padding: 0 0rem; /* Optional: adds horizontal padding for breathing space */
+  margin-bottom: 1px;
+}
+
+.views, .time, .category {
+  flex: 1 1 0;
+  max-width: 33.3%;
+  height: 1.8rem;
+  background-color: transparent;
+  margin: 0.1rem 0; /* Equal top and bottom margin */
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  min-width: 0;
+}
+
+
+/* Remove margin-left from views */
+.views {
+  margin-left: 0;
+}
+
+/* Image inside views */
+.views img {
+  width: 1.8vw;
+  height: 1.8vw;
+  margin-right: 0.3rem;
+}
+
+/* Text in views */
+.views span,
+.time span,
+.category span {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: black;
+  font-size: clamp(0.75rem, 1vw, 0.875rem);
+}
+
+/* Optional: Adjust for smaller screens */
+@media screen and (max-width: 768px) {
+  .sectiionn {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  .views,
+  .time,
+  .category {
+    flex: 1 1 100%;
+    max-width: 100%;
+    justify-content: center;
+  }
+
+  .views img {
+    max-width: 20px;
+  }
+}
+
+  
+    
+  .dark-mode .nav input[type="text"]  {
+    color:   #F5F5DC; 
+  }
+  
+  .dark-mode .nav input[type="text"]::placeholder  {
+    color:   #F5F5DC; 
+  }
+  
+  .dark-mode .nav .fx-gap img
+  {
+    filter: invert(1);
+  
+  }
+  
+  /* Light Mode Styles */
+  .light-mode {
+    background-color:  #FAFAFA; /* White background for Light Mode */
+    color: black; /* Black text for Light Mode */
+  }
+  
+  /* Dark Mode Styles */
+  .dark-mode {
+    background-color: #121212; /* Black background for Dark Mode */
+    color: white; /* White text for Dark Mode */
+  }
+  
+  
+  .dark-mode .sectiionn .views span,
+  .dark-mode .sectiionn .time span,
+  .dark-mode .sectiionn .category span
+  
+  
+  {
+    color:white;
+  
+  }
+  
+  .dark-mode .sectiionn .views img
+  
+  
+  {
+    filter: invert(1);
+  
+  }
+  
+  
+  .dark-mode .container-1{
+    background-color: #121212; 
+    }
+  
+  
+  
+  .dark-mode .rectanglee:nth-child(1) {
+    background-color:white;
+  }
+  
+  .dark-mode .rectanglee:nth-child(1) label {
+    color: black;
+  }
+  
+  
+  
+  
+  
+    .dark-mode .profilee-name span{
+      color: #D3D3D3;
+      }
+  
+      .dark-mode .caption span{
+        color:white; 
+        }
+  
+  .dark-mode .container .nav{
+    background-color: #121212; 
+     }
+  
+     .dark-mode .container .Table{
+      background-color: #121212; 
+       }
+  
+       .dark-mode .container .Table .overlay-text{
+        background-color: #121212; 
+         }
+  
+  
+  .dark-mode .container .search img,
+  .dark-mode .container .upload img,
+  .dark-mode .container .Notifications img,
+  .dark-mode .container .Settings img
+  
+  {
+    filter: invert(1);
+  
+  }
+  
+   
+
+  /* Mobile-first default styles (<=320px) */
+
+/* Small phones (up to 480px) */
+@media (max-width: 480px) {
+  .navbar { /* hide menu items, show hamburger */ }
+  .sidebar { display: none; }
+  .main-content { display: flex; flex-direction: column; }
+  .video-player { width: 100%; height: auto; }
+  button, .button { padding: 1rem; min-width: 48px; min-height: 48px; }
+}
+
+/* Medium phones / small tablets (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .navbar { /* show expanded nav or hamburger */ }
+  .layout { display: grid;
+             grid-template-columns: 1fr 1fr; 
+             grid-gap: 16px; }
+  .sidebar { display: block; /* optional sidebar view */ }
+  .main-content, .video-container { width: 100%; }
+}
+
+/* Tablets / small laptops (769px–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .layout { grid-template-columns: 1fr 2fr; } 
+  .navbar { /* full nav, horizontal */ }
+  .sidebar { /* visible with full functionality */ }
+  .video-player { max-width: 100%; height: auto; }
+}
+
+/* Desktops (1025px–1279px) */
+@media (min-width: 1025px) and (max-width: 1279px) {
+  .layout { grid-template-columns: 200px 3fr 1fr; }
+  .navbar { /* large nav layout */ }
+  .sidebar { padding: 20px; }
+  .main-content { max-width: 100%; }
+}
+
+/* Large desktops (1280px–1599px) */
+@media (min-width: 1280px) and (max-width: 1599px) {
+  .layout { grid-template-columns: 250px 4fr 2fr; }
+  .navbar, .sidebar, .content { padding: 2rem; }
+}
+
+/* Ultra-wide (1600px and up) */
+@media (min-width: 1600px) {
+
+  
+.container
+{
+  background-color: brown;
+}
+
+.Table
+{
+  background-color: honeydew;
+}
+
+.overlay-text
+{
+  background-color: navajowhite;
+  font-size: 1.5rem;
+}
+
+.nav
+{
+  background-color: transparent;
+}
+
+.search input[type="search"] {
+
+  min-height: 20px;
+  max-height: 25px;
+
+}
+
+
+.upload
+{
+  background-color: transparent;
+  width: 2.5vw;
+  height: 2.5vw;
+}
+
+.Notifications
+{
+  background-color: transparent;
+  width: 2vw;
+  height: 2vw;
+}
+
+.Account 
+{
+  background-color: transparent;
+  width: 2vw;
+  height: 2vw;
+}
+
+
+
+.upload img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+.Notifications img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+
+
+.Account img {
+  width: 100%;
+  height:  100%;
+margin: 0 auto;
+}
+
+
+/* Caption Text */
+.caption span {
+  font-weight: 700;
+  font-size: 0.9rem; /* 15.5px */
+}
+
+.videoo {
+  width: 100%;
+  height: auto;
+}
+
+.videoo video {
+  width: 100%;
+  height: 17.5rem; /* 200px */
+
+}
+
+  .views
+  {
+    background-color: transparent;
+  }
+
+
+.views img {
+  width: clamp(24px, 4.5vw, 30px);
+  height: clamp(24px, 4.5vw, 30px);
+  background-color: transparent;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+}
+
+/* Dark mode override */
+@media (prefers-color-scheme: dark) {
+  body { background: #121212; color: #e0e0e0; }
+  .navbar { background: #1f1f1f; }
+  /* etc. */
+}
