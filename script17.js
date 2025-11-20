@@ -132,7 +132,7 @@ const bannerInput = document.getElementById("profileBanner");
 const bannerPreview = document.getElementById("bannerPreview");
 const uploadBannerText = document.getElementById("uploadBannerText");
 const resetBanner = document.getElementById("resetBanner");
-const defaultBanner = "Nettoon.jpg";
+const defaultBanner = "WhatsApp Image 2025-10-11 at 09.56.10_ccb1dc99.jpg";
 
 resetBanner.hidden = true; // hide initially
 

@@ -1223,6 +1223,7 @@ border-color: #2a2d2f;
     border-radius: 12px;
     border: 2px solid #ddd;
     cursor: pointer;
+    background-color: #007bff;
   }
   
   /* No invert for banner ever */
@@ -1230,6 +1231,10 @@ border-color: #2a2d2f;
     filter: none !important;
   }
   
+  .text
+  {
+    background-color: #218838;
+  }
   
   /* ======================================
      Upload Text
@@ -1240,6 +1245,7 @@ border-color: #2a2d2f;
     font-size: 14px;
     text-decoration: underline;
     margin-top: 2px;
+    background-color: #000;
   }
   
   
@@ -1271,7 +1277,7 @@ border-color: #2a2d2f;
 .banner-group label {
   margin-top: 25px;
   display: block;
-  text-align: center;
+  text-align: left;
   font-weight: bold;
 }
 
@@ -1890,6 +1896,15 @@ body.compact-mode .content-section {
 .modal-overlay:not(.hidden) .modal-content {
   transform: scale(1);
   opacity: 1;
+
+}
+
+.modal-content input {
+
+  width: 100%;
+max-width: 100%;
+border-radius: 7px;
+height: 30px;
 }
 
 /* close button for modal */
@@ -1928,16 +1943,17 @@ margin: 0 auto;
 }
 .plan-card {
 flex:1; 
-min-width:200px;
+min-width:220px;
  border:1px solid #eee; 
  padding:20px; 
  text-align:center;
  border-radius: 0.4375rem;
-  padding: 1.25rem; /* Converted from 20px */
-  text-align:center;
+ padding: 1.25rem; /* Converted from 20px */
+ text-align:center;
 background-color: #F5F5F5;
   transition: transform .2s, border-color .2s;
 }
+
 .plan-card:hover { 
   transform: scale(1.03);
   opacity: 0.95;
