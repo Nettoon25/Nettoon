@@ -968,8 +968,8 @@ border-color: #2a2d2f;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.3); /* Dimmed background */
-  backdrop-filter: blur(4px); /* Optional blur for polish */
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
 }
 
 /* 🔥 Floating Upload Container */
@@ -2233,6 +2233,16 @@ button:hover {
 }
 
 
+.page-wrapper,
+.main-wrapper,
+.wrapper,
+.content,
+.content-wrapper {
+  background: var(--color-bg-light) !important;
+}
+
+
+
 /* Light Mode Styles */
 .light-mode {
   background-color: white; /* White background for Light Mode */
@@ -2507,7 +2517,7 @@ margin-bottom: 20px;
 
 .container
 {
-  background-color: darkgreen; /* Default background color for light mode */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
 }
 
 

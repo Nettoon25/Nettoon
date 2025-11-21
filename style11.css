@@ -1204,7 +1204,9 @@ border-color: #2a2d2f;
 
 .container
 {
-  background-color: darkgreen; /* Default background color for light mode */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+  
+
 }
 
 
@@ -1284,8 +1286,9 @@ margin: 0 auto;
 .login-container {
     width: 100%;
     max-width: 500px;
-margin-top: 7rem;
- height: 70vh;
+margin-top: 5rem;
+ height: 80vh;
+ background-color: #f8f8ff;
   }
 }
 

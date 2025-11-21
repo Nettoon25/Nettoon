@@ -2851,7 +2851,7 @@ margin: 0 auto;
 
 .sidebar
 {
-  background-color: transparent;
+  background-color: var(--color-bg-light); /* Default background color for light mode */
   width: 6%;
   z-index: 1000;
 }
@@ -2912,10 +2912,33 @@ top: 1rem;
 .metadata {
   position: absolute;
 top:8rem;
-background-color: firebrick;
-  right: 20vw;
-  width: 8vw;
+background-color: transparent;
+  right: 22.5vw;
+  width: 5vw;
+  border-radius:7px; 
 }
+
+.like,
+.dislike,
+.comment,
+.share,
+.options {
+  width: 70%; /* 70% of the .metadata's width (which is 5vw) */
+  height: 3.75rem; /* Fixed height of 60px */
+  gap: var(--spacing-xxs); /* Using your 0.25rem variable for icon/label spacing */
+ 
+}
+
+
+.like-icon,
+.liked-icon,
+.dislike-icon,
+.disliked-icon {
+  width: 22px; /* Fixed icon size */
+  height: 22px; /* Fixed icon size */
+  object-fit: contain;
+}
+
 
 /* 👇 Move both to left when comments are shown */
 .shorts.show-comments .short-video {
@@ -2923,7 +2946,7 @@ background-color: firebrick;
 }
 
 .shorts.show-comments .metadata {
-  margin-right: 49.5%;
+  margin-right:52%;
   right: 10px;
 }
 

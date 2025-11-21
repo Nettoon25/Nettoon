@@ -4593,13 +4593,13 @@ margin: 0 auto;
   gap:10px; /* Space between main elements inside (1rem approx 16px) */
   max-width: 100%;
   flex-shrink:0;
-  border-style: ridge;
+  border-style: none;
   }
 
 .containerr
 {
   background-color: transparent;
-    border-style: ridge;
+    border-style: none;
     margin-left: 10px;
 }
 
@@ -4616,11 +4616,11 @@ margin: 0 auto;
 
 /* Increase space for time and follow buttons */
 .follow {
-  flex: 2.1;
+  flex: 2.8;
 }
 
 .timee {
-  flex: 2;
+  flex: 3;
 }
 
 /* Label styling for text within interactive elements */
@@ -4638,8 +4638,8 @@ margin: 0 auto;
 .container-2
 {
   background-color: transparent;
-  max-height: 450px;
-  border-style: ridge;
+  max-height: 448px;
+  border-style: none;
   
 flex-basis: 39%; /* Provides a base width, allowing it to grow or shrink */
 max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: ensures a min width (20rem), scales with viewport (37vw), and has a max width (40rem) for very large screens. This prevents distortion and ensures optimal use of space. */
@@ -4657,7 +4657,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 
 .card
 {
-  background-color:forestgreen;
+  background-color:transparent;
   margin-left: 5px;
 }
 
@@ -4699,7 +4699,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
   gap: 0.6rem;
   justify-content: flex-start;
   margin: 0 auto;
-  border-style: ridge;
+  border-style: none;
   width: 100%;         /* ✅ Keep it slightly narrow if needed */
   left: 0 !important; /* ✅ Cancel previous left: 5% */
 }
@@ -4708,13 +4708,13 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
   background-color: transparent;
   width: clamp(28%, 37%, 32%);
   margin-left: 5px;
-  border-style: ridge;
+  border-style: none;
 }
 
 .caption
 {
   height: 2rem;  /* Consistent height (30px) for single-line captions */
-  background-color: fuchsia;
+  background-color: transparent;
 }
 
   .caption span

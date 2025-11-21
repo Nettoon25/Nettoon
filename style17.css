@@ -2222,3 +2222,330 @@ background-color: #F5F5F5;
 .dark-mode .menu-item i {
   color: white;
 }
+
+
+
+  /* Mobile-first default styles (<=320px) */
+
+/* Small phones (up to 480px) */
+@media (max-width: 480px) {
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0.5%;
+    width: 30%;}
+}
+
+/* Medium phones / small tablets (481px–768px) */
+@media (min-width: 481px) and (max-width: 768px) {
+  .navbar { /* show expanded nav or hamburger */ }
+  .layout { display: grid;
+             grid-template-columns: 1fr 1fr; 
+             grid-gap: 16px; }
+  .sidebar { display: block; /* optional sidebar view */ }
+  .main-content, .video-container { width: 100%; }
+}
+
+/* Tablets / small laptops (769px–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  body {
+    font-size: 17px;
+    overflow-y: hidden;
+}
+
+
+.container
+{
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+  
+
+}
+
+.nav
+{
+background-color: transparent;
+}
+
+.overlay-text
+{
+font-size: 0.5rem;
+}
+
+
+.upload
+{
+background-color: transparent;
+width: 3vw;
+height: 3vw;
+}
+
+.Notifications
+{
+background-color: transparent;
+width: 3vw;
+height: 3vw;
+}
+
+.Account 
+{
+background-color: transparent;
+width: 3vw;
+height: 3vw;
+}
+
+.upload
+{
+background-color: transparent;
+width: 3vw;
+height: 3vw;
+}
+
+
+.upload img {
+width: 100%;
+height:  100%;
+margin: 0 auto;
+}
+
+.Notifications img {
+width: 100%;
+height:  100%;
+margin: 0 auto;
+}
+
+
+.Account img {
+width: 100%;
+height:  100%;
+margin: 0 auto;
+}
+
+
+
+.Table
+{
+  background-color: transparent;
+}
+
+.overlay-text 
+{
+  background-color: transparent;
+  font-size: 1.1rem;
+}
+
+/* ===== Right Content ===== */
+.content {
+
+  overflow-y: auto;
+}
+
+
+}
+
+/* Desktops (1025px–1279px) */
+@media (min-width: 1025px) and (max-width: 1279px) {
+
+  .container
+  {
+    background-color:violet;
+  }
+  
+  .Table
+  {
+    background-color: transparent;
+  }
+  
+  .overlay-text
+  {
+    background-color: transparent;
+    font-size: 1.2rem;
+  }
+  
+  .nav
+  {
+    background-color: navy;
+  }
+  
+  .search input[type="search"] {
+  
+    min-height: 20px;
+    max-height: 25px;
+  
+  }
+  
+  
+  .upload
+  {
+    background-color: rebeccapurple;
+    width: 3vw;
+    height: 3vw;
+  }
+  
+  .Notifications
+  {
+    background-color: rebeccapurple;
+    width: 3vw;
+    height: 3vw;
+  }
+  
+  .Account 
+  {
+    background-color: rebeccapurple;
+    width: 3vw;
+    height: 3vw;
+  }
+  
+  
+  
+  .upload img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  .Notifications img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  
+  
+  .Account img {
+    width: 100%;
+    height:  100%;
+  margin: 0 auto;
+  }
+  
+  
+  
+  .suggestionss
+  {
+    background-color: #ffffff;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    width: calc(100% - 5.8%); 
+    left: 3.6rem;
+  }
+  
+  .rectanglee
+  {
+    background-color: transparent;
+  }
+  
+  
+  .sidebar
+  {
+    background-color: #ffffff;
+    width:5.5%; 
+  }
+  
+  .sidebar:hover {
+    width: 14.9%; /* Expands slightly on hover for better UX */
+  }
+
+}
+
+/* Large desktops (1280px–1599px) */
+@media (min-width: 1280px) and (max-width: 1599px) {
+.login-container
+{
+  background-color: transparent;
+  margin:180px auto 0 auto; /* Top margin + horizontal centering */
+}
+
+}
+
+/* Ultra-wide (1600px and up) */
+@media (min-width: 1600px) {
+
+.container
+{
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+}
+
+.Table
+{
+  background-color: transparent;
+}
+
+.overlay-text
+{
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+
+.nav
+{
+  background-color: transparent;
+}
+
+.search input[type="search"] {
+
+  min-height: 20px;
+  max-height: 25px;
+
+}
+
+
+.upload
+{
+  background-color: transparent;
+  width: 2.5vw;
+  height: 2.5vw;
+}
+
+.Notifications
+{
+  background-color: transparent;
+  width: 2vw;
+  height: 2vw;
+}
+
+.Account 
+{
+  background-color: transparent;
+  width: 2vw;
+  height: 2vw;
+}
+
+
+
+.upload img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+.Notifications img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+
+
+.Account img {
+  width: 100%;
+  height:  100%;
+margin: 0 auto;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 800px;
+
+ height: 60vh;
+  }
+
+
+}
+
+/* Dark mode override */
+@media (prefers-color-scheme: dark) {
+  body { background: #121212; color: #e0e0e0; }
+  .navbar { background: #1f1f1f; }
+  /* etc. */
+}

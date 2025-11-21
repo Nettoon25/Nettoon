@@ -1554,29 +1554,27 @@ border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px
 /* ==== ABOUT SECTION (.about) ==== */
 /* This container holds the descriptive "About" text for the profile. */
 .about {
-  /* Sizing & Flex Behavior */
-  width: 100%;           /* Spans the full width of its parent container */
-  max-width: 100%;       /* Ensures it does not exceed the parent's width */
-  max-height: 18.75rem;  /* Limits the maximum height (300px), useful for containing long text */
-  flex: 1;               /* Allows this section to take available space in a flex parent */
-  
-  /* Spacing & Appearance */
-  margin-block-start: var(--spacing-xxxs); /* Small top margin (1.6px) for spacing */
-  margin-block-end: 0;   /* No bottom margin, allowing subsequent elements to manage spacing */
-  padding: var(--spacing-xxs); /* Responsive padding (4px) for internal breathing space around text */
-  background-color:transparent; /* No background color, allowing parent's background to show */
-  border-radius: var(--border-radius-none); /* No border-radius, maintaining sharp corners */
-  
-  /* Typography */
-  color: var(--color-text-dark); /* Ensures text is dark for better readability in light mode */
-  font-weight: var(--font-weight-normal); /* Normal font weight for body text */
-  font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
-  /* REMOVED: font-size property as requested to maintain original sizing */
+  width: 100%;
+  max-width: 100%;
+  max-height: 18.75rem;
+  min-height: 12rem;
 
-  /* Overflow & Sizing Model */
-  overflow: hidden;      /* Hides any text content that exceeds the max-height */
-  box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
-  /* NO TRANSITIONS as per user request */
+  padding: var(--spacing-xxs);
+  margin-block-start: var(--spacing-xxxs);
+  margin-block-end: 0;
+
+  background-color: transparent;
+  border-radius: var(--border-radius-none);
+
+  /* THE IMPORTANT PART */
+  overflow-y: auto;   /* Enable vertical scrolling */
+  overflow-x: hidden; /* Hide horizontal overflow only */
+
+  color: var(--color-text-dark);
+  font-weight: var(--font-weight-normal);
+  font-family: var(--font-family-primary);
+
+  box-sizing: border-box;
 }
 
 /* Dark mode adjustment for .about text color */
@@ -3518,7 +3516,7 @@ margin-bottom: 1%;
 
   .container
   {
-    background-color: violet}
+    background-color: white}
   
   .overlay-text
   {
@@ -3549,11 +3547,18 @@ margin-bottom: 1%;
   .Account 
   {
     background-color: transparent;
-    width: 3.3vw;
-    height: 3.3vw;
+    width: 3vw;
+    height: 3vw;
   }
   
   
+  .Account img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+
   .upload img {
     width: 100%;
     height:  100%;
@@ -3581,7 +3586,7 @@ margin-bottom: 1%;
 
 .Name
 {
-  background-color: firebrick;
+  background-color: transparent;
   padding: 0px, 0px; /* Responsive padding (4px vertical, 8px horizontal) */
 }
 
@@ -3592,12 +3597,12 @@ margin-bottom: 1%;
 .container-2
 {
   background-color: transparent;
-  border-style: ridge;
+  border-style:none;
 }
 
 .Title
 {
-  background-color: sienna;
+  background-color: transparent;
 }
 
 .Title span
@@ -3652,6 +3657,47 @@ margin-bottom: 1%;
   margin-bottom: 0px;
   padding: 0rem;
   margin-top: 5px;
+}
+
+.viewss,
+.commentss,
+.likee,
+.dislikee,
+.optionn,
+.timess 
+{
+margin-top:5px;
+
+}
+
+/* Hover state for all icon containers */
+.viewss:hover,
+.commentss:hover,
+.likee:hover,
+.dislikee:hover,
+.optionn:hover,
+.timess:hover {
+    background-color: grey; /* Lighter gray on hover in light mode */
+}
+
+/* Dark mode adjustments for icon containers */
+.dark-mode .viewss,
+.dark-mode .commentss,
+.dark-mode .likee,
+.dark-mode .dislikee,
+.dark-mode .optionn,
+.dark-mode .timess {
+  background-color: #4a4b4d !important;
+}
+
+/* Dark mode hover state for icon containers */
+.dark-mode .viewss:hover,
+.dark-mode .commentss:hover,
+.dark-mode .likee:hover,
+.dark-mode .dislikee:hover,
+.dark-mode .optionn:hover,
+.dark-mode .timess:hover {
+    background-color: var(--color-bg-hover-dark); /* Specific hover color for dark mode */
 }
 
 

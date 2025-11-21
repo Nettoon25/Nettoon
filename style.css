@@ -2928,7 +2928,7 @@ padding: 5px;
 
   .container
   {
-    background-color: darkgreen; /* Default background color for light mode */
+    background-color: var(--color-bg-light); /* Default background color for light mode */
   }
 
 
@@ -3004,13 +3004,13 @@ margin: 0 auto;
   gap:5px;
   overflow-y: hidden;
   overflow-x: hidden;
-  background-color: saddlebrown;
+  background-color: var(--color-bg-light); /* Default background color for light mode */
   z-index: 2;
 }
 
 .rectanglee
 {
-  background-color: seagreen;
+  background-color: #F5F5F5;
   font-weight: var(--font-weight-bold); /* Bold font weight */
   font-size: clamp(0.75rem, 0.75vw, 0.75rem); 
 }
@@ -3018,7 +3018,7 @@ margin: 0 auto;
 
 .sidebar
 {
-  background-color:sienna; /* Default background color for light mode */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
   width:5.5%;
   z-index: 1;
 }
@@ -3041,13 +3041,13 @@ margin: 0 auto;
     left: 5.6%;  
       /* Positions the grid below the header and suggestions bar */
           /* Aligns it to the right of the sidebar, maintaining a consistent gap */
-    background-color:violet;
+    background-color:transparent;
   gap: 0.6rem;
   }
   
   .kontainer
   {
-    background-color:pink;
+    background-color:transparent;
     width: clamp(28%, 37%, 32%);
   margin-left: 5px;
   }
@@ -3055,7 +3055,7 @@ margin: 0 auto;
   .caption
 {
   height: 2rem;  /* Consistent height (30px) for single-line captions */
-  background-color: fuchsia;
+  background-color:transparent;
 }
 
   .caption span
