@@ -4612,15 +4612,38 @@ margin: 0 auto;
 /* Increase space for time and follow buttons */
 .viewss {
   flex: 2.1;
+  gap:0px;
 }
+
+.commentss
+{
+  flex: 2.15;
+}
+
+.likess
+{
+  flex: 2.15;
+}
+
+
+.dislikee
+{
+  flex: 2.15;
+}
+
+.following
+{
+  flex: 2.3;
+}
+
 
 /* Increase space for time and follow buttons */
 .follow {
-  flex: 2.8;
+  flex:3;
 }
 
 .timee {
-  flex: 3;
+  flex: 3.1;
 }
 
 /* Label styling for text within interactive elements */

@@ -2270,7 +2270,7 @@ background-color: transparent;
 
 .overlay-text
 {
-font-size: 0.5rem;
+font-size: 0.75rem;
 }
 
 
@@ -2329,11 +2329,7 @@ margin: 0 auto;
   background-color: transparent;
 }
 
-.overlay-text 
-{
-  background-color: transparent;
-  font-size: 1.1rem;
-}
+
 
 /* ===== Right Content ===== */
 .content {
@@ -2341,8 +2337,52 @@ margin: 0 auto;
   overflow-y: auto;
 }
 
-
+/* Default children color */
+.menu-item span,
+.menu-item i {
+  color: #ccc;
 }
+
+/* Hover state */
+.menu-item:hover {
+  background-color: #2a2d2f;
+}
+
+/* Hover → turn icon + label white */
+.menu-item:hover span,
+.menu-item:hover i {
+  color: white;
+}
+
+/* Active state (same as hover) */
+.menu-item.active {
+  background-color: #2a2d2f;
+}
+
+/* Active → turn icon + label white */
+.menu-item.active span,
+.menu-item.active i {
+  color: white;
+}
+
+/* ===============================
+   DARK MODE OVERRIDES
+================================ */
+
+.dark-mode .menu-item:hover,
+.dark-mode .menu-item.active {
+  background: transparent;
+   color: var(--color-accent, #007bff);
+}
+
+/* Dark mode → children follow accent color */
+.dark-mode .menu-item:hover span,
+.dark-mode .menu-item:hover i,
+.dark-mode .menu-item.active span,
+.dark-mode .menu-item.active i {
+  color: var(--color-accent, #007bff);
+}
+
 
 /* Desktops (1025px–1279px) */
 @media (min-width: 1025px) and (max-width: 1279px) {

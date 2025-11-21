@@ -2852,13 +2852,13 @@ margin: 0 auto;
 .sidebar
 {
   background-color: var(--color-bg-light); /* Default background color for light mode */
-  width: 6%;
+  width: 4%;
   z-index: 1000;
 }
 
 .sidebar:hover
 {
-  width: 80%;
+  width: 100%;
 }
 
 
@@ -2897,16 +2897,21 @@ top: 1rem;
 
 .profile {
   position: absolute;
-  bottom: 16%;
-
+  bottom: 21%;
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent dark background */
+border-radius: 0px;
 }
 
 /* Move the profile up when caption expands */
 .profile.shift-up {
-  margin-bottom: 0.5rem; /* ~15px, tweak to taste */
+  margin-bottom: 2.5rem; /* ~15px, tweak to taste */
 }
 
-
+.caption
+{
+  background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent background */
+  border-radius: 0px;
+}
 
 /* 🔷 Metadata Container */
 .metadata {
