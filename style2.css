@@ -4593,13 +4593,13 @@ margin: 0 auto;
   gap:10px; /* Space between main elements inside (1rem approx 16px) */
   max-width: 100%;
   flex-shrink:0;
-  border-style: none;
+  border-style: ridge;
   }
 
 .containerr
 {
   background-color: transparent;
-    border-style: none;
+    border-style: ridge;
     margin-left: 10px;
 }
 
@@ -4612,38 +4612,15 @@ margin: 0 auto;
 /* Increase space for time and follow buttons */
 .viewss {
   flex: 2.1;
-  gap:0px;
 }
-
-.commentss
-{
-  flex: 2.15;
-}
-
-.likess
-{
-  flex: 2.15;
-}
-
-
-.dislikee
-{
-  flex: 2.15;
-}
-
-.following
-{
-  flex: 2.3;
-}
-
 
 /* Increase space for time and follow buttons */
 .follow {
-  flex:3;
+  flex: 2.1;
 }
 
 .timee {
-  flex: 3.1;
+  flex: 2;
 }
 
 /* Label styling for text within interactive elements */
@@ -4661,8 +4638,8 @@ margin: 0 auto;
 .container-2
 {
   background-color: transparent;
-  max-height: 448px;
-  border-style: none;
+  max-height: 450px;
+  border-style: ridge;
   
 flex-basis: 39%; /* Provides a base width, allowing it to grow or shrink */
 max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: ensures a min width (20rem), scales with viewport (37vw), and has a max width (40rem) for very large screens. This prevents distortion and ensures optimal use of space. */
@@ -4680,7 +4657,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 
 .card
 {
-  background-color:transparent;
+  background-color:forestgreen;
   margin-left: 5px;
 }
 
@@ -4722,7 +4699,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
   gap: 0.6rem;
   justify-content: flex-start;
   margin: 0 auto;
-  border-style: none;
+  border-style: ridge;
   width: 100%;         /* ✅ Keep it slightly narrow if needed */
   left: 0 !important; /* ✅ Cancel previous left: 5% */
 }
@@ -4731,13 +4708,13 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
   background-color: transparent;
   width: clamp(28%, 37%, 32%);
   margin-left: 5px;
-  border-style: none;
+  border-style: ridge;
 }
 
 .caption
 {
   height: 2rem;  /* Consistent height (30px) for single-line captions */
-  background-color: transparent;
+  background-color: fuchsia;
 }
 
   .caption span
@@ -5098,6 +5075,12 @@ margin-left: 5px;
   margin: 0 auto;
 }
 
+.Notifications
+{
+ background-color: transparent;
+  margin-right: 90px;
+}
+
 .Notifications img {
   width: 100%;
   height:  100%;
@@ -5121,13 +5104,13 @@ margin: 0 auto;
   width: 100%;
   max-width: 100%;
   flex-shrink:0;
-  border-style: ridge;
+  border-style:none;
   }
 
 .containerr
 {
   background-color: transparent;
-  border-style: ridge;
+  border-style:none;
 }
 
 
@@ -5154,8 +5137,8 @@ margin: 0 auto;
 .container-2
 {
   background-color: transparent;
-  max-height: 785px;
-    border-style: ridge;
+  max-height: 780px;
+  border-style:none;
 }
 
 .card
@@ -5163,7 +5146,7 @@ margin: 0 auto;
   background-color: transparent;
   max-height: 300px;
   margin: 1px 0 12px 7px; /* Maintain original positioning */
-  border-style: ridge;
+  border-style:none;
 }
 
 .pichaa {
@@ -5212,7 +5195,7 @@ margin: 0 auto;
     background-color: transparent;
   gap: 1.5rem;
   width:100%; 
-  border-style: ridge;
+  border-style:none;
   }
 
   .kontainer
@@ -5220,7 +5203,7 @@ margin: 0 auto;
     background-color: transparent;
     width: clamp(28%, 37%, 32%);
 margin-left: 6px;
-border-style: ridge;
+  border-style:none;
   }
 
 /* Caption Text */

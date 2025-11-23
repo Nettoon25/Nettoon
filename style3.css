@@ -5158,13 +5158,13 @@ width: 100%;
 gap:10px; /* Space between main elements inside (1rem approx 16px) */
 max-width: 100%;
 flex-shrink:0;
-border-style:none;
+border-style: ridge;
 }
 
 .containerr
 {
 background-color: transparent;
-border-style:none;
+  border-style: ridge;
   margin-left: 10px;
 }
 
@@ -5181,11 +5181,11 @@ flex: 2.1;
 
 /* Increase space for time and follow buttons */
 .follow {
-flex: 2.2;
+flex: 2.1;
 }
 
 .timee {
-flex: 2.5;
+flex: 2;
 }
 
 /* Label styling for text within interactive elements */
@@ -5202,9 +5202,9 @@ font-size: clamp(0.75rem, 0.75vw, 0.75rem);
 
 .container-2
 {
-background-color:transparent; 
+background-color:darkgoldenrod; 
 max-height: 450px;
-border-style:none;
+border-style:ridge;
 margin-right: 0.3rem; 
 flex-basis: 39%; /* Provides a base width, allowing it to grow or shrink */
 max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: ensures a min width (20rem), scales with viewport (37vw), and has a max width (40rem) for very large screens. This prevents distortion and ensures optimal use of space. */
@@ -5218,7 +5218,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 .card
 {
   margin: 8px 0 10px 6.5px; /* Maintain original positioning */
-  background-color:transparent; 
+  background-color: darkcyan;
 }
 
 
@@ -5260,20 +5260,20 @@ gap:0.1rem;
   background-color: transparent;
   height: auto;
   padding: 0px;
-  border-style:none;
+  border-style:ridge;
 }
 
 .optionnn
 {
 height: 30px;
-background-color:transparent; 
+background-color:saddlebrown; /* Darker background for dark mode */
 
 }
 
 .channel {
   position: relative; /* Allows for precise positioning of child elements within it */
   width: clamp(5rem, 25%, 15rem); /* Converted 150px and 300px to rem */
-  background-color:transparent; 
+  background-color:brown;
 
 
 
@@ -5303,13 +5303,13 @@ background-color:transparent;
   position: relative;
  width: 100%;
   height: 30px; /* Adjusts based on content */
-  background-color:transparent;
+  background-color:yellow;
   margin-bottom: 1rem;
   }
 
 .profile-name span {
   font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
-  font-size:0.9rem;
+  font-size: var(--font-size-base); /* Responsive font size (1.1rem approx 18px) */
   font-weight: 700; /* Bold font for prominence */
 }
 
@@ -5318,7 +5318,7 @@ background-color:transparent;
 /* Styles for the actual follower count text. */
 .followers span {
   font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
-  font-size:0.9rem;
+  font-size: var(--font-size-base); /* Responsive font size (1.1rem approx 18px) */
   flex-shrink: 1; /* Allows text to shrink if necessary */
 
 }
@@ -5390,7 +5390,7 @@ height: inherit;
 .Episodesss
 {
 
-  background-color:transparent;
+  background-color:pink;
   width: 100%;
   height: 100%;
   overflow-x: auto;
@@ -5410,7 +5410,7 @@ height: inherit;
   min-width: 30%;
   max-width: 35%;
 
-  margin: 2.5rem 0 0rem 0.625rem; /* Left gap only */
+  margin: 1.9rem 0 0rem 0.625rem; /* Left gap only */
 margin-bottom: 11rem;
 }
 
@@ -5435,7 +5435,7 @@ margin-bottom: 11rem;
     gap: 0.6rem;
     justify-content: flex-start;
     margin: 0 auto;
-    border-style:none;
+    border-style: ridge;
     width: 100%;         /* ✅ Keep it slightly narrow if needed */
     left: 0 !important; /* ✅ Cancel previous left: 5% */
   }
@@ -5444,13 +5444,13 @@ margin-bottom: 11rem;
     background-color: transparent;
     width: clamp(28%, 37%, 32%);
     margin-left: 5px;
-    border-style:none;
+    border-style: ridge;
   }
   
   .caption
   {
     height: 2rem;  /* Consistent height (30px) for single-line captions */
-    background-color: transparent;
+    background-color: fuchsia;
   }
   
     .caption span
@@ -5955,6 +5955,7 @@ border-style:none;
   background-color: transparent;
   width: 2vw;
   height: 2vw;
+    margin-right: 90px;
 }
 
 .Account 
@@ -5995,13 +5996,13 @@ margin: 0 auto;
   width: 100%;
   max-width: 100%;
   flex-shrink:0;
-  border-style: ridge;
+  border-style:none;
   }
 
 .containerr
 {
   background-color: transparent;
-  border-style: ridge;
+  border-style:none;
 }
 
 
@@ -6028,16 +6029,16 @@ margin: 0 auto;
 .container-2
 {
   background-color: transparent;
-  min-height: 780px;
-  max-height: 800px;
-  border-style: ridge;
+  min-height: 720px;
+  max-height: 760px;
+  border-style:none;
 }
 
 .card
 {
   background-color: transparent;;
   max-height: 300px;
-  border-style: ridge;
+  border-style: none;
   margin: 5px 0 15px 13px; /* Maintain original positioning */
 }
 
@@ -6086,9 +6087,10 @@ margin: 0 auto;
 
 .container-3
 {
-  background-color: transparent;
+ background-color: transparent;
   height: auto;
   padding: 0px;
+  justify-content: flex-start;
 }
 
 .optionnn
@@ -6096,17 +6098,18 @@ margin: 0 auto;
   position: absolute;
 width: 100%;
 height: 40px;
-background-color: transparent;
+ background-color: transparent;
   z-index: 3;
 }
 
 .channel {
 
   height: 100%; /* Fully inherit from container-3 */
-  background-color: transparent;
-  margin: 0 auto;
-  margin-top: 1.9rem; /* 50px */
+ background-color: transparent;
+
+  margin-top: 1.3rem; /* 50px */
   margin-bottom: 0px;
+  float: left;
 }
 
 .channel img
@@ -6134,17 +6137,19 @@ background-color: transparent;
 {
   padding-bottom: 0rem;
 padding: 0px;
-border-style: ridge;
-background-color: transparent;
+  border-style:none;
 }
 
 .series 
 {
+
+  height: 15rem; /* Consistent height (200px converted to rem) */
 margin-top: 3rem;
+margin-bottom: 5rem;
   min-width: 30%;
   max-width: 35%;
-  border-style: ridge;
-  margin-bottom: 1rem;
+  border-style:none;
+
 }
 
 
@@ -6154,7 +6159,7 @@ margin-top: 3rem;
     background-color: transparent;
   gap: 1.5rem;
   width:100%; 
-  border-style: ridge;
+  border-style:none;
   }
 
   .kontainer
@@ -6162,7 +6167,7 @@ margin-top: 3rem;
     background-color: transparent;
     width: clamp(28%, 37%, 32%);
   margin-left: 5px;
-  border-style: ridge;
+  border-style:none;
   }
 
 /* Caption Text */
