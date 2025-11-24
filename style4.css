@@ -4070,6 +4070,31 @@ gap:3rem;
   margin: 1rem 0 1rem 3rem;
 }
 
+.video-container
+{
+  border-style:none;
+  gap:10px;
+}
+
+.containerr
+{
+  border-style:none;
+  margin-left: 1px;
+}
+
+.rectangle
+{
+  border-style:none;
+}
+
+
+.about
+{
+  background-color: transparent;
+  max-height: 13.3rem;  /* Limits the maximum height (300px), useful for containing long text */
+  flex: 1;  
+  overflow-y: auto;             /* Allows this section to take available space in a flex parent */
+}
 
 
 }
