@@ -3299,6 +3299,11 @@ margin: 0 auto;
       margin-right: 30px;
 }
 
+.account-dropdown
+{
+  z-index: 1000;
+}
+
 .upload
 {
   background-color: transparent;
@@ -3333,11 +3338,11 @@ margin: 0 auto;
     left: 0%; /* Example: 4.8% or specific width of sidebar + gap */
     width:100%; /* Example: calc(100% - 4.9%) */
   gap:20px;
-    z-index: 10;
+    z-index: 0;
   overflow-y: hidden;
   overflow-x: hidden;
   background-color: transparent;
-  border-style:none;
+  border-style:ridge;
   justify-content: flex-start;
 }
 
@@ -3347,12 +3352,10 @@ margin: 0 auto;
   background-color: var(--color-bg-light); /* Default background color for light mode */
    width: 11%; 
    z-index: 1;
-       border-style:none;
+      border-style:ridge;
 }
 
-.sidebar:hover {
-  width: 15%; /* Expands slightly on hover for better UX */
-}
+
 
 .home
 {
@@ -3366,7 +3369,7 @@ margin: 0 auto;
   width: calc(100% - 11.2%); /* Occupies the remaining width after considering the sidebar and gap */
   top: 6.1rem;        /* Positions the grid below the header and suggestions bar */
   left: 11%; 
-  border-style:none;
+  border-style:ridge;
   }
   
   .kontainer
@@ -3375,7 +3378,7 @@ margin: 0 auto;
     width: clamp(28%, 37%, 32%);
     margin-inline-start:10px; /* Maintains your specified left margin for precise grid alignment */
   margin-block-end: 1%; /* Consistent bottom margin (8px) for vertical spacing */
-  border-style:none;
+  border-style:ridge;
   }
   
   

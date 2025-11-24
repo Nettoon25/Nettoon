@@ -5992,17 +5992,17 @@ margin: 0 auto;
   { 
     max-width: 100%; height: auto; 
     margin-top: 60px;
-    background-color: transparent;
+    background-color: transparent; 
   width: 100%;
   max-width: 100%;
   flex-shrink:0;
-  border-style:none;
+  border-style:ridge;
   }
 
 .containerr
 {
   background-color: transparent;
-  border-style:none;
+   border-style:ridge;
 }
 
 
@@ -6029,17 +6029,16 @@ margin: 0 auto;
 .container-2
 {
   background-color: transparent;
-  min-height: 720px;
-  max-height: 760px;
-  border-style:none;
+  max-height: 655px;
+  border-style:ridge;
 }
 
 .card
 {
-  background-color: transparent;;
+  background-color: transparent;
   max-height: 300px;
-  border-style: none;
-  margin: 5px 0 15px 13px; /* Maintain original positioning */
+  margin: 1px 0 12px 7px; /* Maintain original positioning */
+  border-style:ridge;
 }
 
 .pichaa {
@@ -6088,9 +6087,10 @@ margin: 0 auto;
 .container-3
 {
  background-color: transparent;
-  height: auto;
+  height:250px;
   padding: 0px;
   justify-content: flex-start;
+    border-style:ridge;
 }
 
 .optionnn
@@ -6100,13 +6100,14 @@ width: 100%;
 height: 40px;
  background-color: transparent;
   z-index: 3;
+    border-style:ridge;
 }
 
 .channel {
 
   height: 100%; /* Fully inherit from container-3 */
  background-color: transparent;
-
+  border-style:ridge;
   margin-top: 1.3rem; /* 50px */
   margin-bottom: 0px;
   float: left;
@@ -6137,20 +6138,10 @@ height: 40px;
 {
   padding-bottom: 0rem;
 padding: 0px;
-  border-style:none;
+    border-style:ridge;
 }
 
-.series 
-{
 
-  height: 15rem; /* Consistent height (200px converted to rem) */
-margin-top: 3rem;
-margin-bottom: 5rem;
-  min-width: 30%;
-  max-width: 35%;
-  border-style:none;
-
-}
 
 
 
@@ -6159,7 +6150,7 @@ margin-bottom: 5rem;
     background-color: transparent;
   gap: 1.5rem;
   width:100%; 
-  border-style:none;
+  border-style:ridge;
   }
 
   .kontainer
@@ -6167,7 +6158,7 @@ margin-bottom: 5rem;
     background-color: transparent;
     width: clamp(28%, 37%, 32%);
   margin-left: 5px;
-  border-style:none;
+  border-style:ridge;
   }
 
 /* Caption Text */

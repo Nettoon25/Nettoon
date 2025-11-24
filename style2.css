@@ -5104,13 +5104,13 @@ margin: 0 auto;
   width: 100%;
   max-width: 100%;
   flex-shrink:0;
-  border-style:none;
+  border-style:ridge;
   }
 
 .containerr
 {
   background-color: transparent;
-  border-style:none;
+   border-style:ridge;
 }
 
 
@@ -5137,8 +5137,8 @@ margin: 0 auto;
 .container-2
 {
   background-color: transparent;
-  max-height: 780px;
-  border-style:none;
+  max-height: 655px;
+  border-style:ridge;
 }
 
 .card
@@ -5146,7 +5146,7 @@ margin: 0 auto;
   background-color: transparent;
   max-height: 300px;
   margin: 1px 0 12px 7px; /* Maintain original positioning */
-  border-style:none;
+  border-style:ridge;
 }
 
 .pichaa {
@@ -5195,7 +5195,7 @@ margin: 0 auto;
     background-color: transparent;
   gap: 1.5rem;
   width:100%; 
-  border-style:none;
+  border-style:ridge;
   }
 
   .kontainer
@@ -5203,7 +5203,8 @@ margin: 0 auto;
     background-color: transparent;
     width: clamp(28%, 37%, 32%);
 margin-left: 6px;
-  border-style:none;
+  border-style:ridge;
+     border-radius: 0.4375rem;
   }
 
 /* Caption Text */

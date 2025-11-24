@@ -3311,7 +3311,7 @@ margin: 0 auto;
 }
 
 .shorts.show-comments .metadata {
-  margin-right: 49%;
+  margin-right: 43%;
   right: 10px;
 }
 
@@ -3320,7 +3320,7 @@ margin: 0 auto;
 .metadata {
   position: absolute;
   top: 24vh;
-  right: 32vw;
+  right: 25vw;
   width: 5vw;
   border-style:none;
 }
