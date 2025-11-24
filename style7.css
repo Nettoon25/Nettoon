@@ -3177,176 +3177,177 @@ margin: 0 auto;
 /* Ultra-wide (1600px and up) */
 @media (min-width: 1600px) {
 
-.container
-{
-  background-color: var(--color-bg-light); /* Default background color for light mode */
-}
-
-.Table
-{
-  background-color: transparent;
-}
-
-.overlay-text
-{
-  background-color: transparent;
-  font-size: 1.5rem;
-}
-
-.nav
-{
-  background-color: transparent;
-}
-
-.search input[type="search"] {
-
-  min-height: 20px;
-  max-height: 25px;
-
-}
-
-
-.upload
-{
-  background-color: transparent;
-  width: 2.5vw;
-  height: 2.5vw;
-}
-
-.Notifications
-{
-  background-color: transparent;
-  width: 2vw;
-  height: 2vw;
-}
-
-.Account 
-{
-  background-color: transparent;
-  width: 2vw;
-  height: 2vw;
-}
-
-
-
-.upload img {
-  width: 100%;
-  height:  100%;
-  margin: 0 auto;
-}
-
-.Notifications img {
-  width: 100%;
-  height:  100%;
-  margin: 0 auto;
-}
-
-
-
-.Account img {
-  width: 100%;
-  height:  100%;
-margin: 0 auto;
-}
-
-
-.sidebar
-{
-  background-color: transparent;
-  width:10%; 
-}
-
-.sidebar:hover {
-  width: 14.9%; /* Expands slightly on hover for better UX */
-}
-
-.profile
-{
-  bottom: 16%;
-}
-/* Move the profile up when caption expands */
-.profile.shift-up {
-  margin-bottom: 1rem; /* ~15px, tweak to taste */
-}
-
-
-
-.scroll-area
-{
-  background-color: transparent;
-}
-
-/* 🔷 Shorts Container */
-.shorts-container {
-
-  width: calc(100% - 10%);
-  left: 10%;
-  gap: 1rem;
-  justify-content: center;
-  background-color: transparent;
-  border: 1px solid transparent; /* TEMP: remove in production */
-  margin: 3.3rem auto 0 0rem;
-  border-style:none;
-}
-
-.shorts
-{
-  background-color: transparent;
-    border-style:none;
-}
-
-.short-video {
-
-  max-width: 450px;
-  aspect-ratio: 9 / 16;
-  max-height: 90vh;
-  margin:3rem auto 0 35rem;
-  border-style:none;
-
-}
-
-/* 👇 Move both to left when comments are shown */
-.shorts.show-comments .short-video {
-  margin-left:20rem;
-}
-
-.shorts.show-comments .metadata {
-  margin-right: 43%;
-  right: 10px;
-}
-
-
-/* 🔷 Metadata Container */
-.metadata {
-  position: absolute;
-  top: 24vh;
-  right: 25vw;
-  width: 5vw;
-  border-style:none;
-}
-
-.comment-container {
-
-  top: 6.5rem;
-  right: 7%; /* Position when shown */
-  width: 37%;
-  max-width: 450px;
-  aspect-ratio: 9 / 16;
-  min-height: 85vh;
-  max-height: 85vh;
-  border-style:ridge;
-
-}
-
-
-
-
+  .container
+  {
+    background-color: var(--color-bg-light); /* Default background color for light mode */
+  }
   
-}
-
-/* Dark mode override */
-@media (prefers-color-scheme: dark) {
-  body { background: #121212; color: #e0e0e0; }
-  .navbar { background: #1f1f1f; }
-  /* etc. */
-}
+  .Table
+  {
+    background-color: transparent;
+  }
+  
+  .overlay-text
+  {
+    background-color: transparent;
+    font-size: 1.5rem;
+  }
+  
+  .nav
+  {
+    background-color: transparent;
+  }
+  
+  .search input[type="search"] {
+  
+    min-height: 20px;
+    max-height: 25px;
+  
+  }
+  
+  
+  .upload
+  {
+    background-color: transparent;
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+  
+  .Notifications
+  {
+    background-color: transparent;
+    width: 2vw;
+    height: 2vw;
+  }
+  
+  .Account 
+  {
+    background-color: transparent;
+    width: 2vw;
+    height: 2vw;
+  }
+  
+  
+  
+  .upload img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  .Notifications img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  
+  
+  .Account img {
+    width: 100%;
+    height:  100%;
+  margin: 0 auto;
+  }
+  
+  
+  .sidebar
+  {
+    background-color: transparent;
+    width:10%; 
+  }
+  
+  .sidebar:hover {
+    width: 14.9%; /* Expands slightly on hover for better UX */
+  }
+  
+  .profile
+  {
+    bottom: 16%;
+  }
+  /* Move the profile up when caption expands */
+  .profile.shift-up {
+    margin-bottom: 1rem; /* ~15px, tweak to taste */
+  }
+  
+  
+  
+  .scroll-area
+  {
+    background-color: transparent;
+  }
+  
+  /* 🔷 Shorts Container */
+  .shorts-container {
+  
+    width: calc(100% - 10%);
+    left: 10%;
+    gap: 1rem;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid transparent; /* TEMP: remove in production */
+    margin: 3.3rem auto 0 0rem;
+    border-style:none;
+  }
+  
+  .shorts
+  {
+    background-color: transparent;
+      border-style:none;
+  }
+  
+  .short-video {
+  
+    max-width: 450px;
+    aspect-ratio: 9 / 16;
+    max-height: 90vh;
+    margin:3rem auto 0 35rem;
+    border-style:none;
+  
+  }
+  
+  /* 👇 Move both to left when comments are shown */
+  .shorts.show-comments .short-video {
+    margin-left:20rem;
+  }
+  
+  .shorts.show-comments .metadata {
+    margin-right: 43%;
+    right: 10px;
+  }
+  
+  
+  /* 🔷 Metadata Container */
+  .metadata {
+    position: absolute;
+    top: 24vh;
+    right: 25vw;
+    width: 5vw;
+    border-style:none;
+  }
+  
+  .comment-container {
+  
+    top: 6.5rem;
+    right: 7%; /* Position when shown */
+    width: 37%;
+    max-width: 450px;
+    aspect-ratio: 9 / 16;
+    min-height: 85vh;
+    max-height: 85vh;
+    border-style:ridge;
+  
+  }
+  
+  
+  
+  
+    
+  }
+  
+  /* Dark mode override */
+  @media (prefers-color-scheme: dark) {
+    body { background: #121212; color: #e0e0e0; }
+    .navbar { background: #1f1f1f; }
+    /* etc. */
+  }
+  

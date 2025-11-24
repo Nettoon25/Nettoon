@@ -5421,247 +5421,297 @@ margin-left: 5px;
 /* Ultra-wide (1600px and up) */
 @media (min-width: 1600px) {
 
-.container
-{
-  background-color: var(--color-bg-light); /* Default background color for light mode */
-}
-
-.Table
-{
-  background-color: transparent;
-}
-
-.overlay-text
-{
-  background-color: transparent;
-  font-size: 1.5rem;
-}
-
-.nav
-{
-  background-color: transparent;
-}
-
-.search input[type="search"] {
-
-  min-height: 20px;
-  max-height: 25px;
-
-}
-
-
-.upload
-{
-  background-color: transparent;
-  width: 2.5vw;
-  height: 2.5vw;
-}
-
-.Notifications
-{
-  background-color: transparent;
-  width: 2vw;
-  height: 2vw;
-}
-
-.Account 
-{
-  background-color: transparent;
-  width: 2vw;
-  height: 2vw;
-}
-
-
-
-.upload img {
-  width: 100%;
-  height:  100%;
-  margin: 0 auto;
-}
-
-.Notifications
-{
- background-color: transparent;
-  margin-right: 90px;
-}
-
-.Notifications img {
-  width: 100%;
-  height:  100%;
-  margin: 0 auto;
-}
-
-
-
-.Account img {
-  width: 100%;
-  height:  100%;
-margin: 0 auto;
-}
-
-
-  .video-container 
-  { 
-    max-width: 100%; height: auto; 
-    margin-top: 60px;
-    background-color: transparent; 
-  width: 100%;
-  max-width: 100%;
-  flex-shrink:0;
-  border-style:ridge;
+  .container
+  {
+    background-color: var(--color-bg-light); /* Default background color for light mode */
   }
-
-.containerr
-{
-  background-color: transparent;
-   border-style:ridge;
-}
-
-
-.captionn h3
-{
-  font-size: clamp(1rem, 1.1vw, 1.5rem);
-}
-
-/* Increase space for time and follow buttons */
-.viewss {
-  flex: 2.1;
-}
-
-/* Increase space for time and follow buttons */
-.follow {
-  flex: 2.1;
-}
-
-.timee {
-  flex: 2;
-}
-
-
-.container-2
-{
-  background-color: transparent;
-  max-height: 655px;
-  border-style:ridge;
-}
-
-.card
-{
-  background-color: transparent;
-  max-height: 300px;
-  margin: 1px 0 12px 7px; /* Maintain original positioning */
-  border-style:ridge;
-}
-
-.pichaa {
-  width: 100%;
-  height: 150px;
   
-}
-
-.sectiion
-{
-  background-color: transparent;
-  gap:0.1rem;
-    padding: 0px 0px;
-}
-
-.viewsss
-{
-
-  background-color: transparent;
-  max-width: 45%;
-  height: 25px;
-  border-radius: 7px;
-}
-
-
-.timmee
-{
-
-  background-color: transparent;
-  border-radius: 7px;
-}
-
-.viewsss span {
-  font-weight: 300;
-  flex: 2;
-}
-
-
-.viewsss img {
-  width: 1.5vw;
-  height: 1.5vw;
-
-}
-  .container-1
+  .Table
   {
     background-color: transparent;
-  gap: 1.5rem;
-  width:100%; 
-  border-style:ridge;
   }
-
-  .kontainer
+  
+  .overlay-text
   {
     background-color: transparent;
-    width: clamp(28%, 37%, 32%);
-margin-left: 6px;
-  border-style:ridge;
-     border-radius: 0.4375rem;
+    font-size: 1.5rem;
   }
-
-/* Caption Text */
-.caption span {
-  font-weight: 700;
-  font-size: 0.9rem; /* 15.5px */
-}
-
-.videoo {
+  
+  .nav
+  {
+    background-color: transparent;
+  }
+  
+  .search input[type="search"] {
+  
+    min-height: 20px;
+    max-height: 25px;
+  
+  }
+  
+  
+  .upload
+  {
+    background-color: transparent;
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+  
+  .Notifications
+  {
+    background-color: transparent;
+    width: 2vw;
+    height: 2vw;
+      margin-right: 90px;
+  }
+  
+  .Account 
+  {
+    background-color: transparent;
+    width: 2vw;
+    height: 2vw;
+  }
+  
+  
+  
+  .upload img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  .Notifications img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  
+  
+  .Account img {
+    width: 100%;
+    height:  100%;
+  margin: 0 auto;
+  }
+  
+  
+    .video-container 
+    { 
+      max-width: 100%; height: auto; 
+      margin-top: 60px;
+      background-color: transparent; 
+    width: 100%;
+    max-width: 100%;
+    flex-shrink:0;
+    border-style:ridge;
+    }
+  
+  .containerr
+  {
+    background-color: transparent;
+     border-style:ridge;
+  }
+  
+  
+  .captionn h3
+  {
+    font-size: clamp(1rem, 1.1vw, 1.5rem);
+  }
+  
+  /* Increase space for time and follow buttons */
+  .viewss {
+    flex: 2.1;
+  }
+  
+  /* Increase space for time and follow buttons */
+  .follow {
+    flex: 2.1;
+  }
+  
+  .timee {
+    flex: 2;
+  }
+  
+  
+  .container-2
+  {
+    background-color: transparent;
+    max-height: 655px;
+    border-style:ridge;
+  }
+  
+  .card
+  {
+    background-color: transparent;
+    max-height: 300px;
+    margin: 1px 0 12px 7px; /* Maintain original positioning */
+    border-style:ridge;
+  }
+  
+  .pichaa {
+    width: 100%;
+    height: 150px;
+    
+  }
+  
+  .sectiion
+  {
+    background-color: transparent;
+    gap:0.1rem;
+      padding: 0px 0px;
+  }
+  
+  .viewsss
+  {
+  
+    background-color: transparent;
+    max-width: 45%;
+    height: 25px;
+    border-radius: 7px;
+  }
+  
+  
+  .timmee
+  {
+  
+    background-color: transparent;
+    border-radius: 7px;
+  }
+  
+  .viewsss span {
+    font-weight: 300;
+    flex: 2;
+  }
+  
+  
+  .viewsss img {
+    width: 1.5vw;
+    height: 1.5vw;
+  
+  }
+   
+  
+  .container-3
+  {
+   background-color: transparent;
+    height:250px;
+    padding: 0px;
+    justify-content: flex-start;
+      border-style:ridge;
+  }
+  
+  .optionnn
+  {
+    position: absolute;
   width: 100%;
-  height: auto;
-}
-
-.videoo video {
-  width: 100%;
-    height: 17rem; /* 200px */
-
-}
-
-
-  .views
-  {
-    background-color: transparent;
+  height: 40px;
+   background-color: transparent;
+    z-index: 3;
+      border-style:ridge;
   }
-
-
-.views img {
-  width: clamp(24px, 4.5vw, 30px);
-  height: clamp(24px, 4.5vw, 30px);
-  background-color: transparent;
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-
-
-* {
-  box-sizing: border-box;
-}
-
-
-
-}
-
-/* Dark mode override */
-@media (prefers-color-scheme: dark) {
-  body { background: #121212; color: #e0e0e0; }
-  .navbar { background: #1f1f1f; }
-  /* etc. */
-}
-
-
-
-
-
-
+  
+  .channel {
+  
+    height: 100%; /* Fully inherit from container-3 */
+   background-color: transparent;
+    border-style:ridge;
+    margin-top: 1.3rem; /* 50px */
+    margin-bottom: 0px;
+    float: left;
+  }
+  
+  .channel img
+  {
+    margin-inline: auto; /* This pushes the image to the center horizontally within its flex container */
+  }
+  
+  
+  .profile
+  {
+    position: relative;
+    margin-top: 0rem; /* 15px in rem */
+  }
+  
+  .profile-name span  {
+      font-size: 1rem;
+  }
+  
+  /* Followers label styling */
+  .followers span  {
+    font-size: 1rem;
+  }
+  
+  .Table
+  {
+    padding-bottom: 0rem;
+  padding: 0px;
+      border-style:ridge;
+  }
+  
+  
+  
+  
+  
+    .container-1
+    {
+      background-color: transparent;
+    gap: 1.5rem;
+    width:100%; 
+    border-style:ridge;
+    }
+  
+    .kontainer
+    {
+      background-color: transparent;
+      width: clamp(28%, 37%, 32%);
+    margin-left: 5px;
+    border-style:ridge;
+    }
+  
+  /* Caption Text */
+  .caption span {
+    font-weight: 700;
+    font-size: 0.9rem; /* 15.5px */
+  }
+  
+  .videoo {
+    width: 100%;
+    height: auto;
+  }
+  
+  .videoo video {
+    width: 100%;
+    height: 17.5rem; /* 200px */
+  
+  }
+  
+    .views
+    {
+      background-color: transparent;
+    }
+  
+  
+  .views img {
+    width: clamp(24px, 4.5vw, 30px);
+    height: clamp(24px, 4.5vw, 30px);
+    background-color: transparent;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  }
+  
+  /* Dark mode override */
+  @media (prefers-color-scheme: dark) {
+    body { background: #121212; color: #e0e0e0; }
+    .navbar { background: #1f1f1f; }
+    /* etc. */
+  }
+  
+  
+  
