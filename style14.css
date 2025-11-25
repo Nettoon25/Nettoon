@@ -193,9 +193,7 @@ body {
   /* Appearance */
   background-color: var(--color-bg-light); /* Default background color for light mode */
 
-  /* Overflow & Scrolling Behavior */
-  overflow-x: hidden; /* Prevents horizontal scrollbar, crucial for responsive designs */
-  overflow-y: hidden;   /* Allows vertical scrolling when content exceeds viewport height */
+
   -webkit-overflow-scrolling: touch; /* Enhances smooth scrolling on iOS devices */
 
   /* Custom Scrollbar Styling (Firefox) */
@@ -261,8 +259,7 @@ body::-webkit-scrollbar-thumb {
   top: 0;          /* Aligns to the very top */
   left: 0;         /* Aligns to the very left */
   z-index:1000; /* Ensures it stays on top of other content */
-
-  /* Sizing & Layout */
+border-style: ridge;
   width: 100%;     /* Spans the full width of the screen */
   height: 3rem;    /* Fixed height for the header (48px based on 16px root font-size) */
   display: flex;   /* Enables flexbox layout for arranging children (logo, nav) */
@@ -963,49 +960,365 @@ border-color: #2a2d2f;
     bottom: -1.75rem; /* Adjust positioning */
   }
 }
-/* ==== MAIN CONTENT GRID CONTAINER (.container-1) ==== */
-/* This container serves as the main grid for arranging individual video cards. */
+
+/* ==== Base Container ==== */
 .container-1 {
-  /* Positioning */
-  position: absolute; /* Positions the grid relative to its parent, often <body> or a main wrapper */
-  width: calc(100% -0%); /* Occupies the remaining width after considering the sidebar and gap */
-  top: 6rem;        /* Positions the grid below the header and suggestions bar */
-  left: 0%;         /* Aligns it to the right of the sidebar, maintaining a consistent gap */
-  z-index: var(--z-index-content); /* Ensures it's layered correctly below header/sidebar */
+  position: relative;
+  width: 100%;
+height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color:pink;
+  padding: 0px;
+  margin: 0;
+  box-sizing: border-box;
+  z-index: 2;
+  margin-top: 2.5rem;
+  border-radius: 0px;
+  border: 0.1px solid transparent;
+  padding-bottom: 0px;
+  padding-top:0rem;
+  border-style: ridge;
+  overflow-y: hidden;
+}
 
-  /* Sizing & Layout */
+.dark-mode .container-1
+{
+  border: 0.1px solid transparent;
+}
 
-  height: auto; 
-min-height: 500px;
-max-height: 550px;
-  display: flex;      /* Enables Flexbox for arranging video cards within the grid */
-  flex-wrap: wrap;    /* Allows video cards to wrap to the next row when space runs out */
-  justify-content: flex-start; /* Aligns video cards to the start (left) of the container */
+/* ==== Sticky Heading ==== */
+.Heading {
+  position: sticky;
+  top: 3.7rem;
+  width: 100%;
+  height: auto;
+  height: 30px;
+  background-color: grey;
+  z-index: 10;
+  display: flex;
+  padding: 0px;
+  margin: 0;
+  align-items: center;
+  padding-left: 0%;
+  border-radius: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.Heading span {
+  padding-left: 1%;
+  color: #333333;
+  font-weight: bold;
+  font-size: 20px;
+  padding-top: 0px;
+
+}
+
+.dark-mode .Heading {
+  background-color:transparent; /* Black background for Dark Mode */
+}
+
+.dark-mode .Heading span {
+  color: #ffffff;
+}
+
+
+
+/* ==== Scrollable Section ==== */
+.Scroller {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow-y:scroll;
+  overflow-x: hidden;
+  scrollbar-width: auto;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  background-color:transparent;
+  border-radius: 0px;
+  border: 1px solid transparent;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+/* Dark mode adjustments */
+.dark-mode .Scroller {
+  scrollbar-color: rgba(7, 4, 4, 0.5) grey;
+}
+
+
+
+
+/* ==== Playlist Layout ==== */
+.Playlist {
+  position: relative;
+  display: flex;
+  height:auto;
+  max-height: 650px;
+  flex-direction:column;
+  width: 100%;
+  background-color:transparent;
+  padding: 0px;
+  gap: 1rem;
+  border-style:none;
+  margin-top: 20px;
+  padding-bottom: 0px;
+  padding-top: 0px;
+  margin-bottom: 20px;
+  border-radius: 7px;
+  border: 0.1px solid transparent;
+}
+
+
+
+.Segment
+{
+  position: sticky;
+  top: 0;
+  z-index: 5;
+width: 100%;
+height: 30px;
+background-color:blue;
+display: flex;
+padding: 0px;
+margin: 0;
+align-items: center;
+padding-left: 0%;
+border-radius: 0px;
+margin-top:0px;
+padding-top: 0px;
+padding-bottom: 0px;
+margin-bottom: 0px;
+overflow-y: hidden;
+overflow-x: hidden;
+}
+
+.dark-mode .Segment
+{
+  background-color: #2a2d2f;
+}
+
+.Segment span {
+  padding-left: 1%;
+  color: #333333;
+  font-weight: bold;
+  font-size: 20px;
+  padding-top: 0px;
+
+}
+
+.dark-mode .Segment span 
+{
+  color:#FFFFFF;
+}
+
+.Heading, .Segment {
+  padding: 0.5rem 0.5rem;
+  height: auto;
+}
+
+.Scroller > .Playlist:nth-of-type(1) {
+  /* modify the whole playlist */
+  background-color:black; 
+  margin-top: 5rem;
+  margin-bottom: 50rem;
+}
+
+.Scroller > .Playlist:nth-of-type(1) .Segment {
+  background-color: hotpink;
+}
+
+.Scroller > .Playlist:nth-of-type(1) .Container {
+  background-color: #ffccdd;
+}
+
+
+
+.Playlist:nth-child(1) .Segment {
+  background-color: hotpink; /* example */
+  color: black;
+
+}
+
+.Playlist:nth-child(1) .Container {
+  background-color: green; /* example */
+}
+
+
+.Playlist:nth-child(2) .Segment {
+  background-color: lightblue; /* example */
+  color: white;
+}
+
+.Playlist:nth-child(2) .Container {
+  background-color: purple; /* example */
+}
+
+.Scroller > .Playlist:nth-of-type(2) {
+  background-color: #e6f4ff;
+  margin-top: 20rem;
+  margin-bottom: 0rem;
+}
+
+.Scroller > .Playlist:nth-of-type(2) .Segment {
+  background-color: skyblue;
+}
+
+.Scroller > .Playlist:nth-of-type(2) .Container {
+  background-color: #cce8ff;
+}
+
+
+
+
+.Container
+{
+width: 100%;
+height: auto;
+max-height: 560px;
+min-height: 530px;
+overflow-y: auto;
+overflow-x: hidden;
+background-color:transparent;
+display: flex;
+flex-direction: row;
+margin-top: 0px;
+flex-wrap: wrap;
+padding-top: 0px;
+padding-bottom: 0px;
+padding: 0px;
+border-style:none;
+}
+
+
+.scroll-area {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  overflow:auto;
+  overflow-y:scroll;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background-color:transparent;
+  z-index: 0;
+ padding-bottom: 0px;
+ margin-bottom:0px;
+  gap: 0rem; /* Slight space between items */
+  padding: 0rem 0rem;
+  scrollbar-width: thin;
+  overflow-x:hidden;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  scroll-snap-type: y mandatory; /* changed to x for horizontal */
+}
+
+/* Dark mode adjustments */
+.dark-mode .scroll-area {
+  scrollbar-color: rgba(7, 4, 4, 0.5) grey;
+}
+
+
+
+.shorts {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+  aspect-ratio: 9 / 16;
+  max-height: 50vh;
+  margin: 0; /* remove margin */
+  overflow: hidden;
+  border-radius: 12px;
+  flex-shrink: 0;
+  padding: 20px;
+  margin-bottom: 0px;
+  scroll-snap-align: start;
+  background-color: transparent;
+}
   
-  /* Appearance & Spacing */
-  background-color: var(--color-bg-light); /* Default background color for light mode */
-  border-radius: var(--border-radius-none); /* No border radius, for a clean rectangular grid area */
-  border-style: ridge; /* Applied a 'ridge' border style as per your original code.
-                          Consider if a 'none' or a subtle 'solid' border from variables
-                          might be more visually appealing for a final product. */
-  overflow: hidden;   /* Hides any content that overflows the container boundaries */
-  overflow-y: auto;
-  overflow-x: none;
-  margin: 0;          /* Removes default margins */
-  padding: var(--spacing-xs); /* Consistent internal padding (8px) for grid edges */
-  gap: var(--spacing-sm); /* Consistent spacing (16px) between video cards within the grid */
-  box-sizing: border-box; /* Ensures padding and border are included in the element's total size */
+  /* 🔷 Video Element */
+  .shorts video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    display: block;
+  }
+  
+
+
+/* Play overlay button */
+.play-overlay {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+  z-index: 0;
+}
+/*
+.dark-mode .play-overlay
+{
+  filter: invert(1);
+}
+  */
+
+/* ==== OVERLAY LINK (.overlay-link) ==== */
+/* This element provides a clickable area covering the entire video card for navigation. */
+.overlay-link {
+  position: absolute;    /* Positions the link absolutely within its parent `.shorts` */
+  inset: 0;              /* Shorthand for top: 0; right: 0; bottom: 0; left: 0; covers the entire parent */
+  z-index: 3;            /* Ensures it is on top of both the video and the play overlay for clickability */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* ==== VIEWS OVERLAY (.views-overlay) ==== */
+.views-overlay {
+  position: absolute;
+  top: 25px;           /* ⬆️ Move to the top */
+  left: 25px;          /* Slight inset from the left */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+  padding: 4px 8px;
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  z-index: 4;         /* Always above video and play button */
+}
+
+/* 👁️ Icon inside views overlay */
+.views-icon {
+  width: 17px;
+  height: 17px;
+  filter: invert(1); /* Keeps icon visible even if dark */
+}
+
+/* 🔢 Text inside views overlay */
+.views-text {
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 🌙 Dark Mode Adjustments */
+.dark-mode .views-overlay {
+  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+}
+
+.dark-mode .views-text {
+  color: #f5f5f5;
 }
 
 
-/* Dark mode adjustment for the main content grid container */
-.dark-mode .container-1 {
-  background-color: transparent; /* Default background color for light mode */
-}
-  /* ==== INDIVIDUAL VIDEO CONTAINERS (.kontainer) ==== */
-  /* Each of these containers represents a single video card. */
- /* ==== INDIVIDUAL VIDEO CONTAINERS (.kontainer) ==== */
-/* Each of these containers represents a single video card displaying a thumbnail and details. */
+
+
 .kontainer {
   /* Positioning */
   position: relative; /* Allows for precise positioning of child elements (e.g., overlays, captions) */
@@ -1013,11 +1326,11 @@ max-height: 550px;
   /* Sizing & Responsiveness */
   /* `clamp()` provides fluid width: min-width (28%), preferred (30%), max-width (32%).
      This ensures optimal scaling across different screen sizes within the grid. */
-  width: clamp(28%, 30%, 32%); 
-  height: auto; /* Height adjusts dynamically based on its content (video thumbnail, title, etc.) */
+     width: clamp(18.5%, 20.5vw, 22.5%); 
+     height:200px;          /* Height adjusts dynamically based on content and aspect ratio */
   
   /* Appearance */
-  background-color: violet; /* Uses a light background variable for the card */
+  background-color: transparent; /* Uses a light background variable for the card */
   border-radius: var(--border-radius-md); /* Consistent medium rounded corners for the card */
   border-style:none; /* No border style, relying on shadow for separation */
 
@@ -1029,6 +1342,7 @@ max-height: 550px;
   margin-top: 10px;
   cursor: pointer; /* Indicates that the card is interactive and clickable */
   /* NO TRANSITIONS as per user request */
+  margin-left: 35px;
 }
 
 /* Dark mode adjustments for .kontainer */
@@ -1367,120 +1681,95 @@ margin-bottom: 5%;
       font-size: var(--font-size-sm); /* Even smaller font size for mobile (14px) */
   }
 }
-/* ==== VIDEO CONTAINER (.videoo) ==== */
-/* This container holds the video player itself, managing its layout and overflow. */
+/* ==== VIDEO PLAYER CONTAINER (.videoo) ==== */
+/* This container holds the video player, ensuring it's centered and manages overflow. */
 .videoo {
-  /* Positioning */
-  position: relative; /* Allows for absolute positioning of child elements (e.g., controls, overlays) */
-
-  /* Sizing & Layout */
-  width: 100%;       /* Spans the full width of its parent container (.kontainer) */
-  height: auto;      /* Height adjusts based on the video's aspect ratio and object-fit */
+  /* Positioning & Layout */
+  position: relative;    /* Allows for absolute positioning of children (e.g., overlay text) */
+  display: flex;         /* Enables Flexbox for centering video */
+  justify-content: center; /* Horizontally centers the video */
+  align-items: center;   /* Vertically centers the video */
+  overflow: hidden;      /* Hides any content that extends beyond the container's bounds */
   
-  /* Flex Container Properties */
-  display: flex;         /* Uses flexbox to center the video element */
-  justify-content: center; /* Horizontally centers the video within its container */
-  align-items: center;   /* Vertically centers the video within its container */
-  
-  /* Spacing */
-  margin-block-start: var(--spacing-xxxs-half); /* Small responsive top margin (0.5px) */
-  
-  /* Overflow */
-  overflow: hidden; /* Hides any content that extends beyond the container's bounds */
+  /* Sizing & Spacing */
+  width: 100%;           /* Spans the full width of its parent */
+  height: auto;          /* Height adjusts dynamically based on video content */
+  margin-block-start: var(--spacing-xxxs); /* Small top margin (1px) */
   /* NO TRANSITIONS as per user request */
-}/* ==== VIDEO ELEMENT INSIDE .videoo (.videoo video) ==== */
-/* Styles for the HTML <video> tag itself, ensuring proper sizing and fit. */
+}
+/* ==== VIDEO ELEMENT (.videoo video) ==== */
+/* Styles for the actual HTML <video> element, ensuring it fits its container elegantly. */
 .videoo video {
-  width: 100%;       /* Ensures the video fills the container's width */
-  height: 12.5rem;   /* Consistent height (200px) across devices for initial display */
-  
-  /* Visuals & Fit */
-  object-fit: cover; /* **Crucial:** Ensures the video covers the entire area without stretching or distortion, cropping if necessary */
-  border-radius: var(--border-radius-md); /* Consistent medium rounded corners for the video player */
-  display: block;    /* Removes any default inline-block spacing below the video element */
-  
-  /* Interactivity */
-  pointer-events: none; /* Prevents direct mouse events on the video itself, useful if you have custom controls layered above */
+  width: 100%;           /* Ensures the video fills the entire width of its parent */
+  height: var(--size-video-player-height); /* Consistent height (200px) */
+  object-fit: cover;     /* Ensures the video covers the area without distortion, cropping if necessary */
+  border-radius:7px; /* Consistent small rounded corners (7px) */
+  display: block;        /* Ensures the video behaves as a block element */
+  pointer-events: none;  /* Prevents clicks on the video itself, allowing overlays to capture events */
   /* NO TRANSITIONS as per user request */
 }
 
-/* 📱 TABLET/SMALL DESKTOP OPTIMIZATION (e.g., up to 768px wide) */
+/* Dark mode adjustment for video element (if needed for filters) */
+.dark-mode .videoo video {
+  /* filter: brightness(0.8); if you want to slightly darken videos in dark mode */
+}
+
+/* Responsive Adjustments */
 @media screen and (max-width: 768px) {
   .videoo video {
-      height: 10rem; /* Adjusted height (160px) for smaller screens */
+    height: 10rem; /* Adjusted for tablets */
   }
 }
 
-/* 📱 MOBILE OPTIMIZATION (e.g., up to 480px wide) */
 @media screen and (max-width: 480px) {
   .videoo video {
-      height: 8.5rem; /* Adjusted height (136px) for mobile screens, saving vertical space */
+    height: 8.5rem; /* Adjusted for mobile */
   }
-}
-
-
-/* ==== VIDEO OVERLAY TEXT (.overlay-textt) ==== */
-/* This element displays information (e.g., video duration) positioned over a video thumbnail or player. */
+}/* ==== OVERLAY TEXT (.overlay-textt) ==== */
+/* This text overlay typically displays video duration or other quick information. */
 .overlay-textt {
-  /* Positioning */
-  position: absolute; /* Positions the element precisely over its parent container (.videoo or .kontainer) */
-  left: 2%;          /* Positioned 2% from the left edge of its parent */
-  bottom: 4%;        /* Adjusted vertical position for optimal alignment above the bottom edge */
+  position: absolute;
+  inset-inline-start: 2%;
+  inset-block-end: 4%;
+  min-width: 12%;
+  max-width: 25%;
+  height: auto;
 
-  /* Sizing & Responsiveness */
-  min-width: 12%;    /* Ensures the overlay text doesn't get too small on larger screens */
-  max-width: 25%;    /* Controls its maximum size relative to the parent, preventing excessive width */
-  height: auto;      /* Height adjusts dynamically based on its content */
+  /* Typography & Appearance */
+  background-color: rgba(0, 0, 0, 0.65);
+  color: white;
+  border-radius: var(--border-radius-sm);
+  padding: 3px 6px; /* ✅ More comfortable internal padding */
+  font-size: clamp(0.5rem, 1vw, 0.9rem);
 
-  /* Background and Text Styling */
-  background-color: rgba(0, 0, 0, 0.65); /* Keeps the specified semi-transparent dark background */
-  color: var(--color-text-light);      /* White text color for clear readability */
-  font-family: var(--font-family-primary); /* Ensures a consistent, high-quality font */
-  /* Fluid font size: scales between 0.75rem (12px) and 1rem (16px) with viewport width */
-  font-size: clamp(0.75rem, 1.2vw, 1rem);
-  
-  /* Shape & Spacing */
-  border-radius: 0.4375rem; /* Consistent medium rounded corners for the video player *//* Consistent small rounded corners for the overlay */
-  padding: var(--spacing-xxxs-half);     /* Small responsive padding (0.8px) around the text */
-
-  /* Text Handling */
-  white-space: nowrap;     /* Prevents text from wrapping to the next line */
-  overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
-  text-overflow: ellipsis; /* Displays "..." to indicate truncated text */
-  word-break: break-word;  /* Allows long words to break and wrap in specific overflow scenarios */
-
-  /* Flexbox for Centering Content */
-  display: flex;         /* Uses flexbox for precise alignment of inner text */
-  align-items: center;   /* Vertically centers the text within the overlay */
-  justify-content: center; /* Horizontally centers the text within the overlay */
-
-  /* NO TRANSITIONS as per user request */
+  /* Text Handling & Layout */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  word-break: break-word;
 }
 
-/* Dark mode adjustments for .overlay-textt */
-.dark-mode .overlay-textt {
-  /* As per your instruction, the background color is explicitly not changed.
-     If specific text color changes are needed for dark mode, they would go here: */
-  /* color: var(--color-text-light-dark-mode); */
-}/* 📱 TABLET/SMALL DESKTOP OPTIMIZATION (e.g., up to 768px wide) */
+/* Mobile Adjustments */
 @media screen and (max-width: 768px) {
   .overlay-textt {
-      max-width: 35%; /* Increases max-width to allow more text on tablets */
-      /* Fluid font size: scales between 0.7rem (11.2px) and 0.875rem (14px) */
-      font-size: clamp(0.7rem, 2vw, 0.875rem);
-      bottom: 3.5%; /* Slightly adjusted vertical position for better fit */
-      left: 3%;     /* Slightly adjusted horizontal position */
+    max-width: 35%;
+    font-size: clamp(0.7rem, 2vw, 0.875rem);
+    bottom: 3.5%;
+    left: 3%;
+    padding: 4px 7px; /* Slightly bigger padding on mobile */
   }
 }
 
-/* 📱 MOBILE OPTIMIZATION (e.g., up to 480px wide) */
 @media screen and (max-width: 480px) {
   .overlay-textt {
-      max-width: 45%; /* Further increases max-width for compact mobile screens */
-      font-size: var(--font-size-xs); /* Fixed smaller font size (12px) for consistent mobile display */
-      padding: var(--spacing-xxs-half) var(--spacing-xxs); /* Adjusted padding (2.4px vertical, 4px horizontal) */
-      bottom: 3%; /* Further adjusted vertical position for mobile */
-      left: 3%;     /* Maintains consistent horizontal position */
+    max-width: 45%;
+    font-size: 0.75rem;
+    padding: 5px 8px; /* Even larger padding for readability */
+    bottom: 3%;
+    left: 3%;
   }
 }
 
@@ -1764,5 +2053,13 @@ body {
   /* Example: Hide certain elements on very small screens */
   .desktop-only-element {
       display: none;
+  }
+}
+
+
+@media (min-width: 1280px) and (max-width: 1599px) {
+  body {
+    overflow-y: hidden;
+    overflow-x: hidden;
   }
 }

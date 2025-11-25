@@ -90,3 +90,34 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+document.addEventListener("DOMContentLoaded", () => {
+  const shorts = document.querySelectorAll(".shorts");
+
+  shorts.forEach(short => {
+    const video = short.querySelector("video");
+    const playBtn = short.querySelector(".play-overlay");
+
+    // Start paused
+    video.pause();
+
+    // ▶️ Play when clicking play button
+    playBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      video.play();
+      playBtn.style.opacity = "0"; // hide play button
+    });
+
+    // ⏸️ Pause when tapping video
+    video.addEventListener("click", () => {
+      if (!video.paused) {
+        video.pause();
+        playBtn.style.opacity = "1"; // show play button again
+      }
+    });
+
+    // ▶️ Hide play button again when resuming (if user presses system play)
+    video.addEventListener("play", () => {
+      playBtn.style.opacity = "0";
+    });
+  });
+});
