@@ -1189,27 +1189,27 @@ overflow-x: hidden;
 
 /* DARK-MODE — playlist-specific overrides */
 .dark-mode .Scroller > .Playlist:nth-of-type(1) .Segment {
-  background-color: #333333;
+  background-color: #2a2d2f;
 }
 
 .dark-mode .Scroller > .Playlist:nth-of-type(1) .Segment span {
-  color: #FFD1DC;
+  color:#FFFFFF;
 }
 
 .dark-mode .Scroller > .Playlist:nth-of-type(2) .Segment {
-  background-color: #1e1e1e;
+  background-color: #2a2d2f;
 }
 
 .dark-mode .Scroller > .Playlist:nth-of-type(2) .Segment span {
-  color: #BBE1FF;
+  color:#FFFFFF;
 }
 
 .dark-mode .Scroller > .Playlist:nth-of-type(3) .Segment {
-  background-color: #242424;
+  background-color: #2a2d2f;
 }
 
 .dark-mode .Scroller > .Playlist:nth-of-type(3) .Segment span {
-  color: #F3E5AB;
+  color:#FFFFFF;
 }
 
 
