@@ -1564,7 +1564,7 @@ body.dark-mode .follow span {
 
 margin-bottom: 5px;
 padding-top: 20px;
-background-color: #F5F5F5;
+background-color: var(--color-bg-light); /* Default background color for light mode */
 padding-bottom: 20px;
 }
 
@@ -1574,7 +1574,7 @@ padding-bottom: 20px;
   flex-grow: 2; /* Allows elements to expand */
   min-width:10%; /* Prevents elements from shrinking too much */
   height: 30px;
-  background-color: #F5F5F5; /* Pale Grey */
+  background-color: #f0f0f0;
   margin: 5px; /* Reduce spacing to fit items in one row */
   border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
   display: flex;

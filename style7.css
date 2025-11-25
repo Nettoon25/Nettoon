@@ -1445,7 +1445,7 @@ border-color: #2a2d2f;
 .options {
   width: 70%; /* 70% of the .metadata's width (which is 5vw) */
   height: 3.75rem; /* Fixed height of 60px */
-  background-color: var(--color-bg-light-alt); /* Using your light alt background variable, close to #f5f5f5 */
+  background-color: #f0f0f0;
   border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
   display: flex;
   flex-direction: column;
@@ -2024,7 +2024,7 @@ z-index: 0;
   min-width: 4rem; /* 80px minimum width */
   max-width: 5rem; /* 90px maximum width */
   height: 1.875rem; /* 30px fixed height */
-  background-color: var(--color-bg-light-alt); /* Using light background alternative variable */
+  background-color: #f0f0f0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2147,6 +2147,7 @@ z-index: 0;
   cursor: pointer;
   padding: 5px;
   border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  background-color: #f0f0f0;
 }
 
 

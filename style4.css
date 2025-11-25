@@ -975,7 +975,7 @@ border-color: #2a2d2f;
   max-width: 100%;    /* A specific max-width; consider if a parent's padding or a calc() might be more robust for gaps */
   
   /* Sizing */
-  height: 15rem;     /* Fixed height (240px) for the banner, ensuring consistent visual space */
+  height: 12rem;     /* Fixed height (240px) for the banner, ensuring consistent visual space */
   
   /* Spacing & Appearance */
   margin-block-start: 3.5rem; /* REMOVED: Top margin set to 0 as requested, positioning it at the very start of its flow */
