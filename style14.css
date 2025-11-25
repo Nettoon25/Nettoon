@@ -259,7 +259,7 @@ body::-webkit-scrollbar-thumb {
   top: 0;          /* Aligns to the very top */
   left: 0;         /* Aligns to the very left */
   z-index:1000; /* Ensures it stays on top of other content */
-border-style: ridge;
+border-style:none;
   width: 100%;     /* Spans the full width of the screen */
   height: 3rem;    /* Fixed height for the header (48px based on 16px root font-size) */
   display: flex;   /* Enables flexbox layout for arranging children (logo, nav) */
@@ -965,10 +965,10 @@ border-color: #2a2d2f;
 .container-1 {
   position: relative;
   width: 100%;
-height: 100vh;
+height: 90vh;
   display: flex;
   flex-direction: column;
-  background-color:pink;
+  background-color:transparent; 
   padding: 0px;
   margin: 0;
   box-sizing: border-box;
@@ -978,7 +978,7 @@ height: 100vh;
   border: 0.1px solid transparent;
   padding-bottom: 0px;
   padding-top:0rem;
-  border-style: ridge;
+  border-style: dotted;
   overflow-y: hidden;
 }
 
@@ -990,13 +990,13 @@ height: 100vh;
 /* ==== Sticky Heading ==== */
 .Heading {
   position: sticky;
-  top: 3.7rem;
+  top: rem;
   width: 100%;
   height: auto;
   height: 30px;
-  background-color: grey;
+  background-color: #F5F5F5;
   z-index: 10;
-  display: flex;
+  display: none;
   padding: 0px;
   margin: 0;
   align-items: center;
@@ -1079,7 +1079,7 @@ height: 100vh;
   z-index: 5;
 width: 100%;
 height: 30px;
-background-color:blue;
+background-color: #F5F5F5;
 display: flex;
 padding: 0px;
 margin: 0;
@@ -1094,10 +1094,7 @@ overflow-y: hidden;
 overflow-x: hidden;
 }
 
-.dark-mode .Segment
-{
-  background-color: #2a2d2f;
-}
+
 
 .Segment span {
   padding-left: 1%;
@@ -1106,6 +1103,11 @@ overflow-x: hidden;
   font-size: 20px;
   padding-top: 0px;
 
+}
+
+.dark-mode .Segment
+{
+  background-color: #2a2d2f;
 }
 
 .dark-mode .Segment span 
@@ -1120,56 +1122,95 @@ overflow-x: hidden;
 
 .Scroller > .Playlist:nth-of-type(1) {
   /* modify the whole playlist */
-  background-color:black; 
-  margin-top: 5rem;
-  margin-bottom: 50rem;
-}
-
-.Scroller > .Playlist:nth-of-type(1) .Segment {
-  background-color: hotpink;
-}
-
-.Scroller > .Playlist:nth-of-type(1) .Container {
-  background-color: #ffccdd;
-}
-
-
-
-.Playlist:nth-child(1) .Segment {
-  background-color: hotpink; /* example */
-  color: black;
-
-}
-
-.Playlist:nth-child(1) .Container {
-  background-color: green; /* example */
-}
-
-
-.Playlist:nth-child(2) .Segment {
-  background-color: lightblue; /* example */
-  color: white;
-}
-
-.Playlist:nth-child(2) .Container {
-  background-color: purple; /* example */
-}
-
-.Scroller > .Playlist:nth-of-type(2) {
-  background-color: #e6f4ff;
-  margin-top: 20rem;
+  background-color:transparent; 
+  margin-top: 1rem;
   margin-bottom: 0rem;
 }
 
+.Scroller > .Playlist:nth-of-type(1) .Segment {
+  background-color: #F5F5F5;
+  height: 30px;
+}
+
+.Scroller > .Playlist:nth-of-type(1) .Container {
+  background-color:transparent; 
+}
+
+
+.Scroller > .Playlist:nth-of-type(2) {
+  background-color:transparent; 
+
+}
+
 .Scroller > .Playlist:nth-of-type(2) .Segment {
-  background-color: skyblue;
+  background-color: #F5F5F5;
+  height: 30px;
 }
 
 .Scroller > .Playlist:nth-of-type(2) .Container {
-  background-color: #cce8ff;
+  background-color:transparent; 
 }
 
 
+
+.Scroller > .Playlist:nth-of-type(3) {
+  background-color:transparent; 
+
+}
+
+.Scroller > .Playlist:nth-of-type(3) .Segment {
+  background-color: #F5F5F5;
+  height: 30px;
+}
+
+.Scroller > .Playlist:nth-of-type(3) .Container {
+  background-color:transparent; 
+}
+
+
+/* GLOBAL light-mode per playlist */
+.Scroller > .Playlist:nth-of-type(1) .Segment,
+.Scroller > .Playlist:nth-of-type(2) .Segment,
+.Scroller > .Playlist:nth-of-type(3) .Segment {
+  background-color: #F5F5F5;
+  height: 30px;
+}
+
+
+/* GLOBAL dark-mode (applies to all as fallback) */
+.dark-mode .Segment {
+  background-color: #2a2d2f;
+}
+
+.dark-mode .Segment span {
+  color: #FFFFFF;
+}
+
+
+/* DARK-MODE — playlist-specific overrides */
+.dark-mode .Scroller > .Playlist:nth-of-type(1) .Segment {
+  background-color: #333333;
+}
+
+.dark-mode .Scroller > .Playlist:nth-of-type(1) .Segment span {
+  color: #FFD1DC;
+}
+
+.dark-mode .Scroller > .Playlist:nth-of-type(2) .Segment {
+  background-color: #1e1e1e;
+}
+
+.dark-mode .Scroller > .Playlist:nth-of-type(2) .Segment span {
+  color: #BBE1FF;
+}
+
+.dark-mode .Scroller > .Playlist:nth-of-type(3) .Segment {
+  background-color: #242424;
+}
+
+.dark-mode .Scroller > .Playlist:nth-of-type(3) .Segment span {
+  color: #F3E5AB;
+}
 
 
 .Container
