@@ -1239,7 +1239,7 @@ border-style:none;
   display: flex;
   flex-wrap: wrap;
   overflow:auto;
-  overflow-y:scroll;
+  overflow-y:hidden;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
@@ -1252,7 +1252,7 @@ border-style:none;
   scrollbar-width: thin;
   overflow-x:hidden;
   scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
-  scroll-snap-type: y mandatory; /* changed to x for horizontal */
+  /*scroll-snap-type: y mandatory;  changed to x for horizontal */
 }
 
 /* Dark mode adjustments */
