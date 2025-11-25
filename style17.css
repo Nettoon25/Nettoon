@@ -2222,3 +2222,20 @@ background-color: #F5F5F5;
 .dark-mode .menu-item i {
   color: white;
 }
+
+
+
+@media (min-width: 1280px) and (max-width: 1599px) {
+  body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+.content
+{
+  border-style: none;
+  margin-top: 2.9rem;
+}
+
+
+}

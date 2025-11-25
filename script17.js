@@ -101,7 +101,9 @@ document.addEventListener("DOMContentLoaded", () => {
       notificationContainer.classList.remove("active");
     }
   });
-});// ================= PROFILE PICTURE =================
+});
+
+// ================= PROFILE PICTURE =================
 const profilePicInput = document.getElementById("profilePic");
 const profilePicPreview = document.getElementById("profilePicPreview");
 const uploadText = document.getElementById("uploadText");
@@ -125,6 +127,28 @@ resetPic.addEventListener("click", () => {
   profilePicInput.value = "";
   resetPic.hidden = true; // hide reset button again
 });
+
+
+profilePicInput.addEventListener("change", (e) => {
+  const file = e.target.files[0];
+  if (file) {
+
+    profilePicPreview.classList.remove("placeholder");  // ← REMOVE placeholder
+    profilePicPreview.src = URL.createObjectURL(file);
+    resetPic.hidden = false;
+  }
+})
+
+resetPic.addEventListener("click", () => {
+  profilePicPreview.src = defaultProfilePic;
+
+  profilePicPreview.classList.add("placeholder"); // ← ADD placeholder back
+
+  profilePicInput.value = "";
+  resetPic.hidden = true;
+});
+
+
 
 
 // ================= BANNER =================
