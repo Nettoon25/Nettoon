@@ -376,99 +376,6 @@
     </div>
 
 
-    <!-- Regional Rating -->
-    <div class="metadata-group">
-      <label for="regional-rating">Regional Ratings (Optional)</label>
-      <select id="regional-rating">
-        <option value="none">None</option>
-        <option value="kenya">Kenya (KFCB)</option>
-        <option value="us">USA (MPAA)</option>
-        <option value="uk">UK (BBFC)</option>
-        <option value="japan">Japan (CERO)</option>
-      </select>
-    </div>
-
-  </div> <!-- end upper-container -->
-
-  <!-- Lower Section -->
-  <div class="lower-container">
-
-    <!-- Country -->
-    <div class="metadata-group">
-      <label for="country">Country</label>
-      <select id="country">
-        <option value="">Select Country</option>
-        <option value="Kenya">Kenya</option>
-        <option value="Åland Islands">Åland Islands</option>
-        <option value="Albania">Albania</option>
-        <option value="Algeria">Algeria</option>
-        <option value="American Samoa">American Samoa</option>
-        <option value="Andorra">Andorra</option>
-        <option value="Angola">Angola</option>
-        <option value="Argentina">Argentina</option>
-        <option value="Armenia">Armenia</option>
-        <option value="Australia">Australia</option>
-        <option value="Austria">Austria</option>
-        <option value="Azerbaijan">Azerbaijan</option>
-        <option value="Bahamas">Bahamas</option>
-        <option value="Bahrain">Bahrain</option>
-        <option value="Bangladesh">Bangladesh</option>
-        <option value="Belgium">Belgium</option>
-        <option value="Benin">Benin</option>
-        <option value="Bhutan">Bhutan</option>
-        <option value="Bolivia">Bolivia</option>
-        <option value="Brazil">Brazil</option>
-        <option value="Bulgaria">Bulgaria</option>
-        <option value="Burkina Faso">Burkina Faso</option>
-        <option value="Burundi">Burundi</option>
-        <option value="Cameroon">Cameroon</option>
-        <option value="Canada">Canada</option>
-        <option value="Chile">Chile</option>
-        <option value="China">China</option>
-        <option value="Colombia">Colombia</option>
-        <option value="Congo">Congo</option>
-        <option value="Costa Rica">Costa Rica</option>
-        <option value="Croatia">Croatia</option>
-        <option value="Cuba">Cuba</option>
-        <option value="Czech Republic">Czech Republic</option>
-        <option value="Denmark">Denmark</option>
-        <option value="Djibouti">Djibouti</option>
-        <option value="Dominican Republic">Dominican Republic</option>
-        <option value="Ecuador">Ecuador</option>
-        <option value="Egypt">Egypt</option>
-        <option value="El Salvador">El Salvador</option>
-        <option value="Estonia">Estonia</option>
-        <option value="Ethiopia">Ethiopia</option>
-        <option value="Fiji">Fiji</option>
-        <option value="Finland">Finland</option>
-        <option value="France">France</option>
-        <option value="Gabon">Gabon</option>
-        <option value="Germany">Germany</option>
-        <option value="Ghana">Ghana</option>
-        <option value="Greece">Greece</option>
-        <option value="Guatemala">Guatemala</option>
-        <option value="Guinea">Guinea</option>
-        <option value="Haiti">Haiti</option>
-        <option value="Hungary">Hungary</option>
-        <option value="India">India</option>
-        <option value="Indonesia">Indonesia</option>
-        <option value="Iran">Iran</option>
-        <option value="Iraq">Iraq</option>
-        <option value="Ireland">Ireland</option>
-        <option value="Israel">Israel</option>
-        <option value="Italy">Italy</option>
-        <option value="Jamaica">Jamaica</option>
-        <option value="Japan">Japan</option>
-        <option value="Jordan">Jordan</option>
-        <option value="Kazakhstan">Kazakhstan</option>
-      </select>
-    </div>
-
-    <!-- Languages -->
-    <div class="metadata-group">
-      <label for="languages">Languages</label>
-      <select id="languages"></select>
-    </div>
 
   </div> <!-- end lower-container -->
   <div class="metadata-group">
@@ -511,10 +418,6 @@
     <input type="text" placeholder="Enter Series title">
   </div>
 
-  <div class="Description" style="display: none;">
-    <h3>Series Description</h3>
-    <textarea placeholder="Enter Series description (Optional)"></textarea>
-  </div>
 
   <!-- Select Existing Series -->
   <label for="seriesSelect">Select Existing Series Uploads</label>
@@ -527,40 +430,6 @@
     <option value="5">Kobe Bryant Documentary</option>
   </select>
 
-  <!-- Thumbnail Upload (hidden by default) -->
-  <h3 style="display: none;">Series Thumbnail</h3>
-  <div class="uploads" style="display: none;">
-    <div class="thumbnail" onclick="document.getElementById('fileInputThumbnailMovies').click()">
-      <img src="image-upload.png" alt="Click to upload thumbnail" class="upload-poster">
-      <input type="file" id="fileInputThumbnailMovies" class="file-input" accept="image/*" onchange="previewMovieThumbnail(event)">
-    </div>
-  </div>
-
-  <!-- Preview Container -->
-  <div class="preview-container" id="previewContainer"></div>
-
-  <!-- Episodes Wrapper -->
-  <div id="episodesWrapper">
-    <div class="episode">
-      <div class="title">
-        <h3>Episode Title</h3>
-        <input type="text" placeholder="Enter Episode title">
-      </div>
-
-      <label for="episodeNumber">Select Episode Number</label>
-      <select id="episodeNumber" name="episodeNumber" class="episode-dropdown">
-        <option value="">-- Episode Number --</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-        <option value="6">6</option>
-        <option value="7">7</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-        <option value="10">10</option>
-      </select>
 
   <!-- Episodes Wrapper -->
   <div id="episodesWrapper">
@@ -683,93 +552,6 @@
 
 
 
-    <div class="metadata-group">
-      <label for="regional-rating">Regional Ratings (Optional)</label>
-      <select id="regional-rating">
-        <option value="none">None</option>
-        <option value="kenya">Kenya (KFCB)</option>
-        <option value="us">USA (MPAA)</option>
-        <option value="uk">UK (BBFC)</option>
-        <option value="japan">Japan (CERO)</option>
-        <option value="europe">Europe (PEGI)</option>
-      </select>
-    </div>
-
-    <div class="metadata-group">
-      <label for="country">Country</label>
-      <select id="country">
-        <option value="">Select Country</option>
-        <option value="Kenya">Kenya</option>
-        <option value="Åland Islands">Åland Islands</option>
-        <option value="Albania">Albania</option>
-        <option value="Algeria">Algeria</option>
-        <option value="American Samoa">American Samoa</option>
-        <option value="Andorra">Andorra</option>
-        <option value="Angola">Angola</option>
-        <option value="Argentina">Argentina</option>
-        <option value="Armenia">Armenia</option>
-        <option value="Australia">Australia</option>
-        <option value="Austria">Austria</option>
-        <option value="Azerbaijan">Azerbaijan</option>
-        <option value="Bahamas">Bahamas</option>
-        <option value="Bahrain">Bahrain</option>
-        <option value="Bangladesh">Bangladesh</option>
-        <option value="Belgium">Belgium</option>
-        <option value="Benin">Benin</option>
-        <option value="Bhutan">Bhutan</option>
-        <option value="Bolivia">Bolivia</option>
-        <option value="Brazil">Brazil</option>
-        <option value="Bulgaria">Bulgaria</option>
-        <option value="Burkina Faso">Burkina Faso</option>
-        <option value="Burundi">Burundi</option>
-        <option value="Cameroon">Cameroon</option>
-        <option value="Canada">Canada</option>
-        <option value="Chile">Chile</option>
-        <option value="China">China</option>
-        <option value="Colombia">Colombia</option>
-        <option value="Congo">Congo</option>
-        <option value="Costa Rica">Costa Rica</option>
-        <option value="Croatia">Croatia</option>
-        <option value="Cuba">Cuba</option>
-        <option value="Czech Republic">Czech Republic</option>
-        <option value="Denmark">Denmark</option>
-        <option value="Djibouti">Djibouti</option>
-        <option value="Dominican Republic">Dominican Republic</option>
-        <option value="Ecuador">Ecuador</option>
-        <option value="Egypt">Egypt</option>
-        <option value="El Salvador">El Salvador</option>
-        <option value="Estonia">Estonia</option>
-        <option value="Ethiopia">Ethiopia</option>
-        <option value="Fiji">Fiji</option>
-        <option value="Finland">Finland</option>
-        <option value="France">France</option>
-        <option value="Gabon">Gabon</option>
-        <option value="Germany">Germany</option>
-        <option value="Ghana">Ghana</option>
-        <option value="Greece">Greece</option>
-        <option value="Guatemala">Guatemala</option>
-        <option value="Guinea">Guinea</option>
-        <option value="Haiti">Haiti</option>
-        <option value="Hungary">Hungary</option>
-        <option value="India">India</option>
-        <option value="Indonesia">Indonesia</option>
-        <option value="Iran">Iran</option>
-        <option value="Iraq">Iraq</option>
-        <option value="Ireland">Ireland</option>
-        <option value="Israel">Israel</option>
-        <option value="Italy">Italy</option>
-        <option value="Jamaica">Jamaica</option>
-        <option value="Japan">Japan</option>
-        <option value="Jordan">Jordan</option>
-        <option value="Kazakhstan">Kazakhstan</option>
-      </select>
-    </div>
-
-    <div class="metadata-group">
-      <label for="languages">Languages</label>
-      <select id="languages"></select>
-    </div>
-  </div>
 
   <div class="metadata-group">
     <label>Save to Playlist</label>
