@@ -1170,6 +1170,20 @@ overflow-x: hidden;
   background-color:transparent; 
 }
 
+.Scroller > .Playlist:nth-of-type(4) {
+  background-color:transparent; 
+
+}
+
+.Scroller > .Playlist:nth-of-type(4) .Segment {
+  background-color: #F5F5F5;
+  height: 30px;
+}
+
+.Scroller > .Playlist:nth-of-type(4) .Container {
+  background-color:transparent; 
+}
+
 
 /* GLOBAL light-mode per playlist */
 .Scroller > .Playlist:nth-of-type(1) .Segment,
@@ -1725,6 +1739,114 @@ margin-bottom: 5%;
       font-size: var(--font-size-sm); /* Even smaller font size for mobile (14px) */
   }
 }
+
+
+.optionss
+{
+  background-color: transparent;
+}
+
+.optionss {
+  position: relative;
+  background-color:transparent;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.optionss  img {
+  width: 15px;
+  height: 15px;
+  margin-top: 1px;
+  cursor: pointer;
+}
+
+.dark-mode .optionss  img {
+filter: invert(1);
+}
+
+
+
+.popup-options {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0.5rem;
+  display: none;
+  min-width: 150px;
+  z-index: 100;
+  flex-direction: column;
+}
+
+
+.dark-mode .popup-options
+{
+  background-color: #333;
+}
+
+
+.popup-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.2rem 0.2rem;
+  font-size: 0.75rem;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-radius: 0.4rem;
+}
+
+.popup-item:hover {
+  background-color: #f2f2f2;
+}
+
+.popup-item img {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
+  transition: filter 0.3s;
+}
+
+/* Dark mode styling */
+.dark-mode .optionss  .popup-item {
+  background-color: #333;
+  color: white;
+}
+
+
+
+/* Hover effect */
+.optionss  .popup-item:hover {
+  background-color: grey;
+  color: white;
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.dark-mode .optionss  .popup-item img {
+  filter: invert(1) brightness(1.2);
+}
+
+
+
+.popup-options.show {
+  display: flex;
+}
+
+
 /* ==== VIDEO PLAYER CONTAINER (.videoo) ==== */
 /* This container holds the video player, ensuring it's centered and manages overflow. */
 .videoo {

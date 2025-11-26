@@ -121,3 +121,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+
+document.addEventListener("click", function (e) {
+  const trigger = e.target.closest(".popupTrigger");
+  const allMenus = document.querySelectorAll(".popup-options");
+
+  // Close all menus first
+  allMenus.forEach(menu => menu.classList.remove("show"));
+
+  // If clicked on a trigger, toggle its menu
+  if (trigger) {
+    const menu = trigger.parentElement.querySelector(".popup-options");
+    menu.classList.toggle("show");
+    e.stopPropagation();
+  }
+});
