@@ -2222,10 +2222,18 @@ body {
   }
 }
 
+/* Tablets / small laptops (769px–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  
+  body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
 
 @media (min-width: 1280px) and (max-width: 1599px) {
   body {
     overflow-y: hidden;
     overflow-x: hidden;
   }
-}
+}}

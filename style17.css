@@ -2225,6 +2225,93 @@ background-color: #F5F5F5;
 
 
 
+/* Tablets / Small Laptops (e.g., 769px - 1024px) */
+/* Targets devices like iPads in landscape, smaller laptops, or larger tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+      font-size: 17px;
+  }
+
+
+  .container
+  {
+    background-color: var(--color-bg-light);
+  }
+
+
+
+.nav
+{
+  background-color: transparent;
+}
+
+.overlay-text
+{
+  font-size: 0.75rem;
+}
+
+
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.Notifications
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.Account 
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+
+.upload img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+.Notifications img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+
+.Account img {
+  width: 100%;
+  height:  100%;
+margin: 0 auto;
+}
+
+.dropdown-content 
+{
+  z-
+  index: 20;
+}
+body {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+}
+
+
 @media (min-width: 1280px) and (max-width: 1599px) {
   body {
     overflow-y: hidden;

@@ -3518,7 +3518,8 @@ margin-bottom: 1%;
 
   .container
   {
-    background-color: violet}
+    background-color: var(--color-bg-light);
+  }
   
   .overlay-text
   {
@@ -3553,6 +3554,13 @@ margin-bottom: 1%;
     height: 3.3vw;
   }
   
+  .Account  img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+
   
   .upload img {
     width: 100%;
@@ -3581,7 +3589,7 @@ margin-bottom: 1%;
 
 .Name
 {
-  background-color: firebrick;
+  background-color: transparent;
   padding: 0px, 0px; /* Responsive padding (4px vertical, 8px horizontal) */
 }
 
@@ -3592,12 +3600,12 @@ margin-bottom: 1%;
 .container-2
 {
   background-color: transparent;
-  border-style: ridge;
+  border-style: none;
 }
 
 .Title
 {
-  background-color: sienna;
+  background-color: transparent;
 }
 
 .Title span

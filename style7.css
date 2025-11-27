@@ -2853,14 +2853,10 @@ margin: 0 auto;
 .sidebar
 {
   background-color: transparent;
-  width: 6%;
+  width: 16.5%; /* Expands slightly on hover for better UX */
   z-index: 1000;
 }
 
-.sidebar:hover
-{
-  width: 80%;
-}
 
 
 /* 🔷 Shorts Container */
@@ -2898,13 +2894,13 @@ top: 1rem;
 
 .profile {
   position: absolute;
-  bottom: 16%;
+  bottom: 20%;
 
 }
 
 /* Move the profile up when caption expands */
 .profile.shift-up {
-  margin-bottom: 0.5rem; /* ~15px, tweak to taste */
+  margin-bottom:2.5rem; /* ~15px, tweak to taste */
 }
 
 
@@ -2913,9 +2909,10 @@ top: 1rem;
 .metadata {
   position: absolute;
 top:8rem;
-background-color: firebrick;
-  right: 20vw;
-  width: 8vw;
+background-color: transparent;
+  right: 22vw;
+  width: 6vw;
+  border-radius: 7px;
 }
 
 /* 👇 Move both to left when comments are shown */
@@ -2924,7 +2921,7 @@ background-color: firebrick;
 }
 
 .shorts.show-comments .metadata {
-  margin-right: 49.5%;
+  margin-right: 51.5%;
   right: 10px;
 }
 

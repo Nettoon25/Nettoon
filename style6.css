@@ -2861,7 +2861,7 @@ margin-bottom: 20px;
 
 .container
 {
-  background-color: darkgreen; /* Default background color for light mode */
+  background-color: var(--color-bg-light);/* Default background color for light mode */
 }
 
 

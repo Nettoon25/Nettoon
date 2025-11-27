@@ -1278,7 +1278,7 @@ img {
 /* Specific flex adjustments for .viewss, .follow, and .timee */
 /* These override the general 'flex: 1.5' to give them more space. */
 .viewss {
-  flex: 2; 
+  flex: 3; 
   margin-left: 0.5rem;
 }
 
@@ -4992,13 +4992,13 @@ margin: 0 auto;
   gap:10px; /* Space between main elements inside (1rem approx 16px) */
   max-width: 100%;
   flex-shrink:0;
-  border-style: ridge;
+  border-style: none;
   }
 
 .containerr
 {
   background-color: transparent;
-    border-style: ridge;
+  border-style: none;
     margin-left: 10px;
 }
 
@@ -5038,7 +5038,7 @@ margin: 0 auto;
 {
   background-color: transparent;
   max-height: 450px;
-  border-style: ridge;
+  border-style: none;
   
 flex-basis: 39%; /* Provides a base width, allowing it to grow or shrink */
 max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: ensures a min width (20rem), scales with viewport (37vw), and has a max width (40rem) for very large screens. This prevents distortion and ensures optimal use of space. */
@@ -5056,7 +5056,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 
 .card
 {
-  background-color:forestgreen;
+  background-color: transparent;
   margin-left: 5px;
 }
 
@@ -5092,13 +5092,40 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
   font-size: clamp(0.75rem, 0.75vw, 0.75rem); 
 }
 
+.container-3
+{
+  border-style: none;
+}
+
+.optionnn
+{
+  background-color: transparent;
+}
+
+.channel
+{
+  border-style: none;
+  width: clamp(6.375rem, 27%, 15.75rem); /* Converted 150px and 300px to rem */
+}
+
+.Tablee
+{
+  padding-bottom: 0rem;
+}
+
+.series
+{
+  position: relative;
+
+}
+
 
 .container-1 {
   background-color: transparent;
   gap: 0.6rem;
   justify-content: flex-start;
   margin: 0 auto;
-  border-style: ridge;
+  border-style: none;
   width: 100%;         /* ✅ Keep it slightly narrow if needed */
   left: 0 !important; /* ✅ Cancel previous left: 5% */
 }
@@ -5107,13 +5134,13 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
   background-color: transparent;
   width: clamp(28%, 37%, 32%);
   margin-left: 5px;
-  border-style: ridge;
+  border-style: none;
 }
 
 .caption
 {
   height: 2rem;  /* Consistent height (30px) for single-line captions */
-  background-color: fuchsia;
+  background-color: transparent;
 }
 
   .caption span
@@ -5329,6 +5356,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
   font-weight: 300;
 }
 
+
 .container-1 {
   width: 100%;
   max-width: 1200px;
@@ -5415,6 +5443,7 @@ margin-left: 5px;
   {
     border-style:ridge;
   }
+
 
 }
 
