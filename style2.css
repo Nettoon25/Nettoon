@@ -2185,7 +2185,7 @@ filter: invert(1);
   width: 98%;
   max-height: 600px;
   overflow-y: auto;
-  background:transparent;
+  background-color:transparent;
   padding-bottom: 0px; /* Reserve space for sticky input */
   margin-left: 1%;
   border-radius: 7px;
@@ -2289,17 +2289,18 @@ background-color:transparent;
 .commentt.display textarea {
   width: 100%;
   height: auto;
-  min-height: 140px;
+  min-height: 150px;
+  max-height: 180px;
   border: none;
   resize: none;
-  padding: 1rem;
+
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   background-color:transparent;
   color: #111;
   box-sizing: border-box;
-
+padding-bottom: 0px;
   white-space: pre-wrap;    /* ✅ Allows line wrapping */
   overflow-wrap: break-word;
   word-break: break-word;
@@ -2498,7 +2499,7 @@ font-size: 14px;
   width: 25%;
   max-width: 22%;
   height: 30px;
-  background-color: transparent;
+  background-color:transparent;
   margin-top: 0px;
   border-radius: 7px;
   display: flex;
