@@ -259,7 +259,7 @@ body::-webkit-scrollbar-thumb {
   top: 0;          /* Aligns to the very top */
   left: 0;         /* Aligns to the very left */
   z-index:1000; /* Ensures it stays on top of other content */
-border-style:ridge;
+border-style:none;
   width: 100%;     /* Spans the full width of the screen */
   height: 3rem;    /* Fixed height for the header (48px based on 16px root font-size) */
   display: flex;   /* Enables flexbox layout for arranging children (logo, nav) */
@@ -978,7 +978,7 @@ height: 100vh;
   border: 0.1px solid transparent;
   padding-bottom: 0px;
   padding-top:0rem;
-  border-style: dotted;
+  border-style:none;
   overflow-y: hidden;
 }
 
@@ -994,7 +994,7 @@ height: 100vh;
   width: 100%;
   height: auto;
   height: 30px;
-  background-color: red;
+  background-color: #f0f0f0;
   z-index: 10;
   display: flex;
   padding: 0px;
@@ -1017,7 +1017,7 @@ height: 100vh;
 }
 
 .dark-mode .Heading {
-  background-color:orange; /* Black background for Dark Mode */
+  background-color: #2a2d2f;
 }
 
 .dark-mode .Heading span {
@@ -1035,7 +1035,7 @@ height: 100vh;
   overflow-x: hidden;
   scrollbar-width: auto;
   scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
-  background-color:violet;
+  background-color:transparent; 
   border-radius: 0px;
   border: 1px solid transparent;
   padding-top: 0px;
@@ -1062,7 +1062,7 @@ height: 100vh;
   background-color:transparent;
   padding: 0px;
   gap: 1rem;
-  border-style:ridge;
+  border-style:none;
   margin-top: 20px;
   padding-bottom: 0px;
   padding-top: 0px;
@@ -1124,7 +1124,7 @@ overflow-x: hidden;
 
 /* Playlist 1 */
 .Scroller > .Playlist:nth-of-type(1) {
-  background-color: grey;
+  background-color:transparent; 
   margin-top:1rem;
 }
 .Scroller > .Playlist:nth-of-type(1) .Segment { height: 30px; }
@@ -1132,26 +1132,26 @@ overflow-x: hidden;
 /* Playlist 2 */
 .Scroller > .Playlist:nth-of-type(2) {
   display:none;
-  background-color: green;
+  background-color:transparent; 
 }
 .Scroller > .Playlist:nth-of-type(2) .Segment { height: 30px; }
 
 /* Playlist 3 */
 .Scroller > .Playlist:nth-of-type(3) {
-  background-color: purple;
+  background-color:transparent; 
 }
 .Scroller > .Playlist:nth-of-type(3) .Segment { height: 30px; }
 
 /* Playlist 4 */
 .Scroller > .Playlist:nth-of-type(4) {
-  background-color: navy;
+  background-color:transparent; 
 }
 .Scroller > .Playlist:nth-of-type(4) .Segment { height: 30px; }
 
 /* Playlist 4 */
 .Scroller > .Playlist:nth-of-type(5) {
   display:none;
-  background-color: brown;
+  background-color:transparent; 
 }
 .Scroller > .Playlist:nth-of-type(5) .Segment { height: 30px; }
 
@@ -1193,7 +1193,7 @@ flex-wrap: wrap;
 padding-top: 0px;
 padding-bottom: 0px;
 padding: 0px;
-border-style:dotted;
+border-style:none;
 }
 
 
@@ -2179,8 +2179,83 @@ body {
   }
 
 @media (min-width: 1280px) and (max-width: 1599px) {
+
   body {
     overflow-y: hidden;
     overflow-x: hidden;
   }
+
+
+
+  .container
+  {
+    background-color: var(--color-bg-light);
+  }
+
+
+
+.nav
+{
+  background-color:orange;
+}
+
+.overlay-text
+{
+  font-size: 1.1rem;
+}
+
+
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.Notifications
+{
+  background-color: grey;
+  width: 3vw;
+  height: 3vw;
+}
+
+.Account 
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+
+.upload img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+.Notifications img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+
+.Account img {
+  width: 100%;
+  height:  100%;
+margin: 0 auto;
+}
+
+.dropdown-content 
+{
+  z-index: 20;
+}
+
 }}
