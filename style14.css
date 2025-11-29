@@ -259,7 +259,7 @@ body::-webkit-scrollbar-thumb {
   top: 0;          /* Aligns to the very top */
   left: 0;         /* Aligns to the very left */
   z-index:1000; /* Ensures it stays on top of other content */
-border-style:none;
+border-style:ridge;
   width: 100%;     /* Spans the full width of the screen */
   height: 3rem;    /* Fixed height for the header (48px based on 16px root font-size) */
   display: flex;   /* Enables flexbox layout for arranging children (logo, nav) */
@@ -990,13 +990,13 @@ height: 100vh;
 /* ==== Sticky Heading ==== */
 .Heading {
   position: sticky;
-  top: rem;
+  top: 0rem;
   width: 100%;
   height: auto;
   height: 30px;
-  background-color: #F5F5F5;
+  background-color: red;
   z-index: 10;
-  display: none;
+  display: flex;
   padding: 0px;
   margin: 0;
   align-items: center;
@@ -1017,7 +1017,7 @@ height: 100vh;
 }
 
 .dark-mode .Heading {
-  background-color:transparent; /* Black background for Dark Mode */
+  background-color:orange; /* Black background for Dark Mode */
 }
 
 .dark-mode .Heading span {
@@ -1035,7 +1035,7 @@ height: 100vh;
   overflow-x: hidden;
   scrollbar-width: auto;
   scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
-  background-color:transparent;
+  background-color:violet;
   border-radius: 0px;
   border: 1px solid transparent;
   padding-top: 0px;
@@ -1062,7 +1062,7 @@ height: 100vh;
   background-color:transparent;
   padding: 0px;
   gap: 1rem;
-  border-style:none;
+  border-style:ridge;
   margin-top: 20px;
   padding-bottom: 0px;
   padding-top: 0px;
@@ -1120,115 +1120,60 @@ overflow-x: hidden;
   padding: 0.5rem 0.5rem;
   height: auto;
 }
+/* ===== Light Mode: Playlist Styling ===== */
 
+/* Playlist 1 */
 .Scroller > .Playlist:nth-of-type(1) {
-  /* modify the whole playlist */
-  background-color:transparent;
-  margin-top: 1rem;
-  margin-bottom: 0rem;
-  
+  background-color: grey;
+  margin-top:1rem;
 }
+.Scroller > .Playlist:nth-of-type(1) .Segment { height: 30px; }
 
-.Scroller > .Playlist:nth-of-type(1) .Segment {
-  background-color: #F5F5F5;
-  height: 30px;
-
-}
-
-.Scroller > .Playlist:nth-of-type(1) .Container {
-  background-color:transparent; 
-}
-
-
+/* Playlist 2 */
 .Scroller > .Playlist:nth-of-type(2) {
-  background-color:transparent;
-
+  background-color: green;
 }
+.Scroller > .Playlist:nth-of-type(2) .Segment { height: 30px; }
 
-.Scroller > .Playlist:nth-of-type(2) .Segment {
-  background-color: #F5F5F5;
-  height: 30px;
-}
-
-.Scroller > .Playlist:nth-of-type(2) .Container {
-  background-color:transparent; 
-}
-
-
-
+/* Playlist 3 */
 .Scroller > .Playlist:nth-of-type(3) {
-  background-color:transparent; 
-
+  background-color: purple;
 }
+.Scroller > .Playlist:nth-of-type(3) .Segment { height: 30px; }
 
-.Scroller > .Playlist:nth-of-type(3) .Segment {
-  background-color: #F5F5F5;
-  height: 30px;
-}
-
-.Scroller > .Playlist:nth-of-type(3) .Container {
-  background-color:transparent; 
-}
-
+/* Playlist 4 */
 .Scroller > .Playlist:nth-of-type(4) {
-  background-color:transparent; 
+  background-color: navy;
+}
+.Scroller > .Playlist:nth-of-type(4) .Segment { height: 30px; }
 
+/* Playlist 4 */
+.Scroller > .Playlist:nth-of-type(5) {
+  background-color: brown;
+}
+.Scroller > .Playlist:nth-of-type(5) .Segment { height: 30px; }
+
+
+/* Containers for all */
+.Scroller > .Playlist .Container {
+  background-color: transparent;
 }
 
-.Scroller > .Playlist:nth-of-type(4) .Segment {
-  background-color: #F5F5F5;
-  height: 30px;
-}
-
-.Scroller > .Playlist:nth-of-type(4) .Container {
-  background-color:transparent; 
-}
-
-
-/* GLOBAL light-mode per playlist */
-.Scroller > .Playlist:nth-of-type(1) .Segment,
-.Scroller > .Playlist:nth-of-type(2) .Segment,
-.Scroller > .Playlist:nth-of-type(3) .Segment {
-  background-color: #f0f0f0;
-  height: 30px;
-}
-
-
-/* GLOBAL dark-mode (applies to all as fallback) */
+/* ===== Global Dark Mode (fallback) ===== */
 .dark-mode .Segment {
   background-color: #2a2d2f;
 }
-
 .dark-mode .Segment span {
-  color: #FFFFFF;
+  color: #fff;
 }
 
-
-/* DARK-MODE — playlist-specific overrides */
-.dark-mode .Scroller > .Playlist:nth-of-type(1) .Segment {
+/* ===== Dark Mode Overrides for all Playlists ===== */
+.dark-mode .Scroller > .Playlist .Segment {
   background-color: #2a2d2f;
 }
-
-.dark-mode .Scroller > .Playlist:nth-of-type(1) .Segment span {
-  color:#FFFFFF;
+.dark-mode .Scroller > .Playlist .Segment span {
+  color: #fff;
 }
-
-.dark-mode .Scroller > .Playlist:nth-of-type(2) .Segment {
-  background-color: #2a2d2f;
-}
-
-.dark-mode .Scroller > .Playlist:nth-of-type(2) .Segment span {
-  color:#FFFFFF;
-}
-
-.dark-mode .Scroller > .Playlist:nth-of-type(3) .Segment {
-  background-color: #2a2d2f;
-}
-
-.dark-mode .Scroller > .Playlist:nth-of-type(3) .Segment span {
-  color:#FFFFFF;
-}
-
 
 .Container
 {
@@ -1246,7 +1191,7 @@ flex-wrap: wrap;
 padding-top: 0px;
 padding-bottom: 0px;
 padding: 0px;
-border-style:none;
+border-style:dotted;
 }
 
 
