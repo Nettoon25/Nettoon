@@ -192,8 +192,8 @@ body {
 
   /* Appearance */
   background-color: var(--color-bg-light); /* Default background color for light mode */
-
-
+  overflow-y: hidden; /* No internal scrolling within a single short item */
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch; /* Enhances smooth scrolling on iOS devices */
 
   /* Custom Scrollbar Styling (Firefox) */

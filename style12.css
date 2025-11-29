@@ -992,11 +992,11 @@ border-color: #2a2d2f;
 /* ==== Sticky Heading ==== */
 .Heading {
   position: sticky;
-  top: 0;
+  top: 3rem;
   width: 100%;
   height: auto;
   height: 30px;
-  background-color:firebrick;
+  background-color:black;
   z-index: 10;
   display: flex;
   padding: 0px;
@@ -1060,14 +1060,14 @@ border-color: #2a2d2f;
   max-height: 650px;
   flex-direction:column;
   width: 100%;
-  background-color: darkgreen;
+  background-color:white;
   padding: 0px;
   gap: 1rem;
   border-style: ridge;
-  margin-top: 20px;
+  margin-top: 50px;
   padding-bottom: 0px;
   padding-top: 0px;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
   border-radius: 7px;
   border: 0.1px solid transparent;
 }
@@ -1078,10 +1078,10 @@ border-color: #2a2d2f;
 {
   position: sticky;
   top: 0;
-  z-index: 5;
+  z-index: 10;
 width: 100%;
 height: 30px;
-background-color:hotpink;
+background-color:white;
 display: flex;
 padding: 0px;
 margin: 0;
@@ -1121,8 +1121,9 @@ margin-bottom: 0px;
 
 
 .Playlist:first-of-type > .Segment:first-of-type {
-  margin-top: 1rem;
-  background: white;
+  margin-top: 2rem;
+  background-color:white;
+
 }
 
 .dark-mode .Playlist:first-of-type > .Segment:first-of-type {
@@ -1160,6 +1161,7 @@ margin-bottom: 0px;
   max-width: 45%;
   background-color:grey;
   margin-bottom: 0px;
+  border-radius: 7px;
 }
 
 
@@ -1176,28 +1178,30 @@ flex-wrap: wrap;
 padding-top: 0px;
 padding-bottom: 0px;
 padding: 0px;
+border-radius: 7px;
 }
 
 
 .scroll-area {
   width: 100%;
   height: 100%;
-  overflow-x:scroll;
   display: flex;
+  flex-wrap: wrap;
+  overflow:auto;
+  overflow-y:hidden;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  background-color: red;
+  background-color:transparent;
   z-index: 0;
  padding-bottom: 0px;
  margin-bottom:0px;
-  gap: 0.3rem; /* Slight space between items */
+  gap: 0rem; /* Slight space between items */
   padding: 0rem 0rem;
   scrollbar-width: thin;
-  overflow-y:hidden;
-  overflow-x: auto;
+  overflow-x:hidden;
   scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
-  scroll-snap-type: x mandatory; /* changed to x for horizontal */
+  /*scroll-snap-type: y mandatory;  changed to x for horizontal */
 }
 
 /* Dark mode adjustments */
@@ -1212,7 +1216,7 @@ padding: 0px;
   width: 100%;
   max-width: 300px;
   aspect-ratio: 9 / 16;
-  max-height: 70vh;
+  max-height: 50vh;
   margin: 0; /* remove margin */
   overflow: hidden;
   border-radius: 12px;
@@ -1231,7 +1235,6 @@ padding: 0px;
     border-radius: 12px;
     display: block;
   }
-  
 
 
 /* Play overlay button */
@@ -1255,11 +1258,53 @@ padding: 0px;
 }
   */
 
+/* ==== OVERLAY LINK (.overlay-link) ==== */
+/* This element provides a clickable area covering the entire video card for navigation. */
 .overlay-link {
-  position: absolute;
-  inset: 0;
-  z-index: 3;
+  position: absolute;    /* Positions the link absolutely within its parent `.shorts` */
+  inset: 0;              /* Shorthand for top: 0; right: 0; bottom: 0; left: 0; covers the entire parent */
+  z-index: 3;            /* Ensures it is on top of both the video and the play overlay for clickability */
+  /* NO TRANSITIONS as per user request */
 }
+
+/* ==== VIEWS OVERLAY (.views-overlay) ==== */
+.views-overlay {
+  position: absolute;
+  top: 25px;           /* ⬆️ Move to the top */
+  left: 25px;          /* Slight inset from the left */
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+  padding: 4px 8px;
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  z-index: 4;         /* Always above video and play button */
+}
+
+/* 👁️ Icon inside views overlay */
+.views-icon {
+  width: 17px;
+  height: 17px;
+  filter: invert(1); /* Keeps icon visible even if dark */
+}
+
+/* 🔢 Text inside views overlay */
+.views-text {
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+/* 🌙 Dark Mode Adjustments */
+.dark-mode .views-overlay {
+  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+}
+
+.dark-mode .views-text {
+  color: #f5f5f5;
+}
+
 
 .dark-mode .Playlist {
   border: 1px solid transparent;
@@ -1270,6 +1315,10 @@ padding: 0px;
   width: 40%;
   background-color: transparent;
 }
+
+
+
+
 
 /* ==== Right Content Section ==== */
 .right-section {
@@ -1287,6 +1336,90 @@ padding: 0px;
   margin-bottom: 0px;
 }
 
+
+
+
+/* ==== CAPTION CONTAINER (.caption) ==== */
+/* This container holds the video title or description within a video card. */
+.caption {
+  /* Sizing & Layout */
+  width: 100%;       /* Ensures it spans the full width of its parent (.kontainer) */
+  height: 2.5rem;  /* Consistent height (30px) for single-line captions */
+  
+  /* Flex Container Properties */
+  display: flex;         /* Enables a flexible layout for its content (caption text) */
+  align-items: center;   /* Vertically centers content within the container */
+  justify-content: center; /* Horizontally centers content within the container */
+  
+  /* Appearance & Overflow */
+  background-color:pink; /* No background color, allowing parent's background to show */
+  overflow: hidden;    /* Hides any content that overflows the container boundaries */
+  /* `background: scroll` is often default and not needed here for visual styling. */
+  margin-bottom: 0%;
+  /* Spacing */
+  padding: 0 var(--spacing-xs); /* Responsive horizontal padding (8px) for internal spacing */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .caption container */
+.dark-mode .caption {
+  background-color: transparent; /* Remains transparent in dark mode */
+}
+/* ==== CAPTION TEXT (.caption span) ==== */
+/* Styles for the actual text content of the caption. *//* ==== CAPTION TEXT (.caption span) ==== */
+/* Styles for the actual text content of the caption, ensuring readability and truncation. */
+.caption span {
+  font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+  font-weight: 700; /* Bold font for prominence */
+  font-size: var(--font-size-base-md); /* Responsive font size (0.96875rem approx 15.5px) */
+  color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
+  
+  /* Sizing & Flex Item Properties */
+  height: 100%; /* Fills the height of its parent container for vertical centering */
+  flex-grow: 1; /* Allows the text to grow and take available space */
+
+  /* Text Handling */
+  white-space: nowrap;     /* Prevents text from wrapping to the next line */
+  overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
+  text-overflow: ellipsis; /* Displays "..." to indicate truncated text */
+  text-align: center;      /* Centers the text within its own allocated space */
+  max-width: 100%;         /* Ensures text doesn't push parent width */
+  
+  /* Spacing */
+margin-top: 2.6%;
+
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .caption span */
+.dark-mode .caption span {
+  color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode contrast */
+}
+/* 📱 TABLET/SMALL DESKTOP OPTIMIZATION (e.g., up to 768px wide) */
+@media screen and (max-width: 768px) {
+  .caption {
+      height: auto;     /* Allows the container to expand vertically for multiple lines */
+      flex-wrap: wrap;  /* Allows text to wrap to the next line within the container */
+      text-align: center; /* Centers text within the wrapped container if it spans multiple lines */
+      padding: var(--spacing-xxs) var(--spacing-sm); /* Adjusted padding for better fit */
+  }
+
+  .caption span {
+      font-size: var(--font-size-xs); /* Slightly smaller font for tablet screens (16px) */
+  }
+}
+
+/* 📱 MOBILE OPTIMIZATION (e.g., up to 480px wide) */
+@media screen and (max-width: 480px) {
+  .caption {
+      height: auto; /* Maintains auto height for flexible line wrapping */
+      padding: var(--spacing-xxs); /* Adjusted padding for very compact screens (4px) */
+  }
+
+  .caption span {
+      font-size: var(--font-size-sm); /* Even smaller font size for mobile (14px) */
+  }
+}
 
 .Playlist {
   gap: 0;
@@ -1310,9 +1443,6 @@ padding: 0px;
   padding: 0.5rem; /* optional */
 }
 
-.playlist-item:not(:first-child) {
-  margin-top: 1rem;
-}
 
 
 /* ==== About Section ==== */
@@ -1327,20 +1457,9 @@ padding: 0px;
 padding: 0px;
 margin: 0;
 padding-bottom: 0px;
+border-radius: 7px;
 }
 
-/* 1st Playlist (Series) */
-.Playlist:nth-of-type(1) .About {
-  background-color: transparent;
-  max-height: 260px;
-  margin-top: 0.5rem;
-}
-
-/* 1st Playlist (Series) */
-.Playlist:nth-of-type(3) .About {
-  background-color: transparent;
-  max-height: 300px;
-}
 
 
 
@@ -1423,13 +1542,49 @@ margin-top: 3%;
 
 
 /* 1st Playlist (Series) */
-.Playlist:nth-of-type(1) .right-section {
-  background: transparent;
+
+.Playlist:nth-of-type(1)  {
+  background: red;
+height: 100px;
+margin-top: 2rem;
+    margin-bottom: 20.5rem;
 }
+
+.Playlist:nth-of-type(1) .playlist-item {
+  height: 320px;
+  }
+  
+
+.Playlist:nth-of-type(1) .kontainer {
+background-color: #ff5722;
+}
+
+.Playlist:nth-of-type(1) .left-section {
+  background: purple;
+  height: 400px;
+max-height:275px;
+margin-top: 0.8rem;
+border-radius: 7px;
+}
+
+.Playlist:nth-of-type(1) .right-section {
+  background: blue;
+height: 100%;
+  border-radius: 7px;
+}
+
+
 .Playlist:nth-of-type(1) .About .description {
   background: transparent;
-  height: 100%;
+
 }
+
+.Playlist:nth-of-type(2)  {
+
+margin-top: 10rem;
+margin-bottom: 50rem;
+}
+
 
 /* 2nd Playlist (Shorts) */
 .Playlist:nth-of-type(2) .right-section {
@@ -1439,44 +1594,91 @@ margin-top: 3%;
   border: 0px  solid transparent;
 }
 
-/* 3rd Playlist (Movies) */
+
+.Playlist:nth-of-type(3)  {
+  background: red;
+height: 100px;
+    margin-bottom: 27rem;
+margin-top: 3rem;
+}
+
+.Playlist:nth-of-type(3) .playlist-item {
+  height: 450px;
+  }
+  
+
+.Playlist:nth-of-type(3) .kontainer {
+background-color: darkolivegreen;
+
+}
+
+.Playlist:nth-of-type(3) .left-section {
+  background: purple;
+height: auto;
+max-height:275px;
+margin-top: 5rem;
+border-radius: 7px;
+}
+
 .Playlist:nth-of-type(3) .right-section {
-  background: transparent;
-}
-.Playlist:nth-of-type(3) .vidoes .cards {
-  border: 0px  solid transparent;
-}
-
-/* 4th Playlist (Playlist) */
-.Playlist:nth-of-type(4) .right-section {
-  background: transparent;
-}
-
-.Playlist:nth-of-type(4) {
-  background:transparent;
-margin-bottom: 50px;
-}
-
-.Playlist:nth-of-type(4) .vidoes {
-  background:transparent;
-  margin-top: 2%;
+  background: blue;
 height: 100%;
+  border-radius: 7px;
 }
+
+
+.Playlist:nth-of-type(3) .left-section{
+  height: 400px;
+  }
+  
+
+.Playlist:nth-of-type(3) .About .description {
+  background: transparent;
+
+}
+
+
+
+.Playlist:nth-of-type(4)  {
+  background: red;
+height: 100px;
+    margin-bottom: 5rem;
+
+}
+
+.Playlist:nth-of-type(4) .playlist-item {
+  height: 450px;
+  }
+  
 
 .Playlist:nth-of-type(4) .kontainer {
-  background: transparent;
-  margin-top: 5%;
+background-color: darkolivegreen;
 
 }
 
+.Playlist:nth-of-type(4) .left-section {
+  background: purple;
+height: auto;
+max-height:275px;
+margin-top: 5rem;
+border-radius: 7px;
+}
+
+.Playlist:nth-of-type(4) .right-section {
+  background: blue;
+height: 100%;
+  border-radius: 7px;
+}
 
 
-.Playlist:nth-of-type(4) .vidoes .cards {
-  border: 0px  solid transparent;
-  margin-top: 4.5%;
-  margin-left: 3%;
-  height: 150px;
-  width: 250px; /* fixed width ensures spacing behaves as expected */
+.Playlist:nth-of-type(4) .left-section{
+  height: 400px;
+  }
+  
+
+.Playlist:nth-of-type(4) .About .description {
+  background: transparent;
+
 }
 
 
@@ -1566,26 +1768,13 @@ border-radius: 7px;
     position: relative;
     width: clamp(100%, 30%, 32%);
     height: auto;
-    background-color:darkcyan;
+    background-color:black;
     border-radius: 0.5rem;
     cursor: pointer;
   margin-left: 0px;
-  margin-bottom:10px;
-  margin-top:15%;
   cursor: pointer;
   }
-  
-.kontainer:nth-child(2)
-{
-  margin-top:5%;
-  margin-bottom: 30px;
 
-}
-
-.Playlist:nth-of-type(4) {
-  background:transparent;
-margin-bottom: 150px;
-}
   
   /* Video Thumbnails */
   .kontainer img {
@@ -1635,143 +1824,217 @@ margin-bottom: 150px;
     }
   }
   
-/* Profile Section */
+/* ==== PROFILE SECTION CONTAINER (.profilee) ==== */
+/* This container likely represents a profile bar, showing an avatar and name. */
 .profilee {
-  display: flex;
-  width: 100%;
-  height: 2rem; /* 40px */
-  border-radius: 0rem; /* 7px */
-  background-color: transparent;
-  align-items: center;
-  gap: 0.625rem; /* 10px */
-  padding: 0rem; /* Adds subtle spacing */
-  margin-bottom: 0rem;
-  max-width: 100%;
-}
-
-/* Profile Image */
-.profilee img {
-  width: 2.2rem; /* 35px converted to rem */
-  height: 2.2rem;
-  border-radius: 50%;
-  margin-left: 1%;
-  object-fit: cover;
-  background-color: transparent;
-}
-
-.dark-mode .profilee img
-{
-  filter: invert(1);
-}
-
-/* Profile Name Container */
-.profilee-name {
-  flex-grow: 1;
-  height: 100%;
-  background-color: transparent;
-  border-radius: 0rem;
-  font-size: 1.125rem;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  white-space: nowrap;
-}
-
-/* Profile Name Label */
-.profilee-name span {
-  font-size: 1.125rem; /* Adjusted for better scaling */
-  font-weight: 700;
-  color: #36454F;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  padding: 0.3125rem;
-  margin-left: 0px;
+  width: 100%; /* Spans the full width of its parent */
+  height: 2.5rem; /* Consistent height (40px converted to rem) */
+  max-width: 100%; /* Ensures it doesn't exceed parent width */
   
+  background-color: transparent;  /* Uses a variable for the background color (brown) */
+  border-radius: var(--border-radius-none); /* No border-radius (0rem, but can map to variable) */
+  
+  display: flex; /* Enables a flexible, horizontal layout for its content */
+  align-items: center; /* Vertically centers items within the container */
+  gap: var(--spacing-xs); /* Responsive spacing between elements (10px converted to rem) */
+  
+  padding: 0; /* Removes default inner padding */
+  margin-block-end: 0; /* Removes bottom margin */
 }
 
-/* Responsive Adjustments */
+/* Dark mode adjustment for .profilee */
+.dark-mode .profilee {
+  background-color: var(--color-bg-profile-dark); /* Darker background for dark mode */
+}
+
+/* ==== PROFILE IMAGE (.profilee img) ==== */
+/* Styles for the profile avatar image. */
+.profilee img {
+  width: 2.2rem; /* Consistent width (35px converted to rem) */
+  height: 2.2rem; /* Consistent height, maintaining aspect ratio */
+  border-radius: 50%; /* Creates a perfect circular shape */
+  object-fit: cover; /* Ensures the image fills the area without distortion, cropping if needed */
+  margin-block: var(--spacing-xxs); /* Responsive vertical margin (5px converted to rem) */
+  margin-inline-start: 1%; /* Maintains left margin relative to container width */
+  background-color: transparent; /* Ensures transparent background for the image itself */
+
+  transition: filter var(--transition-speed) var(--transition-ease); /* Smooth transition for dark mode filter */
+}
+
+/* Dark mode adjustment for profile image */
+.dark-mode .profilee img {
+  filter: invert(1); /* Inverts colors for better visibility on dark backgrounds */
+}
+
+/* ==== PROFILE NAME CONTAINER (.profilee-name) ==== */
+/* This container holds the profile name text. */
+.profilee-name {
+  flex-grow: 1; /* Allows the container to take up available space */
+  height: 100%; /* Fills the height of its parent (.profilee) */
+  background: transparent; /* No background */
+  border-radius: var(--border-radius-none); /* No border-radius */
+  display: flex; /* Uses flexbox to align the name text */
+  align-items: center; /* Vertically centers the name text */
+  overflow: hidden; /* Hides any overflowing content */
+  white-space: nowrap; /* Prevents text from wrapping */
+}
+
+/* ==== PROFILE NAME LABEL (.profilee-name span) ==== */
+/* Styles for the actual profile name text. */
+.profilee-name span {
+  font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+  font-size: var(--font-size-base-lg); /* Responsive font size (1.125rem approx 18px) */
+  font-weight: 700; /* Bold font for prominence */
+  color: #36454F;
+  white-space: nowrap; /* Prevents text wrapping */
+  overflow: hidden; /* Hides overflowing text */
+  text-overflow: ellipsis; /* Displays "..." for truncated text */
+  max-width: 100%; /* Ensures text doesn't push parent width */
+  padding: var(--spacing-xxs); /* Responsive padding (0.3125rem approx 5px) */
+  margin-inline-start: 0; /* No left margin */
+}
+
+/* Dark mode adjustment for profile name text */
+.dark-mode .profilee-name span {
+  color: var(--color-text-light-contrast); /* Lighter text color for dark mode */
+}
+
+
+/* 📱 TABLET/SMALL DESKTOP OPTIMIZATION */
 @media screen and (max-width: 768px) {
   .profilee {
-    padding: 0.3125rem 0.75rem;
+    padding: var(--spacing-xxs) var(--spacing-sm); /* Adjusted padding (5px 12px converted to rem) */
   }
 
   .profilee img {
+    /* Maintained original size for consistency at this breakpoint */
     width: 2.2rem;
     height: 2.2rem;
   }
 
-  .profilee-name span{
-    font-size: 0.9375rem; /* Slightly smaller text */
+  .profilee-name span {
+    font-size: var(--font-size-base-sm); /* Slightly smaller text (0.9375rem approx 15px) */
   }
 }
 
+/* 📱 MOBILE OPTIMIZATION */
 @media screen and (max-width: 480px) {
   .profilee {
-    flex-direction: row;
-    align-items: center;
-    padding: 0.3125rem 0.5rem;
+    flex-direction: row; /* Ensures row layout (already default, but explicit for clarity) */
+    align-items: center; /* Centers items vertically (already default, but explicit for clarity) */
+    padding: var(--spacing-xxs) var(--spacing-xs); /* Adjusted padding (5px 8px converted to rem) */
   }
 
   .profilee img {
-    width: 2rem;
-    height: 2rem;
+    width: var(--size-icon-lg); /* Slightly smaller image (2rem approx 32px) */
+    height: var(--size-icon-lg); /* Maintains aspect ratio */
   }
 
   .profilee-name span {
-    font-size: 0.875rem;
+    font-size: var(--font-size-sm); /* Even smaller text (0.875rem approx 14px) */
   }
 }
-
-.caption {
-  width: 100%;
-  height: 1.875rem; /* 30px */
+.opttions {
+  position: relative;
+  background-color:transparent;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden;
-  background-color: transparent;
-  padding: 0 0.625rem; /* Adds slight padding for better spacing */
 }
 
-/* Caption Text */
-.caption span {
-  color: black;
-  height: 100%;
-  font-weight: 700;
-  font-size: 0.96875rem; /* 15.5px */
+.opttions img {
+  width: 15px;
+  height: 15px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* === Popup Styling === */
+.opttions-popup {
+  position: absolute;
+  top: 0;
+  right: -1%;
+  transform: translate(-5% /* Center horizontally, float above */);
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 5000;
+  padding: 0.1rem 0.5rem;
+  min-width: 150px;
+  padding-bottom: 0px;
+}
+
+.dark-mode .opttions-popup
+{
+  background-color: #333;
+}
+
+.opttions-popup .popup-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0rem 0rem;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  font-size: 0.7rem;
+  color: #111;
+  background-color: white;
+  border-radius: 0.4rem;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  text-align: center;
-  max-width: 100%;
-  margin-top: 3%;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.opttions-popup .popup-item:hover {
+  background-color: grey;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsive Adjustments */
-@media screen and (max-width: 768px) {
-  .caption {
-    height: auto; /* Allows for multiple lines if necessary */
-    flex-wrap: wrap;
-    text-align: center;
-  }
+.dark-mode .opttions-popup .popup-item:hover {
+  background-color: grey;
 
-  .caption span {
-    font-size: 0.9375rem; /* Slightly smaller for mobile */
-  }
 }
 
-@media screen and (max-width: 480px) {
-  .caption {
-    height: auto;
-    padding: 0.3125rem; /* Adjusted for compact screens */
-  }
-
-  .caption span {
-    font-size: 0.875rem; /* Smaller font size */
-  }
+/* === Icon Styling === */
+.opttions-popup .popup-item img {
+  width: 1.3rem;
+  height: 1.3rem;
+  object-fit: contain;
+  transition: filter 0.3s;
 }
+
+/* === Dark Mode === */
+.dark-mode .opttions-popup .popup-item {
+  background-color: #333;
+  color: white;
+}
+
+.dark-mode .opttions-popup .popup-item img {
+  filter: invert(1) brightness(1.2);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Reset unwanted icon housing styles */
+.opttions-popup .popup-item img,
+.shareee-popup .popup-item img,
+.metadata-popup .popup-item img,
+.optionn-popup .popup-item img,
+.share-popup .popup-item img {
+  width: 1.3rem;
+  height: 1.3rem;
+  object-fit: contain;
+  background: none !important;  /* Remove any background */
+  border: none !important;      /* Remove border */
+  padding: 0 !important;        /* Remove internal spacing */
+  border-radius: 0 !important;  /* Remove circular shape */
+  box-shadow: none !important;  /* Remove glow/shadow */
+}
+
 .videoo {
   position: relative;
   width: 100%;

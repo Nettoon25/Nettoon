@@ -2132,7 +2132,7 @@ filter: invert(1);
   }
 
 /* Right: Time */
-.timmee {
+.Episode {
   width: 50%; /* Sets the width of the episode section */
   max-width: 11.25rem; /* Explicit max-width (180px converted to rem) */
   height: 1.5625rem; /* Consistent height (25px converted to rem) */
@@ -2154,7 +2154,7 @@ filter: invert(1);
   white-space: nowrap; /* Prevents text from wrapping */
 }
 
-.timmee span {
+.Episode span {
   margin: 0; /* Removes default margins */
   font-family: var(--font-family-primary); /* Consistent, high-quality font */
   font-weight: 500; /* Medium font weight */
@@ -2171,7 +2171,7 @@ filter: invert(1);
   max-width: 100%; /* Ensures text doesn't push parent width */
 
 }
-.timmee span {
+.Episode span {
   margin: 0;
   padding: 0;
 }
@@ -2289,7 +2289,8 @@ background-color:transparent;
 .commentt.display textarea {
   width: 100%;
   height: auto;
-  min-height: 140px;
+  min-height: 150px;
+  max-height: 180px;
   border: none;
   resize: none;
   padding: 1rem;
