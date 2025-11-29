@@ -1131,6 +1131,7 @@ overflow-x: hidden;
 
 /* Playlist 2 */
 .Scroller > .Playlist:nth-of-type(2) {
+  display:none;
   background-color: green;
 }
 .Scroller > .Playlist:nth-of-type(2) .Segment { height: 30px; }
@@ -1149,6 +1150,7 @@ overflow-x: hidden;
 
 /* Playlist 4 */
 .Scroller > .Playlist:nth-of-type(5) {
+  display:none;
   background-color: brown;
 }
 .Scroller > .Playlist:nth-of-type(5) .Segment { height: 30px; }
