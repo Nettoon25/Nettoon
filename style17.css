@@ -2320,8 +2320,9 @@ body {
 
 .content
 {
-  border-style: none;
-  margin-top: 2.9rem;
+  border-style:none;
+  margin-top: 0rem;
+  margin-bottom: 1.5rem;
 }
 
 

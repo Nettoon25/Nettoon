@@ -1211,7 +1211,7 @@ border-color: #2a2d2f;
 
 .nav
 {
-background-color: transparent;
+background-color: grey;
 }
 
 .overlay-text
@@ -1400,6 +1400,20 @@ margin-top: 5rem;
   background-color: transparent;
   margin:180px auto 0 auto; /* Top margin + horizontal centering */
 }
+
+.nav 
+
+{
+  background-color:transparent;
+}
+
+  .login-container {
+      width: 100%;
+      max-width: 600px;
+  background-color: transparent;
+  margin-top: 3.2rem;
+   height: 90vh;
+    }
 
 }
 
