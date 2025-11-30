@@ -4182,13 +4182,13 @@ margin: 0 auto;
   .container-2
   {
     background-color: transparent;
-    border-style: ridge;
+  border-style:none;
   }
 
 .pichaa
 {
   margin-top: 50rem;
-  border-style: ridge;
+  border-style:none;
   position: absolute;
 }
 
@@ -4203,7 +4203,7 @@ margin: 0 auto;
   max-width: 230px;
   aspect-ratio: 9 / 16;
   margin: 1rem 0 1rem 0.6rem;
-border-style: ridge;
+  border-style:none;
 }
 
 .short-video {
@@ -4216,16 +4216,17 @@ border-style: ridge;
   .container-1
   {
   gap: 1rem;
-    border-style: ridge;
+   border-style:none;
   background-color: transparent;
   }
 
   .kontainer
   {
-      border-style: ridge;
+      border-style:none;
     width: clamp(18%, 28%, 18%);
     margin-left: 1rem;
    border-radius: 0.4375rem;
+     background-color: transparent;
   }
 
     .views

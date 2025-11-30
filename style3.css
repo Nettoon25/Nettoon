@@ -5533,13 +5533,13 @@ margin-left: 5px;
     width: 100%;
     max-width: 100%;
     flex-shrink:0;
-    border-style:ridge;
+   border-style:none;
     }
   
   .containerr
   {
     background-color: transparent;
-     border-style:ridge;
+  border-style:none;
   }
   
   
@@ -5566,8 +5566,8 @@ margin-left: 5px;
   .container-2
   {
     background-color: transparent;
-    max-height: 655px;
-    border-style:ridge;
+  max-height: 778px;
+   border-style:none;
   }
   
   .card
@@ -5575,7 +5575,7 @@ margin-left: 5px;
     background-color: transparent;
     max-height: 300px;
     margin: 1px 0 12px 7px; /* Maintain original positioning */
-    border-style:ridge;
+  border-style:none;
   }
   
   .pichaa {
@@ -5623,11 +5623,11 @@ margin-left: 5px;
   
   .container-3
   {
-   background-color: transparent;
-    height:250px;
+    background-color: transparent;
+    height:350px;
     padding: 0px;
     justify-content: flex-start;
-      border-style:ridge;
+      border-style:none;
   }
   
   .optionnn
@@ -5637,15 +5637,15 @@ margin-left: 5px;
   height: 40px;
    background-color: transparent;
     z-index: 3;
-      border-style:ridge;
+     border-style:none;
   }
   
   .channel {
   
     height: 100%; /* Fully inherit from container-3 */
-   background-color: transparent;
-    border-style:ridge;
-    margin-top: 1.3rem; /* 50px */
+      background-color: transparent;
+    border-style:none;
+    margin-top: 2.6rem; /* 50px */
     margin-bottom: 0px;
     float: left;
   }
@@ -5675,10 +5675,14 @@ margin-left: 5px;
   {
     padding-bottom: 0rem;
   padding: 0px;
-      border-style:ridge;
+      border-style:none;
   }
   
-  
+  .series
+  {
+      height: 14.5rem; /* Consistent height (200px converted to rem) */
+  margin: 4.3rem 0 0 0.625rem; /* Left gap only */
+  }
   
   
   
@@ -5687,7 +5691,7 @@ margin-left: 5px;
       background-color: transparent;
     gap: 1.5rem;
     width:100%; 
-    border-style:ridge;
+    border-style:none;
     }
   
     .kontainer
@@ -5695,7 +5699,7 @@ margin-left: 5px;
       background-color: transparent;
       width: clamp(28%, 37%, 32%);
     margin-left: 5px;
-    border-style:ridge;
+  border-style:none;
     }
   
   /* Caption Text */

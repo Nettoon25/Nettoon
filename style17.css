@@ -2327,3 +2327,87 @@ body {
 
 
 }
+
+
+/* Ultra-wide (1600px and up) */
+@media (min-width: 1600px) {
+
+  body {
+      font-size: 19px;}
+      
+.container
+{
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+}
+  
+
+.nav
+{
+  background-color: transparent;
+}
+
+  .overlay-text
+  {
+    background-color: transparent;
+    font-size: 1rem;
+  }
+
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.Notifications
+{
+  background-color: transparent;
+ width: 2vw;
+  height: 2vw;
+    margin-right: 90px;
+}
+
+.Account 
+{
+  background-color: transparent;
+  width: 2vw;
+  height: 2vw;
+}
+
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+
+.upload img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+.Notifications img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+
+.Account img {
+  width: 100%;
+  height:  100%;
+margin: 0 auto;
+}
+}
+
+  body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  .content
+  {
+    margin-bottom: 1.5rem;
+  }
