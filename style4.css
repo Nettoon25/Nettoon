@@ -4187,12 +4187,12 @@ margin: 0 auto;
 
 .pichaa
 {
-  margin-top: 50rem;
+  margin-top: 2rem;
   border-style:none;
-  position: absolute;
+
 }
 
-.pichaa img
+.dark-mode .pichaa img
 {
   filter: invert(1);
 }
