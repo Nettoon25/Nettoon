@@ -968,16 +968,23 @@ border-color: #2a2d2f;
 }
 
 .login-container {
-  width: 100%;
-  max-width: 500px;
-  margin: 200px auto 0 auto;
-  padding: 2rem;
+  width: 90%;
+  max-width: clamp(320px, 35vw, 480px);
+
+  /* keeps same vertical spacing on all devices */
+  margin: 15vh auto 0 auto;
+
+  /* responsive padding */
+  padding: clamp(1.2rem, 2.5vw, 3rem);
+
   background-color: #f8f8ff;
-  border: 1px solid #ccc;
-  border-radius: 10px;
+
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: clamp(8px, 1vw, 16px);
+
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+
   text-align: center;
-  z-index: 11;
 }
 
 .dark-mode .login-container {
@@ -1075,6 +1082,7 @@ border-color: #2a2d2f;
   cursor: pointer;
   width: 100%;
   transition: 0.3s;
+  margin-bottom: 1rem;
 }
 
 .google-signin img {
@@ -1211,7 +1219,7 @@ border-color: #2a2d2f;
 
 .nav
 {
-background-color: grey;
+background-color: transparent;
 }
 
 .overlay-text
@@ -1393,12 +1401,12 @@ margin-top: 5rem;
 
 }
 
-/* Large desktops (1280px–1599px) */
+/* Large desktops (1280px–1599px)
 @media (min-width: 1280px) and (max-width: 1599px) {
 .login-container
 {
   background-color: transparent;
-  margin:180px auto 0 auto; /* Top margin + horizontal centering */
+  margin:180px auto 0 auto; 
 }
 
 .nav 
@@ -1416,7 +1424,8 @@ margin-top: 5rem;
     }
 
 }
-
+ */
+ 
 /* Ultra-wide (1600px and up) */
 @media (min-width: 1600px) {
 
@@ -1491,8 +1500,8 @@ margin: 0 auto;
   .login-container {
       width: 100%;
       max-width: 800px;
-  
-   height: 60vh;
+      margin: 130px auto 0 auto;
+   height: 70vh;
     }
   
   
