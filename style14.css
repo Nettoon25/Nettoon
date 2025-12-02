@@ -1053,7 +1053,7 @@ height: 100vh;
 
 /* Dark mode adjustments */
 .dark-mode .Scroller {
-  scrollbar-color: rgba(7, 4, 4, 0.5) grey;
+  scrollbar-color:#ff5722;
 }
 
 

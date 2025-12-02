@@ -90,6 +90,42 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   
 
+  
+
+document.addEventListener("DOMContentLoaded", () => {
+  const shorts = document.querySelectorAll(".shorts");
+
+  shorts.forEach(short => {
+    const video = short.querySelector("video");
+    const playBtn = short.querySelector(".play-overlay");
+
+    // Start paused
+    video.pause();
+
+    // ▶️ Play when clicking play button
+    playBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      video.play();
+      playBtn.style.opacity = "0"; // hide play button
+    });
+
+    // ⏸️ Pause when tapping video
+    video.addEventListener("click", () => {
+      if (!video.paused) {
+        video.pause();
+        playBtn.style.opacity = "1"; // show play button again
+      }
+    });
+
+    // ▶️ Hide play button again when resuming (if user presses system play)
+    video.addEventListener("play", () => {
+      playBtn.style.opacity = "0";
+    });
+  });
+});
+
+
+
   document.querySelectorAll('.kontainer').forEach(kontainer => {
     const video = kontainer.querySelector('video');
     let hoverTimeout;
@@ -109,6 +145,30 @@ document.addEventListener("DOMContentLoaded", function () {
       video.load(); // This resets the poster
     });
   });
+
+
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".opttions").forEach(opt => {
+      const popup = opt.querySelector(".opttions-popup");
+  
+      opt.addEventListener("click", (e) => {
+        e.stopPropagation();
+  
+        // Close others
+        document.querySelectorAll(".opttions-popup").forEach(p => {
+          if (p !== popup) p.classList.add("hidden");
+        });
+  
+        popup.classList.toggle("hidden");
+      });
+    });
+  
+    // Close when clicking outside
+    document.addEventListener("click", () => {
+      document.querySelectorAll(".opttions-popup").forEach(p => p.classList.add("hidden"));
+    });
+  });
+  
 
 
   document.addEventListener('DOMContentLoaded', () => {

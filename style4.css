@@ -2452,6 +2452,301 @@ border-style: none;
 }
 
 
+.share-popup {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  width: 340px;
+  height: 170px;
+  max-height: 180px;
+  background-color: #f0f0f0;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  display: flex;
+  flex-direction: column;   /* so close button + scroll container stack correctly */
+  overflow: visible;        /* IMPORTANT: prevent popup from scrolling */
+  z-index: 200;
+}
+
+/* DARK MODE */
+.dark-mode .share-popup {
+  background-color: #333;
+  color: white;
+}
+
+/* NEW: only this area scrolls */
+.share-scroll {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;         /* horizontal scrolling only */
+  overflow-y: hidden;
+  gap: 20px;
+  padding-top: 30px;        /* makes room for the close button */
+}
+
+/* SHARE ITEMS */
+.share-item {
+  width: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+.share-item img {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: transparent;
+  padding: 8px;
+}
+
+.share-item span {
+  margin-top: 8px;
+  color: var(--color-text-dark-contrast);
+  font-size: 13px;
+}
+
+/* FIXED CLOSE BUTTON */
+.share-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+
+  font-size:18px;   /* ← resize here */
+  line-height: 0.5;
+  padding: 6px 9px;  /* ← resize clickable area */
+
+  color: white;
+  background-color: grey;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 500;       /* stays above scroll items */
+}
+
+.share-close:hover {
+  background: rgba(0,0,0,0.2);
+}
+/* === PLAYLIST POPUP === */
+.playlist-popup {
+  position: absolute;
+  top: 60px;
+  right: 10px;
+  background: #ffffff;
+  width: 220px;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+  padding: 12px;
+  z-index: 100;
+}
+
+.dark-mode .playlist-popup {
+  background-color: #333;
+  color: white;
+}
+
+/* HEADER */
+.playlist-header {
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+/* WRAPPER FOR ALL PLAYLIST ITEMS */
+.playlist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* === CHECKBOX OPTION === */
+.playlist-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 4px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.playlist-option:hover {
+  background: #ececec;
+}
+
+.dark-mode .playlist-option:hover {
+  background: #444;
+}
+
+/* Visible checkbox */
+.playlist-option input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  appearance: auto;
+}
+
+/* TEXT label */
+.playlist-option span {
+  font-size: 14px;
+}
+
+/* === NEW PLAYLIST BUTTON === */
+.playlist-add {
+  margin-top: 10px;
+  padding: 8px;
+  text-align: center;
+  background: #f1f1f1;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.playlist-add:hover {
+  background: #e1e1e1;
+}
+
+.dark-mode .playlist-add {
+  background: #444;
+}
+
+.dark-mode .playlist-add:hover {
+  background: #555;
+}
+
+/* === EDITABLE INPUT FOR NEW PLAYLIST === */
+.playlist-input {
+  padding: 5px 8px;
+  font-size: 14px;
+  width: 100%;
+  border: 1px solid #bbb;
+  border-radius: 6px;
+  outline: none;
+}
+
+.dark-mode .playlist-input {
+  background: #555;
+  color: white;
+  border: 1px solid #777;
+}
+
+
+/* Popup layout (unchanged) */
+.report-popup {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+  width: 360px;
+  background: #f0f0f0;
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  z-index: 300;
+  height: 350px;
+}
+.dark-mode .report-popup {
+  background: #222;
+  color: white;
+}
+
+/* Header */
+.report-header {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* Close button */
+.report-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+.report-close:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* === CHECKBOX ITEMS === */
+.report-option {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.report-option input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+/* Bottom buttons */
+.report-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.report-cancel {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  color: grey;
+}
+
+.report-submit {
+  background: transparent;
+  color: grey;
+  font-size: 16px;
+  border: none;
+  cursor: not-allowed;
+  opacity: 0.5;
+  transition: 0.2s;
+}
+
+/* === ACTIVE REPORT BUTTON === */
+.report-submit.active {
+  color: #3ea6ff;     /* YouTube blue */
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* Force checkboxes to appear */
+.report-option input[type="checkbox"] {
+  appearance: auto !important;
+  -webkit-appearance: auto !important;
+  -moz-appearance: auto !important;
+
+  width: 18px !important;
+  height: 18px !important;
+
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+  opacity: 1 !important;
+}
+
+/* Make sure label behaves correctly */
+.report-option {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 15px;
+  cursor: pointer;
+}
 
 
 

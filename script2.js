@@ -196,10 +196,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  
-
-  
-
   document.getElementById('submitCommentBtn').addEventListener('click', function () {
     const commentText = document.getElementById('newCommentText').value.trim();
   
@@ -536,3 +532,184 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // helper: close all popups
+  function closeAllPopups() {
+    document.querySelectorAll(".opttions-popup").forEach(p => p.classList.add("hidden"));
+    document.querySelectorAll(".share-popup").forEach(p => p.classList.add("hidden"));
+    document.querySelectorAll(".playlist-popup").forEach(p => p.classList.add("hidden"));
+    document.querySelectorAll(".report-popup").forEach(p => p.classList.add("hidden"));
+  }
+
+  // For each card make popups independent
+  document.querySelectorAll(".profilee").forEach(card => {
+
+    const optionsBtn = card.querySelector(".opttions");
+    const optionsPopup = card.querySelector(".opttions-popup");
+
+    // Safe guards
+    if (!optionsBtn || !optionsPopup) return;
+
+    const popupItems = optionsPopup.querySelectorAll(".popup-item");
+    const shareBtn = popupItems[0];
+    const playlistBtn = popupItems[1];
+    const reportBtn = popupItems[2];
+
+    const sharePopup = card.querySelector(".share-popup");
+    const playlistPopup = card.querySelector(".playlist-popup");
+    const reportPopup = card.querySelector(".report-popup");
+
+    // ==== OPTIONS button toggles its menu ====
+    optionsBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      // close other cards' popups
+      closeAllPopups();
+      optionsPopup.classList.toggle("hidden");
+    });
+
+    // ==== SHARE ====
+    if (shareBtn && sharePopup) {
+      shareBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        closeAllPopups();
+        sharePopup.classList.toggle("hidden");
+      });
+
+      const shareClose = sharePopup.querySelector(".share-close");
+      if (shareClose) {
+        shareClose.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+          sharePopup.classList.add("hidden");
+        });
+      }
+    }
+
+    // ==== PLAYLIST ====
+    if (playlistBtn && playlistPopup) {
+      playlistBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        closeAllPopups();
+        playlistPopup.classList.toggle("hidden");
+      });
+
+      // find playlist list and add button by flexible selectors
+      const playlistList = playlistPopup.querySelector(".playlist-list");
+      // support both .add-playlist-btn OR #addPlaylistBtn OR .playlist-add
+      const addBtn =
+        playlistPopup.querySelector(".add-playlist-btn")
+        || playlistPopup.querySelector("#addPlaylistBtn")
+        || playlistPopup.querySelector(".playlist-add");
+
+      if (addBtn && playlistList) {
+        addBtn.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+
+          const wrapper = document.createElement("label");
+          wrapper.classList.add("playlist-option");
+
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.classList.add("playlist-check");
+
+          const input = document.createElement("input");
+          input.type = "text";
+          input.placeholder = "New Playlist";
+          input.classList.add("playlist-input");
+
+          wrapper.appendChild(checkbox);
+          wrapper.appendChild(input);
+
+          // If addBtn is a child of playlistList, insert before it, otherwise append to list
+          if (playlistList.contains(addBtn)) {
+            playlistList.insertBefore(wrapper, addBtn);
+          } else {
+            playlistList.appendChild(wrapper);
+          }
+
+          input.focus();
+
+          const finalize = () => {
+            if (!input.parentNode) return; // already finalized
+            let name = input.value.trim() || "Unnamed Playlist";
+            input.remove();
+            const label = document.createElement("span");
+            label.textContent = name;
+            wrapper.appendChild(label);
+          };
+
+          input.addEventListener("keypress", (e2) => {
+            if (e2.key === "Enter") finalize();
+          });
+
+          input.addEventListener("blur", finalize);
+        });
+      }
+    }
+
+    // ==== REPORT ====
+    if (reportBtn && reportPopup) {
+      reportBtn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        closeAllPopups();
+        reportPopup.classList.toggle("hidden");
+      });
+
+      // close X
+      const reportClose = reportPopup.querySelector(".report-close");
+      if (reportClose) {
+        reportClose.addEventListener("click", (ev) => {
+          ev.stopPropagation();
+          // reset checkboxes
+          reportPopup.querySelectorAll(".report-check").forEach(cb => cb.checked = false);
+          updateReportButtonState(reportPopup);
+          reportPopup.classList.add("hidden");
+        });
+      }
+
+      // delegated change handler: works for existing and future checkboxes
+      reportPopup.addEventListener("change", (ev) => {
+        if (ev.target && ev.target.matches(".report-check")) {
+          updateReportButtonState(reportPopup);
+        }
+      });
+
+      // initialize button state
+      updateReportButtonState(reportPopup);
+    }
+
+  }); // end per-card loop
+
+
+
+  // Update the report button enabled/disabled for a given reportPopup element
+  function updateReportButtonState(reportPopupEl) {
+    if (!reportPopupEl) return;
+    const checks = Array.from(reportPopupEl.querySelectorAll(".report-check"));
+    const submitBtn = reportPopupEl.querySelector(".report-submit");
+    if (!submitBtn) return;
+    const anyChecked = checks.some(c => c.checked);
+    if (anyChecked) {
+      submitBtn.disabled = false;
+      submitBtn.classList.add("active");
+    } else {
+      submitBtn.disabled = true;
+      submitBtn.classList.remove("active");
+    }
+  }
+
+  // ---- IMPORTANT: close popups only when clicking completely outside any card ----
+  document.addEventListener("click", (e) => {
+    // if the click is inside any .profilee, do nothing
+    if (e.target.closest(".profilee")) return;
+    closeAllPopups();
+  });
+
+  // Optional: close with Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeAllPopups();
+  });
+
+}); // DOMContentLoaded
