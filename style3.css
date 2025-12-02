@@ -2191,7 +2191,7 @@ filter: invert(1);
   border-radius: 7px;
   border: 0.1px solid #ccc;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  scrollbar-color:#ff5722;
   top:1em;
 }
 
@@ -2229,11 +2229,12 @@ float: right;
 margin-right: 0px;
 margin-top: 0px; 
 border-radius: 0px;
-scrollbar-width: thin; /* Set scrollbar to thin */
-scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Color of the scrollbar thumb and track */
+
 border-color: #ccc;
 overflow-y: auto;
 overflow-x: hidden;
+scrollbar-width: thin; /* Set scrollbar to thin */
+scrollbar-color:#ff5722;
 border: 1px solid #ccc; /* Set a very thin border */
 }
 
@@ -5095,7 +5096,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 
 .container-3
 {
-  border-style: none;
+  border-style: ridge;
 }
 
 .optionnn
@@ -5112,11 +5113,13 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 .Tablee
 {
   padding-bottom: 0rem;
+  
 }
 
 .series
 {
   position: relative;
+
 
 }
 

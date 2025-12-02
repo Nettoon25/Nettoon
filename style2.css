@@ -2191,7 +2191,7 @@ filter: invert(1);
   border-radius: 7px;
   border: 0.1px solid #ccc;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  scrollbar-color:#ff5722;
   top:1em;
 }
 
@@ -2230,7 +2230,7 @@ margin-right: 0px;
 margin-top: 0px; 
 border-radius: 0px;
 scrollbar-width: thin; /* Set scrollbar to thin */
-scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Color of the scrollbar thumb and track */
+scrollbar-color:#ff5722;
 border-color: #ccc;
 overflow-y: auto;
 overflow-x: hidden;
@@ -4660,6 +4660,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 {
   background-color: transparent;
   margin-left: 5px;
+  
 }
 
 .pichaa {
@@ -5013,6 +5014,18 @@ margin-left: 5px;
 @media (min-width: 1281px) and (max-width: 1400px) {
  
 
+.containerr
+{
+  border-style:ridge;
+}
+
+.container-2
+{
+  border-style:ridge;
+}
+
+
+
 /* Specific flex adjustments for .viewss, .follow, and .timee */
 /* These override the general 'flex: 1.5' to give them more space. */
 .viewss {
@@ -5176,7 +5189,7 @@ margin: 0 auto;
 
 .card
 {
-  background-color: transparent;
+  background-color: crimson;
   max-height: 300px;
   margin: 1px 0 12px 7px; /* Maintain original positioning */
   border-style:none;
@@ -5233,7 +5246,7 @@ margin: 0 auto;
 
   .kontainer
   {
-    background-color: transparent;
+    background-color: grey;
     width: clamp(28%, 37%, 32%);
 margin-left: 6px;
   border-style:none;

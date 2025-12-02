@@ -1001,7 +1001,8 @@ border-color: #2a2d2f;
 
   /* Custom scrollbar */
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+
+scrollbar-color:#ff5722;
 }
 
 .upload-container::-webkit-scrollbar {

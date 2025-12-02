@@ -3247,7 +3247,7 @@ margin: 0 auto;
   
   .sidebar
   {
-    background-color: transparent;
+    background-color: var(--color-bg-light); /* Default background color for light mode */
     width:10%; 
   }
   

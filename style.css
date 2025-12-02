@@ -272,7 +272,6 @@ body::-webkit-scrollbar-thumb {
 
   /* Appearance & Spacing */
   background-color: var(--color-bg-light); /* Default background color for light mode */
- 
   padding-inline-start: 0; /* Ensures no left padding pushes content initially */
   /* margin-inline: auto; is redundant here as width is 100% and position is fixed */
 }
@@ -426,8 +425,8 @@ a {
   /* Flex Container Properties (for arranging navigation links/items) */
   display: flex;   /* Enables flexbox for aligning internal navigation items */
   align-items: center; /* Vertically centers the navigation items */
-  justify-content: flex-end; /* All nav items stick to the right */
-  gap: 1.5rem; /* Even spacing between them */
+  justify-content: space-around; /* Distributes navigation items with equal space around them */
+  gap: 5vw; /* Fluid spacing between navigation items, scales with viewport width */
   
   /* Appearance */
   background-color: transparent; /* Ensures a transparent background for the navigation area */
@@ -452,8 +451,6 @@ a {
   flex-grow: 1;
   height: 100%;
 }
-
-
 
 .search {
   display: flex;
@@ -547,7 +544,6 @@ body.dark-mode .search input[type="search"]::placeholder {
 }
 
 
-
 /* Clear button to the right */
 .clear-btn {
   position: absolute;
@@ -591,7 +587,6 @@ visibility: visible;
 opacity: 1;
 
 }
-
 
 /* Notifications Icon */
 .Notifications {
@@ -639,6 +634,7 @@ opacity: 1;
   background-color: #2a2d2f;
 }
 
+
 /* Sticky Header for Notification Count */
 .Notification-header {
   position: sticky;
@@ -676,13 +672,13 @@ opacity: 1;
   transition: background 0.2s ease;
   flex-direction: column; /* stack rows */
   gap: 0.4rem;
-  border: 0.3px solid transparent;
 }
 
 .dark-mode .Notification
 {
   background-color: var(--color-bg-metadata-dark); /* **YouTube-inspired dark gray background** */
 }
+
 
 
 .Notification:hover {
@@ -715,11 +711,6 @@ border-color: #2a2d2f;
   height: 2.2rem;
   border-radius: 50%;
   object-fit: cover;
-}
-
-.dark-mode .User-profile img
-{
-  filter: invert(1);
 }
 
 /* Username stays left */
@@ -771,20 +762,20 @@ border-color: #2a2d2f;
 
 /* Row 3: Timer */
 .timer {
-  flex-shrink: 0;
-  margin-left: auto;     /* pushes it to the right */
-  background: transparent;
-  height: auto;
-  padding: 0;            /* no extra padding */
-  display: block;        /* make it visible */
+  flex: 1;
+  width: 5%;
+  height: 30px;
+  background-color: saddlebrown;
+  display:none;          /* let it be a full-width row */
+  padding-left: 2rem;    /* indent under username/message, same space as avatar */
+  margin-top: 0.2rem;
 }
 
 .timer span {
-  font-size: 0.75rem;
+  font-size: 0.3rem;
   color: #aaa;
-  display: inline;       /* make text inline */
+  display:none;   /* makes sure it behaves like a label */
 }
-
 
 
 .Theme {
@@ -799,21 +790,14 @@ border-color: #2a2d2f;
   border-radius: 50%;
   margin-left: 1em;
 }
-
-
-.nav-actions {
-  display: flex;
-  align-items: center;
-  gap: 2rem; /* equal spacing between Upload, Notifications, Account */
-}
-
-
 .Account {
   position: relative;
   width: 3vw;
   height: 3vw;
   background-color: transparent;
-  margin: 0; /* remove extra margins */
+  margin-top: 0.3125rem; /* 5px */
+  margin-right: 1rem;     /* 16px */
+  margin-bottom: 0.1875rem; /* 3px */
   display: flex;
   align-items: center;
   border-radius: 50%;
@@ -910,18 +894,6 @@ border-color: #2a2d2f;
   border-radius: 50%;
   margin-right: 0.625em; /* 10px */
 }
-
-.proofile img {
-  width: 1.3rem;
-  height: 1.3rem;
-  object-fit: contain;
-  background: none !important;  /* Remove any background */
-  border: none !important;      /* Remove border */
-  padding: 0 !important;        /* Remove internal spacing */
-  border-radius: 0 !important;  /* Remove circular shape */
-  box-shadow: none !important;  /* Remove glow/shadow */
-}
-
 
 /* Profile Name */
 .proofile span {
@@ -1352,7 +1324,7 @@ border-color: #2a2d2f;
   justify-content: flex-start; /* Aligns video cards to the start (left) of the container */
   
   /* Appearance & Spacing */
-  background-color: var(--color-bg-light); /* Default background color for light mode */
+  background-color:transparent; /* Default background color for light mode */
   border-radius: var(--border-radius-none); /* No border radius, for a clean rectangular grid area */
   border-style: none; /* Applied a 'ridge' border style as per your original code.
                           Consider if a 'none' or a subtle 'solid' border from variables
@@ -1397,7 +1369,7 @@ border-color: #2a2d2f;
   border-radius: var(--border-radius-md); /* Consistent medium rounded corners for the card */
   border-style:none; /* No border style, relying on shadow for separation */
 
-  padding: 0;
+  
   /* Spacing */
   margin-inline-start:1.9%; /* Maintains your specified left margin for precise grid alignment */
   margin-block-end: var(--spacing-xs); /* Consistent bottom margin (8px) for vertical spacing */
@@ -1467,18 +1439,12 @@ border-color: #2a2d2f;
 .dark-mode .profilee img {
   filter: invert(1); /* Inverts colors for better visibility on dark backgrounds */
 }
-
-/* Dark mode: only invert the placeholder, not uploaded images */
-.dark-mode .profilee img.placeholder {
-  filter: invert(1);
-}
-
 /* ==== PROFILE NAME CONTAINER (.profilee-name) ==== */
 /* This container holds the profile name text. *//* ==== PROFILE NAME CONTAINER (.profilee-name) ==== */
 /* This flexible container holds the profile name text, managing its layout. */
 .profilee-name {
   /* Flex Item Properties */
-  flex-grow: 1.1; /* Allows the container to take up all available horizontal space */
+  flex-grow: 1; /* Allows the container to take up all available horizontal space */
   height: 100%; /* Fills the height of its parent (.profilee) */
   
   /* Flex Container Properties (for aligning the name text) */
@@ -1558,107 +1524,106 @@ border-color: #2a2d2f;
       font-size: var(--font-size-sm); /* (14px) */
   }
 }
-  .opttions {
-    position: relative;
-    background-color:transparent;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .opttions img {
-    width: 15px;
-    height: 15px;
-    margin-top: 10px;
-    cursor: pointer;
-  }
-  
-  /* === Popup Styling === */
-  .opttions-popup {
-    position: absolute;
-    top: 0;
-    right: -1%;
-    transform: translate(-5% /* Center horizontally, float above */);
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 5000;
-    padding: 0.1rem 0.5rem;
-    min-width: 150px;
-    padding-bottom: 0px;
-  }
-  
-  .dark-mode .opttions-popup
-  {
-    background-color: #333;
-  }
-  
-  .opttions-popup .popup-item {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0rem 0rem;
-    margin-top: 3px;
-    margin-bottom: 5px;
-    font-size: 0.7rem;
-    color: #111;
-    background-color: white;
-    border-radius: 0.4rem;
-    white-space: nowrap;
-    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
-  }
-  .opttions-popup .popup-item:hover {
-    background-color: grey;
-    color: white;
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
-  
-  .dark-mode .opttions-popup .popup-item:hover {
-    background-color: grey;
-  
-  }
-  
-  /* === Icon Styling === */
-  .opttions-popup .popup-item img {
-    width: 1.3rem;
-    height: 1.3rem;
-    object-fit: contain;
-    transition: filter 0.3s;
-  }
-  
-  /* === Dark Mode === */
-  .dark-mode .opttions-popup .popup-item {
-    background-color: #333;
-    color: white;
-  }
-  
-  .dark-mode .opttions-popup .popup-item img {
-    filter: invert(1) brightness(1.2);
-  }
-  
-  .hidden {
-    display: none !important;
-  }
-  
-  /* Reset unwanted icon housing styles */
-  .opttions-popup .popup-item img,
-  .shareee-popup .popup-item img,
-  .metadata-popup .popup-item img,
-  .optionn-popup .popup-item img,
-  .share-popup .popup-item img {
-    width: 1.3rem;
-    height: 1.3rem;
-    object-fit: contain;
-    background: none !important;  /* Remove any background */
-    border: none !important;      /* Remove border */
-    padding: 0 !important;        /* Remove internal spacing */
-    border-radius: 0 !important;  /* Remove circular shape */
-    box-shadow: none !important;  /* Remove glow/shadow */
-  }
-  
+.opttions {
+  position: relative;
+  background-color:transparent;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.opttions img {
+  width: 15px;
+  height: 15px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+/* === Popup Styling === */
+.opttions-popup {
+  position: absolute;
+  top: 0;
+  right: -1%;
+  transform: translate(-5% /* Center horizontally, float above */);
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 5000;
+  padding: 0.1rem 0.5rem;
+  min-width: 150px;
+  padding-bottom: 0px;
+}
+
+.dark-mode .opttions-popup
+{
+  background-color: #333;
+}
+
+.opttions-popup .popup-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0rem 0rem;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  font-size: 0.7rem;
+  color: #111;
+  background-color: white;
+  border-radius: 0.4rem;
+  white-space: nowrap;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+.opttions-popup .popup-item:hover {
+  background-color: grey;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.dark-mode .opttions-popup .popup-item:hover {
+  background-color: grey;
+
+}
+
+/* === Icon Styling === */
+.opttions-popup .popup-item img {
+  width: 1.3rem;
+  height: 1.3rem;
+  object-fit: contain;
+  transition: filter 0.3s;
+}
+
+/* === Dark Mode === */
+.dark-mode .opttions-popup .popup-item {
+  background-color: #333;
+  color: white;
+}
+
+.dark-mode .opttions-popup .popup-item img {
+  filter: invert(1) brightness(1.2);
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* Reset unwanted icon housing styles */
+.opttions-popup .popup-item img,
+.shareee-popup .popup-item img,
+.metadata-popup .popup-item img,
+.optionn-popup .popup-item img,
+.share-popup .popup-item img {
+  width: 1.3rem;
+  height: 1.3rem;
+  object-fit: contain;
+  background: none !important;  /* Remove any background */
+  border: none !important;      /* Remove border */
+  padding: 0 !important;        /* Remove internal spacing */
+  border-radius: 0 !important;  /* Remove circular shape */
+  box-shadow: none !important;  /* Remove glow/shadow */
+}
 
 
 
@@ -2161,7 +2126,7 @@ body {
         flex-direction: row;
         align-items: center;
         justify-content: space-between;
-        background-color: var(--color-bg-light);
+        background-color: pink;
         padding: 0;
         box-shadow: var(--shadow-md);
       }
@@ -2174,15 +2139,14 @@ body {
         align-items: center;
         margin-left: 2px;
         padding-left: 8rem;
-        background-color: transparent;
+        background-color: violet;
       }
     
       .overlay-text {
         font-size: 1rem;
         padding: 0;
-        margin-left: 1px;
         white-space: nowrap;
-        background-color: transparent;
+        background-color: sandybrown;
       }
     
       .nav {
@@ -2192,20 +2156,15 @@ body {
         align-items: center;
         gap: 0.1rem;
         padding-right: 0.1rem;
-        background-color: transparent;
+        background-color: grey;
         margin-left: 0rem;
       }
     
       .search {
         position: relative;
         flex: 0.9;
-        width: 100%;
-        max-width: 900px;
-        height:30px;
-        left: 0%;
-        background-color:transparent;
-        margin: 0px auto;
-        background-color: transparent;
+        height: 2.2rem;
+        background-color:forestgreen;
         border: 0.5px solid #ccc;
         border-radius: 5px;
         margin: 0 auto;
@@ -2213,16 +2172,14 @@ body {
         display: flex;
         align-items: center;
         box-shadow: none;
-   
+        max-width: 100%;
       }
     
       .search input[type="search"] {
-        flex: 2;
-        width: 100%;
-        max-width: 100%;
+        flex: 1;
         height: 100%;
         font-size: 0.9rem;
-        padding: 0 0rem;
+        padding: 0 0.5rem;
         background-color: transparent;
         border: none;
         color: #333;
@@ -2293,19 +2250,6 @@ body {
         filter: invert(1);
       }
 
-      .Account {
-        margin-top: 0.3125rem; /* 5px */
-        margin-right: 0.5rem;     /* 16px */
-        margin-bottom: 0.1875rem; /* 3px */
-
-      }
-      
-      .Account img {
-        margin-left: 0.4rem; /* 5px */
-
-      }
-      
-
 
    .dropdown-content {
   display: none;
@@ -2369,7 +2313,7 @@ body {
 /* Profile Name */
 .proofile span {
   font-weight: 600;
-  font-size: 0.5rem;
+  font-size: 0.85rem;
   color: black;
   margin-left: 0.2rem;
   white-space: nowrap;
@@ -2389,8 +2333,8 @@ body {
 /* Mobile responsiveness */
 @media (max-width: 480px) {
   .dropdown-content {
-    right: 1%;
-    width: 10vw;
+    right: 2%;
+    width: 92vw;
     padding: 0.25rem 0;
   }
 
@@ -2440,7 +2384,7 @@ body {
         .rectanglee {
           flex: 0 0 auto;             /* ✅ Prevent resize/shrink */
           min-width: fit-content;     /* Only as wide as needed */
-          padding: 0.3rem 0.3rem;
+          padding: 0.3rem 0.75rem;
           height: 2rem;
           background-color: var(--color-bg-pill-light);
           border-radius: 5px;
@@ -2561,24 +2505,15 @@ body {
   text-overflow: ellipsis;
 }
 
-.opttions img {
-  width: 17px;
-  height: 17px;
-  margin-top: 0px;
- 
-}
-
-
 /* Caption (title) */
 .caption {
   height: 2rem;
-  background-color: transparent;
+  background-color: fuchsia;
   display: flex;
   align-items: center;
   padding: 0 0.5rem;
   border-radius: 0;
   margin: 0;
-  z-index: 1000;
 }
 
 .caption span {
@@ -2588,7 +2523,6 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
 }
 
 /* Video Section */
@@ -2670,8 +2604,6 @@ padding: 5px;
 }
 
 }
-
-
 
 /* Medium Mobile Devices / Small Tablets (Landscape phones, small tablets, e.g., 481px - 768px) */
 /* Targets devices like larger smartphones in landscape, smaller iPads in portrait */
@@ -2928,7 +2860,7 @@ padding: 5px;
 
   .container
   {
-    background-color: var(--color-bg-light);
+    background-color: var(--color-bg-light); /* Default background color for light mode */
   }
 
 
@@ -2992,6 +2924,7 @@ padding: 5px;
 margin: 0 auto;
 }
 
+
 .dropdown-content 
 {
   z-index: 20;
@@ -3010,7 +2943,7 @@ margin: 0 auto;
 
 .rectanglee
 {
-  background-color:transparent;
+  background-color: transparent;
   font-weight: var(--font-weight-bold); /* Bold font weight */
   font-size: clamp(0.75rem, 0.75vw, 0.75rem); 
 }
@@ -3018,8 +2951,8 @@ margin: 0 auto;
 
 .sidebar
 {
-  background-color: var(--color-bg-light);
-  width:5.7%;
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+  width:5.5%;
   z-index: 1;
 }
 
@@ -3032,8 +2965,6 @@ margin: 0 auto;
   margin-left: 0px;
 }
 
-
-
   .container-1
   {
     top: 6.1rem;
@@ -3041,7 +2972,7 @@ margin: 0 auto;
     left: 5.6%;  
       /* Positions the grid below the header and suggestions bar */
           /* Aligns it to the right of the sidebar, maintaining a consistent gap */
-          background-color:transparent;
+    background-color:transparent;
   gap: 0.6rem;
   }
   
@@ -3088,7 +3019,7 @@ margin: 0 auto;
 
   .container
   {
-    background-color: fuchsia; /* Default background color for light mode */
+    background-color: var(--color-bg-light); /* Default background color for light mode */
   }
 
 .nav
@@ -3099,6 +3030,7 @@ margin: 0 auto;
 .overlay-text
 {
   font-size: 1.2rem;
+  margin-left: 0.25rem;
 }
 
 
@@ -3148,6 +3080,34 @@ margin: 0 auto;
   width: 100%;
   height:  100%;
 margin: 0 auto;
+}
+
+.dropdown-content
+{
+  top: 100%;
+  right: 0.5%;
+  width: 24%;
+  min-width: 10em;
+  max-height: 20em;
+  padding: 2px 3px;
+}
+
+
+.dropdown-content a {
+  padding: 2px 3px;
+}
+
+/* Profile Section */
+.proofile {
+  width: 100%;
+  min-height: 1.875em; /* 30px */
+  padding: 0.1em; /* 10px */
+
+}
+
+.proofile span
+{
+  font-size: 15px;
 }
 
 .suggestionss
@@ -3181,18 +3141,18 @@ margin: 0 auto;
 
   .container-1
   {
-    background-color: grey;
+    background-color:transparent;
   gap: 0.5rem;
   margin: 0 auto; /* ✅ Centers the block */
   }
   
   .kontainer
   {
-    background-color: pink;
+    background-color:transparent;
     width: clamp(28%, 37%, 32%);
-    margin-inline-start:0.75%; /* Maintains your specified left margin for precise grid alignment */
+    margin-inline-start:0.77%; /* Maintains your specified left margin for precise grid alignment */
   }
-
+  
   .profilee img
 {
   width:1.9rem ;
@@ -3200,7 +3160,6 @@ margin: 0 auto;
   margin-left: 5px;
 }
 
-  
   .caption
   {
     height: 1.5rem;  /* Consistent height (30px) for single-line captions */
@@ -3223,7 +3182,7 @@ margin: 0 auto;
      
     }
     
-  
+
   .videoo {
     width: 100%;
     height: auto;
@@ -3252,79 +3211,87 @@ margin: 0 auto;
   }  
 }
 
+
 /* Ultra-wide Displays (e.g., 1600px and up) */
 /* For very large monitors, TVs, or multi-monitor environments */
 @media (min-width: 1600px) {
-   body {
-      font-size: 19px;
-.container
-{
-  background-color: var(--color-bg-light); /* Default background color for light mode */
-}
+  body {
+      font-size: 19px;}
+
+  .container
+  {
+    background-color: var(--color-bg-light); /* Default background color for light mode */
+  }
   
-
-.nav
-{
-  background-color: transparent;
+  .Table
+  {
+    background-color: transparent;
+  }
   
-}
-
-.overlay-text
-{
-   font-size: 1.5rem;
-}
-
-
-.upload
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-     margin-right: 70px;
-}
-
-.Notifications
-{
-  background-color: transparent;
- width: 2vw;
-  height: 2vw;
-    margin-right: 90px;
-}
-
-.Account 
-{
-  background-color: transparent;
-  width: 2vw;
-  height: 2vw;
-      margin-right: 30px;
-}
-
-.upload
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-}
-
-
-.upload img {
-  width: 100%;
-  height:  100%;
+  .overlay-text
+  {
+    background-color: transparent;
+    font-size: 1.5rem;
+  }
+  
+  .nav
+  {
+    background-color: transparent;
+  }
+  
+  .search input[type="search"] {
+  
+    min-height: 20px;
+    max-height: 25px;
+  
+  }
+  
+  
+  .upload
+  {
+    background-color: transparent;
+    width: 2.5vw;
+    height: 2.5vw;
+  }
+  
+  .Notifications
+  {
+    background-color: transparent;
+    width: 2vw;
+    height: 2vw;
+      margin-right: 90px;
+  }
+  
+  .Account 
+  {
+    background-color: transparent;
+    width: 2vw;
+    height: 2vw;
+  }
+  
+  
+  
+  .upload img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  .Notifications img {
+    width: 100%;
+    height:  100%;
+    margin: 0 auto;
+  }
+  
+  
+  
+  .Account img {
+    width: 100%;
+    height:  100%;
   margin: 0 auto;
-}
-
-.Notifications img {
-  width: 100%;
-  height:  100%;
-  margin: 0 auto;
-}
-
-
-.Account img {
-  width: 100%;
-  height:  100%;
-margin: 0 auto;
-}
+  }
+  
+  
 
 .suggestionss
 {
@@ -3347,7 +3314,7 @@ margin: 0 auto;
   background-color: var(--color-bg-light); /* Default background color for light mode */
    width: 11%; 
    z-index: 1;
-    border-style:none;
+      border-style:none;
 }
 
 .sidebar:hover {
@@ -3393,4 +3360,4 @@ margin: 0 auto;
 
 
 
-}}
+}

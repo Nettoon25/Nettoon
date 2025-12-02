@@ -980,6 +980,7 @@ height: 100vh;
   padding-top:0rem;
   border-style:none;
   overflow-y: hidden;
+  
 }
 
 .dark-mode .container-1
@@ -1032,9 +1033,10 @@ height: 100vh;
   width: 100%;
   height: 100%;
   overflow-y:scroll;
+  
   overflow-x: hidden;
   scrollbar-width: auto;
-  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  scrollbar-color:#ff5722;
   background-color:transparent; 
   border-radius: 0px;
   border: 1px solid transparent;
@@ -1042,6 +1044,12 @@ height: 100vh;
   padding-bottom: 0px;
   margin-bottom: 50px;
 }
+
+/* Targets the scrollbar thumb (the draggable part of the scrollbar). */
+.Scroller::-webkit-scrollbar-thumb {
+  scrollbar-color: var(--color-brand-primary) var(--color-bg-light); 
+}
+
 
 /* Dark mode adjustments */
 .dark-mode .Scroller {

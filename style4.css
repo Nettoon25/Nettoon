@@ -1387,7 +1387,7 @@ border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px
   /* Spacing & Appearance */
   background-color:transparent; /* No background color */
   padding: var(--spacing-xxs); /* Responsive padding (4px) for internal breathing room */
-  border-radius: var(--border-radius-xs); /* Consistent small rounded corners (8px) */
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
   margin-block-start: var(--spacing-xxs); /* Top margin (4px) for spacing from elements above */
   box-sizing: border-box; /* Ensures padding is included in the element's total size */
   overflow-wrap: break-word; /* Allows long words to break and wrap to prevent horizontal overflow */
@@ -4088,11 +4088,14 @@ gap:3rem;
 {
   border-style:none;
   margin-left: 1px;
+  background-color: transparent;
 }
 
 .rectangle
 {
   border-style:none;
+  background-color: transparent;
+
 }
 
 

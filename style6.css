@@ -995,7 +995,7 @@ border-color: #2a2d2f;
   opacity: 0;
   transform: translateY(-3.125rem);
   animation: popIn 0.5s ease-out forwards;
-
+  scrollbar-color:#ff5722;
   overflow-y: auto;
   overflow-x: hidden;
 }
