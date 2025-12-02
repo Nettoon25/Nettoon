@@ -1059,7 +1059,7 @@ border-color: #2a2d2f;
       margin: 7vh auto 1vh auto; /* Top: 5vh | Bottom: 1vh | Centered horizontally */
     
       scrollbar-width: thin;
-      scrollbar-color: rgba(0, 0, 0, 0.4) transparent;
+      scrollbar-color:#ff5722;
     
       display: flex;
       flex-direction: column;
@@ -1628,6 +1628,7 @@ filter: invert(1);
 
   body {
     font-size: 17px;
+   
 }
 
 
@@ -1721,7 +1722,6 @@ z-index: 20;
   width: 800px;
   min-height: 550px;
   max-height: 600px;
-
   margin: 4rem auto 0 auto; /* ✅ Margin-top now works */
   padding-bottom: 20px;
 }
