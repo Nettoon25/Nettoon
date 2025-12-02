@@ -1153,6 +1153,7 @@ border-color: #2a2d2f;
   height: auto;      /* Height adjusts dynamically based on its content */
   overflow: hidden; /* Hides any overflowing content, essential for collapsible behavior */
   /* NO TRANSITIONS as per user request */
+  margin-left: 0.5rem;
 }
 
 
@@ -3995,6 +3996,20 @@ margin-left: 8px;
 
 }
 @media (min-width: 1280px) and (max-width: 1599px) {
+
+.container-2
+{
+  border-style:none;
+}
+
+.Profile-description
+{
+ /* No background color */
+
+ 
+}
+
+
 
   .kontainer {
     background-color: transparent;
