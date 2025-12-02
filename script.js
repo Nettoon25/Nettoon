@@ -167,43 +167,160 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
 document.addEventListener("DOMContentLoaded", () => {
-  document.querySelectorAll(".opttions").forEach(opt => {
-    const popup = opt.querySelector(".opttions-popup");
 
-    opt.addEventListener("click", (e) => {
-      e.stopPropagation();
+  // ======================================================
+  // UNIVERSAL: OPTIONS popup toggle
+  // ======================================================
+  document.querySelectorAll(".profilee").forEach(card => {
 
-      // Close others
-      document.querySelectorAll(".opttions-popup").forEach(p => {
-        if (p !== popup) p.classList.add("hidden");
+      const optionsBtn = card.querySelector(".opttions");
+      const optionsPopup = card.querySelector(".opttions-popup");
+
+      const shareBtn = optionsPopup.querySelector(".popup-item:nth-child(1)");
+      const playlistBtn = optionsPopup.querySelector(".popup-item:nth-child(2)");
+      const reportBtn = optionsPopup.querySelector(".popup-item:nth-child(3)");
+
+      const sharePopup = card.querySelector(".share-popup");
+      const playlistPopup = card.querySelector(".playlist-popup");
+      const reportPopup = card.querySelector(".report-popup");
+
+      // ---- Open OPTIONS menu ----
+      optionsBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          closeAllPopups();
+          optionsPopup.classList.toggle("hidden");
       });
 
-      popup.classList.toggle("hidden");
-    });
-  });
+      // ======================================================
+      // SHARE POPUP
+      // ======================================================
+      if (shareBtn && sharePopup) {
+          shareBtn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              closeAllPopups();
+              sharePopup.classList.toggle("hidden");
+          });
 
-  // Close when clicking outside
+          const shareClose = sharePopup.querySelector(".share-close");
+          if (shareClose) {
+              shareClose.addEventListener("click", () => {
+                  sharePopup.classList.add("hidden");
+              });
+          }
+      }
+// ======================================================
+// PLAYLIST POPUP
+// ======================================================
+if (playlistBtn && playlistPopup) {
+  playlistBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeAllPopups();
+      playlistPopup.classList.toggle("hidden");
+  });
+}
+
+// ---- ADD PLAYLIST ----
+// FIXED → now matches your HTML: id="addPlaylistBtn"
+const addBtn = playlistPopup?.querySelector("#addPlaylistBtn");
+const playlistList = playlistPopup?.querySelector(".playlist-list");
+
+if (addBtn && playlistList) {
+  addBtn.addEventListener("click", () => {
+
+      const wrapper = document.createElement("label");
+      wrapper.classList.add("playlist-option");
+
+      const checkbox = document.createElement("input");
+      checkbox.type = "checkbox";
+      checkbox.classList.add("playlist-check");
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = "New Playlist";
+      input.classList.add("playlist-input");
+
+      wrapper.appendChild(checkbox);
+      wrapper.appendChild(input);
+
+      // Insert BEFORE the "+ New Playlist" button
+      playlistList.insertBefore(wrapper, addBtn);
+
+      input.focus();
+
+      const finalize = () => {
+          let name = input.value.trim() || "Unnamed Playlist";
+          input.remove();
+          const label = document.createElement("span");
+          label.textContent = name;
+          wrapper.appendChild(label);
+      };
+
+      input.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") finalize();
+      });
+
+      input.addEventListener("blur", finalize);
+  });
+}
+
+
+      // ======================================================
+      // REPORT POPUP
+      // ======================================================
+      if (reportBtn && reportPopup) {
+          reportBtn.addEventListener("click", (e) => {
+              e.stopPropagation();
+              closeAllPopups();
+              reportPopup.classList.remove("hidden");
+          });
+
+          const reportClose = reportPopup.querySelector(".report-close");
+          const reportChecks = reportPopup.querySelectorAll(".report-check");
+          const reportSubmit = reportPopup.querySelector(".report-submit");
+
+          // Activate Submit only when at least one checkbox is selected
+          const updateReportButton = () => {
+              const any = [...reportChecks].some(c => c.checked);
+
+              if (any) {
+                  reportSubmit.classList.add("active");
+                  reportSubmit.disabled = false;
+              } else {
+                  reportSubmit.classList.remove("active");
+                  reportSubmit.disabled = true;
+              }
+          };
+
+          reportChecks.forEach(cb =>
+              cb.addEventListener("change", updateReportButton)
+          );
+
+          // Close report popup
+          if (reportClose) {
+              reportClose.addEventListener("click", () => {
+                  reportPopup.classList.add("hidden");
+                  reportChecks.forEach(cb => cb.checked = false);
+                  updateReportButton();
+              });
+          }
+      }
+
+  }); // END per card loop
+
+
+
+  // ======================================================
+  // CLOSE ALL POPUPS WHEN CLICKING OUTSIDE
+  // ======================================================
   document.addEventListener("click", () => {
-    document.querySelectorAll(".opttions-popup").forEach(p => p.classList.add("hidden"));
+      closeAllPopups();
   });
+
+  function closeAllPopups() {
+      document.querySelectorAll(".opttions-popup").forEach(p => p.classList.add("hidden"));
+      document.querySelectorAll(".share-popup").forEach(p => p.classList.add("hidden"));
+      document.querySelectorAll(".playlist-popup").forEach(p => p.classList.add("hidden"));
+      document.querySelectorAll(".report-popup").forEach(p => p.classList.add("hidden"));
+  }
 });
-
-
-const placeholder = document.getElementById("profileePlaceholder");
-const actual = document.getElementById("profileeActual");
-
-// When user uploads a profile image
-function setProfileImage(src) {
-  actual.src = src;
-  actual.style.display = "block";   // show uploaded
-  placeholder.style.display = "none"; // hide placeholder
-}
-
-// To reset back to placeholder
-function resetProfileImage() {
-  actual.src = "";
-  actual.style.display = "none";
-  placeholder.style.display = "block";
-}
