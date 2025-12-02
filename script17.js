@@ -17,12 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
 // ======================= THEME TOGGLE =======================
 document.addEventListener("DOMContentLoaded", () => {
   const themeToggle = document.getElementById("themeToggle");
-  const lightImg = document.getElementById("theme-toggle-light");
-  const darkImg = document.getElementById("theme-toggle-dark");
 
   function setTheme(mode) {
     if (mode === "dark") {
@@ -42,33 +39,17 @@ document.addEventListener("DOMContentLoaded", () => {
     localStorage.setItem("theme", newMode);
   }
 
-  // Initialize from storage or system
+  // ====== ALWAYS DEFAULT TO LIGHT MODE ======
   const stored = localStorage.getItem("theme");
   if (stored) {
+    // Apply the saved preference
     setTheme(stored);
   } else {
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    setTheme(prefersDark ? "dark" : "light");
+    // First time visitor → ALWAYS LIGHT MODE
+    setTheme("light");
   }
 
   themeToggle.addEventListener("change", toggleAndSave);
-
-  // Fallback if icons fail
-  function fallbackImage(imgEl, faClass) {
-    if (!imgEl) return;
-    imgEl.addEventListener("error", () => {
-      const i = document.createElement("i");
-      i.className = faClass;
-      i.style.width = imgEl.style.width || "20px";
-      i.style.height = imgEl.style.height || "20px";
-      imgEl.replaceWith(i);
-    });
-    if (imgEl.complete && imgEl.naturalWidth === 0) {
-      imgEl.dispatchEvent(new Event("error"));
-    }
-  }
-  fallbackImage(lightImg, "fa-solid fa-sun");
-  fallbackImage(darkImg, "fa-solid fa-moon");
 });
 
 
