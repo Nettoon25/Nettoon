@@ -2452,7 +2452,7 @@ border-style: none;
 .share-popup {
   position: absolute;
   top: 60px;
-  right: 10px;
+  left:0rem;
   width: 340px;
   height: 170px;
   max-height: 180px;
