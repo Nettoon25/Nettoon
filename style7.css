@@ -3134,31 +3134,33 @@ margin: 0 auto;
 }
 
 .short-video {
-
+  max-width: 450px;
   aspect-ratio: 9 / 16;
+  height: 95%;
+ 
 
 }
 
-/* 🔷 Metadata Container
+ 
 .metadata {
-  background-color: pink;
-  position: absolute;
-  top: 30vh;
-  right: 25vw;
-  width: 5vw;
-  border-radius: 7px;
+
+  top: 26vh; /* Positions from the top of the viewport */
+  right: 25vw; /* Positions from the right of the viewport */
+  width: 4vw; /* Scales width with viewport */
+
 }
   
 
 .comment-container {
-  background-color: transparent;
-  top: 8.8rem;
-  right: 7%; /* Position when shown *
+ 
+  top: 4rem;
+  right: 7%; /* Position when shown */
   width: 37%;
   max-width: 400px;
   aspect-ratio: 9 / 16;
-  min-height: 80vh;
-  max-height: 85vh;
+  min-height: 90vh;
+  max-height: 95vh;
+
 
 }
 
