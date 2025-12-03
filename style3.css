@@ -3632,7 +3632,7 @@ margin-bottom: 0rem;
 
 /* === ACTIVE REPORT BUTTON === */
 .report-submit.active {
-  color: #3ea6ff;     /* YouTube blue */
+  color:red;    /* YouTube blue */
   cursor: pointer;
   opacity: 1;
 }

@@ -2967,7 +2967,6 @@ right: 0.5%;
 }
 
 
-
 .share-popup {
   position: absolute;
   top: 60px;
@@ -3149,7 +3148,6 @@ right: 0.5%;
 }
 
 
-/* Popup layout (unchanged) */
 .report-popup {
   position: absolute;
   top: 20px;
@@ -3160,8 +3158,15 @@ right: 0.5%;
   padding: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   z-index: 300;
-  height: 350px;
+  height: auto;
+  min-height: 360px;   /* ensures consistency */
+  max-height: 360px;   /* ensures consistency */
+  overflow: hidden;
+  box-sizing: border-box;  /* prevents padding from increasing height */
 }
+
+
+
 .dark-mode .report-popup {
   background: #222;
   color: white;
@@ -3232,7 +3237,7 @@ right: 0.5%;
 
 /* === ACTIVE REPORT BUTTON === */
 .report-submit.active {
-  color: #3ea6ff;     /* YouTube blue */
+  color:red;     /* YouTube blue */
   cursor: pointer;
   opacity: 1;
 }

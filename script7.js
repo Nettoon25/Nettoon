@@ -361,3 +361,90 @@ document.addEventListener('click', () => {
     popup.classList.add('hidden');
   });
 });
+
+
+
+document.querySelectorAll(".profilee").forEach(card => {
+  const optionsBtn = card.querySelector(".opttions img");
+  const metadataPopup = card.querySelector(".metadata-popup");
+  const sharePopup = card.querySelector(".share-popup");
+  const playlistPopup = card.querySelector(".playlist-popup");
+  const reportPopup = card.querySelector(".report-popup");
+
+  // ----- Toggle Metadata Popup (3-dots menu) -----
+  optionsBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      closeAllPopups(card);
+      metadataPopup.classList.toggle("hidden");
+  });
+
+  // ====== METADATA MENU OPTIONS ======
+
+  // SHARE
+  card.querySelector(".metadata-popup .popup-item:nth-child(1)")
+      .addEventListener("click", (e) => {
+          e.stopPropagation();
+          closeAllPopups(card);
+          sharePopup.classList.remove("hidden");
+      });
+
+  // PLAYLIST
+  card.querySelector(".metadata-popup .popup-item:nth-child(2)")
+      .addEventListener("click", (e) => {
+          e.stopPropagation();
+          closeAllPopups(card);
+          playlistPopup.classList.remove("hidden");
+      });
+
+  // REPORT
+  card.querySelector(".metadata-popup .popup-item:nth-child(3)")
+      .addEventListener("click", (e) => {
+          e.stopPropagation();
+          closeAllPopups(card);
+          reportPopup.classList.remove("hidden");
+      });
+
+
+  // ====== POPUP CLOSE BUTTONS ======
+
+  // Share close
+  const shareClose = card.querySelector(".share-close");
+  if (shareClose) {
+      shareClose.addEventListener("click", (e) => {
+          e.stopPropagation();
+          sharePopup.classList.add("hidden");
+      });
+  }
+
+  // Report close
+  const reportClose = card.querySelector(".report-close");
+  if (reportClose) {
+      reportClose.addEventListener("click", (e) => {
+          e.stopPropagation();
+          reportPopup.classList.add("hidden");
+      });
+  }
+
+  // Playlist close (optional if you add a button)
+  const playlistClose = card.querySelector(".playlist-close");
+  if (playlistClose) {
+      playlistClose.addEventListener("click", (e) => {
+          e.stopPropagation();
+          playlistPopup.classList.add("hidden");
+      });
+  }
+
+  // ====== CLICK OUTSIDE HANDLING ======
+  document.addEventListener("click", (e) => {
+      // Only close if click is outside ALL popups and outside 3-dots
+      if (!card.contains(e.target)) {
+          closeAllPopups(card);
+      }
+  });
+
+  // ====== CLEANUP FUNCTION ======
+  function closeAllPopups(c) {
+      c.querySelectorAll(".metadata-popup, .share-popup, .playlist-popup, .report-popup")
+       .forEach(p => p.classList.add("hidden"));
+  }
+});

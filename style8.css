@@ -1806,8 +1806,6 @@ border-color: #2a2d2f;
   border: 1px solid #777;
 }
 
-
-/* Popup layout (unchanged) */
 .report-popup {
   position: absolute;
   top: 20px;
@@ -1818,8 +1816,15 @@ border-color: #2a2d2f;
   padding: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   z-index: 300;
-  height: 350px;
+  height: auto;
+  min-height: 360px;   /* ensures consistency */
+  max-height: 360px;   /* ensures consistency */
+  overflow: hidden;
+  box-sizing: border-box;  /* prevents padding from increasing height */
 }
+
+
+
 .dark-mode .report-popup {
   background: #222;
   color: white;
@@ -1890,7 +1895,7 @@ border-color: #2a2d2f;
 
 /* === ACTIVE REPORT BUTTON === */
 .report-submit.active {
-  color: #3ea6ff;     /* YouTube blue */
+  color:red;    /* YouTube blue */
   cursor: pointer;
   opacity: 1;
 }

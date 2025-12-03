@@ -2340,7 +2340,7 @@ border-style: none;
 /* ========================================================================== */
 .opttions {
   position: relative;
-  background-color: transparent;
+  background-color:transparent;
   height: 100%;
   display: flex;
   align-items: center;
@@ -2348,61 +2348,58 @@ border-style: none;
 }
 
 .opttions img {
-  width: var(--spacing-sm); /* 12px converted to rem */
-  height: var(--spacing-sm);
-  margin-top: var(--spacing-xs); /* 8px converted to rem */
+  width: 15px;
+  height: 15px;
+  margin-top: 10px;
   cursor: pointer;
 }
 
 /* === Popup Styling === */
 .opttions-popup {
   position: absolute;
-  top: calc(100% + var(--spacing-xs)); /* Position below the button */
-  right: 0;
-  background-color: var(--color-text-light);
-  border: 1px solid var(--color-border-light);
-  border-radius: var(--border-radius-sm); /* Using variable for consistency */
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.15); /* Rem-based shadow */
+  top: 0;
+  right: -1%;
+  transform: translate(-5% /* Center horizontally, float above */);
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   z-index: 5000;
-  padding: 0.1rem 0.5rem; /* Using rem units */
-  min-width: 9.375rem; /* 150px converted to rem */
-  padding-bottom: 0;
+  padding: 0.1rem 0.5rem;
+  min-width: 150px;
+  padding-bottom: 0px;
 }
 
-.dark-mode .opttions-popup {
-  background-color: var(--color-dark-mode-bg-primary);
-  border-color: var(--color-dark-mode-border);
+.dark-mode .opttions-popup
+{
+  background-color: #333;
 }
 
-/* === Popup Item Styling === */
 .opttions-popup .popup-item {
   display: flex;
   align-items: center;
-  gap: var(--spacing-xxs); /* Using variable for consistency */
-  padding: 0;
-  margin-top: 0.1875rem; /* 3px converted to rem */
-  margin-bottom: 0.3125rem; /* 5px converted to rem */
-  font-size: var(--font-size-sm); /* Using a variable to scale with the design */
-  color: var(--color-text-dark);
-  background-color: var(--color-text-light);
-  border-radius: var(--border-radius-xs);
+  gap: 0.4rem;
+  padding: 0rem 0rem;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  font-size: 0.7rem;
+  color: #111;
+  background-color: white;
+  border-radius: 0.4rem;
   white-space: nowrap;
-  cursor: pointer;
   transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
-
 .opttions-popup .popup-item:hover {
-  background-color: #e0e0e0;
-  color: #000;
+  background-color: grey;
+  color: white;
   transform: scale(1.05);
-  box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .dark-mode .opttions-popup .popup-item:hover {
-  background-color: #4a4a4a;
-  color: var(--color-dark-mode-text-primary);
-}
+  background-color: grey;
 
+}
 
 /* === Icon Styling === */
 .opttions-popup .popup-item img {
@@ -2422,6 +2419,10 @@ border-style: none;
   filter: invert(1) brightness(1.2);
 }
 
+.hidden {
+  display: none !important;
+}
+
 /* Reset unwanted icon housing styles */
 .opttions-popup .popup-item img,
 .shareee-popup .popup-item img,
@@ -2431,17 +2432,13 @@ border-style: none;
   width: 1.3rem;
   height: 1.3rem;
   object-fit: contain;
-  background: none !important;
-  /* Remove any background */
-  border: none !important;
-  /* Remove border */
-  padding: 0 !important;
-  /* Remove internal spacing */
-  border-radius: 0 !important;
-  /* Remove circular shape */
-  box-shadow: none !important;
-  /* Remove glow/shadow */
+  background: none !important;  /* Remove any background */
+  border: none !important;      /* Remove border */
+  padding: 0 !important;        /* Remove internal spacing */
+  border-radius: 0 !important;  /* Remove circular shape */
+  box-shadow: none !important;  /* Remove glow/shadow */
 }
+
 
 
 /* ========================================================================== */
@@ -2633,19 +2630,24 @@ border-style: none;
 }
 
 
-/* Popup layout (unchanged) */
 .report-popup {
   position: absolute;
   top: 20px;
-  right: 10px;
-  width: 360px;
+  left:0.5rem;
+  width: 300px;
   background: #f0f0f0;
   border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+  box-shadow: 0 8px 25px rgba(97, 77, 77, 0.4);
   z-index: 300;
-  height: 350px;
+  height: auto;
+  min-height: 360px;   /* ensures consistency */
+  max-height: 360px;   /* ensures consistency */
+  overflow: hidden;
+  box-sizing: border-box;  /* prevents padding from increasing height */
 }
+
+
 .dark-mode .report-popup {
   background: #222;
   color: white;
@@ -2716,7 +2718,7 @@ border-style: none;
 
 /* === ACTIVE REPORT BUTTON === */
 .report-submit.active {
-  color: #3ea6ff;     /* YouTube blue */
+  color:red;     /* YouTube blue */
   cursor: pointer;
   opacity: 1;
 }
