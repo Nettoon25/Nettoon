@@ -1275,7 +1275,10 @@ border-color: #2a2d2f;
   object-fit: cover;
   border-radius: var(--border-radius-full);
   flex-shrink: 0; /* Prevents image from shrinking */
+  filter: invert(1);
 }
+
+
 
 .dark-mode .profile-img {
   filter: invert(1);
@@ -3134,9 +3137,6 @@ margin: 0 auto;
 
   aspect-ratio: 9 / 16;
 
-
-
-
 }
 
 /* 🔷 Metadata Container
@@ -3162,18 +3162,19 @@ margin: 0 auto;
 
 }
 
-*/
 
-/* 👇 Move both to left when comments are shown 
+/* Move the video to the left when comments are shown */
 .shorts.show-comments .short-video {
-  margin-left: 100px;
+  margin-right: 400px; /* Shifts the video slightly to the left */
 }
 
+/* Move the metadata container to the left when comments are shown */
 .shorts.show-comments .metadata {
-  margin-right: 50%;
-  right: 10px;
+  margin-right: 42.5%; /* Pushes the metadata container further left by this amount */
+  right: 10px; /* Also adjusts its absolute 'right' position */
 }
-  */
+
+
 
 }
 
