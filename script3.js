@@ -670,3 +670,170 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 }); // DOMContentLoaded
+
+
+
+document.querySelectorAll(".popup-item").forEach(item => {
+  item.addEventListener("click", () => {
+
+      // get the card this popup-item belongs to
+      const card = item.closest(".containerr");
+      if (!card) return;
+
+      // close the option popup in THIS card
+      card.querySelector(".option-popup").classList.add("hidden");
+
+      const text = item.innerText.trim().toLowerCase();
+
+      // SHARE
+      if (text === "share") {
+          const popup = card.querySelector(".share-popup-v2");
+          if (popup) popup.classList.remove("hidden");
+      }
+
+      // PLAYLIST
+      if (text === "add to playlist") {
+          const popup = card.querySelector(".playlist-popup-v2");
+          if (popup) popup.classList.remove("hidden");
+      }
+
+      // REPORT
+      if (text === "report") {
+          const popup = card.querySelector(".report-popup-v2");
+          if (popup) popup.classList.remove("hidden");
+      }
+
+  });
+});
+
+// CLOSE SHARE POPUP ON X CLICK
+document.getElementById("shareCloseV2").addEventListener("click", () => {
+  document.getElementById("sharePopupV2").classList.add("hidden");
+});
+
+
+// ========= PLAYLIST POPUP CONTROL =========
+(function () {
+  // Helper: close playlist popup and reset state
+  function closePlaylistPopup(popup) {
+    if (!popup) return;
+
+    popup.classList.add("hidden");
+
+    // uncheck playlist checkboxes
+    const checks = popup.querySelectorAll(".playlist-check-v2");
+    checks.forEach(cb => cb.checked = false);
+  }
+
+  // Close using the X button
+  document.querySelectorAll(".playlist-close-v2").forEach(closeBtn => {
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      const card = closeBtn.closest(".containerr");
+      let popup = null;
+
+      if (card) popup = card.querySelector(".playlist-popup-v2");
+      if (!popup) popup = document.getElementById("playlistPopupV2") || document.querySelector(".playlist-popup-v2");
+
+      closePlaylistPopup(popup);
+    });
+  });
+
+  // Optional: clicking outside closes the playlist popup
+  document.addEventListener("click", (e) => {
+    document.querySelectorAll(".playlist-popup-v2:not(.hidden)").forEach(popup => {
+      if (popup.contains(e.target)) return;
+      closePlaylistPopup(popup);
+    });
+  });
+})();
+
+
+
+// ========= Report popup control (per-card, robust) =========
+(function () {
+  // Helper: close a popup and reset its state
+  function closeReportPopup(popup) {
+    if (!popup) return;
+    // hide
+    popup.classList.add("hidden");
+
+    // uncheck all checkboxes inside this popup
+    const checks = popup.querySelectorAll(".report-check-v2");
+    checks.forEach(cb => cb.checked = false);
+
+    // disable the submit button
+    const submit = popup.querySelector(".report-submit-v2");
+    if (submit) {
+      submit.disabled = true;
+      submit.classList.remove("active"); // if you use active class styling
+    }
+  }
+
+  // Helper: update submit enabled state for the popup
+  function updateReportSubmitState(popup) {
+    if (!popup) return;
+    const checks = Array.from(popup.querySelectorAll(".report-check-v2"));
+    const anyChecked = checks.some(cb => cb.checked);
+    const submit = popup.querySelector(".report-submit-v2");
+    if (!submit) return;
+    if (anyChecked) {
+      submit.disabled = false;
+      submit.classList.add("active");
+    } else {
+      submit.disabled = true;
+      submit.classList.remove("active");
+    }
+  }
+
+  // Attach to every close-X button for reports
+  document.querySelectorAll(".report-close-v2").forEach(closeBtn => {
+    closeBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      // find the card container
+      const card = closeBtn.closest(".containerr");
+      let popup = null;
+      if (card) popup = card.querySelector(".report-popup-v2");
+      // fallback: maybe popup is sibling or global with id
+      if (!popup) popup = document.getElementById("reportPopupV2") || document.querySelector(".report-popup-v2");
+      closeReportPopup(popup);
+    });
+  });
+
+  // Attach to every Cancel button inside report popups
+  document.querySelectorAll(".report-cancel-v2").forEach(cancelBtn => {
+    cancelBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const card = cancelBtn.closest(".containerr");
+      let popup = null;
+      if (card) popup = card.querySelector(".report-popup-v2");
+      if (!popup) popup = document.getElementById("reportPopupV2") || document.querySelector(".report-popup-v2");
+      closeReportPopup(popup);
+    });
+  });
+
+  // Wire up checkboxes inside report popups (per-card)
+  document.querySelectorAll(".report-popup-v2").forEach(popup => {
+    const checks = popup.querySelectorAll(".report-check-v2");
+    checks.forEach(cb => {
+      cb.addEventListener("change", () => updateReportSubmitState(popup));
+    });
+
+    // ensure initial state
+    updateReportSubmitState(popup);
+  });
+
+  // Optional: clicking outside a visible report popup closes it (card-aware)
+  document.addEventListener("click", (e) => {
+    // find any visible report popups
+    document.querySelectorAll(".report-popup-v2:not(.hidden)").forEach(popup => {
+      // if the click happened inside the popup, do nothing
+      if (popup.contains(e.target)) return;
+      // if the click was on its card's option button etc., still close (You can tweak)
+      closeReportPopup(popup);
+    });
+  });
+
+})();
+

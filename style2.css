@@ -1180,6 +1180,8 @@ color: white;
   border-radius: 0.4375rem; /* Uses your specified rem value for consistency */
   border-style: none; /* No border */
   background-color:transparent;
+  position: relative;
+  z-index: 5;
 }
 /* ==== INDIVIDUAL INTERACTIVE ITEMS (.viewss, .commentss, .likess, .dislikee, .timee, .follow, .option) ==== */
 /* These styles apply to all clickable interactive items within the section, providing a consistent look and feel. */
@@ -1209,6 +1211,8 @@ color: white;
     cursor: pointer;       /* Indicates that the element is clickable */
     /* NO TRANSITIONS as per user request */
 }
+
+
 
 /* Dark mode adjustment for individual interactive items */
 .dark-mode .viewss,
@@ -1357,6 +1361,8 @@ body.dark-mode .follow span {
 .option {
   position: relative;
   margin-right: 0.5rem;
+  position: relative;
+  z-index: 5;
 }
 
 .option-popup {
@@ -1368,7 +1374,7 @@ body.dark-mode .follow span {
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 50;
+  z-index: 9999; /* VERY IMPORTANT */
   padding: 0.5rem;
   min-width: 155px;
   display: flex;           /* Make children display in a row */
@@ -1398,6 +1404,279 @@ body.dark-mode .follow span {
   transition: background-color 0.2s;
 
 }
+
+
+/* SHARE POPUP V2 */
+.share-popup-v2 {
+  position:absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 420px;
+  background-color: #f0f0f0;
+  padding: 15px 20px;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
+  z-index: 9999;
+}
+
+/* DARK MODE FIX — CORRECT SELECTORS */
+.dark-mode .share-popup-v2 {
+  background: #222;
+  color: white;
+}
+
+.dark-mode .share-item-v2 span {
+  color: white;
+}
+
+.dark-mode .share-close-v2 {
+  color: white;
+}
+
+
+.share-popup-v2.hidden {
+  display: none;
+}
+
+/* CLOSE BUTTON */
+.share-close-v2 {
+  font-size: 20px;
+  color: black;
+  cursor: pointer;
+  text-align: right;
+}
+
+/* SCROLLABLE AREA */
+.share-scroll-v2 {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding-top: 10px;
+}
+
+.share-item-v2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70px;
+  cursor: pointer;
+}
+
+.share-item-v2 img {
+  width: 25px;
+  height: 25px;
+}
+
+.share-item-v2 span {
+  font-size: 12px;
+  margin-top: 5px;
+  color:black;
+}
+
+/* PLAYLIST POPUP V2 */
+.playlist-popup-v2 {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 420px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
+  z-index: 9999;
+}
+
+.dark-mode .playlist-popup-v2{
+  background: #222;
+  color: white;
+}
+
+.playlist-popup-v2.hidden {
+  display: none;
+}
+
+.playlist-header-v2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color:black;
+}
+
+.dark-mode .playlist-header-v2 {
+
+  color:white;
+}
+
+
+/* LIST OF PLAYLISTS */
+.playlist-list-v2 {
+  max-height: 200px;
+  overflow-y: auto;
+  padding-right: 5px;
+  background-color: transparent;
+}
+
+.playlist-option-v2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color:black;
+  cursor: pointer;
+}
+
+.dark-mode .playlist-option-v2 {
+
+  color:white;
+}
+
+
+.playlist-option-v2 input {
+  transform: scale(1.2);
+  margin-left: 0.5rem;
+}
+
+/* ADD NEW PLAYLIST */
+.playlist-add-v2 {
+  margin-top: 15px;
+  padding: 12px;
+  background: #222;
+  border-radius: 8px;
+  text-align: center;
+  color:black;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.dark-mode .playlist-add-v2{
+background-color: grey;
+  color:white;
+
+}
+
+.playlist-header-v2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  padding: 8px 0;
+}
+
+.playlist-close-v2 {
+  cursor: pointer;
+  padding: 4px;
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+.playlist-close-v2:hover {
+  opacity: 1;
+}
+
+
+
+/* REPORT POPUP V2 */
+.report-popup-v2 {
+  position:absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 92%;
+  max-width: 420px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 15px 15px 0 0;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
+  z-index: 9999;
+}
+
+.dark-mode .report-popup-v2 {
+  background: #222;
+  color: white;
+}
+
+.report-popup-v2.hidden {
+  display: none;
+}
+
+/* HEADER */
+.report-header-v2 {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  color:black;
+  margin-bottom: 15px;
+}
+
+.dark-mode .report-header-v2
+{
+  color: white;
+}
+
+.report-close-v2 {
+  cursor: pointer;
+  color: black;
+}
+
+.dark-mode .report-close-v2
+{
+  color: white;
+}
+
+/* OPTIONS */
+.report-option-v2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  color:black;
+  cursor: pointer;
+}
+
+.dark-mode .report-option-v2 
+{
+  color:white;
+
+}
+
+.report-option-v2 input {
+  transform: scale(1.2);
+}
+
+/* ACTION BUTTONS */
+.report-actions-v2 {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.report-cancel-v2 {
+  padding: 10px 20px;
+  background: #333;
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.report-submit-v2 {
+  padding: 10px 20px;
+  background:#F5F5F5;
+  color:red;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+
+}
+
+.report-submit-v2.enabled {
+  opacity: 1;
+  cursor: pointer;
+}
+
 
 /* Light/dark image size and style */
 .option-popup .popup-item img {
@@ -1438,6 +1717,9 @@ body.dark-mode .following span,
 body.dark-mode .follow span {
   color: var(--color-text-light-alt); /* Lighter text color for dark mode */
 }
+
+
+
 
 
 :root {
