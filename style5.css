@@ -523,6 +523,19 @@ body.dark-mode .search input[type="search"]::placeholder {
   }
 }
 
+/* Center placeholder vertically */
+.search input[type="search"]::placeholder {
+  color: #36454F;
+  font-size: 0.9rem;
+margin-top: 2rem;
+  /* THIS centers placeholder perfectly */
+  line-height: 40px;
+}
+
+body.dark-mode .search input[type="search"]::placeholder {
+  color: #D3D3D3;
+}
+
 /* Search icon to the left */
 .search .search-icon {
   position: absolute;
@@ -1902,6 +1915,11 @@ input {
   border: 1px solid #ccc;
   box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.15);
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tags-container input
+{
+  margin-top: 1rem;
 }
 
 /* ✨ Focused State */
