@@ -2354,6 +2354,11 @@ border-style: none;
   cursor: pointer;
 }
 
+.dark-mode .opttions img
+{
+  filter: invert(1);
+}
+
 /* === Popup Styling === */
 .opttions-popup {
   position: absolute;
