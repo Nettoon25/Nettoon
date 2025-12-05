@@ -1416,9 +1416,10 @@ body.dark-mode .follow span {
   max-width: 420px;
   background-color: #f0f0f0;
   padding: 15px 20px;
-  border-radius: 15px 15px 0 0;
+  border-radius:7px;
   box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
   z-index: 9999;
+  border-style:none;
 }
 
 /* DARK MODE FIX — CORRECT SELECTORS */
@@ -1485,7 +1486,7 @@ body.dark-mode .follow span {
   max-width: 420px;
   background-color: #f0f0f0;
   padding: 20px;
-  border-radius: 15px 15px 0 0;
+  border-radius:7px;
   box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
   z-index: 9999;
 }
@@ -1543,16 +1544,16 @@ body.dark-mode .follow span {
 .playlist-add-v2 {
   margin-top: 15px;
   padding: 12px;
-  background: #222;
+  background: #333;
+  color: white;
   border-radius: 8px;
   text-align: center;
-  color:black;
   cursor: pointer;
   font-size: 14px;
 }
 
 .dark-mode .playlist-add-v2{
-background-color: grey;
+  background: #444;
   color:white;
 
 }
@@ -1588,7 +1589,7 @@ background-color: grey;
   max-width: 420px;
   background-color: #f0f0f0;
   padding: 20px;
-  border-radius: 15px 15px 0 0;
+  border-radius:7px;
   box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
   z-index: 9999;
 }
@@ -3257,7 +3258,7 @@ right: 0.5%;
   height: 170px;
   max-height: 180px;
   background-color: #f0f0f0;
-  border-radius: 14px;
+  border-radius:7px;
   padding: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   display: flex;
@@ -3333,7 +3334,7 @@ right: 0.5%;
   right: 10px;
   background: #ffffff;
   width: 220px;
-  border-radius: 12px;
+  border-radius:7px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.18);
   padding: 12px;
   z-index: 100;
@@ -3394,16 +3395,18 @@ right: 0.5%;
   margin-top: 10px;
   padding: 8px;
   text-align: center;
-  background: #f1f1f1;
+  background: #333;
+  color: white;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
 }
 
+/*
 .playlist-add:hover {
-  background: #e1e1e1;
-}
+  background:none;
+}*/
 
 .dark-mode .playlist-add {
   background: #444;
@@ -3436,7 +3439,7 @@ right: 0.5%;
   right: 10px;
   width: 360px;
   background: #f0f0f0;
-  border-radius: 14px;
+  border-radius:7px;
   padding: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   z-index: 300;

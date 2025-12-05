@@ -1634,7 +1634,7 @@ border-color: #2a2d2f;
   height: 170px;
   max-height: 180px;
   background-color: #f0f0f0;
-  border-radius: 14px;
+  border-radius:7px;
   padding: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   display: flex;
@@ -1710,7 +1710,7 @@ border-color: #2a2d2f;
   right: 10px;
   background: #ffffff;
   width: 220px;
-  border-radius: 12px;
+  border-radius:7px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.18);
   padding: 12px;
   z-index: 100;
@@ -1771,16 +1771,19 @@ border-color: #2a2d2f;
   margin-top: 10px;
   padding: 8px;
   text-align: center;
-  background: #f1f1f1;
+  background: #333;
+  color: white;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
   font-size: 14px;
 }
 
+/*
 .playlist-add:hover {
-  background: #e1e1e1;
-}
+  background:none;
+}*/
+
 
 .dark-mode .playlist-add {
   background: #444;
@@ -1812,7 +1815,7 @@ border-color: #2a2d2f;
   right: 10px;
   width: 360px;
   background: #f0f0f0;
-  border-radius: 14px;
+  border-radius:7px;
   padding: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   z-index: 300;

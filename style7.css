@@ -1211,7 +1211,7 @@ border-color: #2a2d2f;
   cursor: pointer;
   padding: 0;
   aspect-ratio: 9 / 16;
-  height: 95%;
+  height: 94%;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   flex-shrink: 0;
@@ -3136,8 +3136,7 @@ margin: 0 auto;
 .short-video {
   max-width: 450px;
   aspect-ratio: 9 / 16;
-  height: 95%;
- 
+  height: 94%;
 
 }
 

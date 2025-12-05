@@ -231,18 +231,26 @@
     <textarea placeholder="Enter Series description (Optional)"></textarea>
   </div>
 
-  <!-- Series Thumbnail -->
-  <div class="thumbnail-section">
-    <h3>Series Thumbnail</h3>
-    <div class="uploads">
-      <div class="thumbnail" onclick="document.getElementById('fileInputThumbnailMovies').click()">
-        <img src="image-upload.png" alt="Click to upload thumbnail" class="upload-poster">
-        <input type="file" id="fileInputThumbnailMovies" class="file-input" accept="image/*" onchange="previewMovieThumbnail(event)">
-      </div>
+<!-- Series Thumbnail (NEW Upload) -->
+<div class="thumbnail-section">
+  <h3>Series Thumbnail</h3>
+
+  <div class="uploads">
+    <div class="thumbnail" onclick="document.getElementById('newSeriesThumbnailInput').click()">
+      <img src="image-upload.png" alt="Click to upload thumbnail" class="upload-poster">
+
+      <!-- UNIQUE ID for NEW upload thumbnail -->
+      <input type="file" 
+             id="newSeriesThumbnailInput" 
+             class="file-input" 
+             accept="image/*"
+             onchange="previewNewSeriesThumbnail(event)">
     </div>
-    <!-- Preview -->
-    <div class="preview-container" id="previewContainer"></div>
   </div>
+
+  <!-- Preview Output (NEW ONLY) -->
+  <div class="preview-container" id="newSeriesThumbnailPreview"></div>
+</div>
 
   <!-- Episodes Wrapper -->
   <div id="episodesWrapper">
@@ -319,6 +327,80 @@
         <option value="mystery">Mystery</option>
         <option value="slice-of-life">Slice of Life</option>
         <option value="dark-comedy">Dark Comedy</option>
+
+        <!-- Animation Style & Technique -->
+        <option value="hand-drawn">Hand-Drawn</option>
+        <option value="cgi">CGI (Computer-Generated Imagery)</option>
+        <option value="stop-motion">Stop Motion</option>
+        <option value="stop-motion-claymation">Stop-Motion (Claymation)</option>
+        <option value="motion-capture">Motion Capture</option>
+        <option value="puppet">Puppet Animation</option>
+        <option value="experimental">Experimental</option>
+
+        <!-- Cultural & Regional Genres -->
+        <option value="afrofuturism">Afrofuturism</option>
+        <option value="african-folklore">African Folklore & Mythology</option>
+        <option value="pan-african">Pan-African Stories</option>
+        <option value="black-excellence">Black Excellence</option>
+        <option value="anime">Anime</option>
+        <option value="anime-inspired">Anime-Inspired</option>
+        <option value="mecha">Mecha (Giant Robots)</option>
+        <option value="samurai-ninja">Samurai & Ninja Tales</option>
+        <option value="martial-arts">Martial Arts</option>
+        <option value="islamic">Islamic Animation</option>
+        <option value="arabian-myths">Arabian Nights & Middle Eastern Mythology</option>
+        <option value="bollywood-masala">Bollywood & Masala Animation</option>
+        <option value="hindu-mythology">Hindu Mythology</option>
+        <option value="steampunk">Steampunk</option>
+        <option value="noir">Noir</option>
+        <option value="gothic">Gothic</option>
+        <option value="western">Western</option>
+        <option value="magical-realism">Magical Realism (Latin American Fantasy)</option>
+        <option value="mayan-aztec">Mayan, Aztec & Incan Legends</option>
+        <option value="latin-music">Reggaeton & Latin Musical Animation</option>
+
+        <!-- Demographic & Age-Specific Genres -->
+        <option value="kids">Kids</option>
+        <option value="family">Family</option>
+        <option value="young-adult">Young Adult (YA)</option>
+        <option value="mature-18">Mature (18+)</option>
+        <option value="women-led">Women-Led Animation</option>
+        <option value="lgbtq">LGBTQ+ Representation</option>
+
+        <!-- Religious, Mythological & Philosophical Genres -->
+        <option value="biblical">Biblical & Christian Stories</option>
+        <option value="buddhist">Buddhist Folklore & Zen Stories</option>
+        <option value="pagan-norse">Pagan & Nordic Mythology</option>
+        <option value="native-indigenous">Native & Indigenous Myths</option>
+
+        <!-- Futuristic, Supernatural & Speculative Genres -->
+        <option value="cyberpunk">Cyberpunk</option>
+        <option value="post-apocalyptic">Post-Apocalyptic</option>
+        <option value="time-travel">Time Travel & Alternate Realities</option>
+        <option value="superhero">Superhero & Villain Stories</option>
+        <option value="supernatural">Supernatural & Paranormal</option>
+        <option value="alien">Aliens & Extraterrestrial Life</option>
+        <option value="robotics">Robotics & AI (Artificial Intelligence)</option>
+
+        <!-- Niche & Experimental Animation Genres -->
+        <option value="chibi">Chibi & Super-Deformed</option>
+        <option value="anthropomorphic">Anthropomorphic (Animal & Furry Characters)</option>
+        <option value="crossover">Crossover</option>
+        <option value="surreal">Surreal & Absurdist Animation</option>
+        <option value="psychological">Psychological & Mind-Bending Stories</option>
+
+        <!-- Genre Hybrids & Specialized Subgenres -->
+        <option value="fantasy-adventure">Fantasy Adventure</option>
+        <option value="horror-comedy">Horror Comedy</option>
+        <option value="sci-fi-horror">Sci-Fi Horror</option>
+        <option value="urban">Urban Animation</option>
+        <option value="espionage">Espionage & Spy Thrillers</option>
+        <option value="biographical">Biographical (True Stories & Famous Figures)</option>
+        <option value="satire">Satire & Parody</option>
+        <option value="music">Music & Dance Animation</option>
+        <option value="war">War & Military Animation</option>
+        <option value="indie">Indie & Underground</option>
+        <option value="global-cinema">Global Cinema</option>
         <!-- ... rest of your genre list ... -->
       </select>
     </div>
@@ -503,6 +585,80 @@
         <option value="mystery">Mystery</option>
         <option value="slice-of-life">Slice of Life</option>
         <option value="dark-comedy">Dark Comedy</option>
+
+        <!-- Animation Style & Technique -->
+        <option value="hand-drawn">Hand-Drawn</option>
+        <option value="cgi">CGI (Computer-Generated Imagery)</option>
+        <option value="stop-motion">Stop Motion</option>
+        <option value="stop-motion-claymation">Stop-Motion (Claymation)</option>
+        <option value="motion-capture">Motion Capture</option>
+        <option value="puppet">Puppet Animation</option>
+        <option value="experimental">Experimental</option>
+
+        <!-- Cultural & Regional Genres -->
+        <option value="afrofuturism">Afrofuturism</option>
+        <option value="african-folklore">African Folklore & Mythology</option>
+        <option value="pan-african">Pan-African Stories</option>
+        <option value="black-excellence">Black Excellence</option>
+        <option value="anime">Anime</option>
+        <option value="anime-inspired">Anime-Inspired</option>
+        <option value="mecha">Mecha (Giant Robots)</option>
+        <option value="samurai-ninja">Samurai & Ninja Tales</option>
+        <option value="martial-arts">Martial Arts</option>
+        <option value="islamic">Islamic Animation</option>
+        <option value="arabian-myths">Arabian Nights & Middle Eastern Mythology</option>
+        <option value="bollywood-masala">Bollywood & Masala Animation</option>
+        <option value="hindu-mythology">Hindu Mythology</option>
+        <option value="steampunk">Steampunk</option>
+        <option value="noir">Noir</option>
+        <option value="gothic">Gothic</option>
+        <option value="western">Western</option>
+        <option value="magical-realism">Magical Realism (Latin American Fantasy)</option>
+        <option value="mayan-aztec">Mayan, Aztec & Incan Legends</option>
+        <option value="latin-music">Reggaeton & Latin Musical Animation</option>
+
+        <!-- Demographic & Age-Specific Genres -->
+        <option value="kids">Kids</option>
+        <option value="family">Family</option>
+        <option value="young-adult">Young Adult (YA)</option>
+        <option value="mature-18">Mature (18+)</option>
+        <option value="women-led">Women-Led Animation</option>
+        <option value="lgbtq">LGBTQ+ Representation</option>
+
+        <!-- Religious, Mythological & Philosophical Genres -->
+        <option value="biblical">Biblical & Christian Stories</option>
+        <option value="buddhist">Buddhist Folklore & Zen Stories</option>
+        <option value="pagan-norse">Pagan & Nordic Mythology</option>
+        <option value="native-indigenous">Native & Indigenous Myths</option>
+
+        <!-- Futuristic, Supernatural & Speculative Genres -->
+        <option value="cyberpunk">Cyberpunk</option>
+        <option value="post-apocalyptic">Post-Apocalyptic</option>
+        <option value="time-travel">Time Travel & Alternate Realities</option>
+        <option value="superhero">Superhero & Villain Stories</option>
+        <option value="supernatural">Supernatural & Paranormal</option>
+        <option value="alien">Aliens & Extraterrestrial Life</option>
+        <option value="robotics">Robotics & AI (Artificial Intelligence)</option>
+
+        <!-- Niche & Experimental Animation Genres -->
+        <option value="chibi">Chibi & Super-Deformed</option>
+        <option value="anthropomorphic">Anthropomorphic (Animal & Furry Characters)</option>
+        <option value="crossover">Crossover</option>
+        <option value="surreal">Surreal & Absurdist Animation</option>
+        <option value="psychological">Psychological & Mind-Bending Stories</option>
+
+        <!-- Genre Hybrids & Specialized Subgenres -->
+        <option value="fantasy-adventure">Fantasy Adventure</option>
+        <option value="horror-comedy">Horror Comedy</option>
+        <option value="sci-fi-horror">Sci-Fi Horror</option>
+        <option value="urban">Urban Animation</option>
+        <option value="espionage">Espionage & Spy Thrillers</option>
+        <option value="biographical">Biographical (True Stories & Famous Figures)</option>
+        <option value="satire">Satire & Parody</option>
+        <option value="music">Music & Dance Animation</option>
+        <option value="war">War & Military Animation</option>
+        <option value="indie">Indie & Underground</option>
+        <option value="global-cinema">Global Cinema</option>
         <!-- ✅ trimmed genre list for readability -->
       </select>
     </div>
