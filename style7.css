@@ -1492,69 +1492,6 @@ border-color: #2a2d2f;
   display: inline-block; /* Makes the icon visible */
 }
 
-.share {
-  position: relative; /* Anchor the popup to the share button */
-}
-
-/* Share Link Popup */
-.share-popup {
-  position: absolute;
-  bottom: 120%;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  padding: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-/* Share input */
-.share-popup input {
-  width: 180px;
-  padding: 0.3rem 0.5rem;
-  font-size: 0.85rem;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  background-color: #f9f9f9;
-}
-
-/* Copy button */
-.share-popup .copy-btn {
-  padding: 0.3rem 0.6rem;
-  font-size: 0.8rem;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-/* Dark mode styles */
-.dark-mode .share-popup {
-  background-color: #333;
-  border-color: #444;
-}
-
-.dark-mode .share-popup input {
-  background-color: #555;
-  color: white;
-  border: 1px solid #666;
-}
-
-.dark-mode .share-popup .copy-btn {
-  background-color: #1e90ff;
-}
-
-/* Hidden class utility */
-.hidden {
-  display: none !important;
-}
-
 
 .options {
   position: relative; /* anchor for popup */
@@ -1626,10 +1563,276 @@ border-color: #2a2d2f;
 }
 
 
-
 /* Hide utility */
 .hidden {
   display: none !important;
+}
+
+
+/* NEW Upload Section Popup (Isolated) */
+.metadata-popup-new {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  padding: 0.5rem 0.5rem;
+  min-width: 140px;
+}
+
+/* Items inside NEW popup */
+.metadata-popup-new .popup-item-new {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  width: 100%;
+  max-width: 100%;
+  padding: 0.3rem;
+  font-size: 0.9rem;
+  color: #111;
+  cursor: pointer;
+  margin: 5px 0;
+  white-space: nowrap;
+  background-color: white;
+  border-radius: 0.4rem;
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.metadata-popup-new .popup-item-new img {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
+  transition: filter 0.3s;
+}
+
+/* Dark Mode */
+.dark-mode .metadata-popup-new {
+  background-color: #333;
+  color: white;
+}
+
+.dark-mode .metadata-popup-new .popup-item-new {
+  background-color: #333;
+  color: white;
+}
+
+.dark-mode .metadata-popup-new .popup-item-new img {
+  filter: invert(1) brightness(1.2);
+}
+
+/* Hover */
+.metadata-popup-new .popup-item-new:hover {
+  background-color: grey;
+  color: white;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+/* SHARE POPUP */
+.share-popup {
+  position: absolute;
+  top:0%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  max-height: 340px;
+  background: white;
+  border-radius: 0.7rem;
+  border: 1px solid #ddd;
+  padding: 0.8rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+}
+
+.dark-mode .share-popup
+{
+  background: #444;
+  color:white;
+}
+
+.share-popup.hidden {
+  display: none;
+}
+
+/* Close button */
+.share-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #555;
+  transition: 0.2s;
+}
+
+.share-close:hover {
+  color: black;
+}
+
+/* Scroll area */
+.share-scroll {
+  margin-top: 25px;
+  max-height: 260px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* Each share item */
+.share-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.share-item:hover {
+  background: #e8e8e8;
+  transform: scale(1.03);
+}
+
+/* Share item icon */
+.share-item img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+}
+
+.report-popup {
+  position: absolute;
+  bottom: 110%; /* instead of top: 0 — this moves it UP */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  background: white;
+  border-radius: 0.7rem;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  z-index: 9999;
+}
+.dark-mode .report-popup
+{
+  background: #444;
+  color:white;
+}
+
+.report-popup.hidden {
+  display: none;
+}
+/* Header */
+.report-header {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  white-space: nowrap;          /* Prevent wrapping */
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  background-color: transparent;
+  padding: 0.6rem 0.8rem;
+  border-radius: 0.5rem;
+  gap:4rem;
+}
+
+/* Ensure the text can shrink slightly if needed */
+.report-header span {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;      /* Prevents overflow */
+  padding-right: 0.5rem;
+}
+
+
+/* Close button */
+.report-close {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #555;
+  transition: 0.2s;
+}
+
+.report-close:hover {
+  color: black;
+}
+
+/* Options */
+.report-option {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  user-select: none;
+}
+
+.report-option:hover {
+  background: #efefef;
+}
+
+.report-option input
+{
+  margin-left: 1rem;
+}
+
+/* Checkboxes */
+.report-check {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Action buttons */
+.report-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 0.6rem;
+}
+
+/* Cancel button */
+.report-cancel {
+  background: #ccc;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.report-cancel:hover {
+  background: #b5b5b5;
+}
+
+/* Submit button */
+.report-submit {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  opacity: 0.5;
+  transition: 0.2s;
+}
+
+.report-submit:enabled {
+  opacity: 1;
+}
+
+.report-submit:hover:enabled {
+  background: #c4423f;
 }
 
 

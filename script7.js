@@ -291,61 +291,14 @@ document.querySelectorAll('.shorts').forEach(shortsContainer => {
         // If you still want a play overlay on pause, you'd integrate logic similar to the main player.
     });
 });
-
-
-  // Toggle share popup
-  document.querySelectorAll('.share-icon').forEach(icon => {
-    icon.addEventListener('click', function (e) {
-      e.stopPropagation();
-      const popup = this.parentElement.querySelector('.share-popup');
-      popup.classList.toggle('hidden');
-    });
-  });
-
-  // Hide share popup when clicking outside
-  document.addEventListener('click', function () {
-    document.querySelectorAll('.share-popup').forEach(p => p.classList.add('hidden'));
-  });
-
-  // Copy share link
-  document.querySelectorAll('.copy-btn').forEach(btn => {
-    btn.addEventListener('click', function () {
-      const input = this.previousElementSibling;
-      input.select();
-      document.execCommand('copy');
-      this.textContent = "Copied!";
-      setTimeout(() => this.textContent = "Copy", 1500);
-    });
-  });
+/* =========================================================
+   UNIVERSAL POPUP LOGIC FOR ALL SHORTS CARDS
+   Works with unlimited dynamically created .shorts elements
+   ========================================================= */
 
 
 
-
-document.querySelectorAll('.options').forEach(option => {
-  const popup = option.querySelector('.metadata-popup');
-
-  option.addEventListener('click', (e) => {
-    e.stopPropagation(); // Prevent click bubbling
-    popup.classList.toggle('hidden');
-
-    // Close other open popups
-    document.querySelectorAll('.metadata-popup').forEach(p => {
-      if (p !== popup) p.classList.add('hidden');
-    });
-  });
-});
-
-// Close all popups when clicking outside
-document.addEventListener('click', () => {
-  document.querySelectorAll('.metadata-popup').forEach(p => {
-    p.classList.add('hidden');
-  });
-});
-
-
-
- // Toggle the shareee popup
- document.querySelectorAll('.shareee').forEach(shareee => {
+document.querySelectorAll('.shareee').forEach(shareee => {
   const icon = shareee.querySelector('.reply-icon');
   const popup = shareee.querySelector('.shareee-popup');
 
@@ -355,9 +308,115 @@ document.addEventListener('click', () => {
   });
 });
 
-// Close all shareee popups when clicking outside
 document.addEventListener('click', () => {
   document.querySelectorAll('.shareee-popup').forEach(popup => {
     popup.classList.add('hidden');
   });
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Close ALL popups across ALL cards
+function closeAllPopups() {
+  document.querySelectorAll(
+      ".metadata-popup-new, .share-popup, .report-popup"
+  ).forEach(p => p.classList.add("hidden"));
+}
+
+// GLOBAL CLICK LISTENER (handles everything)
+document.addEventListener("click", function (e) {
+
+  /* ------------------------------
+     OPEN SMALL POPUP (3-DOTS MENU)
+     ------------------------------ */
+  if (e.target.classList.contains("options-btn")) {
+      const card = e.target.closest(".options");
+      const popup = card.querySelector(".metadata-popup-new");
+
+      closeAllPopups();
+      popup.classList.toggle("hidden");
+      e.stopPropagation();
+      return;
+  }
+
+  /* ------------------------------
+     OPEN SHARE POPUP
+     ------------------------------ */
+  const shareBtn = e.target.closest(".popup-item-new[data-action='share']");
+  if (shareBtn) {
+      const card = shareBtn.closest(".options");
+      const popup = card.querySelector(".share-popup");
+
+      closeAllPopups();
+      popup.classList.toggle("hidden");
+      e.stopPropagation();
+      return;
+  }
+
+  /* ------------------------------
+     OPEN REPORT POPUP
+     ------------------------------ */
+  const reportBtn = e.target.closest(".popup-item-new[data-action='report']");
+  if (reportBtn) {
+      const card = reportBtn.closest(".options");
+      const popup = card.querySelector(".report-popup");
+
+      closeAllPopups();
+      popup.classList.toggle("hidden");
+      e.stopPropagation();
+      return;
+  }
+
+  /* ------------------------------
+     CLOSE SHARE or REPORT POPUPS
+     ------------------------------ */
+  if (
+      e.target.classList.contains("share-close") ||
+      e.target.classList.contains("report-close") ||
+      e.target.classList.contains("report-cancel")
+  ) {
+      const popup = e.target.closest(".share-popup, .report-popup");
+      popup.classList.add("hidden");
+      return;
+  }
+
+  /* ------------------------------
+     CLICK OUTSIDE → CLOSE ALL POPUPS
+     ------------------------------ */
+  const insidePopup = e.target.closest(
+      ".metadata-popup-new, .share-popup, .report-popup, .options-btn"
+  );
+
+  if (!insidePopup) {
+      closeAllPopups();
+  }
+});
+
+/* =========================================================
+ REPORT CHECKBOX / SUBMIT BUTTON ACTIVATION
+ ========================================================= */
+
+document.addEventListener("change", function (e) {
+  if (e.target.classList.contains("report-check")) {
+      const popup = e.target.closest(".report-popup");
+      const submitBtn = popup.querySelector(".report-submit");
+
+      const atLeastOneChecked =
+          popup.querySelectorAll(".report-check:checked").length > 0;
+
+      submitBtn.disabled = !atLeastOneChecked;
+  }
 });
