@@ -317,6 +317,11 @@ document.addEventListener('click', () => {
 
 
 
+document.querySelectorAll('.share').forEach(share => {
+  share.addEventListener('click', () => {
+    share.classList.toggle('active');
+  });
+});
 
 
 
