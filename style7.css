@@ -3730,11 +3730,11 @@ margin: 0 auto;
   
   .profile
   {
-    bottom: 16%;
+    bottom: 14%;
   }
   /* Move the profile up when caption expands */
   .profile.shift-up {
-    margin-bottom: 1rem; /* ~15px, tweak to taste */
+    margin-bottom: 1.5rem; /* ~15px, tweak to taste */
   }
   
   

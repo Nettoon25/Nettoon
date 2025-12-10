@@ -5814,7 +5814,7 @@ margin: 0 auto;
   width: 100%;
   max-width: 100%;
   flex-shrink:0;
-  border-style:none;
+   border-style:none;
   }
 
 .containerr
@@ -5848,7 +5848,7 @@ margin: 0 auto;
 {
   background-color: transparent;
   max-height: 778px;
-  border-style:none;
+   border-style:none;
 
 }
 
@@ -5856,8 +5856,8 @@ margin: 0 auto;
 {
   background-color: transparent;
   max-height: 300px;
-  margin: 60px 0 60px 7px; /* Maintain original positioning */
-  border-style:none;
+  margin: 0px 0 0px 7px; /* Maintain original positioning */
+    border-style:none;
 }
 
 .pichaa {
@@ -5906,15 +5906,15 @@ margin: 0 auto;
     background-color: transparent;
   gap: 1.5rem;
   width:100%; 
-  border-style:none;
+   border-style:none;
   }
 
   .kontainer
   {
-    background-color: grey;
+    background-color: transparent;
     width: clamp(28%, 37%, 32%);
 margin-left: 6px;
-  border-style:none;
+   border-style:none;
      border-radius: 0.4375rem;
   }
 
