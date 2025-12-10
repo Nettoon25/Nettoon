@@ -1757,7 +1757,7 @@ border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px
 /* WRAPPER */
 .option-wrapper {
   position: relative;
-  background-color: #007bff;
+  background: #fff;
   height: clamp(1.8rem, 3vh, 2rem);
   border-radius: 7px;
   width: fit-content;
@@ -1769,8 +1769,8 @@ border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px
   bottom: 100%;
   right: 0;
   width: 180px; /* slightly wider for icons */
-  background-color: #333;
-  color: white;
+  background: #fff;
+  color:black;
   border: 1px solid #ccc;
   border-radius: 7px;
   padding: 8px 0;
@@ -2398,6 +2398,115 @@ border-style: none;
 
 .dark-mode .views-text {
   color: #f5f5f5;
+}
+
+/* ⭐ Three Dots Options Button */
+.options-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0.85;
+  transition: opacity 0.1s ease-in-out;
+  filter: invert(1);
+}
+
+.options-btn:hover {
+  opacity: 1;
+}
+
+/* 🌙 Dark mode: invert icon for visibility */
+.dark-mode .options-btn {
+  filter: invert(1);
+}
+
+/* MAIN OPTIONS MENU */
+.options-menu {
+  position: absolute;
+  top: 40px;
+  right: 8px;
+  width: 180px;
+  background: #333;
+  border-radius: 8px;
+  padding: 8px 0;
+  border: 1px solid #555;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: 0.2s ease-in-out;
+}
+
+.options-menu:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* OPTION ITEM */
+.option-item {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: #fff;
+  position: relative;
+}
+
+.option-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ICONS */
+.menu-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* CHILD MENU (SUBMENU) */
+.child-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 160px;
+  background: #444;
+  padding: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #555;
+  opacity: 0;
+  transform: translateX(10px);
+  pointer-events: none;
+  transition: 0.2s ease-in-out;
+  z-index: 20;
+}
+
+/* SHOW SUBMENU ON HOVER */
+.has-children:hover > .child-menu {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* CHILD ITEMS */
+.child-item {
+  padding: 8px 12px;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.child-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* DARK MODE ICON FIX */
+.dark-mode .menu-icon,
+.dark-mode .options-btn {
+  filter: invert(1);
 }
 
 

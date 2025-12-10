@@ -493,3 +493,40 @@ document.addEventListener("DOMContentLoaded", () => {
   reportPanel.addEventListener("click", e => e.stopPropagation());
 
 });
+
+
+
+// Select all shorts
+document.querySelectorAll('.shorts').forEach(short => {
+
+    const optionsBtn = short.querySelector('.options-btn');
+    const optionsMenu = short.querySelector('.options-menu');
+
+    // Toggle menu when clicking the 3 dots
+    optionsBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+
+        // First close all other menus
+        document.querySelectorAll('.options-menu').forEach(menu => {
+            if (menu !== optionsMenu) menu.classList.add('hidden');
+        });
+
+        // Toggle this one
+        optionsMenu.classList.toggle('hidden');
+    });
+
+    // Close menu if clicking inside short but NOT on the button
+    short.addEventListener('click', () => {
+        optionsMenu.classList.add('hidden');
+    });
+
+});
+
+// Close menu when clicking ANYWHERE outside
+document.addEventListener('click', () => {
+    document.querySelectorAll('.options-menu').forEach(menu => {
+        menu.classList.add('hidden');
+    });
+});
+
+
