@@ -5820,7 +5820,7 @@ margin: 0 auto;
 .containerr
 {
   background-color: transparent;
-     border-style:none;
+   border-style:none;
 }
 
 
@@ -5849,13 +5849,14 @@ margin: 0 auto;
   background-color: transparent;
   max-height: 778px;
   border-style:none;
+
 }
 
 .card
 {
-  background-color: crimson;
+  background-color: transparent;
   max-height: 300px;
-  margin: 1px 0 12px 7px; /* Maintain original positioning */
+  margin: 60px 0 60px 7px; /* Maintain original positioning */
   border-style:none;
 }
 

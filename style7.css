@@ -3775,7 +3775,7 @@ margin: 0 auto;
   
   /* 👇 Move both to left when comments are shown */
   .shorts.show-comments .short-video {
-    margin-left:20rem;
+    margin-left:5rem;
   }
   
 
@@ -3790,7 +3790,7 @@ margin: 0 auto;
   }
 
     .shorts.show-comments .metadata {
-    margin-right: 48.8%;
+    margin-right: 39.8%;
     right: 10px;
   }
   
