@@ -837,3 +837,43 @@ document.getElementById("shareCloseV2").addEventListener("click", () => {
 
 })();
 
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const playlistList = document.getElementById("playlistListV2");
+  const addPlaylistBtn = document.getElementById("addPlaylistBtnV2");
+  const template = document.querySelector(".playlist-template");
+
+  // Attach delete to existing playlist rows
+  playlistList.querySelectorAll(".playlist-delete").forEach(deleteBtn => {
+      deleteBtn.addEventListener("click", (e) => {
+          e.stopPropagation(); // prevent parent trigger
+          deleteBtn.closest(".playlist-option-v2").remove();
+      });
+  });
+
+  // Add new playlist
+  addPlaylistBtn.addEventListener("click", () => {
+
+      const newPlaylist = template.cloneNode(true);
+      newPlaylist.classList.remove("hidden", "playlist-template");
+
+      // Add delete functionality
+      const deleteBtn = newPlaylist.querySelector(".playlist-delete");
+      deleteBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          newPlaylist.remove();
+      });
+
+      playlistList.appendChild(newPlaylist);
+
+      // Auto focus on the editable name
+      const editableName = newPlaylist.querySelector(".playlist-editable");
+      editableName.focus();
+      document.execCommand("selectAll", false, null);
+  });
+
+});

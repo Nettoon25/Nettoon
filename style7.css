@@ -2471,6 +2471,221 @@ z-index: 0;
 }
 
 
+/* Comment Report Popup */
+.comment-report-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background: white;
+  border-radius: 0.7rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  z-index: 999999;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.comment-report-popup.hidden {
+  display: none;
+}
+
+/* Header */
+.crp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.crp-close {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #555;
+}
+.crp-close:hover {
+  color: black;
+}
+
+/* Options */
+.crp-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.crp-option:hover {
+  background: #efefef;
+}
+
+/* Checkboxes */
+.crp-check {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Action buttons */
+.crp-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 0.6rem;
+}
+
+.crp-cancel {
+  background: #ccc;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.crp-cancel:hover {
+  background: #b5b5b5;
+}
+
+.crp-submit {
+  background: #d9534f;
+  color: white;
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.crp-submit:enabled {
+  opacity: 1;
+}
+
+.crp-submit:hover:enabled {
+  background: #c4423f;
+}
+
+/* Dark mode */
+.dark-mode .comment-report-popup {
+  background: #444;
+  border-color: #666;
+  color: white;
+}
+
+.dark-mode .crp-option:hover {
+  background: #555;
+}
+
+.dark-mode .crp-close {
+  color: #ddd;
+}
+
+
+/* Spam Confirmation Popup */
+.spam-confirm-popup {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  background: white;
+  border-radius: 0.7rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  z-index: 9999;
+}
+
+.spam-confirm-popup.hidden {
+  display: none;
+}
+
+.dark-mode .spam-confirm-popup {
+  background: #333;
+  color: white;
+  border-color: #444;
+}
+
+/* Header */
+.scp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.scp-close {
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.scp-close:hover {
+  opacity: 1;
+}
+
+/* Message */
+.scp-message {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+.scp-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.scp-cancel {
+  background: #ccc;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.scp-cancel:hover {
+  background: #b5b5b5;
+}
+
+.scp-submit {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.scp-submit:hover {
+  background: #c4423f;
+}
+
+/* Dark mode buttons */
+.dark-mode .scp-cancel {
+  background: #666;
+  color: white;
+}
+
+.dark-mode .scp-cancel:hover {
+  background: #555;
+}
+
+.dark-mode .scp-submit {
+  background: #aa3a36;
+}
+
+.dark-mode .scp-submit:hover {
+  background: #922f2b;
+}
+
+
 .commentt {
   position: relative;
   width: 100%;

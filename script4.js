@@ -416,3 +416,80 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 }); // DOMContentLoaded
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const trigger = document.querySelector(".option-action-trigger");
+  const menu = document.querySelector(".option-action-menu");
+
+  const sharePanel = document.querySelector(".share-panel");
+  const reportPanel = document.querySelector(".report-panel");
+
+  const openShare = document.querySelector(".open-share-panel");
+  const openReport = document.querySelector(".open-report-panel");
+
+  const closeShare = document.querySelector(".share-panel-close");
+  const closeReport = document.querySelector(".report-panel-close");
+
+  // OPEN MAIN MENU
+  trigger.addEventListener("click", (e) => {
+      e.stopPropagation();
+      menu.classList.toggle("hidden");
+
+      sharePanel.classList.add("hidden");
+      reportPanel.classList.add("hidden");
+  });
+
+  // OPEN SHARE PANEL
+  openShare.addEventListener("click", (e) => {
+      e.stopPropagation();
+      sharePanel.classList.remove("hidden");
+      reportPanel.classList.add("hidden");
+  });
+
+  closeShare.addEventListener("click", () => {
+      sharePanel.classList.add("hidden");
+  });
+
+  // OPEN REPORT PANEL
+  openReport.addEventListener("click", (e) => {
+      e.stopPropagation();
+      reportPanel.classList.remove("hidden");
+      sharePanel.classList.add("hidden");
+  });
+
+  closeReport.addEventListener("click", () => {
+      reportPanel.classList.add("hidden");
+  });
+
+  // REPORT CHECKBOX LOGIC
+  const reportChecks = document.querySelectorAll(".report-panel-check");
+  const reportSubmit = document.querySelector(".report-panel-submit");
+  const reportCancel = document.querySelector(".report-panel-cancel");
+
+  reportChecks.forEach(check => {
+      check.addEventListener("change", () => {
+          const anyChecked = [...reportChecks].some(c => c.checked);
+          reportSubmit.disabled = !anyChecked;
+          reportSubmit.classList.toggle("active", anyChecked);
+      });
+  });
+
+  reportCancel.addEventListener("click", () => {
+      reportPanel.classList.add("hidden");
+  });
+
+  // CLOSE ALL ON OUTSIDE CLICK
+  document.addEventListener("click", () => {
+      menu.classList.add("hidden");
+      sharePanel.classList.add("hidden");
+      reportPanel.classList.add("hidden");
+  });
+
+  menu.addEventListener("click", e => e.stopPropagation());
+  sharePanel.addEventListener("click", e => e.stopPropagation());
+  reportPanel.addEventListener("click", e => e.stopPropagation());
+
+});

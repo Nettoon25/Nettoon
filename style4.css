@@ -1749,6 +1749,169 @@ border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px
     color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode contrast */
 }
 
+.hidden {
+  display: none !important;
+}
+
+/* MAIN OPTION MENU */
+.option-action-menu {
+  position: absolute;
+  top: 50%;      /* Directly under the dots icon */
+  right: 0;
+  width: 150px;
+  background: green;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  z-index: 9999;
+  padding: 8px 0;
+}
+
+.option-action-btn {
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.option-action-btn:hover {
+  background: #f0f0f0;
+}
+
+/* SHARE PANEL */
+.share-panel {
+  position: absolute;
+  top: 50%;        /* SAME vertical level as main menu */
+  right: 160px;    /* Moves it left of menu */
+  width: 220px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  z-index: 9999;
+}
+
+.share-panel-header {
+  padding: 10px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+}
+
+.share-panel-close {
+  cursor: pointer;
+}
+
+.share-panel-item {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.share-panel-item:hover {
+  background: #f0f0f0;
+}
+
+/* HIDE HELPER */
+.hidden {
+  display: none !important;
+}
+
+/* REPORT PANEL BASE */
+.report-panel {
+  position: absolute;
+  top: 50%;            /* Same vertical alignment as menu */
+  right: 160px;      /* Same horizontal alignment as share */
+  width: 300px;
+  background: #f0f0f0;
+  border-radius: 7px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(97, 77, 77, 0.4);
+  z-index: 9999;
+  height: 380px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.dark-mode .report-panel {
+  background: #222;
+  color: white;
+}
+
+/* HEADER */
+.report-panel-header {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* CLOSE BTN */
+.report-panel-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.report-panel-close:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* CHECKBOX OPTION */
+.report-panel-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.report-panel-item input[type="checkbox"] {
+  appearance: auto !important;
+  width: 18px !important;
+  height: 18px !important;
+  cursor: pointer;
+}
+
+/* BOTTOM BUTTONS */
+.report-panel-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.report-panel-cancel {
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  background: #333;
+  color: white;
+  border-radius: 7px;
+  padding: 5px 10px;
+}
+
+.report-panel-submit {
+  background-color: #f0f0f0;
+  color: black;
+  font-size: 14px;
+  border: none;
+  cursor: not-allowed;
+  border-radius: 7px;
+  padding: 5px 10px;
+}
+
+.dark-mode .report-panel-submit {
+  background-color: #333;
+  color: white;
+}
+
+/* ACTIVE ENABLED SUBMIT BUTTON */
+.report-panel-submit.active {
+  color: red;
+  cursor: pointer;
+}
+
 /* ==== UPLOADS NAVIGATION CONTAINER (.container-4) ==== */
 /* This container organizes navigation items (tabs like videos, playlists) horizontally. */
 .container-4 {
@@ -2648,7 +2811,7 @@ border-style: none;
   padding: 20px;
   box-shadow: 0 8px 25px rgba(97, 77, 77, 0.4);
   z-index: 300;
-  height: 360px;      /* fixed consistent height */
+  height: 380px;      /* fixed consistent height */
   overflow: hidden;   /* prevents scrollbars */
   box-sizing: border-box;  /* prevents padding from increasing height */
 }
@@ -2696,7 +2859,6 @@ border-style: none;
   height: 18px;
   cursor: pointer;
 }
-
 /* Bottom buttons */
 .report-actions {
   display: flex;
@@ -2705,21 +2867,29 @@ border-style: none;
 }
 
 .report-cancel {
-  background: transparent;
   border: none;
-  font-size: 16px;
+  font-size: 14px;
   cursor: pointer;
-  color: grey;
+  background: #333;
+  color: white;
+  border-radius: 7px;
+  padding: 5px;
 }
 
 .report-submit {
-  background: transparent;
-  color: grey;
-  font-size: 16px;
+  background-color: #f0f0f0;
+  color:black;
+  font-size: 14px;
   border: none;
   cursor: not-allowed;
-  opacity: 0.5;
   transition: 0.2s;
+  border-radius: 7px;
+  padding: 5px;
+}
+
+.dark-mode .report-submit {
+  background-color: #333;
+  color:white;
 }
 
 /* === ACTIVE REPORT BUTTON === */

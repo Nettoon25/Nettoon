@@ -316,20 +316,11 @@ document.addEventListener('click', () => {
 
 
 
-
 document.querySelectorAll('.share').forEach(share => {
   share.addEventListener('click', () => {
     share.classList.toggle('active');
   });
 });
-
-
-
-
-
-
-
-
 
 
 
@@ -424,4 +415,216 @@ document.addEventListener("change", function (e) {
 
       submitBtn.disabled = !atLeastOneChecked;
   }
+});
+
+
+
+// ==========================
+// FIXED JAVASCRIPT
+// ==========================
+
+
+const shareBtn = document.querySelector('.reply-icon');
+const sharePopup = document.getElementById('mainSharePopup');
+const reportCommentTrigger = document.querySelector('.report-comment-trigger');
+const commentReportPopup = document.getElementById('commentReportPopup');
+const commentReportClose = document.getElementById('commentReportClose');
+const commentChecks = document.querySelectorAll('.crp-check');
+const commentReportSubmit = document.getElementById('commentReportSubmit');
+const cancelBtn = document.querySelector('.crp-cancel');
+const spamBtn = document.querySelector('.mark-spam');
+const blockBtn = document.querySelector('.block-user');
+
+
+// Toggle MAIN share popup
+shareBtn.addEventListener('click', (e) => {
+e.stopPropagation();
+sharePopup.classList.toggle('hidden');
+});
+
+
+// Prevent other buttons from opening the comment report popup
+spamBtn.addEventListener('click', (e) => {
+e.stopPropagation();
+sharePopup.classList.add('hidden');
+// action for spam goes here
+});
+
+
+blockBtn.addEventListener('click', (e) => {
+e.stopPropagation();
+sharePopup.classList.add('hidden');
+// action for block goes here
+});
+
+
+// Open ONLY the Report Comment popup
+reportCommentTrigger.addEventListener('click', (e) => {
+e.stopPropagation();
+sharePopup.classList.add('hidden');
+commentReportPopup.classList.remove('hidden');
+});
+
+
+// Close popup
+commentReportClose.addEventListener('click', () => {
+commentReportPopup.classList.add('hidden');
+});
+
+
+cancelBtn.addEventListener('click', () => {
+commentReportPopup.classList.add('hidden');
+});
+
+
+// Enable the submit button only when at least one checkbox is selected
+commentChecks.forEach(check => {
+check.addEventListener('change', () => {
+const anyChecked = [...commentChecks].some(ch => ch.checked);
+commentReportSubmit.disabled = !anyChecked;
+});
+});
+
+
+// Close popups on outside click
+window.addEventListener('click', (e) => {
+if (!sharePopup.contains(e.target) && e.target !== shareBtn) {
+sharePopup.classList.add('hidden');
+}
+
+
+if (!commentReportPopup.contains(e.target) && !reportCommentTrigger.contains(e.target)) {
+commentReportPopup.classList.add('hidden');
+}
+});
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // When user clicks the 3-dots menu
+  document.querySelectorAll(".shareee .reply-icon").forEach(icon => {
+    icon.addEventListener("click", (e) => {
+      const card = e.target.closest(".shareee");
+      const mainPopup = card.querySelector(".shareee-popup");
+
+      // Toggle main popup
+      mainPopup.classList.toggle("hidden");
+    });
+  });
+
+  // When user clicks "Report Comment"
+  document.querySelectorAll(".report-comment-trigger").forEach(button => {
+    button.addEventListener("click", (e) => {
+      const menu = e.target.closest(".shareee-popup");
+      const card = menu.closest(".shareee");
+      const reportPopup = card.querySelector(".comment-report-popup");
+
+      // Open report popup
+      reportPopup.classList.remove("hidden");
+
+      // Close main menu
+      menu.classList.add("hidden");
+    });
+  });
+
+  // Close report popup buttons
+  document.querySelectorAll(".crp-close, .crp-cancel").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const popup = e.target.closest(".comment-report-popup");
+      popup.classList.add("hidden");
+
+      // Reset checkboxes and disable submit
+      const checks = popup.querySelectorAll(".crp-check");
+      const submit = popup.querySelector(".crp-submit");
+
+      checks.forEach(ch => ch.checked = false);
+      submit.disabled = true;
+    });
+  });
+
+  // Enable "Report" button when any checkbox is checked
+  document.querySelectorAll(".comment-report-popup").forEach(popup => {
+    const checks = popup.querySelectorAll(".crp-check");
+    const submit = popup.querySelector(".crp-submit");
+
+    checks.forEach(ch => {
+      ch.addEventListener("change", () => {
+        const anyChecked = Array.from(checks).some(c => c.checked);
+        submit.disabled = !anyChecked;
+      });
+    });
+  });
+
+  // Submit report (you can add backend later)
+  document.querySelectorAll(".crp-submit").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const popup = e.target.closest(".comment-report-popup");
+      popup.classList.add("hidden");
+
+      alert("Comment reported. Thank you.");
+    });
+  });
+
+  // Close any open popups by clicking outside
+  document.addEventListener("click", (e) => {
+    document.querySelectorAll(".shareee").forEach(container => {
+      const mainPopup = container.querySelector(".shareee-popup");
+      const reportPopup = container.querySelector(".comment-report-popup");
+
+      if (!container.contains(e.target)) {
+        mainPopup.classList.add("hidden");
+        reportPopup.classList.add("hidden");
+      }
+    });
+  });
+
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  // Open playlist popup
+  document.querySelectorAll(".add-playlist-trigger").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const card = e.target.closest(".video-card, .card, .container");
+      const popup = card.querySelector(".playlist-popup-v2");
+
+      popup.classList.remove("hidden");
+    });
+  });
+
+  // Close playlist popup
+  document.addEventListener("click", (e) => {
+    if (e.target.classList.contains("playlist-close-v2")) {
+      const popup = e.target.closest(".playlist-popup-v2");
+      popup.classList.add("hidden");
+    }
+  });
+
+  // Add new playlist
+  document.querySelectorAll("#addPlaylistBtnV2").forEach(addBtn => {
+    addBtn.addEventListener("click", (e) => {
+      const popup = e.target.closest(".playlist-popup-v2");
+      const list = popup.querySelector(".playlist-list-v2");
+
+      // Ask user for a playlist name
+      let newName = prompt("Enter playlist name:");
+
+      if (!newName || newName.trim() === "") return;
+
+      // Create new playlist element
+      const newPlaylist = document.createElement("label");
+      newPlaylist.classList.add("playlist-option-v2");
+
+      newPlaylist.innerHTML = `
+        <input type="checkbox" class="playlist-check-v2" checked>
+        <span>${newName}</span>
+      `;
+
+      // Add to the playlist list
+      list.appendChild(newPlaylist);
+    });
+  });
+
 });

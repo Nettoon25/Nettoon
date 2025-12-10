@@ -279,7 +279,7 @@ Nettoon.com
               <div class="option-popup hidden">
                 <div class="popup-item"><img src="share.png" /> Share</div>
                 <div class="popup-item"><img src="download.png" /> Download</div>
-              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item" style="display: none;"><img src="playlist.png" /> Add to Playlist</div>
               <div class="popup-item"><img src="report.png" /> Report</div>
               </div>
 
@@ -303,35 +303,43 @@ Nettoon.com
 </div>
 </div>
 
+
 <div class="playlist-popup-v2 hidden" id="playlistPopupV2">
 
-<div class="playlist-header-v2">
+  <div class="playlist-header-v2">
     Save to...
     <span class="playlist-close-v2">✕</span>
 </div>
 
-<!-- LIST -->
 <div class="playlist-list-v2" id="playlistListV2">
 
     <label class="playlist-option-v2">
         <input type="checkbox" class="playlist-check-v2">
-        <span>Watch Later</span>
+        <span class="playlist-name">Watch Later</span>
+        <span class="playlist-delete">✕</span>
     </label>
 
     <label class="playlist-option-v2">
         <input type="checkbox" class="playlist-check-v2">
-        <span>Favorites</span>
+        <span class="playlist-name">Favorites</span>
+        <span class="playlist-delete">✕</span>
     </label>
 
+    <!-- Hidden Template -->
+    <label class="playlist-option-v2 playlist-template hidden">
+        <input type="checkbox" class="playlist-check-v2" checked>
+        <span class="playlist-name playlist-editable" contenteditable="true">Rename playlist</span>
+        <span class="playlist-delete">✕</span>
+    </label>
 </div>
 
 
 
-
-<!-- ADD NEW -->
-<div class="playlist-add-v2" id="addPlaylistBtnV2">+ New Playlist</div>
+  <!-- ADD NEW -->
+  <div class="playlist-add-v2" id="addPlaylistBtnV2">+ New Playlist</div>
 
 </div>
+
 
 
 <div class="report-popup-v2 hidden" id="reportPopupV2">
@@ -1025,7 +1033,7 @@ Based in Nairobi—a city already known for its innovation, fintech leadership, 
           <!-- OPTIONS POPUP -->
           <div class="opttions-popup hidden">
               <div class="popup-item"><img src="share.png" /> Share</div>
-              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item" style="display: none;"><img src="playlist.png" /> Add to Playlist</div>
               <div class="popup-item"><img src="report.png" /> Report</div>
           </div>
       </div>
@@ -1168,7 +1176,7 @@ Child abuse
           <!-- OPTIONS POPUP -->
           <div class="opttions-popup hidden">
               <div class="popup-item"><img src="share.png" /> Share</div>
-              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item" style="display: none;"><img src="playlist.png" /> Add to Playlist</div>
               <div class="popup-item"><img src="report.png" /> Report</div>
           </div>
       </div>
@@ -1310,7 +1318,7 @@ Child abuse
           <!-- OPTIONS POPUP -->
           <div class="opttions-popup hidden">
               <div class="popup-item"><img src="share.png" /> Share</div>
-              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item" style="display: none;"><img src="playlist.png" /> Add to Playlist</div>
               <div class="popup-item"><img src="report.png" /> Report</div>
           </div>
       </div>
@@ -1452,7 +1460,7 @@ Child abuse
           <!-- OPTIONS POPUP -->
           <div class="opttions-popup hidden">
               <div class="popup-item"><img src="share.png" /> Share</div>
-              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item" style="display: none;"><img src="playlist.png" /> Add to Playlist</div>
               <div class="popup-item"><img src="report.png" /> Report</div>
           </div>
       </div>
@@ -1594,7 +1602,7 @@ Child abuse
           <!-- OPTIONS POPUP -->
           <div class="opttions-popup hidden">
               <div class="popup-item"><img src="share.png" /> Share</div>
-              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item" style="display: none;"><img src="playlist.png" /> Add to Playlist</div>
               <div class="popup-item"><img src="report.png" /> Report</div>
           </div>
       </div>
@@ -1736,7 +1744,7 @@ Child abuse
           <!-- OPTIONS POPUP -->
           <div class="opttions-popup hidden">
               <div class="popup-item"><img src="share.png" /> Share</div>
-              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item" style="display: none;"><img src="playlist.png" /> Add to Playlist</div>
               <div class="popup-item"><img src="report.png" /> Report</div>
           </div>
       </div>
