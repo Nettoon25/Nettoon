@@ -1749,42 +1749,92 @@ border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px
     color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode contrast */
 }
 
+/* HIDE ELEMENTS */
 .hidden {
   display: none !important;
 }
 
-/* MAIN OPTION MENU */
-.option-action-menu {
-  position: absolute;
-  top: 50%;      /* Directly under the dots icon */
-  right: 0;
-  width: 150px;
-  background: green;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  z-index: 9999;
-  padding: 8px 0;
+/* WRAPPER */
+.option-wrapper {
+  position: relative;
+  background-color: #007bff;
+  height: clamp(1.8rem, 3vh, 2rem);
+  border-radius: 7px;
+  width: fit-content;
 }
 
+/* ACTION MENU */
+.option-action-menu {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  width: 180px; /* slightly wider for icons */
+  background-color: #333;
+  color: white;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  padding: 8px 0;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.option-action-menu:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* MENU BUTTONS */
 .option-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between icon and text */
   padding: 10px 15px;
   cursor: pointer;
+  transition: background 0.2s;
 }
 
 .option-action-btn:hover {
-  background: #f0f0f0;
+  background: grey;
 }
 
-/* SHARE PANEL */
+/* ICONS */
+.menu-icon {
+  width: 20px;  /* slightly bigger for visibility */
+  height: 20px;
+  transition: filter 0.2s ease;
+}
+
+/* DARK MODE */
+.dark-mode .option-action-btn:hover {
+  background: grey;
+}
+
+/* INVERT ICONS IN DARK MODE */
+.dark-mode .menu-icon {
+  filter: invert(1);
+}
+
+
 .share-panel {
   position: absolute;
-  top: 50%;        /* SAME vertical level as main menu */
-  right: 160px;    /* Moves it left of menu */
+  bottom: 100%;
+  right: 160px;
   width: 220px;
   background: #fff;
+  color: black;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 7px;
   z-index: 9999;
+}
+
+.dark-mode .share-panel {
+  background-color: #333;
+  color: white;
 }
 
 .share-panel-header {
@@ -1800,34 +1850,36 @@ border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px
 }
 
 .share-panel-item {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between icon and text */
   padding: 10px;
   cursor: pointer;
 }
 
 .share-panel-item:hover {
-  background: #f0f0f0;
+  background: grey;
 }
 
-/* HIDE HELPER */
-.hidden {
-  display: none !important;
+.share-icon {
+  width: 20px;  /* adjust icon size */
+  height: 20px;
+  object-fit: contain;
 }
 
-/* REPORT PANEL BASE */
 .report-panel {
   position: absolute;
-  top: 50%;            /* Same vertical alignment as menu */
-  right: 160px;      /* Same horizontal alignment as share */
+  bottom: 100%;         /* above parent */
+  right: 160px;
   width: 300px;
   background: #f0f0f0;
   border-radius: 7px;
   padding: 20px;
-  box-shadow: 0 8px 25px rgba(97, 77, 77, 0.4);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
   z-index: 9999;
-  height: 380px;
-  overflow: hidden;
-  box-sizing: border-box;
+  height: auto;
 }
+
 
 .dark-mode .report-panel {
   background: #222;
