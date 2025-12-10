@@ -6234,7 +6234,7 @@ margin-left: 5px;
   {
     background-color: transparent;
     max-height: 300px;
-    margin: 1px 0 15px 7px; /* Maintain original positioning */
+    margin: 10px 0 15px 7px; /* Maintain original positioning */
   border-style:none;
   }
   
@@ -6287,7 +6287,7 @@ margin-left: 5px;
     height:350px;
     padding: 0px;
     justify-content: flex-start;
-  border-style:none;
+   border-style:none;
   }
   
   .optionnn
@@ -6297,17 +6297,18 @@ margin-left: 5px;
   height: 40px;
    background-color: transparent;
     z-index: 3;
-  border-style:none;
+   border-style:none;
   }
   
   .channel {
     width: clamp(11.375rem, 32%, 20.75rem); /* Converted 150px and 300px to rem */
     height: 100%; /* Fully inherit from container-3 */
       background-color: transparent;
-    border-style:none;
+   border-style:none;
     margin-top: 2.6rem; /* 50px */
     margin-bottom: 0px;
     float: left;
+    margin-left: 1rem;
   }
   
   .channel img
@@ -6335,7 +6336,7 @@ margin-left: 5px;
   {
     padding-bottom: 0rem;
   padding: 0px;
-        border-style:none;
+   border-style:none;
   }
   
   .series

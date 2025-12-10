@@ -4854,12 +4854,29 @@ margin: 0 auto;
   filter: invert(1);
 }
 
+/* ==== ABOUT SECTION (.about) ==== */
+/* This container holds the descriptive "About" text for the profile. */
+.about {
+  /* Sizing & Flex Behavior */
+  width: 100%;           /* Spans the full width of its parent container */
+  max-width: 100%;       /* Ensures it does not exceed the parent's width */
+  max-height: 13.75rem;  /* Limits the maximum height (300px), useful for containing long text */
+overflow-y: auto;
+overflow-x: hidden;
+  background-color: transparent;
+
+
+
+  /* Overflow & Sizing Model */
+  overflow: hidden;      /* Hides any text content that exceeds the max-height */
+}
+
 
   .shorts {
   width: 100%;
   max-width: 230px;
   aspect-ratio: 9 / 16;
-  margin: 1rem 0 1rem 0.6rem;
+  margin: 1rem 0rem 1rem 0.6rem;
   border-style:none;
 }
 
