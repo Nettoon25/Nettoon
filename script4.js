@@ -529,4 +529,59 @@ document.addEventListener('click', () => {
     });
 });
 
+document.querySelectorAll('.videoo').forEach(videoContainer => {
+  const video = videoContainer.querySelector('video');
+  const timerEl = videoContainer.querySelector('.overlay-textt');
 
+  let lastTime = 0;
+  let totalDuration = 0;
+  let countdownInterval;
+
+  // Load metadata to get total duration
+  video.addEventListener('loadedmetadata', () => {
+      totalDuration = video.duration;
+      timerEl.textContent = formatTime(totalDuration);
+  });
+
+  // When user hovers ON
+  videoContainer.addEventListener('mouseenter', () => {
+      clearInterval(countdownInterval);
+
+      video.currentTime = lastTime;
+
+      video.play().catch(() => {});
+      
+      countdownInterval = setInterval(() => {
+          const remaining = totalDuration - video.currentTime;
+
+          if (remaining <= 0) {
+              timerEl.textContent = "0:00";
+              clearInterval(countdownInterval);
+          } else {
+              timerEl.textContent = formatTime(remaining);
+          }
+      }, 200); // update 5 times/sec like YouTube
+  });
+
+  // When user hovers OUT
+  videoContainer.addEventListener('mouseleave', () => {
+      clearInterval(countdownInterval);
+
+      lastTime = video.currentTime;
+
+      video.pause();
+      video.load();
+
+      // Reset overlay to latest remaining time
+      const remaining = totalDuration - lastTime;
+      timerEl.textContent = formatTime(remaining);
+  });
+});
+
+// FORMAT TIMER LIKE YOUTUBE
+function formatTime(seconds) {
+  seconds = Math.max(0, Math.floor(seconds));
+  const m = Math.floor(seconds / 60);
+  const s = seconds % 60;
+  return `${m}:${s.toString().padStart(2, '0')}`;
+}

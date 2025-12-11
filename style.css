@@ -2253,6 +2253,11 @@ margin-bottom: 5%;
   /* NO TRANSITIONS as per user request */
 }
 
+.videoo video.hide-video {
+  opacity: 0;
+}
+
+
 /* Dark mode adjustments for .overlay-textt */
 .dark-mode .overlay-textt {
   /* As per your instruction, the background color is explicitly not changed.

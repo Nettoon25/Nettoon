@@ -1824,6 +1824,10 @@ border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px
   filter: invert(1);
 }
 
+.option-action-btn {
+  font-size: 0.85rem;  /* 👈 smaller text */
+}
+
 
 .share-panel {
   position: absolute;
@@ -1860,6 +1864,7 @@ border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px
   gap: 10px; /* space between icon and text */
   padding: 10px;
   cursor: pointer;
+  font-size: 0.85rem;  /* 👈 reduce text size */
 }
 
 .share-panel-item:hover {
@@ -1867,9 +1872,14 @@ border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px
 }
 
 .share-icon {
-  width: 20px;  /* adjust icon size */
-  height: 20px;
+  width: 15px;  /* adjust icon size */
+  height: 15px;
   object-fit: contain;
+}
+
+.share-icon 
+{
+  filter: invert(1);
 }
 
 .report-panel {
@@ -2513,6 +2523,53 @@ border-style: none;
 .dark-mode .options-btn {
   filter: invert(1);
 }
+
+/* ⭐ Smaller text across all menu items */
+.option-item,
+.child-item,
+.share-panel,
+.share-panel-item {
+    font-size: 12px !important;
+}
+
+/* ⭐ Reduce main menu icons */
+.menu-icon {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* ⭐ 3-dots button smaller */
+.options-btn {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* ⭐ Share panel header text smaller */
+.share-panel-header {
+    font-size: 13px !important;
+}
+
+/* ⭐ Icons inside share panel */
+.share-icon {
+    width: 12px !important;
+    height: 12px !important;
+}
+
+/* ⭐ Child menu size reduction */
+.child-item {
+    padding: 6px 10px !important;
+}
+
+/* ⭐ Main menu item padding slightly smaller */
+.option-item {
+    padding: 8px 12px !important;
+}
+
+/* ⭐ Submenu width smaller */
+.child-menu {
+    width: 130px !important;
+}
+
 
 
 /* ==== INDIVIDUAL VIDEO CONTAINERS (.kontainer) ==== */
@@ -3245,6 +3302,11 @@ margin-bottom: 5%;
   justify-content: center;
   word-break: break-word;
 }
+
+.videoo video.hide-video {
+  opacity: 0;
+}
+
 
 /* Mobile Adjustments */
 @media screen and (max-width: 768px) {

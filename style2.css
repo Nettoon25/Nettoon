@@ -3810,6 +3810,9 @@ margin-bottom: 5%;
 }
 
 
+.videoo video.hide-video {
+  opacity: 0;
+}
 
 
 /* 📱 TABLET/SMALL DESKTOP OPTIMIZATION */

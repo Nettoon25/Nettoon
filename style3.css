@@ -4202,6 +4202,9 @@ margin-bottom: 5%;
   /* background-color: var(--color-overlay-dark-bg-dark-mode); */
 }
 
+.videoo video.hide-video {
+  opacity: 0;
+}
 
 
 

@@ -2136,6 +2136,11 @@ margin-bottom: 5%;
   }
 }
 
+.videoo video.hide-video {
+  opacity: 0;
+}
+
+
 /* ==== META-DATA SECTION CONTAINER (.sectiionn) ==== */
 /* This container arranges meta-data elements (views, time, category) horizontally. */
 .sectiionn {

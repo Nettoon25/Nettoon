@@ -131,6 +131,75 @@ document.querySelectorAll('.kontainer').forEach(kontainer => {
 });
 
 
+document.querySelectorAll('.videoo').forEach(videoContainer => {
+  const video = videoContainer.querySelector('video');
+  const timerEl = videoContainer.querySelector('.overlay-textt');
+
+  let lastTime = 0;
+  let totalDuration = 0;
+  let countdownInterval;
+
+  // Get video duration
+  video.addEventListener('loadedmetadata', () => {
+      totalDuration = video.duration;
+      timerEl.textContent = formatTime(totalDuration);
+  });
+
+  // Hover ON → play from saved position
+  videoContainer.addEventListener('mouseenter', () => {
+      clearInterval(countdownInterval);
+
+      // show video (so poster disappears)
+      video.style.display = "block";
+
+      // continue from last known time
+      if (!isNaN(lastTime)) {
+          try { video.currentTime = lastTime; } catch(e) {}
+      }
+
+      video.play().catch(()=>{});
+
+      // Start countdown
+      countdownInterval = setInterval(() => {
+          const remaining = totalDuration - video.currentTime;
+
+          timerEl.textContent = formatTime(remaining <= 0 ? 0 : remaining);
+
+          if (remaining <= 0) clearInterval(countdownInterval);
+      }, 200);
+  });
+
+  // Hover OUT → pause but DO NOT RESET
+  videoContainer.addEventListener('mouseleave', () => {
+      clearInterval(countdownInterval);
+
+      // save current progress
+      lastTime = video.currentTime;
+
+      // pause the video
+      video.pause();
+
+      // force poster frame to show WITHOUT resetting playback
+      video.style.display = "none";
+      setTimeout(() => {
+          video.style.display = "block";
+      }, 10);
+
+      // update overlay timer
+      const remaining = totalDuration - lastTime;
+      timerEl.textContent = formatTime(remaining);
+  });
+});
+
+// time format helper
+function formatTime(sec) {
+  sec = Math.max(0, Math.floor(sec));
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  return `${m}:${s.toString().padStart(2,'0')}`;
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const rectangles = document.querySelectorAll(".rectanglee");
   const containers = document.querySelectorAll('[id^="container-"]');
