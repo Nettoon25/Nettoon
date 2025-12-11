@@ -462,3 +462,40 @@ document.addEventListener("DOMContentLoaded", function () {
   
   
 
+  const playlistSelect = document.getElementById('Playlist');
+  const playlistItemsContainer = document.querySelector('.playlist-items');
+  
+  playlistSelect.addEventListener('change', () => {
+      if (playlistSelect.value === 'Create New Playlist') {
+          // Create new playlist item
+          const newPlaylistItem = document.createElement('div');
+          newPlaylistItem.classList.add('playlist-item');
+  
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.classList.add('playlist-checkbox');
+  
+          const name = document.createElement('input');
+          name.type = 'text';
+          name.value = 'New Playlist';
+          name.classList.add('playlist-name');
+  
+          const removeBtn = document.createElement('button');
+          removeBtn.textContent = 'X';
+          removeBtn.classList.add('playlist-remove');
+          removeBtn.addEventListener('click', () => newPlaylistItem.remove());
+  
+          newPlaylistItem.appendChild(checkbox);
+          newPlaylistItem.appendChild(name);
+          newPlaylistItem.appendChild(removeBtn);
+  
+          playlistItemsContainer.appendChild(newPlaylistItem);
+  
+          // Reset select
+          playlistSelect.selectedIndex = 0;
+  
+          // Auto-focus the new playlist name for renaming
+          name.focus();
+      }
+  });
+  
