@@ -1546,6 +1546,7 @@ textarea {
   padding: 0.3rem;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
+  height:200px;
 }
 
 /* ✨ Hover / Focus Effects */
@@ -1784,45 +1785,6 @@ select:focus {
     font-size: 0.95rem;
   }
 }
-
-.playlist-items {
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
-  margin-top: 1rem;
-}
-
-.playlist-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* checkbox + name left, X right */
-  padding: 0.5rem 0.75rem;
-  border-radius: 0.5rem;
-  background-color: #2a2a2a; /* dark background */
-  color: #fff;
-  gap: 0.5rem;
-}
-
-.playlist-item .playlist-name {
-  flex: 1;
-  margin: 0 0.5rem;
-  white-space: nowrap; /* keep on one line */
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.playlist-item button.playlist-remove {
-  background: transparent;
-  border: none;
-  color: #ff4d4f;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.playlist-item input.playlist-checkbox {
-  cursor: pointer;
-}
-
 
 /* 📌 Main Metadata Container */
 .metadata-container {
