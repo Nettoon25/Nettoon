@@ -220,68 +220,90 @@
             <div class="menu-item" data-target="delete"><i class="fa-solid fa-trash"></i> <span>Delete Account</span></div>
           </div>
           
-        
-     <!-- Content -->
+ <!-- Content -->
 <div class="content">
-  <!-- Profile -->
-  <div id="profile" class="content-section active">
-    <div class="content-header">
-      <i class="fa fa-user"></i> Profile Settings
-    </div>
-    <form id="profileForm" class="profile-form">
-      <!-- Profile Picture Upload -->
-      <div class="form-group profile-pic-group">
-        <label for="profilePic">Profile Picture</label>
-        <div class="profile-pic-wrapper">
-          <img id="profilePicPreview" src="14.png" alt="Profile Picture" class="profile-pic placeholder">
+<!-- Profile Section -->
+<div id="profile" class="content-section active">
 
-          <!-- Hidden file input -->
-          <input type="file" id="profilePic" accept="image/*" hidden>
-
-      <div class="text">
-          <span id="uploadText" class="upload-text">Click here to upload a new picture</span>
-      </div>
-          <!-- Reset button -->
-          <button type="button" id="resetPic" class="reset-btn">Reset</button>
-        </div>
-      </div> <!-- ✅ this closing div was missing -->
-
-
-<!-- Profile Banner / Cover Photo -->
-<div class="form-group banner-group">
-  <label for="profileBanner">Profile Banner / Cover Photo</label>
-
-  <div class="banner-wrapper">
-    <img id="bannerPreview" src="WhatsApp Image 2025-10-11 at 09.56.10_ccb1dc99.jpg" alt="Profile Banner" class="profile-banner placeholder">
-
-    <input type="file" id="profileBanner" accept="image/*" hidden>
-
-    <span id="uploadBannerText" class="upload-text">
-      Click here to upload a new banner
-    </span>
-
-    <button type="button" id="resetBanner" class="reset-btn">Reset</button>
+  <div class="content-header">
+    <i class="fa fa-user"></i> Profile Settings
   </div>
+
+  <form id="profileForm" class="profile-form">
+
+    <!-- Profile Picture -->
+    <div class="form-group profile-pic-group">
+      <label for="profilePic">Profile Picture</label>
+
+      <div class="profile-pic-wrapper">
+        <div class="image-holder">
+          <img
+            id="profilePicPreview"
+            src="14.png"
+            alt="Profile Picture"
+            class="profile-pic placeholder"
+          />
+
+          <!-- Edit icon ON image -->
+          <span
+            class="edit-icon"
+            onclick="document.getElementById('profilePic').click()"
+          >
+            <i class="fa fa-camera"></i>
+          </span>
+        </div>
+
+        <input type="file" id="profilePic" accept="image/*" hidden />
+        <button type="button" id="resetPic" class="reset-btn">Reset</button>
+      </div>
+    </div>
+
+    <!-- Profile Banner -->
+    <div class="form-group banner-group">
+      <label for="profileBanner">Profile Banner / Cover Photo</label>
+
+      <div class="banner-wrapper">
+        <div class="image-holder banner-holder">
+          <img
+            id="bannerPreview"
+            src="WhatsApp Image 2025-10-11 at 09.56.10_ccb1dc99.jpg"
+            alt="Profile Banner"
+            class="profile-banner placeholder"
+          />
+
+          <!-- Edit icon ON image -->
+          <span
+            class="edit-icon"
+            onclick="document.getElementById('profileBanner').click()"
+          >
+            <i class="fa fa-camera"></i>
+          </span>
+        </div>
+
+        <input type="file" id="profileBanner" accept="image/*" hidden />
+        <button type="button" id="resetBanner" class="reset-btn">Reset</button>
+      </div>
+    </div>
+
+    <!-- Username -->
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input type="text" id="username" placeholder="Enter your username" />
+    </div>
+
+    <!-- Bio -->
+    <div class="form-group">
+      <label for="bio">Bio</label>
+      <textarea id="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+    </div>
+
+    <!-- Save -->
+    <button type="submit" class="save-btn">Save Changes</button>
+
+  </form>
 </div>
 
-
-      <!-- Username -->
-      <div class="form-group">
-        <label for="username">Username</label>
-        <input type="text" id="username" placeholder="Enter your username">
-      </div>
-
-      <!-- Bio -->
-      <div class="form-group">
-        <label for="bio">Bio</label>
-        <textarea id="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
-      </div>
-
-      <!-- Save Button -->
-      <button type="submit" class="save-btn">Save Changes</button>
-    </form>
-  </div>
-
+  
 <!-- Account -->
 <div id="account" class="content-section">
   <div class="content-header"><i class="fa fa-cog"></i> Account Settings</div>
@@ -327,7 +349,7 @@
     </div>
 
     <!-- Save Button -->
-    <button type="submit" class="save-btn">Save Changes</button>
+    <button type="submit" class="save-btn" style="display: none;">Save Changes</button>
   </form>
 </div>
 
@@ -373,7 +395,7 @@
 
 
     <!-- Save Button -->
-    <button type="button" class="save-btn" id="saveDisplay">Save Changes</button>
+    <button type="button" class="save-btn" id="saveDisplay" style="display: none;">Save Changes</button>
 
   </form>
 </div>
@@ -445,7 +467,7 @@
       </div>
     </div>
 
-    <button type="submit" class="save-btn">Save Notification Preferences</button>
+    <button type="submit" class="save-btn" style="display: none;">Save Notification Preferences</button>
   </form>
 </div>
 
@@ -509,7 +531,7 @@
       <button type="button" id="blockUserBtn" class="save-btn small">Block User</button>
     </div>
 
-    <button type="submit" class="save-btn">Save Privacy Preferences</button>
+    <button type="submit" class="save-btn" style="display: none;">Save Privacy Preferences</button>
   </form>
 </div>
 
@@ -554,7 +576,7 @@
       </table>
     </div>
 
-    <button type="submit" class="save-btn">Save Payment Preferences</button>
+    <button type="submit" class="save-btn" style="display: none;">Save Payment Preferences</button>
   </form>
 
   <!-- Hidden modal for adding card -->
@@ -646,7 +668,7 @@
       </button>
     </div>
 
-    <button type="submit" class="save-btn">Save Subscription Settings</button>
+    <button type="submit" class="save-btn" style="display: none;">Save Subscription Settings</button>
   </form>
 </div>
 
