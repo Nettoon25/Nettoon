@@ -3363,13 +3363,13 @@ top: 1rem;
 
 .profile {
   position: absolute;
-  bottom: 20%;
+  bottom: 24%;
 
 }
 
 /* Move the profile up when caption expands */
 .profile.shift-up {
-  margin-bottom:2.5rem; /* ~15px, tweak to taste */
+  margin-bottom:3.5rem; /* ~15px, tweak to taste */
 }
 
 
@@ -3390,7 +3390,7 @@ background-color: transparent;
 }
 
 .shorts.show-comments .metadata {
-  margin-right: 51.5%;
+  margin-right: 45%;
   right: 10px;
 }
 

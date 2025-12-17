@@ -5720,6 +5720,9 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 {
   background-color: transparent;
   margin-left: 5px;
+  border-style: none;
+    margin-top:0.3rem;
+    margin-bottom: 0.3rem;
 }
 
 .pichaa {
@@ -5756,7 +5759,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 
 .container-3
 {
-  border-style: ridge;
+  border-style: none;
 }
 
 .optionnn
@@ -5766,6 +5769,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 
 .channel
 {
+  border-style: none;
   border-style: none;
   width: clamp(6.375rem, 27%, 15.75rem); /* Converted 150px and 300px to rem */
 }

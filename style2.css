@@ -5167,7 +5167,7 @@ background-color: fuchsia;
   .container
   {
     background-color: var(--color-bg-light); /* Default background color for light mode */
-  
+    border-style: none;
   }
   
   .nav
@@ -5261,7 +5261,8 @@ margin: 0 auto;
   gap:10px; /* Space between main elements inside (1rem approx 16px) */
   max-width: 100%;
   flex-shrink:0;
-  border-style: none;
+  border-style: none;;
+  height: 520px; /* Height adapts to content */
   }
 
 .containerr
@@ -5269,12 +5270,31 @@ margin: 0 auto;
   background-color: transparent;
   border-style: none;
     margin-left: 10px;
+   height:510px;
 }
 
+.profillee
+{
+  background-color: transparent;
+}
+
+.video 
+{   height:510px;
+  aspect-ratio: 16/9;
+margin-bottom: 0px;
+margin-left: 0.5rem;}
 
 .captionn h3
 {
   font-size: clamp(1rem, 1.1vw, 1.5rem);
+  background-color: transparent;
+  margin-top: 0.3rem;
+}
+
+.sectionn 
+{
+  background-color: transparent;
+  margin-top: 0px;
 }
 
 /* Increase space for time and follow buttons */
@@ -5306,7 +5326,7 @@ margin: 0 auto;
 .container-2
 {
   background-color: transparent;
-  max-height: 450px;
+  max-height:510px;
   border-style: none;
   
 flex-basis: 39%; /* Provides a base width, allowing it to grow or shrink */
@@ -5327,7 +5347,8 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 {
   background-color: transparent;
   margin-left: 5px;
-  
+  border-style: none;
+  margin-bottom: 0.5rem;
 }
 
 .pichaa {
