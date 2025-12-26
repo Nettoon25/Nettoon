@@ -3672,6 +3672,27 @@ margin: 0 auto;
     font-size: 0.9rem; /* 15.5px */
     color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
   }  
+
+.kontainer
+{
+     background-color:transparent;
+}
+
+.videoo {
+  position: relative; /* Allows for absolute positioning of child elements (e.g., controls, overlays) */
+  width: 100%; /* Spans the full width of its parent container */
+  height: auto; /* Height adjusts based on the video's aspect ratio and object-fit */
+
+}
+
+/* ==== VIDEO ELEMENT INSIDE .videoo (.videoo video) ==== */
+/* Styles for the HTML <video> tag itself. */
+.videoo video {
+  width: 100%; /* Ensures the video fills the container's width */
+  height: 14rem; /* Consistent height (200px converted to rem) */
+}
+
+
 }
 
 
