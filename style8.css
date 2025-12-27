@@ -1089,8 +1089,7 @@ border-color: #2a2d2f;
     align-items: center;   /* Vertically centers pills within the bar */
 
     /* Appearance & Spacing */
-    background-color: var(--color-bg-light); /* Default background color for light mode */
-    padding-inline: var(--spacing-xs); /* Horizontal padding (16px) inside the bar */
+  background-color: var(--color-bg-light); /* Default background color for light mode */    padding-inline: var(--spacing-xs); /* Horizontal padding (16px) inside the bar */
     gap: var(--spacing-md-half); /* **Increased spacing (15px) between individual category pills** */
 
     /* Scrolling for Horizontal Overflow */
@@ -1324,7 +1323,7 @@ border-color: #2a2d2f;
   justify-content: flex-start; /* Aligns video cards to the start (left) of the container */
   
   /* Appearance & Spacing */
-  background-color:transparent; /* Default background color for light mode */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
   border-radius: var(--border-radius-none); /* No border radius, for a clean rectangular grid area */
   border-style: none; /* Applied a 'ridge' border style as per your original code.
                           Consider if a 'none' or a subtle 'solid' border from variables
@@ -3517,7 +3516,41 @@ margin: 0 auto;
 /* For larger monitors or dual-monitor setups */
 @media (min-width: 1280px) and (max-width: 1599px) {
 
+  .suggestionss
+{
+  
+border-style:none;
+  width: calc(100% - 4.2%); /* Occupies the remaining width after considering the sidebar and gap */
+  left: 4%;         /* Aligns it to the right of the sidebar, maintaining a consistent gap */
+}
 
+.sidebar
+{
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+  width:4%; 
+border-style:none;}
+
+
+.sidebar:hover {
+  width: 15%; /* Expands slightly on hover for better UX */
+}
+
+.container-1
+{
+border-style:none;
+  width: calc(100% - 4.2%); /* Occupies the remaining width after considering the sidebar and gap */
+  top: 6rem;        /* Positions the grid below the header and suggestions bar */
+  left: 4%;         /* Aligns it to the right of the sidebar, maintaining a consistent gap */
+  background-color: var(--color-bg-light); /* Default background color for light mode */}
+
+
+
+  .caption span {
+    font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+    font-weight: 700;
+    font-size: 0.9rem; /* 15.5px */
+    color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
+  }  
 
   .caption span {
     font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */

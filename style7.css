@@ -3579,7 +3579,7 @@ margin: 0 auto;
 
 .profile
 {
-  bottom: 15%;
+  bottom: 19%;
 }
 /* Move the profile up when caption expands */
 .profile.shift-up {
@@ -3593,7 +3593,7 @@ margin: 0 auto;
   left: 5.6%;
   gap: 1rem;
   justify-content: center;
-  background-color: transparent;
+  background-color:transparent;
   border: 5px solid transparent; /* TEMP: remove in production */
   margin: 0rem auto 0 0rem;
 
@@ -3602,7 +3602,7 @@ margin: 0 auto;
 .short-video {
   max-width: 450px;
   aspect-ratio: 9 / 16;
-  height: 94%;
+  height: 92%;
 
 }
 
@@ -3610,7 +3610,7 @@ margin: 0 auto;
 .metadata {
 
   top: 26vh; /* Positions from the top of the viewport */
-  right: 25vw; /* Positions from the right of the viewport */
+  right: 30vw; /* Positions from the right of the viewport */
   width: 4vw; /* Scales width with viewport */
 
 }
@@ -3623,12 +3623,19 @@ margin: 0 auto;
   width: 37%;
   max-width: 400px;
   aspect-ratio: 9 / 16;
-  min-height: 90vh;
-  max-height: 95vh;
-
+  min-height: 82vh;
+  max-height: 86vh;
+overflow-y: auto;
+overflow-x: hidden;
 
 }
 
+.captionn span
+
+{
+  font-size:16px; /* Using your 0.9rem (approx. 14.4px) font size variable */
+
+}
 
 /* Move the video to the left when comments are shown */
 .shorts.show-comments .short-video {
@@ -3637,7 +3644,7 @@ margin: 0 auto;
 
 /* Move the metadata container to the left when comments are shown */
 .shorts.show-comments .metadata {
-  margin-right: 42.5%; /* Pushes the metadata container further left by this amount */
+  margin-right: 45.5%; /* Pushes the metadata container further left by this amount */
   right: 10px; /* Also adjusts its absolute 'right' position */
 }
 

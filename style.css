@@ -1089,8 +1089,7 @@ border-color: #2a2d2f;
     align-items: center;   /* Vertically centers pills within the bar */
 
     /* Appearance & Spacing */
-    background-color: var(--color-bg-light); /* Default background color for light mode */
-    padding-inline: var(--spacing-xs); /* Horizontal padding (16px) inside the bar */
+  background-color: var(--color-bg-light); /* Default background color for light mode */    padding-inline: var(--spacing-xs); /* Horizontal padding (16px) inside the bar */
     gap: var(--spacing-md-half); /* **Increased spacing (15px) between individual category pills** */
 
     /* Scrolling for Horizontal Overflow */
@@ -1324,7 +1323,7 @@ border-color: #2a2d2f;
   justify-content: flex-start; /* Aligns video cards to the start (left) of the container */
   
   /* Appearance & Spacing */
-  background-color:transparent; /* Default background color for light mode */
+  background-color: var(--color-bg-light); /* Default background color for light mode */
   border-radius: var(--border-radius-none); /* No border radius, for a clean rectangular grid area */
   border-style: none; /* Applied a 'ridge' border style as per your original code.
                           Consider if a 'none' or a subtle 'solid' border from variables
@@ -1334,7 +1333,6 @@ border-color: #2a2d2f;
   padding: var(--spacing-xs); /* Consistent internal padding (8px) for grid edges */
   gap: var(--spacing-sm); /* Consistent spacing (16px) between video cards within the grid */
   box-sizing: border-box; /* Ensures padding and border are included in the element's total size */
-  padding-bottom: 6rem;
 }
 
 /* Specific background colors for individual content containers (e.g., #container-2 to #container-12) */
@@ -1626,6 +1624,7 @@ border-color: #2a2d2f;
   box-shadow: none !important;  /* Remove glow/shadow */
 }
 
+
 .share-popup {
   position: absolute;
   top: 60px;
@@ -1809,149 +1808,6 @@ border-color: #2a2d2f;
   border: 1px solid #777;
 }
 
-.report-popup {
-  position: absolute;
-  top: 20px;
-  right: 10px;
-  width: 360px;
-  background: #f0f0f0;
-  border-radius:7px;
-  padding: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-  z-index: 300;
-  height: 360px;      /* fixed consistent height */
-  overflow: hidden;   /* prevents scrollbars */
-  box-sizing: border-box;  /* prevents padding from increasing height */
-}
-
-
-/* THIN SCROLLBAR FOR REPORT POPUP */
-.report-popup {
-  scrollbar-width: thin;             /* Firefox */
-  scrollbar-color: #888 transparent; /* Firefox */
-}
-
-/* Chrome / WebKit Browsers */
-.report-popup::-webkit-scrollbar {
-  width: 4px;          /* thinner */
-}
-
-.report-popup::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.report-popup::-webkit-scrollbar-thumb {
-  background: #888;     /* scrollbar color */
-  border-radius: 10px;  /* smooth rounded look */
-}
-
-.report-popup::-webkit-scrollbar-thumb:hover {
-  background: #666;     /* slightly darker on hover */
-}
-
-
-.dark-mode .report-popup {
-  background: #222;
-  color: white;
-}
-
-/* Header */
-.report-header {
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  position: relative;
-}
-
-/* Close button */
-.report-close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 4px;
-  border-radius: 4px;
-}
-.report-close:hover {
-  background: rgba(255,255,255,0.1);
-}
-
-/* === CHECKBOX ITEMS === */
-.report-option {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 0;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.report-option input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-
-/* Bottom buttons */
-.report-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-
-.report-cancel {
-  background: transparent;
-  border: none;
-  font-size: 16px;
-  cursor: pointer;
-  color: grey;
-}
-
-.report-submit {
-  background: transparent;
-  color: grey;
-  font-size: 16px;
-  border: none;
-  cursor: not-allowed;
-  opacity: 0.5;
-  transition: 0.2s;
-}
-
-/* === ACTIVE REPORT BUTTON === */
-.report-submit.active {
-  color:red;     /* YouTube blue */
-  cursor: pointer;
-  opacity: 1;
-}
-
-/* Force checkboxes to appear */
-.report-option input[type="checkbox"] {
-  appearance: auto !important;
-  -webkit-appearance: auto !important;
-  -moz-appearance: auto !important;
-
-  width: 18px !important;
-  height: 18px !important;
-
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  position: relative;
-  z-index: 10;
-  opacity: 1 !important;
-}
-
-/* Make sure label behaves correctly */
-.report-option {
-  display: flex !important;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 0;
-  font-size: 15px;
-  cursor: pointer;
-}
-
 
 .report-popup {
   position: absolute;
@@ -2012,7 +1868,6 @@ border-color: #2a2d2f;
   height: 18px;
   cursor: pointer;
 }
-
 
 /* Bottom buttons */
 .report-actions {
@@ -2253,11 +2108,6 @@ margin-bottom: 5%;
   /* NO TRANSITIONS as per user request */
 }
 
-.videoo video.hide-video {
-  opacity: 0;
-}
-
-
 /* Dark mode adjustments for .overlay-textt */
 .dark-mode .overlay-textt {
   /* As per your instruction, the background color is explicitly not changed.
@@ -2284,6 +2134,11 @@ margin-bottom: 5%;
       left: 3%;     /* Maintains consistent horizontal position */
   }
 }
+
+.videoo video.hide-video {
+  opacity: 0;
+}
+
 
 /* ==== META-DATA SECTION CONTAINER (.sectiionn) ==== */
 /* This container arranges meta-data elements (views, time, category) horizontally. */
@@ -3661,10 +3516,34 @@ margin: 0 auto;
 /* For larger monitors or dual-monitor setups */
 @media (min-width: 1280px) and (max-width: 1599px) {
 
+  .suggestionss
+{
+  
+border-style:none;
+  width: calc(100% - 4.2%); /* Occupies the remaining width after considering the sidebar and gap */
+  left: 4%;         /* Aligns it to the right of the sidebar, maintaining a consistent gap */
+}
+
+.sidebar
+{
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+  width:4%; 
+border-style:none;}
+
+
+.sidebar:hover {
+  width: 15%; /* Expands slightly on hover for better UX */
+}
+
 .container-1
 {
-  border-style: none;
-}
+border-style:none;
+  width: calc(100% - 4.2%); /* Occupies the remaining width after considering the sidebar and gap */
+  top: 6rem;        /* Positions the grid below the header and suggestions bar */
+  left: 4%;         /* Aligns it to the right of the sidebar, maintaining a consistent gap */
+  background-color: var(--color-bg-light); /* Default background color for light mode */}
+
+
 
   .caption span {
     font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
@@ -3673,12 +3552,14 @@ margin: 0 auto;
     color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
   }  
 
-.kontainer
-{
-     background-color:transparent;
-}
+  .caption span {
+    font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+    font-weight: 700;
+    font-size: 0.9rem; /* 15.5px */
+    color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
+  }  
 
-.videoo {
+  .videoo {
   position: relative; /* Allows for absolute positioning of child elements (e.g., controls, overlays) */
   width: 100%; /* Spans the full width of its parent container */
   height: auto; /* Height adjusts based on the video's aspect ratio and object-fit */
@@ -3691,7 +3572,6 @@ margin: 0 auto;
   width: 100%; /* Ensures the video fills the container's width */
   height: 14rem; /* Consistent height (200px converted to rem) */
 }
-
 
 }
 
