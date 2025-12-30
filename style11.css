@@ -1401,7 +1401,7 @@ margin-top: 5rem;
 
 }
 
-/* Large desktops (1280px–1599px)
+/* Large desktops (1280px–1599px)*/
 @media (min-width: 1280px) and (max-width: 1599px) {
 
 
@@ -1436,7 +1436,7 @@ margin-top: 5rem;
     }
 
 }
- */
+
  
 /* Ultra-wide (1600px and up) */
 @media (min-width: 1600px) {
