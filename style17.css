@@ -2354,6 +2354,18 @@ body {
     overflow-x: hidden;
   }
 
+
+    /* Notifications Icon */
+.Notifications {
+  margin-right: 4rem;
+}
+
+.Notifications img {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
+
 .content
 {
   border-style:none;

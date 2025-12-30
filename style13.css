@@ -2058,6 +2058,18 @@ border-radius: 7px;
 
 /* Large desktops (1280px–1599px) */
 @media (min-width: 1280px) and (max-width: 1599px) {
+
+  /* Notifications Icon */
+.Notifications {
+  margin-right: 4rem;
+}
+
+.Notifications img {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
+
   .layout { grid-template-columns: 250px 4fr 2fr; }
   .navbar, .sidebar, .content { padding: 2rem; }
 }

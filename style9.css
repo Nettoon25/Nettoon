@@ -1271,6 +1271,21 @@ body {
 }
 }
 
+/* Large Desktops / High-Resolution Screens (e.g., 1280px - 1599px) */
+/* For larger monitors or dual-monitor setups */
+@media (min-width: 1280px) and (max-width: 1599px) {
+
+    /* Notifications Icon */
+.Notifications {
+  margin-right: 4rem;
+}
+
+.Notifications img {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+}
+
 
 
 /* Ultra-wide (1600px and up) */

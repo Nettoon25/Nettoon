@@ -2188,6 +2188,7 @@ body {
 
 @media (min-width: 1280px) and (max-width: 1599px) {
 
+
   body {
     overflow-y: hidden;
     overflow-x: hidden;
@@ -2206,6 +2207,18 @@ body {
 {
   background-color:orange;
 }
+
+
+    /* Notifications Icon */
+.Notifications {
+  margin-right: 4rem;
+}
+
+.Notifications img {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
 
 .overlay-text
 {

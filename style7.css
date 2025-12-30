@@ -3564,6 +3564,16 @@ margin: 0 auto;
   {
     background-color: var(--color-bg-light); /* Default background color for light mode */
   }
+
+    /* Notifications Icon */
+.Notifications {
+  margin-right: 4rem;
+}
+
+.Notifications img {
+  width: 1.9rem;
+  height: 1.9rem;
+}
   
   .shorts-container
   {

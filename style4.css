@@ -4698,6 +4698,16 @@ margin-left: 8px;
 }
 @media (min-width: 1280px) and (max-width: 1599px) {
 
+    /* Notifications Icon */
+.Notifications {
+  margin-right: 4rem;
+}
+
+.Notifications img {
+  width: 1.9rem;
+  height: 1.9rem;
+}
+
 .container-2
 {
   border-style:none;
@@ -4709,9 +4719,6 @@ margin-left: 8px;
 
  
 }
-
-
-
   .kontainer {
     background-color: transparent;
     width: clamp(20%, 23vw, 24%); 
