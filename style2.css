@@ -588,7 +588,6 @@ visibility: visible;
 opacity: 1;
 
 }
-
 /* Notifications Icon */
 .Notifications {
   position: relative;
@@ -632,7 +631,8 @@ opacity: 1;
 
 .dark-mode .Notification-container
 {
-  background-color: #2a2d2f;
+  background-color: #121212; /* Black background for Dark Mode */
+
 }
 
 
@@ -658,7 +658,7 @@ opacity: 1;
 
 .dark-mode .Notification-header span {
   color: #fff;
-  background-color: #444;
+  background-color: #2a2d2f;
 }
 
 
@@ -676,17 +676,14 @@ opacity: 1;
 }
 
 .dark-mode .Notification
-{
-  background-color: var(--color-bg-metadata-dark); /* **YouTube-inspired dark gray background** */
+{  background-color: #2a2d2f;
 }
 
 
 
 .Notification:hover {
-background-color:beige;
-color: white;
+border-color: #2a2d2f;
 }
-
 
 
 .User-profile {
@@ -779,6 +776,11 @@ color: white;
   display:none;   /* makes sure it behaves like a label */
 }
 
+
+.dark-mode .User-profile img {
+  filter:invert(1);
+ }
+ 
 
 .Theme {
   display: flex;

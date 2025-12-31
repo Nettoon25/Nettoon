@@ -631,7 +631,8 @@ opacity: 1;
 
 .dark-mode .Notification-container
 {
-  background-color: #2a2d2f;
+  background-color: #121212; /* Black background for Dark Mode */
+
 }
 
 
@@ -657,7 +658,7 @@ opacity: 1;
 
 .dark-mode .Notification-header span {
   color: #fff;
-  background-color: #444;
+  background-color: #2a2d2f;
 }
 
 
@@ -675,8 +676,7 @@ opacity: 1;
 }
 
 .dark-mode .Notification
-{
-  background-color: var(--color-bg-metadata-dark); /* **YouTube-inspired dark gray background** */
+{  background-color: #2a2d2f;
 }
 
 
@@ -684,7 +684,6 @@ opacity: 1;
 .Notification:hover {
 border-color: #2a2d2f;
 }
-
 
 
 .User-profile {
@@ -760,23 +759,33 @@ border-color: #2a2d2f;
   object-fit: cover;
 }
 
+
 /* Row 3: Timer */
 .timer {
   flex: 1;
   width: 5%;
   height: 30px;
-  background-color: saddlebrown;
-  display:none;          /* let it be a full-width row */
-  padding-left: 2rem;    /* indent under username/message, same space as avatar */
+  background-color: transparent;
+        /* let it be a full-width row */
+  padding-left: 0.5rem;    /* indent under username/message, same space as avatar */
   margin-top: 0.2rem;
 }
 
 .timer span {
-  font-size: 0.3rem;
+  font-size: 0.7rem;
   color: #aaa;
-  display:none;   /* makes sure it behaves like a label */
+font-weight: bold;
 }
 
+.dark-mode .timer span
+{
+  color: #aaa;
+}
+
+.dark-mode .User-profile img {
+  filter:invert(1);
+ }
+ 
 
 .Theme {
   display: flex;
