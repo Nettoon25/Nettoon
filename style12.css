@@ -2324,6 +2324,39 @@ border-radius: 7px;
   .navbar { /* full nav, horizontal */ }
   .sidebar { /* visible with full functionality */ }
   .video-player { max-width: 100%; height: auto; }
+
+
+  .upload
+  {
+    background-color: transparent;
+    height: 2.8rem;
+  }
+  
+      /* Notifications Icon */
+      .Notifications {
+        margin-right: 3rem;
+      }
+      
+      .Notifications img {
+        width: 1.9rem;
+        height: 1.9rem;
+      }
+        
+      .upload img {
+        width: 2.7rem;
+        height: 2.7rem;
+      margin-top: 0px;
+      }
+        
+  
+  .Account img {
+    width: 100%;
+    height:  100%;
+  margin: 0 auto;
+  }
+  
+
+
 }
 
 /* Desktops (1025px–1279px) */

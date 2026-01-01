@@ -590,6 +590,8 @@ visibility: visible;
 opacity: 1;
 
 }
+
+
 /* Notifications Icon */
 .Notifications {
   position: relative;
@@ -1783,37 +1785,37 @@ body.dark-mode .share .default-icon {
 .report-popup.hidden {
   display: none;
 }
+
+
 /* Header */
 .report-header {
   display: flex;
-  flex-wrap: nowrap;
+  align-items: flex-start;
   justify-content: space-between;
-  align-items: center;
-  white-space: nowrap;          /* Prevent wrapping */
-  font-size: 1rem;
+  font-size: 0.95rem;
   margin-bottom: 1rem;
-  font-weight: bold;
-  background-color: transparent;
+  font-weight: 600;
+  background-color: pink;
   padding: 0.6rem 0.8rem;
   border-radius: 0.5rem;
-  gap:4rem;
+  gap: 0.75rem;
 }
 
-/* Ensure the text can shrink slightly if needed */
-.report-header span {
+/* Text */
+.report-header span:first-child {
   flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;      /* Prevents overflow */
-  padding-right: 0.5rem;
+  min-width: 0;                 /* 🔥 REQUIRED */
+  white-space: normal;
+  word-break: break-word;
+  line-height: 1.35;
 }
-
 
 /* Close button */
 .report-close {
+  flex-shrink: 0;
+  align-self: flex-start;
   cursor: pointer;
   font-size: 1.2rem;
-  color: #555;
-  transition: 0.2s;
 }
 
 .report-close:hover {
@@ -1996,7 +1998,7 @@ body.dark-mode .share .default-icon {
   max-height: 95vh;
   background-color: transparent;
   margin: 0;
-  padding: 1rem;
+  /*padding: 1rem;*/
   border-radius: 0.75rem;
   border: 0.1px solid black;
   overflow-y: auto;
@@ -2048,7 +2050,7 @@ z-index: 0;
   background-color: var(--color-bg-light); /* Using light background variable */
   color: var(--color-text-dark); /* Using dark text variable */
   border-radius: var(--border-radius-md); /* Using your 0.5rem variable */
-  padding-left: var(--spacing-sm); /* Using your 1rem variable */
+
   position: sticky; /* Keeps it at the top when scrolling comments */
   top: 0;
   z-index: 2; /* Ensures it stays above scrolling content */
@@ -2089,12 +2091,15 @@ z-index: 0;
   align-items: center;
   overflow-y: auto;
   overflow-x: hidden;
-  padding: 0.5rem 0;
+  padding: 0rem 0;
   z-index: 0;
   background-color:transparent; /* Light background for better readability */
   border-radius: 0px;
-  scrollbar-width: none; /* Firefox */
+  /*scrollbar-width: none; 
   -ms-overflow-style: none;  /* IE 10+ */
+    /* Fallback scrollbar styling (Firefox) */
+    scrollbar-width: thin; /* Thin scrollbar for Firefox */
+    scrollbar-color: var(--scrollbar-thumb-color-light) transparent; /* Firefox scrollbar color */
 }
 
 
@@ -3307,20 +3312,28 @@ padding-top: 0px;
   height: 3.3vw;
 }
 
-
-.upload img {
-  width: 100%;
-  height:  100%;
-  margin: 0 auto;
+.upload
+{
+  background-color: transparent;
+  height: 2.8rem;
 }
 
-.Notifications img {
-  width: 100%;
-  height:  100%;
-  margin: 0 auto;
-}
-
-
+    /* Notifications Icon */
+    .Notifications {
+      margin-right: 3rem;
+    }
+    
+    .Notifications img {
+      width: 1.9rem;
+      height: 1.9rem;
+    }
+      
+    .upload img {
+      width: 2.7rem;
+      height: 2.7rem;
+    margin-top: 0px;
+    }
+      
 
 .Account img {
   width: 100%;
@@ -3405,7 +3418,7 @@ background-color: transparent;
 
 
 .comment-container {
-background-color: transparent;
+  background-color: transparent;
   right: 5%; /* Position when shown */
   width: 37%;
   max-width: 400px;
@@ -3415,10 +3428,17 @@ background-color: transparent;
   top: 3.5rem;
 }
 
+.comments-list
+{
+  background-color: transparent;
+}
 
 
-
-
+.report-popup
+{
+  background-color: turquoise;
+  margin-top: 1rem;
+}
 
 
 

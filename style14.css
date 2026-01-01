@@ -2195,6 +2195,37 @@ body {
   body {
     overflow-y: hidden;
     overflow-x: hidden;
+
+    .upload
+{
+  background-color: transparent;
+  height: 2.8rem;
+}
+
+    /* Notifications Icon */
+    .Notifications {
+      margin-right: 3rem;
+    }
+    
+    .Notifications img {
+      width: 1.9rem;
+      height: 1.9rem;
+    }
+      
+    .upload img {
+      width: 2.7rem;
+      height: 2.7rem;
+    margin-top: 0px;
+    }
+      
+
+.Account img {
+  width: 100%;
+  height:  100%;
+margin: 0 auto;
+}
+
+
   }
 
 @media (min-width: 1280px) and (max-width: 1599px) {
@@ -2219,71 +2250,35 @@ body {
   background-color:orange;
 }
 
+.upload
+{
+  background-color: transparent;
+  height: 2.8rem;
+}
 
     /* Notifications Icon */
-.Notifications {
-  margin-right: 4rem;
-}
-
-.Notifications img {
-  width: 1.9rem;
-  height: 1.9rem;
-}
-
-
-.overlay-text
-{
-  font-size: 1.1rem;
-}
-
-
-.upload
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-}
-
-.Notifications
-{
-  background-color: grey;
-  width: 3vw;
-  height: 3vw;
-}
-
-.Account 
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-}
-
-.upload
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-}
-
-
-.upload img {
-  width: 100%;
-  height:  100%;
-  margin: 0 auto;
-}
-
-.Notifications img {
-  width: 100%;
-  height:  100%;
-  margin: 0 auto;
-}
-
+    .Notifications {
+      margin-right: 3rem;
+    }
+    
+    .Notifications img {
+      width: 1.9rem;
+      height: 1.9rem;
+    }
+      
+    .upload img {
+      width: 2.7rem;
+      height: 2.7rem;
+    margin-top: 0px;
+    }
+      
 
 .Account img {
   width: 100%;
   height:  100%;
 margin: 0 auto;
 }
+
 
 .dropdown-content 
 {

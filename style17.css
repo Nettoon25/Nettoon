@@ -2297,48 +2297,28 @@ background-color: #F5F5F5;
   font-size: 0.75rem;
 }
 
-
 .upload
 {
   background-color: transparent;
-  width: 3vw;
-  height: 3vw;
+  height: 2.8rem;
 }
 
-.Notifications
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-}
-
-.Account 
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-}
-
-.upload
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-}
-
-
-.upload img {
-  width: 100%;
-  height:  100%;
-  margin: 0 auto;
-}
-
-.Notifications img {
-  width: 100%;
-  height:  100%;
-  margin: 0 auto;
-}
-
+    /* Notifications Icon */
+    .Notifications {
+      margin-right: 3rem;
+    }
+    
+    .Notifications img {
+      width: 1.9rem;
+      height: 1.9rem;
+    }
+      
+    .upload img {
+      width: 2.7rem;
+      height: 2.7rem;
+    margin-top: 0px;
+    }
+      
 
 .Account img {
   width: 100%;
