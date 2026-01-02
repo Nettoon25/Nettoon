@@ -1068,6 +1068,9 @@ height: 100vh;
 }
 
 
+.hidden {
+  display: none !important;
+}
 
 
 /* ==== Playlist Layout ==== */
@@ -1230,7 +1233,7 @@ border-style:none;
   z-index: 0;
  padding-bottom: 0px;
  margin-bottom:0px;
-  gap: 0rem; /* Slight space between items */
+  gap: 3rem; /* Slight space between items */
   padding: 0rem 0rem;
   scrollbar-width: thin;
   overflow-x:hidden;
@@ -1247,18 +1250,20 @@ border-style:none;
 
 .shorts {
   position: relative;
-  width: 100%;
-  max-width: 300px;
-  aspect-ratio: 9 / 16;
+  width: 100%;           /* Takes full width of its designated column in layout */
+  max-width: 250px;      /* Limits the maximum width of the short video card */
+  aspect-ratio: 9 / 16;  /* Crucial: Ensures a vertical 9:16 aspect ratio for shorts */
+  /* Spacing & Appearance */
   max-height: 50vh;
-  margin: 0; /* remove margin */
+  margin-left: 1rem; /* remove margin */
   overflow: hidden;
   border-radius: 12px;
   flex-shrink: 0;
-  padding: 20px;
+  padding: 0px;
   margin-bottom: 0px;
   scroll-snap-align: start;
   background-color: transparent;
+  border-style:none;
 }
   
   /* 🔷 Video Element */
@@ -1305,8 +1310,8 @@ border-style:none;
 /* ==== VIEWS OVERLAY (.views-overlay) ==== */
 .views-overlay {
   position: absolute;
-  top: 25px;           /* ⬆️ Move to the top */
-  left: 25px;          /* Slight inset from the left */
+  top:10px;           /* ⬆️ Move to the top */
+  left: 15px;          /* Slight inset from the left */
   display: flex;
   align-items: center;
   gap: 4px;
@@ -1340,6 +1345,162 @@ border-style:none;
   color: #f5f5f5;
 }
 
+
+/* ⭐ Three Dots Options Button */
+.options-btn {
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 5;
+  opacity: 0.85;
+  transition: opacity 0.1s ease-in-out;
+
+  background-color: transparent;
+}
+
+.options-btn:hover {
+  opacity: 1;
+}
+
+/* 🌙 Dark mode: invert icon for visibility */
+.dark-mode .options-btn {
+  filter: invert(1);
+}
+
+/* MAIN OPTIONS MENU */
+.options-menu {
+  position: absolute;
+  top: 40px;
+  right: 8px;
+  width: 180px;
+  background: #333;
+  border-radius: 8px;
+  padding: 8px 0;
+  border: 1px solid #555;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: 0.2s ease-in-out;
+}
+
+.options-menu:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* OPTION ITEM */
+.option-item {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: #fff;
+  position: relative;
+}
+
+.option-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ICONS */
+.menu-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* CHILD MENU (SUBMENU) */
+.child-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 160px;
+  background: #444;
+  padding: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #555;
+  opacity: 0;
+  transform: translateX(10px);
+  pointer-events: none;
+  transition: 0.2s ease-in-out;
+  z-index: 20;
+}
+
+/* SHOW SUBMENU ON HOVER */
+.has-children:hover > .child-menu {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* CHILD ITEMS */
+.child-item {
+  padding: 8px 12px;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.child-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* DARK MODE ICON FIX */
+.dark-mode .menu-icon,
+.dark-mode .options-btn {
+  filter: invert(1);
+}
+
+/* ⭐ Smaller text across all menu items */
+.option-item,
+.child-item,
+.share-panel,
+.share-panel-item {
+    font-size: 12px !important;
+}
+
+/* ⭐ Reduce main menu icons */
+.menu-icon {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* ⭐ 3-dots button smaller */
+.options-btn {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* ⭐ Share panel header text smaller */
+.share-panel-header {
+    font-size: 13px !important;
+}
+
+/* ⭐ Icons inside share panel */
+.share-icon {
+    width: 12px !important;
+    height: 12px !important;
+}
+
+/* ⭐ Child menu size reduction */
+.child-item {
+    padding: 6px 10px !important;
+}
+
+/* ⭐ Main menu item padding slightly smaller */
+.option-item {
+    padding: 8px 12px !important;
+}
+
+/* ⭐ Submenu width smaller */
+.child-menu {
+    width: 130px !important;
+}
 
 
 

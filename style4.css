@@ -2313,6 +2313,7 @@ border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px
   scrollbar-width: thin; /* Makes the scrollbar thinner */
   scrollbar-color: var(--color-scrollbar-thumb) transparent; /* Custom scrollbar color (thumb and track) */
   /* NO TRANSITIONS as per user request */
+  border-style:ridge;
 }
 
 /* Dark mode adjustment for scrollbar color */
@@ -2335,9 +2336,9 @@ border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px
   background-color:transparent; /* Transparent background */
   overflow: hidden;      /* Hides any content that overflows the rounded corners */
   /* NO TRANSITIONS as per user request */
-gap:1rem;
-border-style: none;
-  margin: 1rem 0 1rem 3rem;
+right: 1.3rem;
+border-style:none;
+  margin: 1rem 0 0rem 3rem;
 }
 
 /* Dark mode adjustment for .shorts (if needed for subtle background/shadows) */
@@ -2427,7 +2428,7 @@ border-style: none;
 /* ⭐ Three Dots Options Button */
 .options-btn {
   position: absolute;
-  top: 8px;
+  top: 12px;
   right: 8px;
   width: 22px;
   height: 22px;
@@ -2435,7 +2436,6 @@ border-style: none;
   z-index: 5;
   opacity: 0.85;
   transition: opacity 0.1s ease-in-out;
-  filter: invert(1);
 }
 
 .options-btn:hover {
@@ -3043,7 +3043,7 @@ border-style: none;
   padding: 20px;
   box-shadow: 0 8px 25px rgba(97, 77, 77, 0.4);
   z-index: 300;
-  height: 380px;      /* fixed consistent height */
+  height: auto;      /* fixed consistent height */
   overflow: hidden;   /* prevents scrollbars */
   box-sizing: border-box;  /* prevents padding from increasing height */
 }

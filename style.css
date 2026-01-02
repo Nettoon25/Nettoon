@@ -1829,7 +1829,7 @@ font-weight: bold;
   padding: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   z-index: 300;
-  height: 370px;      /* fixed consistent height */
+  height: auto;      /* fixed consistent height */
   overflow: hidden;   /* prevents scrollbars */
   box-sizing: border-box;  /* prevents padding from increasing height */
 }
@@ -3598,7 +3598,12 @@ border-style:none;
 /* Styles for the HTML <video> tag itself. */
 .videoo video {
   width: 100%; /* Ensures the video fills the container's width */
-  height: 14rem; /* Consistent height (200px converted to rem) */
+  /* height: 14rem; Consistent height (200px converted to rem) */
+}
+
+.report-popup
+{
+  height: auto;   
 }
 
 }

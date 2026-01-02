@@ -1044,6 +1044,10 @@ font-weight: bold;
   margin-bottom: 0.5rem; /* Converted from 50px */
 }
 
+      
+
+
+
 .dark-mode .menu-item {
   color: var(--color-text-dark-secondary, #b3b3b3);
 }
@@ -1059,12 +1063,29 @@ font-weight: bold;
 }
 
 /* hover / active */
-.menu-item:hover,
+.menu-item:hover
+{
+  background: #2d313a; /* User's color */
+  color: white;
+  /* border-left-color: var(--color-accent, #007bff); Enhanced with accent color */
+
+}
+
+.menu-item img :hover
+{
+
+  filter: invert(1);
+}
+ 
+
+/* hover / active */
 .menu-item.active {
   background: #2d313a; /* User's color */
   color: white;
-  border-left-color: var(--color-accent, #007bff); /* Enhanced with accent color */
+   /*border-left-color: var(--color-accent, #007bff); Enhanced with accent color */
+
 }
+
 
 /* 🌙 Dark Mode Override for Hover/Active - Ensures quality */
 .dark-mode .menu-item:hover,
@@ -1677,7 +1698,8 @@ font-weight: bold;
 
 .dark-mode .slider
 {
-  background-color: grey;
+  background:#2a2a2a;
+   /*background: grey;*/
 }
 
 .slider:before {
@@ -2062,6 +2084,18 @@ background-color: #F5F5F5;
 }
 .confirm-btn:hover { background:#b71c1c; }
 
+.form-group .checkbox-group
+{
+  background-color:pink;
+}
+
+.dark-mode .form-group .current-plan
+
+{
+color: black;
+}
+
+
 .delete-btn { 
     background:#dc3545; 
     color:#fff; 
@@ -2114,6 +2148,14 @@ background-color: #F5F5F5;
     font-size:1.5rem; 
     color:#ff9800; 
 }
+
+.delete-form 
+{
+  background-color: transparent;
+  margin-top: 1rem;
+}
+
+
 .delete-form .form-group { 
     margin-bottom: 1.25rem; /* Converted from 20px */
 }

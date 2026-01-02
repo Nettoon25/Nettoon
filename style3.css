@@ -2540,7 +2540,7 @@ filter: invert(1);
   border-radius: 7px;
   border: 0.1px solid #ccc;
   scrollbar-width: thin;
-  scrollbar-color:#ff5722;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
   top:1em;
 }
 
@@ -2582,8 +2582,8 @@ border-radius: 0px;
 border-color: #ccc;
 overflow-y: auto;
 overflow-x: hidden;
-scrollbar-width: thin; /* Set scrollbar to thin */
-scrollbar-color:#ff5722;
+scrollbar-width: thin;
+scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 border: 1px solid #ccc; /* Set a very thin border */
 }
 
@@ -2616,6 +2616,8 @@ background-color: #F5F5F5;
   z-index:1000;
 margin-left: 0px;
 background-color:transparent;
+scrollbar-width: thin;
+scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
 
 .dark-mode .comment-scroll-area
@@ -3007,10 +3009,10 @@ right: 0.5%;
 
 
 .container-3 {
+  display: flex;
   position: relative;
   width: 100%;
   height: auto;
-  display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
@@ -3910,7 +3912,7 @@ margin-bottom: 0rem;
   padding: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   z-index: 300;
-  height: 380px;      /* fixed consistent height */
+  height: auto;      /* fixed consistent height */
   overflow: hidden;   /* prevents scrollbars */
   box-sizing: border-box;  /* prevents padding from increasing height */
 }
@@ -6113,6 +6115,7 @@ margin-left: 5px;
   height: 1.9rem;
 }
  
+/*
   .video-container
   {
   border-style:none;
@@ -6133,7 +6136,7 @@ margin-left: 5px;
 .card
 {
   border-style:none;
-      max-height: 16.375rem; /* Sets a maximum height (230px converted to rem) to control card size */
+      max-height: 16.375rem;  
       margin-top: 2rem;
 margin-bottom:1rem;
 }
@@ -6143,26 +6146,25 @@ margin-bottom:1rem;
   height: 145px;
 }
 
-/* Video inside .pichaa */
+
 .pichaa video {
   width: 100%;
   height: 100%;
 }
 
 .videoo {
-  position: relative; /* Allows for absolute positioning of child elements (e.g., controls, overlays) */
-  width: 100%; /* Spans the full width of its parent container */
-  height: auto; /* Height adjusts based on the video's aspect ratio and object-fit */
+  position: relative;
+  width: 100%;
+  height: auto; 
 
 }
 
-/* ==== VIDEO ELEMENT INSIDE .videoo (.videoo video) ==== */
-/* Styles for the HTML <video> tag itself. */
+
 .videoo video {
-  width: 100%; /* Ensures the video fills the container's width */
-  height: 14rem; /* Consistent height (200px converted to rem) */
+  width: 100%; 
+  height: 14rem; 
 }
-
+*/
 
 }
 

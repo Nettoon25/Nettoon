@@ -1141,6 +1141,7 @@ border-color: #2a2d2f;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding:0px;
 }
 
 /* ==== VIDEO ELEMENT (.video video) ==== */
@@ -1182,8 +1183,6 @@ border-color: #2a2d2f;
   border-radius: 0.4375rem; /* Uses your specified rem value for consistency */
   border-style: none; /* No border */
   background-color:transparent;
-  position: relative;
-  z-index: 5;
 }
 /* ==== INDIVIDUAL INTERACTIVE ITEMS (.viewss, .commentss, .likess, .dislikee, .timee, .follow, .option) ==== */
 /* These styles apply to all clickable interactive items within the section, providing a consistent look and feel. */
@@ -1213,8 +1212,6 @@ border-color: #2a2d2f;
     cursor: pointer;       /* Indicates that the element is clickable */
     /* NO TRANSITIONS as per user request */
 }
-
-
 
 /* Dark mode adjustment for individual interactive items */
 .dark-mode .viewss,
@@ -1284,12 +1281,13 @@ img {
 /* Specific flex adjustments for .viewss, .follow, and .timee */
 /* These override the general 'flex: 1.5' to give them more space. */
 .viewss {
-  flex: 3.3; 
+  flex: 3; 
   margin-left: 0.5rem;
 }
 
 .following {
   flex: 1.8; 
+  display: none;
 }
 
 .commentss {
@@ -1363,8 +1361,6 @@ body.dark-mode .follow span {
 .option {
   position: relative;
   margin-right: 0.5rem;
-  position: relative;
-  z-index: 5;
 }
 
 .option-popup {
@@ -1376,7 +1372,7 @@ body.dark-mode .follow span {
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  z-index: 9999; /* VERY IMPORTANT */
+  z-index: 50;
   padding: 0.5rem;
   min-width: 155px;
   display: flex;           /* Make children display in a row */
@@ -1421,7 +1417,6 @@ body.dark-mode .follow span {
   border-radius:7px;
   box-shadow: 0 -5px 20px rgba(0,0,0,0.4);
   z-index: 9999;
-  border-style:none;
 }
 
 /* DARK MODE FIX — CORRECT SELECTORS */
@@ -1477,6 +1472,8 @@ body.dark-mode .follow span {
   margin-top: 5px;
   color:black;
 }
+
+
 /* ================================
    PLAYLIST POPUP V2 — MAIN PANEL
 ================================ */
@@ -1650,6 +1647,7 @@ body.dark-mode .follow span {
 
 
 
+
 /* REPORT POPUP V2 */
 .report-popup-v2 {
   position:absolute;
@@ -1789,9 +1787,6 @@ body.dark-mode .following span,
 body.dark-mode .follow span {
   color: var(--color-text-light-alt); /* Lighter text color for dark mode */
 }
-
-
-
 
 
 :root {
@@ -2545,7 +2540,7 @@ filter: invert(1);
   border-radius: 7px;
   border: 0.1px solid #ccc;
   scrollbar-width: thin;
-  scrollbar-color:#ff5722;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
   top:1em;
 }
 
@@ -2584,7 +2579,7 @@ margin-right: 0px;
 margin-top: 0px; 
 border-radius: 0px;
 scrollbar-width: thin; /* Set scrollbar to thin */
-scrollbar-color:#ff5722;
+scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 border-color: #ccc;
 overflow-y: auto;
 overflow-x: hidden;
@@ -2620,6 +2615,8 @@ background-color: #F5F5F5;
   z-index:1000;
 margin-left: 0px;
 background-color:transparent;
+scrollbar-width: thin;
+scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
 
 .dark-mode .comment-scroll-area
@@ -3514,7 +3511,7 @@ right: 0.5%;
   padding: 20px;
   box-shadow: 0 8px 25px rgba(0,0,0,0.4);
   z-index: 300;
-  height: 380px;      /* fixed consistent height */
+  height: auto;     /* fixed consistent height */
   overflow: hidden;   /* prevents scrollbars */
   box-sizing: border-box;  /* prevents padding from increasing height */
 }
@@ -5250,13 +5247,13 @@ margin: 0 auto;
   gap:10px; /* Space between main elements inside (1rem approx 16px) */
   max-width: 100%;
   flex-shrink:0;
-  border-style: none;;
+  border-style:ridge;
   height: 520px; /* Height adapts to content */
   }
 
 .containerr
 {
-  background-color: transparent;
+  background-color: pink;
   border-style: none;
     margin-left: 10px;
    height:510px;
@@ -5264,25 +5261,39 @@ margin: 0 auto;
 
 .profillee
 {
-  background-color: transparent;
+  background-color:grey;
 }
 
 .video 
 {   height:510px;
   aspect-ratio: 16/9;
 margin-bottom: 0px;
-margin-left: 0.5rem;}
+margin-left: 0.5rem;
+margin-top: 0px;
+padding-top:0px;
+padding-bottom: 0px;
+
+
+}
+
+.video video
+{
+width: 100%;
+max-width: 100%;
+
+}
 
 .captionn h3
 {
   font-size: clamp(1rem, 1.1vw, 1.5rem);
-  background-color: transparent;
+  background-color: green;
   margin-top: 0.3rem;
+  margin-bottom: 0px;
 }
 
 .sectionn 
 {
-  background-color: transparent;
+  background-color: blue;
   margin-top: 0px;
 }
 
@@ -5705,6 +5716,8 @@ margin-left: 5px;
   width: 1.9rem;
   height: 1.9rem;
 }
+
+/*
  
   .video-container
   {
@@ -5724,7 +5737,7 @@ margin-left: 5px;
 .card
 {
   border-style:none;
-      max-height: 16.375rem; /* Sets a maximum height (230px converted to rem) to control card size */
+      max-height: 16.375rem;  Sets a maximum height (230px converted to rem) to control card size 
       margin-top:1rem ;
 margin-bottom: 0.7rem;
 }
@@ -5736,29 +5749,26 @@ margin-bottom: 0.7rem;
   height: 145px;
 }
 
-/* Video inside .pichaa */
+
 .pichaa video {
   width: 100%;
   height: 100%;
 }
 
 .videoo {
-  position: relative; /* Allows for absolute positioning of child elements (e.g., controls, overlays) */
-  width: 100%; /* Spans the full width of its parent container */
-  height: auto; /* Height adjusts based on the video's aspect ratio and object-fit */
+  position: relative; 
+  width: 100%; 
+  height: auto; 
 
 }
 
-/* ==== VIDEO ELEMENT INSIDE .videoo (.videoo video) ==== */
-/* Styles for the HTML <video> tag itself. */
 .videoo video {
-  width: 100%; /* Ensures the video fills the container's width */
-  height: 14rem; /* Consistent height (200px converted to rem) */
+  width: 100%;
+  height: 14rem;
 }
 
 
-/* Specific flex adjustments for .viewss, .follow, and .timee */
-/* These override the general 'flex: 1.5' to give them more space. */
+
 .viewss {
   flex: 3.3; 
   margin-left: 0.5rem;
@@ -5787,7 +5797,7 @@ margin-bottom: 0.7rem;
 .timee {
   flex: 3;
 }
-
+*/
 
 }
 
