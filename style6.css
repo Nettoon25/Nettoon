@@ -721,11 +721,13 @@ flex-wrap: nowrap;
 
 .User-profile .username 
 {
-  background-color: transparent;
-  float: left;
+  flex: 1;                 /* takes remaining space */
+  min-width: 0;            /* 🔑 allows truncation */
+  font-weight: bold;
   margin-left: 0.5rem;
-  font-weight:bold;
-  border-radius: 7px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 
 }
 
@@ -742,10 +744,10 @@ flex-wrap: nowrap;
 
 .User-profile .optionnn
 {
-  background-color: transparent;
-  float: right;
-  margin-left:10rem;
-  height: auto;
+  margin-left: auto;       /* 🔥 pushes to far right */
+  flex-shrink: 0;          /* never shrink */
+  display: flex;
+  align-items: center;
 
 }
 
@@ -753,7 +755,7 @@ flex-wrap: nowrap;
 {
   width: 1rem;
   height: 1rem;
-  margin-top: 0.5rem;
+  cursor: pointer;
 }
 
 
@@ -843,7 +845,7 @@ flex-wrap: nowrap;
 {
   color: #aaa;
 }
- 
+
 
 
 .Theme {
