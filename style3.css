@@ -3448,7 +3448,7 @@ margin-bottom: 0rem;
   gap: 0.25rem;                 /* smaller gap */
 
   padding: 0.2rem 0.35rem;      /* smaller padding */
-  background-color: rgba(139, 69, 19, 0.85);
+  background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent dark overlay */
   color: white;
   border-radius: 0.25rem;
 
