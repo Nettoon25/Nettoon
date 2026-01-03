@@ -588,6 +588,7 @@ visibility: visible;
 opacity: 1;
 
 }
+
 /* Notifications Icon */
 .Notifications {
   position: relative;
@@ -619,6 +620,7 @@ opacity: 1;
   border-radius: 0.5rem;
   box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.4);
   overflow-y: auto;
+  overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 
@@ -641,7 +643,6 @@ opacity: 1;
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: red; /* same as container background */
   padding: 0rem;
   border-bottom: 1px solid #444;
 }
@@ -665,7 +666,7 @@ opacity: 1;
 
 .Notification {
   display: flex;
-  padding: 0.75rem;
+  padding: 0rem;
   border-radius: 0.2rem;
   background-color: white;
   margin-top: 0.5rem;
@@ -673,24 +674,31 @@ opacity: 1;
   transition: background 0.2s ease;
   flex-direction: column; /* stack rows */
   gap: 0.4rem;
+  border-style:none;
+  justify-content: flex-start;
 }
 
 .dark-mode .Notification
 {  background-color: #2a2d2f;
 }
 
-
-
 .Notification:hover {
 border-color: #2a2d2f;
 }
 
+.Content
+{
+  background-color: transparent;
+  padding: 0px;
+}
 
 .User-profile {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* push username left, timer right */
+flex-wrap: nowrap;
   width: 100%;
+  background-color: transparent;
+  justify-content: flex-start;
 }
 
 
@@ -712,14 +720,47 @@ border-color: #2a2d2f;
   object-fit: cover;
 }
 
+.dark-mode .User-profile img {
+ filter:invert(1);
+}
+
+.User-profile .username 
+{
+  background-color: transparent;
+  float: left;
+  margin-left: 0.5rem;
+  font-weight:bold;
+  border-radius: 7px;
+
+}
+
 /* Username stays left */
-.username {
-  font-weight: 600;
+.User-profile .username span
+ {
+  font-weight:bold;
   font-size: 0.9rem;
   color: #36454F;
   margin-left: 0.5rem;
   flex: 1;
+
 }
+
+.User-profile .optionnn
+{
+  background-color: transparent;
+  float: right;
+  margin-left:10rem;
+  height: auto;
+
+}
+
+.User-profile .optionnn img
+{
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.5rem;
+}
+
 
 /* Row 2: Message left, Thumb right */
 .message-row {
@@ -757,30 +798,56 @@ border-color: #2a2d2f;
   height: 3rem;
   border-radius: 0.3rem;
   object-fit: cover;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
 }
 
-/* Row 3: Timer */
-.timer {
-  flex: 1;
-  width: 5%;
-  height: 30px;
-  background-color: saddlebrown;
-  display:none;          /* let it be a full-width row */
-  padding-left: 2rem;    /* indent under username/message, same space as avatar */
-  margin-top: 0.2rem;
+
+
+.Content .timer
+{
+  float: left;
+  margin-left:0.2rem;
+  /* Flex Item Properties */
+  flex-shrink: 0;        /* Prevents pills from shrinking too much when space is limited */
+  flex-grow: 0;          /* Prevents pills from growing excessively */
+  min-width: 5rem;       /* Minimum width (80px) to ensure readability */
+  max-width: 12%;        /* Limits maximum width to prevent single pills from dominating */
+  height: auto;
+  background-color: transparent;
+  margin-bottom: 0.3rem;
 }
 
-.timer span {
-  font-size: 0.3rem;
+
+.Content .timer span{
+  /* Flex Item Properties */
+  flex: 1;               /* Allows text to grow and fill available space within the pill */
+
+  /* Typography */
+  font-weight: var(--font-weight-bold); /* Bold font weight */
+  font-size: 0.7rem; /* Font size (15px) */
+  color: grey; /* Default text color (Dark Grey) for light mode */
+  
+  /* Spacing & Alignment */
+  padding: var(--spacing-xxxs); /* Small padding (3px) around the text */
+  margin: 0;               /* Removes default margins */
+  text-align: center;      /* Centers the text within its flex container */
+
+  /* Text Handling */
+  white-space: nowrap;     /* Prevents text wrapping */
+  overflow: hidden;        /* Hides overflowing text */
+  text-overflow: ellipsis; /* Truncates long text with ellipsis */
+  
+  cursor: pointer;       /* Inherits cursor style from parent (redundant but harmless) */
+  /* NO TRANSITIONS as per user request */
+}
+
+
+
+.dark-mode .Content .timer span
+{
   color: #aaa;
-  display:none;   /* makes sure it behaves like a label */
 }
-
-
-.dark-mode .User-profile img {
-  filter:invert(1);
- }
- 
 
 .Theme {
   display: flex;
@@ -1127,31 +1194,32 @@ border-color: #2a2d2f;
   margin: 0; /* Remove unnecessary margin */
 }
 /* No changes needed to your CSS for this fix. It's already correct. */
-
-/* ==== VIDEO PLAYER CONTAINER (.video) ==== */
+/* ==== VIDEO PLAYER CONTAINER ==== */
 .video {
   position: relative;
   width: 100%;
-  height: auto;
   aspect-ratio: 16 / 9;
   background-color: var(--color-bg-dark-alt);
-  border-radius: var(--border-radius-md); /* Consistent medium rounded corners for the video player */
+  border-radius: var(--border-radius-md);
   overflow: hidden;
-  margin-block-start: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding:0px;
+
+  /* 🔑 critical fixes */
+  display: block;
+  max-width: 100%;
 }
 
-/* ==== VIDEO ELEMENT (.video video) ==== */
+/* ==== VIDEO ELEMENT ==== */
 .video video {
-  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  position: absolute;   /* 🔑 remove intrinsic flow */
+  inset: 0;             /* top:0 right:0 bottom:0 left:0 */
+
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Remains 'contain' for full video visibility */
-  display: block;
+
+  object-fit: contain;
+  border-radius: inherit;
 }
+
 
 /* ==== PLAY OVERLAY BUTTON (.play-overlay) ==== */
 .play-overlay {
@@ -1287,7 +1355,7 @@ img {
 
 .following {
   flex: 1.8; 
-  display: none;
+  display:flex;
 }
 
 .commentss {
@@ -1361,6 +1429,12 @@ body.dark-mode .follow span {
 .option {
   position: relative;
   margin-right: 0.5rem;
+
+}
+
+.option img
+{
+  margin-left: 0.5rem;
 }
 
 .option-popup {
@@ -5238,77 +5312,60 @@ margin: 0 auto;
 }
 
 
-  .video-container 
-  { 
-    max-width: 100%; height: auto; 
-    margin-top: 60px;
-    background-color: transparent;
-  width: 100%;
-  gap:10px; /* Space between main elements inside (1rem approx 16px) */
-  max-width: 100%;
-  flex-shrink:0;
-  border-style:ridge;
-  height: 520px; /* Height adapts to content */
-  }
+.video-container 
+{ 
+  max-width: 100%; height: auto; 
+  margin-top: 60px;
+  background-color: transparent;
+width: 100%;
+gap:10px; /* Space between main elements inside (1rem approx 16px) */
+max-width: 100%;
+flex-shrink:0;
+border-style:none;
+height: auto; /* Height adapts to content */
+}
 
 .containerr
 {
-  background-color: pink;
-  border-style: none;
-    margin-left: 10px;
-   height:510px;
+  background-color: transparent;
+border-style:none;
+  margin-left: 10px;
+
 }
 
 .profillee
 {
-  background-color:grey;
+  background-color: transparent;
 }
 
-.video 
-{   height:510px;
-  aspect-ratio: 16/9;
-margin-bottom: 0px;
-margin-left: 0.5rem;
-margin-top: 0px;
-padding-top:0px;
-padding-bottom: 0px;
 
-
-}
-
-.video video
-{
-width: 100%;
-max-width: 100%;
-
-}
 
 .captionn h3
 {
-  font-size: clamp(1rem, 1.1vw, 1.5rem);
-  background-color: green;
-  margin-top: 0.3rem;
-  margin-bottom: 0px;
+font-size: clamp(1rem, 1.1vw, 1.5rem);
+background-color: transparent;
+margin-top: 1rem;
+margin-bottom: 1rem;
 }
 
 .sectionn 
 {
-  background-color: blue;
-  margin-top: 0px;
+  background-color: transparent;
+margin-top:0.2rem;
 }
 
 /* Increase space for time and follow buttons */
 .viewss {
-  flex: 3;
+flex: 3;
 }
 
 /* Increase space for time and follow buttons */
 .follow {
-  flex: 3;
+flex: 3;
 }
 
 .timee {
-  flex: 2;
+flex: 2;
 }
 
 /* Label styling for text within interactive elements */
@@ -5318,7 +5375,7 @@ max-width: 100%;
 .dislikee span,
 .timee span,
 .follow span {
-  font-size: clamp(0.75rem, 0.75vw, 0.75rem); 
+font-size: clamp(0.75rem, 0.75vw, 0.75rem); 
 
 }
 
@@ -5326,8 +5383,8 @@ max-width: 100%;
 .container-2
 {
   background-color: transparent;
-  max-height:510px;
-  border-style: none;
+  max-height:450px;
+  border-style:none;
   
 flex-basis: 39%; /* Provides a base width, allowing it to grow or shrink */
 max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: ensures a min width (20rem), scales with viewport (37vw), and has a max width (40rem) for very large screens. This prevents distortion and ensures optimal use of space. */

@@ -589,6 +589,7 @@ opacity: 1;
 
 }
 
+
 /* Notifications Icon */
 .Notifications {
   position: relative;
@@ -620,6 +621,7 @@ opacity: 1;
   border-radius: 0.5rem;
   box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.4);
   overflow-y: auto;
+  overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 
@@ -642,7 +644,6 @@ opacity: 1;
   position: sticky;
   top: 0;
   z-index: 10;
-  background-color: red; /* same as container background */
   padding: 0rem;
   border-bottom: 1px solid #444;
 }
@@ -666,7 +667,7 @@ opacity: 1;
 
 .Notification {
   display: flex;
-  padding: 0.75rem;
+  padding: 0rem;
   border-radius: 0.2rem;
   background-color: white;
   margin-top: 0.5rem;
@@ -674,25 +675,31 @@ opacity: 1;
   transition: background 0.2s ease;
   flex-direction: column; /* stack rows */
   gap: 0.4rem;
+  border-style:none;
+  justify-content: flex-start;
 }
 
 .dark-mode .Notification
 {  background-color: #2a2d2f;
 }
 
-
-
 .Notification:hover {
 border-color: #2a2d2f;
 }
 
-
+.Content
+{
+  background-color: transparent;
+  padding: 0px;
+}
 
 .User-profile {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* push username left, timer right */
+flex-wrap: nowrap;
   width: 100%;
+  background-color: transparent;
+  justify-content: flex-start;
 }
 
 
@@ -714,14 +721,47 @@ border-color: #2a2d2f;
   object-fit: cover;
 }
 
+.dark-mode .User-profile img {
+ filter:invert(1);
+}
+
+.User-profile .username 
+{
+  background-color: transparent;
+  float: left;
+  margin-left: 0.5rem;
+  font-weight:bold;
+  border-radius: 7px;
+
+}
+
 /* Username stays left */
-.username {
-  font-weight: 600;
+.User-profile .username span
+ {
+  font-weight:bold;
   font-size: 0.9rem;
   color: #36454F;
   margin-left: 0.5rem;
   flex: 1;
+
 }
+
+.User-profile .optionnn
+{
+  background-color: transparent;
+  float: right;
+  margin-left:10rem;
+  height: auto;
+
+}
+
+.User-profile .optionnn img
+{
+  width: 1rem;
+  height: 1rem;
+  margin-top: 0.5rem;
+}
+
 
 /* Row 2: Message left, Thumb right */
 .message-row {
@@ -759,29 +799,56 @@ border-color: #2a2d2f;
   height: 3rem;
   border-radius: 0.3rem;
   object-fit: cover;
+  margin-top: 0.5rem;
+  margin-right: 0.5rem;
 }
 
-/* Row 3: Timer */
-.timer {
-  flex: 1;
-  width: 5%;
-  height: 30px;
-  background-color: saddlebrown;
-  display:none;          /* let it be a full-width row */
-  padding-left: 2rem;    /* indent under username/message, same space as avatar */
-  margin-top: 0.2rem;
+
+
+.Content .timer
+{
+  float: left;
+  margin-left:0.2rem;
+  /* Flex Item Properties */
+  flex-shrink: 0;        /* Prevents pills from shrinking too much when space is limited */
+  flex-grow: 0;          /* Prevents pills from growing excessively */
+  min-width: 5rem;       /* Minimum width (80px) to ensure readability */
+  max-width: 12%;        /* Limits maximum width to prevent single pills from dominating */
+  height: auto;
+  background-color: transparent;
+  margin-bottom: 0.3rem;
 }
 
-.timer span {
-  font-size: 0.3rem;
+
+.Content .timer span{
+  /* Flex Item Properties */
+  flex: 1;               /* Allows text to grow and fill available space within the pill */
+
+  /* Typography */
+  font-weight: var(--font-weight-bold); /* Bold font weight */
+  font-size: 0.7rem; /* Font size (15px) */
+  color: grey; /* Default text color (Dark Grey) for light mode */
+  
+  /* Spacing & Alignment */
+  padding: var(--spacing-xxxs); /* Small padding (3px) around the text */
+  margin: 0;               /* Removes default margins */
+  text-align: center;      /* Centers the text within its flex container */
+
+  /* Text Handling */
+  white-space: nowrap;     /* Prevents text wrapping */
+  overflow: hidden;        /* Hides overflowing text */
+  text-overflow: ellipsis; /* Truncates long text with ellipsis */
+  
+  cursor: pointer;       /* Inherits cursor style from parent (redundant but harmless) */
+  /* NO TRANSITIONS as per user request */
+}
+
+
+
+.dark-mode .Content .timer span
+{
   color: #aaa;
-  display:none;   /* makes sure it behaves like a label */
 }
-
-.dark-mode .User-profile img {
-  filter:invert(1);
- }
- 
 
 
 .Theme {
@@ -1364,6 +1431,11 @@ body.dark-mode .follow span {
   margin-right: 0.5rem;
 }
 
+.option img
+{
+  margin-left: 0.5rem;
+}
+
 .option-popup {
   position: absolute;
   bottom: 100%;
@@ -1643,10 +1715,6 @@ body.dark-mode .follow span {
   background: #444;
   color: white;
 }
-
-
-
-
 
 
 /* REPORT POPUP V2 */
@@ -3025,6 +3093,7 @@ right: 0.5%;
   padding: 0; /* Important: no vertical spacing */
   overflow: hidden;
   padding-bottom: 0px;
+  border-style: none;
 }
    .optionnn {
     position: absolute; /* Positions the element precisely within its parent (.container-3) */
@@ -3267,7 +3336,7 @@ justify-content: space-between;
   height: 100%;
   float: right;
   right: 0rem;
-  background-color:transparent;
+  background-color: transparent;
 z-index: 0;
 padding-bottom: 0rem;
 border-style: none;
@@ -3283,6 +3352,7 @@ border-style: none;
   margin-top: 8rem;
   float: left;
   margin-left: 1rem;
+  background-color: #0069d9;
 }
 
 .left img
@@ -3303,6 +3373,7 @@ height: inherit;
   margin-top: 0rem;
   float: left;
   margin-left: 10rem;
+  background-color: transparent;
 }
 
 .right img
@@ -3311,6 +3382,13 @@ height: inherit;
 width: 100%;
 height: inherit;
 
+}
+
+.series .display
+{
+  position:relative;
+  background-color: saddlebrown;
+  z-index: 1000;
 }
 
 
@@ -3342,7 +3420,7 @@ height: inherit;
   min-width: 35%;
   max-width: 40%;
   height: 12.5rem; /* Consistent height (200px converted to rem) */
-  margin: 2.8rem 0 0 0.625rem; /* Left gap only */
+  margin: 2.95rem 0 0 0.625rem; /* Left gap only */
   background-color: transparent;
   border-radius: 0.4375rem;
   max-height: 100%;
@@ -3366,10 +3444,7 @@ margin-bottom: 0rem;
   opacity: 0.95;
 }
 
-.series img:nth-child(2)
-{
-  display: none;
-}
+
 
 .overlay-textttt {
   position: absolute;
