@@ -3461,7 +3461,7 @@ margin-bottom: 0rem;
   width: 1.5rem;
   height:  1.5rem;
   flex-shrink: 0;
-
+  filter: invert(1);
 }
 
 .dark-mode .series .display img
