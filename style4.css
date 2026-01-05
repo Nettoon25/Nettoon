@@ -2499,9 +2499,35 @@ border-style:none;
   height: 22px;
   cursor: pointer;
   z-index: 5;
-  opacity: 0.85;
-  transition: opacity 0.1s ease-in-out;
+  /* VISIBILITY FIX */
+  opacity: 0.95;
+    /* FORCE BRIGHT DISPLAY */
+    filter: invert(1) brightness(1.3) contrast(1.2);
+    mix-blend-mode: difference;
+    background-color: transparent;
+    padding: 4px;
+    border-radius: 50%;
+    transition: opacity 0.15s ease, transform 0.15s ease;
 }
+
+/* ⭐ Three Dots Options Button */
+.options-btn {
+  position: absolute;
+  top: 12px;
+  right: 8px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 5;
+
+  /* make dark icon visible on dark videos */
+  filter: invert(1) brightness(1.3);
+  background: rgba(0, 0, 0, 0.35);
+
+  padding: 4px;
+  border-radius: 50%;
+}
+
 
 .options-btn:hover {
   opacity: 1;
@@ -4428,15 +4454,17 @@ margin-bottom: 1%;
 
 .scroll-area
 {
-  background-color: transparent;
-  gap:1rem; /* Slight space between items */
+  gap:0.3rem; /* Slight space between items */
+  justify-content: flex-start;
+
 }
 
 .shorts {
   width: 100%;
-  max-width: 230px;
+  max-width: 200px;
   aspect-ratio: 9 / 16;
-  margin: 1rem 0 1rem 0.3rem;
+  margin: 1rem 0 1rem 2.5rem;
+  border-style:none;
 
 }
 

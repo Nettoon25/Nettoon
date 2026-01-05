@@ -1942,7 +1942,6 @@ h2 {
 /* Ultra-wide (1600px and up) */
 @media (min-width: 1600px) {
 
-
   body {
       font-size: 19px;
 .container
@@ -1958,7 +1957,7 @@ h2 {
 
 .overlay-text
 {
-   font-size: 1rem;
+   font-size: 1.5rem;
 }
 
 
@@ -2010,44 +2009,22 @@ h2 {
   height:  100%;
 margin: 0 auto;
 }
-
-.signup-container {
-  background-color: var(--color-bg-light); /* Default background color for light mode */
-  z-index: 11;
-  width: 850px;
-  min-height: 700px;
-  max-height: 750px;
-
-
-  padding-bottom: 20px;
-}
-
-h2
-{
-  font-size: 1.5rem;
-}
-
-.reminder {
-  width: 50%;
-  height: 30px;  /* Vertically center the label */
-  background:transparent;
-  margin: 60px auto 1rem auto; /* Top margin + horizontal centering */
-  gap: 30px;
-}
-
-.reminder label {
-  margin: 0; /* No need for auto margin if parent is flex-centered */
-  font-weight: 750;
-  color: black;
-}
-
-
-}
-
-/* Dark mode override */
-@media (prefers-color-scheme: dark) {
-  body { background: #121212; color: #e0e0e0; }
-  .navbar { background: #1f1f1f; }
-  /* etc. */
-}
+  
+  .login-container {
+      width: 100%;
+      max-width: 800px;
+      margin: 130px auto 0 auto;
+   height: 70vh;
+     background-color: transparent;
+    }
+  
+  
+  }
+  
+  /* Dark mode override */
+  @media (prefers-color-scheme: dark) {
+    body { background: #121212; color: #e0e0e0; }
+    .navbar { background: #1f1f1f; }
+    /* etc. */
+  }
 }

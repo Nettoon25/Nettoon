@@ -1282,7 +1282,6 @@ flex-wrap: nowrap;
     cursor: pointer;       /* Indicates that the element is clickable */
     /* NO TRANSITIONS as per user request */
 }
-
 /* Dark mode adjustment for individual interactive items */
 .dark-mode .viewss,
 .dark-mode .commentss,
@@ -1315,30 +1314,123 @@ flex-wrap: nowrap;
 .hidden {
   display: none !important; /* Forces element to be hidden, overriding other display properties */
 }
+/* ============================= */
+/* LIGHT MODE HOVER EFFECTS */
+/* ============================= */
 
-
-/* Light mode hover effects for interactive elements */
+body:not(.dark-mode)
 .viewss:hover,
+body:not(.dark-mode)
 .commentss:hover,
+body:not(.dark-mode)
 .likess:hover,
+body:not(.dark-mode)
 .dislikee:hover,
+body:not(.dark-mode)
 .timee:hover,
+body:not(.dark-mode)
 .follow:hover,
+body:not(.dark-mode)
 .following:hover,
+body:not(.dark-mode)
 .option:hover {
   background-color: gray;
 }
 
-/* Dark mode hover effects for interactive elements */
-body.dark-mode .viewss:hover,
-body.dark-mode .commentss:hover,
-body.dark-mode .likess:hover,
-body.dark-mode .dislikee:hover,
-body.dark-mode .timee:hover,
-body.dark-mode .follow:hover,
-body.dark-mode .following:hover,
-body.dark-mode .option:hover {
-  background-color: #4a4b4d !important;
+body:not(.dark-mode)
+.viewss:hover span,
+body:not(.dark-mode)
+.commentss:hover span,
+body:not(.dark-mode)
+.likess:hover span,
+body:not(.dark-mode)
+.dislikee:hover span,
+body:not(.dark-mode)
+.timee:hover span,
+body:not(.dark-mode)
+.follow:hover span,
+body:not(.dark-mode)
+.following:hover span,
+body:not(.dark-mode)
+.option:hover span {
+  color: white;
+}
+
+body:not(.dark-mode)
+.viewss:hover img,
+body:not(.dark-mode)
+.commentss:hover img,
+body:not(.dark-mode)
+.likess:hover img,
+body:not(.dark-mode)
+.dislikee:hover img,
+body:not(.dark-mode)
+.timee:hover img,
+body:not(.dark-mode)
+.follow:hover img,
+body:not(.dark-mode)
+.following:hover img {
+  filter: invert(1);
+}
+
+/* ============================= */
+/* OPTION ICON (MAIN ONLY) */
+/* ============================= */
+
+.option > img {
+  filter: none;
+  transition: filter 0.15s ease;
+}
+
+body:not(.dark-mode) .option:hover > img {
+  filter: invert(1) brightness(1.2);
+}
+
+/* ============================= */
+/* DARK MODE HOVER EFFECTS */
+/* ============================= */
+
+body.dark-mode
+.viewss:hover,
+body.dark-mode
+.commentss:hover,
+body.dark-mode
+.likess:hover,
+body.dark-mode
+.dislikee:hover,
+body.dark-mode
+.timee:hover,
+body.dark-mode
+.follow:hover,
+body.dark-mode
+.following:hover,
+body.dark-mode
+.option:hover {
+  background-color: #4a4b4d;
+}
+
+body.dark-mode
+.viewss:hover img,
+body.dark-mode
+.commentss:hover img,
+body.dark-mode
+.likess:hover img,
+body.dark-mode
+.dislikee:hover img,
+body.dark-mode
+.timee:hover img,
+body.dark-mode
+.follow:hover img,
+body.dark-mode
+.following:hover img,
+body.dark-mode
+.option:hover > img {
+  filter: invert(1);
+}
+
+/* Brighten ONLY popup item icons on hover */
+.option .popup-item:hover img {
+  filter: invert(1) brightness(1.2);
 }
 
 /* Global image styling - applies to all images */
@@ -5414,6 +5506,15 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
   width: 100%;
   height: 115px;}
 
+  .overlay-texttt
+  {
+   
+width: 5%; /* Ensures it doesn't get too small */
+font-size: 12px;
+  height:13px; /* Height adjusts dynamically based on content */
+  padding: 15px;
+  }
+
 .sectiion
 {
   background-color: transparent;
@@ -5483,6 +5584,11 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
   width: 100%;
   height: 12rem; /* 200px */
 
+}
+
+.overlay-textt
+{
+  height: 30px;
 }
 
 .report-popup

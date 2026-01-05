@@ -1314,31 +1314,125 @@ flex-wrap: nowrap;
 .hidden {
   display: none !important; /* Forces element to be hidden, overriding other display properties */
 }
+/* ============================= */
+/* LIGHT MODE HOVER EFFECTS */
+/* ============================= */
 
-
-/* Light mode hover effects for interactive elements */
+body:not(.dark-mode)
 .viewss:hover,
+body:not(.dark-mode)
 .commentss:hover,
+body:not(.dark-mode)
 .likess:hover,
+body:not(.dark-mode)
 .dislikee:hover,
+body:not(.dark-mode)
 .timee:hover,
+body:not(.dark-mode)
 .follow:hover,
+body:not(.dark-mode)
 .following:hover,
+body:not(.dark-mode)
 .option:hover {
   background-color: gray;
 }
 
-/* Dark mode hover effects for interactive elements */
-body.dark-mode .viewss:hover,
-body.dark-mode .commentss:hover,
-body.dark-mode .likess:hover,
-body.dark-mode .dislikee:hover,
-body.dark-mode .timee:hover,
-body.dark-mode .follow:hover,
-body.dark-mode .following:hover,
-body.dark-mode .option:hover {
-  background-color: #4a4b4d !important;
+body:not(.dark-mode)
+.viewss:hover span,
+body:not(.dark-mode)
+.commentss:hover span,
+body:not(.dark-mode)
+.likess:hover span,
+body:not(.dark-mode)
+.dislikee:hover span,
+body:not(.dark-mode)
+.timee:hover span,
+body:not(.dark-mode)
+.follow:hover span,
+body:not(.dark-mode)
+.following:hover span,
+body:not(.dark-mode)
+.option:hover span {
+  color: white;
 }
+
+body:not(.dark-mode)
+.viewss:hover img,
+body:not(.dark-mode)
+.commentss:hover img,
+body:not(.dark-mode)
+.likess:hover img,
+body:not(.dark-mode)
+.dislikee:hover img,
+body:not(.dark-mode)
+.timee:hover img,
+body:not(.dark-mode)
+.follow:hover img,
+body:not(.dark-mode)
+.following:hover img {
+  filter: invert(1);
+}
+
+/* ============================= */
+/* OPTION ICON (MAIN ONLY) */
+/* ============================= */
+
+.option > img {
+  filter: none;
+  transition: filter 0.15s ease;
+}
+
+body:not(.dark-mode) .option:hover > img {
+  filter: invert(1) brightness(1.2);
+}
+
+/* ============================= */
+/* DARK MODE HOVER EFFECTS */
+/* ============================= */
+
+body.dark-mode
+.viewss:hover,
+body.dark-mode
+.commentss:hover,
+body.dark-mode
+.likess:hover,
+body.dark-mode
+.dislikee:hover,
+body.dark-mode
+.timee:hover,
+body.dark-mode
+.follow:hover,
+body.dark-mode
+.following:hover,
+body.dark-mode
+.option:hover {
+  background-color: #4a4b4d;
+}
+
+body.dark-mode
+.viewss:hover img,
+body.dark-mode
+.commentss:hover img,
+body.dark-mode
+.likess:hover img,
+body.dark-mode
+.dislikee:hover img,
+body.dark-mode
+.timee:hover img,
+body.dark-mode
+.follow:hover img,
+body.dark-mode
+.following:hover img,
+body.dark-mode
+.option:hover > img {
+  filter: invert(1);
+}
+
+/* Brighten ONLY popup item icons on hover */
+.option .popup-item:hover img {
+  filter: invert(1) brightness(1.2);
+}
+
 
 /* Global image styling - applies to all images */
 img {
@@ -3096,19 +3190,19 @@ right: 0.5%;
   padding-bottom: 0px;
   border-style: none;
 }
+
+
    .optionnn {
     position: absolute; /* Positions the element precisely within its parent (.container-3) */
     top: 0; /* Sticks it to the top edge of the parent */
     left: 0; /* Aligns it to the left edge of the parent */
     width: 100%; /* Spans the full width of its parent */
     height: 2rem; /* Consistent height (50px converted to rem) */
-    
     background-color: var(--color-bg-light); /* Default background color for light mode */
     border-style: none; /* No border style */
     border-radius: 0; /* No border-radius for the element itself, will be applied to parent if needed */
     overflow: hidden; /* Hides any overflowing content */
     z-index: 1; /* Ensures it stays above other content using a variable */
-    
     display: flex; /* Uses flexbox for precise alignment of inner content */
     align-items: center; /* Vertically centers content within the option bar */
   /* Smooth transition for dark mode */
@@ -3126,9 +3220,7 @@ right: 0.5%;
     font-size: var(--font-size-lg); /* Responsive font size (20px converted to rem) */
     font-weight: 700; /* Bold font for prominence and readability */
     color: #333333;
-    
     margin-inline-start: var(--spacing-xs); /* Responsive left margin (10px converted to rem) */
-    
     /* Text Truncation for Single Line */
     white-space: nowrap; /* Prevents text from wrapping */
     overflow: hidden; /* Hides overflowing text */
@@ -3168,10 +3260,8 @@ right: 0.5%;
   border-radius: 50%; /* Creates a circular shape for the image */
   object-fit: cover; /* Ensures the image covers the entire area without distortion, cropping if necessary */
   margin-bottom: 0rem;
-
   margin-block-start: var(--spacing-xs); /* Responsive top margin (10px converted to rem) */
   position: relative; /* Useful if you plan to add overlays or badges on top of the image */
-
   /* ⭐ ADDITION: Force horizontal centering using auto margins ⭐ */
   margin-inline: auto; /* This pushes the image to the center horizontally within its flex container */
 
@@ -3188,33 +3278,21 @@ right: 0.5%;
 html {
   font-size: 16px; /* 1rem = 16px. Ensure this is placed at the top of your main stylesheet. */
 }
+
+
 .profile {
-
   position: relative;
-  
  width: 100%;
-  
   height: 25px; /* Adjusts based on content */
-  
   background-color:transparent;
-  
-
-
-  
   min-height: var(--min-height-profile-section); /* Minimum height (35px converted to rem) */
    display: flex;
   margin-bottom: 1.5rem;
-
-  
 justify-content: space-between;
-  
   flex-wrap: nowrap; /* Prevents wrapping */
-  
   align-items: center; /* Centers items vertically */
-  
-  
-  
   }
+
 /* ==== PROFILE NAME SECTION (.profile-name) ==== */
 /* This element displays the profile name and allows for dynamic expansion. */
 .profile-name {
@@ -3384,8 +3462,6 @@ width: 100%;
 height: inherit;
 
 }
-
-
 
 .Episodesss
 {
@@ -5926,6 +6002,11 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
   width: 100%;
   height: 12rem; /* 200px */
 
+}
+
+.overlay-textt
+{
+  height: 30px;
 }
 
 .report-popup

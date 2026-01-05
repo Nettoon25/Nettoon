@@ -588,7 +588,6 @@ opacity: 1;
 
 }
 
-
 /* Notifications Icon */
 .Notifications {
   position: relative;
@@ -602,8 +601,8 @@ opacity: 1;
 }
 
 .Notifications img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 /* Dropdown Container */
@@ -676,14 +675,16 @@ opacity: 1;
   gap: 0.4rem;
   border-style:none;
   justify-content: flex-start;
+  cursor:pointer;
 }
 
 .dark-mode .Notification
 {  background-color: #2a2d2f;
+  scale: 1.5;
 }
 
 .Notification:hover {
-border-color: #2a2d2f;
+  background-color: whitesmoke;
 }
 
 .Content
@@ -850,6 +851,7 @@ flex-wrap: nowrap;
 {
   color: #aaa;
 }
+
 
 .Theme {
   display: flex;
@@ -1243,7 +1245,7 @@ flex-wrap: nowrap;
 }
 
 .rectanglee:hover span {
-  color:black;
+  color:white;
 }
 
 /* Active Style (Light Mode) - MODIFIED */
@@ -3264,6 +3266,27 @@ padding: 5px;
 }
 
 
+.upload
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.Notifications
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
+.Account 
+{
+  background-color: transparent;
+  width: 3vw;
+  height: 3vw;
+}
+
 
 .upload
 {
@@ -3273,7 +3296,7 @@ padding: 5px;
 
     /* Notifications Icon */
     .Notifications {
-      margin-right: 3rem;
+      margin-right: 2.8rem;
     }
     
     .Notifications img {
@@ -3378,11 +3401,15 @@ margin: 0 auto;
   
   }
 
-  .report-popup
+  .overlay-textt
+  {
+    height: 30px;
+  }
+
+.report-popup
 {
   height: auto;   
 }
-
 
 }
 
@@ -3577,7 +3604,8 @@ margin: 0 auto;
 /* For larger monitors or dual-monitor setups */
 @media (min-width: 1280px) and (max-width: 1599px) {
 
-    /* Notifications Icon */
+
+  /* Notifications Icon */
 .Notifications {
   margin-right: 4rem;
 }
@@ -3586,7 +3614,6 @@ margin: 0 auto;
   width: 1.9rem;
   height: 1.9rem;
 }
-
   .suggestionss
 {
   
@@ -3642,6 +3669,11 @@ border-style:none;
 .videoo video {
   width: 100%; /* Ensures the video fills the container's width */
   /* height: 14rem; Consistent height (200px converted to rem) */
+}
+
+.report-popup
+{
+  height: auto;   
 }
 
 }
