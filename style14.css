@@ -2249,33 +2249,166 @@ filter: invert(1);
     color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode */
 }
 
-/* 📱 TABLET/SMALL DESKTOP OPTIMIZATION (e.g., up to 768px wide) */
-@media screen and (max-width: 768px) {
-  .sectiionn {
-      flex-wrap: wrap;     /* Allows items to wrap to the next line for better spacing */
-      justify-content: center; /* Centers items when they wrap */
-      gap: var(--spacing-xxs); /* Adjusted spacing (4px) between wrapped elements */
-  }
 
-  .views,
-  .time,
-  .category {
-      flex: 1 1 100%; /* Each item takes full width when wrapped, displaying vertically */
-      max-width: 100%; /* Ensures they don't exceed container width */
-      justify-content: center; /* Centers content within each full-width item */
-  }
+/* Tablets / small laptops (769px–1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
 
-  .views img {
-      max-width: 1.25rem; /* Limits image width to 20px for consistency */
-      height: 1.25rem; /* Maintains aspect ratio */
+  .container
+  {
+    background-color: var(--color-bg-light);
   }
+  
+  .overlay-text
+  {
+    font-size: 0.7rem;
+  }
+  
+  .nav
+  {
+    background-color: transparent;
+  }
+    
+
+  .upload
+  {
+    background-color: transparent;
+    height: 2.8rem;
+  }
+  
+      /* Notifications Icon */
+      .Notifications {
+        margin-right: 3rem;
+      }
+      
+      .Notifications img {
+        width: 1.9rem;
+        height: 1.9rem;
+      }
+        
+      .upload img {
+        width: 2.7rem;
+        height: 2.7rem;
+      margin-top: 0px;
+      }
+        
+  
+  .Account img {
+    width: 100%;
+    height:  100%;
+  margin: 0 auto;
+  }
+  
+.video-container
+{
+  background-color: transparent;
+  border-style:none;
 }
 
-/* Base styles for all devices */
-body {
-  font-size: 16px;
-  /* Other base styles */
+
+.container-11 {
+
+ 
+  height: 12rem;   
 }
+
+.Name
+{
+  background-color: transparent;
+  padding: 0px, 0px; /* Responsive padding (4px vertical, 8px horizontal) */
+}
+
+.Name span {
+  padding: 0px, 0px; /* Responsive padding (4px vertical, 8px horizontal) */
+  font-size: 21px; /* Large font size (32px) for prominence */}
+
+.container-2
+{
+  background-color: transparent;
+  border-style: none;
+}
+
+.Title
+{
+  background-color: transparent;
+}
+
+.Title span
+{
+  font-size: clamp(1rem, 0.5vw, 2rem);
+}
+
+
+
+.containerr
+{
+  background-color: transparent;
+  margin-top: 3.5%;
+  flex: 1 1 320px; 
+  max-width: 400px;  /* Limits the maximum width of individual video cards */
+  min-width: 200px; 
+}
+
+
+/* Shared layout styles */
+.content-container {
+  width: 100%;
+  gap: 0.5rem;
+  background-color: transparent;
+
+}
+
+.rectangle
+{
+  background-color: transparent;
+}
+
+.square
+{
+  background-color: transparent;
+}
+
+.about {
+  background-color: transparent;
+  height: auto;
+  max-height: 10rem; /* 300px */
+ /* Added padding for better spacing */
+  box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
+  flex: 1; /* Allow this section to take available space */
+}
+
+/* Main Section Container */
+.secction {
+  height: clamp(3vh); /* Responsive height */
+  background-color: transparent;
+  gap: clamp(0.5rem, 1.5vw, 1.5rem); /* Responsive gap */
+  margin-bottom: 0px;
+  padding: 0rem;
+  margin-top: 5px;
+}
+
+
+.scroll-area
+{
+  gap:0.3rem; /* Slight space between items */
+  justify-content: flex-start;
+
+}
+
+.shorts {
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 9 / 16;
+  margin: 1rem 0 1rem 2rem;
+  border-style:none;
+
+}
+
+.short-video {
+  width: 100%;
+  height: 100%;
+
+}
+
 
 /* Extra large screens (≥1400px) */
 @media (min-width: 1400px) {

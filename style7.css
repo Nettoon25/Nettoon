@@ -1535,6 +1535,7 @@ flex-wrap: nowrap;
 /* ========================================================================== */
 
 .like,
+.favourites,
 .dislike,
 .comment,
 .share,
@@ -1561,6 +1562,7 @@ flex-wrap: nowrap;
 /* ========================================================================== */
 
 .like-icon,
+.favourites-icon,
 .liked-icon,
 .dislike-icon,
 .disliked-icon {
@@ -1974,12 +1976,12 @@ body.dark-mode .share .default-icon {
 }
 
 
-
 /* ========================================================================== */
 /* HOVER EFFECTS FOR ENGAGEMENT BUTTONS                                       */
 /* ========================================================================== */
 
 .like:hover,
+.favourites:hover,
 .dislike:hover,
 .comment:hover,
 .share:hover,
@@ -1989,6 +1991,7 @@ body.dark-mode .share .default-icon {
 
 /* Dark mode hover */
 .dark-mode .like:hover, 
+.dark-mode .favourites:hover, 
 .dark-mode .dislike:hover,
 .dark-mode .comment:hover,
 .dark-mode .share:hover,
@@ -2001,6 +2004,7 @@ body.dark-mode .share .default-icon {
 /* ========================================================================== */
 
 .like img,
+.favourites img,
 .dislike img,
 .comment img,
 .share img,
@@ -2017,6 +2021,7 @@ body.dark-mode .share .default-icon {
 /* ========================================================================== */
 
 .like span,
+.favourites span,
 .dislike span,
 .comment span,
 .share span,
@@ -2038,6 +2043,7 @@ body.dark-mode .share .default-icon {
 /* ========================================================================== */
 
 .dark-mode .like,
+.dark-mode .favourites,
 .dark-mode .dislike,
 .dark-mode .comment,
 .dark-mode .share,
@@ -2046,6 +2052,7 @@ body.dark-mode .share .default-icon {
 }
 
 .dark-mode .like span,
+.dark-mode .favourites span,
 .dark-mode .dislike span,
 .dark-mode .comment span,
 .dark-mode .share span,
@@ -2054,6 +2061,7 @@ body.dark-mode .share .default-icon {
 }
 
 .dark-mode .like img,
+.dark-mode .favourites img,
 .dark-mode .dislike img,
 .dark-mode .comment img,
 .dark-mode .share img,
@@ -2061,25 +2069,26 @@ body.dark-mode .share .default-icon {
   filter: invert(1);
 }
 
-.dark-mode .metadata-popup .popup-item img {
-  filter: invert(1) brightness(1.2);
+/* ================================ */
+/* FAVOURITES ICON TOGGLE FIX */
+/* ================================ */
+
+/* Default state */
+.favourites .like-icon {
+  display: inline-block;
 }
 
-
-/* LIGHT MODE hover for metadata popup items */
-.metadata-popup .popup-item:hover,
-.metadata-popup-new .popup-item-new:hover {
-  background-color: #f0f0f0; /* light hover bg */
-  color: #111;               /* dark text for contrast */
-  transform: scale(1.05);
-  box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
-  cursor: pointer;
+.favourites .liked-icon {
+  display: none;
 }
 
-/* Brighten images in light mode on hover */
-.metadata-popup .popup-item:hover img,
-.metadata-popup-new .popup-item-new:hover img {
-  filter: brightness(1.3); /* increase brightness */
+/* Active (clicked) state */
+.favourites.active .like-icon {
+  display: none;
+}
+
+.favourites.active .liked-icon {
+  display: inline-block;
 }
 
 
@@ -2087,24 +2096,6 @@ body.dark-mode .share .default-icon {
 /* COMMENTS SECTION INTERACTION STYLES (JS-controlled)                        */
 /* These classes define how elements shift when comments are shown.           */
 /* ========================================================================== */
-
-.metadata .like:hover span,
-.metadata .dislike:hover span,
-.metadata .comment:hover span,
-.metadata .share:hover span,
-.metadata .options:hover span {
-  color: #111;             /* make text darker */
-  font-weight: 600;        /* optional: bold on hover */
-}
-
-.metadata .like:hover img,
-.metadata .dislike:hover img,
-.metadata .comment:hover img,
-.metadata .share:hover img,
-.metadata .options:hover img {
-  filter: brightness(1.3);
-}
-
 
 .comment-container {
   display: flex;
@@ -2382,352 +2373,445 @@ z-index: 0;
 /* COMMENT ENGAGEMENT SECTION (.section)                                      */
 /* Container for views, likes, dislikes, comments, and shares within a comment card. */
 /* ========================================================================== */
-/* ==========================================================================
-   SECTION CONTAINER
-   ========================================================================== */
-   .section {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: var(--spacing-xs);
-    width: 100%;
-    background-color: var(--color-bg-light);
-    border-radius: var(--border-radius-custom-md);
-    padding: 0.1875rem;
-  }
-  
-  /* ==========================================================================
-     ENGAGEMENT BUTTONS (Views, Likes, Dislikes, Comments, Shares)
-     ========================================================================== */
-  .viewss,
-  .likess,
-  .dislikee,
-  .commentss,
-  .sharee,
-  .shareee {
-    flex: 1 1 5%;
-    min-width: 4rem;
-    max-width: 5rem;
-    height: 1.875rem;
-    background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: var(--border-radius-sm);
-    overflow: hidden;
-    gap: 0.3125rem;
-    padding: 0;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-  }
-  
-  .viewss span,
-  .likess span,
-  .dislikee span,
-  .commentss span,
-  .sharee span,
-  .shareee span {
-    font-size: 0.84375rem;
-    color: var(--color-text-dark);
-    transition: color 0.25s ease;
-  }
-  
-  .viewss img,
-  .likess img,
-  .dislikee img,
-  .commentss img,
-  .sharee img,
-  .shareee img {
-    width: 1.5rem;
-    height: 1.5rem;
-    object-fit: contain;
-    transition: filter 0.25s ease, transform 0.25s ease;
-  }
-  
-  /* HOVER EFFECTS - LIGHT MODE */
-  .viewss:hover,
-  .likess:hover,
-  .dislikee:hover,
-  .commentss:hover,
-  .sharee:hover,
-  .shareee:hover {
-    background-color: gray;
-  }
-  
-  .viewss:hover span,
-  .likess:hover span,
-  .dislikee:hover span,
-  .commentss:hover span,
-  .sharee:hover span,
-  .shareee:hover span {
-    color: #111;
-    font-weight: 600;
-  }
-  
-  .viewss:hover img,
-  .likess:hover img,
-  .dislikee:hover img,
-  .commentss:hover img,
-  .sharee:hover img,
-  .shareee:hover img {
-    filter: brightness(1.3);
-    transform: scale(1.05);
-  }
-  
-  /* DARK MODE BUTTONS */
-  .dark-mode .viewss,
-  .dark-mode .likess,
-  .dark-mode .dislikee,
-  .dark-mode .commentss,
-  .dark-mode .sharee,
-  .dark-mode .shareee {
-    background-color: #2a2d2f;
-  }
-  
-  .dark-mode .viewss span,
-  .dark-mode .likess span,
-  .dark-mode .dislikee span,
-  .dark-mode .commentss span,
-  .dark-mode .sharee span,
-  .dark-mode .shareee span {
-    color: var(--color-dark-mode-text-primary);
-  }
-  
-  .dark-mode .viewss:hover,
-  .dark-mode .likess:hover,
-  .dark-mode .dislikee:hover,
-  .dark-mode .commentss:hover,
-  .dark-mode .sharee:hover,
-  .dark-mode .shareee:hover {
-    background-color: gray;
-  }
-  
-  .dark-mode .viewss img,
-  .dark-mode .likess img,
-  .dark-mode .dislikee img,
-  .dark-mode .commentss img,
-  .dark-mode .sharee img,
-  .dark-mode .shareee img {
-    filter: invert(1);
-  }
-  
-  /* ==========================================================================
-     SHARE POPUP (Second section) 
-     ========================================================================== */
-  .shareee {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    padding: 5px;
-    border-radius: var(--border-radius-sm);
-    background-color: #f0f0f0;
-  }
-  
-  .shareee-popup {
-    position: absolute;
-    bottom: 120%;
-    left: -1%;
-    transform: translate(-80%);
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    z-index: 1000;
-    padding: 0.5rem;
-    min-width: 145px;
-    transition: background-color 0.25s ease;
-  }
-  
-  .shareee-popup .popup-item {
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    padding: 0.3rem;
-    font-size: 0.9rem;
-    color: #111;
-    cursor: pointer;
-    margin: 5px 0;
-    white-space: nowrap;
-    background-color: white;
-    border-radius: 0.4rem;
-    transition: background-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
-  }
-  
-  .shareee-popup .popup-item img {
-    width: 1.5rem;
-    height: 1.5rem;
-    object-fit: contain;
-    transition: filter 0.25s ease, transform 0.25s ease;
-  }
-  
-  /* Light mode hover for popup */
-  .shareee-popup .popup-item:hover {
-    background-color: #f0f0f0;
-    color: #111;
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  }
-  
-  .dark-mode .shareee-popup {
-    background-color: #333;
-    color: white;
-    border-color: #555;
-  }
-  
-  .dark-mode .shareee-popup .popup-item {
-    background-color: #333;
-    color: white;
-  }
-  
-  .dark-mode .shareee-popup .popup-item img {
-    filter: invert(1);
-  }
-  
-  .dark-mode .shareee-popup .popup-item:hover {
-    background-color: #555;
-    color: white;
-    transform: scale(1.05);
-  }
-  
-  /* ==========================================================================
-     COMMENT REPORT POPUP
-     ========================================================================== */
-  .comment-report-popup,
-  .spam-confirm-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 300px;
-    background: white;
-    border-radius: 0.7rem;
-    border: 1px solid #ccc;
-    padding: 1rem;
-    z-index: 999999;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.25);
-    transition: background-color 0.25s ease;
-  }
-  
-  .comment-report-popup.hidden,
-  .spam-confirm-popup.hidden {
-    display: none;
-  }
-  
-  /* Header */
-  .crp-header,
-  .scp-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-weight: bold;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-  }
-  
-  .crp-close,
-  .scp-close {
-    cursor: pointer;
-    font-size: 1.2rem;
-    opacity: 0.6;
-    transition: 0.25s ease;
-  }
-  
-  .crp-close:hover,
-  .scp-close:hover {
-    opacity: 1;
-    color: black;
-  }
-  
-  /* Options */
-  .crp-option {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.4rem 0;
-    cursor: pointer;
-    border-radius: 0.4rem;
-    font-size: 0.9rem;
-  }
-  
-  .crp-option:hover {
-    background: #efefef;
-  }
-  
-  /* Action buttons */
-  .crp-cancel,
-  .scp-cancel {
-    background: #ccc;
-    padding: 0.4rem 0.8rem;
-    border: none;
-    border-radius: 0.4rem;
-    cursor: pointer;
-    transition: background 0.25s ease;
-  }
-  
-  .crp-cancel:hover,
-  .scp-cancel:hover {
-    background: #b5b5b5;
-  }
-  
-  .crp-submit,
-  .scp-submit {
-    background: #d9534f;
-    color: white;
-    padding: 0.45rem 0.9rem;
-    border: none;
-    border-radius: 0.4rem;
-    cursor: pointer;
-    opacity: 0.5;
-  }
-  
-  .crp-submit:enabled,
-  .scp-submit:enabled {
-    opacity: 1;
-  }
-  
-  .crp-submit:hover:enabled,
-  .scp-submit:hover:enabled {
-    background: #c4423f;
-  }
-  
-  /* Dark mode adjustments */
-  .dark-mode .comment-report-popup,
-  .dark-mode .spam-confirm-popup {
-    background: #444;
-    border-color: #666;
-    color: white;
-  }
-  
-  .dark-mode .crp-option:hover,
-  .dark-mode .scp-close:hover {
-    background-color: #555;
-  }
-  
-  .dark-mode .crp-close,
-  .dark-mode .scp-close {
-    color: #ddd;
-  }
-  
-  .dark-mode .scp-cancel {
-    background: #666;
-    color: white;
-  }
-  
-  .dark-mode .scp-cancel:hover {
-    background: #555;
-  }
-  
-  .dark-mode .scp-submit {
-    background: #aa3a36;
-  }
-  
-  .dark-mode .scp-submit:hover {
-    background: #922f2b;
-  }
-  
+
+.section {
+  display: flex;
+  justify-content: space-around; /* Distributes items evenly with space around them */
+  flex-wrap: wrap; /* Allows items to wrap to the next line on smaller screens */
+  align-items: center;
+  gap: var(--spacing-xs); /* Using 0.5rem (8px) variable for gap */
+  width: 100%;
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+  border-radius: var(--border-radius-custom-md); /* Using 0.75rem (12px) variable */
+  padding: 0.1875rem; /* 3px padding, as per input */
+}
+
+/* ========================================================================== */
+/* INDIVIDUAL ENGAGEMENT BUTTONS (Views, Likes, Dislikes, Comments, Shares)   */
+/* Styles applied to .viewss, .likess, .dislikee, .commentss, .sharee.        */
+/* ========================================================================== */
+
+.viewss,
+.likess,
+.dislikee,
+.commentss,
+.sharee,
+.sharee {
+  flex: 1 1 5%; /* Flexible sizing for items within the section */
+  min-width: 4rem; /* 80px minimum width */
+  max-width: 5rem; /* 90px maximum width */
+  height: 1.875rem; /* 30px fixed height */
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  overflow: hidden;
+  gap: 0.3125rem; /* 5px gap between icon and text */
+  padding: 0;
+  cursor: pointer;
+  transition: background-color var(--transition-duration-fast) var(--transition-timing-ease); /* Smooth transition for hover */
+}
+
+/* Hover effects for engagement buttons */
+.viewss:hover,
+.likess:hover,
+.dislikee:hover,
+.commentss:hover,
+.sharee:hover,
+.shareee:hover {
+  background-color: gray;
+}
+
+/* Dark mode styling for engagement buttons */
+.dark-mode .viewss,
+.dark-mode .likess,
+.dark-mode .dislikee,
+.dark-mode .commentss,
+.dark-mode .sharee,
+.dark-mode .shareee {
+  background-color: #2a2d2f;
+}
+
+/* Dark mode hover for engagement buttons */
+.dark-mode .viewss:hover,
+.dark-mode .likess:hover,
+.dark-mode .dislikee:hover,
+.dark-mode .commentss:hover,
+.dark-mode .sharee:hover,
+.dark-mode .shareee:hover {
+  background-color: gray;
+}
+
+/* ========================================================================== */
+/* ICONS FOR ENGAGEMENT BUTTONS (.like-icon-sec, .dislike-icon-sec, etc.)     */
+/* ========================================================================== */
+
+/* Specific icons for the second segment (like/dislike within comments) */
+.like-icon-sec,
+.dislike-icon-sec {
+  width: 1.25rem; /* 20px */
+  height: 1.25rem; /* 20px */
+  display: inline-block;
+  object-fit: contain;
+  transition: opacity var(--transition-duration-normal) var(--transition-timing-ease); /* Using transition variables */
+  cursor: pointer; /* Cursor indicates interactivity */
+}
+
+/* General image styling for all engagement buttons */
+.viewss img,
+.likess img,
+.dislikee img,
+.commentss img,
+.sharee img,
+.shareee img {
+  width: 1.5rem; /* 24px */
+  height: 1.5rem; /* 24px */
+  object-fit: contain;
+}
+
+/* Dark mode adjustment for all engagement button images */
+.dark-mode .viewss img,
+.dark-mode .likess img,
+.dark-mode .dislikee img,
+.dark-mode .commentss img,
+.dark-mode .sharee img,
+.dark-mode .shareee img {
+  filter: invert(1); /* Inverts colors for dark mode visibility */
+}
+
+/* ========================================================================== */
+/* TEXT/COUNTS FOR ENGAGEMENT BUTTONS (span elements)                         */
+/* ========================================================================== */
+
+.viewss span,
+.likess span,
+.dislikee span,
+.commentss span,
+.sharee span,
+.shareee span  {
+  font-size: 0.84375rem; /* 13.5px, exact value as per input */
+  color: var(--color-text-dark); /* Using dark text color variable */
+}
+
+/* Dark mode adjustment for all engagement button text/counts */
+.dark-mode .viewss span,
+.dark-mode .likess span,
+.dark-mode .dislikee span,
+.dark-mode .commentss span,
+.dark-mode .shareee span,
+.dark-mode .sharee span {
+  color: var(--color-dark-mode-text-primary); /* Lighter text for dark mode */
+}
+
+/* ========================================================================== */
+/* UTILITY CLASS                                                              */
+/* ========================================================================== */
+
+.hidden {
+  display: none !important; /* Forces element to be hidden, overriding other display properties */
+}
+/* ========================================================================== */
+/* COMMENT INPUT AREA (.commentt)                                             */
+/* Container for the comment textarea and action buttons.                     */
+/* ========================================================================== */
+/* Container for share button */
+.shareee {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  background-color: #f0f0f0;
+}
+
+
+/* Pop-up container */
+.shareee-popup {
+  position: absolute;
+  bottom: 120%;
+  left: -1%;
+  transform: translate(-80%);
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 0.5rem 0.5rem;
+  min-width: 145px;
+}
+
+.shareee-popup.hidden {
+  display: none;
+}
+
+/* Individual pop-up items */
+.shareee-popup .popup-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem;
+  font-size: 0.9rem;
+  color: #111;
+  cursor: pointer;
+  margin: 5px 0;
+  white-space: nowrap;
+  background-color: white;
+  border-radius: 0.4rem;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover effects (light mode) */
+.shareee-popup .popup-item:hover {
+  background-color: grey;
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode main container */
+.dark-mode .shareee-popup {
+  background-color: #333;
+  color: white;
+  border-color: #555;
+}
+
+/* Dark mode popup items */
+.dark-mode .shareee-popup .popup-item {
+  background-color: #333;
+  color: white;
+}
+
+/* Dark mode icons inside popup */
+.dark-mode .shareee-popup .popup-item img {
+  filter: invert(1);
+}
+
+/* Hover effects (dark mode) */
+.dark-mode .shareee-popup .popup-item:hover {
+  background-color: #555;
+  color: white;
+  transform: scale(1.05);
+}
+
+
+/* Comment Report Popup */
+.comment-report-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background: white;
+  border-radius: 0.7rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  z-index: 999999;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.comment-report-popup.hidden {
+  display: none;
+}
+
+/* Header */
+.crp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.crp-close {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #555;
+}
+.crp-close:hover {
+  color: black;
+}
+
+/* Options */
+.crp-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.crp-option:hover {
+  background: #efefef;
+}
+
+/* Checkboxes */
+.crp-check {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Action buttons */
+.crp-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 0.6rem;
+}
+
+.crp-cancel {
+  background: #ccc;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.crp-cancel:hover {
+  background: #b5b5b5;
+}
+
+.crp-submit {
+  background: #d9534f;
+  color: white;
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.crp-submit:enabled {
+  opacity: 1;
+}
+
+.crp-submit:hover:enabled {
+  background: #c4423f;
+}
+
+/* Dark mode */
+.dark-mode .comment-report-popup {
+  background: #444;
+  border-color: #666;
+  color: white;
+}
+
+.dark-mode .crp-option:hover {
+  background: #555;
+}
+
+.dark-mode .crp-close {
+  color: #ddd;
+}
+
+
+/* Spam Confirmation Popup */
+.spam-confirm-popup {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  background: white;
+  border-radius: 0.7rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  z-index: 9999;
+}
+
+.spam-confirm-popup.hidden {
+  display: none;
+}
+
+.dark-mode .spam-confirm-popup {
+  background: #333;
+  color: white;
+  border-color: #444;
+}
+
+/* Header */
+.scp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.scp-close {
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.scp-close:hover {
+  opacity: 1;
+}
+
+/* Message */
+.scp-message {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+.scp-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.scp-cancel {
+  background: #ccc;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.scp-cancel:hover {
+  background: #b5b5b5;
+}
+
+.scp-submit {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.scp-submit:hover {
+  background: #c4423f;
+}
+
+/* Dark mode buttons */
+.dark-mode .scp-cancel {
+  background: #666;
+  color: white;
+}
+
+.dark-mode .scp-cancel:hover {
+  background: #555;
+}
+
+.dark-mode .scp-submit {
+  background: #aa3a36;
+}
+
+.dark-mode .scp-submit:hover {
+  background: #922f2b;
+}
+
+
 .commentt {
   position: relative;
   width: 100%;

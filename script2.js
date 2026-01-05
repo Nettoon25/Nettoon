@@ -986,3 +986,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+
+
+document.querySelectorAll('.optionss').forEach(option => {
+  const trigger = option.querySelector('.popupTrigger');
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent click from closing immediately
+    // toggle the active class
+    option.classList.toggle('active');
+  });
+});
+
+// Close popup when clicking outside
+document.addEventListener('click', () => {
+  document.querySelectorAll('.optionss.active').forEach(option => {
+    option.classList.remove('active');
+  });
+});
