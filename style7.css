@@ -3691,43 +3691,105 @@ margin: 0 auto;
 }
 
 
+/* Large desktops (1280px–1599px) */
 @media (min-width: 1280px) and (max-width: 1599px) {
-
-  .container {
-    background-color: var(--color-bg-light);
+  .container
+  {
+    background-color: var(--color-bg-light); /* Default background color for light mode */
   }
 
-  /* Notifications */
-  .Notifications {
-    margin-right: 4rem;
-  }
+    /* Notifications Icon */
+.Notifications {
+  margin-right: 4rem;
+}
 
-  .Notifications img {
-    width: 1.9rem;
-    height: 1.9rem;
-  }
+.Notifications img {
+  width: 1.9rem;
+  height: 1.9rem;
+}
 
-  /* Sidebar */
-  .sidebar {
+  
+  .shorts-container
+  {
     background-color: transparent;
   }
+  
+.sidebar
+{
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+}
 
-  /* Profile */
-  .profile.shift-up {
-    margin-bottom: 1.7rem;
-  }
+.profile
+{
+  bottom: 15%;
+}
+/* Move the profile up when caption expands */
+.profile.shift-up {
+  margin-bottom: 1.8rem; /* ~15px, tweak to taste */
+}
 
-  /* Shorts container */
-  .shorts-container {
-    width: calc(100% - 5.7%);
-    left: 5.6%;
-    gap: 1rem;
-    justify-content: center;
-    background-color: transparent;
-    margin: 0 auto;
-  }
+/* 🔷 Shorts Container */
+.shorts-container {
+
+  width: calc(100% - 5.7%);
+  left: 5.6%;
+  gap: 1rem;
+  justify-content: center;
+  background-color: transparent;
+  border: 5px solid transparent; /* TEMP: remove in production */
+  margin: 0rem auto 0 0rem;
 
 }
+
+.short-video {
+
+  max-width: 420px;
+  aspect-ratio: 9 / 16;
+  max-height: 95vh;
+
+
+}
+
+/* 🔷 Metadata Container */
+.metadata {
+  background-color: transparent;
+  position: absolute;
+  top: 50vh;
+  right: 25vw;
+  width: 5vw;
+  border-radius: 7px;
+  border-style:none;
+}
+
+.comment-container {
+  background-color: transparent;
+  top: 7rem;
+  right: 7%; /* Position when shown */
+  width: 37%;
+  max-width: 400px;
+  aspect-ratio: 9 / 16;
+  min-height: 80vh;
+  max-height: 85vh;
+
+}
+
+/* 👇 Move both to left when comments are shown */
+.shorts.show-comments .short-video {
+  margin-left: 40px;
+}
+
+.shorts.show-comments .metadata {
+  margin-right: 41%;
+  right: 10px;
+}
+
+.shorts.show-comments .comment-container {
+  margin-right: 4%;
+  right: 10px;
+}
+
+}
+
 
 
 /* Ultra-wide Displays (e.g., 1600px and up) */
