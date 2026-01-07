@@ -622,7 +622,6 @@ opacity: 1;
   overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-
   z-index: 30;
 }
 
@@ -680,7 +679,6 @@ opacity: 1;
 
 .dark-mode .Notification
 {  background-color: #2a2d2f;
-  scale: 1.5;
 }
 
 .Notification:hover {

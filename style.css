@@ -680,12 +680,60 @@ opacity: 1;
 
 .dark-mode .Notification
 {  background-color: #2a2d2f;
-  scale: 1.5;
 }
 
 .Notification:hover {
   background-color: whitesmoke;
 }
+
+.optionnn {
+  position: relative; /* so popup can be positioned absolute */
+}
+.popup-options {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.popup-item {
+  display: flex;
+  align-items: center;        /* vertical alignment */
+  gap: 12px;                  /* space between icon & text */
+  padding: 10px 14px;         /* inner spacing */
+  cursor: pointer;
+}
+
+.popup-item img {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;             /* prevents image squashing */
+}
+
+.popup-item span {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Hover */
+.popup-item:hover {
+  background-color: #f2f2f2;
+  border-radius: 6px;
+}
+
+/* Dark mode */
+.dark-mode .popup-item span {
+  color: white;
+}
+
+.dark-mode .popup-item:hover {
+  background-color: #353839;
+}
+
+.dark-mode .popup-item img {
+  filter: invert(1);
+}
+
 
 .Content
 {
@@ -714,14 +762,16 @@ flex-wrap: nowrap;
   color: #D3D3D3;
 }
 
-.User-profile img {
+.User-profile > img {
+
   width: 2.2rem;
   height: 2.2rem;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.dark-mode .User-profile img {
+.dark-mode .User-profile > img {
+  
  filter:invert(1);
 }
 
