@@ -84,6 +84,42 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+
+document.querySelectorAll('.optionnn').forEach(option => {
+  const trigger = option.querySelector('.optionTrigger');
+  const menu = option.querySelector('.popup-options');
+
+  trigger.addEventListener('click', e => {
+    e.stopPropagation();
+
+    // 🔥 Close all other open popups first
+    document.querySelectorAll('.popup-options.show').forEach(openMenu => {
+      if (openMenu !== menu) {
+        openMenu.classList.remove('show');
+      }
+    });
+
+    // Toggle current menu
+    menu.classList.toggle('show');
+  });
+
+  // Prevent clicks inside menu from closing it
+  menu.addEventListener('click', e => {
+    e.stopPropagation();
+  });
+});
+
+// Close when clicking anywhere else
+document.addEventListener('click', () => {
+  document.querySelectorAll('.popup-options').forEach(menu => {
+    menu.classList.remove('show');
+  });
+});
+
+
+
+
+
 // ================= PROFILE PICTURE =================
 const profilePicInput = document.getElementById("profilePic");
 const profilePicPreview = document.getElementById("profilePicPreview");

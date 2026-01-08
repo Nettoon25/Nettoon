@@ -604,8 +604,8 @@ opacity: 1;
 }
 
 .Notifications img {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 1.2rem;
+  height: 1.2rem;
 }
 
 /* Dropdown Container */
@@ -678,6 +678,7 @@ opacity: 1;
   gap: 0.4rem;
   border-style:none;
   justify-content: flex-start;
+  cursor:pointer;
 }
 
 .dark-mode .Notification
@@ -685,8 +686,100 @@ opacity: 1;
 }
 
 .Notification:hover {
-border-color: #2a2d2f;
+  background-color: whitesmoke;
 }
+
+.dark-mode .Notification:hover {
+  background-color: grey;
+}
+
+
+.optionnn {
+  position: relative; /* so popup can be positioned absolute */
+}
+
+.dark-mode .optionnn img
+{
+  filter: invert(1);
+}
+
+
+.popup-options {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  width: 280px;
+
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+
+  display: flex;
+  flex-direction: column;
+  padding: 6px 8px;
+  z-index: 1000;
+
+  /* 🔥 HIDE BY DEFAULT */
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-6px);
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.popup-options.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+
+.dark-mode .popup-options
+{
+  background: #3a3d40;
+}
+
+.popup-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+
+.popup-item img {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+
+.popup-item span {
+  font-size: 14px;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* Hover */
+.popup-item:hover {
+  background-color: #f2f2f2;
+  border-radius: 6px;
+}
+
+/* Dark mode */
+.dark-mode .popup-item span {
+  color: white;
+}
+
+.dark-mode .popup-item:hover {
+  background-color: grey;
+}
+
+.dark-mode .popup-item img {
+  filter: invert(1);
+}
+
 
 .Content
 {
@@ -715,14 +808,16 @@ flex-wrap: nowrap;
   color: #D3D3D3;
 }
 
-.User-profile img {
+.User-profile > img {
+
   width: 2.2rem;
   height: 2.2rem;
   border-radius: 50%;
   object-fit: cover;
 }
 
-.dark-mode .User-profile img {
+.dark-mode .User-profile > img {
+  
  filter:invert(1);
 }
 
@@ -1070,7 +1165,7 @@ flex-wrap: nowrap;
   width: 100%;
   height: auto;
   height: 30px;
-  background-color:black;
+  background-color:white;
   z-index: 10;
   display: flex;
   padding: 0px;
@@ -1093,8 +1188,10 @@ flex-wrap: nowrap;
 }
 
 .dark-mode .Heading {
-  background-color:transparent; /* Black background for Dark Mode */
+  background-color: #2a2d2f;
 }
+
+
 
 .dark-mode .Heading span {
   color: #ffffff;
@@ -1152,7 +1249,7 @@ flex-wrap: nowrap;
 {
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 5;
 width: 100%;
 height: 30px;
 background-color:white;

@@ -127,34 +127,38 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const buttons = document.querySelectorAll(".optionn > div");
-    const sections = document.querySelectorAll(".video-group");
-
-    buttons.forEach((button, index) => {
-      button.addEventListener("click", () => {
-        sections.forEach((sec, i) => {
-          sec.style.display = i === index ? "flex" : "none";
-        });
+  document.querySelectorAll('.optionnn').forEach(option => {
+    const trigger = option.querySelector('.optionTrigger');
+    const menu = option.querySelector('.popup-options');
+  
+    trigger.addEventListener('click', e => {
+      e.stopPropagation();
+  
+      // 🔥 Close all other open popups first
+      document.querySelectorAll('.popup-options.show').forEach(openMenu => {
+        if (openMenu !== menu) {
+          openMenu.classList.remove('show');
+        }
       });
+  
+      // Toggle current menu
+      menu.classList.toggle('show');
     });
-
-    // Default: Show "All" only
-    sections.forEach((sec, i) => {
-      sec.style.display = i === 0 ? "flex" : "none";
-    });
-  });
-
-
-  const tabs = document.querySelectorAll('.optionn > div');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active')); // remove from all
-      tab.classList.add('active'); // add to clicked
+  
+    // Prevent clicks inside menu from closing it
+    menu.addEventListener('click', e => {
+      e.stopPropagation();
     });
   });
   
+  // Close when clicking anywhere else
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.popup-options').forEach(menu => {
+      menu.classList.remove('show');
+    });
+  });
+  
+
 
   document.addEventListener('DOMContentLoaded', () => {
     const textareas = document.querySelectorAll('.commentt textarea');
@@ -1002,4 +1006,51 @@ document.addEventListener('click', () => {
   document.querySelectorAll('.optionss.active').forEach(option => {
     option.classList.remove('active');
   });
+});
+
+
+document.querySelectorAll('.optionss').forEach(option => {
+  const trigger = option.querySelector('.popupTrigger');
+  const mainMenu = option.querySelector('.popup-options');
+  const subPanels = option.querySelectorAll('.popup-subpanel');
+
+  // Toggle main menu
+  trigger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mainMenu.classList.toggle('show');
+
+    // Hide all subpanels when main menu toggles
+    subPanels.forEach(panel => panel.classList.remove('show'));
+  });
+
+  // Toggle subpanels
+  option.querySelectorAll('.popup-item').forEach(item => {
+    const panelName = item.dataset.panel; // "share", "playlist", "report"
+    const panel = option.querySelector(`.${panelName}-popup`);
+
+    item.addEventListener('click', (e) => {
+      e.stopPropagation();
+
+      // Hide main menu and other subpanels
+      mainMenu.classList.remove('show');
+      subPanels.forEach(p => p.classList.remove('show'));
+
+      // Show clicked panel
+      panel.classList.add('show');
+    });
+  });
+
+  // Close subpanels with close button
+  option.querySelectorAll('.panel-close').forEach(closeBtn => {
+    closeBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const panel = closeBtn.closest('.popup-subpanel');
+      panel?.classList.remove('show');
+    });
+  });
+});
+
+// Close everything when clicking outside
+document.addEventListener('click', () => {
+  document.querySelectorAll('.popup-options, .popup-subpanel').forEach(el => el.classList.remove('show'));
 });
