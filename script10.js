@@ -123,9 +123,6 @@ document.addEventListener('click', () => {
 });
 
 
-
-
-
   const profileInput = document.getElementById('profileImageInput');
   const previewImage = document.getElementById('profilePreview');
 

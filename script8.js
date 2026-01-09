@@ -121,10 +121,6 @@ document.addEventListener('click', () => {
   });
 });
 
-
-
-
-
 let userInteracted = false;
 
 // Unlock autoplay with sound on first user interaction

@@ -1382,11 +1382,12 @@ flex-wrap: nowrap;
   cursor: pointer;
   padding: 0;
   aspect-ratio: 9 / 16;
-  height: 94%;
+  height: 93%;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   flex-shrink: 0;
-  margin: 0;    
+  margin: 0; 
+  margin-bottom:1rem;   
 }
 
 
@@ -3588,7 +3589,7 @@ margin: 0 auto;
   max-height: 90vh;
 top: 1rem;
 border-style: none;
-
+  margin-bottom:0.3rem;   
 }
 
 .profile {
