@@ -2997,7 +2997,9 @@ scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
   max-height: 180px;
   border: none;
   resize: none;
-
+  /* Fallback scrollbar styling (Firefox) */
+  scrollbar-width: thin; /* Thin scrollbar for Firefox */
+  scrollbar-color: var(--scrollbar-thumb-color-light) transparent; /* Firefox scrollbar color */
   font-size: 1rem;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;

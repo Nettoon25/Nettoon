@@ -1388,6 +1388,7 @@ flex-wrap: nowrap;
   flex-shrink: 0;
   margin: 0; 
   margin-bottom:1rem;   
+  border-style:ridge;
 }
 
 
@@ -1610,14 +1611,13 @@ flex-wrap: nowrap;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center; /* Centers buttons horizontally within this container */
-  
+  border-style:ridge;
   background-color:transparent; /* No background for the container itself */
   border-radius: 7px;
   gap: var(--spacing-md); /* Spacing between the engagement buttons */
   padding: 0;
-  z-index: 4; /* CRITICAL FIX: Ensures it's above video, profile, and caption.
-                (Was Z-index: 0, which would place it behind the video.) */
-                border-style: none;
+  z-index: 4; 
+              
 }
 
 /* Move the metadata container to the left when comments are shown */
@@ -2198,7 +2198,7 @@ body.dark-mode .share .default-icon {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top:3.8rem;
+  top: 4rem;
   right: 7%; /* Position when shown */
   width: 37%;
   max-width: 400px;
@@ -2207,7 +2207,7 @@ body.dark-mode .share .default-icon {
   max-height: 95vh;
   background-color: transparent;
   margin: 0;
-  /*padding: 1rem;*/
+  padding: 1rem;
   border-radius: 0.75rem;
   border: 0.1px solid black;
   overflow-y: auto;
@@ -2217,7 +2217,6 @@ z-index: 0;
   opacity: 0;
   pointer-events: none;
 }
-
 .comment-container {
   transform: translateX(100%);
  
@@ -3788,14 +3787,14 @@ margin: 0 auto;
 }
 
 
-/* Large desktops (1280px–1599px) */
+/* Large desktops (1280px–1599px) 
 @media (min-width: 1280px) and (max-width: 1599px) {
   .container
   {
-    background-color: var(--color-bg-light); /* Default background color for light mode */
+    background-color: var(--color-bg-light); 
   }
 
-    /* Notifications Icon */
+ 
 .Notifications {
   margin-right: 4rem;
 }
@@ -3813,19 +3812,19 @@ margin: 0 auto;
   
 .sidebar
 {
-  background-color: var(--color-bg-light); /* Default background color for light mode */
+  background-color: var(--color-bg-light);
 }
 
 .profile
 {
   bottom: 15%;
 }
-/* Move the profile up when caption expands */
+
 .profile.shift-up {
-  margin-bottom: 1.8rem; /* ~15px, tweak to taste */
+  margin-bottom: 1.8rem; 
 }
 
-/* 🔷 Shorts Container */
+
 .shorts-container {
 
   width: calc(100% - 5.7%);
@@ -3833,7 +3832,7 @@ margin: 0 auto;
   gap: 1rem;
   justify-content: center;
   background-color: transparent;
-  border: 5px solid transparent; /* TEMP: remove in production */
+  border: 5px solid transparent; 
   margin: 0rem auto 0 0rem;
 
 }
@@ -3847,7 +3846,6 @@ margin: 0 auto;
 
 }
 
-/* 🔷 Metadata Container */
 .metadata {
   background-color: transparent;
   position: absolute;
@@ -3861,7 +3859,7 @@ margin: 0 auto;
 .comment-container {
   background-color: transparent;
   top: 7rem;
-  right: 7%; /* Position when shown */
+  right: 7%; 
   width: 37%;
   max-width: 400px;
   aspect-ratio: 9 / 16;
@@ -3870,7 +3868,7 @@ margin: 0 auto;
 
 }
 
-/* 👇 Move both to left when comments are shown */
+
 .shorts.show-comments .short-video {
   margin-left: 40px;
 }
@@ -3886,7 +3884,7 @@ margin: 0 auto;
 }
 
 }
-
+*/
 
 
 /* Ultra-wide Displays (e.g., 1600px and up) */
