@@ -6278,8 +6278,7 @@ margin-left: 5px;
   height: 1.9rem;
 }
 
-/*
- 
+
   .video-container
   {
   border-style:none;}
@@ -6298,7 +6297,7 @@ margin-left: 5px;
 .card
 {
   border-style:none;
-      max-height: 16.375rem;  Sets a maximum height (230px converted to rem) to control card size 
+      max-height: 16.375rem; 
       margin-top:1rem ;
 margin-bottom: 0.7rem;
 }
@@ -6358,7 +6357,6 @@ margin-bottom: 0.7rem;
 .timee {
   flex: 3;
 }
-*/
 
 }
 
