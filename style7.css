@@ -3597,7 +3597,7 @@ border-style: none;
 
 .profile {
   position: absolute;
-  bottom: 36%;
+  bottom: 24%;
 
 }
 
@@ -3853,8 +3853,8 @@ margin: 0 auto;
 .metadata {
   background-color: transparent;
   position: absolute;
-  top: 40vh;
-  right: 29vw;
+  top: 50vh;
+  right: 25vw;
   width: 5vw;
   border-radius: 7px;
   border-style:none;
@@ -3862,7 +3862,7 @@ margin: 0 auto;
 
 .comment-container {
   background-color: transparent;
-  top: 5rem;
+  top: 7rem;
   right: 7%; 
   width: 37%;
   max-width: 400px;
@@ -3878,7 +3878,7 @@ margin: 0 auto;
 }
 
 .shorts.show-comments .metadata {
-  margin-right: 43%;
+  margin-right: 41%;
   right: 10px;
 }
 
