@@ -1051,7 +1051,8 @@ flex-wrap: nowrap;
   color: white;
   transform: scale(1.05);
   cursor: pointer;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2)
+  
 }
 
 
@@ -1062,6 +1063,13 @@ flex-wrap: nowrap;
   height: 1.6875em;
   border-radius: 50%;
   margin-right: 0.625em; /* 10px */
+
+}
+
+
+body.dark-mode
+.proofile:hover > img {
+  filter: invert(1);
 }
 
 /* Profile Name */
@@ -1081,6 +1089,11 @@ flex-wrap: nowrap;
 /* Change text color on hover */
 .proofile:hover span{
   color: white;
+}
+
+/* Change text color on hover */
+.dark-mode .proofile img:hover {
+filter: invert(1);
 }
 
 
@@ -1904,10 +1917,6 @@ body.dark-mode .follow span {
   background: #444;
   color: white;
 }
-
-
-
-
 
 
 /* REPORT POPUP V2 */
@@ -6278,7 +6287,8 @@ margin-left: 5px;
   height: 1.9rem;
 }
 
-
+/*
+ 
   .video-container
   {
   border-style:none;}
@@ -6297,7 +6307,7 @@ margin-left: 5px;
 .card
 {
   border-style:none;
-      max-height: 16.375rem; 
+      max-height: 16.375rem;  Sets a maximum height (230px converted to rem) to control card size 
       margin-top:1rem ;
 margin-bottom: 0.7rem;
 }
@@ -6357,6 +6367,7 @@ margin-bottom: 0.7rem;
 .timee {
   flex: 3;
 }
+*/
 
 }
 
