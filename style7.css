@@ -3613,9 +3613,10 @@ border-style: none;
   position: absolute;
 top:13rem;
 background-color: transparent;
-  right: 25vw;
+  right: 24.5vw;
   width: 6vw;
   border-radius: 7px;
+  border-style:none;
 }
 
 /* 👇 Move both to left when comments are shown */
