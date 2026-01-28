@@ -1143,14 +1143,16 @@ body.dark-mode
   display: flex; /* Enables a flexible layout */
   flex-direction: row; /* Arranges items in a row (side-by-side) by default */
   justify-content: space-between; /* Distributes items to the left and right edges */
-  align-items: flex-start; /* Aligns items to the start (top) of the cross axis */
+align-items: flex-start;
+
 
   width: 100%; /* Spans the full width of its parent */
-  height: auto; /* Height adapts to its content */
-  
+  height: calc(100vh - 6rem); /* 🔑 definite height */
+  max-height: calc(100vh - 6rem);
+  align-items: stretch; /* 🔑 force children to same height */
   background-color:transparent;
   border-radius: var(--border-radius-sm); /* Consistent rounding (7px converted to rem) */
-  border-style: none; /* No border style */
+  border-style:none; /* No border style */
 
   margin-top: 50px; /* Maintains the explicit 60px top margin */
   
@@ -1179,6 +1181,8 @@ body.dark-mode
     gap: var(--spacing-xl); /* Larger gap for desktop layout (e.g., 2rem approx 32px) */
   }
 }
+
+
 /* ==== MAIN VIDEO CONTENT BLOCK (.containerr) - CORRECTED CLASS NAME ==== */
 /* This div wraps the profile, caption, video player, and interaction section. */
 .containerr { /* CORRECTED: Used 'containerr' as per your HTML */
@@ -1193,7 +1197,7 @@ body.dark-mode
   margin-left:20px; /* Keeping original margin-left */
   flex-direction: column; /* Stack profile, caption, video, section vertically */
   flex-grow: 1; /* Allows it to take up available space in the .video-container row (on desktop) */
-  border-style:none;
+  border-style:none; /* No border style */
 }
 
 /* Dark Mode for containerr */
@@ -2103,11 +2107,14 @@ body.dark-mode .follow span {
   /* Flexible and Responsive Sizing */
   flex-basis: 38%; /* Provides a base width, allowing it to grow or shrink */
   max-width: clamp(20rem, 37vw, 40rem); /* Refined responsive width using clamp: ensures a min width (20rem), scales with viewport (37vw), and has a max width (40rem) for very large screens. This prevents distortion and ensures optimal use of space. */
-  height: auto; /* Height adapts to content */
-  max-height: 32.3rem; /* Set max height for scrollable content (555px converted to rem for consistency) */
+  height:auto;        /* Allows it to stretch */
+  height: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  align-self: stretch; /* 🔑 ensure it fills video-container height */
   
   /* Layout and Flow */
-  float: right; /* Maintain float for its specific layout purpose, though often replaced by flex/grid in modern layouts, adhering to "don't tweak" for structural changes. */
+  float: none; /* Maintain float for its specific layout purpose, though often replaced by flex/grid in modern layouts, adhering to "don't tweak" for structural changes. */
   margin-top: 0; /* No top margin */
   margin-right: 1%; /* Keeps your specified right margin */
   
@@ -2125,7 +2132,7 @@ body.dark-mode .follow span {
   flex-direction: row; /* Arranges items in rows (horizontally) initially */
   justify-content: flex-start; /* Aligns content to the start of the flex container */
   
-  border-style: none; /* No border style */
+  border-style:none; /* No border style */
   z-index: 2; /* Ensures it's layered correctly on the page */
 
   /* Custom Scrollbar Styling (Webkit Browsers - Chrome, Safari) */
@@ -2147,6 +2154,7 @@ body.dark-mode .follow span {
   scrollbar-width: thin; /* Thin scrollbar for Firefox */
   scrollbar-color: var(--scrollbar-thumb-color-light) transparent; /* Firefox scrollbar color */
 }
+
 
 /* Dark mode adjustments for .container-2 */
 .dark-mode .container-2 {
@@ -5917,18 +5925,18 @@ margin: 0 auto;
   width: 12%; /* Expands slightly on hover for better UX */
 }
 
-
+/*
   .video-container 
   { 
     max-width: 100%; height: auto; 
     margin-top: 60px;
     background-color: transparent;
   width: 100%;
-  gap:10px; /* Space between main elements inside (1rem approx 16px) */
+  gap:10px; 
   max-width: 100%;
   flex-shrink:0;
   border-style: none;
-  }
+  }*/
 
 .containerr
 {
@@ -5968,7 +5976,7 @@ margin: 0 auto;
 
 }
 
-
+/*
 .container-2
 {
   background-color: transparent;
@@ -5979,7 +5987,7 @@ flex-basis: 39%; /* Provides a base width, allowing it to grow or shrink */
 max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: ensures a min width (20rem), scales with viewport (37vw), and has a max width (40rem) for very large screens. This prevents distortion and ensures optimal use of space. */
 
 
-}
+}/*
 
 .All span, .Playlist span, .Sci-fi span, .WatchMojo span, .Watch span {
   flex-grow: 1.5;
@@ -6114,7 +6122,6 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 }
 
 
-}
 
 /* Desktops (1025px–1279px) */
 @media (min-width: 1025px) and (max-width: 1279px) {
@@ -6179,7 +6186,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
   margin: 0 auto;
   }
   
-  .video-container 
+ /* .video-container 
   { 
     max-width: 100%; height: auto; 
     margin-top: 50px;
@@ -6188,7 +6195,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
   max-width: 100%;
   flex-shrink:0;
   border-radius: 0px;
-  }
+  }*/
 
 .containerr
 {
@@ -6251,12 +6258,14 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 
 }
 
-
+/*
 .container-2
 {  background-color: sandybrown;
   max-height: 419px;
 }
 
+
+*/
 /* Label Styling */
 .All span, .Playlist span, .Sci-fi span, .WatchMojo span, .Watch span {
   flex-grow: 1.5;
@@ -6530,7 +6539,7 @@ margin-bottom:1rem;
   margin: 0 auto;
   }
   
-  
+    /*
     .video-container 
     { 
       max-width: 100%; height: auto; 
@@ -6540,7 +6549,7 @@ margin-bottom:1rem;
     max-width: 100%;
     flex-shrink:0;
    border-style:none;
-    }
+    }*/
   
   .containerr
   {
@@ -6569,12 +6578,12 @@ margin-bottom:1rem;
   }
   
   
-  .container-2
+   /* .container-2
   {
     background-color: transparent;
   max-height: 778px;
    border-style:none;
-  }
+  }*/
   
   .card
   {
