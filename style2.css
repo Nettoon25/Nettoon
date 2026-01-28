@@ -1194,7 +1194,9 @@ align-items: flex-start;
   margin-left:20px; /* Keeping original margin-left */
   flex-direction: column; /* Stack profile, caption, video, section vertically */
   flex-grow: 1; /* Allows it to take up available space in the .video-container row (on desktop) */
-  border-style:none;
+   border-style:none; /* No border */
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
 /* Dark Mode for containerr */
@@ -1213,6 +1215,7 @@ align-items: flex-start;
   align-items: center;
   margin-top: 0px;
   gap: 0.5rem; /* Adds spacing between elements */
+  border-style: none;
 }
 
 /* ==== PROFILE IMAGE (.profillee img) ==== */
@@ -1274,13 +1277,15 @@ align-items: flex-start;
   max-height: 35px;
   height: auto; /* Allow dynamic height */
   background-color:transparent;
-  margin-top: 0px;
-  margin-bottom: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
   overflow: hidden; /* Hide overflow */
   padding: 5px; /* Ensure spacing */
+  border-style: none;
+
 }
 
 /* ==== HEADING INSIDE CAPTION (.captionn h3) ==== */
@@ -1294,7 +1299,9 @@ align-items: flex-start;
   text-overflow: ellipsis; /* Add ellipsis if text overflows */
   max-width: 100%; /* Ensure text stays within bounds */
   padding: 2px;
-  margin: 0; /* Remove unnecessary margin */
+  /*margin-bottom: 1rem;  Remove unnecessary margin */
+  margin: 0;
+  ma
 }
 /* No changes needed to your CSS for this fix. It's already correct. */
 /* ==== VIDEO PLAYER CONTAINER ==== */
@@ -1305,10 +1312,11 @@ align-items: flex-start;
   background-color: var(--color-bg-dark-alt);
   border-radius: var(--border-radius-md);
   overflow: hidden;
-
+line-height: 0;
   /* 🔑 critical fixes */
   display: block;
   max-width: 100%;
+  border-style: none;
 }
 
 /* ==== VIDEO ELEMENT ==== */
@@ -1319,6 +1327,8 @@ align-items: flex-start;
   height: 100%;
   object-fit: contain;
   border-radius: inherit;
+  display: block;
+  border-style: none; /* No border */
 }
 
 
@@ -1348,10 +1358,11 @@ align-items: flex-start;
   
   gap:0.7em; /* Responsive spacing between elements using a variable (0.5em approx 8px) */
   margin-block: var(--spacing-xxxs); /* Responsive vertical margin (1px approx 0.0625rem) for subtle spacing */
-  
+  margin-top: 0.6rem;
   border-radius: 0.4375rem; /* Uses your specified rem value for consistency */
   border-style: none; /* No border */
   background-color:transparent;
+  margin-bottom: 0;
 }
 /* ==== INDIVIDUAL INTERACTIVE ITEMS (.viewss, .commentss, .likess, .dislikee, .timee, .follow, .option) ==== */
 /* These styles apply to all clickable interactive items within the section, providing a consistent look and feel. */
@@ -2350,7 +2361,8 @@ padding-bottom: 20px;
   border: none; /* Removes any default border */
   border-style:none; /* Explicitly sets border style to none */
   border-radius: 0.4375rem;
-  
+  margin-top: 1.75rem;
+  margin-bottom:1.75rem;
   /* Margins for spacing the cards */
   
   cursor: pointer; /* Indicates that the card is interactive and clickable */

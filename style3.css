@@ -1135,7 +1135,6 @@ body.dark-mode
     bottom: -1.75rem; /* Adjust positioning */
   }
 }
-
 /* ==== VIDEO CONTAINER (.video-container) ==== */
 /* This is the main wrapper for your video player and related content. */
 .video-container {
@@ -1181,8 +1180,6 @@ align-items: flex-start;
     gap: var(--spacing-xl); /* Larger gap for desktop layout (e.g., 2rem approx 32px) */
   }
 }
-
-
 /* ==== MAIN VIDEO CONTENT BLOCK (.containerr) - CORRECTED CLASS NAME ==== */
 /* This div wraps the profile, caption, video player, and interaction section. */
 .containerr { /* CORRECTED: Used 'containerr' as per your HTML */
@@ -1197,7 +1194,9 @@ align-items: flex-start;
   margin-left:20px; /* Keeping original margin-left */
   flex-direction: column; /* Stack profile, caption, video, section vertically */
   flex-grow: 1; /* Allows it to take up available space in the .video-container row (on desktop) */
-  border-style:none; /* No border style */
+   border-style:none; /* No border */
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
 /* Dark Mode for containerr */
@@ -1216,6 +1215,7 @@ align-items: flex-start;
   align-items: center;
   margin-top: 0px;
   gap: 0.5rem; /* Adds spacing between elements */
+  border-style: none;
 }
 
 /* ==== PROFILE IMAGE (.profillee img) ==== */
@@ -1277,13 +1277,15 @@ align-items: flex-start;
   max-height: 35px;
   height: auto; /* Allow dynamic height */
   background-color:transparent;
-  margin-top: 0px;
-  margin-bottom: 0;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
   display: flex;
   align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
   overflow: hidden; /* Hide overflow */
   padding: 5px; /* Ensure spacing */
+  border-style: none;
+
 }
 
 /* ==== HEADING INSIDE CAPTION (.captionn h3) ==== */
@@ -1297,33 +1299,38 @@ align-items: flex-start;
   text-overflow: ellipsis; /* Add ellipsis if text overflows */
   max-width: 100%; /* Ensure text stays within bounds */
   padding: 2px;
-  margin: 0; /* Remove unnecessary margin */
+  /*margin-bottom: 1rem;  Remove unnecessary margin */
+  margin: 0;
+  ma
 }
 /* No changes needed to your CSS for this fix. It's already correct. */
-
-/* ==== VIDEO PLAYER CONTAINER (.video) ==== */
+/* ==== VIDEO PLAYER CONTAINER ==== */
 .video {
   position: relative;
   width: 100%;
-  height: auto;
   aspect-ratio: 16 / 9;
   background-color: var(--color-bg-dark-alt);
-  border-radius: var(--border-radius-md); /* Consistent medium rounded corners for the video player */
+  border-radius: var(--border-radius-md);
   overflow: hidden;
-  margin-block-start: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+line-height: 0;
+  /* 🔑 critical fixes */
+  display: block;
+  max-width: 100%;
+  border-style: none;
 }
 
-/* ==== VIDEO ELEMENT (.video video) ==== */
+/* ==== VIDEO ELEMENT ==== */
 .video video {
-  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  position: absolute;   /* 🔑 remove intrinsic flow */
+  inset: 0;             /* top:0 right:0 bottom:0 left:0 */
   width: 100%;
   height: 100%;
-  object-fit: contain; /* Remains 'contain' for full video visibility */
+  object-fit: contain;
+  border-radius: inherit;
   display: block;
+  border-style: none; /* No border */
 }
+
 
 /* ==== PLAY OVERLAY BUTTON (.play-overlay) ==== */
 .play-overlay {
@@ -1351,10 +1358,11 @@ align-items: flex-start;
   
   gap:0.7em; /* Responsive spacing between elements using a variable (0.5em approx 8px) */
   margin-block: var(--spacing-xxxs); /* Responsive vertical margin (1px approx 0.0625rem) for subtle spacing */
-  
+  margin-top: 0.6rem;
   border-radius: 0.4375rem; /* Uses your specified rem value for consistency */
   border-style: none; /* No border */
   background-color:transparent;
+  margin-bottom: 0;
 }
 /* ==== INDIVIDUAL INTERACTIVE ITEMS (.viewss, .commentss, .likess, .dislikee, .timee, .follow, .option) ==== */
 /* These styles apply to all clickable interactive items within the section, providing a consistent look and feel. */
@@ -1383,6 +1391,18 @@ align-items: flex-start;
     border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
     cursor: pointer;       /* Indicates that the element is clickable */
     /* NO TRANSITIONS as per user request */
+}
+/* Dark mode adjustment for individual interactive items */
+.dark-mode .viewss,
+.dark-mode .commentss,
+.dark-mode .likess,
+.dark-mode .dislikee,
+.dark-mode .timee,
+.dark-mode .follow,
+.dark-mode .following,
+.dark-mode .option {
+  background-color: var(--color-bg-metadata-dark); /* **YouTube-inspired dark gray background** */
+
 }
 
 /* Dark mode adjustment for individual interactive items */
