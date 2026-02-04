@@ -1183,6 +1183,8 @@ body.dark-mode
   /* Using clamp for responsive width: min 18.75rem (300px), flexible 58% of parent, max 45rem (720px) or more. */
   width: clamp(18.75rem, 60vw, 45rem); 
  height: 100%;
+  max-height: 100%;
+  align-self: stretch;
   background-color: var(--color-bg-light); /* Light background for the video card itself */
   border-radius: 0.4375rem;
   box-shadow: var(--color-shadow); /* Subtle shadow for depth */
@@ -1190,12 +1192,12 @@ body.dark-mode
   display: flex;
   margin-left:20px; /* Keeping original margin-left */
   flex-direction: column; /* Stack profile, caption, video, section vertically */
+    justify-content: space-between; /* 🔑 balances content vertically */
   flex-grow: 1; /* Allows it to take up available space in the .video-container row (on desktop) */
-  border-style:none; /* No border style */
+  border-style:ridge; /* No border style */
   padding-bottom: 0;
   padding-top: 0;
 }
-
 /* Dark Mode for containerr */
 .dark-mode .containerr {
   background-color:transparent; /* Darker card background */
@@ -1355,9 +1357,9 @@ line-height: 0;
   
   gap:0.7em; /* Responsive spacing between elements using a variable (0.5em approx 8px) */
   margin-block: var(--spacing-xxxs); /* Responsive vertical margin (1px approx 0.0625rem) for subtle spacing */
-  margin-top: 0.6rem;
+
   border-radius: 0.4375rem; /* Uses your specified rem value for consistency */
-  border-style:none; /* No border style */
+  border-style:ridge; /* No border style */
   background-color:transparent;
   margin-bottom: 0;
 }
@@ -2133,7 +2135,7 @@ body.dark-mode .follow span {
   flex-wrap: wrap; /* Allows child items to wrap to the next line within the container */
   flex-direction: row; /* Arranges items in rows (horizontally) initially */
   justify-content: flex-start; /* Aligns content to the start of the flex container */
-  border-style:none; /* No border style */
+  border-style:ridge; /* No border style */
   z-index: 2; /* Ensures it's layered correctly on the page */
 
   /* Custom Scrollbar Styling (Webkit Browsers - Chrome, Safari) */
@@ -6261,7 +6263,7 @@ margin: 0 auto;
 
   height: 65vh;      /* 🔥 MUST be height, not min-height */
   max-height: 65vh;
-  
+    border-style:ridge; /* No border style */
 }
 
 
@@ -6307,7 +6309,7 @@ margin: 0 auto;
   background-color: transparent;
   max-height: 300px;
   margin: 2.5rem 0 2.5rem 7px; 
-   border-style:none;
+   border-style:ridge;
 }
 
 /*

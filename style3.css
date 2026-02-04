@@ -1143,14 +1143,13 @@ body.dark-mode
   display: flex; /* Enables a flexible layout */
   flex-direction: row; /* Arranges items in a row (side-by-side) by default */
   justify-content: space-between; /* Distributes items to the left and right edges */
-  align-items: flex-start; /* Aligns items to the start (top) of the cross axis */
-
+  align-items: stretch;
   width: 100%; /* Spans the full width of its parent */
-  height: auto; /* Height adapts to its content */
-  
+  height: 80vh;      /* 🔥 MUST be height, not min-height */
+  max-height: 80vh;
   background-color:transparent;
   border-radius: var(--border-radius-sm); /* Consistent rounding (7px converted to rem) */
-  border-style: none; /* No border style */
+  border-style:none; /* No border style */
 
   margin-top: 50px; /* Maintains the explicit 60px top margin */
   
@@ -1184,7 +1183,9 @@ body.dark-mode
 .containerr { /* CORRECTED: Used 'containerr' as per your HTML */
   /* Using clamp for responsive width: min 18.75rem (300px), flexible 58% of parent, max 45rem (720px) or more. */
   width: clamp(18.75rem, 60vw, 45rem); 
-  height: auto; /* Height adapts to content */
+ height: 100%;
+  max-height: 100%;
+  align-self: stretch;
   background-color: var(--color-bg-light); /* Light background for the video card itself */
   border-radius: 0.4375rem;
   box-shadow: var(--color-shadow); /* Subtle shadow for depth */
@@ -1192,8 +1193,11 @@ body.dark-mode
   display: flex;
   margin-left:20px; /* Keeping original margin-left */
   flex-direction: column; /* Stack profile, caption, video, section vertically */
+    justify-content: space-between; /* 🔑 balances content vertically */
   flex-grow: 1; /* Allows it to take up available space in the .video-container row (on desktop) */
-  border-style:none;
+  border-style:ridge; /* No border style */
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
 /* Dark Mode for containerr */
@@ -1349,7 +1353,7 @@ body.dark-mode
   margin-block: var(--spacing-xxxs); /* Responsive vertical margin (1px approx 0.0625rem) for subtle spacing */
   
   border-radius: 0.4375rem; /* Uses your specified rem value for consistency */
-  border-style: none; /* No border */
+  border-style:ridge; /* No border */
   background-color:transparent;
 }
 /* ==== INDIVIDUAL INTERACTIVE ITEMS (.viewss, .commentss, .likess, .dislikee, .timee, .follow, .option) ==== */
@@ -2103,11 +2107,12 @@ body.dark-mode .follow span {
   /* Flexible and Responsive Sizing */
   flex-basis: 38%; /* Provides a base width, allowing it to grow or shrink */
   max-width: clamp(20rem, 37vw, 40rem); /* Refined responsive width using clamp: ensures a min width (20rem), scales with viewport (37vw), and has a max width (40rem) for very large screens. This prevents distortion and ensures optimal use of space. */
-  height: auto; /* Height adapts to content */
-  max-height: 32.3rem; /* Set max height for scrollable content (555px converted to rem for consistency) */
-  
-  /* Layout and Flow */
-  float: right; /* Maintain float for its specific layout purpose, though often replaced by flex/grid in modern layouts, adhering to "don't tweak" for structural changes. */
+
+  overflow-y: auto;
+  align-self: stretch; /* 🔑 ensure it fills video-container height */
+ height: 100%;
+  max-height: 100%;
+  float: none; /* Maintain float for its specific layout purpose, though often replaced by flex/grid in modern layouts, adhering to "don't tweak" for structural changes. */
   margin-top: 0; /* No top margin */
   margin-right: 1%; /* Keeps your specified right margin */
   
@@ -2124,8 +2129,7 @@ body.dark-mode .follow span {
   flex-wrap: wrap; /* Allows child items to wrap to the next line within the container */
   flex-direction: row; /* Arranges items in rows (horizontally) initially */
   justify-content: flex-start; /* Aligns content to the start of the flex container */
-  
-  border-style: none; /* No border style */
+  border-style:ridge; /* No border style */
   z-index: 2; /* Ensures it's layered correctly on the page */
 
   /* Custom Scrollbar Styling (Webkit Browsers - Chrome, Safari) */
@@ -2345,7 +2349,7 @@ padding-bottom: 20px;
   flex: 0 1 47%; 
   margin-left: 5px;
   border: none; /* Removes any default border */
-  border-style:none; /* Explicitly sets border style to none */
+  border-style:ridge; /* Explicitly sets border style to none */
   border-radius: 0.4375rem;
   margin-top: 1rem;
   margin-bottom: 2.5rem;  
@@ -6530,7 +6534,7 @@ margin-bottom:1rem;
   margin: 0 auto;
   }
   
-  
+   /*
     .video-container 
     { 
       max-width: 100%; height: auto; 
@@ -6539,13 +6543,24 @@ margin-bottom:1rem;
     width: 100%;
     max-width: 100%;
     flex-shrink:0;
-   border-style:none;
+  border-style:ridge;
     }
-  
+  */
+
+
+  .video-container
+  {
+
+  height: 65vh;      /* 🔥 MUST be height, not min-height */
+  max-height: 65vh;
+  border-style: ridge;
+}
+
+  /*
   .containerr
   {
     background-color: transparent;
-  border-style:none;
+   border-style:ridge;
   }
   
   
@@ -6554,12 +6569,12 @@ margin-bottom:1rem;
     font-size: clamp(1rem, 1.1vw, 1.5rem);
   }
   
-  /* Increase space for time and follow buttons */
+
   .viewss {
     flex: 2.1;
   }
   
-  /* Increase space for time and follow buttons */
+
   .follow {
     flex: 2.1;
   }
@@ -6568,20 +6583,19 @@ margin-bottom:1rem;
     flex: 2;
   }
   
-  
+   
   .container-2
   {
     background-color: transparent;
-  max-height: 778px;
-   border-style:none;
+   border-style:ridge;
   }
   
   .card
   {
     background-color: transparent;
     max-height: 300px;
-    margin: 10px 0 15px 7px; /* Maintain original positioning */
-  border-style:none;
+    margin: 10px 0 15px 7px; 
+  border-style:ridge;
   }
   
   .pichaa {
@@ -6625,8 +6639,7 @@ margin-bottom:1rem;
     height: 1.5vw;
   
   }
-   
-  
+
   .container-3
   {
     background-color: transparent;
@@ -6647,11 +6660,11 @@ margin-bottom:1rem;
   }
   
   .channel {
-    width: clamp(11.375rem, 32%, 20.75rem); /* Converted 150px and 300px to rem */
-    height: 100%; /* Fully inherit from container-3 */
+    width: clamp(11.375rem, 32%, 20.75rem);
+    height: 100%; 
       background-color: transparent;
    border-style:none;
-    margin-top: 2.6rem; /* 50px */
+    margin-top: 2.6rem; 
     margin-bottom: 0px;
     float: left;
     margin-left: 1rem;
@@ -6659,21 +6672,21 @@ margin-bottom:1rem;
   
   .channel img
   {
-    margin-inline: auto; /* This pushes the image to the center horizontally within its flex container */
+    margin-inline: auto; 
   }
   
   
   .profile
   {
     position: relative;
-    margin-top: 0rem; /* 15px in rem */
+    margin-top: 0rem; 
   }
   
   .profile-name span  {
       font-size: 1rem;
   }
   
-  /* Followers label styling */
+  
   .followers span  {
     font-size: 1rem;
   }
@@ -6687,8 +6700,8 @@ margin-bottom:1rem;
   
   .series
   {
-      height: 14.5rem; /* Consistent height (200px converted to rem) */
-  margin: 4.3rem 0 0 0.625rem; /* Left gap only */
+      height: 14.5rem; 
+  margin: 4.3rem 0 0 0.625rem; 
   }
   
   
@@ -6709,10 +6722,10 @@ margin-bottom:1rem;
   border-style:none;
     }
   
-  /* Caption Text */
+
   .caption span {
     font-weight: 700;
-    font-size: 0.9rem; /* 15.5px */
+    font-size: 0.9rem; 
   }
   
   .videoo {
@@ -6722,7 +6735,7 @@ margin-bottom:1rem;
   
   .videoo video {
     width: 100%;
-    height: 17.5rem; /* 200px */
+    height: 17.5rem; 
   
   }
   
@@ -6746,13 +6759,12 @@ margin-bottom:1rem;
   }
   
   }
-  
-  /* Dark mode override */
+
   @media (prefers-color-scheme: dark) {
     body { background: #121212; color: #e0e0e0; }
     .navbar { background: #1f1f1f; }
-    /* etc. */
+  
   }
   
-  
+   */
   
