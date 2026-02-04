@@ -1195,7 +1195,7 @@ body.dark-mode
   flex-direction: column; /* Stack profile, caption, video, section vertically */
     justify-content: space-between; /* 🔑 balances content vertically */
   flex-grow: 1; /* Allows it to take up available space in the .video-container row (on desktop) */
-  border-style:ridge; /* No border style */
+    border-style:none; /* No border style */
   padding-bottom: 0;
   padding-top: 0;
 }
@@ -1353,7 +1353,7 @@ body.dark-mode
   margin-block: var(--spacing-xxxs); /* Responsive vertical margin (1px approx 0.0625rem) for subtle spacing */
   
   border-radius: 0.4375rem; /* Uses your specified rem value for consistency */
-  border-style:ridge; /* No border */
+    border-style:none; /* No border style */
   background-color:transparent;
 }
 /* ==== INDIVIDUAL INTERACTIVE ITEMS (.viewss, .commentss, .likess, .dislikee, .timee, .follow, .option) ==== */
@@ -2129,7 +2129,7 @@ body.dark-mode .follow span {
   flex-wrap: wrap; /* Allows child items to wrap to the next line within the container */
   flex-direction: row; /* Arranges items in rows (horizontally) initially */
   justify-content: flex-start; /* Aligns content to the start of the flex container */
-  border-style:ridge; /* No border style */
+    border-style:none; /* No border style */
   z-index: 2; /* Ensures it's layered correctly on the page */
 
   /* Custom Scrollbar Styling (Webkit Browsers - Chrome, Safari) */
@@ -2349,7 +2349,7 @@ padding-bottom: 20px;
   flex: 0 1 47%; 
   margin-left: 5px;
   border: none; /* Removes any default border */
-  border-style:ridge; /* Explicitly sets border style to none */
+    border-style:none; /* No border style */
   border-radius: 0.4375rem;
   margin-top: 1rem;
   margin-bottom: 2.5rem;  
@@ -6553,7 +6553,7 @@ margin-bottom:1rem;
 
   height: 65vh;      /* 🔥 MUST be height, not min-height */
   max-height: 65vh;
-  border-style: ridge;
+    border-style:none; /* No border style */
 }
 
   /*
