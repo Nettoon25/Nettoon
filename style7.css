@@ -1363,10 +1363,9 @@ body.dark-mode
   background-color: var(--color-bg-light); /* Default background color for light mode */
   border-style: none; /* Kept as provided */
   margin: 0rem auto 0 auto; /* Centers the short item horizontally */
-  margin-bottom: 0px; /* Kept as provided */
-  margin-top: 0px;
-  padding-top: 0px; /* Kept as provided */
-  padding-bottom: var(--spacing-md); /* Add bottom padding to prevent caption from hugging edge */
+  /* SAFE SPACE like TikTok / YouTube */
+  padding-top: clamp(1.5rem, 4vh, 3rem);
+  padding-bottom: clamp(2rem, 6vh, 4rem);
   box-sizing: border-box;
   z-index: 0;
   
@@ -1605,9 +1604,11 @@ body.dark-mode
 
 .metadata {
   position: absolute; /* Positions relative to the .shorts container */
-  top: 50vh; /* Positions from the top of the viewport */
+  top: 50%;
   right: 25vw; /* Positions from the right of the viewport */
-  width: 4vw; /* Scales width with viewport */
+
+  width: clamp(48px, 4vw, 72px);
+
   /* Recommendation: Consider max-width or a rem-based width for better control on extreme screen sizes,
      e.g., max-width: 80px; width: clamp(50px, 5vw, 80px); to prevent buttons from becoming too small or too large. */
   
@@ -2199,28 +2200,37 @@ body.dark-mode .share .default-icon {
 /* ========================================================================== */
 
 .comment-container {
+  position: absolute;
+
+  /* Match video vertical framing */
+  top: 50%;
+  right: clamp(2%, 6vw, 7%);
+  transform: translate(120%, -50%); /* hidden state */
+
+  width: min(400px, 38vw);
+  aspect-ratio: 9 / 16;
+
+  /* 🔑 Same vertical rule as video */
+  max-height: calc(100dvh - 8rem);
+
   display: flex;
   flex-direction: column;
-  position: absolute;
-  top: 4rem;
-  right: 7%; /* Position when shown */
-  width: 37%;
-  max-width: 400px;
-  aspect-ratio: 9 / 16;
-  min-height: 90vh;
-  max-height: 95vh;
-  background-color: transparent;
-  margin: 0;
-  padding: 1rem;
+
+  padding: 0rem;
   border-radius: 0.75rem;
+  background-color: transparent;
   border: 0.1px solid black;
+
   overflow-y: auto;
-z-index: 0;
-  /* Initially hidden using transform */
-  transform: translateX(120%);
+  overflow-x: hidden;
+
   opacity: 0;
   pointer-events: none;
+  transition: transform 0.35s ease, opacity 0.3s ease;
+
+  z-index: 10;
 }
+
 .comment-container {
   transform: translateX(100%);
  
@@ -4039,7 +4049,7 @@ margin: 0 auto;
   .metadata {
     position: absolute;
     top: 48vh;
-    right:32vw;
+    right:22vw;
     width: 5vw;
     border-style:none;
   }
