@@ -6292,12 +6292,14 @@ margin-left: 5px;
   height: 1.9rem;
 }
 
-/*
- 
   .video-container
   {
-  border-style:none;}
+  border-style:none;
+    height: 86vh;  
+  max-height: 86vh;
+  }
 
+    /* 
 .containerr
 {
   border-style:none;}
@@ -6307,17 +6309,16 @@ margin-left: 5px;
   border-style:none;
   height: auto;
   max-height:605px;
-}
+}*/
 
 .card
 {
-  border-style:none;
-      max-height: 16.375rem;  Sets a maximum height (230px converted to rem) to control card size 
+
       margin-top:1rem ;
-margin-bottom: 0.7rem;
+margin-bottom: 1.5rem;
 }
 
-
+/*
 
 .pichaa {
   width: 100%;
