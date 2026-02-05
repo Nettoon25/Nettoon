@@ -1152,14 +1152,13 @@ filter: invert(1);
   display: flex; /* Enables a flexible layout */
   flex-direction: row; /* Arranges items in a row (side-by-side) by default */
   justify-content: space-between; /* Distributes items to the left and right edges */
-  align-items: flex-start; /* Aligns items to the start (top) of the cross axis */
-
+  align-items: stretch;
   width: 100%; /* Spans the full width of its parent */
-  height: auto; /* Height adapts to its content */
-  
+  height: 80vh;      /* 🔥 MUST be height, not min-height */
+  max-height: 80vh;
   background-color:transparent;
   border-radius: var(--border-radius-sm); /* Consistent rounding (7px converted to rem) */
-  border-style: none; /* No border style */
+  border-style:none; /* No border style */
 
   margin-top: 50px; /* Maintains the explicit 60px top margin */
   
@@ -1193,7 +1192,9 @@ filter: invert(1);
 .containerr { /* CORRECTED: Used 'containerr' as per your HTML */
   /* Using clamp for responsive width: min 18.75rem (300px), flexible 58% of parent, max 45rem (720px) or more. */
   width: clamp(18.75rem, 60vw, 45rem); 
-  height: auto; /* Height adapts to content */
+ height: 100%;
+  max-height: 100%;
+  align-self: stretch;
   background-color: var(--color-bg-light); /* Light background for the video card itself */
   border-radius: 0.4375rem;
   box-shadow: var(--color-shadow); /* Subtle shadow for depth */
@@ -1201,8 +1202,11 @@ filter: invert(1);
   display: flex;
   margin-left:20px; /* Keeping original margin-left */
   flex-direction: column; /* Stack profile, caption, video, section vertically */
+    justify-content: space-between; /* 🔑 balances content vertically */
   flex-grow: 1; /* Allows it to take up available space in the .video-container row (on desktop) */
-  border-style:none;
+    border-style:none; /* No border style */
+  padding-bottom: 0;
+  padding-top: 0;
 }
 
 /* Dark Mode for containerr */
@@ -2113,13 +2117,14 @@ body.dark-mode .follow span {
   /* Flexible and Responsive Sizing */
   flex-basis: 38%; /* Provides a base width, allowing it to grow or shrink */
   max-width: clamp(20rem, 37vw, 40rem); /* Refined responsive width using clamp: ensures a min width (20rem), scales with viewport (37vw), and has a max width (40rem) for very large screens. This prevents distortion and ensures optimal use of space. */
-  height: auto; /* Height adapts to content */
-  max-height: 32.3rem; /* Set max height for scrollable content (555px converted to rem for consistency) */
-  
+
+  overflow-y: auto;
+  align-self: stretch; /* 🔑 ensure it fills video-container height */
+  height: 100%;
   /* Layout and Flow */
-  float: right; /* Maintain float for its specific layout purpose, though often replaced by flex/grid in modern layouts, adhering to "don't tweak" for structural changes. */
+  float: none; /* Maintain float for its specific layout purpose, though often replaced by flex/grid in modern layouts, adhering to "don't tweak" for structural changes. */
   margin-top: 0; /* No top margin */
-  margin-right: 0.5%; /* Keeps your specified right margin */
+  margin-right: 1%; /* Keeps your specified right margin */
   
   background-color:transparent;
   border-radius: 0.4375rem;
@@ -2134,8 +2139,7 @@ body.dark-mode .follow span {
   flex-wrap: wrap; /* Allows child items to wrap to the next line within the container */
   flex-direction: row; /* Arranges items in rows (horizontally) initially */
   justify-content: flex-start; /* Aligns content to the start of the flex container */
-  
-  border-style: none; /* No border style */
+    border-style:none; /* No border style */
   z-index: 2; /* Ensures it's layered correctly on the page */
 
   /* Custom Scrollbar Styling (Webkit Browsers - Chrome, Safari) */
@@ -2157,6 +2161,7 @@ body.dark-mode .follow span {
   scrollbar-width: thin; /* Thin scrollbar for Firefox */
   scrollbar-color: var(--scrollbar-thumb-color-light) transparent; /* Firefox scrollbar color */
 }
+
 
 /* Dark mode adjustments for .container-2 */
 .dark-mode .container-2 {
@@ -6452,7 +6457,7 @@ margin-bottom: 0.7rem;
 margin: 0 auto;
 }
 
-
+/*
   .video-container 
   { 
     max-width: 100%; height: auto; 
@@ -6461,13 +6466,24 @@ margin: 0 auto;
   width: 100%;
   max-width: 100%;
   flex-shrink:0;
-   border-style:none;
-  }
+   border-style:ridge;
+  }*/
 
+  .video-container
+  {
+
+  height: 65vh;      /* 🔥 MUST be height, not min-height */
+  max-height: 65vh;
+    border-style:none; /* No border style */
+}
+
+
+
+/*
 .containerr
 {
   background-color: transparent;
-   border-style:none;
+   border-style:ridge;
 }
 
 
@@ -6476,12 +6492,12 @@ margin: 0 auto;
   font-size: clamp(1rem, 1.1vw, 1.5rem);
 }
 
-/* Increase space for time and follow buttons */
+
 .viewss {
   flex: 2.1;
 }
 
-/* Increase space for time and follow buttons */
+
 .follow {
   flex: 2.1;
 }
@@ -6495,18 +6511,19 @@ margin: 0 auto;
 {
   background-color: transparent;
   max-height: 778px;
-   border-style:none;
+   border-style:ridge;
 
-}
+}*/
 
 .card
 {
   background-color: transparent;
   max-height: 300px;
-  margin: 0px 0 0px 7px; /* Maintain original positioning */
-    border-style:none;
+  margin: 2.5rem 0 2.5rem 7px; 
+   border-style:none;
 }
 
+/*
 .pichaa {
   width: 100%;
   height: 150px;
@@ -6548,12 +6565,16 @@ margin: 0 auto;
   height: 1.5vw;
 
 }
+*/
+
+
+/*
   .container-1
   {
     background-color: transparent;
   gap: 1.5rem;
   width:100%; 
-   border-style:none;
+   border-style:ridge;
   }
 
   .kontainer
@@ -6561,14 +6582,14 @@ margin: 0 auto;
     background-color: transparent;
     width: clamp(28%, 37%, 32%);
 margin-left: 6px;
-   border-style:none;
+    border-style:ridge;
      border-radius: 0.4375rem;
   }
 
-/* Caption Text */
+
 .caption span {
   font-weight: 700;
-  font-size: 0.9rem; /* 15.5px */
+  font-size: 0.9rem; 
 }
 
 .videoo {
@@ -6578,7 +6599,7 @@ margin-left: 6px;
 
 .videoo video {
   width: 100%;
-    height: 17rem; /* 200px */
+    height: 17rem;
 
 }
 
@@ -6607,15 +6628,11 @@ margin-left: 6px;
 
 }
 
-/* Dark mode override */
+
 @media (prefers-color-scheme: dark) {
   body { background: #121212; color: #e0e0e0; }
   .navbar { background: #1f1f1f; }
-  /* etc. */
+   
 }
-
-
-
-
-
+*/
 
