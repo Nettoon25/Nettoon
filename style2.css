@@ -6084,7 +6084,7 @@ margin-left: 5px;
  
   .video-container
   {
-  border-style:ridge;
+  border-style:none;
     height: 86vh;  
   max-height: 86vh;
   }
