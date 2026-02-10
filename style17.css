@@ -1312,6 +1312,7 @@ flex-wrap: nowrap;
   }
 }
 
+
 /* ===== Right Content ===== */
 .content {
   flex: 1;
@@ -1320,68 +1321,97 @@ flex-wrap: nowrap;
   overflow-y: auto;
 }
 
-/* Sections */
+/* sections */
 .content-section { display: none; }
 .content-section.active { display: block; }
 
-/* Header */
 .content-header {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 1.4rem;
-  margin-bottom: 20px;
-  border-bottom: 2px solid #eee;
-  padding-bottom: 10px;
-}
-
-.content-header i {
-  color: #ff4444;
-}
-
-/* Labels */
-.form-group label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 8px;
-  text-align: left;
-}
-
-/* Wrappers */
-.profile-pic-wrapper,
-.banner-wrapper {
-  width: 100%;
-  max-width: 180px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-}
-
-/* ================= IMAGE HOLDER ================= */
+  font-size: 1.4rem;/* ===== Right Content ===== */
+  .content {
+    flex: 1;
+    padding: 30px;
+    background: transparent;
+    overflow-y: auto;
+  }
+  
+  /* sections */
+  .content-section { display: none; }
+  .content-section.active { display: block; }
+  
+  .content-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+  }
+  .content-header i { color: #ff4444; }
+  
+  
+  /* UNIVERSAL alignment for BOTH profile pic & banner */
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    text-align: left !important;   /* force left alignment */
+  }
+  
+  /* Wrapper for both image containers */
+  .profile-pic-wrapper,
+  .banner-wrapper {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* ALIGN LEFT */
+    gap: 8px;
+  }
+  
+  
+  /* ======================================
+     PROFILE PICTURE
+     ====================================== */
+  .profile-pic-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+/* Shared image holder */
 .image-holder {
   position: relative;
   display: inline-block;
-  line-height: 0;
-}
-
-.image-holder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* 🔑 keeps image perfectly placed */
-  display: block;
 }
 
 /* Profile picture */
 .profile-pic {
-  width: 50px;
-  height: 50px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #ddd;
 }
 
-/* Banner */
+  /* Apply invert ONLY to placeholder */
+  .dark-mode .profile-pic.placeholder {
+    filter: invert(1);
+  }
+  
+  /* Never invert uploaded images */
+  .profile-pic:not(.placeholder) {
+    filter: none !important;
+  }
+  
+  
+  /* ======================================
+     BANNER
+     ====================================== */
+/* Banner image */
 .profile-banner {
   width: 100%;
   height: 180px;
@@ -1389,42 +1419,34 @@ flex-wrap: nowrap;
   border-radius: 12px;
   border: 2px solid #ddd;
 }
-
-/* Banner must NEVER be altered by dark mode */
-.profile-banner {
-  filter: none !important;
-  background-color: transparent !important;
-}
-
-
-/* Camera icon */
+  /* No invert for banner ever */
+  .profile-banner {
+    filter: none !important;
+  }
+  
+/* Edit (camera) icon */
 .edit-icon {
   position: absolute;
-  bottom: 8px;
-  right: 8px;
+  bottom: 6px;
+  right: 6px;
   width: 32px;
   height: 32px;
   background: #ff4444;
-  color: white;
+  color: #fff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  z-index: 10;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease;
 }
 
 .edit-icon:hover {
   transform: scale(1.1);
 }
 
-.image-holder .banner-holder
-{
-background-color: #000;
-
-}
-
-/* Banner icon sizing */
+/* Larger icon for banner */
 .banner-holder .edit-icon {
   width: 36px;
   height: 36px;
@@ -1432,15 +1454,118 @@ background-color: #000;
   right: 10px;
 }
 
-.banner-holder img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;   /* 🔑 keeps image perfectly placed */
+
+  .text
+  {
+    background-color: #218838;
+  }
+  
+  /* ======================================
+     Upload Text
+     ====================================== */
+  .upload-text {
+    color: #1877f2;
+    cursor: pointer;
+    font-size: 14px;
+    text-decoration: underline;
+    margin-top: 2px;
+    background-color: #000;
+  }
+  
+  
+  /* ======================================
+     RESET BUTTON (hidden via JS)
+     ====================================== */
+/* Reset button */
+.reset-btn {
+  margin-top: 10px;
+  background: #ff4444;
+  border: none;
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+  
+  .reset-btn:hover {
+    background: #cc0000;
+  }
+  
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+.content-header i { color: #ff4444; }
+
+
+/* Banner Section */
+.banner-group label {
+  margin-top: 25px;
   display: block;
+  text-align: left;
+  font-weight: bold;
+}
+
+.banner-wrapper {
+  width: 100%;
+  max-width: 380px;  /* same alignment width */
+  text-align: left;
+  margin: 0px;
+}
+
+.profile-banner {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+  cursor: pointer;
+}
+
+.upload-text {
+  display: block;
+  margin-top: 10px;
+  color: #1877f2;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
 }
 
 
-/* Reset button */
+/* Profile picture styles */
+.profile-pic-group
+ { display: flex; 
+  flex-direction: column; 
+  gap: 10px; }
+
+.profile-pic-
+ { display:flex;
+   align-items:center;
+    gap:15px; }
+
+
+.profile-pic {
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  border:2px solid white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+#profilePic { cursor:pointer; }
+
+/* ⬇️ Apply invert ONLY to placeholder when in dark mode */
+.dark-mode .profile-pic-wrapper img.placeholder {
+  filter: invert(1);
+}
+
+/* Uploaded images stay natural */
+.profile-pic-wrapper img:not(.placeholder) {
+  filter: none;
+}
+
+
+/* Reset button (hidden by default via JS) */
 .reset-btn {
   margin-top: 8px;
   background: #ff4444;
@@ -1449,20 +1574,11 @@ background-color: #000;
   padding: 6px 14px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .reset-btn:hover {
   background: #cc0000;
-}
-
-/* ONLY invert profile picture placeholder in dark mode */
-.dark-mode .profile-pic.placeholder {
-  filter: invert(1);
-}
-
-
-img:not(.placeholder) {
-  filter: none !important;
 }
 
 
