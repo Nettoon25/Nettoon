@@ -1058,6 +1058,8 @@ flex-wrap: nowrap;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+
+
 /* Profile Image */
 .proofile img {
   width: 1.6875em; /* 27px */
@@ -1065,12 +1067,6 @@ flex-wrap: nowrap;
   border-radius: 50%;
   margin-right: 0.625em; /* 10px */
 }
-
-body.dark-mode
-.proofile:hover > img {
-  filter: invert(1);
-}
-
 
 /* Profile Name */
 .proofile span {
@@ -1363,9 +1359,10 @@ body.dark-mode
   background-color: var(--color-bg-light); /* Default background color for light mode */
   border-style: none; /* Kept as provided */
   margin: 0rem auto 0 auto; /* Centers the short item horizontally */
-  /* SAFE SPACE like TikTok / YouTube */
-  padding-top: clamp(1.5rem, 4vh, 3rem);
-  padding-bottom: clamp(2rem, 6vh, 4rem);
+  margin-bottom: 0px; /* Kept as provided */
+  margin-top: 0px;
+  padding-top: 0px; /* Kept as provided */
+  padding-bottom: var(--spacing-md); /* Add bottom padding to prevent caption from hugging edge */
   box-sizing: border-box;
   z-index: 0;
   
@@ -1385,13 +1382,11 @@ body.dark-mode
   cursor: pointer;
   padding: 0;
   aspect-ratio: 9 / 16;
-  height: 93%;
+  height: 94%;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   flex-shrink: 0;
-  margin: 0; 
-  margin-bottom:1rem;   
-  border-style:ridge;
+  margin: 0;    
 }
 
 
@@ -1604,11 +1599,9 @@ body.dark-mode
 
 .metadata {
   position: absolute; /* Positions relative to the .shorts container */
-  top: 50%;
+  top: 50vh; /* Positions from the top of the viewport */
   right: 25vw; /* Positions from the right of the viewport */
-
-  width: clamp(48px, 4vw, 72px);
-
+  width: 4vw; /* Scales width with viewport */
   /* Recommendation: Consider max-width or a rem-based width for better control on extreme screen sizes,
      e.g., max-width: 80px; width: clamp(50px, 5vw, 80px); to prevent buttons from becoming too small or too large. */
   
@@ -1616,13 +1609,14 @@ body.dark-mode
   flex-direction: column;
   justify-content: flex-start;
   align-items: center; /* Centers buttons horizontally within this container */
-  border-style:ridge;
+  
   background-color:transparent; /* No background for the container itself */
   border-radius: 7px;
   gap: var(--spacing-md); /* Spacing between the engagement buttons */
   padding: 0;
-  z-index: 4; 
-              
+  z-index: 4; /* CRITICAL FIX: Ensures it's above video, profile, and caption.
+                (Was Z-index: 0, which would place it behind the video.) */
+                border-style: none;
 }
 
 /* Move the metadata container to the left when comments are shown */
@@ -2200,35 +2194,27 @@ body.dark-mode .share .default-icon {
 /* ========================================================================== */
 
 .comment-container {
-  position: absolute;
-
-  /* Match video vertical framing */
-  top: 50%;
-  right: clamp(2%, 6vw, 7%);
-  transform: translate(120%, -50%); /* hidden state */
-
-  width: min(400px, 38vw);
-  aspect-ratio: 9 / 16;
-
-  /* 🔑 Same vertical rule as video */
-  max-height: calc(100dvh - 8rem);
-
   display: flex;
   flex-direction: column;
-
-  padding: 0rem;
-  border-radius: 0.75rem;
+  position: absolute;
+  top:3.8rem;
+  right: 7%; /* Position when shown */
+  width: 37%;
+  max-width: 400px;
+  aspect-ratio: 9 / 16;
+  min-height: 90vh;
+  max-height: 95vh;
   background-color: transparent;
+  margin: 0;
+  /*padding: 1rem;*/
+  border-radius: 0.75rem;
   border: 0.1px solid black;
-
   overflow-y: auto;
-  overflow-x: hidden;
-
+z-index: 0;
+  /* Initially hidden using transform */
+  transform: translateX(120%);
   opacity: 0;
   pointer-events: none;
-  transition: transform 0.35s ease, opacity 0.3s ease;
-
-  z-index: 10;
 }
 
 .comment-container {
@@ -3602,7 +3588,7 @@ margin: 0 auto;
   max-height: 90vh;
 top: 1rem;
 border-style: none;
-  margin-bottom:0.3rem;   
+
 }
 
 .profile {
@@ -3623,10 +3609,9 @@ border-style: none;
   position: absolute;
 top:13rem;
 background-color: transparent;
-  right: 24.5vw;
+  right: 25vw;
   width: 6vw;
   border-radius: 7px;
-  border-style:none;
 }
 
 /* 👇 Move both to left when comments are shown */
@@ -3802,21 +3787,21 @@ margin: 0 auto;
 }
 
 
-
+/* Large desktops (1280px–1599px) */
 @media (min-width: 1280px) and (max-width: 1599px) {
   .container
   {
-    background-color: var(--color-bg-light); 
+    background-color: var(--color-bg-light); /* Default background color for light mode */
   }
 
- 
+    /* Notifications Icon */
 .Notifications {
   margin-right: 4rem;
 }
 
 .Notifications img {
   width: 1.9rem;
-  height:  1.9rem;
+  height: 1.9rem;
 }
 
   
@@ -3827,19 +3812,19 @@ margin: 0 auto;
   
 .sidebar
 {
-  background-color: var(--color-bg-light);
+  background-color: var(--color-bg-light); /* Default background color for light mode */
 }
 
 .profile
 {
   bottom: 15%;
 }
-
+/* Move the profile up when caption expands */
 .profile.shift-up {
-  margin-bottom: 1.8rem; 
+  margin-bottom: 1.8rem; /* ~15px, tweak to taste */
 }
 
-
+/* 🔷 Shorts Container */
 .shorts-container {
 
   width: calc(100% - 5.7%);
@@ -3847,7 +3832,7 @@ margin: 0 auto;
   gap: 1rem;
   justify-content: center;
   background-color: transparent;
-  border: 5px solid transparent; 
+  border: 5px solid transparent; /* TEMP: remove in production */
   margin: 0rem auto 0 0rem;
 
 }
@@ -3861,6 +3846,7 @@ margin: 0 auto;
 
 }
 
+/* 🔷 Metadata Container */
 .metadata {
   background-color: transparent;
   position: absolute;
@@ -3874,7 +3860,7 @@ margin: 0 auto;
 .comment-container {
   background-color: transparent;
   top: 7rem;
-  right: 7%; 
+  right: 7%; /* Position when shown */
   width: 37%;
   max-width: 400px;
   aspect-ratio: 9 / 16;
@@ -3883,7 +3869,7 @@ margin: 0 auto;
 
 }
 
-
+/* 👇 Move both to left when comments are shown */
 .shorts.show-comments .short-video {
   margin-left: 40px;
 }
@@ -4049,7 +4035,7 @@ margin: 0 auto;
   .metadata {
     position: absolute;
     top: 48vh;
-    right:22vw;
+    right:32vw;
     width: 5vw;
     border-style:none;
   }
@@ -4062,12 +4048,13 @@ margin: 0 auto;
   
   .comment-container {
   
-    top: 10.5rem;
+    top: 6.5rem;
     right: 7%; /* Position when shown */
     width: 37%;
     max-width: 450px;
     aspect-ratio: 9 / 16;
-
+    min-height: 85vh;
+    max-height: 85vh;
     border-style:ridge;
   
   }
