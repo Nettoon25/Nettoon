@@ -123,47 +123,32 @@ document.addEventListener('click', () => {
 // ================= PROFILE PICTURE =================
 const profilePicInput = document.getElementById("profilePic");
 const profilePicPreview = document.getElementById("profilePicPreview");
-const uploadText = document.getElementById("uploadText");
 const resetPic = document.getElementById("resetPic");
+
 const defaultProfilePic = "14.png";
 
-resetPic.hidden = true; // hide initially
+resetPic.hidden = true;
 
-uploadText.addEventListener("click", () => profilePicInput.click());
+// Open file picker when image OR icon is clicked
+profilePicPreview.addEventListener("click", () => profilePicInput.click());
 
-profilePicInput.addEventListener("change", (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    profilePicPreview.src = URL.createObjectURL(file);
-    resetPic.hidden = false; // show reset button
-  }
+profilePicInput.addEventListener("change", () => {
+  const file = profilePicInput.files[0];
+  if (!file) return;
+
+  profilePicPreview.src = URL.createObjectURL(file);
+  profilePicPreview.classList.remove("placeholder");
+  resetPic.hidden = false;
 });
 
+// Reset
 resetPic.addEventListener("click", () => {
   profilePicPreview.src = defaultProfilePic;
-  profilePicInput.value = "";
-  resetPic.hidden = true; // hide reset button again
-});
-
-
-profilePicInput.addEventListener("change", (e) => {
-  const file = e.target.files[0];
-  if (file) {
-
-    profilePicPreview.classList.remove("placeholder");  // ← REMOVE placeholder
-    profilePicPreview.src = URL.createObjectURL(file);
-    resetPic.hidden = false;
-  }
-})
-
-resetPic.addEventListener("click", () => {
-  profilePicPreview.src = defaultProfilePic;
-
-  profilePicPreview.classList.add("placeholder"); // ← ADD placeholder back
-
-  profilePicInput.value = "";
+  profilePicPreview.classList.add("placeholder");
+  profilePicInput.value = ""; // allows re-upload of same file
   resetPic.hidden = true;
 });
+
 
 
 
@@ -171,27 +156,31 @@ resetPic.addEventListener("click", () => {
 // ================= BANNER =================
 const bannerInput = document.getElementById("profileBanner");
 const bannerPreview = document.getElementById("bannerPreview");
-const uploadBannerText = document.getElementById("uploadBannerText");
 const resetBanner = document.getElementById("resetBanner");
-const defaultBanner = "WhatsApp Image 2025-10-11 at 09.56.10_ccb1dc99.jpg";
 
-resetBanner.hidden = true; // hide initially
+const defaultBanner =
+  "WhatsApp Image 2025-10-11 at 09.56.10_ccb1dc99.jpg";
 
-uploadBannerText.addEventListener("click", () => bannerInput.click());
+resetBanner.hidden = true;
+
+// Click image OR icon
 bannerPreview.addEventListener("click", () => bannerInput.click());
 
-bannerInput.addEventListener("change", (e) => {
-  const file = e.target.files[0];
-  if (file) {
-    bannerPreview.src = URL.createObjectURL(file);
-    resetBanner.hidden = false; // show reset button
-  }
+bannerInput.addEventListener("change", () => {
+  const file = bannerInput.files[0];
+  if (!file) return;
+
+  bannerPreview.src = URL.createObjectURL(file);
+  bannerPreview.classList.remove("placeholder");
+  resetBanner.hidden = false;
 });
 
+// Reset banner
 resetBanner.addEventListener("click", () => {
   bannerPreview.src = defaultBanner;
+  bannerPreview.classList.add("placeholder");
   bannerInput.value = "";
-  resetBanner.hidden = true; // hide again
+  resetBanner.hidden = true;
 });
 
 
