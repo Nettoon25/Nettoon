@@ -1058,8 +1058,6 @@ flex-wrap: nowrap;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-
-
 /* Profile Image */
 .proofile img {
   width: 1.6875em; /* 27px */
@@ -1067,6 +1065,12 @@ flex-wrap: nowrap;
   border-radius: 50%;
   margin-right: 0.625em; /* 10px */
 }
+
+body.dark-mode
+.proofile:hover > img {
+  filter: invert(1);
+}
+
 
 /* Profile Name */
 .proofile span {
@@ -1382,11 +1386,13 @@ flex-wrap: nowrap;
   cursor: pointer;
   padding: 0;
   aspect-ratio: 9 / 16;
-  height: 94%;
+  height: 93%;
   border-radius: var(--border-radius-lg);
   overflow: hidden;
   flex-shrink: 0;
-  margin: 0;    
+  margin: 0; 
+  margin-bottom:1rem;   
+  border-style:ridge;
 }
 
 
@@ -1421,6 +1427,7 @@ flex-wrap: nowrap;
   border-radius: var(--border-radius-md); /* Using your 8px variable */
   box-sizing: border-box;
   gap: 10px; /* Spacing between profile info and timee */
+  border-radius: none;
 }
 
 .dark-mode .profile {
@@ -1609,14 +1616,13 @@ flex-wrap: nowrap;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center; /* Centers buttons horizontally within this container */
-  
+  border-style:ridge;
   background-color:transparent; /* No background for the container itself */
   border-radius: 7px;
   gap: var(--spacing-md); /* Spacing between the engagement buttons */
   padding: 0;
-  z-index: 4; /* CRITICAL FIX: Ensures it's above video, profile, and caption.
-                (Was Z-index: 0, which would place it behind the video.) */
-                border-style: none;
+  z-index: 4; 
+              
 }
 
 /* Move the metadata container to the left when comments are shown */
@@ -2197,7 +2203,7 @@ body.dark-mode .share .default-icon {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top:3.8rem;
+  top: 4rem;
   right: 7%; /* Position when shown */
   width: 37%;
   max-width: 400px;
@@ -2206,7 +2212,7 @@ body.dark-mode .share .default-icon {
   max-height: 95vh;
   background-color: transparent;
   margin: 0;
-  /*padding: 1rem;*/
+  padding: 0rem;
   border-radius: 0.75rem;
   border: 0.1px solid black;
   overflow-y: auto;
@@ -2216,7 +2222,6 @@ z-index: 0;
   opacity: 0;
   pointer-events: none;
 }
-
 .comment-container {
   transform: translateX(100%);
  
@@ -3588,12 +3593,12 @@ margin: 0 auto;
   max-height: 90vh;
 top: 1rem;
 border-style: none;
-
+  margin-bottom:0.3rem;   
 }
 
 .profile {
   position: absolute;
-  bottom: 24%;
+  bottom: 36%;
 
 }
 
@@ -3787,21 +3792,21 @@ margin: 0 auto;
 }
 
 
-/* Large desktops (1280px–1599px) */
+
 @media (min-width: 1280px) and (max-width: 1599px) {
   .container
   {
-    background-color: var(--color-bg-light); /* Default background color for light mode */
+    background-color: var(--color-bg-light); 
   }
 
-    /* Notifications Icon */
+ 
 .Notifications {
   margin-right: 4rem;
 }
 
 .Notifications img {
   width: 1.9rem;
-  height: 1.9rem;
+  height:  1.9rem;
 }
 
   
@@ -3812,19 +3817,32 @@ margin: 0 auto;
   
 .sidebar
 {
-  background-color: var(--color-bg-light); /* Default background color for light mode */
+  background-color: var(--color-bg-light);
 }
 
 .profile
 {
-  bottom: 15%;
-}
-/* Move the profile up when caption expands */
-.profile.shift-up {
-  margin-bottom: 1.8rem; /* ~15px, tweak to taste */
+  bottom: 19%;
+  border-style: none;
 }
 
-/* 🔷 Shorts Container */
+.profile.shift-up {
+  margin-bottom: 2.65rem; 
+}
+
+caption
+{
+border-style:none;
+
+
+}
+
+.caption-text
+{
+border-style:none;
+}
+
+
 .shorts-container {
 
   width: calc(100% - 5.7%);
@@ -3832,7 +3850,7 @@ margin: 0 auto;
   gap: 1rem;
   justify-content: center;
   background-color: transparent;
-  border: 5px solid transparent; /* TEMP: remove in production */
+  border: 5px solid transparent; 
   margin: 0rem auto 0 0rem;
 
 }
@@ -3846,12 +3864,11 @@ margin: 0 auto;
 
 }
 
-/* 🔷 Metadata Container */
 .metadata {
   background-color: transparent;
   position: absolute;
-  top: 50vh;
-  right: 25vw;
+  top: 40vh;
+  right: 29vw;
   width: 5vw;
   border-radius: 7px;
   border-style:none;
@@ -3859,8 +3876,8 @@ margin: 0 auto;
 
 .comment-container {
   background-color: transparent;
-  top: 7rem;
-  right: 7%; /* Position when shown */
+  top: 5rem;
+  right: 7%; 
   width: 37%;
   max-width: 400px;
   aspect-ratio: 9 / 16;
@@ -3869,13 +3886,13 @@ margin: 0 auto;
 
 }
 
-/* 👇 Move both to left when comments are shown */
+
 .shorts.show-comments .short-video {
   margin-left: 40px;
 }
 
 .shorts.show-comments .metadata {
-  margin-right: 41%;
+  margin-right: 43%;
   right: 10px;
 }
 
