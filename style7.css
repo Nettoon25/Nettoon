@@ -3820,10 +3820,15 @@ margin: 0 auto;
   background-color: var(--color-bg-light);
 }
 
+.short-video
+{
+  border-style:ridge ;
+}
+
 .profile
 {
   bottom: 19%;
-  border-style: none;
+  border-style:none;
 }
 
 .profile.shift-up {
