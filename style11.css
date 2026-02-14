@@ -1576,22 +1576,22 @@ margin-top: 3.3rem;
   background-color:transparent;
 }
 
-/*
+
   .login-container {
       width: 100%;
       max-width: 600px;
       background-color:transparent;
    margin-top: 3.5em;
   left: 0;
- 
+ border-style: ridge;
   height: 85vh;
 
     }
 
 }
-/
+
  
-/* Ultra-wide (1600px and up) */
+
 @media (min-width: 1600px) {
 
   body {
