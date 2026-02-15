@@ -6551,8 +6551,8 @@ margin-bottom:1rem;
   .video-container
   {
 
-  height: 65vh;      /* 🔥 MUST be height, not min-height */
-  max-height: 65vh;
+  height: 90vh;      /* 🔥 MUST be height, not min-height */
+  max-height: 90vh;
     border-style:none; /* No border style */
 }
 
@@ -6767,4 +6767,5 @@ margin-bottom:1rem;
   }
   
    */
+
   
