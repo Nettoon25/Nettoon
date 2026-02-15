@@ -6312,7 +6312,7 @@ margin: 0 auto;
   background-color: transparent;
   max-height: 300px;
   margin: 2rem 0 2rem 7px; 
-   border-style:none;
+   border-style:ridge;
 }
 
 /*
@@ -6427,6 +6427,7 @@ margin-left: 6px;
    
 }
 */
+
 
 
 
