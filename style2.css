@@ -6264,9 +6264,9 @@ margin: 0 auto;
   .video-container
   {
 
-  height: 65vh;      /* 🔥 MUST be height, not min-height */
-  max-height: 65vh;
-    border-style:none; /* No border style */
+  height: 80vh;      /* 🔥 MUST be height, not min-height */
+  max-height: 80vh;
+    border-style:ridge; /* No border style */
 }
 
 
@@ -6311,7 +6311,7 @@ margin: 0 auto;
 {
   background-color: transparent;
   max-height: 300px;
-  margin: 2.5rem 0 2.5rem 7px; 
+  margin: 2.1rem 0 2.5rem 7px; 
    border-style:none;
 }
 
@@ -6427,6 +6427,7 @@ margin-left: 6px;
    
 }
 */
+
 
 
 
