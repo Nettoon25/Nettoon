@@ -3882,7 +3882,7 @@ border-style:dotted;
   right: 29vw;
   width: 5vw;
   border-radius: 7px;
-  border-style:none;
+  border-style:dotted;
 }
 
 .comment-container {
@@ -4133,4 +4133,5 @@ border-style:dotted;
   
 }
     
+
 
