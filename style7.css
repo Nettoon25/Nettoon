@@ -3617,7 +3617,7 @@ background-color:transparent;
   right: 25vw;
   width: 6vw;
   border-radius: 7px;
-  border-style:dotted;
+  border-style:none;
 }
 
 /* 👇 Move both to left when comments are shown */
@@ -4136,6 +4136,7 @@ border-style:dotted;
   
 }
     
+
 
 
 
