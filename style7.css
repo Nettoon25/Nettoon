@@ -3598,7 +3598,7 @@ border-style: none;
 
 .profile {
   position: absolute;
-  bottom: 10rem;
+  bottom: 8rem;
 
 }
 
@@ -3612,7 +3612,7 @@ border-style: none;
 /* 🔷 Metadata Container */
 .metadata {
   position: absolute;
-top:13rem;
+top:12rem;
 background-color: red;
   right: 25vw;
   width: 6vw;
@@ -4136,6 +4136,7 @@ border-style:dotted;
   
 }
     
+
 
 
 
