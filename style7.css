@@ -3598,7 +3598,7 @@ border-style: none;
 
 .profile {
   position: absolute;
-  bottom: 36%;
+  bottom: 5rem;
 
 }
 
@@ -3617,7 +3617,7 @@ background-color: green;
   right: 25vw;
   width: 6vw;
   border-radius: 7px;
-  border-style:none;
+  border-style:dotted;
 }
 
 /* 👇 Move both to left when comments are shown */
@@ -3773,7 +3773,7 @@ margin: 0 auto;
   right: 20vw;
   width: 5vw;
   border-style:none;
-  background-color:pink;
+  background-color:red;
 }
 
 .comment-container {
@@ -3879,7 +3879,7 @@ border-style:dotted;
 }
 
 .metadata {
-  background-color: blue;
+  background-color: black;
   position: absolute;
   top: 40vh;
   right: 29vw;
@@ -4136,6 +4136,7 @@ border-style:dotted;
   
 }
     
+
 
 
 
