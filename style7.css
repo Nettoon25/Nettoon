@@ -3598,7 +3598,7 @@ border-style: none;
 
 .profile {
   position: absolute;
-  bottom: 9rem;
+  bottom: 10rem;
 
 }
 
@@ -3613,7 +3613,7 @@ border-style: none;
 .metadata {
   position: absolute;
 top:13rem;
-background-color: transparent;
+background-color: red;
   right: 25vw;
   width: 6vw;
   border-radius: 7px;
@@ -4136,6 +4136,7 @@ border-style:dotted;
   
 }
     
+
 
 
 
