@@ -3598,7 +3598,7 @@ border-style: none;
 
 .profile {
   position: absolute;
-  bottom: 3.5rem;
+  bottom: 5rem;
 
 }
 
@@ -3617,7 +3617,7 @@ background-color: transparent;
   right: 25vw;
   width: 6vw;
   border-radius: 7px;
-  border-style:ridge;
+  border-style:dotted;
 }
 
 /* 👇 Move both to left when comments are shown */
@@ -4136,6 +4136,7 @@ border-style:dotted;
   
 }
     
+
 
 
 
