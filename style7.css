@@ -1616,7 +1616,7 @@ body.dark-mode
   flex-direction: column;
   justify-content: flex-start;
   align-items: center; /* Centers buttons horizontally within this container */
-  border-style:ridge;
+  border-style:none;
   background-color:transparent; /* No background for the container itself */
   border-radius: 7px;
   gap: var(--spacing-md); /* Spacing between the engagement buttons */
@@ -4133,3 +4133,4 @@ border-style:dotted;
   
 }
     
+
