@@ -2489,78 +2489,299 @@ border-radius: 7px;
 
 /* Tablets / small laptops (769px–1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
- 
-  .upload
+
+  body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+
+  .container
+  {
+    background-color: var(--color-bg-light); /* Default background color for light mode */
+    border-style: none;
+    background-color: #007bff;
+  }
+  
+  .nav
   {
     background-color: transparent;
-    height: 2.8rem;
   }
   
-      /* Notifications Icon */
-      .Notifications {
-        margin-right: 3rem;
-      }
-      
-      .Notifications img {
-        width: 1.9rem;
-        height: 1.9rem;
-      }
-        
-      .upload img {
-        width: 2.7rem;
-        height: 2.7rem;
-      margin-top: 0px;
-      }
-        
-  
-  .Account img {
-    width: 100%;
-    height:  100%;
-  margin: 0 auto;
-  }
 
-.container-1
-  {
-backgroubd-color:grey;
+.search input[type="search"] {
 
-  }
+  min-height: 20px;
+  max-height: 25px;
 
-  .kontainer
-  {
-border-style: dotted;
+}
+
+
+.upload
+{
+  background-color: transparent;
+  height: 2.8rem;
+}
+
+    /* Notifications Icon */
+    .Notifications {
+      margin-right: 3rem;
+    }
     
+    .Notifications img {
+      width: 1.9rem;
+      height: 1.9rem;
+    }
+      
+    .upload img {
+      width: 2.7rem;
+      height: 2.7rem;
+    margin-top: 0px;
+    }
+      
+
+.Account img {
+  width: 100%;
+  height:  100%;
+margin: 0 auto;
+}
+
+
+.Table
+{
+  background-color: violet;
+}
+
+.overlay-text 
+{
+  background-color: transparent;
+  font-size: 1.1rem;
+}
+  
+.container-1
+{
+  background-color: darkgreen;
+  z-index: 1000;
+    margin-top: 0px;
+  padding-top: 0px;
+      overflow-y: hidden;
+}
+
+.Heading
+{
+background-color:white;
+  z-index: 1000;
+    top: 0;   /* ← THIS removes the gap */
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-bottom: 1rem;
+}
+
+.Scroller {
+  overflow-y: hidden;
+   padding-bottom:33rem;
+
+}
+
+
+.scroll-area
+{
+  gap:0.3rem; /* Slight space between items */
+  justify-content: flex-start;
+
+}
+
+.shorts {
+  width: 100%;
+  max-width: 200px;
+  aspect-ratio: 9 / 16;
+  margin: 1rem 0 1rem 2.5rem;
+  border-style:none;
+
+}
+
+.short-video {
+  width: 100%;
+  height: 100%;
+
+}
+
+
+/* 1st Playlist (Series) */
+
+.Playlist:nth-of-type(1)  {
+   background-color:transparent;
+height: auto;
+margin-top: 0.5rem;
+    margin-bottom:0rem;
+}
+
+.Playlist:nth-of-type(1) .playlist-item {
+  height: 320px;
   }
+  
+  
+.Playlist:first-of-type > .Segment:first-of-type {
+  margin-top: 0rem;
+   background-color:transparent;
+
+}
 
 
 
+.Playlist:nth-of-type(1) .kontainer {
+  background-color:transparent;
+}
+
+.Playlist:nth-of-type(1) .left-section {
+   background-color:transparent;
+  height: 400px;
+max-height:275px;
+margin-top: 0.8rem;
+border-radius: 7px;
+}
+
+.Playlist:nth-of-type(1) .right-section {
+  background-color:transparent;
+height: 100%;
+  border-radius: 7px;
+}
 
 
+.Playlist:nth-of-type(1) .About .description {
+  background: transparent;
+
+}
+
+.Playlist:nth-of-type(2)  {
+height:auto;
+max-height: 25rem;
+margin-top: 2rem;
+margin-bottom: 0rem;
+border-style: dotted;
+   background-color:transparent;
+padding-bottom: 0px;
+}
 
 
+/* 2nd Playlist (Shorts) */
+.Playlist:nth-of-type(2) .right-section {
+  background-color: transparent;
+}
+.Playlist:nth-of-type(2) .vidoes .cards {
+  border: 0px  solid transparent;
+}
 
 
+.Playlist:nth-of-type(3)  {
+   background-color:transparent;
+height: auto;
+    margin-bottom: 5rem;
+margin-top: 3.5rem;
+}
 
-
-
-
-
-
-
-
-
-
-
+.Playlist:nth-of-type(3) .playlist-item {
+  height: 450px;
+  }
   
 
+.Playlist:nth-of-type(3) .kontainer {
+  background-color:transparent;
+
+}
+
+.Playlist:nth-of-type(3) .left-section {
+  background-color:transparent;
+height: auto;
+max-height:275px;
+margin-top: 5rem;
+border-radius: 7px;
+}
+
+.Playlist:nth-of-type(3) .right-section {
+  background-color:transparent;
+height: 100%;
+  border-radius: 7px;
+}
+
+
+.Playlist:nth-of-type(3) .left-section{
+  height: 400px;
+  }
+  
+
+.Playlist:nth-of-type(3) .About .description {
+  background: transparent;
+
+}
+
+
+/*
+.Playlist:nth-of-type(4)  {
+  background-color:transparent;
+height: 100px;
+    margin-bottom: 5rem;
+
+}
+
+.Playlist:nth-of-type(4) .playlist-item {
+  height: 450px;
+  }
+  
+
+.Playlist:nth-of-type(4) .kontainer {
+  background-color:transparent;
+
+}
+
+.Playlist:nth-of-type(4) .left-section {
+  background-color:transparent;
+height: auto;
+max-height:275px;
+margin-top: 5rem;
+border-radius: 7px;
+}
+
+.Playlist:nth-of-type(4) .right-section {
+  background-color:transparent;
+height: 100%;
+  border-radius: 7px;
+}
+
+
+.Playlist:nth-of-type(4) .left-section{
+  height: 400px;
+  }
+  
+
+.Playlist:nth-of-type(4) .About .description {
+  background: transparent;
+
+}
+
+*/
+
+.kontainer
+{
+   background-color:transparent;
+    border-style:none;
+    width: 100%;
+    margin-top: 1.8rem;
+}
 
 }
 
 /* Desktops (1025px–1279px) */
 @media (min-width: 1025px) and (max-width: 1279px) {
-  .layout { grid-template-columns: 200px 3fr 1fr; }
-  .navbar { /* large nav layout */ }
-  .sidebar { padding: 20px; }
-  .main-content { max-width: 100%; }
+
+.container-1
+{
+  background-color: darkblue;
+}
+
+
+
+
 }
 
 /* Large desktops (1280px–1599px) */
@@ -2707,5 +2928,4 @@ margin: 0 auto;
   .navbar { background: #1f1f1f; }
   /* etc. */
 }
-
-
+}
