@@ -2489,12 +2489,7 @@ border-radius: 7px;
 
 /* Tablets / small laptops (769px–1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
-  .layout { grid-template-columns: 1fr 2fr; } 
-  .navbar { /* full nav, horizontal */ }
-  .sidebar { /* visible with full functionality */ }
-  .video-player { max-width: 100%; height: auto; }
-
-
+ 
   .upload
   {
     background-color: transparent;
@@ -2527,11 +2522,14 @@ border-radius: 7px;
 .container-1
   {
 backgroubd-color:grey;
-    
+
+  }
+
+  .kontainer
+  {
+border-style: dotted;
     
   }
-    
-
 
 
 
@@ -2709,4 +2707,5 @@ margin: 0 auto;
   .navbar { background: #1f1f1f; }
   /* etc. */
 }
+
 
