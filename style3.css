@@ -6410,7 +6410,7 @@ margin-left: 5px;
 
   height: 90vh;      /* 🔥 MUST be height, not min-height */
   max-height: 90vh;
-    border-style:none; /* No border style */
+    border-style:ridge; /* No border style */
 }
 
   /*
@@ -6536,20 +6536,6 @@ margin-bottom:1rem;
     height:  100%;
   margin: 0 auto;
   }
-  
-   /*
-    .video-container 
-    { 
-      max-width: 100%; height: auto; 
-      margin-top: 60px;
-      background-color: transparent; 
-    width: 100%;
-    max-width: 100%;
-    flex-shrink:0;
-  border-style:ridge;
-    }
-  */
-
 
   .video-container
   {
@@ -6775,6 +6761,7 @@ margin-bottom:1rem;
    */
 
   
+
 
 
 
