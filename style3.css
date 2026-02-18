@@ -6427,9 +6427,9 @@ margin-left: 5px;
   
 .card
 {
-  border-style:ridge; 
-      margin-top: 4.5rem;
-
+  border-style:none; 
+      margin-top: 2rem;
+margin-bottom: 2rem
 }
 
   /*
@@ -6760,6 +6760,7 @@ margin-left: 5px;
    */
 
   
+
 
 
 
