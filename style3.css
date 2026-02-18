@@ -6410,7 +6410,7 @@ margin-left: 5px;
 
   height: 90vh;      /* 🔥 MUST be height, not min-height */
   max-height: 90vh;
-    border-style:ridge; /* No border style */
+    border-style:none; /* No border style */
 }
 
   /*
@@ -6425,15 +6425,17 @@ margin-left: 5px;
   height: auto;
   max-height:605px;
 }
+*/
 
+  
 .card
 {
-  border-style:none;
-      max-height: 16.375rem;  
-      margin-top: 2rem;
-margin-bottom:1rem;
+  border-style:ridge; 
+      margin-top: 3rem;
+
 }
 
+  /*
 .pichaa {
   width: 100%;
   height: 145px;
@@ -6761,6 +6763,7 @@ margin-bottom:1rem;
    */
 
   
+
 
 
 
