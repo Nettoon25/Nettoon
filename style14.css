@@ -2726,10 +2726,20 @@ margin: 0 auto;
   width: 1.9rem;
   height: 1.9rem;
 }
-  .suggestionss
+  .scroll-area
 {
-  
-}}
+  background-color:transparent;
+gap:0.5rem;
+
+
+}
+
+.shorts
+{
+  margin-top: 1rem;
+}
+
+}
 
 
 
