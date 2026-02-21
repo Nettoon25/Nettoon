@@ -6520,17 +6520,16 @@ margin: 0 auto;
 {
   background-color: transparent;
   max-height: 300px;
-  margin: 1.9rem 0 0.9.rem 7px; 
+  margin: 0.5rem 0 0.4rem 7px; 
    border-style:none;
 }
 
+  .pichaa {
+    width: 100%;
+    height: 150px;
+    
+  }
 /*
-.pichaa {
-  width: 100%;
-  height: 150px;
-  
-}
-
 .sectiion
 {
   background-color: transparent;
@@ -6598,13 +6597,15 @@ margin-left: 6px;
   height: auto;
 }
 
+*/
+
 .videoo video {
   width: 100%;
     height: 17rem;
 
 }
 
-
+/*
   .views
   {
     background-color: transparent;
@@ -6635,6 +6636,5 @@ margin-left: 6px;
   .navbar { background: #1f1f1f; }
    
 }
-*/
-
+*/}
 
