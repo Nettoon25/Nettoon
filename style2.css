@@ -1156,7 +1156,7 @@ body.dark-mode
   /* REDUCED: Top and bottom padding set to 5px */
   padding-top: var(--spacing-xxs); /* 5px converted to rem */
   padding-bottom: var(--spacing-xxs); /* 5px converted to rem */
-  
+    isolation: isolate; /* important */
   overflow-y: hidden; /* Hides vertical overflow */
   overflow-x: hidden; /* Hides horizontal overflow */
   gap: var(--spacing-md); /* Space between main elements inside (1rem approx 16px) */
@@ -1197,11 +1197,40 @@ body.dark-mode
     border-style:none; /* No border style */
   padding-bottom: 0;
   padding-top: 0;
+  
 }
 /* Dark Mode for containerr */
 .dark-mode .containerr {
-  background-color:transparent; /* Darker card background */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255,255,255,0.05),
+    rgba(18,18,18,0.9)
+  );
 }
+
+
+/* Glow Layer */
+.video-ambient {
+  position: absolute;
+  inset: -30%;
+  width: 160%;
+  height: 160%;
+  object-fit: cover;
+
+  filter: blur(120px) saturate(180%);
+  opacity: 0.6;
+
+  transform: scale(1.2);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Ensure content sits above glow */
+.video-container > .containerr {
+  position: relative;
+  z-index: 1;
+}
+
 
 /* ==== PROFILE SECTION (.profillee) ==== */
 .profillee {
@@ -1302,35 +1331,46 @@ body.dark-mode
   margin: 0;
   
 }
-/* No changes needed to your CSS for this fix. It's already correct. */
-/* ==== VIDEO PLAYER CONTAINER ==== */
 .video {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
-  background-color: var(--color-bg-dark-alt);
   border-radius: var(--border-radius-md);
   overflow: hidden;
-line-height: 0;
-  /* 🔑 critical fixes */
-  display: block;
-  max-width: 100%;
-  border-style: none;
+  isolation: isolate; /* 🔥 important */
+}/* 🔥 Glow stays INSIDE container */
+.video-glow {
+  position: absolute;
+  inset: -25%;
+  width: 150%;
+  height: 150%;
+  object-fit: cover;
+
+  filter: blur(90px) saturate(160%);
+  opacity: 0.75;
+
+  transform: scale(1.2);
+  z-index: 0;
+  pointer-events: none;
 }
 
-/* ==== VIDEO ELEMENT ==== */
+/* 🎬 Main Video */
+.video-main {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+/* Video stays on top */
 .video video {
-  position: absolute;   /* 🔑 remove intrinsic flow */
-  inset: 0;             /* top:0 right:0 bottom:0 left:0 */
+  position: relative;
+  z-index: 1;
   width: 100%;
   height: 100%;
   object-fit: contain;
   border-radius: inherit;
-  display: block;
-  border-style: none; /* No border */
 }
-
-
 /* ==== PLAY OVERLAY BUTTON (.play-overlay) ==== */
 .play-overlay {
   position: absolute;
@@ -6271,14 +6311,14 @@ margin: 0 auto;
 
 
 
-/*
+
 .containerr
 {
   background-color: transparent;
-   border-style:ridge;
+   border-style:none;
 }
 
-
+/*
 .captionn h3
 {
   font-size: clamp(1rem, 1.1vw, 1.5rem);
