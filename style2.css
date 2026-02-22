@@ -2233,7 +2233,7 @@ body.dark-mode .follow span {
 
 margin-bottom: 5px;
 padding-top: 20px;
-background-color: transparent; /* Default background color for light mode */
+background-color: var(--color-bg-light); /* Default background color for light mode */
 padding-bottom: 20px;
 }
 
@@ -6328,8 +6328,8 @@ margin: 0 auto;
   .video-container
   {
 
-  height: 90vh;      /* 🔥 MUST be height, not min-height */
-  max-height: 90vh;
+  height: 95vh;      /* 🔥 MUST be height, not min-height */
+  max-height: 95vh;
     border-style:none; /* No border style */
 }
 
