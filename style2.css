@@ -1184,14 +1184,14 @@ body.dark-mode
  height: 100%;
   max-height: 100%;
   align-self: stretch;
-  background-color: var(--color-bg-light); /* Light background for the video card itself */
+background-color:transparent;
   border-radius: 0.4375rem;
   box-shadow: var(--color-shadow); /* Subtle shadow for depth */
   border: none; /* No border style */
   display: flex;
   margin-left:20px; /* Keeping original margin-left */
   flex-direction: column; /* Stack profile, caption, video, section vertically */
-    justify-content: space-between; /* 🔑 balances content vertically */
+justify-content: flex-start;
   flex-grow: 1; /* Allows it to take up available space in the .video-container row (on desktop) */
     border-style:none; /* No border style */
   padding-bottom: 0;
@@ -1200,11 +1200,7 @@ body.dark-mode
 }
 /* Dark Mode for containerr */
 .dark-mode .containerr {
-  background: radial-gradient(
-    ellipse at center,
-    rgba(255,255,255,0.05),
-    rgba(18,18,18,0.9)
-  );
+  background: transparent;
 }
 
 
@@ -1215,10 +1211,10 @@ body.dark-mode
   width: 160%;
   height: 160%;
   object-fit: cover;
-
+background-color: #0069d9;
   filter: blur(120px) saturate(180%);
   opacity: 0.6;
-
+border-style: ridge;
   transform: scale(1.2);
   z-index: 0;
   pointer-events: none;
@@ -1258,6 +1254,11 @@ body.dark-mode
 }
 
 /* Dark Mode for profile image */
+ .profillee img {
+  filter: invert(1);
+}
+
+/* Dark Mode for profile image */
 .dark-mode .profillee img {
   filter: invert(1);
 }
@@ -1285,7 +1286,7 @@ body.dark-mode
 .profillee-name span {
   font-size: clamp(1rem, 1.2vw, 1.1rem); /* Ensure balance between small & large screens */
   background-color: transparent;
-  color: #36454F;
+  color: white;
   text-align: center;
   float: left;
   font-weight: bolder;
@@ -1304,13 +1305,12 @@ body.dark-mode
   max-height: 35px;
   height: auto; /* Allow dynamic height */
   background-color:transparent;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 0.3rem 0;
+  padding: 0;
   display: flex;
   align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
   overflow: hidden; /* Hide overflow */
-  padding: 5px; /* Ensure spacing */
   border-style: none;
 
 }
@@ -1319,7 +1319,7 @@ body.dark-mode
 .captionn h3 {
   font-weight: bold;
   font-size: clamp(1.2rem, 1.1vw, 1.5rem);
-  color: black;
+  color: white;
   text-align: center; /* Keep text centered */
   white-space: nowrap; /* Prevent text wrapping */
   overflow: hidden; /* Hide overflow */
@@ -1428,7 +1428,8 @@ body.dark-mode
     margin-block: var(--spacing-xxs-half); /* Responsive vertical margin (5px) - mostly for wrapping scenarios */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Optional soft shadow */
     /* Appearance */
-    background-color: #f0f0f0;
+   background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+  color: var(--color-text-light); /* White text color, using a variable */
     border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
     cursor: pointer;       /* Indicates that the element is clickable */
     /* NO TRANSITIONS as per user request */
@@ -1507,23 +1508,27 @@ body:not(.dark-mode)
   color: white;
 }
 
-body:not(.dark-mode)
-.viewss:hover img,
-body:not(.dark-mode)
-.commentss:hover img,
-body:not(.dark-mode)
-.likess:hover img,
-body:not(.dark-mode)
-.dislikee:hover img,
-body:not(.dark-mode)
-.timee:hover img,
-body:not(.dark-mode)
-.follow:hover img,
-body:not(.dark-mode)
-.following:hover img {
+body:not(.dark-mode) .viewss img,
+body:not(.dark-mode) .commentss img,
+body:not(.dark-mode) .likess img,
+body:not(.dark-mode) .dislikee img,
+body:not(.dark-mode) .timee img,
+body:not(.dark-mode) .follow img,
+body:not(.dark-mode) .option img,
+body:not(.dark-mode) .following img {
   filter: invert(1);
+  transition: filter 0.2s ease;
 }
 
+body:not(.dark-mode) .viewss:hover img,
+body:not(.dark-mode) .commentss:hover img,
+body:not(.dark-mode) .likess:hover img,
+body:not(.dark-mode) .dislikee:hover img,
+body:not(.dark-mode) .timee:hover img,
+body:not(.dark-mode) .follow:hover img,
+body:not(.dark-mode) .following:hover img {
+  filter: invert(1) brightness(1.2);
+}
 /* ============================= */
 /* OPTION ICON (MAIN ONLY) */
 /* ============================= */
@@ -2228,7 +2233,7 @@ body.dark-mode .follow span {
 
 margin-bottom: 5px;
 padding-top: 20px;
-background-color: var(--color-bg-light); /* Default background color for light mode */
+background-color: transparent; /* Default background color for light mode */
 padding-bottom: 20px;
 }
 
@@ -2238,7 +2243,8 @@ padding-bottom: 20px;
   flex-grow: 2; /* Allows elements to expand */
   min-width:10%; /* Prevents elements from shrinking too much */
   height: 30px;
-  background-color: #f0f0f0;
+   background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+  color: var(--color-text-light); /* White text color, using a variable */
   margin: 5px; /* Reduce spacing to fit items in one row */
   border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
   display: flex;
@@ -2288,7 +2294,7 @@ padding-bottom: 20px;
 .All span, .Playlist span, .Sci-fi span, .WatchMojo span, .Watch span {
   flex-grow: 1.5;
   font-weight: bold;
-  color: #333333;
+  color: white;
   text-align: center;
   max-width: 100%;
   white-space: nowrap;
@@ -2466,6 +2472,11 @@ padding-bottom: 20px;
   margin-top: 3px;
 }
 
+ .profille-image img
+{
+  filter: invert(1);
+}
+
 .dark-mode .profille-image img
 {
   filter: invert(1);
@@ -2485,7 +2496,7 @@ padding-bottom: 20px;
 
 /* Profile Name Label */
 .profille-name span {
-  color: #36454F;
+  color: white;
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;
@@ -2511,6 +2522,11 @@ padding-bottom: 20px;
   cursor: pointer; 
   margin-top: 1px;
 }
+
+.optionss img.popupTrigger {
+  filter: invert(1);
+}
+
 
 .dark-mode .optionss img.popupTrigger {
   filter: invert(1);
@@ -2570,6 +2586,7 @@ padding-bottom: 20px;
 .dark-mode .popup-item {
   color: white;
 }
+
 
 .dark-mode .popup-item img {
   filter: invert(1);
@@ -2710,7 +2727,7 @@ padding-bottom: 20px;
 .captiion span {
   font-size: 15px;
   font-weight: bold;
-  color: black;
+  color: white;
   text-align: center;
   white-space: nowrap; /* Prevents text wrapping */
   overflow: hidden; /* Hides overflowing text */
@@ -2856,6 +2873,11 @@ padding-bottom: 20px;
     object-fit: cover; /* Ensures the image fills its area without distortion */
   }
   
+    /* Dark Mode for Views Icon */
+ .viewsss img {
+    filter: invert(1); /* Inverts colors for visibility on dark backgrounds */
+  }
+
   /* Dark Mode for Views Icon */
   .dark-mode .viewsss img {
     filter: invert(1); /* Inverts colors for visibility on dark backgrounds */
@@ -2866,7 +2888,7 @@ padding-bottom: 20px;
     font-family: var(--font-family-primary); /* Consistent, high-quality font */
     font-size: var(--font-size-sm); /* Responsive font size (14px converted to rem) */
     font-weight: 500; /* Medium font weight */
-    color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
+    color: white; /* Dark text color for light mode, using a variable */
     
     display: flex; /* Uses flexbox for potential inner alignment (e.g., if content changes) */
     align-items: center; /* Vertically centers text */
@@ -2914,7 +2936,7 @@ padding-bottom: 20px;
   margin: 0; /* Removes default margins */
   font-family: var(--font-family-primary); /* Consistent, high-quality font */
   font-weight: 500; /* Medium font weight */
-  color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
+  color: white; /* Dark text color for light mode, using a variable */
   
   display: flex; /* Uses flexbox for potential inner alignment */
   align-items: center; /* Vertically centers text */
@@ -6127,8 +6149,8 @@ margin-left: 5px;
   .video-container
   {
   border-style:none;
-    height: 90vh;  
-  max-height: 90vh;
+    height: 85vh;  
+  max-height: 85vh;
   }
 
      /* 

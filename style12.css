@@ -1140,7 +1140,7 @@ flex-wrap: nowrap;
 height: auto;
   display: flex;
   flex-direction: column;
-  background-color:white;
+  background-color:transparent;
   padding: 0px;
   margin: 0;
   box-sizing: border-box;
@@ -1300,7 +1300,7 @@ margin-bottom: 0px;
 
 .Playlist:first-of-type > .Segment:first-of-type {
   margin-top: 2rem;
-  background-color:white;
+  background-color:transparent;
 
 }
 
@@ -1509,9 +1509,6 @@ border-radius: 7px;
   width: 40%;
   background-color: transparent;
 }
-
-
-
 
 
 /* ==== Right Content Section ==== */
@@ -1958,7 +1955,7 @@ border-radius: 7px;
   }
 }
 
-  /* Individual Video Containers */
+  /* 
   .kontainer {
     position: relative;
     width: clamp(100%, 30%, 32%);
@@ -1971,15 +1968,15 @@ border-radius: 7px;
   }
 
   
-  /* Video Thumbnails */
+ 
   .kontainer img {
     width: 100%;
     height: auto;
     border-radius: 0.5rem;
-    object-fit: cover; /* Ensures consistent scaling */
+    object-fit: cover; 
   }
   
-  
+  */
   
   /* Responsive Adjustments */
   @media screen and (max-width: 1024px) {
@@ -2348,6 +2345,8 @@ border-radius: 7px;
   margin-right: 0.3rem;
 }
 
+
+
 /* Text in views */
 .views span,
 .time span,
@@ -2381,122 +2380,74 @@ border-radius: 7px;
   .views img {
     max-width: 20px;
   }
+}}
+
+
+ /* ===============================
+   COLOR SYSTEM (Design Tokens)
+================================= */
+
+/* Light Mode Styles */
+.light-mode {
+  background-color:  #FAFAFA; /* White background for Light Mode */
+  color: black; /* Black text for Light Mode */
 }
 
-  
-    
-  .dark-mode .nav input[type="text"]  {
-    color:   #F5F5DC; 
-  }
-  
-  .dark-mode .nav input[type="text"]::placeholder  {
-    color:   #F5F5DC; 
-  }
-  
-  .dark-mode .nav .fx-gap img
-  {
-    filter: invert(1);
-  
-  }
-  
-  /* Light Mode Styles */
-  .light-mode {
-    background-color:  #FAFAFA; /* White background for Light Mode */
-    color: black; /* Black text for Light Mode */
-  }
-  
-  /* Dark Mode Styles */
-  .dark-mode {
-    background-color: #121212; /* Black background for Dark Mode */
-    color: white; /* White text for Dark Mode */
-  }
-  
-  
-  .dark-mode .sectiionn .views span,
-  .dark-mode .sectiionn .time span,
-  .dark-mode .sectiionn .category span
-  
-  
-  {
-    color:white;
-  
-  }
-  
-  .dark-mode .sectiionn .views img
-  
-  
-  {
-    filter: invert(1);
-  
-  }
-  
-  
-.dark-mode .container-1 {
-  background-color: #121212 !important;
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #121212; /* Black background for Dark Mode */
+  color: white; /* White text for Dark Mode */
 }
 
-  
-  
-  .dark-mode .rectanglee:nth-child(1) {
-  background-color: #121212; 
-  }
-  
-  .dark-mode .rectanglee:nth-child(1) label {
-    color: black;
-  }
-  
-    .dark-mode .Scroller{
-   background-color: #121212; 
-      }
-  
-      .dark-mode .scroll-area{
-   background-color: #121212; 
-      }
-  
-    .dark-mode .profilee-name span{
-      color: #D3D3D3;
-      }
-  
-      .dark-mode .caption span{
-        color:white; 
-        }
-  
-  .dark-mode .container .nav{
-    background-color: #121212; 
-     }
-  
-     .dark-mode .container .Table{
-      background-color: #121212; 
-       }
-  
-       .dark-mode .container .Table .overlay-text{
-        background-color: #121212; 
-         }
-  
-  
-  .dark-mode .container .search img,
-  .dark-mode .container .upload img,
-  .dark-mode .container .Notifications img,
-  .dark-mode .container .Settings img
-  
-  {
-    filter: invert(1);
-  
-  }
-  
-   :root {
-  --color-bg: #FAFAFA;
-  --color-text: black;
+
+.dark-mode .sectiionn .views span,
+.dark-mode .sectiionn .time span,
+.dark-mode .sectiionn .category span
+
+
+{
+  color:white;
+
+}
+
+.dark-mode .sectiionn .views img
+
+
+{
+  filter: invert(1);
+
 }
 
 .dark-mode {
-  --color-bg: #121212;
-  --color-text: white;
+  --color-bg: #0F0F0F;         /* page */
+  --color-surface: #181818;    /* cards */
+  --color-section: #2F2F2F;    /* headings */
+  --color-text: #FFFFFF;
+  --color-text-muted: #A0A0A0;
+  --color-border: #2A2A2A;
+  --color-icon-filter: invert(1);
+}
+.Heading
+{
+background-color: var(--color-section)
+
 }
 
-background-color: var(--color-bg);
-color: white;
+.views img,
+.nav img,
+.search img,
+.upload img,
+.Notifications img,
+.Settings img {
+  filter: var(--color-icon-filter);
 }
+
+
+
+
+
+
+
 
 
   /* Mobile-first default styles (<=320px) */
@@ -2833,19 +2784,53 @@ height: 100%;
 }
 
 
-.container-1
-{
-margin-bottom: 0px;
-padding-top: 0px;
-
-}
 
 .Heading {
+top: 0rem;
+background-color:transparent;
+
+}
+
+
+.Playlist:first-of-type > .Segment:first-of-type {
+  margin-top: 0rem;
+  background-color:transparent;
+
+}
+
+.Scroller
+{
+background-color:transparent;
+overflow-y: hidden;
+overflow-x: hidden;
+  padding-bottom:31rem;
+}
+
+.Playlist
+{
+background-color:transparent;
 margin-top: 0rem;
+height: auto;
+max-height: 420px;
 
 }
+
+
+.playlist-item
+{
+
+background-color:transparent;
+
 }
 
+
+.videoo video {
+  width: 100%;
+  height: 16rem; /* 200px */
+
+}
+
+}
 /* Ultra-wide (1600px and up) */
 @media (min-width: 1600px) {
 
@@ -2922,6 +2907,10 @@ margin-top: 0rem;
 margin: 0 auto;
 }
 
+.kontainer
+{
+  border-style: ridge;
+}
 
 /* Caption Text */
 .caption span {
@@ -2955,11 +2944,4 @@ margin: 0 auto;
 }
 
 
-}
-
-/* Dark mode override */
-@media (prefers-color-scheme: dark) {
-  body { background: #121212; color: #e0e0e0; }
-  .navbar { background: #1f1f1f; }
-  /* etc. */
 }
