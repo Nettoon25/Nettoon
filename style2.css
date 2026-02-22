@@ -6342,12 +6342,27 @@ margin: 0 auto;
    border-style:none;
 }
 
-/*
-.captionn h3
+.dark-mode .containerr
 {
-  font-size: clamp(1rem, 1.1vw, 1.5rem);
+  background-color: transparent;
+   border-style:none;
+} 
+
+
+.dark-mode .captionn h3
+{
+color:  white;
 }
 
+/* Dark Mode for profile image */
+ .profillee img {
+  filter: invert(1);
+}
+
+/* ==== PROFILE NAME TEXT (.profillee-name span) ==== */
+.profillee-name span {
+
+  color: white;}
 
 .viewss {
   flex: 2.1;
@@ -6496,7 +6511,7 @@ margin-left: 6px;
 */
 
 
-
+}
 
 
 
