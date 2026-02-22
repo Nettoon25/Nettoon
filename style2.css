@@ -6334,8 +6334,6 @@ margin: 0 auto;
 }
 
 
-
-
 .containerr
 {
   background-color: transparent;
@@ -6363,7 +6361,7 @@ color:  white;
 .profillee-name span {
 
   color: white;}
-
+/*
 .viewss {
   flex: 2.1;
 }
