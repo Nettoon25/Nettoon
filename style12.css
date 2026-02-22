@@ -284,7 +284,6 @@ body::-webkit-scrollbar-thumb {
 
 
 /* ==== LOGO/TITLE SECTION CONTAINER (.Table) ==== */
-/* This flexible container holds the platform's main title/logo. */
 .Table {
   /* Flex Item Properties within .container */
   flex: 0 0 15%; /* Prevents growing/shrinking and sets initial base width to 15% of parent */
@@ -1133,6 +1132,8 @@ flex-wrap: nowrap;
     bottom: -1.75rem; /* Adjust positioning */
   }
 }
+
+
 /* ==== Base Container ==== */
 .container-1 {
   position: relative;
@@ -1158,6 +1159,8 @@ height: auto;
   &::-webkit-scrollbar {
     width: var(--scrollbar-width); /* Responsive scrollbar width using a variable */
 }
+}
+
 
 .dark-mode .container-1
 {
@@ -1955,7 +1958,7 @@ border-radius: 7px;
   }
 }
 
-  /* 
+
   .kontainer {
     position: relative;
     width: clamp(100%, 30%, 32%);
@@ -1976,7 +1979,7 @@ border-radius: 7px;
     object-fit: cover; 
   }
   
-  */
+
   
   /* Responsive Adjustments */
   @media screen and (max-width: 1024px) {
@@ -2393,12 +2396,39 @@ border-radius: 7px;
   color: black; /* Black text for Light Mode */
 }
 
-/* Dark Mode Styles */
-.dark-mode {
-  background-color: #121212; /* Black background for Dark Mode */
-  color: white; /* White text for Dark Mode */
+:root {
+  --color-bg: #FAFAFA;
+  --color-section: #FFFFFF;
+  --color-icon-filter: none;
 }
 
+
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #121212;
+  color: white;
+
+  --color-bg: #0F0F0F;
+  --color-surface: #181818;
+  --color-section: #2F2F2F;
+  --color-text: #FFFFFF;
+  --color-text-muted: #A0A0A0;
+  --color-border: #2A2A2A;
+  --color-icon-filter: invert(1);
+}
+
+body {
+  background-color: var(--color-bg);
+}
+
+.Heading {
+  background-color: var(--color-section);
+}
+
+.views img {
+  filter: var(--color-icon-filter);
+}
 
 .dark-mode .sectiionn .views span,
 .dark-mode .sectiionn .time span,
@@ -2418,20 +2448,6 @@ border-radius: 7px;
 
 }
 
-.dark-mode {
-  --color-bg: #0F0F0F;         /* page */
-  --color-surface: #181818;    /* cards */
-  --color-section: #2F2F2F;    /* headings */
-  --color-text: #FFFFFF;
-  --color-text-muted: #A0A0A0;
-  --color-border: #2A2A2A;
-  --color-icon-filter: invert(1);
-}
-.Heading
-{
-background-color: var(--color-section)
-
-}
 
 .views img,
 .nav img,
@@ -2441,12 +2457,6 @@ background-color: var(--color-section)
 .Settings img {
   filter: var(--color-icon-filter);
 }
-
-
-
-
-
-
 
 
 
@@ -2751,7 +2761,7 @@ height: 100%;
 {
    background-color:transparent;
     border-style:dotted;
-    width:700%;
+    width:100%;
     margin-top: 1.8rem;
 }
 
@@ -2787,28 +2797,29 @@ height: 100%;
 
 .Heading {
 top: 0rem;
-background-color:transparent;
-
+margin-bottom: 0px;
+padding-bottom: 0px;
 }
 
 
 .Playlist:first-of-type > .Segment:first-of-type {
-  margin-top: 0rem;
-  background-color:transparent;
+  top: 0rem;
+border-style:none;
 
 }
 
 .Scroller
 {
-background-color:transparent;
+
 overflow-y: hidden;
 overflow-x: hidden;
   padding-bottom:31rem;
+
 }
 
 .Playlist
 {
-background-color:transparent;
+
 margin-top: 0rem;
 height: auto;
 max-height: 420px;
@@ -2823,11 +2834,14 @@ background-color:transparent;
 
 }
 
+.kontainer
+{
+  border-style: none;
+}
 
-.videoo video {
-  width: 100%;
-  height: 16rem; /* 200px */
-
+.videoo video
+{
+  height: auto;
 }
 
 }
