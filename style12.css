@@ -1531,6 +1531,36 @@ border-radius: 7px;
 }
 
 
+.timee {
+  flex-grow: 2; /* Allows elements to expand */
+  width:3rem; /* Prevents elements from shrinking too much */
+  max-width: 4rem;
+  height: 30px; /* Fixed height for the time container */
+  background-color:transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px; /* Specific border-radius */
+  margin-right: 2%; /* Specific margin on the right */
+}
+
+.timee span {
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-medium); /* Using your medium weight variable */
+  color: white; /* Fixed white color */
+  white-space: nowrap; /* Prevents wrapping */
+}
+
+/* Dark mode adjustment for text within profile and timee */
+.dark-mode .profile span
+{
+  color: #D3D3D3;
+}
+
+
+.dark-mode .timee span {
+  color:#FFFFFF;
+}
 
 
 /* ==== CAPTION CONTAINER (.caption) ==== */
@@ -2383,7 +2413,7 @@ border-radius: 7px;
   .views img {
     max-width: 20px;
   }
-}}
+}
 
 
  /* ===============================
@@ -2793,39 +2823,92 @@ height: 100%;
   height: 1.9rem;
 }
 
-
+ body {
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
 
 .Heading {
 top: 0rem;
 margin-bottom: 0px;
 padding-bottom: 0px;
+background-color: saddlebrown;
 }
 
+.Segment
+{
+  height: 100%;
+  z-index: 0;
+  background-color: #007bff;
+}
 
 .Playlist:first-of-type > .Segment:first-of-type {
   top: 0rem;
 border-style:none;
+background-color: seagreen;
+  z-index: 0;
+}
 
+.Container
+{
+  background-color: #2F2F2F;
+  z-index: 0;
+  height: 100%;
 }
 
 .Scroller
 {
 
-overflow-y: hidden;
-overflow-x: hidden;
-  padding-bottom:31rem;
+overflow-y: auto;
+height: 100vh;
+  padding-bottom:40rem;
+
+}
+
+.shorts {
+  position: relative;
+  max-height: 70vh;
 
 }
 
 .Playlist
 {
-
+background-color: slateblue;
 margin-top: 0rem;
 height: auto;
-max-height: 420px;
+max-height: 600px;
 
 }
 
+.Playlist:nth-of-type(1)  {
+  background-color:pink;
+height: auto;
+margin-top: 1rem;
+    margin-bottom:0rem;
+    padding-bottom: 0rem;
+    border-style: ridge;
+}
+
+.Playlist:nth-of-type(2)  {
+  background-color:red;
+height: auto;
+margin-top: 2rem;
+    margin-bottom:0rem;
+}
+
+
+.Playlist:nth-of-type(3)  {
+  background-color:black;
+height: auto;
+margin-top: 2rem;
+    margin-bottom:0rem;
+}
+
+.Playlist:first-of-type > .Segment:first-of-type {
+  margin-top: 0rem;
+  background-color:purple;
+
+}
 
 .playlist-item
 {
@@ -2845,86 +2928,84 @@ background-color:transparent;
 }
 
 }
-
-/* Ultra-wide Displays (e.g., 1600px and up) */
-/* For very large monitors, TVs, or multi-monitor environments */
+/* Ultra-wide (1600px and up) */
 @media (min-width: 1600px) {
-  body {
-      font-size: 19px;}
 
-  .container
-  {
-    background-color: var(--color-bg-light); /* Default background color for light mode */
-  }
   
-  .Table
-  {
-    background-color: transparent;
-  }
-  
-  .overlay-text
-  {
-    background-color: transparent;
-    font-size: 1.5rem;
-  }
-  
-  .nav
-  {
-    background-color: transparent;
-  }
-  
-  .search input[type="search"] {
-  
-    min-height: 20px;
-    max-height: 25px;
-  
-  }
-  
-  
-  .upload
-  {
-    background-color: transparent;
-    width: 2.5vw;
-    height: 2.5vw;
-  }
-  
-  .Notifications
-  {
-    background-color: transparent;
-    width: 2vw;
-    height: 2vw;
-      margin-right: 90px;
-  }
-  
-  .Account 
-  {
-    background-color: transparent;
-    width: 2vw;
-    height: 2vw;
-  }
-  
-  
-  
-  .upload img {
-    width: 100%;
-    height:  100%;
-    margin: 0 auto;
-  }
-  
-  .Notifications img {
-    width: 100%;
-    height:  100%;
-    margin: 0 auto;
-  }
-  
-  
-  
-  .Account img {
-    width: 100%;
-    height:  100%;
+.container
+{
+
+
+  background-color: brown;
+}
+
+.Table
+{
+  background-color: honeydew;
+}
+
+.overlay-text
+{
+  background-color: navajowhite;
+  font-size: 1.5rem;
+}
+
+.nav
+{
+  background-color: transparent;
+}
+
+.search input[type="search"] {
+
+  min-height: 20px;
+  max-height: 25px;
+
+}
+
+
+.upload
+{
+  background-color: transparent;
+  width: 2.5vw;
+  height: 2.5vw;
+}
+
+.Notifications
+{
+  background-color: transparent;
+  width: 2vw;
+  height: 2vw;
+}
+
+.Account 
+{
+  background-color: transparent;
+  width: 2vw;
+  height: 2vw;
+}
+
+
+
+.upload img {
+  width: 100%;
+  height:  100%;
   margin: 0 auto;
-  }
-  
+}
+
+.Notifications img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+
+
+.Account img {
+  width: 100%;
+  height:  100%;
+margin: 0 auto;
+}
+
 .kontainer
 {
   border-style: ridge;
@@ -2960,83 +3041,6 @@ background-color:transparent;
   border-radius: 50%;
   object-fit: cover;
 }
-
-.container-1
-{
-  background-color: #007bff;
-  padding-top: 0px;
-  margin-bottom: 0px;
-}
-
-.Heading
-
-{
-      top: 0rem;   /* ← THIS removes the gap */
-}
-
-
-.Scroller
-{
-  background-color: grey;
-  margin-bottom: 0px;
-}
-
-.Playlist
-{
-  background-color: salmon;
-}
-
-
-.Playlist:nth-of-type(1)  {
-   background-color:green;
-height: 450px;
-margin-top: 2rem;
-    margin-bottom:2rem;
-}
-
-.Container
-{
-overflow-y: hidden;
-overflow-x: hidden;
-
-}
-
-.Playlist:nth-of-type(2)  {
-   background-color:transparent;
-margin-top: 0px;
-border-style: ridge;
-position: absolute;
-
-}
-
-.Playlist:nth-of-type(3)  {
-   background-color:pink;
-margin-top: 41rem;
-}
-
-  body {
-    overflow-y: hidden;
-    overflow-x: hidden;
-  }
-
-
-.Playlist:first-of-type > .Segment:first-of-type {
-  margin-top: 2rem;
-  background-color:red;
-
-}
-
-.dark-mode .Playlist:first-of-type > .Segment:first-of-type {
-  margin-top: 1rem;
-  background-color: burlywood;
-}
-
-
-
-
-
-
-
 
 
 }
