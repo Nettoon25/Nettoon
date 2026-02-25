@@ -3132,4 +3132,35 @@ margin: 0 auto;
   height:  100%;
 margin: 0 auto;
 }
+
+.Playlist
+{
+  background-color: saddlebrown;
+}
+
+.Container
+{
+  background-color: darkblue;
+  padding-left: 4rem;
+  height: auto;
+max-height: 560px;
+min-height: 560px;
+}
+
+.scroll-area
+{
+  background-color: transparent;
+}
+
+.shorts
+{
+  margin-top: 1rem;
+}
+
+
+
+
+
+
+
 }
