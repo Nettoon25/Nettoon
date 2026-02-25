@@ -1147,7 +1147,7 @@ body.dark-mode
   height: 80vh;      /* 🔥 MUST be height, not min-height */
   max-height: 80vh;
   background-color:transparent;
-  border-radius: var(--border-radius-sm); /* Consistent rounding (7px converted to rem) */
+  border-radius: 0px; /* Consistent rounding (7px converted to rem) */
   border-style:none; /* No border style */
 
   margin-top: 50px; /* Maintains the explicit 60px top margin */
