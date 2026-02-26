@@ -2248,8 +2248,9 @@ padding-bottom: 15px;
 .card {
   position: relative; /* Allows for absolute positioning of child elements (e.g., badges, overlays) */
   width: 30%; /* Maintains your specified width, which acts as a base in a flex container */
-  max-height: 14.375rem; /* Sets a maximum height (230px converted to rem) to control card size */
-  background-color:transparent;
+  height: 14.375rem;   /* fixed height instead of max-height */
+    display: flex;
+  flex-direction: column;
   /* flex: 0 1 47%; - This property is noted as "Keep original flex behavior". 
      However, 'flex-basis: 47%' is often used directly for initial sizing within a flex container. 
      The 'flex: 0 1 47%' shorthand means:
@@ -2545,7 +2546,8 @@ filter: invert(1);
   font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
   font-size: var(--font-size-sm); /* Responsive font size (14px converted to rem) */
   
-   left: 8px;
+  /* Positioning within the parent */
+  left: 8px;
   bottom: 8px;   /* fixed distance from bottom */
   
   border-radius: 0.4375rem;
@@ -6313,9 +6315,9 @@ margin-left: 5px;
 
 .card
 {
-
+border-style:none;
       margin-top:1rem ;
-margin-bottom: 2.9rem;
+margin-bottom: 2.5rem;
 }
 
 /*
@@ -6374,6 +6376,15 @@ margin-bottom: 2.9rem;
   flex: 3;
 }
 */
+
+/* ==== VIDEO ELEMENT INSIDE .videoo (.videoo video) ==== */
+/* Styles for the HTML <video> tag itself. */
+.videoo video {
+  width: 100%; /* Ensures the video fills the container's width */
+  /* height: 14rem; Consistent height (200px converted to rem) */
+    height: 13rem;
+      border-radius: 0.4375rem; /* 7px */
+}
 
 }
 

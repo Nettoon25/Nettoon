@@ -2337,7 +2337,9 @@ padding-bottom: 20px;
 .card {
   position: relative; /* Allows for absolute positioning of child elements (e.g., badges, overlays) */
   width: 30%; /* Maintains your specified width, which acts as a base in a flex container */
-  max-height: 14.375rem; /* Sets a maximum height (230px converted to rem) to control card size */
+  height: 12.375rem;   /* fixed height instead of max-height */
+     display: flex;
+  flex-direction: column;
   background-color:transparent;
   /* flex: 0 1 47%; - This property is noted as "Keep original flex behavior". 
      However, 'flex-basis: 47%' is often used directly for initial sizing within a flex container. 
@@ -2349,7 +2351,7 @@ padding-bottom: 20px;
   flex: 0 1 47%; 
   margin-left: 5px;
   border: none; /* Removes any default border */
-    border-style:none; /* No border style */
+    border-style:ridge; /* No border style */
   border-radius: 0.4375rem;
   margin-top: 1rem;
   margin-bottom: 2.5rem;  
@@ -2596,7 +2598,7 @@ filter: invert(1);
   align-items: center; /* Centers video */
   justify-content: center;
   margin-top: 0px;
-  position:relative;
+  position: relative;
   background-color: black; /* Adds a fallback background for better contrast */
 }
 
@@ -2633,7 +2635,8 @@ filter: invert(1);
   font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
   font-size: var(--font-size-sm); /* Responsive font size (14px converted to rem) */
   
-   left: 8px;
+  /* Positioning within the parent */
+  left: 8px;
   bottom: 8px;   /* fixed distance from bottom */
   
   border-radius: 0.4375rem;
@@ -6463,6 +6466,91 @@ margin-bottom:1rem;
 }
 */
 
+.container-3
+{
+  border-style: none;
+}
+
+
+
+  .optionnn
+  {
+    position: absolute;
+  width: 100%;
+  height: 30px;
+    background-color: transparent;
+
+  }
+
+  .optionn span
+  {
+font-size: 1rem;
+
+  }
+  
+  .channel {
+    width: clamp(11.375rem, 32%, 20.75rem);
+    height: 100%; 
+         background-color: transparent;
+   border-style:none;
+    margin-top: 0.8rem; 
+    margin-bottom: 0px;
+    float: left;
+    margin-left: 1rem;
+  }
+  
+  .channel img
+  {
+    margin-inline: auto; 
+  }
+  
+  
+  .profile
+  {
+    position: relative;
+    margin-top: 0rem; 
+    background-color: transparent;
+  }
+  
+  .profile-name span  {
+      font-size: 1rem;
+  }
+  
+  
+  .followers span  {
+    font-size: 1rem;
+  }
+  
+  .Tablee
+  {
+ 
+   background-color: transparent;
+   border-style:none;
+
+  }
+  
+
+  .series
+  {
+     height: 14rem;
+
+  border-style:none;
+  }
+  
+.videoo video {
+  width: 100%;
+    height: 13rem;
+
+}
+
+
+
+
+
+
+
+
+
 }
 
 /* Ultra-wide (1600px and up) */
@@ -6596,11 +6684,13 @@ margin-bottom:1rem;
     background-color: transparent;
    border-style:ridge;
   }
-  */
+  
   
   .card
   {
-  border-style: ridge;
+  
+    margin: 10px 0 15px 7px; 
+
   }
 
   
