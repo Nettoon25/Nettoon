@@ -6698,13 +6698,14 @@ font-size: 1rem;
 
 .captiion
 {
-margin-bottom: 1rem;
+margin-bottom: 0.5rem;
 }
 
   .pichaa {
     width: 100%;
     height: 150px;
     border-style: none;
+  
   }
 
   .overlay-texttt
@@ -6888,4 +6889,5 @@ height:auto;
    */
 
 }
+
 

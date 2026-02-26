@@ -6404,15 +6404,12 @@ margin-bottom: 0.5rem;
 .card
 {
   background-color: transparent;
-  height: 16.375rem;   /* fixed height instead of max-height */
+  height: 15rem;   /* fixed height instead of max-height */
   margin: 0.5rem 0 0.4rem 7px; 
    border-style:none;
 }
 
-.captiion
-{
-margin-bottom: 0.5rem;
-}
+
 
   .pichaa {
     width: 100%;
@@ -6532,6 +6529,7 @@ margin-left: 6px;
 
 
 }
+
 
 
 
