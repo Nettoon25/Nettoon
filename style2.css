@@ -1211,8 +1211,8 @@ justify-content: flex-start;
   width: 160%;
   height: 160%;
   object-fit: cover;
-background-color: #0069d9;
-  filter: blur(120px) saturate(180%);
+background-color: transparent;
+  filter: blur(800px) saturate(180%);
   opacity: 0.6;
 border-style: ridge;
   transform: scale(1.2);
@@ -2233,17 +2233,23 @@ body.dark-mode .follow span {
 
 margin-bottom: 5px;
 padding-top: 20px;
-background-color: var(--color-bg-light); /* Default background color for light mode */
+  /* Background and Text Styling */
+  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+  color: var(--color-text-light); /* White text color, using a variable */
 padding-bottom: 20px;
 }
 
+.dark-mode .optionn
+{
+   background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+}
 
 /* Make sure all items inside optionn are evenly distributed */
 .All, .Playlist, .Sci-fi, .WatchMojo, .Watch {
   flex-grow: 2; /* Allows elements to expand */
   min-width:10%; /* Prevents elements from shrinking too much */
   height: 30px;
-   background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+background-color: var(--color-bg-light); /* Default background color for light mode */
   color: var(--color-text-light); /* White text color, using a variable */
   margin: 5px; /* Reduce spacing to fit items in one row */
   border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
@@ -2294,7 +2300,7 @@ padding-bottom: 20px;
 .All span, .Playlist span, .Sci-fi span, .WatchMojo span, .Watch span {
   flex-grow: 1.5;
   font-weight: bold;
-  color: white;
+  color:black;
   text-align: center;
   max-width: 100%;
   white-space: nowrap;
@@ -2330,8 +2336,14 @@ padding-bottom: 20px;
 
 /* Keep the correct active tab styles */
  .optionn .active {
-  background-color: black;
+  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
 }
+
+.dark-mode .optionn
+{
+    background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
+}
+
 
  .optionn .active span {
   color: white;
@@ -6404,12 +6416,15 @@ margin-bottom: 0.5rem;
 .card
 {
   background-color: transparent;
-  height: 15rem;   /* fixed height instead of max-height */
+  height: 16.375rem;   /* fixed height instead of max-height */
   margin: 0.5rem 0 0.4rem 7px; 
    border-style:none;
 }
 
-
+.captiion
+{
+margin-bottom: 0.5rem;
+}
 
   .pichaa {
     width: 100%;
@@ -6529,7 +6544,6 @@ margin-left: 6px;
 
 
 }
-
 
 
 
