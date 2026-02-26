@@ -6646,8 +6646,8 @@ font-size: 1rem;
   .video-container
   {
 
-  height: 90vh;      /* 🔥 MUST be height, not min-height */
-  max-height: 90vh;
+  height: 85vh;      /* 🔥 MUST be height, not min-height */
+  max-height: 85vh;
     border-style:none; /* No border style */
 }
 
