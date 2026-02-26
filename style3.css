@@ -2351,7 +2351,7 @@ padding-bottom: 20px;
   flex: 0 1 47%; 
   margin-left: 5px;
   border: none; /* Removes any default border */
-    border-style:ridge; /* No border style */
+    border-style:none; /* No border style */
   border-radius: 0.4375rem;
   margin-top: 1rem;
   margin-bottom: 2.5rem;  
@@ -6435,7 +6435,7 @@ margin-left: 5px;
 .card
 {
   border-style:none;
-      max-height: 16.375rem;  
+      max-height: 18.375rem;  
       margin-top: 4rem;
 margin-bottom:1rem;
 }
