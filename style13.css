@@ -6313,11 +6313,16 @@ margin-left: 5px;
   max-height:605px;
 }*/
 
+.captiion
+{
+margin-bottom: 1rem;
+}
+
 .card
 {
 border-style:none;
       margin-top:1rem ;
-margin-bottom: 2.5rem;
+margin-bottom: 2.7rem;
   height: 16.375rem;   /* fixed height instead of max-height */
 }
 
