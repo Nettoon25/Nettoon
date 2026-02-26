@@ -2754,6 +2754,7 @@ padding-bottom: 20px;
   align-items: center; /* Centers video */
   justify-content: center;
   margin-top: 0px;
+    position: relative;   /* 🔥 THIS is the fix */
   background-color: black; /* Adds a fallback background for better contrast */
 }
 
@@ -2790,9 +2791,8 @@ padding-bottom: 20px;
   font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
   font-size: var(--font-size-sm); /* Responsive font size (14px converted to rem) */
   
-  /* Positioning within the parent */
-  left: 2%; /* Positioned 2% from the left edge of its parent */
-  bottom: 15%; /* Positioned 24% from the bottom edge of its parent */
+  left: 8px;
+  bottom: 8px;   /* fixed distance from bottom */
   
   border-radius: 0.4375rem;
   padding: 0.375rem var(--spacing-md); /* Responsive padding (6px 12px converted to rem) */
