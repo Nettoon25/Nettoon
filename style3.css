@@ -6646,10 +6646,11 @@ font-size: 1rem;
   .video-container
   {
 
-  height: 85vh;      /* 🔥 MUST be height, not min-height */
-  max-height: 85vh;
+  height: 88vh;      /* 🔥 MUST be height, not min-height */
+  max-height: 88vh;
     border-style:none; /* No border style */
 }
+
 
   /*
   .containerr
