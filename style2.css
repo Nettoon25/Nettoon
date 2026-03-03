@@ -1135,6 +1135,7 @@ body.dark-mode
   }
 }
 
+
 /* ==== VIDEO CONTAINER (.video-container) ==== */
 /* This is the main wrapper for your video player and related content. */
 .video-container {
@@ -1147,7 +1148,7 @@ body.dark-mode
   height: 80vh;      /* 🔥 MUST be height, not min-height */
   max-height: 80vh;
   background-color:transparent;
-  border-radius: 0px; /* Consistent rounding (7px converted to rem) */
+  border-radius: var(--border-radius-sm); /* Consistent rounding (7px converted to rem) */
   border-style:none; /* No border style */
 
   margin-top: 50px; /* Maintains the explicit 60px top margin */
@@ -1156,7 +1157,7 @@ body.dark-mode
   /* REDUCED: Top and bottom padding set to 5px */
   padding-top: var(--spacing-xxs); /* 5px converted to rem */
   padding-bottom: var(--spacing-xxs); /* 5px converted to rem */
-    isolation: isolate; /* important */
+  
   overflow-y: hidden; /* Hides vertical overflow */
   overflow-x: hidden; /* Hides horizontal overflow */
   gap: var(--spacing-md); /* Space between main elements inside (1rem approx 16px) */
@@ -1164,7 +1165,8 @@ body.dark-mode
 
 /* Dark Mode for video-container */
 .dark-mode .video-container {
-  background-color: #121212;
+  /* Inherits most background/text from body. No specific background changes needed here
+     unless it has its own distinct background in dark mode. */
 }
 
 /* Responsive adjustment for video-container on larger screens */
@@ -1184,48 +1186,24 @@ body.dark-mode
  height: 100%;
   max-height: 100%;
   align-self: stretch;
-background-color:transparent;
+  background-color: var(--color-bg-light); /* Light background for the video card itself */
   border-radius: 0.4375rem;
   box-shadow: var(--color-shadow); /* Subtle shadow for depth */
   border: none; /* No border style */
   display: flex;
   margin-left:20px; /* Keeping original margin-left */
   flex-direction: column; /* Stack profile, caption, video, section vertically */
-justify-content: flex-start;
+    justify-content: space-between; /* 🔑 balances content vertically */
   flex-grow: 1; /* Allows it to take up available space in the .video-container row (on desktop) */
     border-style:none; /* No border style */
   padding-bottom: 0;
   padding-top: 0;
-  
 }
+
 /* Dark Mode for containerr */
 .dark-mode .containerr {
-  background: transparent;
+  background-color:transparent; /* Darker card background */
 }
-
-
-/* Glow Layer */
-.video-ambient {
-  position: absolute;
-  inset: -30%;
-  width: 160%;
-  height: 160%;
-  object-fit: cover;
-background-color: #0069d9;
-  filter: blur(120px) saturate(180%);
-  opacity: 0.6;
-border-style: ridge;
-  transform: scale(1.2);
-  z-index: 0;
-  pointer-events: none;
-}
-
-/* Ensure content sits above glow */
-.video-container > .containerr {
-  position: relative;
-  z-index: 1;
-}
-
 
 /* ==== PROFILE SECTION (.profillee) ==== */
 .profillee {
@@ -1238,7 +1216,6 @@ border-style: ridge;
   align-items: center;
   margin-top: 0px;
   gap: 0.5rem; /* Adds spacing between elements */
-  border-style: none;
 }
 
 /* ==== PROFILE IMAGE (.profillee img) ==== */
@@ -1251,11 +1228,6 @@ border-style: ridge;
   margin-top: 1px;
   background-color: transparent;
   object-fit: cover;
-}
-
-/* Dark Mode for profile image */
- .profillee img {
-  filter: invert(1);
 }
 
 /* Dark Mode for profile image */
@@ -1286,7 +1258,7 @@ border-style: ridge;
 .profillee-name span {
   font-size: clamp(1rem, 1.2vw, 1.1rem); /* Ensure balance between small & large screens */
   background-color: transparent;
-  color: white;
+  color: #36454F;
   text-align: center;
   float: left;
   font-weight: bolder;
@@ -1305,74 +1277,54 @@ border-style: ridge;
   max-height: 35px;
   height: auto; /* Allow dynamic height */
   background-color:transparent;
-  margin: 0.3rem 0;
-  padding: 0;
+  margin-top: 0px;
+  margin-bottom: 0;
   display: flex;
   align-items: center; /* Center items vertically */
   justify-content: center; /* Center items horizontally */
   overflow: hidden; /* Hide overflow */
-  border-style: none;
-
+  padding: 5px; /* Ensure spacing */
 }
 
 /* ==== HEADING INSIDE CAPTION (.captionn h3) ==== */
 .captionn h3 {
   font-weight: bold;
   font-size: clamp(1.2rem, 1.1vw, 1.5rem);
-  color: white;
+  color: black;
   text-align: center; /* Keep text centered */
   white-space: nowrap; /* Prevent text wrapping */
   overflow: hidden; /* Hide overflow */
   text-overflow: ellipsis; /* Add ellipsis if text overflows */
   max-width: 100%; /* Ensure text stays within bounds */
   padding: 2px;
-  /*margin-bottom: 1rem;  Remove unnecessary margin */
-  margin: 0;
-  
+  margin: 0; /* Remove unnecessary margin */
 }
+/* No changes needed to your CSS for this fix. It's already correct. */
+
+/* ==== VIDEO PLAYER CONTAINER (.video) ==== */
 .video {
   position: relative;
   width: 100%;
+  height: auto;
   aspect-ratio: 16 / 9;
-  border-radius: var(--border-radius-md);
+  background-color: var(--color-bg-dark-alt);
+  border-radius: var(--border-radius-md); /* Consistent medium rounded corners for the video player */
   overflow: hidden;
-  isolation: isolate; /* 🔥 important */
-   border-radius: 7px;
-}/* 🔥 Glow stays INSIDE container */
-.video-glow {
-  position: absolute;
-  inset: -25%;
-  width: 150%;
-  height: 150%;
-  object-fit: cover;
-
-  filter: blur(90px) saturate(160%);
-  opacity: 0.75;
-
-  transform: scale(1.2);
-  z-index: 0;
-  pointer-events: none;
+  margin-block-start: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* 🎬 Main Video */
-.video-main {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-   border-radius: 7px;
-}
-/* Video stays on top */
+/* ==== VIDEO ELEMENT (.video video) ==== */
 .video video {
-  position: relative;
-  z-index: 1;
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  border-radius: inherit;
-  border-radius: 7px;
+  object-fit: contain; /* Remains 'contain' for full video visibility */
+  display: block;
 }
+
 /* ==== PLAY OVERLAY BUTTON (.play-overlay) ==== */
 .play-overlay {
   position: absolute;
@@ -1399,11 +1351,10 @@ border-style: ridge;
   
   gap:0.7em; /* Responsive spacing between elements using a variable (0.5em approx 8px) */
   margin-block: var(--spacing-xxxs); /* Responsive vertical margin (1px approx 0.0625rem) for subtle spacing */
-
+  
   border-radius: 0.4375rem; /* Uses your specified rem value for consistency */
     border-style:none; /* No border style */
   background-color:transparent;
-  margin-bottom: 0;
 }
 /* ==== INDIVIDUAL INTERACTIVE ITEMS (.viewss, .commentss, .likess, .dislikee, .timee, .follow, .option) ==== */
 /* These styles apply to all clickable interactive items within the section, providing a consistent look and feel. */
@@ -1428,12 +1379,12 @@ border-style: ridge;
     margin-block: var(--spacing-xxs-half); /* Responsive vertical margin (5px) - mostly for wrapping scenarios */
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Optional soft shadow */
     /* Appearance */
-   background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
-  color: var(--color-text-light); /* White text color, using a variable */
+    background-color: #f0f0f0;
     border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
     cursor: pointer;       /* Indicates that the element is clickable */
     /* NO TRANSITIONS as per user request */
 }
+
 /* Dark mode adjustment for individual interactive items */
 .dark-mode .viewss,
 .dark-mode .commentss,
@@ -1508,27 +1459,23 @@ body:not(.dark-mode)
   color: white;
 }
 
-body:not(.dark-mode) .viewss img,
-body:not(.dark-mode) .commentss img,
-body:not(.dark-mode) .likess img,
-body:not(.dark-mode) .dislikee img,
-body:not(.dark-mode) .timee img,
-body:not(.dark-mode) .follow img,
-body:not(.dark-mode) .option img,
-body:not(.dark-mode) .following img {
+body:not(.dark-mode)
+.viewss:hover img,
+body:not(.dark-mode)
+.commentss:hover img,
+body:not(.dark-mode)
+.likess:hover img,
+body:not(.dark-mode)
+.dislikee:hover img,
+body:not(.dark-mode)
+.timee:hover img,
+body:not(.dark-mode)
+.follow:hover img,
+body:not(.dark-mode)
+.following:hover img {
   filter: invert(1);
-  transition: filter 0.2s ease;
 }
 
-body:not(.dark-mode) .viewss:hover img,
-body:not(.dark-mode) .commentss:hover img,
-body:not(.dark-mode) .likess:hover img,
-body:not(.dark-mode) .dislikee:hover img,
-body:not(.dark-mode) .timee:hover img,
-body:not(.dark-mode) .follow:hover img,
-body:not(.dark-mode) .following:hover img {
-  filter: invert(1) brightness(1.2);
-}
 /* ============================= */
 /* OPTION ICON (MAIN ONLY) */
 /* ============================= */
@@ -1589,6 +1536,7 @@ body.dark-mode
   filter: invert(1) brightness(1.2);
 }
 
+
 /* Global image styling - applies to all images */
 img {
   max-width: 100%; /* Ensures images scale down within their containers */
@@ -1605,7 +1553,6 @@ img {
 
 .following {
   flex: 1.8; 
-  display:flex;
 }
 
 .commentss {
@@ -1679,7 +1626,6 @@ body.dark-mode .follow span {
 .option {
   position: relative;
   margin-right: 0.5rem;
-
 }
 
 .option img
@@ -2154,6 +2100,7 @@ body.dark-mode .follow span {
 }
 
 
+
 .container-2 {
   position: relative; /* Essential for positioning child elements within this container */
   
@@ -2243,8 +2190,7 @@ padding-bottom: 20px;
   flex-grow: 2; /* Allows elements to expand */
   min-width:10%; /* Prevents elements from shrinking too much */
   height: 30px;
-   background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
-  color: var(--color-text-light); /* White text color, using a variable */
+  background-color: #f0f0f0;
   margin: 5px; /* Reduce spacing to fit items in one row */
   border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
   display: flex;
@@ -2294,7 +2240,7 @@ padding-bottom: 20px;
 .All span, .Playlist span, .Sci-fi span, .WatchMojo span, .Watch span {
   flex-grow: 1.5;
   font-weight: bold;
-  color: white;
+  color: #333333;
   text-align: center;
   max-width: 100%;
   white-space: nowrap;
@@ -2388,6 +2334,7 @@ padding-bottom: 20px;
 
 
 
+
 .card {
   position: relative; /* Allows for absolute positioning of child elements (e.g., badges, overlays) */
   width: 30%; /* Maintains your specified width, which acts as a base in a flex container */
@@ -2474,11 +2421,6 @@ padding-bottom: 20px;
   margin-top: 3px;
 }
 
- .profille-image img
-{
-  filter: invert(1);
-}
-
 .dark-mode .profille-image img
 {
   filter: invert(1);
@@ -2498,7 +2440,7 @@ padding-bottom: 20px;
 
 /* Profile Name Label */
 .profille-name span {
-  color: white;
+  color: #36454F;
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;
@@ -2509,206 +2451,109 @@ padding-bottom: 20px;
   padding: 3px;
 }
 
+.optionss
+{
+  background-color: transparent;
+}
+
 .optionss {
   position: relative;
-  background-color: transparent;
+  background-color:transparent;
   height: 100%;
-  display: flex; 
+  display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.optionss img.popupTrigger {
+
+.optionss  img {
   width: 15px;
   height: 15px;
-  cursor: pointer; 
   margin-top: 1px;
+  cursor: pointer;
 }
 
-.optionss img.popupTrigger {
-  filter: invert(1);
+.dark-mode .optionss  img {
+filter: invert(1);
 }
 
 
-.dark-mode .optionss img.popupTrigger {
-  filter: invert(1);
-}
 
-/* ================= MAIN OPTIONS POPUP ================= */
 .popup-options {
   position: absolute;
   top: 120%;
   right: 0;
-  min-width: 160px;
-  background: #fff;
+  background-color: white;
+  border: 1px solid #ddd;
   border-radius: 10px;
-  padding: 6px;
-  box-shadow: 0 6px 20px rgba(0,0,0,.2);
-  display: none;          /* hidden by default */
-  flex-direction: column;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem 0.5rem;
+  display: none;
+  min-width: 150px;
   z-index: 100;
+  flex-direction: column;
 }
 
-.popup-options.show {
-  display: flex;          /* show when JS adds 'show' */
+
+.dark-mode .popup-options
+{
+  background-color: #333;
 }
 
-.dark-mode .popup-options {
-  background: #333;
-}
 
-/* ================= POPUP ITEMS ================= */
 .popup-item {
   display: flex;
   align-items: center;
   gap: 10px;
-  padding: 6px;
+  padding: 0.2rem 0.2rem;
   font-size: 0.75rem;
-  cursor: pointer;
-  border-radius: 6px;
   color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
   white-space: nowrap;
-}
-
-.popup-item img {
-  width: 16px;
-  height: 16px;
-  object-fit: contain;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border-radius: 0.4rem;
 }
 
 .popup-item:hover {
-  background: gray;
-  color: #fff;
+  background-color: #f2f2f2;
 }
 
-.popup-item:hover img {
+.popup-item img {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: contain;
+  transition: filter 0.3s;
+}
+
+/* Dark mode styling */
+.dark-mode .optionss  .popup-item {
+  background-color: #333;
+  color: white;
+}
+
+
+
+/* Hover effect */
+.optionss  .popup-item:hover {
+  background-color: grey;
+  color: white;
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.dark-mode .optionss  .popup-item img {
   filter: invert(1) brightness(1.2);
 }
 
-.dark-mode .popup-item {
-  color: white;
-}
 
 
-.dark-mode .popup-item img {
-  filter: invert(1);
-}
-
-.popup-subpanel {
-  position: absolute;
-  top: 0;
-  left: 100%;  /* open to the right of main menu */
-  width: 230px;
-  background: #fff;
-  border-radius: 10px;
-  padding: 10px;
-  box-shadow: 0 8px 25px rgba(0,0,0,.3);
-  display: none;
-  z-index: 200;
-}
-
-
-.popup-subpanel.show {
-  display: block;          /* show when JS adds 'show' */
-}
-
-.dark-mode .popup-subpanel {
-  background: #333;
-  color: white;
-}
-
-/* ================= PANEL HEADER ================= */
-.panel-header {
+.optionss:hover .popup-options {
   display: flex;
-  justify-content: space-between;
-  font-weight: 600;
-  margin-bottom: 10px;
-}
-
-.panel-close {
-  cursor: pointer;
-}
-
-/* ================= PANEL ITEMS ================= */
-.panel-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 8px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.panel-item img {
-  width: 16px;
-  height: 16px;
-}
-
-.panel-item:hover {
-  background: gray;
-  color: white;
-}
-
-.panel-item:hover img {
-  filter: invert(1);
-}
-
-/* ================= PLAYLIST ================= */
-.playlist-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.playlist-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6px 8px;
-  border-radius: 6px;
-}
-
-.playlist-item:hover {
-  background: gray;
-  color: white;
-}
-
-.playlist-delete {
-  cursor: pointer;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-size: 14px;
-}
-
-.playlist-delete:hover {
-  background: red;
-  color: white;
-}
-
-.create-playlist-btn {
-  margin-top: 10px;
-  padding: 6px;
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-}
-
-/* ================= REPORT ================= */
-.report-submit {
-  width: 100%;
-  margin-top: 10px;
-  padding: 6px;
-  border-radius: 6px;
-  border: none;
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-.report-submit.active {
-  cursor: pointer;
-  opacity: 1;
-  background: red;
-  color: white;
 }
 
 
@@ -2729,7 +2574,7 @@ padding-bottom: 20px;
 .captiion span {
   font-size: 15px;
   font-weight: bold;
-  color: white;
+  color: black;
   text-align: center;
   white-space: nowrap; /* Prevents text wrapping */
   overflow: hidden; /* Hides overflowing text */
@@ -2756,7 +2601,7 @@ padding-bottom: 20px;
   align-items: center; /* Centers video */
   justify-content: center;
   margin-top: 0px;
-    position: relative;
+  position: relative;
   background-color: black; /* Adds a fallback background for better contrast */
 }
 
@@ -2876,11 +2721,6 @@ padding-bottom: 20px;
     object-fit: cover; /* Ensures the image fills its area without distortion */
   }
   
-    /* Dark Mode for Views Icon */
- .viewsss img {
-    filter: invert(1); /* Inverts colors for visibility on dark backgrounds */
-  }
-
   /* Dark Mode for Views Icon */
   .dark-mode .viewsss img {
     filter: invert(1); /* Inverts colors for visibility on dark backgrounds */
@@ -2891,7 +2731,7 @@ padding-bottom: 20px;
     font-family: var(--font-family-primary); /* Consistent, high-quality font */
     font-size: var(--font-size-sm); /* Responsive font size (14px converted to rem) */
     font-weight: 500; /* Medium font weight */
-    color: white; /* Dark text color for light mode, using a variable */
+    color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
     
     display: flex; /* Uses flexbox for potential inner alignment (e.g., if content changes) */
     align-items: center; /* Vertically centers text */
@@ -2939,7 +2779,7 @@ padding-bottom: 20px;
   margin: 0; /* Removes default margins */
   font-family: var(--font-family-primary); /* Consistent, high-quality font */
   font-weight: 500; /* Medium font weight */
-  color: white; /* Dark text color for light mode, using a variable */
+  color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
   
   display: flex; /* Uses flexbox for potential inner alignment */
   align-items: center; /* Vertically centers text */
@@ -6396,7 +6236,6 @@ color:  white;
 
 }*/
 
-
 .captiion
 {
 margin-bottom: 0.5rem;
@@ -6405,18 +6244,22 @@ margin-bottom: 0.5rem;
 .card
 {
   background-color: transparent;
-  height: 15rem;   /* fixed height instead of max-height */
+  height: 16.375rem;   /* fixed height instead of max-height */
   margin: 0.5rem 0 0.4rem 7px; 
    border-style:none;
 }
 
-
+.captiion
+{
+margin-bottom: 0.5rem;
+}
 
   .pichaa {
     width: 100%;
     height: 150px;
     
   }
+
 /*
 .sectiion
 {
@@ -6529,7 +6372,6 @@ margin-left: 6px;
 
 
 }
-
 
 
 
