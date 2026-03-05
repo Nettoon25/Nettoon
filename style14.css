@@ -2997,8 +2997,9 @@ margin: 0 auto;
 }
 
 
-  }
+    }}
 
+/* Large desktops (1280px–1599px) */
 @media (min-width: 1280px) and (max-width: 1599px) {
 
 
@@ -3007,18 +3008,26 @@ margin: 0 auto;
     overflow-x: hidden;
   }
 
-
-
   .container
   {
-    background-color: var(--color-bg-light);
+   background-color:transparent;
   }
 
+  .Table
+  {
+  background-color: transparent;
+  }
 
+  .overlay-text
+  {
+    background-color: transparent;
+    font-size: 1.4rem;
+  }
 
 .nav
 {
-  background-color:orange;
+  background-color:transparent;
+  width: 100%;
 }
 
 .upload
@@ -3045,9 +3054,9 @@ margin: 0 auto;
       
 
 .Account img {
-  width: 100%;
-  height:  100%;
-margin: 0 auto;
+  width: 2.2rem;
+      height: 2.2rem;
+margin-bottom: 0.1rem;
 }
 
 
@@ -3056,9 +3065,37 @@ margin: 0 auto;
   z-index: 20;
 }
 
-}}
+.Heading
+{
+height: 35px;
+
+}
+
+.Container
+{
+  background-color: transparent;
+  padding-left: 0.5rem;
+  gap:1rem;
 
 
+}
+
+.options
+{
+z-index: 999;
+
+}
+
+.kontainer
+{
+  border-style:none;
+  margin-bottom: 3.1rem;
+}
+
+
+
+
+}
 
 
 /* Ultra-wide (1600px and up) */
@@ -3132,35 +3169,4 @@ margin: 0 auto;
   height:  100%;
 margin: 0 auto;
 }
-
-.Playlist
-{
-  background-color: saddlebrown;
-}
-
-.Container
-{
-  background-color: darkblue;
-  padding-left: 4rem;
-  height: auto;
-max-height: 560px;
-min-height: 560px;
-}
-
-.scroll-area
-{
-  background-color: transparent;
-}
-
-.shorts
-{
-  margin-top: 1rem;
-}
-
-
-
-
-
-
-
 }

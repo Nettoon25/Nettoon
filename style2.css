@@ -3132,11 +3132,14 @@ font-size: 14px;
   align-items: center;
   justify-content: space-between;
   margin-left: auto;
-  z-index: -1;
+  z-index: 1;
   padding: 10px;
   margin-bottom: 5px;
 }
 
+.hidden{
+display:none;
+}
 
 /* Shared style for like, reply, sidebar */
 .like, .reply, .sidebarr {
@@ -3280,6 +3283,54 @@ right: 0.5%;
   display: none !important;
 }
 
+.reply-box{
+  width:100%;
+  margin-top:8px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.reply-box textarea{
+  width:100%;
+  min-height:60px;
+  resize:none;
+  border:none;
+  border-bottom:2px solid #ccc;
+  outline:none;
+  font-size:14px;
+  padding:6px;
+  background:transparent;
+}
+
+.reply-actions{
+  display:flex;
+  justify-content:flex-end;
+  gap:10px;
+}
+
+.reply-actions button{
+  border:none;
+  padding:6px 12px;
+  border-radius:6px;
+  cursor:pointer;
+  font-size:13px;
+}
+
+.cancel-reply{
+  background:transparent;
+  color:#555;
+}
+
+.send-reply{
+  background:#065fd4;
+  color:white;
+}
+
+.dark-mode .reply-box textarea{
+  border-bottom:2px solid #555;
+  color:white;
+}
 
 .container-1 {
   position: relative;
