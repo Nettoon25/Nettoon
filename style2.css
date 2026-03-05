@@ -6083,6 +6083,7 @@ margin-bottom: 2.5rem;
 
 }
 
+
 /* Ultra-wide (1600px and up) */
 @media (min-width: 1600px) {
 
@@ -6185,35 +6186,21 @@ margin: 0 auto;
 }
 
 
+
+/*
 .containerr
 {
-  margin-top: 1.3rem;
   background-color: transparent;
-   border-style:none;
+   border-style:ridge;
 }
 
-.dark-mode .containerr
+
+.captionn h3
 {
-  background-color: transparent;
-   border-style:none;
-} 
-
-
-.dark-mode .captionn h3
-{
-color:  white;
+  font-size: clamp(1rem, 1.1vw, 1.5rem);
 }
 
-/* Dark Mode for profile image */
- .profillee img {
-  filter: invert(1);
-}
 
-/* ==== PROFILE NAME TEXT (.profillee-name span) ==== */
-.profillee-name span {
-
-  color: white;}
-/*
 .viewss {
   flex: 2.1;
 }
@@ -6236,22 +6223,12 @@ color:  white;
 
 }*/
 
-.captiion
-{
-margin-bottom: 0.5rem;
-}
-
 .card
 {
   background-color: transparent;
-  height: 16.375rem;   /* fixed height instead of max-height */
+  max-height: 300px;
   margin: 0.5rem 0 0.4rem 7px; 
    border-style:none;
-}
-
-.captiion
-{
-margin-bottom: 0.5rem;
 }
 
   .pichaa {
@@ -6259,7 +6236,6 @@ margin-bottom: 0.5rem;
     height: 150px;
     
   }
-
 /*
 .sectiion
 {
@@ -6343,7 +6319,6 @@ margin-left: 6px;
   }
 
 
-
 .views img {
   width: clamp(24px, 4.5vw, 30px);
   height: clamp(24px, 4.5vw, 30px);
@@ -6368,10 +6343,8 @@ margin-left: 6px;
   .navbar { background: #1f1f1f; }
    
 }
-*/
+*/}
 
-
-}
 
 
 
