@@ -1293,6 +1293,7 @@ margin-bottom: 0px;
 .dark-mode .Segment span 
 {
   color:#FFFFFF;
+    background-color: #2a2d2f;
 }
 
 .Heading, .Segment {
@@ -1356,7 +1357,7 @@ filter: invert(1);
   flex: 1;
   margin-top: 0px;
   max-width: 45%;
-  background-color:grey;
+  background-color:purple;
   margin-bottom: 0px;
   border-radius: 7px;
 }
@@ -2819,10 +2820,6 @@ height: 100%;
   }
 
 
-
-  
-
-
   /* Notifications Icon */
 .Notifications {
   margin-right: 4rem;
@@ -2834,100 +2831,166 @@ height: 100%;
 }
 
 
-
 .Heading {
-top: 0rem;
+top: 1rem;
 margin-bottom: 0px;
 padding-bottom: 0px;
-background-color: saddlebrown;
-}
-
-.Segment
-{
-  height: 100%;
-  z-index: 0;
-  background-color: #007bff;
-}
-
-.Playlist:first-of-type > .Segment:first-of-type {
-  top: 0rem;
-border-style:none;
-background-color: seagreen;
-  z-index: 0;
-}
-
-.Container
-{
-  background-color: #2F2F2F;
-  z-index: 0;
-  height: 100%;
+z-index: 3;
+position: absolute;
 }
 
 .Scroller
 {
-
+position: relative;
 overflow-y: auto;
 height: 100vh;
-  padding-bottom:40rem;
+padding-bottom: 43rem;
+background-color: transparent;
+z-index: 3;
+}
 
+
+.Segment
+{
+border-radius: 7px;
+}
+
+.scroll-area {
+  width: 100%;
+  height: 100%;
+  display:flex;
+  flex-wrap: wrap;
+  overflow:auto;
+  overflow-y:none;
+  overflow-x: auto;
+  flex-direction:flex;
+  background-color:transparent;
+  position:relative;
+
+  gap: 0rem; /* Slight space between items */
+ 
+  overflow-x:hidden;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  /*scroll-snap-type: y mandatory;  changed to x for horizontal */
 }
 
 .shorts {
   position: relative;
   max-height: 70vh;
-
+margin-top: 0rem;
 }
+
 
 .Playlist
 {
-background-color: slateblue;
-margin-top: 0rem;
-height: auto;
-max-height: 600px;
-
+  z-index: -1;
 }
+
 
 .Playlist:nth-of-type(1)  {
-  background-color:pink;
+  background-color:transparent;
 height: auto;
-margin-top: 1rem;
+margin-top: 1.5rem;
     margin-bottom:0rem;
     padding-bottom: 0rem;
-    border-style: ridge;
-}
-
-.Playlist:nth-of-type(2)  {
-  background-color:red;
-height: auto;
-margin-top: 2rem;
-    margin-bottom:0rem;
-}
-
-
-.Playlist:nth-of-type(3)  {
-  background-color:black;
-height: auto;
-margin-top: 2rem;
-    margin-bottom:0rem;
+    border-style: none;
+    padding-top: 0px;
+      z-index: -1;
+   
 }
 
 .Playlist:first-of-type > .Segment:first-of-type {
-  margin-top: 0rem;
-  background-color:purple;
+  top: 0.5rem;
+border-style:none;
+  background-color:transparent;
+  height: 30px;
+   position: absolute;
 
 }
 
-.playlist-item
+.Playlist:nth-of-type(1) .playlist-item {
+  height: 340px;
+  background-color:transparent;
+  margin-top: 4.1rem;
+  }
+
+.Playlist:nth-of-type(2)  {
+  background-color:transparent;
+height: 560px;
+margin-top: 2rem;
+    margin-bottom:0rem;
+}
+
+.caption
 {
+  background-color:transparent;
+}
 
-background-color:transparent;
+.caption span
+{
+  margin-top: 0.5rem;
+}
+
+.About
+{
+border-style:none;
+  background-color:transparent;
 
 }
+
+.description
+{
+  background-color:transparent;
+height: 150px;
+max-height: 250px;
+padding-top: 0px;
+
+
+}
+
+.vidoes
+{
+  margin-top:0px;
+  background-color:transparent;
+  padding-bottom: 1.5rem;
+  
+}
+
+.cards
+{
+  margin-top: 0px;
+  margin-bottom: 0.5rem;
+}
+
+.Container
+{
+  background-color:transparent;
+  height: 100%;
+}
+
+.left-section
+{
+height: 278px;
+position: relative;
+}
+
+
 
 .kontainer
 {
   border-style: none;
+  position: absolute;
 }
+
+.Playlist:nth-of-type(1) .kontainer {
+  background-color:transparent;
+}
+
+.Playlist:nth-of-type(2) .left-section {
+  background-color:transparent;
+  margin-top: 8rem;
+}
+
 
 .videoo video
 {
