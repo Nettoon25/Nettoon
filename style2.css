@@ -5657,6 +5657,13 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
   margin-left: 5px;
   border-style: none;
   margin-bottom: 0.5rem;
+  margin-top: 0px;
+}
+
+.captiion
+{
+    top: 0rem;
+   bottom: 0rem;
 }
 
 .pichaa {
