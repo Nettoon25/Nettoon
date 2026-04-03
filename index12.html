@@ -313,7 +313,7 @@ Nettoon.com
 <div class="Scroller">
 
 
-  <div class="Playlist"> <!-- Group: Movies -->
+  <div class="Playlist">
     <div class="Segment"><span>Movies</span></div>
   
         <!-- Wrapper for Playlist Items -->
@@ -367,17 +367,105 @@ Nettoon.com
             <div class="profilee-name">
               <span>Guest</span>
             </div>
-            <div class="opttions">
-              <img src="sidebar 3.png" alt="Options Icon">
+       <div class="opttions">
+                  <img src="sidebar 3.png" alt="Options Icon">
           
-              <!-- Popup that appears OVER the profilee -->
-              <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-                <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
-                <div class="popup-item"><img src="report.png" /> Report</div>
+                  <!-- OPTIONS POPUP -->
+                  <div class="opttions-popup hidden">
+                      <div class="popup-item"><img src="share.png" /> Share</div>
+                      <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+                      <div class="popup-item"><img src="report.png" /> Report</div>
+                  </div>
               </div>
-            </div>
-          </div>
+          
+              <!-- SHARE POPUP (corrected position) -->
+              <div class="share-popup hidden" id="sharePopup">
+          
+                  <!-- FIXED CLOSE BUTTON -->
+                  <div class="share-close" id="shareClose">✕</div>
+          
+                  <!-- Scrollable icons wrapper -->
+                  <div class="share-scroll">
+                      <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+                      <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+                      <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+                      <div class="share-item"><img src="twitter.png"><span>X</span></div>
+                      <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+                  </div>
+          
+              </div> <!-- END share-popup -->
+          
+   <!-- PLAYLIST POPUP -->
+<div class="playlist-popup hidden" id="playlistPopup">
+
+  <div class="playlist-header">Save to...</div>
+
+  <!-- PLAYLIST LIST WRAPPER -->
+  <div class="playlist-list" id="playlistList">
+
+      <!-- Default items -->
+      <label class="playlist-option">
+          <input type="checkbox" class="playlist-check">
+          <span>Watch Later</span>
+      </label>
+
+      <label class="playlist-option">
+          <input type="checkbox" class="playlist-check">
+          <span>Favorites</span>
+      </label>
+
+  </div>
+
+  <!-- ADD NEW PLAYLIST BUTTON -->
+  <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+
+</div>
+
+<!-- REPORT POPUP -->
+<div class="report-popup hidden" id="reportPopup">
+
+  <div class="report-header">
+    Help us understand the issue. We’ll assess it across all Community Guidelines.
+      <span class="report-close" id="reportClose">✕</span>
+  </div>
+
+  <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Sexual content
+  </label>
+
+  <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Violent or repulsive content
+  </label>
+
+  <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Hateful or abusive content
+  </label>
+
+  <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Harmful or dangerous acts
+  </label>
+
+  <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Spam or misleading
+  </label>
+
+  <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Child abuse
+  </label>
+
+  <div class="report-actions">
+      <button class="report-cancel">Cancel</button>
+      <button class="report-submit" id="reportSubmit" disabled>Report</button>
+  </div>
+
+</div>
+</div>
         <div class="caption">
           <span>LOVE, DEATH + ROBOTS VOLUME 4 Official Trailer</span>
         </div>
@@ -418,6 +506,7 @@ Nettoon.com
   </div>
 
 
+
   
   <div class="Playlist"> <!-- Group: Shorts -->
     <div class="Segment" ><span>Shorts</span></div>
@@ -427,10 +516,9 @@ Nettoon.com
       <div class="scroll-area">
 
         
-        <div class="shorts">
-                    
-          <a href="index7.html"><video class="short-video" src="Kizazi Moto_ Generation Fire.mp4" loop muted playsinline preload="metadata"></video>
-
+        <div class="shorts">                    
+          <a href="index7.html"><video class="short-video" src="Kizazi Moto_ Generation Fire.mp4" loop muted playsinline preload="metadata">
+          </video>
           </a>
           <img class="play-overlay" src="26.png" alt="Play Button" />
           <!-- 🔥 New overlay for views -->
@@ -441,7 +529,6 @@ Nettoon.com
         </div>
   
         <div class="shorts">
-          
           <a href="index7.html"><video class="short-video" src="Love Death + Robots S3 E1 THREE ROBOTS _ Exit Strategies Part 1.mp4" loop muted playsinline preload="metadata"></video></a>
           <img class="play-overlay" src="26.png" alt="Play Button" />
          <!-- 🔥 New overlay for views -->
@@ -469,10 +556,10 @@ Nettoon.com
           <div class="views-overlay">
             <img src="views.png" alt="Views" class="views-icon" />
             <span class="views-text">105.7K</span>
-          </div>
+          </div>    </div>
    
         <div class="shorts">
-          <a href="index7.html"><video class="short-video" src="1.mp4" loop muted playsinline preload="metadata"></video></a>
+          <a href="index7.html"><video class="short-video" src="Ratatouille.mp4" loop muted playsinline preload="metadata"></video></a>
           <img class="play-overlay" src="26.png" alt="Play Button" />
              <!-- 🔥 New overlay for views -->
              <div class="views-overlay">
@@ -481,137 +568,14 @@ Nettoon.com
             </div>
           </div>
   
-        <div class="shorts">
-          <a href="index7.html"><video class="short-video" src="Arcane_ Season 2 _ Official Trailer.mp4" loop muted playsinline preload="metadata"></video></a>
-          <img class="play-overlay" src="26.png" alt="Play Button" />
-         <!-- 🔥 New overlay for views -->
-         <div class="views-overlay">
-          <img src="views.png" alt="Views" class="views-icon" />
-          <span class="views-text">1M</span>
-        </div>
-      </div>
-  
-        <div class="shorts">
-          <a href="index7.html"><video class="short-video" src="Mason_s Rats.mp4" loop muted playsinline preload="metadata"></video></a>
-          <img class="play-overlay" src="26.png" alt="Play Button" />
-            <!-- 🔥 New overlay for views -->
-            <div class="views-overlay">
-              <img src="views.png" alt="Views" class="views-icon" />
-              <span class="views-text">43.6K</span>
-            </div>
-          </div>
-
-          
-
-          <div class="shorts">
-            <a href="index7.html">
-              <video class="short-video" src="Swarm Ending .mp4" loop muted playsinline preload="metadata"></video>
-            </a>
-            <img class="play-overlay" src="26.png" alt="Play Button" />
-            
-            <!-- 🔥 New overlay for views -->
-            <div class="views-overlay">
-              <img src="views.png" alt="Views" class="views-icon" />
-              <span class="views-text">23.4K</span>
-            </div>
-          </div>
-   
-        <div class="shorts">
-                    
-          <a href="index7.html"><video class="short-video" src="Kizazi Moto_ Generation Fire.mp4" loop muted playsinline preload="metadata"></video>
-
-          </a>
-          <img class="play-overlay" src="26.png" alt="Play Button" />
-          <!-- 🔥 New overlay for views -->
-          <div class="views-overlay">
-            <img src="views.png" alt="Views" class="views-icon" />
-            <span class="views-text">2.5K</span>
-          </div>
-        </div>
-  
-        <div class="shorts">
-          
-          <a href="index7.html"><video class="short-video" src="Love Death + Robots S3 E1 THREE ROBOTS _ Exit Strategies Part 1.mp4" loop muted playsinline preload="metadata"></video></a>
-          <img class="play-overlay" src="26.png" alt="Play Button" />
-         <!-- 🔥 New overlay for views -->
-         <div class="views-overlay">
-          <img src="views.png" alt="Views" class="views-icon" />
-          <span class="views-text">3.6K</span>
-        </div>
-      </div>
-  
-        <div class="shorts">
-          <a href="index7.html"><video class="short-video" src="LOVE DEATH + ROBOTS VOLUME 4 _ Official Trailer _ Netflix.mp4" loop muted playsinline preload="metadata"></video></a>
-          <img class="play-overlay" src="26.png" alt="Play Button" />
-           <!-- 🔥 New overlay for views -->
-           <div class="views-overlay">
-            <img src="views.png" alt="Views" class="views-icon" />
-            <span class="views-text">88.2K</span>
-          </div>
-        </div>
-  
-  
-        <div class="shorts">
-          <a href="index7.html"><video class="short-video" src="Baboon.mp4" loop muted playsinline preload="metadata"></video></a>
-          <img class="play-overlay" src="26.png" alt="Play Button" />
-          <!-- 🔥 New overlay for views -->
-          <div class="views-overlay">
-            <img src="views.png" alt="Views" class="views-icon" />
-            <span class="views-text">105.7K</span>
-          </div>
-   
-        <div class="shorts">
-          <a href="index7.html"><video class="short-video" src="1.mp4" loop muted playsinline preload="metadata"></video></a>
-          <img class="play-overlay" src="26.png" alt="Play Button" />
-             <!-- 🔥 New overlay for views -->
-             <div class="views-overlay">
-              <img src="views.png" alt="Views" class="views-icon" />
-              <span class="views-text">205.9K</span>
-            </div>
-          </div>
-  
-        <div class="shorts">
-          <a href="index7.html"><video class="short-video" src="Arcane_ Season 2 _ Official Trailer.mp4" loop muted playsinline preload="metadata"></video></a>
-          <img class="play-overlay" src="26.png" alt="Play Button" />
-         <!-- 🔥 New overlay for views -->
-         <div class="views-overlay">
-          <img src="views.png" alt="Views" class="views-icon" />
-          <span class="views-text">1M</span>
-        </div>
-      </div>
-  
-        <div class="shorts">
-          <a href="index7.html"><video class="short-video" src="Mason_s Rats.mp4" loop muted playsinline preload="metadata"></video></a>
-          <img class="play-overlay" src="26.png" alt="Play Button" />
-            <!-- 🔥 New overlay for views -->
-            <div class="views-overlay">
-              <img src="views.png" alt="Views" class="views-icon" />
-              <span class="views-text">43.6K</span>
-            </div>
-          </div>
-
-          
-
-          <div class="shorts">
-            <a href="index7.html">
-              <video class="short-video" src="Swarm Ending .mp4" loop muted playsinline preload="metadata"></video>
-            </a>
-            <img class="play-overlay" src="26.png" alt="Play Button" />
-            
-            <!-- 🔥 New overlay for views -->
-            <div class="views-overlay">
-              <img src="views.png" alt="Views" class="views-icon" />
-              <span class="views-text">23.4K</span>
-            </div>
-          </div>
-          
+       
 
 
           
       </div>
 
     </div>
-  </div>
+
 
 
 
@@ -759,150 +723,6 @@ Nettoon.com
 
 
 
-  <div class="Playlist" style="display: none;"> <!-- Group: Movies -->
-    <div class="Segment"  ><span>Playlist</span></div>
-  
-        <!-- Wrapper for Playlist Items -->
-  <div class="Container">
-
-    <!-- Single Playlist Item -->
-    <div class="playlist-item">
-
-      <!-- Left Side: Video Preview -->
-      <div class="left-section" style="display: none;">
-     
-
-        <div class="kontainer">
-          <div class="profilee"> 
-          <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
-        
-          <div class="profilee-name">
-            <span>Guest</span>
-          </div>
-        
-        
-        </div>
-  <div class="videoo">
-    <video
-      src="LOVE DEATH + ROBOTS VOLUME 4 _ Official Trailer _ Netflix.mp4"
-      poster="Love death & robots.jpg" preload="metadata"></video>
-<div class="overlay-textt">0.00</div>
-</div></a>
-<div class="sectiionn">
-<div class="views">
-<img src="views.png">
-<span>No views</span>
-</div>
-<div class="time">
-<span for="text">	Just now</span>
-</div>
-
-</div>
-
-</div>
-
-      </div>
-
-    
-      <!-- Right Side: Video Info -->
-      <div class="right-section">
-        <a href="index4.html">
-          <div class="profilee">
-            <img src="14.png">
-            <div class="profilee-name">
-              <span>Afrilens</span>
-            </div>
-            <div class="opttions">
-              <img src="sidebar 3.png" alt="Options Icon">
-          
-              <!-- Popup that appears OVER the profilee -->
-              <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-                <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
-                <div class="popup-item"><img src="play.png" /> Add to Queue</div>
-                <div class="popup-item"><img src="report.png" /> Report</div>
-              </div>
-            </div>
-          </div>
-        </a>
-
-        <div class="caption">
-          <span>LOVE, DEATH + ROBOTS VOLUME 4 Official Trailer</span>
-        </div>
-
-        <div class="About">
-          <div class="description" style="display: none;">
-            <span>Nettoon is more than just a video streaming platform; it is a cultural and technological movement poised to place Africa, and particularly Nairobi, Kenya, at the epicenter of the 21st-century digital revolution. As a platform dedicated exclusively to cartoons and animations, Nettoon taps into one of the fastest-growing and most influential entertainment industries in the world.
-              But what makes it revolutionary is that it gives power back to African creators, animators, and storytellers.
-            
-              By creating a dedicated space where African animation can thrive, Nettoon opens the floodgates for diverse narratives, characters, and ideas to be shared globally.  <br><br>Africa has for too long been viewed through external lenses. Nettoon challenges this by allowing Africans to tell their own stories—ones filled with myth, innovation, humor, and lived experience.
-                This will not only redefine how the world sees Africa but will inspire a generation of young creators to pursue careers in animation, storytelling, and technology.
-            
-            Based in Nairobi—a city already known for its innovation, fintech leadership, and vibrant startup culture—Nettoon is strategically positioned.Nairobi’s youthful population, growing internet penetration, and digital-savvy talent pool make it the perfect launchpad for a tech-powered cultural renaissance. 
-               As Nettoon gains traction globally, it will attract tech investors, animation studios, and media partners to Africa, catalyzing a creative economy worth billions.
-            
-               Moreover, Nettoon is not just a platform; it is an ecosystem. It creates jobs, educates users, encourages digital skills, and promotes Pan-African collaboration. Developers, voice actors, designers, and writers from all corners of the continent will find new opportunities.
-               <br> <br>This will reduce brain drain and position Africa not as a passive consumer of global tech but as a producer and global player in the digital age.
-            
-               In a world increasingly shaped by media and content, platforms like Nettoon will dictate how cultures connect and evolve. As African animations inspire global audiences, the center of creative influence will shift. Nairobi won’t just be known for safaris or tech startups—it will be known as the birthplace of the 21st century’s digital cultural revolution.
-            
-            </span>
-          </div>
-
-    <div class="vidoes">
-
-            <a href="index3.html">
-              <div class="cards">
-                <div class="overlay-textttt">10 vidoes</div>
-                <img src="6.png">
-                <div class="overlay-texttt">Teen X</div>
-              </div>
-            </a>
-
-            <a href="index3.html">
-              <div class="cards">
-                <div class="overlay-textttt">10 vidoes</div>
-                <img src="6.png">
-                <div class="overlay-texttt">Teen X</div>
-              </div>
-            </a>
-
-            <a href="index3.html">
-              <div class="cards">
-                <div class="overlay-textttt">10 vidoes</div>
-                <img src="6.png">
-                <div class="overlay-texttt">Teen X</div>
-              </div>
-            </a>
-
-
-            <a href="index3.html">
-              <div class="cards">
-                <div class="overlay-textttt">10 vidoes</div>
-                <img src="6.png">
-                <div class="overlay-texttt">Teen X</div>
-              </div>
-            </a>
-
-
-            <a href="index3.html">
-              <div class="cards">
-                <div class="overlay-textttt">10 vidoes</div>
-                <img src="6.png">
-                <div class="overlay-texttt">Teen X</div>
-              </div>
-            </a>
-
-
-          </div>
-          
-        </div>
-       
-      </div>
-
-    </div> <!-- End of playlist-item -->
-
-  </div> <!-- End of Container -->
     
 
 
@@ -910,7 +730,7 @@ Nettoon.com
 
 
     </div>
-    
+
 
 
 
