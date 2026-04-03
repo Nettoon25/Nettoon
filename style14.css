@@ -1269,7 +1269,7 @@ padding: 0px;
 margin: 0;
 align-items: center;
 padding-left: 0%;
-border-radius: 0px;
+  border-radius: 7px;
 margin-top:0px;
 padding-top: 0px;
 padding-bottom: 0px;
@@ -2726,6 +2726,21 @@ margin: 0 auto;
   width: 1.9rem;
   height: 1.9rem;
 }
+
+.Container
+{
+background-color: #007bff;
+gap:1rem;
+}
+
+.kontainer
+{
+margin-left: 1.3rem;
+margin-top: 0rem;
+margin-bottom: 0rem;
+}
+
+
   .scroll-area
 {
   background-color:transparent;
@@ -2737,6 +2752,7 @@ gap:0.5rem;
 .shorts
 {
   margin-top: 1rem;
+  margin-left:0.2rem;
 }
 
 }
@@ -3086,17 +3102,11 @@ z-index: 999;
 
 }
 
-
-
 .kontainer
 {
   border-style:none;
   margin-bottom: 3.1rem;
-  position: absolute;
-  margin-left: 2rem;
 }
-
-
 
 
 
@@ -3107,11 +3117,8 @@ z-index: 999;
 /* Ultra-wide (1600px and up) */
 @media (min-width: 1600px) {
 
-   body {
-    overflow-y: hidden;
-    overflow-x: hidden;
-  }
-
+  body {
+      font-size: 19px;}
       
 .container
 {
@@ -3178,67 +3185,4 @@ z-index: 999;
   height:  100%;
 margin: 0 auto;
 }
-
-/*
-.Scroller
-{
-  overflow-y: hidden;
-  overflow-x: hidden;
-}
-*/
-
-.kontainer
-{
-  border-style:none;
-  margin-bottom: 2rem;
-  height: auto;
-  margin-top: 0rem;
-  margin-left: 3rem;
-  margin-top: 1rem;
-}
-
-
-.Container  {
-  background-color:pink;
-
-margin-top: 1.5rem;
-    margin-bottom:0rem;
-    padding-bottom: 1rem;
-    border-style: none;
-    padding-top: 0px;
-
-   
-}
-
-.Segment
-{
-  height: 60px;
-  position: absolute;
-}
-
-.Playlist:first-of-type > .Segment:first-of-type {
-
- 
-  height: 30px;
-
-
-}
-
-.scroll-area
-{
-  gap: 2rem;
-}
-
-
-.shorts
-{
-  margin-top: 3rem;
-  margin-left: 1.5rem;
-}
-
-
-
-
-
-
 }
