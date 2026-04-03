@@ -2389,19 +2389,19 @@ filter: invert(1);
 
 .popup-options {
   position: absolute;
-  top: 120%;
-  right: 0;
+  top: 0;
+  right: -1%;
+  transform: translate(-5% /* Center horizontally, float above */);
   background-color: white;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-  padding: 0.5rem 0.5rem;
-  display: none;
-  min-width: 150px;
-  z-index: 100;
-  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  z-index: 5000;
+  padding: 0.1rem 0.5rem;
+  max-width: 150px;
+  min-width: 120px;
+  padding-bottom: 0px;
 }
-
 
 .dark-mode .popup-options
 {
