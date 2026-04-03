@@ -2496,8 +2496,8 @@ z-index: 0;
 .likess,
 .dislikee,
 .commentss,
-.sharee,
-.sharee {
+.reply,
+.shareee {
   flex: 1 1 5%; /* Flexible sizing for items within the section */
   min-width: 4rem; /* 80px minimum width */
   max-width: 5rem; /* 90px maximum width */
@@ -2519,7 +2519,7 @@ z-index: 0;
 .likess:hover,
 .dislikee:hover,
 .commentss:hover,
-.sharee:hover,
+.reply:hover,
 .shareee:hover {
   background-color: gray;
 }
@@ -2529,7 +2529,7 @@ z-index: 0;
 .dark-mode .likess,
 .dark-mode .dislikee,
 .dark-mode .commentss,
-.dark-mode .sharee,
+.dark-mode .reply,
 .dark-mode .shareee {
   background-color: #2a2d2f;
 }
@@ -2539,7 +2539,7 @@ z-index: 0;
 .dark-mode .likess:hover,
 .dark-mode .dislikee:hover,
 .dark-mode .commentss:hover,
-.dark-mode .sharee:hover,
+.dark-mode .reply:hover,
 .dark-mode .shareee:hover {
   background-color: gray;
 }
@@ -2564,7 +2564,7 @@ z-index: 0;
 .likess img,
 .dislikee img,
 .commentss img,
-.sharee img,
+.reply img,
 .shareee img {
   width: 1.5rem; /* 24px */
   height: 1.5rem; /* 24px */
@@ -2576,7 +2576,7 @@ z-index: 0;
 .dark-mode .likess img,
 .dark-mode .dislikee img,
 .dark-mode .commentss img,
-.dark-mode .sharee img,
+.dark-mode .reply img,
 .dark-mode .shareee img {
   filter: invert(1); /* Inverts colors for dark mode visibility */
 }
@@ -2589,7 +2589,7 @@ z-index: 0;
 .likess span,
 .dislikee span,
 .commentss span,
-.sharee span,
+.reply span,
 .shareee span  {
   font-size: 0.84375rem; /* 13.5px, exact value as per input */
   color: var(--color-text-dark); /* Using dark text color variable */
@@ -2601,7 +2601,7 @@ z-index: 0;
 .dark-mode .dislikee span,
 .dark-mode .commentss span,
 .dark-mode .shareee span,
-.dark-mode .sharee span {
+.dark-mode .reply span {
   color: var(--color-dark-mode-text-primary); /* Lighter text for dark mode */
 }
 
@@ -2695,6 +2695,105 @@ z-index: 0;
   background-color: #555;
   color: white;
   transform: scale(1.05);
+}
+
+/* =============================== */
+/* SHORTS INLINE REPLY SYSTEM */
+/* =============================== */
+
+.short-reply-box {
+  width: 100%;
+  margin-top: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  animation: fadeInReply 0.25s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.reply-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.reply-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #6c5ce7;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.reply-input {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  padding: 6px 4px;
+  font-size: 0.9rem;
+  background: transparent;
+}
+
+.reply-input:focus {
+  border-bottom: 2px solid #000;
+}
+
+/* Buttons row */
+.reply-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
+.reply-cancel {
+  background: transparent;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.reply-submit {
+  background: #000;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.reply-submit.enabled {
+  opacity: 1;
+}
+
+/* Dark mode */
+.dark-mode .reply-input {
+  border-bottom: 1px solid #555;
+  color: white;
+}
+
+.dark-mode .reply-input:focus {
+  border-bottom: 2px solid #fff;
+}
+
+.dark-mode .reply-submit {
+  background: white;
+  color: black;
+}
+
+@keyframes fadeInReply {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 
@@ -3830,7 +3929,7 @@ margin: 0 auto;
 
 .profile
 {
-  bottom: 19%;
+  bottom: 24%;
   border-style:none;
 }
 
@@ -3881,7 +3980,7 @@ border-style:dotted;
 .metadata {
   background-color: transparent;
   position: absolute;
-  top: 40vh;
+  top: 30vh;
   right: 29vw;
   width: 5vw;
   border-radius: 7px;
