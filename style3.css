@@ -2461,6 +2461,9 @@ padding-bottom: 20px;
   position: relative;
   background-color:transparent;
   height: 100%;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2569,7 +2572,7 @@ filter: invert(1);
   overflow: hidden;
   flex: 1; /* Expands to fill available space */
   margin: 0; /* Removes unnecessary margins */
-
+position: relative;
 }
 
 /* Caption Label */
