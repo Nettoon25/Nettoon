@@ -2210,21 +2210,21 @@ padding-bottom: 15px;
 }
 
 
-
-
 .video-group {
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 0px;
   margin-bottom: 0px;
   border-radius: 0rem;
   display: flex;
   flex-wrap: wrap;
-  gap:  15px 15px; /* 5px vertically, 10px horizontally */
+ 
+  /* 🔥 THIS replaces all margins */
+  gap:0.9rem; /* consistent spacing everywhere */
+
+  padding: 1rem; /* space from container edges */
   margin-top: 0px;
   justify-content: flex-start;
-  border-style: none; /* No border style */
 }
 
 .square1 {
@@ -2248,6 +2248,7 @@ padding-bottom: 15px;
 .card {
   position: relative; /* Allows for absolute positioning of child elements (e.g., badges, overlays) */
   width: 30%; /* Maintains your specified width, which acts as a base in a flex container */
+    flex: 1 1 calc(50% - 1rem); /* 2 cards per row */
   height: 14.375rem;   /* fixed height instead of max-height */
     display: flex;
   flex-direction: column;
@@ -2258,7 +2259,6 @@ padding-bottom: 15px;
      flex-shrink: 1 (card can shrink if needed)
      flex-basis: 47% (initial size)
      This is a valid and responsive flex property. */
-  flex: 0 1 47%; 
   margin-left: 5px;
   border: none; /* Removes any default border */
   border-style: none; /* No border style */
@@ -2359,10 +2359,6 @@ padding-bottom: 15px;
   padding: 3px;
 }
 
-.optionss
-{
-  background-color: transparent;
-}
 
 .optionss {
   position: relative;
@@ -2402,6 +2398,7 @@ filter: invert(1);
   min-width: 120px;
   padding-bottom: 0px;
 }
+
 
 .dark-mode .popup-options
 {
@@ -5906,13 +5903,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 .video-group
 {  gap: 15px 10px; /* 5px vertically, 10px horizontally */}
 
-.card
-{
-  background-color: transparent;
-  margin-left: 5px;
-  border-style: none;
-  margin-bottom: 0.5rem;
-}
+
 
 .pichaa {
   width: 100%;
@@ -6163,11 +6154,7 @@ font-size: 12px;
 .video-group
 {  gap: 15px 10px; /* 5px vertically, 10px horizontally */}
 
-.card
-{
-  background-color: grey;
-  margin-left: 4px;
-}
+
 
 .pichaa {
   width: 100%;
@@ -6318,13 +6305,6 @@ margin-left: 5px;
 margin-bottom: 0.5rem;
 }
 
-.card
-{
-border-style:none;
-      margin-top:1rem ;
-margin-bottom: 2.7rem;
-  height: 16.375rem;   /* fixed height instead of max-height */
-}
 
 /*
 
@@ -6391,8 +6371,8 @@ margin-bottom: 2.7rem;
     height: 13rem;
       border-radius: 0.4375rem; /* 7px */
 }
-
 }
+
 
 /* Ultra-wide (1600px and up) */
 @media (min-width: 1600px) {
@@ -6490,11 +6470,10 @@ margin: 0 auto;
   .video-container
   {
 
-  height: 88vh;      /* 🔥 MUST be height, not min-height */
-  max-height: 88vh;
+  height: 90vh;      /* 🔥 MUST be height, not min-height */
+  max-height: 90vh;
     border-style:none; /* No border style */
 }
-
 
 
 
@@ -6534,27 +6513,12 @@ margin: 0 auto;
 
 }*/
 
-.captiion
-{
-margin-bottom: 0.5rem;
-}
-
-.card
-{
-  background-color: transparent;
-  height: 15rem;   /* fixed height instead of max-height */
-  margin: 0.5rem 0 0.4rem 7px; 
-   border-style:none;
-}
-
-
 
   .pichaa {
     width: 100%;
     height: 150px;
     
   }
-
 /*
 .sectiion
 {
@@ -6663,5 +6627,4 @@ margin-left: 6px;
    
 }
 */}
-
 

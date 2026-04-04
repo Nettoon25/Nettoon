@@ -2306,15 +2306,19 @@ padding-bottom: 20px;
   position: relative;
   width: 100%;
   height: 100%;
-  padding: 0px;
   margin-bottom: 0px;
   border-radius: 0rem;
   display: flex;
   flex-wrap: wrap;
-  gap:  15px 15px; /* 5px vertically, 10px horizontally */
+ 
+  /* 🔥 THIS replaces all margins */
+  gap:0.9rem; /* consistent spacing everywhere */
+
+  padding: 1rem; /* space from container edges */
   margin-top: 0px;
   justify-content: flex-start;
 }
+
 
 .square1 {
   background-color: transparent; /* light gray-blue for All */
@@ -2337,6 +2341,7 @@ padding-bottom: 20px;
 .card {
   position: relative; /* Allows for absolute positioning of child elements (e.g., badges, overlays) */
   width: 30%; /* Maintains your specified width, which acts as a base in a flex container */
+    flex: 1 1 calc(50% - 1rem); /* 2 cards per row */
   height: 12.375rem;   /* fixed height instead of max-height */
      display: flex;
   flex-direction: column;
@@ -2352,9 +2357,7 @@ padding-bottom: 20px;
   margin-left: 5px;
   border: none; /* Removes any default border */
     border-style:none; /* No border style */
-  border-radius: 0.4375rem;
-  margin-top: 1rem;
-  margin-bottom: 2.5rem;  
+  border-radius: 0.4375rem; 
   cursor: pointer; /* Indicates that the card is interactive and clickable */
   z-index: 0; /* Controls stacking order, typically handled by parent for overall layout */
   line-height: 1; /* Helps to tighten vertical spacing within the card's content */
@@ -2588,108 +2591,6 @@ filter: invert(1);
     max-width: 85%; /* Prevents text overflow in tight spaces */
   }
 }
-
-
-.optionss {
-  position: relative;
-  background-color:transparent;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-
-.optionss  img {
-  width: 15px;
-  height: 15px;
-  margin-top: 1px;
-  cursor: pointer;
-}
-
-.dark-mode .optionss  img {
-filter: invert(1);
-}
-
-
-
-.popup-options {
-  position: absolute;
-  top: 120%;
-  right: 0;
-  background-color: green;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
-  padding: 0.5rem 0.5rem;
-  display: none;
-  min-width: 150px;
-  z-index: 100;
-  flex-direction: column;
-}
-
-
-.dark-mode .popup-options
-{
-  background-color: #333;
-}
-
-
-.popup-item {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0.2rem 0.2rem;
-  font-size: 0.75rem;
-  color: #333;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-  white-space: nowrap;
-  margin-top: 2px;
-  margin-bottom: 2px;
-  border-radius: 0.4rem;
-}
-
-.popup-item:hover {
-  background-color: #f2f2f2;
-}
-
-.popup-item img {
-  width: 1.5rem;
-  height: 1.5rem;
-  object-fit: contain;
-  transition: filter 0.3s;
-}
-
-/* Dark mode styling */
-.dark-mode .optionss  .popup-item {
-  background-color: #333;
-  color: white;
-}
-
-
-
-/* Hover effect */
-.optionss  .popup-item:hover {
-  background-color: grey;
-  color: white;
-  transform: scale(1.05);
-  cursor: pointer;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-
-
-.dark-mode .optionss  .popup-item img {
-  filter: invert(1) brightness(1.2);
-}
-
-
-
-.popup-options.show {
-  display: flex;
-}
-
 
 .pichaa {
   width: 100%;
@@ -6098,14 +5999,7 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 .video-group
 {  gap: 15px 10px; /* 5px vertically, 10px horizontally */}
 
-.card
-{
-  background-color: transparent;
-  margin-left: 5px;
-  border-style: none;
-    margin-top:0rem;
-    margin-bottom: 0rem;
-}
+
 
 .pichaa {
   width: 100%;
@@ -6165,11 +6059,9 @@ max-width: clamp(25rem, 40vw, 45rem); /* Refined responsive width using clamp: e
 .series
 {
   position: relative;
-margin-bottom: 0rem;
+
 
 }
-
-
 
 
 .container-1 {
@@ -6379,12 +6271,7 @@ margin-bottom: 0rem;
 .video-group
 {  gap: 15px 10px; /* 5px vertically, 10px horizontally */}
 
-.card
-{
-  background-color: grey;
-  margin-left: 4px;
-  border-style: ridge;
-}
+
 
 .pichaa {
   width: 100%;
@@ -6536,13 +6423,6 @@ margin-left: 5px;
 */
 
 
-.card
-{
-  border-style:none;
-      max-height: 18.375rem;  
-      margin-top: 4rem;
-margin-bottom:1rem;
-}
 
 /*
 .pichaa {
@@ -6750,11 +6630,10 @@ font-size: 1rem;
   .video-container
   {
 
-  height: 88vh;      /* 🔥 MUST be height, not min-height */
-  max-height: 88vh;
+  height: 90vh;      /* 🔥 MUST be height, not min-height */
+  max-height: 90vh;
     border-style:none; /* No border style */
 }
-
 
   /*
   .containerr
@@ -6803,14 +6682,13 @@ font-size: 1rem;
 
 .captiion
 {
-margin-bottom: 0.5rem;
+margin-bottom: 1rem;
 }
 
   .pichaa {
     width: 100%;
     height: 150px;
     border-style: none;
-  
   }
 
   .overlay-texttt
@@ -6994,5 +6872,4 @@ height:auto;
    */
 
 }
-
 
