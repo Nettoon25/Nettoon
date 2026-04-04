@@ -2564,15 +2564,17 @@ filter: invert(1);
   background-color: transparent;
   display: flex;
   align-items: center; /* Centers items vertically */
-  justify-content: center; /* Centers items horizontally */
+  justify-content: space-between; /* 🔥 KEY */
+  padding: 5px 8px;
   overflow: hidden;
   flex: 1; /* Expands to fill available space */
   margin: 0; /* Removes unnecessary margins */
-  padding: 5px 0; /* Adds slight spacing without breaking alignment */
+
 }
 
 /* Caption Label */
 .captiion span {
+    flex: 1; /* 🔥 takes remaining space */
   font-size: 15px;
   font-weight: bold;
   color: black;
