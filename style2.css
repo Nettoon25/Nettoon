@@ -2220,8 +2220,7 @@ body.dark-mode .follow span {
   float: none; /* Maintain float for its specific layout purpose, though often replaced by flex/grid in modern layouts, adhering to "don't tweak" for structural changes. */
   margin-top: 0; /* No top margin */
   margin-right: 1%; /* Keeps your specified right margin */
-  
-  background-color:transparent;
+  background-color: transparent; /* light gray-blue for All */
   border-radius: 0.4375rem;
   
   /* Scrolling Behavior */
@@ -2255,6 +2254,8 @@ body.dark-mode .follow span {
   /* Fallback scrollbar styling (Firefox) */
   scrollbar-width: thin; /* Thin scrollbar for Firefox */
   scrollbar-color: var(--scrollbar-thumb-color-light) transparent; /* Firefox scrollbar color */
+
+  border-style:none;
 }
 
 /* Dark mode adjustments for .container-2 */
@@ -2417,9 +2418,9 @@ padding-bottom: 20px;
   flex-wrap: wrap;
  
   /* 🔥 THIS replaces all margins */
-  gap:0.9rem; /* consistent spacing everywhere */
+ gap: clamp(0.8rem, 1vw, 1.4rem);
 
-  padding: 1rem; /* space from container edges */
+  padding: 0rem; /* space from container edges */
   margin-top: 0px;
   justify-content: flex-start;
 }
@@ -2446,11 +2447,12 @@ padding-bottom: 20px;
 .card {
   position: relative; /* Allows for absolute positioning of child elements (e.g., badges, overlays) */
   width: 30%; /* Maintains your specified width, which acts as a base in a flex container */
-    flex: 1 1 calc(50% - 1rem); /* 2 cards per row */
+  flex: 0 0 calc(50% - 0.6rem); /* fixed 2-column layout */
+  max-width: calc(50% - 0.6rem);
   height: 14.375rem;   /* fixed height instead of max-height */
     display: flex;
   flex-direction: column;
-  background-color:transparent;
+  background-color: transparent; /* light gray-blue for All */
   /* flex: 0 1 47%; - This property is noted as "Keep original flex behavior". 
      However, 'flex-basis: 47%' is often used directly for initial sizing within a flex container. 
      The 'flex: 0 1 47%' shorthand means:
@@ -2458,12 +2460,11 @@ padding-bottom: 20px;
      flex-shrink: 1 (card can shrink if needed)
      flex-basis: 47% (initial size
      This is a valid and responsive flex property. */
-  margin-left: 5px;
+  margin-left: 0px;
   border: none; /* Removes any default border */
   border-style:none; /* No border style */
   border-radius: 0.4375rem;
   /* Margins for spacing the cards */
-  
   cursor: pointer; /* Indicates that the card is interactive and clickable */
   z-index: 0; /* Controls stacking order, typically handled by parent for overall layout */
   line-height: 1; /* Helps to tighten vertical spacing within the card's content */

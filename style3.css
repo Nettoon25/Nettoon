@@ -2312,12 +2312,12 @@ padding-bottom: 20px;
   flex-wrap: wrap;
  
   /* 🔥 THIS replaces all margins */
-  gap:0.9rem; /* consistent spacing everywhere */
+ gap: clamp(0.8rem, 1vw, 1.4rem);
 
-  padding: 1rem; /* space from container edges */
+  padding: 0rem; /* space from container edges */
   margin-top: 0px;
   justify-content: flex-start;
-}
+}}
 
 
 .square1 {
@@ -2341,7 +2341,8 @@ padding-bottom: 20px;
 .card {
   position: relative; /* Allows for absolute positioning of child elements (e.g., badges, overlays) */
   width: 30%; /* Maintains your specified width, which acts as a base in a flex container */
-    flex: 1 1 calc(50% - 1rem); /* 2 cards per row */
+  flex: 0 0 calc(50% - 0.6rem); /* fixed 2-column layout */
+  max-width: calc(50% - 0.6rem);
   height: 12.375rem;   /* fixed height instead of max-height */
      display: flex;
   flex-direction: column;

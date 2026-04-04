@@ -2220,13 +2220,12 @@ padding-bottom: 15px;
   flex-wrap: wrap;
  
   /* 🔥 THIS replaces all margins */
-  gap:0.9rem; /* consistent spacing everywhere */
+ gap: clamp(0.8rem, 1vw, 1.4rem);
 
-  padding: 1rem; /* space from container edges */
+  padding: 0rem; /* space from container edges */
   margin-top: 0px;
   justify-content: flex-start;
 }
-
 .square1 {
   background-color: transparent; /* light gray-blue for All */
 }
@@ -2263,9 +2262,7 @@ padding-bottom: 15px;
   border: none; /* Removes any default border */
   border-style: none; /* No border style */
   border-radius: 0.4375rem;
-  
   /* Margins for spacing the cards */
-  
   cursor: pointer; /* Indicates that the card is interactive and clickable */
   z-index: 0; /* Controls stacking order, typically handled by parent for overall layout */
   line-height: 1; /* Helps to tighten vertical spacing within the card's content */
