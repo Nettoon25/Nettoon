@@ -315,7 +315,8 @@
             <div class="menu-item" data-target="privacy"><i class="fa-solid fa-lock"></i> <span>Privacy</span></div>
             <div class="menu-item" data-target="payments"><i class="fa-solid fa-credit-card"></i> <span>Payments</span></div>
             <div class="menu-item" data-target="subscription"><i class="fa-solid fa-tv"></i> <span>Subscription</span></div>
-            <div class="menu-item" data-target="delete"><i class="fa-solid fa-trash"></i> <span>Delete Account</span></div>
+            <div class="menu-item" data-target="delete"><i class="fa-solid fa-trash"></i> <span>Terms of Service</span></div>
+                        <div class="menu-item" data-target="delete"><i class="fa-solid fa-trash"></i> <span>Delete Account</span></div>
           </div>
           
  <!-- Content -->
@@ -519,6 +520,13 @@
     <div class="form-group">
       <label>Email Notifications</label>
       <div class="toggle-option">
+        <span>New uploads from followed creators</span>
+        <label class="switch">
+          <input type="checkbox" id="emailEpisodes" checked>
+          <span class="slider round"></span>
+        </label>
+      </div>
+           <div class="toggle-option">
         <span>New Episodes</span>
         <label class="switch">
           <input type="checkbox" id="emailEpisodes" checked>
@@ -537,7 +545,7 @@
     <!-- Push Notifications -->
     <div class="form-group">
       <label>Push Notifications</label>
-      <div class="toggle-option">
+      <div class="toggle-option" style="display: none;">
         <span>Trending Updates</span>
         <label class="switch">
           <input type="checkbox" id="pushTrending" checked>
@@ -563,13 +571,7 @@
           <span class="slider round"></span>
         </label>
       </div>
-      <div class="toggle-option">
-        <span>Special Offers</span>
-        <label class="switch">
-          <input type="checkbox" id="specialOffers">
-          <span class="slider round"></span>
-        </label>
-      </div>
+      
     </div>
 
     <button type="submit" class="save-btn" style="display: none;">Save Notification Preferences</button>
@@ -779,6 +781,65 @@
 </div>
 
        <!-- Delete Account -->
+<div id="delete" class="content-section">
+  <div class="content-header">
+    <i class="fa fa-trash"></i> Delete Account
+  </div>
+
+  <div class="delete-warning">
+    <i class="fa fa-exclamation-triangle"></i>
+    <p>
+      Deleting your account is <strong>permanent</strong>. You will lose access to
+      all your data, subscriptions, and settings. This action <u>cannot</u> be undone.
+    </p>
+  </div>
+
+  <form id="deleteForm" class="delete-form">
+    <!-- Password Confirmation -->
+    <div class="form-group">
+      <label for="deletePassword">Confirm Password</label>
+      <input
+        type="password"
+        id="deletePassword"
+        placeholder="Enter your password"
+        required
+      />
+    </div>
+
+    <!-- Agreement Checkbox -->
+    <div class="form-group checkbox-group">
+      <input type="checkbox" id="deleteConfirm" required />
+      <label for="deleteConfirm">
+        I understand that this action is irreversible and will delete all my data.
+      </label>
+    </div>
+
+    <!-- Delete Button -->
+    <button type="submit" class="delete-btn">
+      <i class="fa fa-trash"></i> Permanently Delete Account
+    </button>
+  </form>
+</div>
+
+<!-- Confirmation Modal -->
+<div id="deleteModal" class="modal-overlay">
+  <div class="modal-content">
+    <h2><i class="fa fa-exclamation-circle"></i> Confirm Deletion</h2>
+    <p>
+      Are you absolutely sure you want to delete your Nettoon account?
+      This cannot be undone.
+    </p>
+    <div class="modal-actions">
+      <button id="cancelDelete" class="cancel-btn">Cancel</button>
+      <button id="confirmDelete" class="confirm-btn">
+        Yes, Delete My Account
+      </button>
+    </div>
+  </div>
+</div>
+
+
+   <!-- Delete Account -->
 <div id="delete" class="content-section">
   <div class="content-header">
     <i class="fa fa-trash"></i> Delete Account
