@@ -2215,12 +2215,14 @@ body.dark-mode .follow span {
 
   overflow-y: auto;
   align-self: stretch; /* 🔑 ensure it fills video-container height */
+   align-content: flex-start;   /* 🔑 stack children from TOP */
+  align-items: flex-start;     /* 🔑 prevent vertical centering */
   height: 100%;
   /* Layout and Flow */
   float: none; /* Maintain float for its specific layout purpose, though often replaced by flex/grid in modern layouts, adhering to "don't tweak" for structural changes. */
   margin-top: 0; /* No top margin */
   margin-right: 1%; /* Keeps your specified right margin */
-  background-color: transparent; /* light gray-blue for All */
+  background-color: transparent;
   border-radius: 0.4375rem;
   
   /* Scrolling Behavior */
@@ -2411,18 +2413,20 @@ padding-bottom: 20px;
 .video-group {
   position: relative;
   width: 100%;
-  height: 100%;
+align-content:flex-start;
   margin-bottom: 0px;
   border-radius: 0rem;
   display: flex;
   flex-wrap: wrap;
  
   /* 🔥 THIS replaces all margins */
- gap: clamp(0.8rem, 1vw, 1.4rem);
+ gap: clamp(0.8rem, 1vw, 1.4rem );
 
   padding: 0rem; /* space from container edges */
   margin-top: 0px;
   justify-content: flex-start;
+  align-self: flex-start; /* 🔑 prevents it from stretching */
+  padding-bottom: 0.5rem;
 }
 
 .square1 {
@@ -2449,10 +2453,11 @@ padding-bottom: 20px;
   width: 30%; /* Maintains your specified width, which acts as a base in a flex container */
   flex: 0 0 calc(50% - 0.6rem); /* fixed 2-column layout */
   max-width: calc(50% - 0.6rem);
-  height: 14.375rem;   /* fixed height instead of max-height */
+  height: auto; /* let content define height */
+
     display: flex;
   flex-direction: column;
-  background-color: transparent; /* light gray-blue for All */
+  background-color: transparent;
   /* flex: 0 1 47%; - This property is noted as "Keep original flex behavior". 
      However, 'flex-basis: 47%' is often used directly for initial sizing within a flex container. 
      The 'flex: 0 1 47%' shorthand means:
@@ -2470,6 +2475,9 @@ padding-bottom: 20px;
   line-height: 1; /* Helps to tighten vertical spacing within the card's content */
   box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
   padding: 0; /* Removes any internal padding */
+  justify-content: flex-start;
+   padding-bottom: 0.3rem;
+ gap: 6px; /* global vertical spacing */
 }
 
 
@@ -2673,9 +2681,8 @@ filter: invert(1);
   align-items: center; /* Centers items vertically */
   justify-content: center; /* Centers items horizontally */
   overflow: hidden;
-  flex: 1; /* Expands to fill available space */
-  margin: 0; /* Removes unnecessary margins */
-  padding: 5px 0; /* Adds slight spacing without breaking alignment */
+  margin-bottom: 1px; /* 🔥 THIS is what you actually want */
+  padding: 3px 0; /* Adds slight spacing without breaking alignment */
 }
 
 /* Caption Label */
@@ -2781,7 +2788,7 @@ filter: invert(1);
   position:relative;
   width: 100%;
   height: auto; /* Allow it to grow if needed */
-  background-color: transparent;  /* No background */
+  background-color: transparent;
   margin: 0px 0; /* Equal vertical margin for spacing */
   border-radius: 0.5rem;
   display: flex;
