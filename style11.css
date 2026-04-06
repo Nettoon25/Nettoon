@@ -1564,11 +1564,6 @@ margin-top: 3.3rem;
 }
 
 
-.login-container
-{
-  background-color: transparent;
-  margin:180px auto 0 auto; 
-}
 
 .nav 
 
@@ -1584,7 +1579,7 @@ margin-top: 3.3rem;
    margin-top: 3.5em;
   left: 0;
  border-style: ridge;
-  height: 85vh;
+  height: 92vh;
 
     }
 

@@ -2120,13 +2120,14 @@ body.dark-mode .follow span {
 
   overflow-y: auto;
   align-self: stretch; /* 🔑 ensure it fills video-container height */
+   align-content: flex-start;   /* 🔑 stack children from TOP */
+  align-items: flex-start;     /* 🔑 prevent vertical centering */
   height: 100%;
   /* Layout and Flow */
   float: none; /* Maintain float for its specific layout purpose, though often replaced by flex/grid in modern layouts, adhering to "don't tweak" for structural changes. */
   margin-top: 0; /* No top margin */
   margin-right: 1%; /* Keeps your specified right margin */
-  
-  background-color:transparent;
+  background-color: transparent;
   border-radius: 0.4375rem;
   
   /* Scrolling Behavior */
@@ -2160,6 +2161,8 @@ body.dark-mode .follow span {
   /* Fallback scrollbar styling (Firefox) */
   scrollbar-width: thin; /* Thin scrollbar for Firefox */
   scrollbar-color: var(--scrollbar-thumb-color-light) transparent; /* Firefox scrollbar color */
+
+  border-style:none;
 }
 
 
@@ -2209,23 +2212,25 @@ padding-bottom: 15px;
   color:white;
 }
 
-
 .video-group {
   position: relative;
   width: 100%;
-  height: 100%;
+align-content:flex-start;
   margin-bottom: 0px;
   border-radius: 0rem;
   display: flex;
   flex-wrap: wrap;
  
   /* 🔥 THIS replaces all margins */
- gap: clamp(0.8rem, 1vw, 1.4rem);
+ gap: clamp(0.8rem, 1vw, 1.4rem );
 
   padding: 0rem; /* space from container edges */
   margin-top: 0px;
   justify-content: flex-start;
+  align-self: flex-start; /* 🔑 prevents it from stretching */
+  padding-bottom: 0.5rem;
 }
+
 .square1 {
   background-color: transparent; /* light gray-blue for All */
 }
@@ -2247,20 +2252,23 @@ padding-bottom: 15px;
 .card {
   position: relative; /* Allows for absolute positioning of child elements (e.g., badges, overlays) */
   width: 30%; /* Maintains your specified width, which acts as a base in a flex container */
-    flex: 1 1 calc(50% - 1rem); /* 2 cards per row */
-  height: 14.375rem;   /* fixed height instead of max-height */
+  flex: 0 0 calc(50% - 0.6rem); /* fixed 2-column layout */
+  max-width: calc(50% - 0.6rem);
+  height: auto; /* let content define height */
+
     display: flex;
   flex-direction: column;
+  background-color: transparent;
   /* flex: 0 1 47%; - This property is noted as "Keep original flex behavior". 
      However, 'flex-basis: 47%' is often used directly for initial sizing within a flex container. 
      The 'flex: 0 1 47%' shorthand means:
      flex-grow: 0 (card won't grow to fill extra space)
      flex-shrink: 1 (card can shrink if needed)
-     flex-basis: 47% (initial size)
+     flex-basis: 47% (initial size
      This is a valid and responsive flex property. */
-  margin-left: 5px;
+  margin-left: 0px;
   border: none; /* Removes any default border */
-  border-style: none; /* No border style */
+  border-style:none; /* No border style */
   border-radius: 0.4375rem;
   /* Margins for spacing the cards */
   cursor: pointer; /* Indicates that the card is interactive and clickable */
@@ -2268,6 +2276,9 @@ padding-bottom: 15px;
   line-height: 1; /* Helps to tighten vertical spacing within the card's content */
   box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
   padding: 0; /* Removes any internal padding */
+  justify-content: flex-start;
+   padding-bottom: 0.3rem;
+ gap: 6px; /* global vertical spacing */
 }
 
 
@@ -2467,9 +2478,8 @@ filter: invert(1);
   align-items: center; /* Centers items vertically */
   justify-content: center; /* Centers items horizontally */
   overflow: hidden;
-  flex: 1; /* Expands to fill available space */
-  margin: 0; /* Removes unnecessary margins */
-  padding: 5px 0; /* Adds slight spacing without breaking alignment */
+  margin-bottom: 1px; /* 🔥 THIS is what you actually want */
+  padding: 3px 0; /* Adds slight spacing without breaking alignment */
 }
 
 /* Caption Label */
@@ -6296,11 +6306,6 @@ margin-left: 5px;
   height: auto;
   max-height:605px;
 }*/
-
-.captiion
-{
-margin-bottom: 0.5rem;
-}
 
 
 /*

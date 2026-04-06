@@ -3484,7 +3484,7 @@ justify-content: space-between;
   
   border-radius: var(--border-radius-sm); /* Consistent rounded corners (7px converted to rem) */
   background-color: transparent; /* No background */
-  
+  margin-right: 1.5rem;
   white-space: nowrap; /* Prevents text wrapping */
   overflow: hidden; /* Hides overflowing text */
   text-overflow: ellipsis; /* Displays "..." for truncated text */
@@ -6517,7 +6517,12 @@ font-size: 1rem;
       font-size: 1rem;
   }
   
-  
+.followers
+{
+   background-color: transparent;
+      margin-left: 0rem;
+}  
+
   .followers span  {
     font-size: 1rem;
   }
@@ -6697,16 +6702,7 @@ font-size: 1rem;
   
   */
 
-.captiion
-{
-margin-bottom: 1rem;
-}
 
-  .pichaa {
-    width: 100%;
-    height: 150px;
-    border-style: none;
-  }
 
   .overlay-texttt
   {

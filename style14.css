@@ -1689,7 +1689,7 @@ border-style:none;
   padding: 0;
   /* Spacing */
   margin-inline-start:1.9%; /* Maintains your specified left margin for precise grid alignment */
-  margin-block-end: var(--spacing-xs); /* Consistent bottom margin (8px) for vertical spacing */
+  margin-block-end:2rem; /* Consistent bottom margin (8px) for vertical spacing */
   padding-block-end: 0; /* No bottom padding, content fills to the bottom edge */
   margin-top: 10px;
   cursor: pointer; /* Indicates that the card is interactive and clickable */
@@ -2034,11 +2034,6 @@ margin-bottom: 5%;
   }
 }
 
-
-.optionss
-{
-  background-color: transparent;
-}
 
 .optionss {
   position: relative;
