@@ -403,6 +403,26 @@
       <textarea id="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
     </div>
 
+        <!-- Font Size -->
+    <div class="form-group">
+      <label for="fontSize">Location</label>
+      <select id="fontSize" class="styled-select">
+        <option value="small">Kenya</option>
+        <option value="medium" selected>USA</option>
+        <option value="large">China</option>
+      </select>
+    </div>
+
+        <!-- Font Size -->
+    <div class="form-group">
+      <label for="fontSize">Sytem Language</label>
+      <select id="fontSize" class="styled-select">
+        <option value="small">English</option>
+        <option value="medium" selected>Kiswahili</option>
+        <option value="large">Chinese</option>
+      </select>
+    </div>
+
     <!-- Save -->
     <button type="submit" class="save-btn" style="display: none;">Save Changes</button>
 
@@ -421,6 +441,13 @@
       <input type="email" id="email" placeholder="Enter your email" required>
       <small class="note">We'll send a confirmation link to your new email.</small>
     </div>
+
+        <div class="form-group">
+      <label for="email">phone Number</label>
+      <input type="email" id="email" placeholder="Enter your Phone number" required>
+      <small class="note">We'll send an OTP Code to your new phone number.</small>
+    </div>
+
 
     <!-- Password Update -->
     <div class="form-group">
@@ -453,6 +480,17 @@
       </div>
       <small id="passwordMatchMessage"></small>
     </div>
+
+        <!-- Platform Alerts -->
+    <div class="form-group">
+      <label>Enable 2 Factor Authentification</label>
+      <div class="toggle-option">
+        <span>2FA (SMS / Authenticator)</span>
+        <label class="switch">
+          <input type="checkbox" id="systemAlerts" checked>
+          <span class="slider round"></span>
+        </label>
+      </div>      </div>
 
     <!-- Save Button -->
     <button type="submit" class="save-btn" style="display: none;">Save Changes</button>
@@ -496,6 +534,15 @@
       <select id="lineSpacing" class="styled-select">
         <option value="normal" selected>Normal</option>
         <option value="wide">Wide</option>
+      </select>
+    </div>
+
+        <!-- Line Spacing -->
+    <div class="form-group">
+      <label for="lineSpacing">Layout Density</label>
+      <select id="lineSpacing" class="styled-select">
+        <option value="normal" selected>Compact</option>
+        <option value="wide">Comfortable</option>
       </select>
     </div>
 
@@ -559,7 +606,16 @@
           <span class="slider round"></span>
         </label>
       </div>
+      
+          <div class="toggle-option">
+        <span>Mentions</span>
+        <label class="switch">
+          <input type="checkbox" id="pushRecommendations">
+          <span class="slider round"></span>
+        </label>
+      </div>
     </div>
+
 
     <!-- Platform Alerts -->
     <div class="form-group">
