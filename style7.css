@@ -1341,6 +1341,16 @@ body.dark-mode
 /* Each .shorts div represents one full-screen snapping video 'page'.         */
 /* ========================================================================== */
 
+.short-content {
+  display: flex;
+  align-items: flex-end; /* aligns bottom like TikTok */
+  justify-content: center;
+  gap: 0.5rem; /* 🔥 CONSTANT spacing */
+  
+  width: 100%;
+  height: 100%;
+}
+
 .shorts {
   position: relative; /* For positioning content like profile/caption */
   display: flex;
@@ -1605,31 +1615,22 @@ body.dark-mode
 }
 
 .metadata {
-  position: absolute; /* Positions relative to the .shorts container */
-  top: 50vh; /* Positions from the top of the viewport */
-  right: 25vw; /* Positions from the right of the viewport */
-  width: 4vw; /* Scales width with viewport */
-  /* Recommendation: Consider max-width or a rem-based width for better control on extreme screen sizes,
-     e.g., max-width: 80px; width: clamp(50px, 5vw, 80px); to prevent buttons from becoming too small or too large. */
-  
+  position: relative; /* Positions relative to the .shorts container */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center; /* Centers buttons horizontally within this container */
   border-style:none;
   background-color:transparent; /* No background for the container itself */
   border-radius: 7px;
-  gap: var(--spacing-md); /* Spacing between the engagement buttons */
+  gap: 0.5rem; /* 🔥 consistent internal spacing */
+  width: 3rem; /* stable size (NOT vw) */
+  flex-shrink: 0; /* prevent shrinking */
   padding: 0;
   z-index: 4; 
               
 }
 
-/* Move the metadata container to the left when comments are shown */
-.shorts.show-comments .metadata {
-  margin-right: 42.5%; /* Pushes the metadata container further left by this amount */
-  right: 10px; /* Also adjusts its absolute 'right' position */
-}
 
 /* ========================================================================== */
 /* SHARED BUTTON STYLES (Like, Dislike, Comment, Share, Options)              */
@@ -2203,13 +2204,12 @@ body.dark-mode .share .default-icon {
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 4rem;
-  right: 7%; /* Position when shown */
+top: 0;
+  right: 0;
   width: 37%;
-  max-width: 400px;
+  width: 350px;
   aspect-ratio: 9 / 16;
-  min-height: 90vh;
-  max-height: 95vh;
+height: 100%;
   background-color: transparent;
   margin: 0;
   padding: 0rem;
@@ -2222,6 +2222,8 @@ z-index: 0;
   opacity: 0;
   pointer-events: none;
 }
+
+
 .comment-container {
   transform: translateX(100%);
  
@@ -3751,7 +3753,7 @@ background-color:transparent;
 {
   background-color: white;
   margin-top: 1rem;
-}}
+}
 
 
 /* Desktops (1025px–1279px) */
@@ -3842,7 +3844,7 @@ margin: 0 auto;
   background-color: transparent;
 }
 
-/* 🔷 Shorts Container */
+/* 
 .shorts-container {
 
   width: calc(100% - 5.7%);
@@ -3850,7 +3852,7 @@ margin: 0 auto;
   gap: 1rem;
   justify-content: center;
   background-color: transparent;
-  border: 1px solid transparent; /* TEMP: remove in production */
+  border: 1px solid transparent;
   margin: 0rem auto 0 0rem;
 
 }
@@ -3865,7 +3867,7 @@ margin: 0 auto;
 
 }
 
-/* 🔷 Metadata Container */
+
 .metadata {
   position: absolute;
   top: 24vh;
@@ -3878,7 +3880,7 @@ margin: 0 auto;
 .comment-container {
 
   top: 4rem;
-  right: 7%; /* Position when shown */
+  right: 7%; 
   width: 37%;
   max-width: 400px;
   aspect-ratio: 9 / 16;
@@ -3887,7 +3889,7 @@ margin: 0 auto;
 
 }
 
-
+*/
 
 
 
@@ -3956,6 +3958,7 @@ border-style:dotted;
 
 }
 
+/*
 .shorts-container {
 
   width: calc(100% - 5.7%);
@@ -3987,6 +3990,7 @@ border-style:dotted;
   border-style:none;
 }
 
+/*
 .comment-container {
   background-color: transparent;
   top: 5rem;
@@ -3998,21 +4002,9 @@ border-style:dotted;
   max-height: 85vh;
 
 }
+*/
 
 
-.shorts.show-comments .short-video {
-  margin-left: 40px;
-}
-
-.shorts.show-comments .metadata {
-  margin-right: 43%;
-  right: 10px;
-}
-
-.shorts.show-comments .comment-container {
-  margin-right: 4%;
-  right: 10px;
-}
 
 }
 
@@ -4125,7 +4117,7 @@ border-style:dotted;
     background-color: transparent;
   }
   
-  /* 🔷 Shorts Container */
+  /*
   .shorts-container {
   
     width: calc(100% - 10%);
@@ -4133,7 +4125,7 @@ border-style:dotted;
     gap: 1rem;
     justify-content: center;
     background-color: transparent;
-    border: 1px solid transparent; /* TEMP: remove in production */
+    border: 1px solid transparent; 
     margin: 3.3rem auto 0 0rem;
     border-style:none;
   }
@@ -4154,14 +4146,14 @@ border-style:dotted;
   
   }
   
-  /* 👇 Move both to left when comments are shown */
+  
   .shorts.show-comments .short-video {
     margin-left:5rem;
   }
   
 
   
-  /* 🔷 Metadata Container */
+  /*
   .metadata {
     position: absolute;
     top: 48vh;
@@ -4179,7 +4171,7 @@ border-style:dotted;
   .comment-container {
   
     top: 6.5rem;
-    right: 7%; /* Position when shown */
+    right: 7%; s
     width: 37%;
     max-width: 450px;
     aspect-ratio: 9 / 16;
@@ -4188,6 +4180,7 @@ border-style:dotted;
     border-style:ridge;
   
   }
+  */
   
 .time
 {
