@@ -1156,7 +1156,7 @@ flex-wrap: nowrap;
   display: flex;
   height: 97vh;
   margin-top: 3rem;
-  background-color: purple;
+  background-color: transparent;
 
 }
 
@@ -1169,7 +1169,7 @@ flex-wrap: nowrap;
   padding-top: 1.25rem; /* Converted from 20px */
   transition: all 0.3s ease-in-out;
   box-shadow: 0.0625rem 0 0.5rem rgba(0, 0, 0, 0.05); /* Subtle separation */
-  background-color: #007bff;
+  background-color: var(--color-sidebar-light, #ffffff); /* Added professional light background */
  
 }
 
@@ -1316,7 +1316,7 @@ flex-wrap: nowrap;
 .content {
   flex: 1;
   padding: 30px;
-  background:grey;
+  background:transparent;
   overflow-y: auto;
 
 }
@@ -1333,7 +1333,7 @@ flex-wrap: nowrap;
   .content {
     flex: 1;
     padding: 30px;
-    background: violet;
+    background: transparent;
     overflow-y: auto;
   }
   
