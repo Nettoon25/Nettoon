@@ -1154,9 +1154,9 @@ flex-wrap: nowrap;
 /* ===== Layout ===== */
 .settings-container {
   display: flex;
-  height: 100vh;
+  height: 97vh;
   margin-top: 3rem;
-  background-color: transparent;
+  background-color: purple;
 
 }
 
@@ -1169,6 +1169,8 @@ flex-wrap: nowrap;
   padding-top: 1.25rem; /* Converted from 20px */
   transition: all 0.3s ease-in-out;
   box-shadow: 0.0625rem 0 0.5rem rgba(0, 0, 0, 0.05); /* Subtle separation */
+  background-color: #007bff;
+ 
 }
 
 /* 🌙 Dark Mode Sidebar */
@@ -1202,9 +1204,6 @@ flex-wrap: nowrap;
 }
 
       
-
-
-
 .dark-mode .menu-item {
   color: var(--color-text-dark-secondary, #b3b3b3);
 }
@@ -1317,8 +1316,9 @@ flex-wrap: nowrap;
 .content {
   flex: 1;
   padding: 30px;
-  background: transparent;
+  background:grey;
   overflow-y: auto;
+
 }
 
 /* sections */
@@ -1333,7 +1333,7 @@ flex-wrap: nowrap;
   .content {
     flex: 1;
     padding: 30px;
-    background: transparent;
+    background: violet;
     overflow-y: auto;
   }
   
@@ -2252,6 +2252,13 @@ background-color: #F5F5F5;
 color: black;
 }
 
+.terms-content {
+  min-height: 60vh;
+  padding: 1.5rem;
+  background: transparent;
+  border-radius: 10px;
+  color: var(--color-text-primary);
+}
 
 .delete-btn { 
     background:#dc3545; 
