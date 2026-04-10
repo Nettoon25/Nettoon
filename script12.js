@@ -124,6 +124,8 @@ document.addEventListener('click', () => {
 
 
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const shorts = document.querySelectorAll(".shorts");
 

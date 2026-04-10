@@ -447,24 +447,12 @@ document.addEventListener("change", function (e) {
 // ==========================
 
 
-const shareBtn = document.querySelector('.reply-icon');
-const sharePopup = document.getElementById('mainSharePopup');
-const reportCommentTrigger = document.querySelector('.report-comment-trigger');
-const commentReportPopup = document.getElementById('commentReportPopup');
-const commentReportClose = document.getElementById('commentReportClose');
-const commentChecks = document.querySelectorAll('.crp-check');
-const commentReportSubmit = document.getElementById('commentReportSubmit');
-const cancelBtn = document.querySelector('.crp-cancel');
-const spamBtn = document.querySelector('.mark-spam');
-const blockBtn = document.querySelector('.block-user');
-
-
-// Toggle MAIN share popup
-shareBtn.addEventListener('click', (e) => {
-e.stopPropagation();
-sharePopup.classList.toggle('hidden');
-});
-
+if(shareBtn && sharePopup){
+  shareBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    sharePopup.classList.toggle('hidden');
+  });
+}
 
 // Prevent other buttons from opening the comment report popup
 spamBtn.addEventListener('click', (e) => {
@@ -652,9 +640,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+document.addEventListener("click", function(e){
 
-document.querySelectorAll('.favourites').forEach(fav => {
-  fav.addEventListener('click', () => {
-    fav.classList.toggle('active');
-  });
+  // OPEN REPLY BOX
+  if(e.target.closest(".reply")){
+    const comment = e.target.closest(".commentt");
+    const replyBox = comment.querySelector(".reply-box");
+
+    if(replyBox){
+      replyBox.classList.remove("hidden");
+    }
+  }
+
+  // CANCEL REPLY
+  if(e.target.closest(".cancel-reply")){
+    const replyBox = e.target.closest(".reply-box");
+
+    if(replyBox){
+      replyBox.classList.add("hidden");
+    }
+  }
+
 });
