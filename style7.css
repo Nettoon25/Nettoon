@@ -1380,7 +1380,7 @@ body.dark-mode
   
   background-color: var(--color-bg-light); /* Default background color for light mode */
   border-style: none; /* Kept as provided */
-  margin: 0rem auto 0 auto; /* Centers the short item horizontally */
+  margin: 0rem 15rem 0 auto; /* Centers the short item horizontally */
   margin-bottom: 0px; /* Kept as provided */
   margin-top: 0px;
   padding-top: 0px; /* Kept as provided */
@@ -1416,7 +1416,7 @@ body.dark-mode
 
 /* Move the video to the left when comments are shown */
 .shorts.show-comments .short-video {
-  margin-right: 400px; /* Shifts the video slightly to the left */
+  margin-right: 200px; /* Shifts the video slightly to the left */
 }
 
 
@@ -1638,7 +1638,7 @@ body.dark-mode
   z-index: 4; 
     margin:0;     
     bottom:3rem;  
-    right:1rem;   
+    right:15rem;   
 }
 
 
@@ -2228,7 +2228,7 @@ height: 100%;
   overflow-y: auto;
 z-index: 0;
   /* Initially hidden using transform */
-  transform: translateX(120%);
+  transform: translateX(400%);
   opacity: 0;
   pointer-events: none;
   margin-bottom: 1rem;

@@ -3189,17 +3189,17 @@ position: relative;
 {
 
 
-  background-color: brown;
+  background-color:transparent;
 }
 
 .Table
 {
-  background-color: honeydew;
+  background-color:transparent;
 }
 
 .overlay-text
 {
-  background-color: navajowhite;
+  background-color: transparent;
   font-size: 1.5rem;
 }
 
@@ -3261,7 +3261,7 @@ margin: 0 auto;
 
 .kontainer
 {
-  border-style: ridge;
+  border-style:none;
 }
 
 /* Caption Text */
