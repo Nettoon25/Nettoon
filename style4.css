@@ -5156,7 +5156,7 @@ margin-left: 8px;
 .shorts {
   max-width: 250px;      /* Limits the maximum width of the short video card */
 gap:3rem;
-  margin: 1rem 0 1rem 3rem;
+  margin: 1rem 0 1rem 4rem;
 }
 
 .video-container
