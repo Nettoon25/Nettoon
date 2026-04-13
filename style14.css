@@ -1575,10 +1575,12 @@ border-style:none;
   background: rgba(255, 255, 255, 0.12);
 }
 
-/* ICONS */
 .menu-icon {
   width: 18px;
   height: 18px;
+
+  /* 🔥 Make icons visible on dark background */
+  filter: invert(1) brightness(1.2);
 }
 
 /* CHILD MENU (SUBMENU) */
@@ -1617,11 +1619,6 @@ border-style:none;
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* DARK MODE ICON FIX */
-.dark-mode .menu-icon,
-.dark-mode .options-btn {
-  filter: invert(1);
-}
 
 /* ⭐ Smaller text across all menu items */
 .option-item,

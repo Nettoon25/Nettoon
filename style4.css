@@ -1471,7 +1471,7 @@ flex-wrap: nowrap;
   /* Sizing */
   width: 100%;       /* Spans the full width of its parent */
   height: 3rem;      /* Fixed height (48px) for consistent row presentation */
-  
+  top:2rem;
   /* Spacing & Appearance */
   background-color:transparent;/* No background color */
   border-style:none;/* No border style */
@@ -1592,7 +1592,7 @@ flex-wrap: nowrap;
   padding: var(--spacing-xxs); /* Consistent internal padding (4px) around the grid content */
   gap: var(--spacing-xs); /* Consistent spacing (8px) between individual video cards */
   box-sizing: border-box; /* Ensures padding is included in the element's total size */
-  
+  margin-top:4rem;
   /* Appearance */
   background-color: transparent; /* No background color for the main grid itself */
   border-style:none;/* No border style */
@@ -2332,7 +2332,7 @@ body:not(.dark-mode)
   margin-inline: auto;   /* Horizontally centers the container */
   padding: var(--spacing-xxxs); /* Small internal padding (3.2px) for content breathing room */
   gap: 3vw;              /* Dynamic gap between items, scaling with viewport width */
-  
+margin-top: 3rem;
   /* Appearance */
   background-color:transparent;/* No background color */
   border-style: none; /* No border style */
@@ -2841,10 +2841,12 @@ border-style:none;
   background: rgba(255, 255, 255, 0.12);
 }
 
-/* ICONS */
 .menu-icon {
   width: 18px;
   height: 18px;
+
+  /* 🔥 Make icons visible on dark background */
+  filter: invert(1) brightness(1.2);
 }
 
 /* CHILD MENU (SUBMENU) */
@@ -2883,11 +2885,6 @@ border-style:none;
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* DARK MODE ICON FIX */
-.dark-mode .menu-icon,
-.dark-mode .options-btn {
-  filter: invert(1);
-}
 
 /* ⭐ Smaller text across all menu items */
 .option-item,
