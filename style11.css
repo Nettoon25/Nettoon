@@ -1134,30 +1134,40 @@ flex-wrap: nowrap;
     bottom: -1.75rem; /* Adjust positioning */
   }
 }
-
 .login-container {
   width: 90%;
   max-width: clamp(320px, 35vw, 480px);
 
-  /* keeps same vertical spacing on all devices */
-  margin: 15vh auto 0 auto;
+  /* 🔥 PERFECT vertical spacing */
+  margin: 15vh auto 1rem auto; /* bottom = 1rem always */
 
-  /* responsive padding */
   padding: clamp(1.2rem, 2.5vw, 3rem);
 
-  background-color: #f8f8ff;
-
+  background-color: #F8F8FF;
   border: 1px solid rgba(0,0,0,0.15);
   border-radius: clamp(8px, 1vw, 16px);
-
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
   text-align: center;
+
+  /* 🔥 IMPORTANT */
+  display: flex;
+  flex-direction: column;
 }
+
 
 .dark-mode .login-container {
   background-color: #222;
   color: white;
+}
+
+.login-container a:last-child {
+  margin-top: auto;
+}
+
+.login-container {
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .login-container h1 {
@@ -1272,7 +1282,7 @@ flex-wrap: nowrap;
   border: none;
   cursor: pointer;
   width: 70%;
-  margin-top: 50px;
+  margin-top: 30px;
 }
 
 .create-account:hover {
@@ -1553,6 +1563,10 @@ margin-top: 3.3rem;
 /* Large desktops (1280px–1599px)*/
 @media (min-width: 1280px) and (max-width: 1599px) {
 
+  body{
+      overflow-y: hidden; /* No internal scrolling within a single short item */
+  overflow-x: hidden;
+  }
 
 .Notifications {
   margin-right: 4rem;
@@ -1573,13 +1587,10 @@ margin-top: 3.3rem;
 
 
   .login-container {
-      width: 100%;
-      max-width: 600px;
-      background-color:transparent;
-   margin-top: 3.5em;
-  left: 0;
- border-style: ridge;
-  height: 92vh;
+
+  overflow-y:hidden;
+}
+
 
     }
 
@@ -1656,16 +1667,19 @@ margin-top: 3.3rem;
   height:  100%;
 margin: 0 auto;
 }
-  
+  /*
   .login-container {
       width: 100%;
       max-width: 800px;
       margin: 130px auto 0 auto;
    height: 70vh;
     }
-  
+
   
   }
+      */
+}
+}
   
   /* Dark mode override */
   @media (prefers-color-scheme: dark) {
