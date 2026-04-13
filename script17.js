@@ -464,29 +464,37 @@ document.getElementById('themeToggle').addEventListener('change', function () {
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const deleteForm = document.getElementById("deleteForm");
-  const deleteModal = document.getElementById("deleteModal");
-  const cancelDelete = document.getElementById("cancelDelete");
-  const confirmDelete = document.getElementById("confirmDelete");
+const deleteForm = document.getElementById("deleteForm");
+const successModal = document.getElementById("successModal");
+const closeSuccessModal = document.getElementById("closeSuccessModal");
 
-  // Show modal on form submit
-  deleteForm.addEventListener("submit", (e) => {
-    e.preventDefault(); // stop immediate form submission
-    deleteModal.style.display = "flex"; // show modal
-  });
+deleteForm.addEventListener("submit", function(e) {
+  e.preventDefault(); // stop page reload
 
-  // Cancel button → hide modal
-  cancelDelete.addEventListener("click", () => {
-    deleteModal.style.display = "none";
-  });
+  const password = document.getElementById("deletePassword").value;
+  const confirmed = document.getElementById("deleteConfirm").checked;
 
-  // Confirm button → proceed with actual deletion
-  confirmDelete.addEventListener("click", () => {
-    alert("Account deleted permanently (hook your backend here).");
-    deleteModal.style.display = "none";
-    // Optionally submit form via fetch/AJAX
-  });
+  // Basic validation
+  if (!password) {
+    alert("Please enter your password.");
+    return;
+  }
+
+  if (!confirmed) {
+    alert("Please confirm that you understand the consequences.");
+    return;
+  }
+
+  // 👉 Simulate delete success (you'll replace with backend later)
+  successModal.style.display = "flex";
+});
+
+// Close modal
+closeSuccessModal.addEventListener("click", () => {
+  successModal.style.display = "none";
+
+  // OPTIONAL: redirect after delete
+  // window.location.href = "/goodbye.html";
 });
 
 
