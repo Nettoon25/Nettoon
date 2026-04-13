@@ -1457,22 +1457,27 @@ flex-wrap: nowrap;
   color: var(--color-action-primary-hover); /* Optional: a slightly different color on hover */
 }
 
+
+.divider
+{
+  margin-top: 5rem;
+}
+
 /* ==== STATS CONTAINER (.container-3) ==== */
 /* This container arranges various account statistics (views, followers, etc.) horizontally. */
 .container-3 {
   /* Positioning & Layout */
   position: relative; /* Allows for absolute positioning of children if needed */
   left: 0%;          /* Aligns to the left edge of its parent */
-  top:1rem;
   display: flex;     /* Enables a flexible, horizontal layout for its children */
   justify-content: space-evenly; /* Evenly distributes children with space between them */
   align-items: center; /* Vertically centers the items within this container */
   text-align: center; /* Centers text within the container (though children may override) */
-  margin-bottom: 3rem;
+  
   /* Sizing */
   width: 100%;       /* Spans the full width of its parent */
   height: 3rem;      /* Fixed height (48px) for consistent row presentation */
-  
+  top:2rem;
   /* Spacing & Appearance */
   background-color:transparent;/* No background color */
   border-style:none;/* No border style */
@@ -1577,13 +1582,746 @@ flex-wrap: nowrap;
   display: inline; /* Overrides default block display for this specific span */
 }
 
-.divider {
-  border: none;
-  height: 1px;
-  background: linear-gradient(to right, transparent, currentColor, transparent);
-  opacity: 0.4;
-  margin-bottom: 2rem;
+/* ==== FEATURED VIDEOS GRID CONTAINER (.video-container) ==== */
+/* This container serves as the main grid for arranging individual featured video cards. */
+.video-container {
+  /* Layout Properties */
+  display: flex;         /* Enables Flexbox for arranging video cards within the grid */
+  flex-wrap: wrap;       /* Allows video cards to wrap to the next row when space runs out */
+  justify-content: center; /* Horizontally centers video cards within the grid */
+  align-items: flex-start; /* Aligns video cards to the top of the container */
+  
+  /* Sizing & Spacing */
+  width: 100%;           /* Spans the full width of its parent */
+  margin-block-start: var(--spacing-sm); /* Responsive top margin (16px) for spacing from elements above */
+  margin-inline: auto;   /* Horizontally centers the entire video grid */
+  padding: var(--spacing-xxs); /* Consistent internal padding (4px) around the grid content */
+  gap: var(--spacing-xs); /* Consistent spacing (8px) between individual video cards */
+  box-sizing: border-box; /* Ensures padding is included in the element's total size */
+  margin-top:4rem;
+  /* Appearance */
+  background-color: transparent; /* No background color for the main grid itself */
+  border-style:none;/* No border style */
+  /* NO TRANSITIONS as per user request */
 }
+
+/* Dark mode adjustment for .video-container (if needed for subtle background) */
+.dark-mode .video-container {
+  background-color: transparent;
+}
+
+/* ==== INDIVIDUAL FEATURED VIDEO CARD (.containerr) ==== */
+/* Each of these containers represents a single featured video card. */
+.containerr {
+  /* Flex Item Properties & Sizing */
+  /* Allows cards to grow/shrink, with a preferred basis of 320px. */
+  /* min/max-width provide robust control for smaller/larger screens. */
+  flex: 1 1 320px; 
+  max-width: 500px;  /* Limits the maximum width of individual video cards */
+  min-width: 280px;  /* Ensures cards don't shrink too much on very small screens */
+  
+  /* Aspect Ratio & Positioning */
+  aspect-ratio: 16 / 9; /* MAINTAINED: Ensures a consistent 16:9 aspect ratio for video content */
+  position: relative;    /* Allows for absolute positioning of the video element inside */
+  left: 0.3rem;               /* Ensures no horizontal offset from the parent's alignment */
+  
+  /* Spacing & Appearance */
+margin-top: 2.8%;
+background-color:transparent; /* No background for the container, image will fill */
+border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  overflow: hidden;      /* Hides any content that overflows the rounded corners */
+  box-shadow: var(--shadow-xl); /* Prominent shadow for depth and visual appeal */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .containerr shadow */
+.dark-mode .containerr {
+  box-shadow: var(--shadow-dark-xl); /* Adjust shadow for dark mode contrast */
+}
+
+/* ==== VIDEO ELEMENT WITHIN CARD (.containerr video) ==== */
+/* Styles for the HTML <video> tag itself, ensuring it fills its container elegantly. */
+.containerr video {
+  /* Positioning & Sizing */
+  position: absolute; /* Positions the video absolutely within its parent `.containerr` */
+  inset: 0;          /* Shorthand for top: 0; right: 0; bottom: 0; left: 0; ensures it covers the parent */
+  width: 100%;       /* Ensures the video fills the entire width of its parent */
+  height: 100%;      /* Ensures the video fills the entire height of its parent */
+  
+  /* Visuals & Fit */
+  object-fit: cover; /* **CRUCIAL:** Ensures the video covers the entire area without distortion, cropping if necessary */
+  border: none;      /* Removes any default video element border */
+  border-radius: inherit; /* Inherits the border-radius from its parent `.containerr` for seamless corners */
+  /* NO TRANSITIONS as per user request */
+}
+
+
+/* ==== SUPPLEMENTARY CONTENT CONTAINER (.rectangle) ==== */
+/* This flexible container is designed to hold various pieces of supplementary profile content. */
+.rectangle {
+  /* Flex Item Properties (if inside a flex parent like .video-container) */
+  flex: 1; /* Allows the rectangle to take up available space in a flex layout */
+  min-width: 280px; /* Ensures the rectangle doesn't become too small */
+
+  /* Layout & Sizing */
+  display: flex;         /* Enables Flexbox for arranging children vertically */
+  flex-direction: column; /* Stacks children vertically */
+  gap: 0;                /* No gap between direct children, allowing inner elements to control spacing */
+  width: 100%;           /* Spans the full width of its parent when not flexing */
+  border-style:none; /* No border style */
+  /* Spacing & Appearance */
+  background-color:transparent; /* No background color */
+  padding: var(--spacing-xxs); /* Responsive padding (4px) for internal breathing room */
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  margin-block-start: var(--spacing-xxs); /* Top margin (4px) for spacing from elements above */
+  box-sizing: border-box; /* Ensures padding is included in the element's total size */
+  overflow-wrap: break-word; /* Allows long words to break and wrap to prevent horizontal overflow */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .rectangle (if needed for subtle background) */
+.dark-mode .rectangle {
+  background-color: transparent;
+}
+
+@media (max-width: 768px) {
+  .video-container {
+    flex-direction: column;
+  }
+
+  .containerr, .rectangle {
+    width: 100%;
+    flex: none;
+  }
+}
+
+
+/* ==== PROFILE IMAGE AND NAME WRAPPER (.square) ==== */
+/* This container combines a profile image and text, optimized for compact display. */
+.square {
+  /* Layout & Sizing */
+  display: flex;         /* Enables Flexbox for horizontal arrangement of image and text */
+  align-items: center;   /* Vertically centers the image and text */
+  width: 100%;           /* Spans the full width of its parent */
+  max-width: 100%;       /* Ensures it doesn't exceed parent width */
+  border-style:none; /* No border style */
+  /* Spacing & Appearance */
+  background-color:transparent; /* No background color */
+  gap: var(--spacing-xxs); /* Consistent spacing (4px) between the image and span */
+  overflow: hidden;      /* Hides any content that overflows the container */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .square (if needed for subtle background) */
+.dark-mode .square {
+  background-color: transparent;
+}
+
+/* ==== PROFILE IMAGE WITHIN SQUARE (.square img) ==== */
+/* Styles for the profile avatar image within the .square container. */
+.square img {
+  /* Sizing */
+  /* Fluid image width and height: scales between 2.2rem (35.2px) and 2.8rem (44.8px) */
+  width: clamp(2.2rem, 2.5rem, 2.8rem); 
+  height: clamp(2.2rem, 2.5rem, 2.8rem);
+  
+  /* Appearance & Flex Behavior */
+  border-radius: var(--border-radius-full); /* Creates a perfect circular shape (50%) */
+  object-fit: cover; /* Ensures the image covers the area without distortion, cropping if needed */
+  flex-shrink: 0;    /* Prevents the image from shrinking when space is constrained */
+  
+  /* Spacing */
+  margin-inline-start: var(--spacing-sm); /* Left margin (16px) for alignment */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for square profile image */
+.dark-mode .square img {
+  filter: invert(1); /* Inverts colors for better visibility on dark backgrounds */
+}
+/* ==== NAME TEXT WITHIN SQUARE (.square span) ==== */
+/* Styles for the name or label text within the .square container. */
+.square span {
+  /* Typography */
+  font-size: var(--font-size-base); /* Base font size (16px) for readability */
+  font-weight: var(--font-weight-bold); /* Bold font for emphasis */
+ color: #36454F;
+  
+  /* Layout & Overflow */
+  flex-grow: 1;            /* Allows the text to take up available horizontal space */
+  min-width: 0;            /* Allows the text to shrink below its content size when needed */
+  max-width: 100%;         /* Ensures text doesn't push parent width */
+  white-space: nowrap;     /* Prevents text from wrapping to the next line */
+  overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
+  text-overflow: ellipsis; /* Displays "..." to indicate truncated text */
+  text-align: left;        /* Aligns text to the left */
+  
+  /* Appearance & Spacing */
+  background-color: transparent; /* No background color */
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (6px) */
+  padding: var(--spacing-xxxs-half) var(--spacing-xxxs-half); /* Small padding (0.8px) around the text */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for square name text */
+.dark-mode .square span {
+  color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode contrast */
+}
+
+/* 📱 TABLET & MOBILE OPTIMIZATION (e.g., up to 768px wide) */
+@media (max-width: 768px) {
+  .video-container {
+      flex-direction: column; /* Stacks featured video items vertically on smaller screens */
+      align-items: center; /* Centers stacked items */
+  }
+
+  .containerr,
+  .rectangle {
+      width: 100%; /* Forces both featured video cards and rectangles to take full width */
+      flex: none;  /* Removes flex-grow/shrink to explicitly control width */
+      max-width: none; /* Removes max-width constraint for full-width layout */
+  }
+}
+
+/* ==== GENERAL CAPTION CONTAINER (.caaption) ==== */
+/* This container serves as a flexible wrapper for general caption text. */
+.caaption {
+  /* Positioning & Layout */
+  position: relative;    /* Allows for absolute positioning of children if needed */
+  display: flex;         /* Enables Flexbox for arranging the caption text */
+  align-items: center;   /* Vertically centers the caption text */
+  justify-content: center; /* Horizontally centers the caption text */
+  
+  /* Sizing */
+  width: 100%;           /* Spans the full width of its parent */
+  max-width: 100%;       /* Ensures it does not exceed parent's width */
+  height: 1.875rem;      /* Consistent fixed height (30px) for uniform presentation */
+  
+  /* Appearance & Overflow */
+  background-color:transparent; /* No background color, allowing parent's background to show */
+  overflow: hidden;      /* Hides any content that extends beyond the container's bounds */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .caaption (if needed for subtle background) */
+.dark-mode .caaption {
+  background-color: transparent;
+}
+
+/* ==== CAPTION LABEL TEXT (.caaption span) ==== */
+/* Styles for the actual text content of the caption label. */
+.caaption span {
+  /* Typography */
+  color: black; /* Dark text color for light mode */
+  font-weight: var(--font-weight-bold); /* Bolder font weight for prominence */
+  font-size: var(--font-size-lg); /* Large font size (20px) for clear readability */
+  font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+  
+  /* Spacing & Appearance */
+  padding: var(--spacing-xxxs-half); /* Small padding (5px) around the text for breathing room */
+  margin-block-start: var(--spacing-xxxs-half); /* Small top margin (5px) for vertical alignment */
+  text-align: center;      /* Centers the text within its own allocated space */
+  
+  /* Text Handling & Overflow */
+  white-space: nowrap;     /* Prevents text from wrapping to the next line */
+  overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
+  text-overflow: ellipsis; /* Displays "..." to indicate truncated text for long captions */
+  flex-shrink: 1;          /* Allows the label to shrink if space is constrained */
+  max-width: 100%;         /* Ensures the text does not exceed the container's width */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .caaption span */
+.dark-mode .caaption span {
+  color: white;
+}
+
+/* ==== ABOUT SECTION (.about) ==== */
+/* This container holds the descriptive "About" text for the profile. */
+.about {
+  /* Sizing & Flex Behavior */
+  width: 100%;           /* Spans the full width of its parent container */
+  max-width: 100%;       /* Ensures it does not exceed the parent's width */
+  max-height: 18.75rem;  /* Limits the maximum height (300px), useful for containing long text */
+  flex: 1;               /* Allows this section to take available space in a flex parent */
+  
+  /* Spacing & Appearance */
+  margin-block-start: var(--spacing-xxxs); /* Small top margin (1.6px) for spacing */
+  margin-block-end: 0;   /* No bottom margin, allowing subsequent elements to manage spacing */
+  padding: var(--spacing-xxs); /* Responsive padding (4px) for internal breathing space around text */
+  background-color:transparent; /* No background color, allowing parent's background to show */
+  border-radius: var(--border-radius-none); /* No border-radius, maintaining sharp corners */
+  
+  /* Typography */
+  color: var(--color-text-dark); /* Ensures text is dark for better readability in light mode */
+  font-weight: var(--font-weight-normal); /* Normal font weight for body text */
+  font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+  /* REMOVED: font-size property as requested to maintain original sizing */
+
+  /* Overflow & Sizing Model */
+  overflow: hidden;      /* Hides any text content that exceeds the max-height */
+  box-sizing: border-box; /* Ensures padding is included in the element's total width and height */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .about text color */
+.dark-mode .about {
+  color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode contrast */
+}
+/* ==== MAIN SECTION CONTAINER (.secction) ==== */
+/* This primary container organizes action buttons and meta-data horizontally, adapting to various screen sizes. */
+.secction {
+  /* Layout Properties */
+  display: flex;         /* Enables Flexbox for arranging children horizontally */
+  flex-direction: row;   /* Explicitly sets children in a row */
+  flex-wrap: nowrap;     /* Prevents children from wrapping to the next line by default */
+  justify-content: space-evenly; /* Distributes space evenly between and around items */
+  
+  /* Sizing & Spacing */
+  width: 100%;           /* Spans the full width of its parent */
+  max-width: 100%;       /* Ensures it doesn't exceed parent's width */
+  height: clamp(3vh, 2.5rem, 4rem); /* Responsive height (e.g., between 3vh and 4rem/64px) */
+  margin-block-start: 0; /* No top margin, allowing previous sections to control spacing */
+  margin-block-end: var(--spacing-xxs); /* Small bottom margin (4px) for spacing */
+  padding: var(--spacing-xxxs); /* Small internal padding (3.2px) for content breathing room */
+  gap: clamp(0.5rem, 1.5vw, 1.5rem); /* Responsive gap between items (e.g., 8px to 24px) */
+  
+  /* Appearance */
+  background-color:transparent; /* No background color */
+  border-style: none; /* No border style */
+  /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for .secction (if needed for subtle background) */
+.dark-mode .secction {
+  background-color: transparent;
+}
+/* ==== SHARED STYLES FOR ICON CONTAINERS (.viewss, .commentss, .likee, .dislikee, .optionn, .timess) ==== */
+/* These styles apply to all individual interactive elements, ensuring consistent appearance and behavior. */
+.viewss,
+.commentss,
+.likee,
+.dislikee,
+.optionn,
+.timess {
+    /* Flex Item Properties */
+    flex: 1;               /* Allows each item to take equal available space */
+    min-width: 3.5rem;     /* Ensures visibility on very small screens (56px) */
+    max-width: 18%;        /* Prevents excessive stretching on larger screens */
+    flex-shrink: 0;        /* Prevents items from shrinking below their content size by default */
+    
+    /* Sizing & Layout */
+    height: clamp(1.8rem, 3vh, 2rem); /* Responsive height (e.g., between 28.8px and 3vh or 32px) */
+    display: flex;         /* Enables Flexbox for internal alignment of icon and text */
+    align-items: center;   /* Vertically centers icon and text */
+    justify-content: center; /* Horizontally centers icon and text */
+    
+    /* Appearance & Interactivity */
+    background-color: #f0f0f0;
+    border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+    margin-top: 0.4%;
+    /* Text Handling (for hidden overflow) */
+    overflow: hidden;      /* Hides any content that overflows the container */
+    text-overflow: ellipsis; /* Displays "..." for truncated text */
+    white-space: nowrap;   /* Prevents text from wrapping */
+    /* NO TRANSITIONS as per user request */
+}
+
+.viewss
+{
+  gap:2px;
+}
+
+
+
+/* Hover state for all icon containers 
+.viewss:hover,
+.commentss:hover,
+.likee:hover,
+.dislikee:hover,
+.optionn:hover,
+.timess:hover {
+  background-color: gray;
+}*/
+
+/* Dark mode adjustments for icon containers */
+.dark-mode .viewss,
+.dark-mode .commentss,
+.dark-mode .likee,
+.dark-mode .dislikee,
+.dark-mode .optionn,
+.dark-mode .timess {
+    background-color: var(--color-bg-dark-alt); /* Darker background for dark mode */
+}
+
+/* Dark mode hover state for icon containers 
+.dark-mode .viewss:hover,
+.dark-mode .commentss:hover,
+.dark-mode .likee:hover,
+.dark-mode .dislikee:hover,
+.dark-mode .optionn:hover,
+.dark-mode .timess:hover {
+    background-color: var(--color-bg-hover-dark); 
+}*/
+
+/* ==== ADJUSTED FLEX FOR 'TIMESS' SECTION (.timess) ==== */
+/* The 'timess' section is given slightly more space to accommodate potentially longer text. */
+.timess {
+  flex: 1.5;             /* Slightly larger flex value than other items */
+  min-width: 6rem;       /* Ensures sufficient visibility on small screens (96px) */
+}
+/* ==== ICON IMAGES WITHIN SECTIONS (.viewss img, .commentss img, etc.) ==== */
+/* Styles for the icon images displayed within each action/meta-data container. */
+.viewss img,
+.commentss img,
+.likee img,
+.dislikee img,
+.timess img,
+.optionn img {
+    /* Sizing */
+    /* Responsive sizing: scales between 1.8rem (28.8px) and 3rem (48px) */
+    width: clamp(1.8rem, 2.5vh, 3rem);
+    height: clamp(1.8rem, 2.5vh, 3rem);
+    
+    /* Spacing */
+    padding: var(--spacing-xxxs); /* Small padding (3.2px) around the icon */
+    /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for icon images (if needed to invert colors) */
+.dark-mode .viewss img,
+.dark-mode .commentss img,
+.dark-mode .likee img,
+.dark-mode .dislikee img,
+.dark-mode .timess img,
+.dark-mode .optionn img {
+    /* filter: invert(1); if icons are dark and need to be light in dark mode */
+}
+
+/* ==== TEXT LABELS WITHIN SECTIONS (.viewss span, .commentss span, etc.) ==== */
+/* Styles for the numerical data or text labels displayed alongside icons. */
+.viewss span,
+.commentss span,
+.likee span,
+.dislikee span,
+.timess span,
+.optionn span {
+    /* Typography */
+    font-size: var(--font-size-sm); /* Consistent small font size (14px) for readability */
+    color: var(--color-text-primary); /* Default text color for light mode */
+    font-family: var(--font-family-primary); /* Ensures consistent font style */
+    
+    /* Layout & Overflow */
+    margin: 0;               /* Removes default margins for precise control */
+    display: flex;           /* Enables Flexbox for internal centering */
+    align-items: center;     /* Vertically centers text */
+    justify-content: center; /* Horizontally centers text */
+    overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
+    text-overflow: ellipsis; /* Displays "..." for truncated text */
+    white-space: nowrap;     /* Prevents text from wrapping to the next line */
+    /* NO TRANSITIONS as per user request */
+}
+
+/* Dark mode adjustment for text labels */
+.dark-mode .viewss span,
+.dark-mode .commentss span,
+.dark-mode .likee span,
+.dark-mode .dislikee span,
+.dark-mode .timess span,
+.dark-mode .optionn span {
+    color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode contrast */
+}
+
+/* HIDE ELEMENTS */
+.hidden {
+  display: none !important;
+}
+
+/* WRAPPER */
+.option-wrapper {
+  position: relative;
+  background: #fff;
+  height: clamp(1.8rem, 3vh, 2rem);
+  border-radius: 7px;
+  width: fit-content;
+}
+
+/* ACTION MENU */
+.option-action-menu {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  width: 180px; /* slightly wider for icons */
+  background: #fff;
+  color:black;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  padding: 8px 0;
+  z-index: 9999;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+}
+
+.dark-mode .option-action-menu  {
+  background-color: #333;
+  color: white;
+}
+
+.option-action-menu:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* MENU BUTTONS */
+.option-action-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between icon and text */
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.option-action-btn:hover {
+  background: grey;
+}
+
+/* ICONS */
+.menu-icon {
+  width: 20px;  /* slightly bigger for visibility */
+  height: 20px;
+  transition: filter 0.2s ease;
+}
+
+/* DARK MODE */
+.dark-mode .option-action-btn:hover {
+  background: grey;
+}
+
+/* INVERT ICONS IN DARK MODE */
+.dark-mode .menu-icon {
+  filter: invert(1);
+}
+
+.option-action-btn {
+  font-size: 0.85rem;  /* 👈 smaller text */
+}
+
+
+.share-panel {
+  position: absolute;
+  bottom: 100%;
+  right: 160px;
+  width: 220px;
+  background: #fff;
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+  z-index: 9999;
+}
+
+.dark-mode .share-panel {
+  background-color: #333;
+  color: white;
+}
+
+.share-panel-header {
+  padding: 10px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+}
+
+.share-panel-close {
+  cursor: pointer;
+}
+
+.share-panel-item {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* space between icon and text */
+  padding: 10px;
+  cursor: pointer;
+  font-size: 0.85rem;  /* 👈 reduce text size */
+}
+
+.share-panel-item:hover {
+  background: grey;
+}
+
+.share-icon {
+  width: 15px;  /* adjust icon size */
+  height: 15px;
+  object-fit: contain;
+}
+
+.share-icon 
+{
+  filter: invert(1);
+}
+
+.report-panel {
+  position: absolute;
+  bottom: 100%;         /* above parent */
+  right: 160px;
+  width: 300px;
+  background: #f0f0f0;
+  border-radius: 7px;
+  padding: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  z-index: 9999;
+  height: auto;
+}
+
+
+.dark-mode .report-panel {
+  background: #222;
+  color: white;
+}
+
+/* HEADER */
+.report-panel-header {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+/* CLOSE BTN */
+.report-panel-close {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.report-panel-close:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* CHECKBOX OPTION */
+.report-panel-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.report-panel-item input[type="checkbox"] {
+  appearance: auto !important;
+  width: 18px !important;
+  height: 18px !important;
+  cursor: pointer;
+}
+
+/* BOTTOM BUTTONS */
+.report-panel-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.report-panel-cancel {
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  background: #333;
+  color: white;
+  border-radius: 7px;
+  padding: 5px 10px;
+}
+
+.report-panel-submit {
+  background-color: #f0f0f0;
+  color: black;
+  font-size: 14px;
+  border: none;
+  cursor: not-allowed;
+  border-radius: 7px;
+  padding: 5px 10px;
+}
+
+.dark-mode .report-panel-submit {
+  background-color: #333;
+  color: white;
+}
+
+/* ACTIVE ENABLED SUBMIT BUTTON */
+.report-panel-submit.active {
+  color: red;
+  cursor: pointer;
+}
+
+
+/* LIGHT MODE: make icons & text white/bright on hover 
+body:not(.dark-mode)
+.viewss:hover span,
+body:not(.dark-mode)
+.commentss:hover span,
+body:not(.dark-mode)
+.likee:hover span,
+body:not(.dark-mode)
+.dislikee:hover span,
+body:not(.dark-mode)
+.optionn:hover span,
+body:not(.dark-mode)
+.timess:hover span {
+  color: white;
+
+
+body:not(.dark-mode)
+.viewss:hover img,
+body:not(.dark-mode)
+.commentss:hover img,
+body:not(.dark-mode)
+.likee:hover img,
+body:not(.dark-mode)
+.dislikee:hover img,
+body:not(.dark-mode)
+.optionn:hover img,
+body:not(.dark-mode)
+.timess:hover img {
+  filter: invert(1) brightness(1.2);
+}
+
+
+body:not(.dark-mode)
+.option-action-btn:hover {
+  background-color: gray;
+}
+
+body:not(.dark-mode)
+.option-action-btn:hover {
+  color: white;
+}
+
+body:not(.dark-mode)
+.option-action-btn:hover img {
+  filter: invert(1) brightness(1.2);
+}
+
+
+body:not(.dark-mode)
+.share-panel-item:hover {
+  background-color: gray;
+  color: white;
+}
+
+body:not(.dark-mode)
+.share-panel-item:hover img {
+  filter: invert(1) brightness(1.2);
+}
+}*/
 
 /* ==== UPLOADS NAVIGATION CONTAINER (.container-4) ==== */
 /* This container organizes navigation items (tabs like videos, playlists) horizontally. */
@@ -1596,11 +2334,11 @@ flex-wrap: nowrap;
   /* Sizing & Spacing */
   width: 100%;           /* Spans the full width of its parent */
   /* Consolidating and converting margins to logical properties and variables */
-  margin-block: var(5rem) var(--spacing-sm); /* Vertical margins (24px top, 8px bottom) */
+  margin-block: var(--spacing-md) var(--spacing-sm); /* Vertical margins (24px top, 8px bottom) */
   margin-inline: auto;   /* Horizontally centers the container */
   padding: var(--spacing-xxxs); /* Small internal padding (3.2px) for content breathing room */
   gap: 3vw;              /* Dynamic gap between items, scaling with viewport width */
-  
+margin-top:5rem;
   /* Appearance */
   background-color:transparent;/* No background color */
   border-style: none; /* No border style */
@@ -2109,10 +2847,12 @@ border-style:none;
   background: rgba(255, 255, 255, 0.12);
 }
 
-/* ICONS */
 .menu-icon {
   width: 18px;
   height: 18px;
+
+  /* 🔥 Make icons visible on dark background */
+  filter: invert(1) brightness(1.2);
 }
 
 /* CHILD MENU (SUBMENU) */
@@ -2151,11 +2891,6 @@ border-style:none;
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* DARK MODE ICON FIX */
-.dark-mode .menu-icon,
-.dark-mode .options-btn {
-  filter: invert(1);
-}
 
 /* ⭐ Smaller text across all menu items */
 .option-item,
@@ -4339,7 +5074,12 @@ margin-left: 8px;
   border-style:none;
 }
 
+.Profile-description
+{
+ /* No background color */
 
+ 
+}
   .kontainer {
     background-color: transparent;
     width: clamp(20%, 23vw, 24%); 
