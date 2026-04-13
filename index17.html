@@ -316,10 +316,7 @@
             <div class="menu-item" data-target="payments"><i class="fa-solid fa-credit-card"></i> <span>Payments</span></div>
             <div class="menu-item" data-target="subscription"><i class="fa-solid fa-tv"></i> <span>Subscription</span></div>
 <div class="menu-item" data-target="terms"><i class="fa-solid fa-file-contract"></i><span>Terms of Service</span></div>
-                        <div class="menu-item" data-target="delete"><i class="fa-solid fa-trash"></i> <span>Delete Account</span></div>
-          </div>
-          
- <!-- Content -->
+                       </div>       
 <div class="content">
 <!-- Profile Section -->
 <div id="profile" class="content-section active">
@@ -553,6 +550,48 @@
     <!-- Save Button -->
     <button type="submit" class="save-btn" style="display: none;">Save Changes</button>
   </form>
+
+<!-- Danger Zone -->
+<div class="danger-zone">
+
+  <h3 class="danger-title">
+    <i class="fa fa-exclamation-triangle"></i> Danger Zone
+  </h3>
+
+  <div class="delete-warning">
+    <p>
+      Deleting your account is <strong>permanent</strong>. You will lose access to
+      all your data, subscriptions, and settings. This action <u>cannot</u> be undone.
+    </p>
+  </div>
+
+  <form id="deleteForm" class="delete-form">
+    
+    <div class="form-group">
+      <label for="deletePassword">Confirm Password</label>
+      <input
+        type="password"
+        id="deletePassword"
+        placeholder="Enter your password"
+        required
+      />
+    </div>
+
+    <div class="form-group checkbox-group">
+      <input type="checkbox" id="deleteConfirm" />
+      <label for="deleteConfirm">
+        I understand that this action is irreversible and will delete all my data.
+      </label>
+    </div>
+
+    <button type="submit" class="delete-btn">
+      <i class="fa fa-trash"></i> Permanently Delete Account
+    </button>
+
+  </form>
+
+</div>
+
 </div>
 
 
@@ -1060,63 +1099,8 @@
 </div>
   </div>
 
-   <!-- Delete Account -->
-<div id="delete" class="content-section">
-  <div class="content-header"></i> Delete Account
-  </div>
-
-  <div class="delete-warning">
-    <i class="fa fa-exclamation-triangle"></i>
-    <p>
-      Deleting your account is <strong>permanent</strong>. You will lose access to
-      all your data, subscriptions, and settings. This action <u>cannot</u> be undone.
-    </p>
-  </div>
-
-  <form id="deleteForm" class="delete-form">
-    <!-- Password Confirmation -->
-    <div class="form-group">
-      <label for="deletePassword">Confirm Password</label>
-      <input
-        type="password"
-        id="deletePassword"
-        placeholder="Enter your password"
-        required
-      />
-    </div>
-
-  <div class="form-group checkbox-group">
-  <input type="checkbox" id="deleteConfirm" />
-  <label for="deleteConfirm">
-    I understand that this action is irreversible and will delete all my data.
-  </label>
-</div>
-
-    <!-- Delete Button -->
-    <button type="submit" class="delete-btn">
-      <i class="fa fa-trash"></i> Permanently Delete Account
-    </button>
-  </form>
-</div>
-
-<!-- Confirmation Modal -->
-<div id="deleteModal" class="modal-overlay">
-  <div class="modal-content">
-    <h2><i class="fa fa-exclamation-circle"></i> Confirm Deletion</h2>
-    <p>
-      Are you absolutely sure you want to delete your Nettoon account?
-      This cannot be undone.
-    </p>
-    <div class="modal-actions">
-      <button id="cancelDelete" class="cancel-btn">Cancel</button>
-      <button id="confirmDelete" class="confirm-btn">
-        Yes, Delete My Account
-      </button>
-    </div>
-  </div>
-</div>
-
-
+        </div>
+        </div>
         </div>
         
         <script src="script17.js"></script>
