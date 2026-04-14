@@ -1331,6 +1331,7 @@ body.dark-mode
   /* Margin/padding of shorts-container already provide outer spacing */
   
   background-color: var(--color-bg-light); /* Default background color for light mode */
+  background-color: saddlebrown;
   padding: 0px;
   border: none;
 }
@@ -1345,8 +1346,8 @@ body.dark-mode
   display: flex;
   align-items: flex-end; /* aligns bottom like TikTok */
   justify-content: center;
-  gap:0rem; /* 🔥 CONSTANT spacing */
-  
+ gap: 1.5rem; /* 🔥 THIS creates spacing between video, metadata, comments */
+  background-color: firebrick;
   width: 100%;
   height: 100%;
 }
@@ -1380,14 +1381,14 @@ body.dark-mode
   
   background-color: var(--color-bg-light); /* Default background color for light mode */
   border-style: none; /* Kept as provided */
-  margin: 0rem 15rem 0 auto; /* Centers the short item horizontally */
+  margin: 0rem 0rem 0 auto; /* Centers the short item horizontally */
   margin-bottom: 0px; /* Kept as provided */
   margin-top: 0px;
   padding-top: 0px; /* Kept as provided */
   padding-bottom: var(--spacing-md); /* Add bottom padding to prevent caption from hugging edge */
   box-sizing: border-box;
   z-index: 0;
-  
+  background-color: seagreen;
   /* Gap for content *inside* each short, e.g., spacing between video and profile/caption */
   gap: var(--spacing-sm); /* Using root variable, adjust as needed */
 }
@@ -1638,7 +1639,7 @@ body.dark-mode
   z-index: 4; 
     margin:0;     
     bottom:3rem;  
-    right:15rem;   
+    right:1rem;   
 }
 
 
@@ -3924,7 +3925,7 @@ margin: 0 auto;
   height:  1.9rem;
 }
 
-  
+  /*
   .shorts-container
   {
     background-color: transparent;
@@ -3939,6 +3940,7 @@ margin: 0 auto;
 {
   border-style:none ;
 }
+*/
 
 .profile
 {
@@ -4122,13 +4124,13 @@ border-style:dotted;
   }
   
   
-  
+   /* 
   .scroll-area
   {
     background-color: transparent;
   }
   
-  /*
+
   .shorts-container {
   
     width: calc(100% - 10%);
