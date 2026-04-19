@@ -1737,7 +1737,7 @@ border-radius: 7px;
 .caption {
   /* Sizing & Layout */
   width: 100%;       /* Ensures it spans the full width of its parent (.kontainer) */
-  height: 2.5rem;  /* Consistent height (30px) for single-line captions */
+  height: 2.2rem;  /* Consistent height (30px) for single-line captions */
   
   /* Flex Container Properties */
   display: flex;         /* Enables a flexible layout for its content (caption text) */
@@ -1745,7 +1745,7 @@ border-radius: 7px;
   justify-content: center; /* Horizontally centers content within the container */
   
   /* Appearance & Overflow */
-  background-color:transparent; /* No background color, allowing parent's background to show */
+  background-color:pink; /* No background color, allowing parent's background to show */
   overflow: hidden;    /* Hides any content that overflows the container boundaries */
   /* `background: scroll` is often default and not needed here for visual styling. */
   margin-bottom: 0%;
@@ -2294,6 +2294,11 @@ border-radius: 7px;
   margin-inline-start: 0; /* No left margin */
 }
 
+.profilee-name span
+{
+  margin-top:0;
+}
+
 /* Dark mode adjustment for profile name text */
 .dark-mode .profilee-name span {
   color: var(--color-text-light-contrast); /* Lighter text color for dark mode */
@@ -2341,12 +2346,13 @@ border-radius: 7px;
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 .opttions img {
   width: 15px;
   height: 15px;
-  margin-top: 10px;
+  margin-top: 5px;
   cursor: pointer;
 }
 
@@ -3004,6 +3010,11 @@ height: 100%;
   height: 1.9rem;
 }
 
+.container-1
+{
+  background-color:transparent;
+  height: 92vh;
+}
 
 .Heading {
 top: 1rem;
@@ -3022,12 +3033,10 @@ margin-top: 0px;
 position: relative;
 overflow-y: auto;
 height: 100vh;
-padding-bottom: 30rem;
-background-color: transparent;
+padding-bottom: 23rem;
+  background-color:transparent;
 
 }
-
-
 
 
 .scroll-area {
@@ -3047,13 +3056,23 @@ margin-left: 0.2rem;
 
 
 .Playlist:nth-of-type(1)  {
-background-color: transparent;
-height: auto;
+  height: 340px;
+  background-color:transparent;
 top: 1rem;
-    margin-bottom:0;
+    bottom:2rem;
     padding-bottom: 0;
     border-style: none;
     padding-top: 0;
+    
+   
+}
+
+.Playlist:nth-of-type(1) .Container  {
+ 
+  background-color:transparent;
+margin-top: 1rem;
+    margin-bottom:1.5rem;
+
     
    
 }
@@ -3065,23 +3084,20 @@ border-style:none;
     background-color: #F5F5F5;
 }
 
-.Playlist:nth-of-type(1) .playlist-item {
-  height: 340px;
-  background-color:transparent;
-  margin-top:0rem;
-  }
+
 
 .Playlist:nth-of-type(2)  {
-background-color: transparent;
-height: 530px;
-margin-top: 3rem;
+  background-color:transparent;
+max-height: 470px;
+min-height: 410px;
+margin-top: 25.5rem;
     margin-bottom:0rem;
 }
 
 .Playlist:nth-of-type(3)  {
-background-color: transparent;
+  background-color:transparent;
 height: 560px;
-margin-top: 2.5rem;
+top: 1.5rem;
     margin-bottom:0rem;
 }
 
@@ -3170,10 +3186,19 @@ position: relative;
 
 .kontainer
 {
-  border-style: none;
+  border-style:none;
   position: absolute;
 }
 
+.profilee
+{
+  background-color:transparent;
+}
+
+.profilee-name
+{
+  background-color:transparent;
+}
 
 .videoo video
 {
