@@ -1167,44 +1167,240 @@ height: auto;
   border: 0.1px solid transparent;
 }
 
-/* ==== Sticky Heading ==== */
-.Heading {
-  position: sticky;
-  top: 0rem;
-  width: 100%;
-  height: auto;
-  height: 30px;
-  background-color:white;
-  z-index: 1000;   /* highest layer */
-  display: flex;
-  padding: 0px;
-  margin: 0;
-  align-items: center;
-  padding-left: 0%;
-  border-radius: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  margin-bottom: 0px;
+/* ==== SUGGESTIONS BAR CONTAINER (.suggestionss) ==== */
+/* This fixed container holds the horizontal scrollable list of category pills,
+   providing a persistent navigation element at the top of the content. */
+   .suggestionss {
+    /* Positioning */
+    position: fixed;       /* Keeps the suggestions bar fixed on screen while scrolling */
+    top: 9%; /* Vertically positioned below the header (adjust variable as needed) */
+    /* Dynamic left positioning and width based on sidebar or main content area */
+    left:0%; /* Example: 4.8% or specific width of sidebar + gap */
+    width:100%; /* Example: calc(100% - 4.9%) */
+    height: var(--suggestions-bar-height); /* Fixed height (48px) for the bar */
+    z-index:10; 
+
+    /* Flex Container Properties (for arranging category pills horizontally) */
+    display: flex;         /* Enables Flexbox for its children (.rectanglee pills) */
+    flex-wrap: nowrap;     /* Ensures pills stay in a single row, preventing wrapping */
+    justify-content: space-between; /* Aligns pills to the start, allowing for scroll */
+    align-items: center;   /* Vertically centers pills within the bar */
+
+    /* Appearance & Spacing */
+  background-color: var(--color-bg-light); /* Default background color for light mode */    padding-inline: var(--spacing-xs); /* Horizontal padding (16px) inside the bar */
+    gap: var(--spacing-md-half); /* **Increased spacing (15px) between individual category pills** */
+
+    /* Scrolling for Horizontal Overflow */
+    overflow-x: auto;      /* Allows horizontal scrolling if pills exceed container width */
+    overflow-y: hidden;    /* Hides vertical scrollbar, as content is single row */
+    scrollbar-width: thin; /* Makes the scrollbar thinner (Firefox) */
+    scrollbar-color: var(--color-scrollbar-thumb) transparent; /* Custom scrollbar color (thumb and track) */
+    /* NO TRANSITIONS as per user request */
 }
 
-.Heading span {
-  padding-left: 1%;
-  color: #333333;
-  font-weight: bold;
-  font-size: 20px;
-  padding-top: 0px;
+/* Dark Mode adjustment for suggestions bar background */
+.dark-mode .suggestionss {
+    background-color: var(--color-bg-suggestions-dark); /* Dark background for dark mode */
+    scrollbar-color: var(--color-scrollbar-thumb-dark) var(--color-scrollbar-track-dark); /* Dark mode scrollbar colors */
+}/* ==== CATEGORY PILL (.rectanglee) ==== */
+/* Styles for an individual category suggestion pill (e.g., "Gaming", "Music"). */
+.rectanglee {
+  /* Flex Item Properties */
+  flex-shrink: 0;        /* Prevents pills from shrinking too much when space is limited */
+  flex-grow: 0;          /* Prevents pills from growing excessively */
+  min-width: 5rem;       /* Minimum width (80px) to ensure readability */
+  max-width: 12%;        /* Limits maximum width to prevent single pills from dominating */
+
+  /* Sizing & Appearance */
+  height: var(--category-pill-height); /* Fixed height (30px) for the pill */
+  background-color: #F5F5F5;
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  
+  /* Spacing & Positioning */
+  /* Consider if margin-top is needed, as align-items: center handles vertical positioning.
+     If it's for specific vertical alignment, use margin-block-start. */
+  margin-block-start: var(--spacing-xxs-half); /* Example: Top margin (5px), if specifically needed */
+  z-index: 0;            /* Default stacking context */
+
+  /* Content Layout */
+  display: flex;         /* Enables flexbox for centering text inside the pill */
+  justify-content: center; /* Horizontally centers the text */
+  align-items: center;   /* Vertically centers the text */
+  
+  /* Text Handling */
+  white-space: nowrap;     /* Prevents text from wrapping to a new line */
+  overflow: hidden;        /* Hides any overflowing text */
+  text-overflow: ellipsis; /* Adds "..." for truncated text */
+  
+  cursor: pointer;       /* Changes cursor to pointer to indicate clickability */
+  /* NO TRANSITIONS as per user request */
+}/* ==== CATEGORY PILL TEXT (.rectanglee span) ==== */
+/* Styles for the text content within each category pill. */
+.rectanglee span {
+  /* Flex Item Properties */
+  flex: 1;               /* Allows text to grow and fill available space within the pill */
+
+  /* Typography */
+  font-weight: var(--font-weight-bold); /* Bold font weight */
+  font-size: var(--font-size-base); /* Font size (15px) */
+  color: var(--color-text-pill-light); /* Default text color (Dark Grey) for light mode */
+  
+  /* Spacing & Alignment */
+  padding: var(--spacing-xxxs); /* Small padding (3px) around the text */
+  margin: 0;               /* Removes default margins */
+  text-align: center;      /* Centers the text within its flex container */
+
+  /* Text Handling */
+  white-space: nowrap;     /* Prevents text wrapping */
+  overflow: hidden;        /* Hides overflowing text */
+  text-overflow: ellipsis; /* Truncates long text with ellipsis */
+  
+  cursor: pointer;       /* Inherits cursor style from parent (redundant but harmless) */
+  /* NO TRANSITIONS as per user request */
+}
+
+
+/* ==== HOVER & ACTIVE STATES (Light Mode) ==== */
+/* These styles define the visual feedback for hovering over and selecting a category pill in light mode. */
+.rectanglee:hover {
+  background-color: grey; /* Hover background (Gray) */
 
 }
 
-.dark-mode .Heading {
-  background-color: #2a2d2f;
+.rectanglee:hover span {
+  color:white;
+}
+
+/* Active Style (Light Mode) - MODIFIED */
+.rectanglee.active {
+  background-color: var(--color-bg-pill-active-light); /* **Black background for active tab** */
+}
+
+.rectanglee.active span {
+  color: var(--color-text-pill-active-light); /* **White text color for active tab** */
+}
+
+/* ==== DARK MODE DEFAULTS & STATES ==== */
+/* These styles ensure the category pills adapt seamlessly to dark mode,
+   providing appropriate contrasts and active states. */
+   .dark-mode .rectanglee {
+    background-color: var(--color-bg-pill-dark); /* Dark mode default background */
+}
+
+.dark-mode .rectanglee span {
+    color: var(--color-text-pill-dark); /* Dark mode default text color (White) */
+}
+
+.dark-mode .rectanglee:hover {
+    background-color: var(--color-bg-pill-hover-dark); /* Dark mode hover background */
+}
+
+.dark-mode .rectanglee:hover span {
+    color: var(--color-text-pill-hover-dark); /* Dark mode hover text color (White) */
+}
+
+/* Active Style (Dark Mode) - MODIFIED */
+.dark-mode .rectanglee.active {
+    background-color: var(--color-bg-pill-active-dark); /* **White background for active tab** */
+}
+
+.dark-mode .rectanglee.active span {
+    color: var(--color-text-pill-active-dark); /* **Black text color for active tab** */
 }
 
 
+:root {
+  /* ... existing variables ... */
 
-.dark-mode .Heading span {
-  color: #ffffff;
+  /* Suggestions Bar & Category Pills */
+  --header-height: 3rem; /* Example: adjust to your actual header height */
+  --sidebar-width-plus-gap: 4.8%; /* Example: adjust based on your sidebar + gap */
+  --suggestions-bar-width: calc(100% - 4.9%); /* Example: adjust based on layout */
+  --suggestions-bar-height: 3rem; /* 48px */
+  --z-index-fixed-elements: 1000; /* Example: ensure it's higher than other content */
+
+  --category-pill-height: 1.875rem; /* 30px */
+  --border-radius-pill: 0.375rem; /* 6px */
+
+  /* Colors - Light Mode */
+  --color-bg-pill-light: #FAFAFA; /* Pale Grey default pill background */
+  --color-text-pill-light: #333; /* Dark Grey default pill text */
+  --color-bg-pill-hover-light: #E0E0E0; /* Lighter grey on hover */
+  --color-text-pill-hover-light: #333; /* Dark text on hover */
+  --color-bg-pill-active-light: black; /* **Black background for active in light mode** */
+  --color-text-pill-active-light: white; /* **White text for active in light mode** */
+
+  /* Colors - Dark Mode */
+  --color-bg-suggestions-dark: #202020; /* Dark background for the bar in dark mode */
+  --color-bg-pill-dark: #383838; /* Dark mode default pill background */
+  --color-text-pill-dark: white; /* White default pill text in dark mode */
+  --color-bg-pill-hover-dark: #555; /* Slightly lighter dark grey on hover */
+  --color-text-pill-hover-dark: white; /* White text on hover */
+  --color-bg-pill-active-dark: white; /* **White background for active in dark mode** */
+  --color-text-pill-active-dark: black; /* **Black text for active in dark mode** */
+
+  /* Responsive Variables for Suggestions Bar */
+  --suggestions-bar-width-md: calc(100% - 12%);
+  --suggestions-bar-left-md: 10%;
+  --suggestions-bar-width-sm: calc(100% - 15%);
+  --suggestions-bar-left-sm: 12%;
+  --suggestions-bar-height-sm: 3.5rem;
+  --suggestions-bar-width-xs: calc(100% - 18%);
+  --suggestions-bar-left-xs: 14%;
+  --suggestions-bar-height-xs: 3.2rem;
+
+  /* New font sizes (adjust as per your base font definitions) */
+  --font-size-base: 0.9375rem; /* 15px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-xxs: 0.8125rem; /* 13px */
+
+  /* ... other existing variables ... */
 }
+
+/* ✅ Responsive Adjustments */
+/* Tablet & Small Desktop Optimization */
+@media screen and (max-width: 1024px) {
+  .suggestionss {
+      /* Adjust width and left position to accommodate narrower screens */
+      width: calc(100% - 12%);
+      left: 0%;
+  }
+  .rectanglee {
+      /* Use clamp for more flexible width scaling on various screen sizes */
+      width: clamp(4.5rem, 9%, 10%);
+  }
+}
+
+/* Medium Tablets & Larger Phones */
+@media screen and (max-width: 768px) {
+  .suggestionss {
+      /* Further adjust width, left position, and height for smaller viewports */
+      width: calc(100% - 15%);
+      left: 1%;
+      height: 3.5rem;
+  }
+  .rectanglee {
+      /* Scale down pill width and font size */
+      width: clamp(4rem, 8%, 9%);
+      font-size: 0.875rem; /* Adjust text size for smaller screens */
+  }
+}
+
+/* Small Phones */
+@media screen and (max-width: 480px) {
+  .suggestionss {
+      /* Final adjustments for very small screens */
+      width: calc(100% - 18%);
+      left: 0%;
+      height: 3.2rem;
+  }
+  .rectanglee {
+      /* Fixed size for very small screens to ensure minimum readability */
+      width: 4rem;
+      font-size: 0.8125rem; /* Smaller text (13px) for tiny screens */
+  }
+}
+
 
 
 
