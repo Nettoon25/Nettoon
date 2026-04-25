@@ -1252,7 +1252,7 @@ body.dark-mode
   width: 100%; /* Spans the full width of its parent */
   height: 80vh;      /* 🔥 MUST be height, not min-height */
   max-height: 80vh;
-  background-color:transparent;
+  background-color: transparent;
   border-radius: var(--border-radius-sm); /* Consistent rounding (7px converted to rem) */
   border-style:none; /* No border style */
 
@@ -1303,6 +1303,7 @@ body.dark-mode
     border-style:none; /* No border style */
   padding-bottom: 0;
   padding-top: 0;
+  background-color: transparent;
 }
 
 /* Dark Mode for containerr */
@@ -1406,6 +1407,7 @@ body.dark-mode
 }
 /* No changes needed to your CSS for this fix. It's already correct. */
 
+/* ==== VIDEO PLAYER CONTAINER (.video) ==== */
 /* ==== VIDEO PLAYER CONTAINER (.video) ==== */
 .video {
   position: relative;
@@ -3072,7 +3074,7 @@ body.dark-mode textarea {
 .commentt-profile {
   width: 100%;
   height: 40px;
-  background-color:transparent;
+  background-color: transparent;
   display: flex; /* ✅ Use flex to control child layout */
   align-items: center;
   gap: 10px; /* Space between items */
@@ -3102,6 +3104,7 @@ body.dark-mode textarea {
   padding: 0 10px;
   white-space: nowrap;
   /* Remove margin-left or keep small one if needed */
+    flex-shrink: 0;
 }
 
 .commentt-name span {
@@ -3118,23 +3121,22 @@ body.dark-mode textarea {
   color: #D3D3D3;
 }
 
-.timer
-{
-width: 20%;
-height: 30px;
-background-color:transparent;
-float:right;
-margin-right: 5px;
-margin-top: 0px;
-max-width: 180px; /* Prevents excessive width */
-display: flex;
-align-items: center;
-justify-content: center;
-overflow: hidden;
-text-overflow: ellipsis;
-white-space: nowrap;
-border-radius: 7px;
+.timer {
+  height: 30px;
+  min-width: 80px;
+  max-width: 180px;
 
+  margin-left: auto;   /* ✅ THIS PUSHES IT TO FAR RIGHT */
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: transparent;
+  border-radius: 7px;
+
+  padding: 0 10px;
+  overflow: hidden;
 }
 
 .timer span 
@@ -6150,10 +6152,12 @@ margin-left: 5px;
  
   .video-container
   {
-  border-style:none;
-    height: 85vh;  
-  max-height: 85vh;
-  }
+
+  height: 89vh;      /* 🔥 MUST be height, not min-height */
+  max-height: 90vh;
+    border-style:none; /* No border style */
+}
+
 
      /* 
 .containerr
