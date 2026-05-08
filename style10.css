@@ -1222,11 +1222,11 @@ flex-wrap: nowrap;
       width: 95vw;
       max-width: 800px;
       height: 90vh;
-      max-height: 85vh;
+      max-height: 95.5vh;
       overflow-y: auto;
       overflow-x: hidden;
     
-      margin: 7vh auto 1vh auto; /* Top: 5vh | Bottom: 1vh | Centered horizontally */
+      margin: 7.5vh auto 1vh auto; /* Top: 5vh | Bottom: 1vh | Centered horizontally */
     
       scrollbar-width: thin;
       scrollbar-color:#ff5722;
@@ -2019,11 +2019,12 @@ h2
   height: 1.9rem;
 }
 
-
+/*
 .signup-container
 {
-  margin: 7.5vh auto 0.5vh auto; /* Top: 5vh | Bottom: 1vh | Centered horizontally */
+  margin: 8.5vh auto 0.5vh auto; 
 }
+*/
 
 h2 {
 
