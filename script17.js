@@ -348,9 +348,9 @@ function removeCard(btn) {
 
 // Load transactions (dummy data)
 const transactions = [
-  { date: "2025-09-01", plan: "Premium", amount: "$9.99", status: "Paid" },
-  { date: "2025-08-01", plan: "Premium", amount: "$9.99", status: "Paid" },
-  { date: "2025-07-01", plan: "Premium", amount: "$9.99", status: "Paid" }
+  { date: "2025-09-01", plan: "Premium", amount: "$5.99", status: "Paid" },
+  { date: "2025-08-01", plan: "Premium", amount: "$5.99", status: "Paid" },
+  { date: "2025-07-01", plan: "Premium", amount: "$5.99", status: "Paid" }
 ];
 
 transactions.forEach(tx => {

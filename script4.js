@@ -296,7 +296,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const sharePopup = card.querySelector(".share-popup");
     const playlistPopup = card.querySelector(".playlist-popup");
-    const reportPopup = card.querySelector(".report-popup");
+    const reportPopup = card.querySelector(".report-popup");1
 
     // ==== OPTIONS button toggles its menu ====
     optionsBtn.addEventListener("click", (e) => {

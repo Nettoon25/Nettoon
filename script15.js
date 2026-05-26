@@ -436,6 +436,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  
+
   // ---- IMPORTANT: close popups only when clicking completely outside any card ----
   document.addEventListener("click", (e) => {
     // if the click is inside any .profilee, do nothing
@@ -528,38 +530,210 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+/* ================================================= */
+/* GLOBAL DELETE VIDEO SYSTEM */
+/* ================================================= */
 
-// Select all shorts
+const deletePopup = document.getElementById("deletePopup");
+const confirmDelete = document.getElementById("confirmDelete");
+const cancelDelete = document.getElementById("cancelDelete");
+
+let selectedCard = null;
+
+/* ========================= */
+/* OPEN DELETE POPUP */
+/* ========================= */
+
+document.querySelectorAll(".delete-trigger").forEach((btn) => {
+
+  btn.addEventListener("click", function () {
+
+    /* FIND PARENT VIDEO CARD */
+    selectedCard = this.closest(".kontainer");
+
+    /* SHOW DELETE POPUP */
+    deletePopup.classList.remove("hidden");
+
+  });
+
+});
+
+/* ========================= */
+/* CANCEL DELETE */
+/* ========================= */
+
+cancelDelete.addEventListener("click", () => {
+
+  deletePopup.classList.add("hidden");
+
+});
+
+/* ========================= */
+/* CONFIRM DELETE */
+/* ========================= */
+
+confirmDelete.addEventListener("click", () => {
+
+  if (selectedCard) {
+
+    selectedCard.remove();
+
+  }
+
+  deletePopup.classList.add("hidden");
+
+});
+let currentShort = null;
+
+/* ============================================ */
+/* SHORTS MENU SYSTEM */
+/* ============================================ */
+
 document.querySelectorAll('.shorts').forEach(short => {
 
-    const optionsBtn = short.querySelector('.options-btn');
-    const optionsMenu = short.querySelector('.options-menu');
+    const optionsBtn =
+    short.querySelector('.options-btn');
 
-    // Toggle menu when clicking the 3 dots
+    const optionsMenu =
+    short.querySelector('.options-menu');
+
+    const shareBtn =
+    short.querySelector('.open-share');
+
+    const deleteBtn =
+    short.querySelector('.open-delete');
+
+    /* ============================= */
+    /* OPEN / CLOSE OPTIONS MENU */
+    /* ============================= */
+
     optionsBtn.addEventListener('click', (e) => {
+
         e.stopPropagation();
 
-        // First close all other menus
-        document.querySelectorAll('.options-menu').forEach(menu => {
-            if (menu !== optionsMenu) menu.classList.add('hidden');
+        document.querySelectorAll('.options-menu')
+        .forEach(menu => {
+
+            if(menu !== optionsMenu){
+
+                menu.classList.add('hidden');
+            }
         });
 
-        // Toggle this one
         optionsMenu.classList.toggle('hidden');
+
     });
 
-    // Close menu if clicking inside short but NOT on the button
-    short.addEventListener('click', () => {
+    /* ============================= */
+    /* SHARE POPUP */
+    /* ============================= */
+
+    shareBtn.addEventListener('click', (e) => {
+
+        e.stopPropagation();
+
+        document
+        .getElementById('shortsSharePopup')
+        .classList.remove('hidden');
+
         optionsMenu.classList.add('hidden');
+
+    });
+
+    /* ============================= */
+    /* DELETE POPUP */
+    /* ============================= */
+
+    deleteBtn.addEventListener('click', (e) => {
+
+        e.stopPropagation();
+
+        currentShort = short;
+
+        document
+        .getElementById('shortsDeletePopup')
+        .classList.remove('hidden');
+
+        optionsMenu.classList.add('hidden');
+
     });
 
 });
 
-// Close menu when clicking ANYWHERE outside
-document.addEventListener('click', () => {
-    document.querySelectorAll('.options-menu').forEach(menu => {
-        menu.classList.add('hidden');
+/* ============================================ */
+/* SHARE POPUP CLOSE */
+/* ============================================ */
+
+const shortsShareClose =
+document.getElementById('shortsShareClose');
+
+if(shortsShareClose){
+
+    shortsShareClose.addEventListener('click', () => {
+
+        document
+        .getElementById('shortsSharePopup')
+        .classList.add('hidden');
+
     });
+
+}
+
+/* ============================================ */
+/* DELETE POPUP BUTTONS */
+/* ============================================ */
+
+const shortsCancelDelete =
+document.getElementById('shortsCancelDelete');
+
+const shortsConfirmDelete =
+document.getElementById('shortsConfirmDelete');
+
+if(shortsCancelDelete){
+
+    shortsCancelDelete.addEventListener('click', () => {
+
+        document
+        .getElementById('shortsDeletePopup')
+        .classList.add('hidden');
+
+    });
+
+}
+
+if(shortsConfirmDelete){
+
+    shortsConfirmDelete.addEventListener('click', () => {
+
+        if(currentShort){
+
+            currentShort.remove();
+
+        }
+
+        document
+        .getElementById('shortsDeletePopup')
+        .classList.add('hidden');
+
+        currentShort = null;
+
+    });
+
+}
+
+/* ============================================ */
+/* CLOSE MENUS WHEN CLICKING OUTSIDE */
+/* ============================================ */
+
+document.addEventListener('click', () => {
+
+    document.querySelectorAll('.options-menu')
+    .forEach(menu => {
+
+        menu.classList.add('hidden');
+
+    });
+
 });
 
 document.querySelectorAll('.videoo').forEach(videoContainer => {
