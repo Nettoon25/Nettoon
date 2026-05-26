@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=yes" />
+
+  <link rel="icon" href="icons/logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Nettoon.com</title>
+
+  <link rel="stylesheet" href="style18.css" />
+
+</head>
+
+<body>
+
+<main>
+
+
+<div id="socialMediaSettings" class="settings-section">
+  
+  <!-- Header -->
+  <div class="content-header">
+    Social Media Handles
+  </div>
+  <p class="settings-description">
+    Connect your creator identity across platforms. Your handles auto-save instantly and remain stored privately.
+  </p>
+
+  <!-- SOCIAL FORM -->
+  <form id="socialMediaForm" class="settings-form social-form">
+
+    <!-- Instagram -->
+    <div class="social-input-group">
+      <label for="instagramHandle">Instagram</label>
+      <div class="social-field">
+        <span class="social-prefix">@</span>
+        <input type="text" id="instagramHandle" placeholder="your_instagram">
+      </div>
+    </div>
+
+    <!-- TikTok -->
+    <div class="social-input-group">
+      <label for="tiktokHandle">TikTok</label>
+      <div class="social-field">
+        <span class="social-prefix">@</span>
+        <input type="text" id="tiktokHandle" placeholder="your_tiktok">
+      </div>
+    </div>
+
+    <!-- YouTube -->
+    <div class="social-input-group">
+      <label for="youtubeHandle">YouTube</label>
+      <div class="social-field">
+        <span class="social-prefix">@</span>
+        <input type="text" id="youtubeHandle" placeholder="your_channel">
+      </div>
+    </div>
+
+    <!-- X -->
+    <div class="social-input-group">
+      <label for="xHandle">X (Twitter)</label>
+      <div class="social-field">
+        <span class="social-prefix">@</span>
+        <input type="text" id="xHandle" placeholder="your_x_handle">
+      </div>
+    </div>
+
+    <!-- Facebook -->
+    <div class="social-input-group">
+      <label for="facebookHandle">Facebook</label>
+      <div class="social-field">
+        <input type="text" id="facebookHandle" placeholder="facebook profile link or username">
+      </div>
+    </div>
+
+    <!-- LinkedIn -->
+    <div class="social-input-group">
+      <label for="linkedinHandle">LinkedIn</label>
+      <div class="social-field">
+        <input type="text" id="linkedinHandle" placeholder="linkedin profile">
+      </div>
+    </div>
+
+    <!-- Auto Save Status -->
+    <div class="auto-save-status">
+      ✔ Changes auto-save instantly
+    </div>
+
+  </form>
+
+  <!-- HIDDEN SAVED CONTAINER -->
+  <div id="savedSocialContainer" class="saved-social-container hidden">
+    <h4>Saved Social Handles</h4>
+    <ul id="savedSocialList"></ul>
+  </div>
+
+</div>
+
+ <script src="script18.js"></script>
+
+           </main>
+          </body>
+          </html>
