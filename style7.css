@@ -1415,12 +1415,6 @@ body.dark-mode
 }
 
 
-/* Move the video to the left when comments are shown */
-.shorts.show-comments .short-video {
-  margin-right: 300px; /* Shifts the video slightly to the left */
-}
-
-
 /* Video element inside .short-video */
 .short-video video {
   width: 100%;
@@ -2235,6 +2229,10 @@ z-index: 0;
   margin-bottom: 1rem;
 }
 
+/* Move the video to the left when comments are shown */
+.shorts.show-comments .short-video {
+  margin-right: 300px; /* Shifts the video slightly to the left */
+}
 
 .comment-container {
   transform: translateX(100%);

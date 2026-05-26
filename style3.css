@@ -6421,25 +6421,29 @@ margin-left: 5px;
 
   height: 90vh;      /* 🔥 MUST be height, not min-height */
   max-height: 90vh;
-    border-style:none; /* No border style */
+  border-style:none;
 }
 
 
-/*
+
 .containerr
 {
   border-style:none;
 }
 
+
+
 .container-2
 {
   border-style:none;
-  height: auto;
-  max-height:605px;
+
+
 }
-*/
 
-
+.card
+{
+  background-color: transparent;
+}
 
 /*
 .pichaa {
@@ -6479,7 +6483,7 @@ margin-left: 5px;
     position: absolute;
   width: 100%;
   height: 30px;
-    background-color:none;
+  background-color: transparent;;
 
   }
 
@@ -6492,9 +6496,9 @@ font-size: 1rem;
   .channel {
     width: clamp(11.375rem, 32%, 20.75rem);
     height: 100%; 
-         background-color:transparent;
+     background-color: transparent;
    border-style:none;
-    margin-top: 0.8rem; 
+    margin-top: 0.65rem; 
     margin-bottom: 0px;
     float: left;
     margin-left: 0rem;
@@ -6510,7 +6514,13 @@ font-size: 1rem;
   {
     position: relative;
     margin-top: 0rem; 
+  background-color: transparent;
+  }
+
+  .profile-name
+  {
     background-color: transparent;
+       margin-left: 1rem;
   }
   
   .profile-name span  {
@@ -6519,8 +6529,8 @@ font-size: 1rem;
   
 .followers
 {
-   background-color: transparent;
-      margin-left: 0rem;
+  background-color: transparent;
+      margin-left: 5rem;
 }  
 
   .followers span  {
@@ -6530,7 +6540,7 @@ font-size: 1rem;
   .Tablee
   {
  
-   background-color: transparent;
+  background-color: transparent;
    border-style:none;
 
   }
@@ -6539,7 +6549,7 @@ font-size: 1rem;
   .series
   {
      height: 14rem;
-
+margin-top: 3.3rem;
   border-style:none;
   }
   

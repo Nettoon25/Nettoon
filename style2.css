@@ -1396,7 +1396,7 @@ body.dark-mode
 .captionn h3 {
   font-weight: bold;
   font-size: clamp(1.2rem, 1.1vw, 1.5rem);
-  color: black;
+  color: #000000;
   text-align: center; /* Keep text centered */
   white-space: nowrap; /* Prevent text wrapping */
   overflow: hidden; /* Hide overflow */
@@ -4431,7 +4431,7 @@ body {
 
 /* Dark Mode Styles */
 .dark-mode {
-  background-color: #121212; /* Black background for Dark Mode */
+  background-color:   color: #000000; /* Black background for Dark Mode */
   color: white; /* White text for Dark Mode */
 }
 

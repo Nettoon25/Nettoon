@@ -2668,9 +2668,9 @@ margin-top:5rem;
   /* Spacing & Appearance */
   margin-block: var(--spacing-xs); /* Top and bottom margin (16px) */
   margin-inline-start: var(--spacing-xs); /* **Adjusted left margin (4px) for slight offset** */
-  border-radius: var(--border-radius-md); /* Consistent medium rounded corners (12px) */
+  border-radius:7px; /* Consistent medium rounded corners (12px) */
   background-color:transparent; /* Transparent background */
-  overflow: hidden;      /* Hides any content that overflows the rounded corners */
+overflow: visible;    /* Hides any content that overflows the rounded corners */
   /* NO TRANSITIONS as per user request */
 right: 1.3rem;
 border-style:none;
@@ -2688,9 +2688,14 @@ border-style:none;
   width: 100%;           /* Ensures the video fills the entire width of its parent */
   height: 100%;          /* Ensures the video fills the entire height of its parent */
   object-fit: cover;     /* Ensures the video covers the area without distortion, cropping if necessary */
-  border-radius: inherit; /* Inherits the border-radius from its parent `.shorts` for seamless corners */
+  border-radius: 7px; /* Inherits the border-radius from its parent `.shorts` for seamless corners */
   display: block;        /* Ensures the video behaves as a block element */
   /* NO TRANSITIONS as per user request */
+}
+
+.short-video {
+  border-radius: 7px;
+  overflow: hidden;
 }
 
 /* ==== PLAY OVERLAY BUTTON (.play-overlay) ==== */
@@ -2832,6 +2837,14 @@ border-style:none;
   pointer-events: auto;
 }
 
+.options-menu{
+   z-index: 9999;
+}
+
+.child-menu{
+   z-index: 10000;
+}
+
 /* OPTION ITEM */
 .option-item {
   padding: 10px 14px;
@@ -2847,98 +2860,156 @@ border-style:none;
   background: rgba(255, 255, 255, 0.12);
 }
 
-.menu-icon {
-  width: 18px;
-  height: 18px;
+.open-share,
+.open-delete {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+/* ===================================================== */
+/* SHORTS SHARE POPUP */
+/* ===================================================== */
 
-  /* 🔥 Make icons visible on dark background */
-  filter: invert(1) brightness(1.2);
+.shorts-share-popup {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 320px;
+
+  background: #111111;
+  border: 1px solid #2b2b2b;
+  border-radius: 14px;
+
+  z-index: 999999;
+
+  box-shadow: 0 0 25px rgba(0,0,0,0.45);
+
+  padding: 14px;
 }
 
-/* CHILD MENU (SUBMENU) */
-.child-menu {
-  position: absolute;
-  top: 0;
-  left: 100%;
-  width: 160px;
-  background: #444;
-  padding: 8px 0;
-  border-radius: 8px;
-  border: 1px solid #555;
-  opacity: 0;
-  transform: translateX(10px);
-  pointer-events: none;
-  transition: 0.2s ease-in-out;
-  z-index: 20;
+.hidden {
+  display: none !important;
 }
 
-/* SHOW SUBMENU ON HOVER */
-.has-children:hover > .child-menu {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
+.shorts-share-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 600;
+
+  margin-bottom: 14px;
 }
 
-/* CHILD ITEMS */
-.child-item {
-  padding: 8px 12px;
-  color: #fff;
+.shorts-share-close {
   cursor: pointer;
-  white-space: nowrap;
+  font-size: 18px;
+  color: #bbbbbb;
 }
 
-.child-item:hover {
-  background: rgba(255, 255, 255, 0.2);
+.shorts-share-scroll {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
 }
 
+.shorts-share-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
 
-/* ⭐ Smaller text across all menu items */
-.option-item,
-.child-item,
-.share-panel,
-.share-panel-item {
-    font-size: 12px !important;
+  min-width: 60px;
+
+  cursor: pointer;
 }
 
-/* ⭐ Reduce main menu icons */
-.menu-icon {
-    width: 14px !important;
-    height: 14px !important;
+.shorts-share-item img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
 }
 
-/* ⭐ 3-dots button smaller */
-.options-btn {
-    width: 18px !important;
-    height: 18px !important;
+.shorts-share-item span {
+  color: #f5f5f5;
+  font-size: 11px;
 }
 
-/* ⭐ Share panel header text smaller */
-.share-panel-header {
-    font-size: 13px !important;
+/* ===================================================== */
+/* SHORTS DELETE POPUP */
+/* ===================================================== */
+
+.shorts-delete-popup {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.65);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999999;
 }
 
-/* ⭐ Icons inside share panel */
-.share-icon {
-    width: 12px !important;
-    height: 12px !important;
+.shorts-delete-box {
+  width: 320px;
+
+  background: #111111;
+
+  border-radius: 16px;
+
+  padding: 22px;
+
+  border: 1px solid #2b2b2b;
+
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
 }
 
-/* ⭐ Child menu size reduction */
-.child-item {
-    padding: 6px 10px !important;
+.shorts-delete-box h3 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
-/* ⭐ Main menu item padding slightly smaller */
-.option-item {
-    padding: 8px 12px !important;
+.shorts-delete-box p {
+  color: #bbbbbb;
+  font-size: 13px;
+  line-height: 1.5;
 }
 
-/* ⭐ Submenu width smaller */
-.child-menu {
-    width: 130px !important;
+.shorts-delete-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  margin-top: 20px;
 }
 
+.shorts-cancel-delete,
+.shorts-confirm-delete {
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
 
+  cursor: pointer;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.shorts-cancel-delete {
+  background: #2b2b2b;
+  color: #ffffff;
+}
+
+.shorts-confirm-delete {
+  background: #ff2e2e;
+  color: #ffffff;
+}
 
 /* ==== INDIVIDUAL VIDEO CONTAINERS (.kontainer) ==== */
 /* These containers are sized for a higher density of videos per row, ideal for a full uploads gallery. */
@@ -3391,132 +3462,96 @@ border-style:none;
   border: 1px solid #777;
 }
 
+/* ================= DELETE POPUP ================= */
 
-.report-popup {
-  position: absolute;
-  top: 20px;
-  left:0.5rem;
-  width: 300px;
-  background: #f0f0f0;
-  border-radius:7px;
-  padding: 20px;
-  box-shadow: 0 8px 25px rgba(97, 77, 77, 0.4);
-  z-index: 300;
-  height: auto;      /* fixed consistent height */
-  overflow: hidden;   /* prevents scrollbars */
-  box-sizing: border-box;  /* prevents padding from increasing height */
+.delete-popup {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  backdrop-filter: blur(4px);
 }
 
+.delete-box {
+  width: 90%;
+  max-width: 360px;
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  border-radius: 18px;
+  padding: 24px;
+  animation: popupFade 0.25s ease;
+}
 
-.dark-mode .report-popup {
-  background: #222;
+.delete-box h3 {
   color: white;
+  font-size: 22px;
+  margin-bottom: 12px;
 }
 
-/* Header */
-.report-header {
-  font-size: 17px;
+.delete-box p {
+  color: #bdbdbd;
+  font-size: 15px;
+  line-height: 1.5;
+  margin-bottom: 22px;
+}
+
+.delete-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.cancel-delete,
+.confirm-delete {
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
   font-weight: 600;
-  margin-bottom: 15px;
-  position: relative;
+  transition: 0.2s ease;
 }
 
-/* Close button */
-.report-close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 4px;
-  border-radius: 4px;
-}
-.report-close:hover {
-  background: rgba(255,255,255,0.1);
-}
-
-/* === CHECKBOX ITEMS === */
-.report-option {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 0;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.report-option input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-/* Bottom buttons */
-.report-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-
-.report-cancel {
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
-  background: #333;
+.cancel-delete {
+  background: #2b2b2b;
   color: white;
-  border-radius: 7px;
-  padding: 5px;
 }
 
-.report-submit {
-  background-color: #f0f0f0;
-  color:black;
-  font-size: 14px;
-  border: none;
-  cursor: not-allowed;
-  transition: 0.2s;
-  border-radius: 7px;
-  padding: 5px;
+.confirm-delete {
+  background: #ff2e2e;
+  color: white;
 }
 
-.dark-mode .report-submit {
-  background-color: #333;
-  color:white;
+.confirm-delete:hover {
+  background: #ff0000;
 }
 
-/* === ACTIVE REPORT BUTTON === */
-.report-submit.active {
-  color:red;     /* YouTube blue */
-  cursor: pointer;
-  opacity: 1;
+.cancel-delete:hover {
+  background: #3a3a3a;
 }
 
-/* Force checkboxes to appear */
-.report-option input[type="checkbox"] {
-  appearance: auto !important;
-  -webkit-appearance: auto !important;
-  -moz-appearance: auto !important;
-
-  width: 18px !important;
-  height: 18px !important;
-
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  position: relative;
-  z-index: 10;
-  opacity: 1 !important;
+.hidden {
+  display: none;
 }
 
-/* Make sure label behaves correctly */
-.report-option {
-  display: flex !important;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 0;
-  font-size: 15px;
-  cursor: pointer;
+.edit-link {
+  text-decoration: none;
+  color: inherit;
 }
 
+@keyframes popupFade {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
 
 /* ==== CAPTION CONTAINER (.caption) ==== */

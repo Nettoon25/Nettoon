@@ -1187,7 +1187,8 @@ height: auto;
     align-items: center;   /* Vertically centers pills within the bar */
 
     /* Appearance & Spacing */
-  background-color: var(--color-bg-light); /* Default background color for light mode */    padding-inline: var(--spacing-xs); /* Horizontal padding (16px) inside the bar */
+  background-color: var(--color-bg-light); /* Default background color for light mode */ 
+     padding-inline: var(--spacing-xs); /* Horizontal padding (16px) inside the bar */
     gap: var(--spacing-md-half); /* **Increased spacing (15px) between individual category pills** */
 
     /* Scrolling for Horizontal Overflow */
@@ -2498,6 +2499,19 @@ border-radius: 7px;
 /* Dark mode adjustment for profile name text */
 .dark-mode .profilee-name span {
   color: var(--color-text-light-contrast); /* Lighter text color for dark mode */
+}
+
+.dark-mode .suggestionss{
+  background-color: #121212; 
+  }
+
+
+.dark-mode .rectanglee{
+  background-color: #2a2d2f;
+  }
+
+.dark-mode .rectanglee span{
+  color:#FFFFFF;
 }
 
 
