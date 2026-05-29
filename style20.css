@@ -570,6 +570,7 @@ body.dark-mode .search input[type="search"]::placeholder {
   margin-top: 0;
   margin-left: 1vw;
   border-radius: 50%;
+  display:none;
 }
 
 .upload img {
@@ -598,6 +599,7 @@ opacity: 1;
   justify-content: center;
   cursor: pointer;
   margin-right: 2rem;
+    display:none;
 }
 
 .Notifications img {
@@ -964,7 +966,7 @@ flex-wrap: nowrap;
   height: 3vw;
   background-color: transparent;
   margin-top: 0.3125rem; /* 5px */
-  margin-right: 1rem;     /* 16px */
+  margin-right: 2rem;     /* 16px */
   margin-bottom: 0.1875rem; /* 3px */
   display: flex;
   align-items: center;
@@ -1245,7 +1247,7 @@ flex-wrap: nowrap;
   width: 100%;
   height: 30px;
 
-  display: flex;
+  display:none;
   align-items: center;
 
   background-color: #f0f0f0;
@@ -1283,29 +1285,28 @@ flex-wrap: nowrap;
 /* ==== VIDEO CONTAINER (.video-container) ==== */
 /* This is the main wrapper for your video player and related content. */
 .video-container {
-  position: relative; /* Allows for absolute positioning of child elements within it */
-  display: flex; /* Enables a flexible layout */
-  flex-direction: row; /* Arranges items in a row (side-by-side) by default */
-  justify-content: space-between; /* Distributes items to the left and right edges */
-  align-items: stretch;
-  width:100%; /* Occupies the remaining width after considering the sidebar and gap */
-  height: 80vh;      /* 🔥 MUST be height, not min-height */
-  max-height: 80vh;
-  background-color: transparent;
-  border-radius: var(--border-radius-sm); /* Consistent rounding (7px converted to rem) */
-  border-style:dotted; /* No border style */
+  position: relative;
 
-  margin-top: 50px; /* Maintains the explicit 60px top margin */
-  
-  padding: 0; /* Ensures no general internal padding */
-  /* REDUCED: Top and bottom padding set to 5px */
-  padding-top: var(--spacing-xxs); /* 5px converted to rem */
-  padding-bottom: var(--spacing-xxs); /* 5px converted to rem */
-  
-  overflow-y: hidden; /* Hides vertical overflow */
-  overflow-x: hidden; /* Hides horizontal overflow */
-  gap: var(--spacing-md); /* Space between main elements inside (1rem approx 16px) */
+  width: 100%;
+height: 82vh; /* 🔥 MUST be height, not min-height */ 
+max-height: 82vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+margin-top: 4rem;
+  padding-top: 0rem;
+  padding-inline: 1rem;
+  background-color: transparent;
+  overflow-x: hidden;
+  border-style: none;
 }
+
+.video-container{
+   display:flex;
+   align-items:flex-start;
+   gap:1rem;
+}
+
 
 /* Dark Mode for video-container */
 .dark-mode .video-container {
@@ -1324,30 +1325,29 @@ flex-wrap: nowrap;
 }
 /* ==== MAIN VIDEO CONTENT BLOCK (.containerr) - CORRECTED CLASS NAME ==== */
 /* This div wraps the profile, caption, video player, and interaction section. */
-.containerr { /* CORRECTED: Used 'containerr' as per your HTML */
-  /* Using clamp for responsive width: min 18.75rem (300px), flexible 58% of parent, max 45rem (720px) or more. */
-  width: clamp(18.75rem, 60vw, 45rem); 
- height: 100%;
-  max-height: 100%;
-  align-self: stretch;
-  background-color: var(--color-bg-light); /* Light background for the video card itself */
-  border-radius: 0.4375rem;
-  box-shadow: var(--color-shadow); /* Subtle shadow for depth */
-  border: none; /* No border style */
-  display: flex;
-  margin-left:3.5rem; /* Keeping original margin-left */
-  flex-direction: column; /* Stack profile, caption, video, section vertically */
-    justify-content: space-between; /* 🔑 balances content vertically */
-  flex-grow: 1; /* Allows it to take up available space in the .video-container row (on desktop) */
-    border-style:ridge; /* No border style */
-  padding-bottom: 0;
-  padding-top: 0;
-  background-color: transparent;
-}
+.containerr {
+  position: relative;
 
+  width: min(100%, 800px);
+
+  display: flex;
+  flex-direction: column;
+margin-top: 0rem;
+  background-color: transparent;
+  margin-left:3rem; /* Keeping original margin-left */
+  border-radius: 10px;
+border-style:none;
+  overflow: hidden;
+}
 /* Dark Mode for containerr */
 .dark-mode .containerr {
   background-color:transparent; /* Darker card background */
+}
+
+.containerr{
+    width:min(100%, 750px);
+
+    flex-shrink:0;
 }
 
 /* ==== PROFILE SECTION (.profillee) ==== */
@@ -1490,12 +1490,12 @@ flex-wrap: nowrap;
   width: 100%; /* Spans full width of its parent */
   max-width: 100%; /* Keeps your specified max-width */
   
-  display:none; /* Enables a flexible, horizontal layout for its child elements */
+  display:flex; /* Enables a flexible, horizontal layout for its child elements */
   flex-wrap: nowrap; /* Ensures items stay in a single row, preventing wrapping */
   justify-content: center; /* Horizontally centers the items within this section */
   align-items: center; /* Vertically centers the items within this section */
   
-  gap:0.7em; /* Responsive spacing between elements using a variable (0.5em approx 8px) */
+  gap:0.3em; /* Responsive spacing between elements using a variable (0.5em approx 8px) */
   margin-block: var(--spacing-xxxs); /* Responsive vertical margin (1px approx 0.0625rem) for subtle spacing */
   
   border-radius: 0.4375rem; /* Uses your specified rem value for consistency */
@@ -1516,7 +1516,7 @@ flex-wrap: nowrap;
     position: relative;    /* Allows for absolute positioning of child elements (e.g., badges) */
     display: flex;         /* Uses flexbox to center content (icon and text) within each item */
     align-items: center;   /* Vertically centers content */
-    justify-content: center; /* Horizontally centers content */
+justify-content: space-evenly;
     
     /* Sizing & Spacing */
     flex: 1.5;             /* Distributes available space among these items based on their flex factor */
@@ -1563,6 +1563,12 @@ flex-wrap: nowrap;
 .hidden {
   display: none !important; /* Forces element to be hidden, overriding other display properties */
 }
+
+.sectionn span {
+  font-size: 0.85rem;
+}
+
+
 /* ============================= */
 /* LIGHT MODE HOVER EFFECTS */
 /* ============================= */
@@ -1690,35 +1696,54 @@ img {
   display: block; /* Prevents extra space below images */
 }
 
+.sectionn img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
 /* Specific flex adjustments for .viewss, .follow, and .timee */
 /* These override the general 'flex: 1.5' to give them more space. */
 .viewss {
-  flex: 3; 
-  margin-left: 0.5rem;
-}
+  flex: 5;
+  margin-left: 0rem;
 
-.following {
-  flex: 1.8; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.1rem;
+
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .commentss {
-  flex: 1.8; 
+  flex: 1;
 }
 
 .likess {
-  flex: 1.8; 
+  flex: 1;
 }
 
 .dislikee {
-  flex: 1.8; 
+  flex: 1;
+}
+
+.timee {
+  flex: 1;
+}
+
+.following {
+  flex: 1;
 }
 
 .follow {
-  flex: 2.8;
-} 
+  flex: 1;
+}
 
-.timee {
-  flex: 3;
+.option {
+  flex: 0.8;
 }
 
 /* Responsive icon styling for all interactive elements */
@@ -1740,6 +1765,10 @@ img {
   margin-top: var(--spacing-xxxs); /* Responsive top margin (2px approx 0.125rem) */
 }
 
+/* Specific margin adjustment for .commentss img */
+.viewss img {
+  margin-left: 1rem}
+
 /* Label styling for text within interactive elements */
 .viewss span,
 .commentss span,
@@ -1757,6 +1786,9 @@ img {
   text-align: center; /* Centers the text */
   margin: 0; /* Removes default margins */
 }
+
+.viewss  span {
+  margin-right: 1rem}
 
 /* Dark mode for label text */
 body.dark-mode .viewss span,
@@ -2247,93 +2279,1094 @@ body.dark-mode .follow span {
 
 
 
-.container-2 {
-  position: relative; /* Essential for positioning child elements within this container */
-  
-  /* Flexible and Responsive Sizing */
-  flex-basis: 38%; /* Provides a base width, allowing it to grow or shrink */
-  max-width: clamp(20rem, 37vw, 40rem); /* Refined responsive width using clamp: ensures a min width (20rem), scales with viewport (37vw), and has a max width (40rem) for very large screens. This prevents distortion and ensures optimal use of space. */
+/* ========================================================================== */
+/* COMMENTS SECTION INTERACTION STYLES (JS-controlled)                        */
+/* These classes define how elements shift when comments are shown.           */
+/* ========================================================================== */
+
+.comment-container {
+
+  display: flex;
+  flex-direction: column;
+
+  width: 450px;
+  min-width: 450px;
+
+  height: 100%;
+
+  margin-top: 0.6rem;
+
+  background-color: transparent;
+
+  border-radius: 0.75rem;
+  overflow-y: auto;
+  overflow: hidden;
+
+  position: relative;
+
+  flex-shrink: 0;
+
+}
+
+.comment-container{
+    display: none;
+}
+
+.comment-container.active{
+    display: flex;
+}
+
+
+/* Dark mode adjustments */
+.dark-mode .comment-container {
+  border-color: gray;
+}
+
+/* Scrollbar styling */
+.comment-container::-webkit-scrollbar {
+  width: 0.375rem;
+}
+
+.comment-container::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 0.625rem;
+}
+/* ========================================================================== */
+/* COMMENT HEADER (.comments)                                                 */
+/* Styles for the "0 Comments" section at the top of the comment panel.       */
+/* ========================================================================== */
+
+/* ========================================================================== */
+/* COMMENT HEADER (.comments)                                                 */
+/* Styles for the "0 Comments" section at the top of the comment panel.       */
+/* ========================================================================== */
+
+.comments {
+  width: 100%;
+  height: 3rem; /* Fixed height, 48px */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: var(--color-bg-light); /* Using light background variable */
+  color: var(--color-text-dark); /* Using dark text variable */
+  border-radius: var(--border-radius-md); /* Using your 0.5rem variable */
+
+  position: sticky; /* Keeps it at the top when scrolling comments */
+  top: 0;
+  z-index: 2; /* Ensures it stays above scrolling content */
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  flex-shrink: 0;
+  box-shadow: 0 var(--spacing-xxs) var(--spacing-xs) var(--color-shadow-light); /* Using shadow variable */
+  backdrop-filter: blur(2px); /* Optional: adds subtle background glass effect */
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+
+.comments label {
+  font-size: var(--font-size-sm); /* Using your 0.9rem (approx. 14.4px) font size variable */
+  color: var(--color-text-dark); /* Using dark text variable */
+  margin-left: var(--spacing-xs); /* Using your 0.625rem (10px) variable */
+}
+
+/* Dark mode support */
+.dark-mode .comments {
+  background-color: var(--color-dark-mode-bg-secondary); /* Using dark mode background variable */
+  color: var(--color-dark-mode-text-primary); /* Using dark mode text variable */
+  border: none;
+}
+
+.dark-mode .comments label {
+  color: var(--color-dark-mode-text-primary); /* Using dark mode text variable */
+}
+
+
+.comments-list {
+  width: 100%;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0rem 0;
+  z-index: 0;
+  background-color:transparent; /* Light background for better readability */
+  border-radius: 0px;
+  /*scrollbar-width: none; 
+  -ms-overflow-style: none;  /* IE 10+ */
+    /* Fallback scrollbar styling (Firefox) */
+    scrollbar-width: thin; /* Thin scrollbar for Firefox */
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Hide scrollbar for WebKit */
+.comments-list::-webkit-scrollbar {
+  display: none;
+}
+
+/* ========================================================================== */
+/* INDIVIDUAL COMMENT CARD (.card)                                            */
+/* Styles for each individual comment entry within the comments list.         */
+/* ========================================================================== */
+
+.card {
+  position: relative;
+  width: 100%;
+  margin: 8px auto;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: var(--color-bg-light);
+
+  height: auto;
+  min-height: fit-content;
+
+  overflow: visible;
+}
+
+/* ========================================================================== */
+/* COMMENT PROFILE INFO (.profilee)                                           */
+/* Styles for the user's profile within a comment card.                       */
+/* ========================================================================== */
+
+.profilee {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs); /* Using 0.625rem variable */
+  padding: 0 var(--spacing-xs); /* Using 0.625rem variable */
+  height: 2.125rem; /* Fixed height for the profile line */
+  background-color:transparent; /* Default background color for light mode */
+  border-radius:0px; /* Consistent small rounded corners (7px) */
+  position: relative;
+  z-index: 1; /* Ensures profile elements are above other card content if layered */
+  width: auto; /* Allows width to be determined by content and flex container */
+  max-width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 5px;
+}
+
+/* Image: fixed size for comment profile pictures */
+.profilee img {
+  width: 2rem; /* 40px */
+  height: 2rem; /* 40px */
+  object-fit: cover;
+  border-radius: var(--border-radius-full); /* Perfectly round */
+  flex-shrink: 0; /* Prevents image from shrinking */
+  margin-top: 8px;
+}
+
+/* Dark mode adjustment for profile image */
+.dark-mode .profilee img {
+  filter: invert(1);
+}
+
+/* Name: grows to fill available space but constrained */
+.profilee span {
+  font-size: var(--font-size-xs); /* Using 0.875rem variable (~14px) */
+  font-weight: var(--font-weight-semibold); /* Using 600 weight variable */
+  color: var(--color-text-dark); /* Specific dark text color for contrast */
+  white-space: nowrap;
+  overflow: hidden;
+  background-color:transparent; /* Default background color for light mode */
+  text-overflow: ellipsis;
+  min-width: 0; /* Allows text to shrink below its content size */
+  flex-grow: 1; /* Allows text to grow */
+  max-width: 100%; /* Ensures it doesn't overflow its parent */
+}
+
+/* Dark mode adjustment for profile name */
+.dark-mode .profilee span {
+  color: var(--color-dark-mode-text-primary); /* Lighter text for dark mode */
+}
+
+/* ========================================================================== */
+/* TIMESTAMP WITHIN COMMENT CARD (.time)                                      */
+/* Styles for the timestamp (e.g., "0 seconds ago") within a comment.         */
+/* Note: This is different from the main video's .timee for clarity.         */
+/* ========================================================================== */
+
+.time { /* This class name might conflict with a global .time, consider .comment-timestamp */
+  width: auto; /* Allow content to dictate width */
+  min-width: 30%;
+  max-width: 35%;
+  height: 1.875rem; /* 30px */
+  padding: 0 var(--spacing-xs); /* Using 0.625rem (10px) variable */
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content within time box */
+  white-space: nowrap;
+  font-size: 0.75rem;
+  color: var(--color-text-light); /* Assuming it's overlaid on something dark */
+  flex-shrink: 0; /* Prevents shrinking */
+  border-radius: var(--border-radius-sm); /* Using 0.375rem variable */
+  margin: var(--spacing-xxs) auto 0; /* Using 0.25rem (4px) top margin, centered */
+}
+
+.time span {
+  margin: 0; /* Reset margin */
+  font-size: var(--font-size-xxs); /* Using 0.625rem (~10px) variable */
+  font-weight: var(--font-weight-medium); /* Using 500 weight variable */
+  color: var(--color-text-dark); /* Dark text for light mode */
+}
+
+/* Dark mode adjustment for time span */
+.dark-mode .time span {
+  color: var(--color-dark-mode-text-primary); /* Light text for dark mode */
+}
+/* ========================================================================== */
+/* COMMENT TEXT / CAPTION (.captionn)                                         */
+/* Styles for the actual text content of a comment.                           */
+/* ========================================================================== */
+
+.caption {
+  position: relative;
+  margin-top: 0.3125rem;
+
+  width: 100%;
+  max-width: 100%;
+  min-height: 4.375rem;
+
+  padding: 0 0.3rem 0.3rem 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  border-radius: 0;
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-base);
+
+  color: var(--color-text-dark);
+  background-color: transparent;
+
+  box-sizing: border-box;
 
   overflow-y: auto;
-  align-self: stretch; /* 🔑 ensure it fills video-container height */
-   align-content: flex-start;   /* 🔑 stack children from TOP */
-  align-items: flex-start;     /* 🔑 prevent vertical centering */
-  height: 100%;
-  /* Layout and Flow */
-  float: none; /* Maintain float for its specific layout purpose, though often replaced by flex/grid in modern layouts, adhering to "don't tweak" for structural changes. */
-  margin-top: 0; /* No top margin */
-  margin-right: 0%; /* Keeps your specified right margin */
+  overflow-x: hidden;
+
+  overflow-wrap: break-word;
+  word-break: break-word;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.25) transparent;
+}
+.caption span {
+  color: inherit; /* Inherits color from the parent .captionn */
+}
+
+/* Dark mode adjustment for comment text color */
+.dark-mode .caption {
+  color: var(--color-dark-mode-text-primary); /* Lighter text for dark mode */
+}
+
+.caption::-webkit-scrollbar {
+  width: 4px;
+}
+
+.caption::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.25);
+  border-radius: 20px;
+}
+
+
+
+/* ==================================y======================================== */
+/* COMMENT ENGAGEMENT SECTION (.section)                                      */
+/* Container for views, likes, dislikes, comments, and shares within a comment card. */
+/* ========================================================================== */
+
+.section {
+  display: flex;
+  justify-content: space-around; /* Distributes items evenly with space around them */
+  flex-wrap: wrap; /* Allows items to wrap to the next line on smaller screens */
+  align-items: center;
+  gap: var(--spacing-xs); /* Using 0.5rem (8px) variable for gap */
+  width: 100%;
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+  border-radius: var(--border-radius-custom-md); /* Using 0.75rem (12px) variable */
+  padding: 0.1875rem; /* 3px padding, as per input */
+}
+
+/* ========================================================================== */
+/* INDIVIDUAL ENGAGEMENT BUTTONS (Views, Likes, Dislikes, Comments, Shares)   */
+/* Styles applied to .viewss, .likess, .dislikee, .commentss, .sharee.        */
+/* ========================================================================== */
+
+.viewss,
+.likess,
+.dislikee,
+.commentss,
+.reply,
+.shareee {
+  flex: 1 1 5%; /* Flexible sizing for items within the section */
+  min-width: 4rem; /* 80px minimum width */
+  max-width: 5rem; /* 90px maximum width */
+  height: 1.875rem; /* 30px fixed height */
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  overflow: hidden;
+  gap: 0.3125rem; /* 5px gap between icon and text */
+  padding: 0;
+  cursor: pointer;
+  transition: background-color var(--transition-duration-fast) var(--transition-timing-ease); /* Smooth transition for hover */
+}
+
+/* Hover effects for engagement buttons */
+.viewss:hover,
+.likess:hover,
+.dislikee:hover,
+.commentss:hover,
+.reply:hover,
+.shareee:hover {
+  background-color: gray;
+}
+
+/* Dark mode styling for engagement buttons */
+.dark-mode .viewss,
+.dark-mode .likess,
+.dark-mode .dislikee,
+.dark-mode .commentss,
+.dark-mode .reply,
+.dark-mode .shareee {
+  background-color: #2a2d2f;
+}
+
+/* Dark mode hover for engagement buttons */
+.dark-mode .viewss:hover,
+.dark-mode .likess:hover,
+.dark-mode .dislikee:hover,
+.dark-mode .commentss:hover,
+.dark-mode .reply:hover,
+.dark-mode .shareee:hover {
+  background-color: gray;
+}
+
+/* ========================================================================== */
+/* ICONS FOR ENGAGEMENT BUTTONS (.like-icon-sec, .dislike-icon-sec, etc.)     */
+/* ========================================================================== */
+
+/* Specific icons for the second segment (like/dislike within comments) */
+.like-icon-sec,
+.dislike-icon-sec {
+  width: 1.25rem; /* 20px */
+  height: 1.25rem; /* 20px */
+  display: inline-block;
+  object-fit: contain;
+  transition: opacity var(--transition-duration-normal) var(--transition-timing-ease); /* Using transition variables */
+  cursor: pointer; /* Cursor indicates interactivity */
+}
+
+/* General image styling for all engagement buttons */
+.viewss img,
+.likess img,
+.dislikee img,
+.commentss img,
+.reply img,
+.shareee img {
+  width: 1.5rem; /* 24px */
+  height: 1.5rem; /* 24px */
+  object-fit: contain;
+}
+
+/* Dark mode adjustment for all engagement button images */
+.dark-mode .viewss img,
+.dark-mode .likess img,
+.dark-mode .dislikee img,
+.dark-mode .commentss img,
+.dark-mode .reply img,
+.dark-mode .shareee img {
+  filter: invert(1); /* Inverts colors for dark mode visibility */
+}
+
+/* ========================================================================== */
+/* TEXT/COUNTS FOR ENGAGEMENT BUTTONS (span elements)                         */
+/* ========================================================================== */
+
+.viewss span,
+.likess span,
+.dislikee span,
+.commentss span,
+.reply span,
+.shareee span  {
+  font-size: 0.84375rem; /* 13.5px, exact value as per input */
+  color: var(--color-text-dark); /* Using dark text color variable */
+}
+
+/* Dark mode adjustment for all engagement button text/counts */
+.dark-mode .viewss span,
+.dark-mode .likess span,
+.dark-mode .dislikee span,
+.dark-mode .commentss span,
+.dark-mode .shareee span,
+.dark-mode .reply span {
+  color: var(--color-dark-mode-text-primary); /* Lighter text for dark mode */
+}
+
+/* ========================================================================== */
+/* UTILITY CLASS                                                              */
+/* ========================================================================== */
+
+.hidden {
+  display: none !important; /* Forces element to be hidden, overriding other display properties */
+}
+/* ========================================================================== */
+/* COMMENT INPUT AREA (.commentt)                                             */
+/* Container for the comment textarea and action buttons.                     */
+/* ========================================================================== */
+/* Container for share button */
+.shareee {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
+  background-color: #f0f0f0;
+}
+
+
+/* Pop-up container */
+.shareee-popup {
+  position: absolute;
+  bottom: 120%;
+  left: -1%;
+  transform: translate(-80%);
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 0.5rem 0.5rem;
+  min-width: 145px;
+}
+
+.shareee-popup.hidden {
+  display: none;
+}
+
+/* Individual pop-up items */
+.shareee-popup .popup-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem;
+  font-size: 0.9rem;
+  color: #111;
+  cursor: pointer;
+  margin: 5px 0;
+  white-space: nowrap;
+  background-color: white;
+  border-radius: 0.4rem;
+  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+/* Hover effects (light mode) */
+.shareee-popup .popup-item:hover {
+  background-color: grey;
+  color: #000;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dark mode main container */
+.dark-mode .shareee-popup {
+  background-color: #333;
+  color: white;
+  border-color: #555;
+}
+
+/* Dark mode popup items */
+.dark-mode .shareee-popup .popup-item {
+  background-color: #333;
+  color: white;
+}
+
+/* Dark mode icons inside popup */
+.dark-mode .shareee-popup .popup-item img {
+  filter: invert(1);
+}
+
+/* Hover effects (dark mode) */
+.dark-mode .shareee-popup .popup-item:hover {
+  background-color: #555;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* =============================== */
+/* SHORTS INLINE REPLY SYSTEM */
+/* =============================== */
+
+.short-reply-box {
+  width: 100%;
+  margin-top: 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  animation: fadeInReply 0.25s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.reply-row {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.reply-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #6c5ce7;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.reply-input {
+  flex: 1;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  outline: none;
+  padding: 6px 4px;
+  font-size: 0.9rem;
+  background: transparent;
+}
+
+.reply-input:focus {
+  border-bottom: 2px solid #000;
+}
+
+/* Buttons row */
+.reply-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.8rem;
+}
+
+.reply-cancel {
+  background: transparent;
+  border: none;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.reply-submit {
+  background: #000;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.reply-submit.enabled {
+  opacity: 1;
+}
+
+/* Dark mode */
+.dark-mode .reply-input {
+  border-bottom: 1px solid #555;
+  color: white;
+}
+
+.dark-mode .reply-input:focus {
+  border-bottom: 2px solid #fff;
+}
+
+.dark-mode .reply-submit {
+  background: white;
+  color: black;
+}
+
+@keyframes fadeInReply {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+
+/* Comment Report Popup */
+.comment-report-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background: white;
+  border-radius: 0.7rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  z-index: 999999;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.25);
+}
+
+.comment-report-popup.hidden {
+  display: none;
+}
+
+/* Header */
+.crp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.crp-close {
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #555;
+}
+.crp-close:hover {
+  color: black;
+}
+
+/* Options */
+.crp-option {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  cursor: pointer;
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+}
+
+.crp-option:hover {
+  background: #efefef;
+}
+
+/* Checkboxes */
+.crp-check {
+  width: 1rem;
+  height: 1rem;
+}
+
+/* Action buttons */
+.crp-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 0.6rem;
+}
+
+.crp-cancel {
+  background: #ccc;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.crp-cancel:hover {
+  background: #b5b5b5;
+}
+
+.crp-submit {
+  background: #d9534f;
+  color: white;
+  padding: 0.45rem 0.9rem;
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  opacity: 0.5;
+}
+
+.crp-submit:enabled {
+  opacity: 1;
+}
+
+.crp-submit:hover:enabled {
+  background: #c4423f;
+}
+
+/* Dark mode */
+.dark-mode .comment-report-popup {
+  background: #444;
+  border-color: #666;
+  color: white;
+}
+
+.dark-mode .crp-option:hover {
+  background: #555;
+}
+
+.dark-mode .crp-close {
+  color: #ddd;
+}
+
+
+/* Spam Confirmation Popup */
+.spam-confirm-popup {
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 260px;
+  background: white;
+  border-radius: 0.7rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+  z-index: 9999;
+}
+
+.spam-confirm-popup.hidden {
+  display: none;
+}
+
+.dark-mode .spam-confirm-popup {
+  background: #333;
+  color: white;
+  border-color: #444;
+}
+
+/* Header */
+.scp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.scp-close {
+  cursor: pointer;
+  font-size: 1.2rem;
+  opacity: 0.6;
+  transition: 0.2s;
+}
+
+.scp-close:hover {
+  opacity: 1;
+}
+
+/* Message */
+.scp-message {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Buttons */
+.scp-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+}
+
+.scp-cancel {
+  background: #ccc;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.scp-cancel:hover {
+  background: #b5b5b5;
+}
+
+.scp-submit {
+  background: #d9534f;
+  color: white;
+  border: none;
+  padding: 0.45rem 0.9rem;
+  border-radius: 0.4rem;
+  cursor: pointer;
+}
+
+.scp-submit:hover {
+  background: #c4423f;
+}
+
+/* Dark mode buttons */
+.dark-mode .scp-cancel {
+  background: #666;
+  color: white;
+}
+
+.dark-mode .scp-cancel:hover {
+  background: #555;
+}
+
+.dark-mode .scp-submit {
+  background: #aa3a36;
+}
+
+.dark-mode .scp-submit:hover {
+  background: #922f2b;
+}
+
+
+.commentt {
+  position: relative;
+  width: 100%;
+  background-color: var(--color-bg-light-alt); /* Using light background alternative variable */
+  padding: var(--spacing-xs) 0.625rem; /* 8px 10px */
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs); /* Using 8px variable for gap */
+  border-radius: var(--border-radius-custom-md-btn); /* Using custom 6px border-radius variable */
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0; /* Prevents shrinking */
+  box-sizing: border-box;
+}
+
+/* Dark mode adjustment for comment input area background */
+.dark-mode .commentt {
+  background-color: var(--color-dark-mode-bg-secondary); /* Using dark mode background variable */
+}
+
+/* ========================================================================== */
+/* COMMENT TEXTAREA (.commentt textarea)                                      */
+/* Styles for the multi-line input field for writing comments.                */
+/* ========================================================================== */
+
+.commentt textarea {
+  width: 100%;
+  min-height: 2.5rem; /* 40px */
+  max-height: 9.375rem; /* 150px */
+  resize: none; /* Prevents manual resizing by user */
+  border: none;
+  outline: none; /* Removes outline on focus */
   background-color: transparent;
-  border-radius: 0.4375rem;
-  
-  /* Scrolling Behavior */
-  overflow-y: auto; /* Enables vertical scrolling when content exceeds max-height */
-  overflow-x: hidden; /* Hides horizontal scrollbar */
-  
-  /* Flex Container Properties */
-  display: flex; /* Enables a flexible layout for its child elements */
-  flex-shrink: 0; /* Prevents the container from shrinking below its content size */
-  flex-wrap: wrap; /* Allows child items to wrap to the next line within the container */
-  flex-direction: row; /* Arranges items in rows (horizontally) initially */
-  justify-content: flex-start; /* Aligns content to the start of the flex container */
-    border-style:none; /* No border style */
-  z-index: 2; /* Ensures it's layered correctly on the page */
+  font-size: var(--font-size-sm); /* Using 0.9rem variable */
+  font-family: inherit; /* Inherits font family from parent */
+  color: var(--color-text-dark); /* Using dark text variable */
+  padding: 0.375rem 0.625rem; /* 6px 10px */
+  border-radius: var(--border-radius-custom-xxs-btn); /* Using custom 4px border-radius variable */
+  box-sizing: border-box;
+  line-height: 1.4;
+  overflow-y: auto; /* Adds scrollbar if content overflows vertically */
+}
 
-  /* Custom Scrollbar Styling (Webkit Browsers - Chrome, Safari) */
-  &::-webkit-scrollbar {
-    width: var(--scrollbar-width); /* Responsive scrollbar width using a variable */
+/* Dark mode adjustment for textarea text color */
+.dark-mode .commentt textarea {
+  color: var(--color-dark-mode-text-primary); /* Lighter text for dark mode */
+}
+
+/* ========================================================================== */
+/* COMMENT ACTIONS CONTAINER (.comment-actions)                               */
+/* Container for the Cancel and Send buttons.                                 */
+/* ========================================================================== */
+
+.comment-actions {
+  display: none; /* Hidden by default until typing starts */
+  justify-content: flex-end; /* Aligns buttons to the right */
+  gap: 0.75rem; /* 12px */
+  width: 100%;
+  padding: 0.3125rem 0; /* 5px 0 */
+  background-color: transparent;
+  border-radius: var(--border-radius-md); /* Using 8px border-radius variable */
+}
+
+/* Show actions when user is typing (triggered by JavaScript) */
+.commentt.typing .comment-actions {
+  display: flex;
+}
+
+/* ========================================================================== */
+/* COMMENT ACTION BUTTONS (.cancel-btn, .send-btn)                            */
+/* Styles for the Cancel and Send buttons within the comment input area.      */
+/* ========================================================================== */
+
+.cancel-btn,
+.send-btn {
+  padding: 0.375rem 0.875rem; /* 6px 14px */
+  font-size: var(--font-size-xs); /* Using 0.85rem variable (approx 13.5px) */
+  border: none;
+  border-radius: var(--border-radius-custom-sm-btn); /* Using custom 5px border-radius variable */
+  cursor: pointer;
+  color: var(--color-text-light); /* White text color variable */
+  transition: background-color var(--transition-duration-normal) var(--transition-timing-ease); /* Smooth transition for hover */
+}
+
+/* Styles for Cancel button */
+.cancel-btn {
+  background-color: var(--color-text-muted); /* Using muted text color variable */
+}
+
+/* Hover effect for Cancel button */
+.cancel-btn:hover {
+  background-color: #5a6268; /* Specific darker gray for hover */
+}
+
+/* Styles for Send button */
+.send-btn {
+  background-color: var(--color-brand-secondary); /* Using brand secondary color variable */
+}
+
+/* Hover effect for Send button */
+.send-btn:hover {
+  background-color: #0069d9; /* Specific darker blue for hover */
+}
+
+:root {
+  /* ... (Your existing variables) ... */
+
+  /* New Custom Border Radii for exact matches */
+  --border-radius-custom-xxs-btn: 0.25rem; /* 4px for textarea */
+  --border-radius-custom-sm-btn: 0.3125rem; /* 5px for buttons */
+  --border-radius-custom-md-btn: 0.375rem; /* 6px for commentt container */
+}
+
+@media (max-width: 900px){
+
+    .video-container{
+
+        flex-direction:column;
+
+        align-items:center;
+    }
+
+    .comment-container{
+
+        width:100%;
+
+        min-width:100%;
+
+        height:60vh;
+    }
+
+}
+
+/* ===================================================== */
+/* UNIVERSAL SIGN-IN POPUP */
+/* ===================================================== */
+
+.signin-popup-overlay {
+  position: fixed;
+  inset: 0;
+
+  background: rgba(0,0,0,0.65);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  z-index: 999999;
+}
+
+.signin-popup-box {
+  width: 92%;
+  max-width: 360px;
+
+  background: #111111;
+
+  border-radius: 16px;
+
+  padding: 22px;
+
+  border: 1px solid #2b2b2b;
+
+  box-shadow: 0 0 35px rgba(0,0,0,0.45);
+
+  animation: popupFade 0.2s ease;
+}
+
+@keyframes popupFade {
+
+  from {
+    opacity: 0;
+    transform: scale(0.96);
   }
 
-  &::-webkit-scrollbar-track {
-    background: transparent; /* Transparent scrollbar track */
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
-
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--scrollbar-thumb-color-light); /* Light mode scrollbar thumb color */
-    border-radius: var(--scrollbar-thumb-border-radius); /* Rounded scrollbar thumb */
-    border: 2px solid transparent; /* Border around the thumb to match background */
-  }
-
-  /* Fallback scrollbar styling (Firefox) */
-  scrollbar-width: thin; /* Thin scrollbar for Firefox */
-  scrollbar-color: var(--scrollbar-thumb-color-light) transparent; /* Firefox scrollbar color */
-
-  border-style:ridge;
 }
 
-/* Dark mode adjustments for .container-2 */
-.dark-mode .container-2 {
-  /* Dark mode scrollbar styling (Firefox) */
-  scrollbar-color: var(--scrollbar-thumb-color-dark) transparent; /* Dark mode scrollbar thumb color */
+.signin-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 12px;
 }
 
-/* Dark mode custom scrollbar styling (Webkit Browsers) */
-.dark-mode .container-2::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb-color-dark); /* Dark mode scrollbar thumb color */
+.signin-popup-header h3 {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 600;
+
+  margin: 0;
 }
 
-/* ==== OPTION BUTTON/HEADER (.optionn) ==== */
-/* This likely serves as a sticky header or option bar within a scrolling container. */
-.optionn {
-  width: 100%; /* Ensures it spans the full width of its parent */
-  height: 1.875rem; /* Consistent height (30px converted to rem) *
-  background-color:#F5F5F5; /* Uses a variable for a pale gray background in light mode */
-  border-radius: var(--border-radius-md); /* Consistent smooth rounded edges using a variable */
-  border: ridge; /* Removes any default border */
-   z-index: 1;
-  position: sticky; /* Keeps the element visible at the top when scrolling */
-  top: 0; /* Sticks it to the top edge of its scroll container */
-  display: flex; /* Uses flexbox for precise alignment of inner elements */
-  justify-content: space-between; /* Distributes space to align items to both ends (e.g., left and right) */
-  align-items: center; /* Vertically centers content within the option bar */
-
-margin-bottom: 5px;
-padding-top: 20px;
-background-color: var(--color-bg-light); /* Default background color for light mode */
-padding-bottom: 20px;
+.signin-popup-close {
+  color: #bdbdbd;
+  font-size: 18px;
+  cursor: pointer;
 }
 
+.signin-popup-box p {
+  color: #b5b5b5;
+  font-size: 13px;
+  line-height: 1.5;
 
+  margin-bottom: 22px;
+}
+
+.signin-popup-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.signin-cancel-btn,
+.signin-btn {
+  border: none;
+
+  padding: 10px 18px;
+
+  border-radius: 8px;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.signin-cancel-btn {
+  background: #2b2b2b;
+  color: #ffffff;
+}
+
+.signin-btn {
+  background: #ff2e2e;
+  color: #ffffff;
+}
+
+.hidden {
+  display: none !important;
+}
 
 
 /* Light Mode Styles */
