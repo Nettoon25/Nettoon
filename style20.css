@@ -1288,17 +1288,28 @@ flex-wrap: nowrap;
   position: relative;
 
   width: 100%;
-height: 82vh; /* 🔥 MUST be height, not min-height */ 
-max-height: 82vh;
+
+  min-height: 100vh;
+  height: auto;
+
   display: flex;
   justify-content: center;
   align-items: flex-start;
-margin-top: 4rem;
-  padding-top: 0rem;
+
+  margin-top: 3rem;
+
+  padding-top: 1rem;
+  padding-bottom: 2rem;
   padding-inline: 1rem;
+
   background-color: transparent;
+
   overflow-x: hidden;
-  border-style: none;
+  overflow-y:hidden;
+
+  border-style:none;
+
+  gap: 1rem;
 }
 
 .video-container{
@@ -1332,12 +1343,13 @@ margin-top: 4rem;
 
   display: flex;
   flex-direction: column;
-margin-top: 0rem;
+margin-top: 1.5rem;
   background-color: transparent;
-  margin-left:3rem; /* Keeping original margin-left */
+  margin-left:1.5rem; /* Keeping original margin-left */
   border-radius: 10px;
 border-style:none;
-  overflow: hidden;
+overflow-x: hidden;
+overflow-y: visible;
 }
 /* Dark Mode for containerr */
 .dark-mode .containerr {
@@ -1349,6 +1361,7 @@ border-style:none;
 
     flex-shrink:0;
 }
+
 
 /* ==== PROFILE SECTION (.profillee) ==== */
 .profillee {
@@ -1920,6 +1933,7 @@ body.dark-mode .follow span {
   margin-top: 5px;
   color:black;
 }
+
 
 
 /* ================================
@@ -3498,6 +3512,7 @@ body {
 .dark-mode .sectionn .likess img,
 .dark-mode .sectionn .dislikee img,
 .dark-mode .sectionn .follow img,
+.dark-mode .sectionn .following img,
 .dark-mode .sectionn .option img
 
 {

@@ -113,7 +113,7 @@ html {
   /* These variables define the min, preferred (viewport-based), and max font sizes */
   --font-size-xxs: clamp(0.75rem, 0.9vw, 0.875rem); /* ~12px to 14px */
   --font-size-xs: clamp(0.875rem, 1.1vw, 1rem);     /* ~14px to 16px */
-  --font-size-sm: clamp(0.8rem, 0.8vw, 0.8rem);    /* ~16px to 18px */
+  --font-size-sm: clamp(1rem, 1.2vw, 1.125rem);    /* ~16px to 18px */
   --font-size-base: clamp(1rem, 1.3vw, 1.25rem);    /* ~16px to 20px (default body text) */
   --font-size-md: clamp(1.125rem, 1.5vw, 1.5rem);  /* ~18px to 24px */
   --font-size-lg: clamp(1.25rem, 1.8vw, 1.75rem);  /* ~20px to 28px */
@@ -260,7 +260,7 @@ body::-webkit-scrollbar-thumb {
   position: fixed; /* Keeps the header at the top of the viewport when scrolling */
   top: 0;          /* Aligns to the very top */
   left: 0;         /* Aligns to the very left */
-  z-index:1000; /* Ensures it stays on top of other content */
+  z-index:10; /* Ensures it stays on top of other content */
 
   /* Sizing & Layout */
   width: 100%;     /* Spans the full width of the screen */
@@ -317,7 +317,7 @@ body::-webkit-scrollbar-thumb {
   
   /* Typography */
   font-family: var(--font-family-primary); /* Uses the primary brand font */
-  font-size: 1.3em; /* Sets the base font size for the logo text (24px) */
+  font-size: 1.4em; /* Sets the base font size for the logo text (24px) */
   font-weight: var(--font-weight-extrabold); /* Extra bold for prominence */
   
   /* Text Handling */
@@ -341,7 +341,7 @@ body::-webkit-scrollbar-thumb {
   
   /* Typography */
   /* Typography */
-  font-size: 1.3em; /* Sets the base font size for the logo text (24px) */
+  font-size: 1.4em; /* Sets the base font size for the logo text (24px) */
   letter-spacing: var(--spacing-xxxs); /* Adds subtle letter spacing (2px) */
   font-weight: inherit; /* Inherits font weight from parent (.overlay-text) */
   display: inline-block; /* Ensures consistent rendering with text-clip effect */
@@ -356,7 +356,7 @@ body::-webkit-scrollbar-thumb {
   -webkit-text-fill-color: transparent;    /* Makes the text transparent to reveal the clipped background */
   
   /* Typography */
-  font-size: 1.3em; /* Sets the base font size for the logo text (24px) */
+  font-size: 1.4em; /* Sets the base font size for the logo text (24px) */
   
   /* Spacing */
   margin-inline-start: var(--spacing-xxs); /* Adds a small space to the left (5px) */
@@ -364,7 +364,6 @@ body::-webkit-scrollbar-thumb {
   font-weight: inherit; /* Inherits font weight from parent */
   display: inline-block; /* Ensures consistent rendering with text-clip effect */
 }
-
 
 /* ========================================================================== */
 /* DARK MODE THEME ADJUSTMENTS FOR HEADER                                     */
@@ -417,7 +416,6 @@ a {
 /* This section occupies the remaining space in the header and contains       */
 /* the main navigation links, positioned to the right.                        */
 /* ========================================================================== */
-
 
 .nav {
   /* Flex Item Properties (within the .container header) */
@@ -477,7 +475,6 @@ a {
 
 .search input[type="search"] {
   flex: 1;
-  height: 4.5vh;
 height: 100%;
   border-radius: 7px;
   background-color:transparent;
@@ -573,6 +570,7 @@ body.dark-mode .search input[type="search"]::placeholder {
   margin-top: 0;
   margin-left: 1vw;
   border-radius: 50%;
+  display:none;
 }
 
 .upload img {
@@ -601,6 +599,7 @@ opacity: 1;
   justify-content: center;
   cursor: pointer;
   margin-right: 2rem;
+    display:none;
 }
 
 .Notifications img {
@@ -667,7 +666,7 @@ opacity: 1;
 
 
 .Notification {
-  display: flex;
+    display:none;
   padding: 0rem;
   border-radius: 0.2rem;
   background-color: white;
@@ -949,7 +948,6 @@ flex-wrap: nowrap;
 }
 
 
-
 .Theme {
   display: flex;
   align-items: center;
@@ -968,7 +966,7 @@ flex-wrap: nowrap;
   height: 3vw;
   background-color: transparent;
   margin-top: 0.3125rem; /* 5px */
-  margin-right: 1rem;     /* 16px */
+  margin-right: 2rem;     /* 16px */
   margin-bottom: 0.1875rem; /* 3px */
   display: flex;
   align-items: center;
@@ -1022,7 +1020,7 @@ flex-wrap: nowrap;
   color: black;
   padding: 12px 16px;
   text-decoration: none;
-  display: none; /* Make links block elements */
+  display: block; /* Make links block elements */
 }
 
 .account-dropdown:hover .dropdown-content {
@@ -1134,6 +1132,112 @@ flex-wrap: nowrap;
     bottom: -1.75rem; /* Adjust positioning */
   }
 }
+/* ==== VIDEO CONTAINER (.video-container) ==== */
+/* This is the main wrapper for your video player and related content. */
+.sidebar {
+    display:block;
+    position: fixed;
+    width:4.7%;
+    max-width: 12em; /* Converted from 80px */
+    height: 100vh; /* Full viewport height */
+    background-color: var(--color-bg-light); /* Default background color for light mode */
+    top: 2.7rem;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+    transition: width 0.3s ease-in-out;
+    z-index: 3;
+    border-style:none;
+    justify-content:space-evenly;
+  }
+  
+  .sidebar:hover {
+    width: 13%; /* Expands slightly on hover for better UX */
+  }
+  
+  .sidebar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .sidebar::-webkit-scrollbar-thumb {
+    background:gray;
+    border-radius: 5px;
+  }
+  .sidebar::-webkit-scrollbar-track {
+    background:gray;
+    scrollbar-color: rgba(0, 0, 0, 0.5) gray;
+  }
+  
+  .sidebar img {
+    width: 1.6875rem; /* Converted from 27px */
+    height: 1.6875rem;
+    margin: 1.25rem auto 1.0625rem auto; /* Adjusted spacing */
+    display: block; /* Centers image in flex-based layouts */
+  }
+  
+  .home {
+    
+    width: 100%;
+    height: 3.125rem; /* Converted from 50px */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color:transparent;
+    border-radius: 0px;
+    box-sizing: border-box;
+    padding: 0 0.9375rem; /* Converted from 15px */
+    margin: 4rem 0 0.5rem 0rem; /* Adjusted margin values */
+    gap:5px;
+    cursor: pointer;
+  }
+  
+  .home img {
+    width: 1.5625rem; /* Converted from 25px */
+    height: 1.5625rem;
+    margin-left: 0rem; /* Converted from 10px */
+
+
+  }
+  
+  .home span {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    font-weight: 500;          /* Medium */
+    font-size: 1rem;           /* ~16px */
+    line-height: 1.5;
+    color: black;   
+    font-family: 'Poppins', sans-serif;
+    flex-grow: 1;
+    margin-left: 10px;
+    text-align: center;
+    font-size: 0.8125rem; /* Converted from 13px */  white-space: nowrap; /* Prevents text wrapping */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Ensures long text is truncated */
+  }
+  
+      
+.home:hover {
+  background-color: #2a2d2f;
+  color: white;
+}
+
+/* Apply image invert and span color change on hover */
+.home:hover img {
+  filter: invert(1);
+}
+
+.home:hover span {
+  color: white;
+}
+
+  .home:hover span {
+    color: white;
+  }
+  
+  .dark-mode .home:hover {
+    background-color: #2a2d2f;
+  }
+
 .login-container {
   width: 90%;
   max-width: clamp(320px, 35vw, 480px);
