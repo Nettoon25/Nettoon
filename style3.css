@@ -2830,27 +2830,45 @@ position: relative;
   top:1em;
 }
 
-.comment-count {
+.description-header {
   position: sticky; /* Make it sticky */
   top: 0; /* Stick to the top of the container */
   width: 100%;
   height: 35px;
-  background-color:#F5F5F5;
+
   z-index: 1; /* Ensure it stays above other content */
 }
 
-.dark-mode .comment-count 
-{
-  background-color: #181818;; /* Black background for Dark Mode */
-
-}
-
-.comment-count span {
+.description-header span {
   float: left;
   margin-top: 5px;
   margin-left: 10px;
   font-weight: bold;
 }
+
+.description-header{
+    position: sticky;
+    top:0;
+    z-index:100;
+}
+
+.comments-header{
+    position: sticky;
+    top:0px;
+    z-index:99;
+}
+
+.description-header,
+.comments-header {
+  background-color: #F5F5F5;
+}
+
+.dark-mode .description-header,
+.dark-mode .comments-header {
+  background-color: #181818;
+  color: white;
+}
+
 
 .about
 {
@@ -3111,11 +3129,11 @@ font-size: 14px;
 }
 
 .send-btn {
-  background-color: #007BFF;
+  background-color: red; /* Specific darker blue for hover */
 }
 
 .send-btn:hover {
-  background-color: #0069d9;
+  background-color: red; /* Specific darker blue for hover */
 }
 
 .commentt.display {

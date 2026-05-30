@@ -3123,12 +3123,12 @@ z-index: 0;
 
 /* Styles for Send button */
 .send-btn {
-  background-color: var(--color-brand-secondary); /* Using brand secondary color variable */
+  background-color: red; /* Specific darker blue for hover */
 }
 
 /* Hover effect for Send button */
 .send-btn:hover {
-  background-color: #0069d9; /* Specific darker blue for hover */
+  background-color: red; /* Specific darker blue for hover */
 }
 
 :root {
@@ -4159,10 +4159,10 @@ border-style:dotted;
     border-style:none;
   
   }
-   */
+  
   
   .shorts.show-comments .short-video {
-    margin-right:40rem;
+    margin-left:5rem;
   }
   
 
@@ -4175,19 +4175,17 @@ border-style:dotted;
     width: 5vw;
     border-style:none;
   }
-    */
-
 
     .shorts.show-comments .metadata {
-    margin-right:51%;
-    right: 20px;
+    margin-right: 39.8%;
+    right: 10px;
   }
-
+  
   
   .comment-container {
   
     top: 6.5rem;
-    right: 7%; 
+    right: 7%; s
     width: 37%;
     max-width: 450px;
     aspect-ratio: 9 / 16;
@@ -4196,7 +4194,7 @@ border-style:dotted;
     border-style:ridge;
   
   }
-
+  */
   
 .time
 {

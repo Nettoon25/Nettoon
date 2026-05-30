@@ -2711,6 +2711,7 @@ filter: invert(1);
 }
 
 
+
 .comment-container {
   display: flex;
   flex-direction: column;
@@ -2725,30 +2726,47 @@ filter: invert(1);
   border-radius: 7px;
   border: 0.1px solid #ccc;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
   top:1em;
 }
 
-.comment-count {
+.description-header {
   position: sticky; /* Make it sticky */
   top: 0; /* Stick to the top of the container */
   width: 100%;
   height: 35px;
-  background-color:#F5F5F5;
+
   z-index: 1; /* Ensure it stays above other content */
 }
 
-.dark-mode .comment-count 
-{
-  background-color: #181818;; /* Black background for Dark Mode */
-
-}
-
-.comment-count span {
+.description-header span {
   float: left;
   margin-top: 5px;
   margin-left: 10px;
   font-weight: bold;
+}
+
+.description-header{
+    position: sticky;
+    top:0;
+    z-index:100;
+}
+
+.comments-header{
+    position: sticky;
+    top:0px;
+    z-index:99;
+}
+
+.description-header,
+.comments-header {
+  background-color: #F5F5F5;
+}
+
+.dark-mode .description-header,
+.dark-mode .comments-header {
+  background-color: #181818;
+  color: white;
 }
 
 .about
@@ -2973,10 +2991,6 @@ font-size: 14px;
   font-style:normal;
 }
 
-
-
-
-
 .comment-actions {
   display: none;
   justify-content: flex-end;
@@ -3008,12 +3022,13 @@ font-size: 14px;
 }
 
 .send-btn {
-  background-color: #007BFF;
+  background-color: red; /* Specific darker blue for hover */
 }
 
 .send-btn:hover {
-  background-color: #0069d9;
+  background-color: red; /* Specific darker blue for hover */
 }
+
 
 .commentt.display {
   margin-top: 4px; /* Or whatever aligns with the input version */
@@ -3026,9 +3041,6 @@ font-size: 14px;
 .commentt.display {
   overflow-x: hidden;
 }
-
-
-
 
 .commentt-Section {
   width: 25%;
@@ -3190,7 +3202,6 @@ background-color: #F5F5F5;
 
 }
 
-
 .comment-scroll-area {
   width: 100%;
   height: auto;
@@ -3313,8 +3324,6 @@ body.dark-mode textarea {
   white-space: nowrap; /* still prevent wrapping */
 }
 
-
-
 .dark-mode .commentt-name span 
 {
   color: #D3D3D3;
@@ -3414,26 +3423,17 @@ font-size: 14px;
 }
 
 .send-btn {
-  background-color: #007BFF;
+  background-color: red; /* Specific darker blue for hover */
 }
 
 .send-btn:hover {
-  background-color: #0069d9;
+  background-color: red; /* Specific darker blue for hover */
 }
 
-.commentt.display {
-  margin-top: 4px; /* Or whatever aligns with the input version */
-}
 
 .comment-container {
   overflow-x: hidden;
 }
-
-.commentt.display {
-  overflow-x: hidden;
-}
-
-
 
 
 .commentt-Section {
@@ -3566,7 +3566,6 @@ right: 0.5%;
 
 /* Light mode hover */
 .sidebarr-popup .popup-item:hover {
-  background-color: #e0e0e0;
   background-color: gray;
   color: white;
   transform: scale(1.05);
