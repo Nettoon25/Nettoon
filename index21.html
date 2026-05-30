@@ -308,7 +308,7 @@
         
         </div><div class="sidebar">
          
-          <a href=""><div class="home">
+          <a href="index.html"><div class="home">
             <img src="Home.png" alt="Home Icon">
             <span>Home</span>
           </div></a>
@@ -328,36 +328,515 @@
 
            <div class="Segment"><span>Edit Video Upload</span></div>
             
-
-
-
-<div class="video-layout">
+<div class="video-container">
 
     <!-- VIDEO SIDE -->
     <div class="containerr">
 
-        <!-- video/profile/content here -->
+        <a href="index4.html">
+            <div class="profillee">
+                <img src="14.png" loading="lazy" alt="Profile">
 
-        <div class="sectiionn">
+                <div class="profillee-name">
+                    <span>Guest</span>
+                </div>
+            </div>
+        </a>
 
-            <!-- COMMENT BUTTON -->
-            <div class="comments-btn" id="openComments">
-                <img src="comment.png">
-                <span>0</span>
+        <div class="captionn">
+            <h3>Moana 2 Official Trailer</h3>
+        </div>
+
+        <div class="video">
+            <video
+                preload="none"
+                loading="lazy"
+                loop
+                autoplay
+                muted
+                playsinline
+                controls
+                poster="Love death & robots.jpg"
+            >
+                <source src="YTDown.com_YouTube_Media_v34aRpnoM_A_003_480p.mp4" type="video/mp4" />
+            </video>
+
+            <img class="play-overlay" src="26.png" alt="Play Button" />
+        </div>
+          <div class="sectionn">
+        
+           
+            <div class="follow">
+              <img src="views.png" alt="Follow Icon" class="follow-icon default" />
+              <span class="follow-label">No views</span>
+            </div>
+        
+            <div class="commentss">
+              <img src="comment.png" alt="Comments Icon">
+              <span class="dislike-count">0</span>
+            </div>
+        
+            <div class="likess">
+              <img src="like.png" alt="Like Icon" class="like-icon default" />
+              <img src="like (3).png" alt="Liked Icon" class="like-icon active hidden" />
+              <span class="dislike-count">0</span>
+            </div>
+            
+            <div class="dislikee">
+              <img src="thumbs down.png" alt="Dislike Icon" class="dislike-icon default" />
+              <img src="dislike (1).png" alt="Disliked Icon" class="dislike-icon active hidden" />
+              <span class="dislike-count">0</span>
+            </div>
+            
+            <div class="timee">
+              <span for="text">Just now</span>
             </div>
 
+            <div class="following">
+              <img src="9.png" alt="Views Icon">
+              <span class="dislike-count">0</span>
+            </div>
+        
+            <div class="follow">
+              <img src="add-user.png" alt="Follow Icon" class="follow-icon default" />
+              <img src="following 3.png" alt="Following Icon" class="follow-icon active hidden" />
+              <span class="follow-label">Follow</span>
+            </div>
+
+            <div class="option">
+              <img src="sidebar 6.png" alt="Options Icon">
+              <div class="option-popup hidden">
+                <div class="popup-item"><img src="share.png" /> Share</div>
+                <div class="popup-item" style="display: none;"><img src="download.png" /> Download</div>
+              <div class="popup-item" style="display: none;"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item" style="display: none;"><img src="report.png" /> Report</div>
+              </div>
+
+            </div> <!-- option -->
+            
+
+
+        </div> <!-- END sectionn -->
+
+
+<!-- ORANGE SECTION: SHARE POPUP -->
+<div class="share-popup-v2 hidden" id="sharePopupV2">
+  <div class="share-close-v2" id="shareCloseV2">✕</div>
+
+  <div class="share-scroll-v2">
+      <div class="share-item-v2"><img src="tiktok.png"><span>Tiktok</span></div>
+      <div class="share-item-v2"><img src="whatsapp.png"><span>Whatsapp</span></div>
+      <div class="share-item-v2"><img src="facebook.png"><span>Facebook</span></div>
+      <div class="share-item-v2"><img src="twitter.png"><span>X</span></div>
+      <div class="share-item-v2"><img src="copy link.png"><span>Copy Link</span></div>
+  </div>
+</div>
+
+<div class="playlist-popup-v2 hidden" id="playlistPopupV2">
+
+  <div class="playlist-header-v2">
+    Save to...
+    <span class="playlist-close-v2">✕</span>
+</div>
+
+<div class="playlist-list-v2" id="playlistListV2">
+
+    <label class="playlist-option-v2">
+        <input type="checkbox" class="playlist-check-v2">
+        <span class="playlist-name">Watch Later</span>
+        <span class="playlist-delete">✕</span>
+    </label>
+
+    <label class="playlist-option-v2">
+        <input type="checkbox" class="playlist-check-v2">
+        <span class="playlist-name">Favorites</span>
+        <span class="playlist-delete">✕</span>
+    </label>
+
+    <!-- Hidden Template -->
+    <label class="playlist-option-v2 playlist-template hidden">
+        <input type="checkbox" class="playlist-check-v2" checked>
+        <span class="playlist-name playlist-editable" contenteditable="true">Rename playlist</span>
+        <span class="playlist-delete">✕</span>
+    </label>
+</div>
+
+
+
+  <!-- ADD NEW -->
+  <div class="playlist-add-v2" id="addPlaylistBtnV2">+ New Playlist</div>
+
+</div>
+
+
+<div class="report-popup-v2 hidden" id="reportPopupV2">
+
+  <div class="report-header-v2">
+    Help us understand the issue.
+  We’ll assess it across all Community Guidelines.
+      <span class="report-close-v2" id="reportCloseV2">✕</span>
+  </div>
+
+  <label class="report-option-v2">
+      <input type="checkbox" class="report-check-v2"> Sexual content
+  </label>
+
+  <label class="report-option-v2">
+      <input type="checkbox" class="report-check-v2"> Violent or repulsive content
+  </label>
+
+  <label class="report-option-v2">
+      <input type="checkbox" class="report-check-v2"> Hateful or abusive content
+  </label>
+
+  <label class="report-option-v2">
+      <input type="checkbox" class="report-check-v2"> Harmful or dangerous acts
+  </label>
+
+  <label class="report-option-v2">
+      <input type="checkbox" class="report-check-v2"> Spam or misleading
+  </label>
+
+  <label class="report-option-v2">
+      <input type="checkbox" class="report-check-v2"> Child abuse
+  </label>
+
+  <div class="report-actions-v2">
+      <button class="report-cancel-v2">Cancel</button>
+      <button class="report-submit-v2" id="reportSubmitV2" disabled>Report</button>
+  </div>
+
+</div>
+
+
+       
+        </div> <!-- END containerr -->
+
+    <!-- COMMENT SIDE -->
+    <div class="comment-container">
+
+        <div class="comments">
+            <label class="comment-count-header">
+                0 Comments
+            </label>
         </div>
+
+        <div class="comments-list">
+
+            
+                    <div class="card">
+
+                <div class="profilee">
+
+                    <a href="index4.html">
+                        <img src="14.png" class="comment-profile-img">
+                    </a>
+
+                    <span class="comment-username">
+                        Guest
+                    </span>
+
+                    <div class="time">
+                        <span>Just now</span>
+                    </div>
+
+                </div>
+
+           
+              <div class="caption">
+                    <span class="comment-text">
+                    Nettoon is more than just a video streaming platform, it is a cultural and technological movement poised to place Africa, and particularly Nairobi, Kenya, at the epicenter of the 21st-century digital revolution. As a platform dedicated exclusively to cartoons and animations.
+                    </span>
+                </div>
+                <div class="section comment-engagement">
+
+                   <div class="likess">
+                <img src="like.png" alt="Like" class="like-icon-sec default" />
+                <img src="like (3).png" alt="Liked" class="like-icon-sec active hidden" />
+                <span class="like-count-sec">0</span>
+            </div>
+            <div class="dislikee">
+                <img src="thumbs down.png" alt="Dislike" class="dislike-icon-sec default" />
+                <img src="dislike (1).png" alt="Disliked" class="dislike-icon-sec active hidden" />
+                <span class="dislike-count-sec">0</span>
+            </div>
+             <div class="reply">
+                <img src="reply.png" alt="Reply" class="reply-icon" />
+                <span>0</span>
+            </div>
+            <div class="shareee">
+              <img src="sidebar 6.png" alt="Reply" class="reply-icon" />
+            
+              <div class="shareee-popup hidden">
+                <div class="popup-item">
+                  <img src="report.png" alt="" />
+                  Report Comment
+              </div>
+              <div class="popup-item">
+                  <img src="spam.png" alt="" />
+                  Mark as Spam
+              </div>
+              <div class="popup-item">
+                  <img src="block.png" alt="" />
+                  Block User
+              </div>
+              </div>
+            </div>
+
+                </div>
+
+            </div>
+
+
+                    <div class="card">
+
+                <div class="profilee">
+
+                    <a href="index4.html">
+                        <img src="14.png" class="comment-profile-img">
+                    </a>
+
+                    <span class="comment-username">
+                        Guest
+                    </span>
+
+                    <div class="time">
+                        <span>Just now</span>
+                    </div>
+
+                </div>
+
+              <div class="caption">
+                    <span class="comment-text">
+                    Nettoon is more than just a video streaming platform, it is a cultural and technological movement poised to place Africa, and particularly Nairobi, Kenya, at the epicenter of the 21st-century digital revolution. As a platform dedicated exclusively to cartoons and animations.
+                    </span>
+                </div>
+
+
+                <div class="section comment-engagement">
+
+                   <div class="likess">
+                <img src="like.png" alt="Like" class="like-icon-sec default" />
+                <img src="like (3).png" alt="Liked" class="like-icon-sec active hidden" />
+                <span class="like-count-sec">0</span>
+            </div>
+            <div class="dislikee">
+                <img src="thumbs down.png" alt="Dislike" class="dislike-icon-sec default" />
+                <img src="dislike (1).png" alt="Disliked" class="dislike-icon-sec active hidden" />
+                <span class="dislike-count-sec">0</span>
+            </div>
+             <div class="reply">
+                <img src="reply.png" alt="Reply" class="reply-icon" />
+                <span>0</span>
+            </div>
+            <div class="shareee">
+              <img src="sidebar 6.png" alt="Reply" class="reply-icon" />
+            
+              <div class="shareee-popup hidden">
+                <div class="popup-item">
+                  <img src="report.png" alt="" />
+                  Report Comment
+              </div>
+              <div class="popup-item">
+                  <img src="spam.png" alt="" />
+                  Mark as Spam
+              </div>
+              <div class="popup-item">
+                  <img src="block.png" alt="" />
+                  Block User
+              </div>
+              </div>
+            </div>
+
+                </div>
+
+            </div>
+
+
+           
+                    <div class="card">
+
+                <div class="profilee">
+
+                    <a href="index4.html">
+                        <img src="14.png" class="comment-profile-img">
+                    </a>
+
+                    <span class="comment-username">
+                        Guest
+                    </span>
+
+                    <div class="time">
+                        <span>Just now</span>
+                    </div>
+
+                </div>
+
+        
+              <div class="caption">
+                    <span class="comment-text">
+                    Nettoon is more than just a video streaming platform, it is a cultural and technological movement poised to place Africa, and particularly Nairobi, Kenya, at the epicenter of the 21st-century digital revolution. As a platform dedicated exclusively to cartoons and animations.
+                    </span>
+                </div>
+
+
+                <div class="section comment-engagement">
+
+                   <div class="likess">
+                <img src="like.png" alt="Like" class="like-icon-sec default" />
+                <img src="like (3).png" alt="Liked" class="like-icon-sec active hidden" />
+                <span class="like-count-sec">0</span>
+            </div>
+            <div class="dislikee">
+                <img src="thumbs down.png" alt="Dislike" class="dislike-icon-sec default" />
+                <img src="dislike (1).png" alt="Disliked" class="dislike-icon-sec active hidden" />
+                <span class="dislike-count-sec">0</span>
+            </div>
+             <div class="reply">
+                <img src="reply.png" alt="Reply" class="reply-icon" />
+                <span>0</span>
+            </div>
+            <div class="shareee">
+              <img src="sidebar 6.png" alt="Reply" class="reply-icon" />
+            
+              <div class="shareee-popup hidden">
+                <div class="popup-item">
+                  <img src="report.png" alt="" />
+                  Report Comment
+              </div>
+              <div class="popup-item">
+                  <img src="spam.png" alt="" />
+                  Mark as Spam
+              </div>
+              <div class="popup-item">
+                  <img src="block.png" alt="" />
+                  Block User
+              </div>
+              </div>
+            </div>
+
+                </div>
+
+            </div>
+
+
+                    <div class="card">
+
+                <div class="profilee">
+
+                    <a href="index4.html">
+                        <img src="14.png" class="comment-profile-img">
+                    </a>
+
+                    <span class="comment-username">
+                        Guest
+                    </span>
+
+                    <div class="time">
+                        <span>Just now</span>
+                    </div>
+
+                </div>
+
+     
+              <div class="caption">
+                    <span class="comment-text">
+                    Nettoon is more than just a video streaming platform, it is a cultural and technological movement poised to place Africa, and particularly Nairobi, Kenya, at the epicenter of the 21st-century digital revolution. As a platform dedicated exclusively to cartoons and animations.
+                    </span>
+                </div>
+
+
+                <div class="section comment-engagement">
+
+                   <div class="likess">
+                <img src="like.png" alt="Like" class="like-icon-sec default" />
+                <img src="like (3).png" alt="Liked" class="like-icon-sec active hidden" />
+                <span class="like-count-sec">0</span>
+            </div>
+            <div class="dislikee">
+                <img src="thumbs down.png" alt="Dislike" class="dislike-icon-sec default" />
+                <img src="dislike (1).png" alt="Disliked" class="dislike-icon-sec active hidden" />
+                <span class="dislike-count-sec">0</span>
+            </div>
+             <div class="reply">
+                <img src="reply.png" alt="Reply" class="reply-icon" />
+                <span>0</span>
+            </div>
+            <div class="shareee">
+              <img src="sidebar 6.png" alt="Reply" class="reply-icon" />
+            
+              <div class="shareee-popup hidden">
+                <div class="popup-item">
+                  <img src="report.png" alt="" />
+                  Report Comment
+              </div>
+              <div class="popup-item">
+                  <img src="spam.png" alt="" />
+                  Mark as Spam
+              </div>
+              <div class="popup-item">
+                  <img src="block.png" alt="" />
+                  Block User
+              </div>
+              </div>
+            </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+  <div class="commentt">
+      <textarea placeholder="Write a comment..." class="comment-textarea"></textarea>
+      <div class="comment-actions">
+          <button class="cancel-btn">Cancel</button>
+          <button class="send-btn">Send</button>
+      </div>
+  </div>
+</div>
+
+</div>
+
+
+<!-- ===================================================== -->
+<!-- UNIVERSAL SIGN-IN POPUP -->
+<!-- ===================================================== -->
+
+<div class="signin-popup-overlay hidden" id="signinPopup">
+
+  <div class="signin-popup-box">
+
+    <div class="signin-popup-header">
+
+      <h3>Want to make your opinion count?</h3>
+
+      <span class="signin-popup-close" id="closeSigninPopup">
+        ✕
+      </span>
 
     </div>
 
-    <!-- COMMENTS PANEL -->
-    <div class="comments-container hidden" id="commentsContainer">
+    <p>
+      Sign in to the Nettoon platform.
+    </p>
 
-        <div class="comments-header">
-            Comments: 0
-        </div>
+    <div class="signin-popup-actions">
+
+      <button class="signin-cancel-btn" style="display:none;">
+        Cancel
+      </button>
+
+      <a href="index11.html">
+        <button class="signin-btn">
+          Sign In
+        </button>
+      </a>
 
     </div>
+
+  </div>
 
 </div>
 
@@ -370,16 +849,8 @@
 
 
 
-
-
-
-
-
-
-
-
-
-           <script src="script21.js"></script>
+        
+<script src="script21.js"></script>
  
 </main>
 </body>
