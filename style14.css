@@ -3106,6 +3106,7 @@ z-index: 999;
 }
 
 
+
 /* Ultra-wide (1600px and up) */
 @media (min-width: 1600px) {
 
@@ -3177,4 +3178,17 @@ z-index: 999;
   height:  100%;
 margin: 0 auto;
 }
+
+.container-1
+{
+  gap:2.5rem;
+}
+
+.kontainer
+{
+  border-style:none;
+  margin-bottom: 5.5rem;
+  margin-left:3rem;
+}
+
 }
