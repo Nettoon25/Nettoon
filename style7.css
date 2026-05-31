@@ -1559,6 +1559,7 @@ body.dark-mode
   color: white; /* Explicitly white color */
   font-size: 1rem; /* 16px */
   margin-bottom: 5px; /* Spacing between lines/toggle */
+font-weight:bold;
 }
 
 /* Hide the "more" text by default */
