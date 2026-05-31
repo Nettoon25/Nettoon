@@ -4159,10 +4159,10 @@ border-style:dotted;
     border-style:none;
   
   }
-  
+   */
   
   .shorts.show-comments .short-video {
-    margin-left:5rem;
+    margin-right:40rem;
   }
   
 
@@ -4175,26 +4175,28 @@ border-style:dotted;
     width: 5vw;
     border-style:none;
   }
+    */
+
 
     .shorts.show-comments .metadata {
-    margin-right: 39.8%;
-    right: 10px;
+    margin-right:51%;
+    right: 20px;
   }
-  
+
   
   .comment-container {
   
     top: 6.5rem;
-    right: 7%; s
-    width: 37%;
-    max-width: 450px;
+    right: 7%; 
+    width: 38.5%; 
+    max-width: 500px;
     aspect-ratio: 9 / 16;
     min-height: 85vh;
     max-height: 85vh;
     border-style:ridge;
   
   }
-  */
+
   
 .time
 {
@@ -4241,8 +4243,6 @@ border-style:dotted;
 
   
 }
-    
-
 
 
 
