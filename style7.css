@@ -4004,22 +4004,27 @@ border-style:dotted;
   border-radius: 7px;
   border-style:none;
 }
+  */
 
-/*
+
 .comment-container {
-  background-color: transparent;
-  top: 5rem;
+
   right: 7%; 
   width: 37%;
-  max-width: 400px;
-  aspect-ratio: 9 / 16;
-  min-height: 80vh;
-  max-height: 85vh;
+
 
 }
-*/
 
 
+  .shorts.show-comments .short-video {
+    margin-right:40rem;
+  }
+
+      .shorts.show-comments .metadata {
+    margin-right:59%;
+    right: 20px;
+  }
+  
 
 }
 
