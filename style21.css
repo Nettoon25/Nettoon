@@ -3593,11 +3593,134 @@ body {
 }
 
 
+/* Ultra-wide (1600px and up) */
+@media (min-width: 1600px) {
+
+.container
+{
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+}
+
+.Table
+{
+  background-color: transparent;
+}
+
+.overlay-text
+{
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+
+.nav
+{
+  background-color: transparent;
+}
+
+.search input[type="search"] {
+
+  min-height: 20px;
+  max-height: 25px;
+
+}
+
+
+.upload
+{
+  background-color: transparent;
+  width: 2.5vw;
+  height: 2.5vw;
+}
+
+.Notifications
+{
+  background-color: transparent;
+  width: 2vw;
+  height: 2vw;
+}
+
+.Account 
+{
+  background-color: transparent;
+  width: 2vw;
+  height: 2vw;
+}
 
 
 
+.upload img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+.Notifications
+{
+ background-color: transparent;
+  margin-right: 90px;
+}
+
+.Notifications img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
 
 
+
+.Account img {
+  width: 100%;
+  height:  100%;
+margin: 0 auto;
+}
+
+.sidebar
+{
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+   width: 11%; 
+   z-index: 1;
+      border-style:none;
+}
+
+.sidebar:hover {
+  width: 15%; /* Expands slightly on hover for better UX */
+}
+
+.home
+{
+  margin-left: 5px;
+}
+
+.containerr {
+  position: relative;
+  width: min(100%, 850px);
+margin-top: 3.5rem;
+
+  margin-left:1.5rem; /* Keeping original margin-left */
+
+}
+
+.containerr{
+    width:min(100%, 850px);
+
+    flex-shrink:0;
+}
+
+.comment-container {
+
+  flex-direction: column;
+
+  width: 550px;
+  min-width: 550px;
+
+  height: 90vh;
+
+  margin-top: 0.2rem;
+
+}
+
+
+}
 
 
 }
