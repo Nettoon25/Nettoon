@@ -3532,3 +3532,322 @@ margin: 0 auto;
 
 
 }
+
+
+/* Ultra-wide (1600px and up) */
+@media (min-width: 1600px) {
+
+.container
+{
+  background-color: var(--color-bg-light); /* Default background color for light mode */
+}
+
+.Table
+{
+  background-color: transparent;
+}
+
+.overlay-text
+{
+  background-color: transparent;
+  font-size: 1.5rem;
+}
+
+.nav
+{
+  background-color: transparent;
+}
+
+.search input[type="search"] {
+
+  min-height: 20px;
+  max-height: 25px;
+
+}
+
+
+.upload
+{
+  background-color: transparent;
+  width: 2.5vw;
+  height: 2.5vw;
+}
+
+.Notifications
+{
+  background-color: transparent;
+  width: 2vw;
+  height: 2vw;
+}
+
+.Account 
+{
+  background-color: transparent;
+  width: 2vw;
+  height: 2vw;
+}
+
+
+
+.upload img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+.Notifications
+{
+ background-color: transparent;
+  margin-right: 90px;
+}
+
+.Notifications img {
+  width: 100%;
+  height:  100%;
+  margin: 0 auto;
+}
+
+
+
+.Account img {
+  width: 100%;
+  height:  100%;
+margin: 0 auto;
+}
+
+.kontainer
+{
+  border-style:none;
+}
+
+/* Caption Text */
+.caption span {
+  font-weight: 700;
+  font-size: 0.9rem; /* 15.5px */
+}
+
+.videoo {
+  width: 100%;
+  height: auto;
+}
+
+.videoo video {
+  width: 100%;
+  height: 17.5rem; /* 200px */
+
+}
+
+  .views
+  {
+    background-color: transparent;
+  }
+
+
+.views img {
+  width: clamp(24px, 4.5vw, 30px);
+  height: clamp(24px, 4.5vw, 30px);
+  background-color: transparent;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+
+.container-1
+{
+  background-color:violet;
+  height: 92vh;
+}
+
+.Heading {
+top: 1rem;
+margin-bottom: 0px;
+padding-bottom: 0px;
+position: absolute;
+ background-color:gray;
+}
+
+.Heading span{
+margin-top: 0px;
+
+}
+
+.Scroller
+{
+position: relative;
+overflow-y: auto;
+height: 100vh;
+padding-bottom: 23rem;
+  background-color:transparent;
+
+}
+
+
+.scroll-area {
+  
+
+  background-color:transparent;
+  gap: 0rem; /* Slight space between items */
+ 
+}
+
+.shorts {
+
+  max-height: 70vh;
+margin-top: 0.5rem;
+margin-left: 0.2rem;
+}
+
+
+.Playlist:nth-of-type(1)  {
+  height: 340px;
+  background-color:transparent;
+top: 1rem;
+    bottom:2rem;
+    padding-bottom: 0;
+    border-style: none;
+    padding-top: 0;
+    
+   
+}
+
+.Playlist:nth-of-type(1) .Container  {
+ 
+  background-color:transparent;
+margin-top: 1rem;
+    margin-bottom:1.5rem;
+
+    
+   
+}
+
+.Playlist:first-of-type > .Segment:first-of-type {
+  margin-top: 0;
+border-style:none;
+  height: 30px;
+    background-color: #F5F5F5;
+}
+
+
+
+.Playlist:nth-of-type(2)  {
+  background-color:transparent;
+max-height: 470px;
+min-height: 410px;
+margin-top: 25.5rem;
+    margin-bottom:0rem;
+}
+
+.Playlist:nth-of-type(3)  {
+  background-color:transparent;
+height: 560px;
+top: 1.5rem;
+    margin-bottom:0rem;
+}
+
+.Playlist:nth-of-type(3) .playlist-item {
+
+ background-color:transparent;
+ 
+  }
+
+  
+.Playlist:nth-of-type(2) .left-section {
+  background-color:transparent;
+  margin-top: 8rem;
+}
+
+
+.Playlist:nth-of-type(3) .left-section {
+  background-color:transparent;
+  margin-top: 6rem;
+}
+
+  .Playlist:nth-of-type(1) .kontainer {
+  background-color:transparent;
+}
+
+  .Playlist:nth-of-type(3) .kontainer {
+  background-color:transparent;
+  border-style: none;
+  margin-top: 0px;
+}
+
+.caption
+{
+  background-color:transparent;
+}
+
+.caption span
+{
+  margin-top: 0.5rem;
+}
+
+.About
+{
+border-style:none;
+  background-color:transparent;
+
+}
+
+.description
+{
+  background-color:transparent;
+height: 150px;
+max-height: 250px;
+padding-top: 0px;
+
+
+}
+
+.vidoes
+{
+  margin-top:0px;
+  background-color:transparent;
+  padding-bottom: 1.5rem;
+  
+}
+
+.cards
+{
+  margin-top: 0px;
+  margin-bottom: 0.5rem;
+}
+
+.Container
+{
+  background-color:transparent;
+  height: 100%;
+}
+
+.left-section
+{
+height: 278px;
+position: relative;
+}
+
+
+
+.kontainer
+{
+  border-style:none;
+  position: absolute;
+}
+
+.profilee
+{
+  background-color:transparent;
+}
+
+.profilee-name
+{
+  background-color:transparent;
+}
+
+.videoo video
+{
+  height: auto;
+}
+
+
+}
+
