@@ -532,3 +532,25 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("fontSize").value = savedFontSize;
   applyFontSize(savedFontSize);
 });
+
+
+const legalTabs = document.querySelectorAll(".legal-tab");
+
+legalTabs.forEach(tab => {
+    tab.addEventListener("click", () => {
+
+        document.querySelectorAll(".legal-tab").forEach(t => {
+            t.classList.remove("active");
+        });
+
+        document.querySelectorAll(".legal-content").forEach(content => {
+            content.classList.remove("active");
+        });
+
+        tab.classList.add("active");
+
+        const target = tab.dataset.legal;
+        document.getElementById(target).classList.add("active");
+
+    });
+});

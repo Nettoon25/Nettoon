@@ -2410,6 +2410,9 @@ color: black;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  position: centre;
+  margin-left:2rem;
+
 }
 
 /* ===== Login Activity list ===== */
@@ -2442,9 +2445,66 @@ color: black;
     color:gray; 
 }
 
-/* animation keyframes (modal etc) */
-@keyframes fadeIn { from { opacity:0; transform:scale(0.95); } to { opacity:1; transform:scale(1); } }
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap:rem;
+}
 
+.confirm-btn {
+  background: #dc3545; /* Red */
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0;
+}
+
+.confirm-btn:hover {
+  background: #c82333;
+}
+
+/* Legal Center */
+.legal-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.legal-tab {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.legal-tab.active {
+    background: #ff4444;
+    color: white;
+}
+
+.legal-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    margin-top: 10px;
+
+    /* Scrollable Area */
+    max-height: 600px;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    line-height: 1.7;
+    scrollbar-width: thin;
+}
+
+.legal-content.active {
+    display: block;
+}
 
 
 /* Light Mode Styles */
