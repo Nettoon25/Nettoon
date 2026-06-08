@@ -1198,8 +1198,7 @@ flex-wrap: nowrap;
   gap: 0.625rem; /* Converted from 10px */
   font-size: 1rem;
   border-left: 0.25rem solid transparent; /* Converted from 4px */
-  color: var(--color-text-secondary, #666);
-  transition: 0.3s;
+  color:black;
   margin-bottom: 0.5rem; /* Converted from 50px */
 }
 
@@ -1208,16 +1207,14 @@ flex-wrap: nowrap;
   color: var(--color-text-dark-secondary, #b3b3b3);
 }
 
-.menu-item i { 
-  width: 1.25rem; /* Converted from 20px */
-  text-align: center; 
-  color: inherit; 
-}
-.menu-item span { 
-  flex: 1; 
-  color: inherit; 
+.menu-item i,
+.menu-item span {
+  color: inherit !important;
 }
 
+.menu-item span {
+  flex: 1;
+}
 /* hover / active */
 .menu-item:hover
 {
@@ -1767,8 +1764,6 @@ flex-wrap: nowrap;
   color: #666;
   margin: 0 0 10px 0;
 }
-
-
 
 
 /* ===== Primary buttons (single canonical style) =====
@@ -2479,12 +2474,28 @@ color: black;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+  background-color: #f0f0f0;
+    color: #333333;
+    font-weight:bold;
+}
+
+.dark-mode .legal-tab
+
+{
+     background-color: #2a2d2f;
+     color: white;
 }
 
 .legal-tab.active {
-    background: #ff4444;
+    background: black;
     color: white;
 }
+
+.dark-mode .legal-tab.active {
+    background: white;
+    color:black;
+}
+
 
 .legal-content {
     display: none;
@@ -2504,6 +2515,14 @@ color: black;
 
 .legal-content.active {
     display: block;
+}
+
+.legal-sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: #000;
+  padding-bottom: 15px;
 }
 
 
