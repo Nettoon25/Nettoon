@@ -2496,6 +2496,60 @@ color: black;
     color:black;
 }
 
+/* =========================
+   NETTOON TYPOGRAPHY SYSTEM
+   ========================= */
+
+/* Base body text */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #1f1f1f;
+    line-height: 1.6;
+}
+
+/* H1 - Main page titles */
+h1 {
+    font-size: 2.5rem;   /* ~40px */
+
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* H2 - Section titles (like "Terms of Service") */
+h2 {
+    font-size: 1.8rem;   /* ~28.8px */
+  
+    font-weight: 650;
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+}
+
+/* H3 - Subsections (like "1. Use of the Platform") */
+h3 {
+    font-size: 1.3rem;   /* ~20.8px */
+   
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Paragraph text */
+p {
+    font-size: 1rem;     /* 16px base */
+
+    margin-bottom: 1rem;
+}
+
+/* Optional: improve readability inside legal sections */
+.legal-content p {
+    max-width: 900px;
+}
+
+/* Optional: hover or emphasis styling for headings (future-proofing) */
+h1, h2, h3 {
+    letter-spacing: 0.2px;
+}
+
 
 .legal-content {
     display: none;
