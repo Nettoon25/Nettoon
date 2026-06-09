@@ -194,10 +194,11 @@ body {
   background-color: var(--color-bg-light); /* Default background color for light mode */
 
   /* Overflow & Scrolling Behavior */
-  overflow-x: hidden; /* Prevents horizontal scrollbar, crucial for responsive designs */
-  overflow-y: auto;   /* Allows vertical scrolling when content exceeds viewport height */
+  overflow-y: hidden; /* No internal scrolling within a single short item */
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch; /* Enhances smooth scrolling on iOS devices */
 
+  
   /* Custom Scrollbar Styling (Firefox) */
   scrollbar-width: thin; /* Sets the scrollbar to a thin style */
   /* Defines thumb and track colors for Firefox scrollbars */
@@ -1147,37 +1148,45 @@ flex-wrap: nowrap;
     bottom: -1.75rem; /* Adjust positioning */
   }
 }
-/* =========================
-   NETTOON SETTINGS — CLEAN CSS
-   Consolidated & de-duplicated
-   ========================= */
-/* ===== Layout ===== */
+
 .settings-container {
   display: flex;
-  height: 97vh;
-  margin-top: 3rem;
+  height: 100vh;
+  margin-top: 0rem;
   background-color: transparent;
+padding-bottom: 5rem;
+overflow-y:hidden;
+overflow-x: hidden;
+margin-bottom: 0;
+padding-top: 0px;
 
+}
+
+.settings-container {
+    align-items: stretch;
 }
 
 /* ===== Sidebar ===== */
 .sidebar {
   width: 15rem; /* Converted from 240px */
-  background-color: var(--color-sidebar-light, #ffffff); /* Added professional light background */
+
   display: flex;
   flex-direction: column;
-  padding-top: 1.25rem; /* Converted from 20px */
-  transition: all 0.3s ease-in-out;
-  box-shadow: 0.0625rem 0 0.5rem rgba(0, 0, 0, 0.05); /* Subtle separation */
-  background-color: var(--color-sidebar-light, #ffffff); /* Added professional light background */
+  padding-top: 0rem; /* Converted from 20px */
+
    overflow-y: auto;
+  height: 99vh;
+  border-style:none;
+  margin-top:5rem;
 }
 
-/* 🌙 Dark Mode Sidebar */
+/* 🌙 Dark Mode Sidebar
 .dark-mode .sidebar {
   background-color: var(--color-sidebar-dark, #1f2937);
   box-shadow: 0.0625rem 0 0.5rem rgba(0, 0, 0, 0.4);
 }
+ */
+
 
 .sidebar h2 {
   text-align: center;
@@ -1325,11 +1334,12 @@ flex-wrap: nowrap;
 
 /* ===== Right Content ===== */
 .content {
-  flex: 1;
-  padding: 30px;
-  background:transparent;
+    flex: 1;
+    height: 100%;
+  background-color: transparent;
   overflow-y: auto;
-
+    padding: 30px;
+    margin: 0;
 }
 
 /* sections */
@@ -1341,29 +1351,68 @@ flex-wrap: nowrap;
   align-items: center;
   gap: 10px;
   font-size: 1.4rem;/* ===== Right Content ===== */
-  .content {
-    flex: 1;
-    padding: 30px;
-    background: transparent;
-    overflow-y: auto;
-  }
+    margin-bottom:1rem;
+        padding-bottom: 0px;
+    border-bottom: 2px solid #eee;
+
+
+}
+
   
   /* sections */
   .content-section { display: none; }
   .content-section.active { display: block; }
   
-  .content-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.4rem;
-    margin-bottom: 0px;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 0px;
-  }
+
   .content-header i { color: #ff4444; }
   
+ .content-section {
+    overflow: hidden;
+} 
+
+/* H1 - Main page titles */
+h1 {
+    font-size: 2.5rem;   /* ~40px */
+
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+/* H2 - Section titles (like "Terms of Service") */
+h2 {
+    font-size: 1.8rem;   /* ~28.8px */
   
+    font-weight: 650;
+    margin-top: 0rem;
+    margin-bottom: 0.8rem;
+}
+
+/* H3 - Subsections (like "1. Use of the Platform") */
+h3 {
+    font-size: 1.3rem;   /* ~20.8px */
+   
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Paragraph text */
+p {
+    font-size: 1rem;     /* 16px base */
+
+    margin-bottom: 1rem;
+}
+
+/* Optional: improve readability inside legal sections */
+.legal-content p {
+    max-width: 900px;
+}
+
+/* Optional: hover or emphasis styling for headings (future-proofing) */
+h1, h2, h3 {
+    letter-spacing: 0.2px;
+}
+
   /* UNIVERSAL alignment for BOTH profile pic & banner */
   .form-group label {
     display: block;
@@ -2186,7 +2235,7 @@ min-width:220px;
  padding: 1.25rem; /* Converted from 20px */
  text-align:center;
 background-color: #F5F5F5;
-  transition: transform .2s, border-color .2s;
+transition: transform .2s, border-color .2s;
 }
 
 .plan-card:hover { 
@@ -2278,8 +2327,6 @@ color: black;
   line-height: 1.5;
   display: inline-block;
 }
-
-
 
 .terms-content {
   min-height: 60vh;
@@ -2464,7 +2511,7 @@ color: black;
 /* Legal Center */
 .legal-tabs {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 10px;
     margin: 20px 0;
 }
@@ -2533,49 +2580,11 @@ body {
     line-height: 1.6;
 }
 
-/* H1 - Main page titles */
-h1 {
-    font-size: 2.5rem;   /* ~40px */
-
-    font-weight: 700;
-    margin-bottom: 1rem;
+/*
+* {
+    outline: 1px solid red;
 }
-
-/* H2 - Section titles (like "Terms of Service") */
-h2 {
-    font-size: 1.8rem;   /* ~28.8px */
-  
-    font-weight: 650;
-    margin-top: 2rem;
-    margin-bottom: 0.8rem;
-}
-
-/* H3 - Subsections (like "1. Use of the Platform") */
-h3 {
-    font-size: 1.3rem;   /* ~20.8px */
-   
-    font-weight: 600;
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-/* Paragraph text */
-p {
-    font-size: 1rem;     /* 16px base */
-
-    margin-bottom: 1rem;
-}
-
-/* Optional: improve readability inside legal sections */
-.legal-content p {
-    max-width: 900px;
-}
-
-/* Optional: hover or emphasis styling for headings (future-proofing) */
-h1, h2, h3 {
-    letter-spacing: 0.2px;
-}
-
+*/
 
 .legal-content {
     display: none;
@@ -2798,8 +2807,8 @@ body {
 .content
 {
   border-style:none;
-  margin-top: 0rem;
-  margin-bottom: 1.5rem;
+  margin-top: 5rem;
+  margin-bottom: rem;
 }
 
 
