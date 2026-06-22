@@ -1497,6 +1497,49 @@ overflow-y: visible;
   z-index: 10; /* Ensures it's above the video */
 }
 
+
+/* =========================
+   NETTOON VIDEO WATERMARK
+   ========================= */
+.video {
+  position: relative; /* already present, keep it */
+}
+
+/* Watermark wrapper */
+.nettoon-watermark {
+  position: absolute;
+  bottom: 0.3rem;              /* change to bottom/right if you want */
+  right: 1rem;
+  z-index: 8;
+
+  pointer-events: none;   /* watermark should never block clicks on video controls */
+  user-select: none;
+
+opacity: 0.58;      /* subtle but visible */
+}
+
+/* watermark image */
+.nettoon-watermark img {
+width: clamp(72px, 8vw, 105px);
+  height: auto;
+  display: block;
+
+  /* optional visual treatment */
+ filter: drop-shadow(0 1px 4px rgba(0,0,0,0.45));
+}
+
+/* Optional: make watermark smaller on mobile */
+@media (max-width: 768px) {
+  .nettoon-watermark {
+    top: 0.7rem;
+    right: 0.7rem;
+  }
+
+  .nettoon-watermark img {
+    width: clamp(55px, 16vw, 90px);
+  }
+}
+
 /* ==== INTERACTION SECTION CONTAINER (.sectionn) ==== */
 /* This container likely holds the views, comments, likes, etc. for a video. */
 .sectionn {
@@ -3234,12 +3277,12 @@ body.dark-mode .follow span {
 
 /* Styles for Send button */
 .send-btn {
-  background-color: var(--color-brand-secondary); /* Using brand secondary color variable */
+  background-color: red;
 }
 
 /* Hover effect for Send button */
 .send-btn:hover {
-  background-color: #0069d9; /* Specific darker blue for hover */
+  background-color: red; /* Specific darker blue for hover */
 }
 
 :root {
