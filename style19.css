@@ -2486,6 +2486,26 @@ margin-bottom: 0.5rem;
 
 }
 
+/* Light Mode */
+.video-description{
+    color:#1f1f1f;
+}
+
+/* Dark Mode */
+.dark-mode .video-description{
+    color:#ffffff;
+}
+
+/* Light Mode */
+.video-description{
+    color:#1f1f1f;
+}
+
+/* Dark Mode */
+.dark-mode .video-description{
+    color:#ffffff;
+}
+
 .settings-card-header
 
 {
