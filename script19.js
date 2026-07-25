@@ -144,3 +144,120 @@ textarea.addEventListener("input", () => {
     }
 
 });
+
+
+const selector =
+document.querySelector(".playlist-selected");
+
+const dropdown =
+document.querySelector(".playlist-dropdown");
+
+selector.onclick = () => {
+
+    dropdown.classList.toggle("hidden");
+
+};
+
+
+
+const createPlaylistBtn =
+document.querySelector(".new-playlist-btn");
+
+const playlistDropdown =
+document.querySelector(".playlist-dropdown");
+
+
+createPlaylistBtn.addEventListener("click", () => {
+
+    const existing =
+    document.querySelector(".playlist-new");
+
+    if(existing) return;
+
+    const playlist = document.createElement("label");
+
+    playlist.className = "playlist-item playlist-new";
+
+    playlist.innerHTML = `
+
+        <input
+        type="radio"
+        name="playlist">
+
+        <div class="playlist-thumbnail">
+
+            <img src="playlist-default.png">
+
+        </div>
+
+        <div class="playlist-info">
+
+            <input
+            class="playlist-name-input"
+            placeholder="New Playlist">
+
+        </div>
+
+    `;
+
+    playlistDropdown.insertBefore(
+        playlist,
+        createPlaylistBtn
+    );
+
+    playlist.querySelector(".playlist-name-input").focus();
+
+});
+
+
+document.addEventListener("keydown",(e)=>{
+
+    if(e.key !== "Enter") return;
+
+    const input =
+    e.target;
+
+    if(!input.classList.contains("playlist-name-input"))
+        return;
+
+    e.preventDefault();
+
+    if(input.value.trim()===""){
+
+        input.value="Untitled Playlist";
+
+    }
+
+    input.blur();
+
+});
+
+
+playlist.querySelector("input[type='radio']").checked = true;
+
+
+const playlistSelected =
+document.querySelector(".playlist-selected span");
+
+document.addEventListener("change",(e)=>{
+
+    if(e.target.type!=="radio") return;
+
+    const title =
+    e.target.closest(".playlist-item")
+    .querySelector(".playlist-info")
+    .innerText;
+
+    playlistSelected.textContent =
+    title;
+
+});
+
+
+document.addEventListener("change",(e)=>{
+
+    if(e.target.type!=="radio") return;
+
+    playlistDropdown.classList.add("hidden");
+
+});
