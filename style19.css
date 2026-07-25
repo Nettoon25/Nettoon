@@ -2489,7 +2489,7 @@ margin-bottom: 0.5rem;
 .settings-card-header
 
 {
-margin-top:0.5rem ;
+margin-top:1rem ;
 margin-bottom: 0.5rem;
 
 }
@@ -2576,7 +2576,7 @@ rgba(0,0,0,.25);
 
 .thumbnail-upload img {
 
-width:60%;
+width:90%;
 
 }
 
@@ -3069,13 +3069,14 @@ height:100%;
 
     color:#777;
 
-}.new-playlist-btn{
+}
+.new-playlist-btn{
 
     width:100%;
 
     border:none;
 
-    background:#fff;
+  background-color: #f0f0f0;
 
     padding:15px;
 
@@ -3092,6 +3093,13 @@ height:100%;
     font-weight:600;
 
     border-top:1px solid #ddd;
+
+}
+
+.dark-mode .new-playlist-btn{
+
+background-color: #202020;
+color:white;
 
 }
 
