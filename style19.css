@@ -2340,6 +2340,13 @@ padding-bottom: 20px;
     color:#444;
 }
 
+.title h3
+{
+
+margin-bottom: 0.5rem;
+
+}
+
 .dark-mode .video-title-label{
     color:#f1f1f1;
 }
@@ -2429,80 +2436,61 @@ padding-bottom: 20px;
 
 }
 
-.settings-card-header
-{
+.description-container{
 
-    margin-top:1rem;
+    position:relative;
+
+    width:100%;
 
 }
 
 .video-description{
 
+    position:relative;
+
     width:100%;
 
-    min-height:180px;
+    min-height:220px;
 
-    resize:vertical;
+    padding:16px;
 
-    padding:15px;
+    background:transparent;
 
-    margin-top:1rem;
+    z-index:2;
 
-    border:1px solid #ccc;
+}
 
-    border-radius:8px;
+.description-overlay{
 
-    outline:none;
+    position:absolute;
 
-    font-size:15px;
+    inset:16px;
+
+    z-index:1;
+
+    color:#9a9a9a;
 
     line-height:1.7;
 
-    font-family:inherit;
+    pointer-events:none;
 
-    background:#fff;
+    transition:opacity .35s ease;
 
-    color:#222;
-
-    transition:.25s;
+    white-space:pre-wrap;
 
 }
 
-.video-description:focus{
+.dark-mode .description-overlay{
 
-    border-color:#ff2d2d;
-
-    box-shadow:0 0 0 3px rgba(255,45,45,.12);
+    color:#8a8a8a;
 
 }
 
-.dark-mode .video-description{
+.settings-card-header
 
-    background:#222;
-
-    color:white;
-
-    border-color:#444;
-
-}
-
-.description-footer{
-
-    display:flex;
-
-    justify-content:flex-end;
-
-    margin-top:8px;
-
-    font-size:.85rem;
-
-    color:#777;
-
-}
-
-.dark-mode .description-footer{
-
-    color:#bbb;
+{
+margin-top:0.5rem ;
+margin-bottom: 0.5rem;
 
 }
 
@@ -2510,17 +2498,50 @@ padding-bottom: 20px;
 {
 
   margin-top: 1rem;
+  font-size: 1rem;
 }
 
 .thumbnail-wrapper{
 
-position:relative;
+    position:relative;
 
-border-radius:10px;
+    width:100%;
 
-overflow:hidden;
+    height:230px;      /* or whatever height you want */
 
-margin-top: 1rem;
+    border-radius:10px;
+
+    overflow:hidden;
+
+    margin-top:.5rem;
+
+}
+
+.thumbnail-wrapper img{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    object-position:center;
+
+}
+
+.thumbnail-wrapper img{
+
+    width:100%;
+
+    height:100%;
+
+    display:block;
+
+    object-fit:cover;
+
+    object-position:center;
 
 }
 

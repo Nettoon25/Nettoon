@@ -125,3 +125,22 @@ thumbnailInput.addEventListener("change", () => {
     }
 
 });
+
+
+const textarea = document.getElementById("videoDescription");
+
+const overlay = document.getElementById("descriptionOverlay");
+
+textarea.addEventListener("input", () => {
+
+    if(textarea.value.trim() !== ""){
+
+        overlay.style.opacity = "0";
+
+    }else{
+
+        overlay.style.opacity = "1";
+
+    }
+
+});
