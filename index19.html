@@ -506,12 +506,204 @@
   
 
           <div class="container-2">
-            <div class="optionn">
-              <div class="All active"><span>All</span></div>
-              <div class="WatchMojo"><span>Guest</span></div>
-              <div class="Sci-fi"><span>Love, Death and Robots</span></div>
-              <div class="Playlist"><span>Sci-fi</span></div>
+          
+<div class="title"> 
+
+<label for="videoTitleInput" class="video-title-label">
+    Change video Title
+</label>
+
+<input
+type="text"
+id="videoTitleInput"
+placeholder="Enter video title">
+
+<div class="settings-card">
+
+    <div class="settings-card-header">
+
+        <h3>Video Description</h3>
+
+    </div>
+
+    <textarea
+        id="videoDescription"
+        class="video-description"
+        maxlength="5000"
+        placeholder="Write a description for your video..."></textarea>
+
+    <div class="description-footer">
+
+        <span id="descriptionCounter">
+            0 / 5000 Characters
+        </span>
+
+    </div>
+
+</div>
+
+<div class="thumbnail">
+  <h4>Change video Thumbnail</h4>
+
+<div class="thumbnail-wrapper">
+
+    <img
+    id="thumbnailPreview"
+    src="Love death & robots.jpg">
+
+    <label
+    for="thumbnailUpload"
+    class="thumbnail-upload">
+
+        <img src="camera.png">
+
+    </label>
+
+    <input
+    type="file"
+    id="thumbnailUpload"
+    accept="image/*"
+    hidden>
+
+</div>
+
+<!-- Visibility -->
+<div class="video-setting">
+
+    <label class="setting-title">
+        Visibility
+    </label>
+
+    <div class="visibility-options">
+
+        <label class="visibility-option">
+
+            <input
+                type="radio"
+                name="visibility"
+                value="public"
+                checked>
+
+            <div class="visibility-text">
+
+                <span class="visibility-name">
+                    Public
+                </span>
+
+                <span class="visibility-description">
+                    Anyone can watch this video.
+                </span>
+
             </div>
+
+        </label>
+
+        <label class="visibility-option">
+
+            <input
+                type="radio"
+                name="visibility"
+                value="private">
+
+            <div class="visibility-text">
+
+                <span class="visibility-name">
+                    Private
+                </span>
+
+                <span class="visibility-description">
+                    Only you can view this video.
+                </span>
+
+            </div>
+
+        </label>
+
+    </div>
+
+    <!-- COMMENTS -->
+
+<div class="video-setting">
+
+    <label class="setting-title">
+        Comments
+    </label>
+
+    <div class="comment-settings">
+
+        <!-- Allow Comments -->
+
+        <label class="comment-option">
+
+            <div class="comment-text">
+
+                <span class="comment-name">
+                    Enable Comments
+                </span>
+
+                <span class="comment-description">
+                    Allow viewers to comment on this video.
+                </span>
+
+            </div>
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="enableComments"
+                    checked>
+
+                <span class="slider"></span>
+
+            </label>
+
+        </label>
+
+        <!-- Pin Creator -->
+
+        <label class="comment-option">
+
+            <div class="comment-text">
+
+                <span class="comment-name">
+                    Pin Creator Comment
+                </span>
+
+                <span class="comment-description">
+                    Display your comment at the top of the discussion.
+                </span>
+
+            </div>
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="pinCreatorComment">
+
+                <span class="slider"></span>
+
+            </label>
+
+        </label>
+
+    </div>
+
+</div>
+
+</div>
+
+<button class="save-video-btn">
+
+Save Changes
+
+</button>
+
+</div>
+</div>
+
+
 
 
   

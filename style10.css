@@ -1219,8 +1219,8 @@ flex-wrap: nowrap;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     
-      width: 95vw;
-      max-width: 800px;
+      width: 85vw;
+      max-width: 600px;
       height: 90vh;
       max-height: 95.5vh;
       overflow-y: auto;

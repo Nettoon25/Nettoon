@@ -450,3 +450,13 @@ document.addEventListener('click', () => {
 
 
 
+const searchInput = document.getElementById("search");
+const dropdown = document.getElementById("searchDropdown");
+
+searchInput.addEventListener("input", () => {
+
+    console.log("typing...");
+
+    dropdown.classList.remove("hidden");
+
+});

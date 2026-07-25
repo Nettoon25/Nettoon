@@ -1174,7 +1174,6 @@ height: 100vh;
   margin: 0;
   align-items: center;
   padding-left: 0%;
-  border-radius: 0px;
   padding-top: 0px;
   padding-bottom: 0px;
   margin-bottom: 0px;
@@ -1205,7 +1204,6 @@ height: 100vh;
   width: 100%;
   height: 100%;
   overflow-y:scroll;
-  
   overflow-x: hidden;
   scrollbar-width: auto;
   scrollbar-color:#ff5722;
@@ -1255,7 +1253,6 @@ height: 100vh;
 }
 
 
-
 .Segment
 {
   position: sticky;
@@ -1269,7 +1266,6 @@ padding: 0px;
 margin: 0;
 align-items: center;
 padding-left: 0%;
-  border-radius: 7px;
 margin-top:0px;
 padding-top: 0px;
 padding-bottom: 0px;
@@ -1277,7 +1273,6 @@ margin-bottom: 0px;
 overflow-y: hidden;
 overflow-x: hidden;
 }
-
 
 
 .Segment span {
@@ -1407,8 +1402,6 @@ border-style:none;
   scrollbar-color: rgba(7, 4, 4, 0.5) grey;
 }
 
-
-
 .shorts {
   position: relative;
   width: 100%;           /* Takes full width of its designated column in layout */
@@ -1436,7 +1429,6 @@ border-style:none;
     display: block;
   }
   
-
 
 /* Play overlay button */
 .play-overlay {

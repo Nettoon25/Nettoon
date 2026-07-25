@@ -89,3 +89,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 });
+
+
+const titleInput =
+document.getElementById("videoTitleInput");
+
+const videoTitle =
+document.querySelector(".captionn h3");
+
+titleInput.addEventListener("input", () => {
+
+    videoTitle.textContent =
+    titleInput.value;
+
+});
+
+
+
+const thumbnailInput =
+document.getElementById("thumbnailUpload");
+
+const thumbnailPreview =
+document.getElementById("thumbnailPreview");
+
+thumbnailInput.addEventListener("change", () => {
+
+    const file =
+    thumbnailInput.files[0];
+
+    if(file){
+
+        thumbnailPreview.src =
+        URL.createObjectURL(file);
+
+    }
+
+});

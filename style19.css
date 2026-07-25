@@ -1293,7 +1293,7 @@ flex-wrap: nowrap;
   max-height: 80vh;
   background-color: transparent;
   border-radius: var(--border-radius-sm); /* Consistent rounding (7px converted to rem) */
-  border-style:dotted; /* No border style */
+  border-style:none; /* No border style */
 
   margin-top: 50px; /* Maintains the explicit 60px top margin */
   
@@ -1339,7 +1339,7 @@ flex-wrap: nowrap;
   flex-direction: column; /* Stack profile, caption, video, section vertically */
     justify-content: space-between; /* 🔑 balances content vertically */
   flex-grow: 1; /* Allows it to take up available space in the .video-container row (on desktop) */
-    border-style:ridge; /* No border style */
+  border-style:none; /* No border style */
   padding-bottom: 0;
   padding-top: 0;
   background-color: transparent;
@@ -2256,8 +2256,7 @@ body.dark-mode .follow span {
 
   overflow-y: auto;
   align-self: stretch; /* 🔑 ensure it fills video-container height */
-   align-content: flex-start;   /* 🔑 stack children from TOP */
-  align-items: flex-start;     /* 🔑 prevent vertical centering */
+
   height: 100%;
   /* Layout and Flow */
   float: none; /* Maintain float for its specific layout purpose, though often replaced by flex/grid in modern layouts, adhering to "don't tweak" for structural changes. */
@@ -2274,8 +2273,8 @@ body.dark-mode .follow span {
   display: flex; /* Enables a flexible layout for its child elements */
   flex-shrink: 0; /* Prevents the container from shrinking below its content size */
   flex-wrap: wrap; /* Allows child items to wrap to the next line within the container */
-  flex-direction: row; /* Arranges items in rows (horizontally) initially */
-  justify-content: flex-start; /* Aligns content to the start of the flex container */
+  flex-direction: column; /* Arranges items in rows (horizontally) initially */
+  justify-content:space-between;/* Aligns content to the start of the flex container */
     border-style:none; /* No border style */
   z-index: 2; /* Ensures it's layered correctly on the page */
 
@@ -2291,14 +2290,14 @@ body.dark-mode .follow span {
   &::-webkit-scrollbar-thumb {
     background-color: var(--scrollbar-thumb-color-light); /* Light mode scrollbar thumb color */
     border-radius: var(--scrollbar-thumb-border-radius); /* Rounded scrollbar thumb */
-    border: 2px solid transparent; /* Border around the thumb to match background */
+border: 0.1px solid #ccc;
+
   }
 
   /* Fallback scrollbar styling (Firefox) */
   scrollbar-width: thin; /* Thin scrollbar for Firefox */
   scrollbar-color: var(--scrollbar-thumb-color-light) transparent; /* Firefox scrollbar color */
 
-  border-style:ridge;
 }
 
 /* Dark mode adjustments for .container-2 */
@@ -2333,8 +2332,559 @@ background-color: var(--color-bg-light); /* Default background color for light m
 padding-bottom: 20px;
 }
 
+.video-title-label{
+    display:block;
+    margin-bottom:8px;
+    font-size:0.95rem;
+    font-weight:600;
+    color:#444;
+}
+
+.dark-mode .video-title-label{
+    color:#f1f1f1;
+}
+
+/* ================================
+   VIDEO TITLE INPUT
+================================ */
+
+#videoTitleInput{
+
+    width:100%;
+    height:55px;
+
+    padding:0 18px;
+
+    border:1px solid #d6d6d6;
+    border-radius:10px;
+
+    background:#ffffff;
+    color:#222;
+
+    font-size:1.1rem;
+    font-weight:600;
+    font-family:'Poppins',sans-serif;
+
+    outline:none;
+
+    box-sizing:border-box;
+
+}
+
+/* Placeholder */
+
+#videoTitleInput::placeholder{
+
+    color:#8b8b8b;
+    font-weight:500;
+
+}
+
+/* Focus */
+
+#videoTitleInput:focus{
+
+    border-color:#FF0000;
+
+}
+
+/* Dark Mode */
+
+.dark-mode #videoTitleInput{
+
+    background:#1f1f1f;
+    border:1px solid #3a3a3a;
+    color:#ffffff;
+
+}
+
+.dark-mode #videoTitleInput::placeholder{
+
+    color:#9f9f9f;
+
+}
+
+/* Responsive */
+
+@media (max-width:768px){
+
+    #videoTitleInput{
+
+        height:50px;
+        font-size:1rem;
+
+    }
+
+}
+
+@media (max-width:480px){
+
+    #videoTitleInput{
+
+        height:46px;
+        font-size:.95rem;
+        padding:0 14px;
+
+    }
+
+}
+
+.settings-card-header
+{
+
+    margin-top:1rem;
+
+}
+
+.video-description{
+
+    width:100%;
+
+    min-height:180px;
+
+    resize:vertical;
+
+    padding:15px;
+
+    margin-top:1rem;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    outline:none;
+
+    font-size:15px;
+
+    line-height:1.7;
+
+    font-family:inherit;
+
+    background:#fff;
+
+    color:#222;
+
+    transition:.25s;
+
+}
+
+.video-description:focus{
+
+    border-color:#ff2d2d;
+
+    box-shadow:0 0 0 3px rgba(255,45,45,.12);
+
+}
+
+.dark-mode .video-description{
+
+    background:#222;
+
+    color:white;
+
+    border-color:#444;
+
+}
+
+.description-footer{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    margin-top:8px;
+
+    font-size:.85rem;
+
+    color:#777;
+
+}
+
+.dark-mode .description-footer{
+
+    color:#bbb;
+
+}
+
+.thumbnail h4
+{
+
+  margin-top: 1rem;
+}
+
+.thumbnail-wrapper{
+
+position:relative;
+
+border-radius:10px;
+
+overflow:hidden;
+
+margin-top: 1rem;
+
+}
+
+.thumbnail-upload{
+
+position:absolute;
+
+bottom:12px;
+
+right:12px;
+
+width:45px;
+
+height:45px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+background:transparent;
+
+cursor:pointer;
+
+box-shadow:0 2px 10px
+rgba(0,0,0,.25);
+
+}
+
+.thumbnail-upload img {
+
+width:60%;
+
+}
 
 
+.save-video-btn{
+
+    position:sticky;
+
+    bottom:0;
+
+    width:100%;
+
+    height:50px;
+
+    z-index:100;
+
+border:none;
+
+border-radius:10px;
+
+font-size:1rem;
+
+font-weight:600;
+
+cursor:pointer;
+
+background:#FF0000;
+
+color:white;
+
+margin-top:10px;
+
+}
+
+.dark-mode .save-video-btn{
+
+background:#E50914;
+
+}
+
+
+.editor-content{
+    flex:1;
+}
+
+.save-section{
+    margin-top:auto;
+}
+
+/* ===========================
+   VIDEO SETTINGS
+=========================== */
+
+.video-setting{
+    width:100%;
+    margin-top:20px;
+}
+
+/* Title */
+
+.setting-title{
+
+    display:block;
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    margin-bottom:12px;
+
+    color:#222;
+
+}
+
+.dark-mode .setting-title{
+
+    color:#fff;
+
+}
+
+/* Container */
+
+.visibility-options{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+/* Card */
+
+.visibility-option{
+
+    display:flex;
+
+    align-items:flex-start;
+
+    gap:14px;
+
+    padding:14px 16px;
+
+    border:1px solid #d8d8d8;
+
+    border-radius:10px;
+
+    background:#fafafa;
+
+    cursor:pointer;
+
+}
+
+.dark-mode .visibility-option{
+
+    background:#202124;
+
+    border-color:#444;
+
+}
+
+/* Radio */
+
+.visibility-option input{
+
+    margin-top:4px;
+
+    accent-color:#ff1f1f;
+
+}
+
+/* Text */
+
+.visibility-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.visibility-name{
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:#222;
+
+}
+
+.dark-mode .visibility-name{
+
+    color:white;
+
+}
+
+.visibility-description{
+
+    margin-top:4px;
+
+    font-size:0.88rem;
+
+    color:#666;
+
+    line-height:1.4;
+
+}
+
+.dark-mode .visibility-description{
+
+    color:#aaa;
+
+}
+
+/*==============================
+COMMENTS
+==============================*/
+
+.comment-settings{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+/* Individual Setting */
+
+.comment-option{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:16px;
+
+    border:1px solid #d9d9d9;
+
+    border-radius:10px;
+
+    background:#fafafa;
+
+}
+
+.dark-mode .comment-option{
+
+    background:#202124;
+
+    border-color:#444;
+
+}
+
+.comment-text{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:5px;
+
+}
+
+.comment-name{
+
+    font-size:1rem;
+
+    font-weight:600;
+
+    color:#222;
+
+}
+
+.dark-mode .comment-name{
+
+    color:#fff;
+
+}
+
+.comment-description{
+
+    font-size:.88rem;
+
+    color:#666;
+
+}
+
+.dark-mode .comment-description{
+
+    color:#aaa;
+
+}
+
+/*==============================
+TOGGLE SWITCH
+==============================*/
+
+.switch{
+
+    position:relative;
+
+    display:inline-block;
+
+    width:52px;
+
+    height:28px;
+
+}
+
+.switch input{
+
+    opacity:0;
+
+    width:0;
+
+    height:0;
+
+}
+
+.slider{
+
+    position:absolute;
+
+    inset:0;
+
+    cursor:pointer;
+
+    background:black;
+
+    border-radius:34px;
+
+}
+
+.slider:before{
+
+    position:absolute;
+
+    content:"";
+
+    width:22px;
+
+    height:22px;
+
+    left:3px;
+
+    bottom:3px;
+
+    background:white;
+
+    border-radius:50%;
+
+}
+
+.switch input:checked + .slider{
+
+    background:#ff1f1f;
+
+}
+
+.switch input:checked + .slider:before{
+
+    transform:translateX(24px);
+
+}
 
 /* Light Mode Styles */
 .light-mode {

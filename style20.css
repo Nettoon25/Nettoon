@@ -1320,7 +1320,7 @@ flex-wrap: nowrap;
 
 
 /* Dark Mode for video-container */
-.dark-mode .video-container {
+.dark-mode.video-container {
   /* Inherits most background/text from body. No specific background changes needed here
      unless it has its own distinct background in dark mode. */
 }
@@ -1345,7 +1345,7 @@ flex-wrap: nowrap;
   flex-direction: column;
 margin-top: 1.5rem;
   background-color: transparent;
-  margin-left:1.5rem; /* Keeping original margin-left */
+  margin-left:1.7rem; /* Keeping original margin-left */
   border-radius: 10px;
 border-style:none;
 overflow-x: hidden;
@@ -1516,6 +1516,7 @@ overflow-y: visible;
   user-select: none;
 
 opacity: 0.58;      /* subtle but visible */
+ display: none;
 }
 
 /* watermark image */
@@ -3335,8 +3336,7 @@ body.dark-mode .follow span {
   width: 92%;
   max-width: 360px;
 
-  background: #111111;
-
+  background-color: #f0f0f0;
   border-radius: 16px;
 
   padding: 22px;
@@ -3347,6 +3347,11 @@ body.dark-mode .follow span {
 
   animation: popupFade 0.2s ease;
 }
+
+.dark-mode .signin-popup-box {
+
+  background: #111111;
+  }
 
 @keyframes popupFade {
 
@@ -3370,11 +3375,19 @@ body.dark-mode .follow span {
 }
 
 .signin-popup-header h3 {
-  color: #ffffff;
+
+  color:black;
   font-size: 17px;
   font-weight: 600;
 
   margin: 0;
+}
+
+.dark-mode .signin-popup-header h3
+
+{
+  color: #ffffff;
+
 }
 
 .signin-popup-close {
@@ -3384,11 +3397,18 @@ body.dark-mode .follow span {
 }
 
 .signin-popup-box p {
-  color: #b5b5b5;
+
+  color:black;
   font-size: 13px;
   line-height: 1.5;
 
   margin-bottom: 22px;
+}
+
+
+.dark-mode .signin-popup-box p{
+
+  color: white;
 }
 
 .signin-popup-actions {
@@ -3595,6 +3615,19 @@ body {
 /* Large desktops (1281px–1599px) */
 @media (min-width: 1280px) and (max-width: 1599px) {
 
+  
+/* Light Mode Styles */
+.light-mode {
+  background-color:  #FAFAFA; /* White background for Light Mode */
+  color: black; /* Black text for Light Mode */
+}
+
+/* Dark Mode Styles */
+.dark-mode {
+  background-color: #121212; /* Black background for Dark Mode */
+  color: white; /* White text for Dark Mode */
+}
+
   /* Notifications Icon */
 .Notifications {
   margin-right: 4rem;
@@ -3742,4 +3775,4 @@ margin-top: 3.5rem;
 
   margin-top: 0.2rem;
 
-}
+}}

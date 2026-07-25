@@ -561,6 +561,193 @@ body.dark-mode .search input[type="search"]::placeholder {
   padding-right: 3.5rem; /* make room for clear button */
 }
 
+/* =======================================
+SEARCH DROPDOWN
+======================================= */
+
+.search-dropdown{
+
+    position:absolute;
+
+    top:105%;
+
+    left:0;
+
+    width:100%;
+
+    background:#ffffff;
+
+    border:1px solid #d9d9d9;
+
+    border-radius:10px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+    z-index:9999;
+
+    max-height:380px;
+
+    overflow-y:auto;
+
+    scrollbar-width:thin;
+
+}
+
+/* Dark Mode */
+
+.dark-mode .search-dropdown{
+
+    background:#202124;
+
+    border-color:#3b3b3b;
+
+}
+
+/* Search Item */
+
+.search-result{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    padding:10px 12px;
+
+    cursor:pointer;
+
+    transition:.18s;
+
+}
+
+.search-result:hover{
+
+    background:#f3f3f3;
+
+}
+
+.dark-mode .search-result:hover{
+
+    background:#303134;
+
+}
+
+/* Thumbnail */
+
+.search-result img{
+
+    width:80px;
+
+    height:45px;
+
+    border-radius:6px;
+
+    object-fit:cover;
+
+    flex-shrink:0;
+
+}
+
+/* Text */
+
+.search-result-info{
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+}
+
+.search-title{
+
+    font-size:.95rem;
+
+    font-weight:600;
+
+    color:#111;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+.dark-mode .search-title{
+
+    color:white;
+
+}
+
+.search-creator{
+
+    font-size:.78rem;
+
+    color:#666;
+
+    margin-top:3px;
+
+}
+
+.dark-mode .search-creator{
+
+    color:#bdbdbd;
+
+}
+
+/* Empty */
+
+.search-empty{
+
+    padding:25px;
+
+    text-align:center;
+
+    color:#777;
+
+}
+
+.dark-mode .search-empty{
+
+    color:#ccc;
+
+}
+
+/* Scrollbar */
+
+.search-dropdown::-webkit-scrollbar{
+
+    width:7px;
+
+}
+
+.search-dropdown::-webkit-scrollbar-thumb{
+
+    background:#999;
+
+    border-radius:20px;
+
+}
+
+/* Utility */
+
+.hidden{
+
+    display:none;
+
+}
+
+.search-dropdown{
+
+    display:block !important;
+
+}
 
 .upload {
   position: relative;
@@ -1348,6 +1535,7 @@ flex-wrap: nowrap;
 
 .rectanglee.active span {
   color: var(--color-text-pill-active-light); /* **White text color for active tab** */
+    color:white; /* **White text color for active tab** */
 }
 
 /* ==== DARK MODE DEFAULTS & STATES ==== */

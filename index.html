@@ -31,12 +31,86 @@
       <div class="nav">
         <!-- Search -->
          
-        <div class="search">
-          <input type="search" id="search" placeholder="Search Cartoon and Animation">
-          <a href="index12.html"><img src="search.png" class="search-icon" /></a>
-          <span class="tooltip">Search</span>
+ <div class="search">
+    <input
+        type="search"
+        id="search"
+        placeholder="Search Cartoons and Animations">
+
+    <div class="search-dropdown hidden" id="searchDropdown">
+
+        <!-- Search Result -->
+        <div class="search-result">
+
+            <img src="Moana-2-trailer-1068x471.png" alt="thumbnail">
+
+            <div class="search-result-info">
+
+                <span class="search-title">
+                    Moana 2 Official Trailer
+                </span>
+
+                <span class="search-creator">
+                    Disney Animation
+                </span>
+
+            </div>
+
         </div>
-  
+
+        <div class="search-result">
+
+            <img src="love death robots.jpg" alt="thumbnail">
+
+            <div class="search-result-info">
+
+                <span class="search-title">
+                    Love Death + Robots Volume 4
+                </span>
+
+                <span class="search-creator">
+                    Netflix
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="search-result">
+
+            <img src="kizazi.jpg" alt="thumbnail">
+
+            <div class="search-result-info">
+
+                <span class="search-title">
+                    Kizazi Moto Generation Fire
+                </span>
+
+                <span class="search-creator">
+                    Disney Africa
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="search-empty hidden">
+
+            No cartoons or animations found.
+
+        </div>
+
+    </div>
+
+    <a href="index12.html">
+        <img src="search.png" class="search-icon">
+    </a>
+
+    <span class="tooltip">
+        Search
+    </span>
+
+</div>
         <div class="nav-actions"></div>
         <!-- Upload -->
         <a href="index5.html">
@@ -80,10 +154,6 @@
   <div class="popup-item">
     <img src="share.png" alt="Turn Off Icon">
     <span>Turn off all notifications from Alkebulan</span>
-  </div>
-  <div class="popup-item">
-    <img src="report.png" alt="Report Icon">
-    <span>Report this notification</span>
   </div>
 </div>
 
@@ -343,142 +413,145 @@
         <!-- Containers -->
         <div id="container-1" class="container-1">
 
+
+              <div class="kontainer">
+                      <div class="profilee"> 
+                        <a href="index4.html" class="profilee-img-wrapper">
+                            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
+                            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
+                        </a>
+                    
+                        <div class="profilee-name">
+                            <span>Guest</span>
+                        </div>
+                    
+                        <div class="opttions">
+                            <img src="sidebar 3.png" alt="Options Icon">
+                    
+                            <!-- OPTIONS POPUP -->
+                            <div class="opttions-popup hidden">
+                                <div class="popup-item"><img src="share.png" /> Share</div>
+                                <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+                                <div class="popup-item"><img src="report.png" /> Report</div>
+                            </div>
+                        </div>
+                    
+                        <!-- SHARE POPUP (corrected position) -->
+                        <div class="share-popup hidden" id="sharePopup">
+                    
+                            <!-- FIXED CLOSE BUTTON -->
+                            <div class="share-close" id="shareClose">✕</div>
+                    
+                            <!-- Scrollable icons wrapper -->
+                            <div class="share-scroll">
+                                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+                                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+                                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+                                <div class="share-item"><img src="twitter.png"><span>X</span></div>
+                                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+                            </div>
+                    
+                        </div> <!-- END share-popup -->
+                    
+             <!-- PLAYLIST POPUP -->
+          <div class="playlist-popup hidden" id="playlistPopup">
+          
+            <div class="playlist-header">Save to...</div>
+          
+            <!-- PLAYLIST LIST WRAPPER -->
+            <div class="playlist-list" id="playlistList">
+          
+                <!-- Default items -->
+                <label class="playlist-option">
+                    <input type="checkbox" class="playlist-check">
+                    <span>Watch Later</span>
+                </label>
+          
+                <label class="playlist-option">
+                    <input type="checkbox" class="playlist-check">
+                    <span>Favorites</span>
+                </label>
+          
+            </div>
+          
+            <!-- ADD NEW PLAYLIST BUTTON -->
+            <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+          
+          </div>
+          
+          <!-- REPORT POPUP -->
+          <div class="report-popup hidden" id="reportPopup">
+          
+            <div class="report-header">
+              Help us understand the issue. We’ll assess it across all Community Guidelines.
+                <span class="report-close" id="reportClose">✕</span>
+            </div>
+          
+            <label class="report-option">
+                <input type="checkbox" class="report-check">
+                Sexual content
+            </label>
+          
+            <label class="report-option">
+                <input type="checkbox" class="report-check">
+                Violent or repulsive content
+            </label>
+          
+            <label class="report-option">
+                <input type="checkbox" class="report-check">
+                Hateful or abusive content
+            </label>
+          
+            <label class="report-option">
+                <input type="checkbox" class="report-check">
+                Harmful or dangerous acts
+            </label>
+          
+            <label class="report-option">
+                <input type="checkbox" class="report-check">
+                Spam or misleading
+            </label>
+          
+            <label class="report-option">
+                <input type="checkbox" class="report-check">
+                Child abuse
+            </label>
+          
+            <div class="report-actions">
+                <button class="report-cancel">Cancel</button>
+                <button class="report-submit" id="reportSubmit" disabled>Report</button>
+            </div>
+          
+          </div>
+          
+                    
+                    </div> <!-- END profilee -->
+                    
+                    
+                      <div class="caption">
+                      <span>MOANA</span>
+                      </div>
+                      <a href="index2.html">
+                        <div class="videoo">
+                          <video
+                            src="YTDown.com_YouTube_Media_v34aRpnoM_A_003_480p.mp4"
+                            poster="Moana (1).png" preload="metadata"></video>
+                      <div class="overlay-textt">0.00</div>
+                      </div></a>
+                      <div class="sectiionn">
+                        <div class="views">
+                          <img src="views.png">
+                          <span>No views</span>
+                          </div>
+                          <div class="time">
+                          <span for="text">	Just now</span>
+                          </div>
+                      
+                      </div>
+                      
+                      </div>
    
-          <div class="kontainer">
-            <div class="profilee"> 
-              <a href="index4.html" class="profilee-img-wrapper">
-                  <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-                  <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-              </a>
-          
-              <div class="profilee-name">
-                  <span>Guest</span>
-              </div>
-          
-              <div class="opttions">
-                  <img src="sidebar 3.png" alt="Options Icon">
-          
-                  <!-- OPTIONS POPUP -->
-                  <div class="opttions-popup hidden">
-                      <div class="popup-item"><img src="share.png" /> Share</div>
-                      <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
-                      <div class="popup-item"><img src="report.png" /> Report</div>
-                  </div>
-              </div>
-          
-              <!-- SHARE POPUP (corrected position) -->
-              <div class="share-popup hidden" id="sharePopup">
-          
-                  <!-- FIXED CLOSE BUTTON -->
-                  <div class="share-close" id="shareClose">✕</div>
-          
-                  <!-- Scrollable icons wrapper -->
-                  <div class="share-scroll">
-                      <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                      <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                      <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                      <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                      <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-                  </div>
-          
-              </div> <!-- END share-popup -->
-          
-   <!-- PLAYLIST POPUP -->
-<div class="playlist-popup hidden" id="playlistPopup">
-
-  <div class="playlist-header">Save to...</div>
-
-  <!-- PLAYLIST LIST WRAPPER -->
-  <div class="playlist-list" id="playlistList">
-
-      <!-- Default items -->
-      <label class="playlist-option">
-          <input type="checkbox" class="playlist-check">
-          <span>Watch Later</span>
-      </label>
-
-      <label class="playlist-option">
-          <input type="checkbox" class="playlist-check">
-          <span>Favorites</span>
-      </label>
-
-  </div>
-
-  <!-- ADD NEW PLAYLIST BUTTON -->
-  <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
-
-</div>
-
-<!-- REPORT POPUP -->
-<div class="report-popup hidden" id="reportPopup">
-
-  <div class="report-header">
-    Help us understand the issue. We’ll assess it across all Community Guidelines.
-      <span class="report-close" id="reportClose">✕</span>
-  </div>
-
-  <label class="report-option">
-      <input type="checkbox" class="report-check">
-      Sexual content
-  </label>
-
-  <label class="report-option">
-      <input type="checkbox" class="report-check">
-      Violent or repulsive content
-  </label>
-
-  <label class="report-option">
-      <input type="checkbox" class="report-check">
-      Hateful or abusive content
-  </label>
-
-  <label class="report-option">
-      <input type="checkbox" class="report-check">
-      Harmful or dangerous acts
-  </label>
-
-  <label class="report-option">
-      <input type="checkbox" class="report-check">
-      Spam or misleading
-  </label>
-
-  <label class="report-option">
-      <input type="checkbox" class="report-check">
-      Child abuse
-  </label>
-
-  <div class="report-actions">
-      <button class="report-cancel">Cancel</button>
-      <button class="report-submit" id="reportSubmit" disabled>Report</button>
-  </div>
-
-</div>
-
-          
-          </div> <!-- END profilee -->
-          
-            <div class="caption">
-            <span>LOVE DEATH + ROBOTS VOLUME 4 Official Trailer</span>
-            </div>
-            <a href="index2.html">
-              <div class="videoo">
-                <video
-                  src="LOVE DEATH + ROBOTS VOLUME 4 _ Official Trailer _ Netflix.mp4"
-                  poster="Love death & robots.jpg" preload="metadata"></video>
-                  <div class="overlay-textt">0.00</div>
-            </div></a>
-            <div class="sectiionn">
-              <div class="views">
-                <img src="views.png">
-                <span>No views</span>
-                </div>
-                <div class="time">
-                <span for="text">	Just now</span>
-                </div>
-            
-            </div>
-            
-            </div>
+         
         
             <div class="kontainer">
               <div class="profilee"> 
@@ -1029,143 +1102,142 @@
                     
                     </div>
       
-                    <div class="kontainer">
-                      <div class="profilee"> 
-                        <a href="index4.html" class="profilee-img-wrapper">
-                            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-                            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-                        </a>
-                    
-                        <div class="profilee-name">
-                            <span>Guest</span>
-                        </div>
-                    
-                        <div class="opttions">
-                            <img src="sidebar 3.png" alt="Options Icon">
-                    
-                            <!-- OPTIONS POPUP -->
-                            <div class="opttions-popup hidden">
-                                <div class="popup-item"><img src="share.png" /> Share</div>
-                                <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
-                                <div class="popup-item"><img src="report.png" /> Report</div>
-                            </div>
-                        </div>
-                    
-                        <!-- SHARE POPUP (corrected position) -->
-                        <div class="share-popup hidden" id="sharePopup">
-                    
-                            <!-- FIXED CLOSE BUTTON -->
-                            <div class="share-close" id="shareClose">✕</div>
-                    
-                            <!-- Scrollable icons wrapper -->
-                            <div class="share-scroll">
-                                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-                            </div>
-                    
-                        </div> <!-- END share-popup -->
-                    
-             <!-- PLAYLIST POPUP -->
-          <div class="playlist-popup hidden" id="playlistPopup">
+                  
+       <div class="kontainer">
+            <div class="profilee"> 
+              <a href="index4.html" class="profilee-img-wrapper">
+                  <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
+                  <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
+              </a>
           
-            <div class="playlist-header">Save to...</div>
+              <div class="profilee-name">
+                  <span>Guest</span>
+              </div>
           
-            <!-- PLAYLIST LIST WRAPPER -->
-            <div class="playlist-list" id="playlistList">
+              <div class="opttions">
+                  <img src="sidebar 3.png" alt="Options Icon">
           
-                <!-- Default items -->
-                <label class="playlist-option">
-                    <input type="checkbox" class="playlist-check">
-                    <span>Watch Later</span>
-                </label>
+                  <!-- OPTIONS POPUP -->
+                  <div class="opttions-popup hidden">
+                      <div class="popup-item"><img src="share.png" /> Share</div>
+                      <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+                      <div class="popup-item"><img src="report.png" /> Report</div>
+                  </div>
+              </div>
           
-                <label class="playlist-option">
-                    <input type="checkbox" class="playlist-check">
-                    <span>Favorites</span>
-                </label>
+              <!-- SHARE POPUP (corrected position) -->
+              <div class="share-popup hidden" id="sharePopup">
           
+                  <!-- FIXED CLOSE BUTTON -->
+                  <div class="share-close" id="shareClose">✕</div>
+          
+                  <!-- Scrollable icons wrapper -->
+                  <div class="share-scroll">
+                      <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+                      <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+                      <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+                      <div class="share-item"><img src="twitter.png"><span>X</span></div>
+                      <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+                  </div>
+          
+              </div> <!-- END share-popup -->
+          
+   <!-- PLAYLIST POPUP -->
+<div class="playlist-popup hidden" id="playlistPopup">
+
+  <div class="playlist-header">Save to...</div>
+
+  <!-- PLAYLIST LIST WRAPPER -->
+  <div class="playlist-list" id="playlistList">
+
+      <!-- Default items -->
+      <label class="playlist-option">
+          <input type="checkbox" class="playlist-check">
+          <span>Watch Later</span>
+      </label>
+
+      <label class="playlist-option">
+          <input type="checkbox" class="playlist-check">
+          <span>Favorites</span>
+      </label>
+
+  </div>
+
+  <!-- ADD NEW PLAYLIST BUTTON -->
+  <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+
+</div>
+
+<!-- REPORT POPUP -->
+<div class="report-popup hidden" id="reportPopup">
+
+  <div class="report-header">
+    Help us understand the issue. We’ll assess it across all Community Guidelines.
+      <span class="report-close" id="reportClose">✕</span>
+  </div>
+
+  <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Sexual content
+  </label>
+
+  <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Violent or repulsive content
+  </label>
+
+  <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Hateful or abusive content
+  </label>
+
+  <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Harmful or dangerous acts
+  </label>
+
+  <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Spam or misleading
+  </label>
+
+  <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Child abuse
+  </label>
+
+  <div class="report-actions">
+      <button class="report-cancel">Cancel</button>
+      <button class="report-submit" id="reportSubmit" disabled>Report</button>
+  </div>
+
+</div>
+
+          
+          </div> <!-- END profilee -->
+          
+            <div class="caption">
+            <span>LOVE DEATH + ROBOTS VOLUME 4 Official Trailer</span>
             </div>
-          
-            <!-- ADD NEW PLAYLIST BUTTON -->
-            <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
-          
-          </div>
-          
-          <!-- REPORT POPUP -->
-          <div class="report-popup hidden" id="reportPopup">
-          
-            <div class="report-header">
-              Help us understand the issue. We’ll assess it across all Community Guidelines.
-                <span class="report-close" id="reportClose">✕</span>
+            <a href="index2.html">
+              <div class="videoo">
+                <video
+                  src="LOVE DEATH + ROBOTS VOLUME 4 _ Official Trailer _ Netflix.mp4"
+                  poster="Love death & robots.jpg" preload="metadata"></video>
+                  <div class="overlay-textt">0.00</div>
+            </div></a>
+            <div class="sectiionn">
+              <div class="views">
+                <img src="views.png">
+                <span>No views</span>
+                </div>
+                <div class="time">
+                <span for="text">	Just now</span>
+                </div>
+            
             </div>
-          
-            <label class="report-option">
-                <input type="checkbox" class="report-check">
-                Sexual content
-            </label>
-          
-            <label class="report-option">
-                <input type="checkbox" class="report-check">
-                Violent or repulsive content
-            </label>
-          
-            <label class="report-option">
-                <input type="checkbox" class="report-check">
-                Hateful or abusive content
-            </label>
-          
-            <label class="report-option">
-                <input type="checkbox" class="report-check">
-                Harmful or dangerous acts
-            </label>
-          
-            <label class="report-option">
-                <input type="checkbox" class="report-check">
-                Spam or misleading
-            </label>
-          
-            <label class="report-option">
-                <input type="checkbox" class="report-check">
-                Child abuse
-            </label>
-          
-            <div class="report-actions">
-                <button class="report-cancel">Cancel</button>
-                <button class="report-submit" id="reportSubmit" disabled>Report</button>
+            
             </div>
-          
-          </div>
-          
-                    
-                    </div> <!-- END profilee -->
-                    
-                    
-                      <div class="caption">
-                      <span>MOANA</span>
-                      </div>
-                      <a href="index2.html">
-                        <div class="videoo">
-                          <video
-                            src="YTDown.com_YouTube_Media_v34aRpnoM_A_003_480p.mp4"
-                            poster="Moana (1).png" preload="metadata"></video>
-                      <div class="overlay-textt">0.00</div>
-                      </div></a>
-                      <div class="sectiionn">
-                        <div class="views">
-                          <img src="views.png">
-                          <span>No views</span>
-                          </div>
-                          <div class="time">
-                          <span for="text">	Just now</span>
-                          </div>
-                      
-                      </div>
-                      
-                      </div>
-      
         
         
         </div>
