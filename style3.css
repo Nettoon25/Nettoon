@@ -1290,7 +1290,7 @@ body.dark-mode
 .captionn h3 {
   font-weight: bold;
   font-size: clamp(1.2rem, 1.1vw, 1.5rem);
-  color: black;
+  color: #111111;
   text-align: center; /* Keep text centered */
   white-space: nowrap; /* Prevent text wrapping */
   overflow: hidden; /* Hide overflow */
@@ -1300,6 +1300,13 @@ body.dark-mode
   margin: 0; /* Remove unnecessary margin */
 }
 /* No changes needed to your CSS for this fix. It's already correct. */
+
+.dark-mode .captionn h3
+{
+
+color:#F5F5F5;
+
+}
 
 /* ==== VIDEO PLAYER CONTAINER (.video) ==== */
 .video {
@@ -2588,7 +2595,7 @@ position: relative;
     flex: 1; /* 🔥 takes remaining space */
   font-size: 15px;
   font-weight: bold;
-  color: black;
+  color: #000000;
   text-align: center;
   white-space: nowrap; /* Prevents text wrapping */
   overflow: hidden; /* Hides overflowing text */
@@ -2844,6 +2851,7 @@ position: relative;
   margin-top: 5px;
   margin-left: 10px;
   font-weight: bold;
+    color: #111111;
 }
 
 .description-header{
@@ -4390,7 +4398,7 @@ margin-bottom: 0rem;
   font-weight: 700; /* Bold font for prominence */
   font-size: var(--font-size-base-md); /* Responsive font size (0.96875rem approx 15.5px) */
   color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
-  
+    color: #000000;
   /* Sizing & Flex Item Properties */
   height: 100%; /* Fills the height of its parent container for vertical centering */
   flex-grow: 1; /* Allows the text to grow and take available space */
@@ -4648,7 +4656,7 @@ margin-bottom: 5%;
     font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
     /* Responsive font size using clamp(): scales between 0.75rem (12px) and 0.875rem (14px) */
     font-size: clamp(0.75rem, 1vw, 0.875rem);
-    color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
+   color: #1f1f1f; /* Dark text color for light mode, using a variable */
     
     margin: 0; /* Removes default margins */
     display: flex; /* Uses flexbox for inner alignment */
@@ -4668,7 +4676,7 @@ margin-bottom: 5%;
   .dark-mode .views span,
   .dark-mode .time span,
   .dark-mode .category span {
-    color: var(--color-text-light-contrast); /* Lighter text color for dark mode */
+   color: #f5f5f5;; /* Lighter text color for dark mode */
   }
   
 

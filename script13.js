@@ -1020,3 +1020,35 @@ document.addEventListener('click', () => {
     menu.classList.remove('show');
   });
 });
+
+
+
+
+
+/* ==========================================
+   DOWNLOAD BUTTON
+========================================== */
+
+const downloadBtn = document.querySelector(".download-btn");
+const downloadIcon = downloadBtn.querySelector(".download-icon");
+const downloadText = downloadBtn.querySelector(".download-text");
+
+downloadBtn.addEventListener("click", () => {
+
+    // Prevent clicking twice
+    if(downloadBtn.classList.contains("downloading")) return;
+
+    downloadBtn.classList.add("downloading");
+
+    downloadIcon.src = "download.png";   // Your second image
+    downloadText.textContent = "Downloading...";
+
+    // Simulate download time
+    setTimeout(() => {
+
+        downloadIcon.src = "downloaded.png"; // Optional third icon
+        downloadText.textContent = "Downloaded";
+
+    },3000);
+
+});

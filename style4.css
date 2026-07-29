@@ -1563,7 +1563,7 @@ flex-wrap: nowrap;
 
 /* Dark mode adjustment for stat text */
 .dark-mode .container-3 span {
-  color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode contrast */
+  color: #e0e0e0; /* Lighter text color for dark mode contrast */
 }
 /* ==== UTILITY CLASSES ==== */
 /* Class to hide elements completely from view and accessibility tree. */

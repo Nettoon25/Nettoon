@@ -1132,155 +1132,6 @@ flex-wrap: nowrap;
     bottom: -1.75rem; /* Adjust positioning */
   }
 }
-/* ==== VIDEO CONTAINER (.video-container) ==== */
-/* This is the main wrapper for your video player and related content. */
-.sidebar {
-    display:block;
-    position: fixed;
-    width:4.5%;
-    max-width: 12em; /* Converted from 80px */
-    height: 100vh; /* Full viewport height */
-    background-color: var(--color-bg-light); /* Default background color for light mode */
-    top: 2.7rem;
-    left: 0;
-    overflow-x: hidden;
-    overflow-y: auto;
-    scrollbar-width: thin;
-    scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
-    transition: width 0.3s ease-in-out;
-    z-index: 3;
-    border-style:none;
-    justify-content:space-evenly;
-  }
-  
-  .sidebar:hover {
-    width: 0%; /* Expands slightly on hover for better UX */
-  }
-  
-  .sidebar::-webkit-scrollbar {
-    width: 6px;
-  }
-  .sidebar::-webkit-scrollbar-thumb {
-    background:gray;
-    border-radius: 5px;
-  }
-  .sidebar::-webkit-scrollbar-track {
-    background:gray;
-    scrollbar-color: rgba(0, 0, 0, 0.5) gray;
-  }
-  
-  .sidebar img {
-    width: 1.6875rem; /* Converted from 27px */
-    height: 1.6875rem;
-    margin: 1.25rem auto 1.0625rem auto; /* Adjusted spacing */
-    display: block; /* Centers image in flex-based layouts */
-  }
-  
-  .home {
-    
-    width: 100%;
-    height: 3.125rem; /* Converted from 50px */
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    background-color:transparent;
-    border-radius: 0px;
-    box-sizing: border-box;
-    padding: 0 0.9375rem; /* Converted from 15px */
-    margin: 4rem 0 0.5rem 0rem; /* Adjusted margin values */
-    gap:5px;
-    cursor: pointer;
-  }
-  
-  .home img {
-    width: 1.5625rem; /* Converted from 25px */
-    height: 1.5625rem;
-    margin-left: 0rem; /* Converted from 10px */
-
-
-  }
-  
-  .home span {
-    font-family: 'Poppins', 'Segoe UI', sans-serif;
-    font-weight: 500;          /* Medium */
-    font-size: 1rem;           /* ~16px */
-    line-height: 1.5;
-    color: black;   
-    font-family: 'Poppins', sans-serif;
-    flex-grow: 1;
-    margin-left: 10px;
-    text-align: center;
-    font-size: 0.8125rem; /* Converted from 13px */  white-space: nowrap; /* Prevents text wrapping */
-    overflow: hidden;
-    text-overflow: ellipsis; /* Ensures long text is truncated */
-  }
-  
-      
-.home:hover {
-  background-color: #2a2d2f;
-  color: white;
-}
-
-/* Apply image invert and span color change on hover */
-.home:hover img {
-  filter: invert(1);
-}
-
-.home:hover span {
-  color: white;
-}
-
-  .home:hover span {
-    color: white;
-  }
-  
-  .dark-mode .home:hover {
-    background-color: #2a2d2f;
-  }
-
-
-.Segment {
-  position: sticky;
-  top: 3rem;
-  z-index:1;
-
-  width: 100%;
-  height: 30px;
-
-  display:none;
-  align-items: center;
-
-  background-color: #f0f0f0;
-
-  padding: 0;
-  margin: 0;
-
-  border: none;
-}
-.dark-mode .Segment
-{
-  background-color: #2a2d2f;
-}
-
-.Segment span {
-  padding-left: 1%;
-  color: #333333;
-  font-weight: bold;
-  font-size: 20px;
-  padding-top: 0px;
-  margin-left:4rem; /* Keeping original margin-left */
-}
-
-.dark-mode .Segment span 
-{
-  color:#FFFFFF;
-    background-color: #2a2d2f;
-}
-
-.Segment {
-  position: relative;
-
-}
 
 /* ==== VIDEO CONTAINER (.video-container) ==== */
 /* This is the main wrapper for your video player and related content. */
@@ -2313,144 +2164,39 @@ body.dark-mode .follow span {
 .dark-mode .container-2::-webkit-scrollbar-thumb {
   background-color: var(--scrollbar-thumb-color-dark); /* Dark mode scrollbar thumb color */
 }
-
 /* ==== OPTION BUTTON/HEADER (.optionn) ==== */
 /* This likely serves as a sticky header or option bar within a scrolling container. */
 .optionn {
   width: 100%; /* Ensures it spans the full width of its parent */
-  height: 1.875rem; /* Consistent height (30px converted to rem) *
+  height: 1.5rem; /* Consistent height (30px converted to rem) *
   background-color:#F5F5F5; /* Uses a variable for a pale gray background in light mode */
-  border-radius: var(--border-radius-md); /* Consistent smooth rounded edges using a variable */
+  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
   border: none; /* Removes any default border */
    z-index: 1;
-  position: sticky; /* Keeps the element visible at the top when scrolling */
-  top: 0; /* Sticks it to the top edge of its scroll container */
+  position: absolute; /* Keeps the element visible at the top when scrolling */
+  top:1rem; /* Sticks it to the top edge of its scroll container */
   display: flex; /* Uses flexbox for precise alignment of inner elements */
   justify-content: space-between; /* Distributes space to align items to both ends (e.g., left and right) */
   align-items: center; /* Vertically centers content within the option bar */
-
-margin-bottom: 5px;
-padding-top: 20px;
-background-color: var(--color-bg-light); /* Default background color for light mode */
-padding-bottom: 20px;
+margin-bottom: 15px;
+padding-top: 15px;
+background-color: #f0f0f0;
+padding-bottom: 15px;
 }
 
-
-/* Make sure all items inside optionn are evenly distributed */
-.All, .Playlist, .Sci-fi, .WatchMojo, .Watch {
-  flex-grow: 2; /* Allows elements to expand */
-  min-width:10%; /* Prevents elements from shrinking too much */
-  height: 30px;
-  background-color: #f0f0f0;
-  margin: 5px; /* Reduce spacing to fit items in one row */
-  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  cursor: pointer;
-}
-
-/* Light mode hover */
-.All:hover,
-.Playlist:hover,
-.Sci-fi:hover,
-.WatchMojo:hover,
-.Watch:hover {
-  background-color: gray;
-}
-
-.All:hover span,
-.Playlist:hover span,
-.Sci-fi:hover span,
-.WatchMojo:hover span,
-.Watch:hover span {
-  color: white; /* change text color too */
-}
-
-/* Dark mode hover */
-.dark-mode .All:hover,
-.dark-mode .Playlist:hover,
-.dark-mode .Sci-fi:hover,
-.dark-mode .WatchMojo:hover,
-.dark-mode .Watch:hover {
-  background-color: #4a4b4d;
-}
-
-.dark-mode .All:hover span,
-.dark-mode .Playlist:hover span,
-.dark-mode .Sci-fi:hover span,
-.dark-mode .WatchMojo:hover span,
-.dark-mode .Watch:hover span {
-  color: white; /* contrast for dark background */
-}
-
-/* Label Styling */
-.All span, .Playlist span, .Sci-fi span, .WatchMojo span, .Watch span {
-  flex-grow: 1.5;
-  font-weight: bold;
-  color: #333333;
-  text-align: center;
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-size: 0.9rem; /* Adjust for better fit */
-  cursor: pointer;
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .optionn {
-    height: 40px; /* Reduce height */
-    padding: 0;
-  }
-
-  .All, .Playlist, .Sci-fi, .WatchMojo, .Watch {
-    min-width: 60px; /* Allow smaller elements */
-    font-size: 0.8rem; /* Reduce font size */
-    height: 25px;
-    margin: 3px;
-  }
-}
-
-/* Reset default .All appearance in dark mode */
- .All {
-  background-color: #F5F5F5;
-}
-
- .All span {
-  color: #333333;
-}
-
-/* Keep the correct active tab styles */
- .optionn .active {
-  background-color: black;
-}
-
- .optionn .active span {
-  color: white;
-}
-
-
-/* Reset default .All appearance in dark mode */
-.dark-mode .All {
+.dark-mode .optionn {
   background-color: #2a2d2f;
 }
 
-.dark-mode .All span {
-  color: white;
+.optionn span
+{
+  font-weight: bold;
+  margin-left: 1rem;
 }
 
-/* Keep the correct active tab styles */
-.dark-mode .optionn .active {
-  background-color: white;
-}
 
-.dark-mode .optionn .active span {
-  color: black;
+.dark-mode .optionn span {
+  color:white;
 }
 
 .video-group {
@@ -2471,24 +2217,6 @@ align-content:flex-start;
   align-self: flex-start; /* 🔑 prevents it from stretching */
   padding-bottom: 0.5rem;
 }
-
-.square1 {
-  background-color: transparent;}
-
-.square2 {
-  background-color: transparent;
-}
-
-.square3 {
-  background-color: transparent;
-}
-
-.square4 {
-  background-color: transparent;
-}
-
-
-
 
 .card {
   position: relative; /* Allows for absolute positioning of child elements (e.g., badges, overlays) */
@@ -3516,7 +3244,7 @@ right: 0.5%;
   width: 100%;
   height: auto;
   margin-left: 0%;
-  display: flex;
+  display:none;
   flex-wrap: wrap;
   background-color:transparent;
   border-radius: 0px;
