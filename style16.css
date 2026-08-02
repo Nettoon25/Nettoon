@@ -2303,11 +2303,6 @@ body {
 }
 
 
-
-/* ===================================================== */
-/* SHORTS DELETE POPUP */
-/* ===================================================== */
-
 .shorts-delete-popup {
   position: fixed;
   inset: 0;
@@ -3564,43 +3559,73 @@ margin: 0 auto;
   margin: 0 auto; /* ✅ Centers the block */
   }
   
-  .kontainer
-  {
-    background-color:transparent;
-    width: clamp(28%, 37%, 32%);
-    margin-inline-start:0.77%; /* Maintains your specified left margin for precise grid alignment */
-  }
-  
-  .profilee img
+.kontainer
 {
-  width:1.9rem ;
-  height:1.9rem ;
-  margin-left: 5px;
+  background-color: transparent;
+  width: clamp(20%, 23vw, 24%); 
+margin-left: 8px;
 }
 
-  .caption
+.profilee img {
+  width: 2rem; /* 35px converted to rem */
+  height: 2rem;
+  margin-top: 6px;
+  margin-left: 2px;
+}
+
+
+  .profilee-name 
   {
-    height: 1.5rem;  /* Consistent height (30px) for single-line captions */
-    background-color: fuchsia;
+    background-color: transparent;
+    margin-top: 0px;
+  }
+
+  .profilee-name span
+  {
+    margin-top: 1px;
+  }
+
+
+  .opttions img {
+    width: 17px;
+    height: 17px;
+    margin-top: 0px;
+   
   }
   
-    .caption span
-    {
-      font-size: 13px; /* Responsive font size (0.96875rem approx 15.5px) */
-      font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
-      font-weight: 700; /* Bold font for prominence */
-      margin-top: 5px;
-      margin-bottom: 0px;
-    }
 
-    .opttions img {
-      width: 17px;
-      height: 17px;
-      margin-top: 0px;
-     
-    }
-    
+/* === Popup Styling === */
+.opttions-popup {
+  padding: 0.5rem 0.5rem;
+  min-width: 150px;
 
+}
+
+
+.opttions-popup .popup-item {
+
+  gap: 0.4rem;
+  padding: 0.3rem 0.3rem;
+  margin-top: 3px;
+  margin-bottom: 5px;
+  font-size: 0.7rem;
+
+}
+
+
+
+.caption
+{
+  height: 2rem;  /* Consistent height (30px) for single-line captions */
+  background-color: transparent;
+}
+
+  .caption span
+  {
+    font-size: 13px; /* Responsive font size (0.96875rem approx 15.5px) */
+    font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
+    font-weight: 700; /* Bold font for prominence */
+  }
   .videoo {
     width: 100%;
     height: auto;
@@ -3688,11 +3713,49 @@ border-style:none;
   height: auto;   
 }
 
-.kontainer{
 
-  border-style: none;
+  .kontainer {
+    background-color: transparent;
+    width: clamp(20%, 23vw, 24%); 
+    margin-left: 0.35rem; /* Let the gap do the spacing */
+  }
 
+  .profilee
+  {
+    background-color: transparent;
+  }
+
+.caption
+{
+  background-color: transparent;
 }
+
+
+  .profilee img {
+    width: 2rem; /* 35px converted to rem */
+    height: 2rem;
+    margin-top: 6px;
+    margin-left: 2px;
+  }
+
+  .profilee-name 
+  {
+    background-color: transparent;
+    margin-top: 0px;
+  }
+
+  .profilee-name span
+  {
+    margin-top: 1px;
+  }
+
+
+  .opttions img {
+    width: 17px;
+    height: 17px;
+    margin-top: 0px;
+   
+  }
 
 }
 /* Ultra-wide Displays (e.g., 1600px and up) */
@@ -3820,25 +3883,26 @@ border-style:none;
   
   .kontainer
   {
+      border-style:none;
+    width: clamp(18%, 28%, 18%);
+    margin-left: 1rem;
+   border-radius: 0.4375rem;
+     background-color: transparent;
+  }
+
+    .views
+  {
     background-color: transparent;
-    width: clamp(28%, 37%, 32%);
-    margin-inline-start:10px; /* Maintains your specified left margin for precise grid alignment */
-  margin-block-end: 1%; /* Consistent bottom margin (8px) for vertical spacing */
-  border-style:none;
   }
+
+
+.views img {
+  width: clamp(24px, 4.5vw, 30px);
+  height: clamp(24px, 4.5vw, 30px);
   
-  
-  .videoo {
-    width: 100%;
-    height: auto;
-  }
-  
-  .videoo video {
-    width: 100%;
-    height: 17rem; /* 200px */
-  
-  }
-  
+  border-radius: 50%;
+  object-fit: cover;
+}
 
 
 
