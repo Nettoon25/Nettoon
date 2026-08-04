@@ -1833,8 +1833,8 @@ border-radius: 7px;
 /* ==== VIEWS OVERLAY (.views-overlay) ==== */
 .views-overlay {
   position: absolute;
-  top: 25px;           /* ⬆️ Move to the top */
-  left: 25px;          /* Slight inset from the left */
+  top:1.5rem;           /* ⬆️ Move to the top */
+  left:1.5rem;          /* Slight inset from the left */
   display: flex;
   align-items: center;
   gap: 4px;
@@ -1868,6 +1868,166 @@ border-radius: 7px;
   color: #f5f5f5;
 }
 
+
+/* ⭐ Three Dots Options Button */
+.options-btn {
+  position: absolute;
+  top: 25px;
+  right: 17px;
+  width: 22px;
+  height: 22px;
+  cursor: pointer;
+  z-index: 5;
+  /* VISIBILITY FIX */
+  opacity: 0.95;
+    /* FORCE BRIGHT DISPLAY */
+    filter: invert(1) brightness(1.3) contrast(1.2);
+    mix-blend-mode: difference;
+    padding: 4px;
+    border-radius: 50%;
+    transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+
+
+.options-btn:hover {
+  opacity: 1;
+}
+
+/* 🌙 Dark mode: invert icon for visibility */
+.dark-mode .options-btn {
+  filter: invert(1);
+}
+
+/* MAIN OPTIONS MENU */
+.options-menu {
+  position: absolute;
+  top: 40px;
+  right: 8px;
+  width: 180px;
+  background: #333;
+  border-radius: 8px;
+  padding: 8px 0;
+  border: 1px solid #555;
+  z-index: 10;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: 0.2s ease-in-out;
+
+}
+
+.options-menu:not(.hidden) {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+/* OPTION ITEM */
+.option-item {
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: #fff;
+  position: relative;
+}
+
+.option-item:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.menu-icon {
+  width: 18px;
+  height: 18px;
+
+  /* 🔥 Make icons visible on dark background */
+  filter: invert(1) brightness(1.2);
+}
+
+/* CHILD MENU (SUBMENU) */
+.child-menu {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 160px;
+  background: #444;
+  padding: 8px 0;
+  border-radius: 8px;
+  border: 1px solid #555;
+  opacity: 0;
+  transform: translateX(10px);
+  pointer-events: none;
+  transition: 0.2s ease-in-out;
+  z-index: 20;
+}
+
+/* SHOW SUBMENU ON HOVER */
+.has-children:hover > .child-menu {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+/* CHILD ITEMS */
+.child-item {
+  padding: 8px 12px;
+  color: #fff;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.child-item:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+
+/* ⭐ Smaller text across all menu items */
+.option-item,
+.child-item,
+.share-panel,
+.share-panel-item {
+    font-size: 12px !important;
+}
+
+/* ⭐ Reduce main menu icons */
+.menu-icon {
+    width: 14px !important;
+    height: 14px !important;
+}
+
+/* ⭐ 3-dots button smaller */
+.options-btn {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+/* ⭐ Share panel header text smaller */
+.share-panel-header {
+    font-size: 13px !important;
+}
+
+/* ⭐ Icons inside share panel */
+.share-icon {
+    width: 12px !important;
+    height: 12px !important;
+}
+
+/* ⭐ Child menu size reduction */
+.child-item {
+    padding: 6px 10px !important;
+}
+
+/* ⭐ Main menu item padding slightly smaller */
+.option-item {
+    padding: 8px 12px !important;
+}
+
+/* ⭐ Submenu width smaller */
+.child-menu {
+    width: 130px !important;
+}
 
 .dark-mode .Playlist {
   border: 1px solid transparent;

@@ -181,29 +181,55 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document.querySelectorAll(".opttions").forEach(opt => {
-      const popup = opt.querySelector(".opttions-popup");
-  
-      opt.addEventListener("click", (e) => {
-        e.stopPropagation();
-  
-        // Close others
-        document.querySelectorAll(".opttions-popup").forEach(p => {
-          if (p !== popup) p.classList.add("hidden");
-        });
-  
-        popup.classList.toggle("hidden");
-      });
-    });
-  
-    // Close when clicking outside
-    document.addEventListener("click", () => {
-      document.querySelectorAll(".opttions-popup").forEach(p => p.classList.add("hidden"));
-    });
-  });
-  
 
+
+document.addEventListener("click", function (e) {
+  const trigger = e.target.closest(".popupTrigger");
+  const allMenus = document.querySelectorAll(".popup-options");
+
+  // Close all menus first
+  allMenus.forEach(menu => menu.classList.remove("show"));
+
+  // If clicked on a trigger, toggle its menu
+  if (trigger) {
+    const menu = trigger.parentElement.querySelector(".popup-options");
+    menu.classList.toggle("show");
+    e.stopPropagation();
+  }
+});
+
+// Select all shorts
+document.querySelectorAll('.shorts').forEach(short => {
+
+  const optionsBtn = short.querySelector('.options-btn');
+  const optionsMenu = short.querySelector('.options-menu');
+
+  // Toggle menu when clicking the 3 dots
+  optionsBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
+
+      // First close all other menus
+      document.querySelectorAll('.options-menu').forEach(menu => {
+          if (menu !== optionsMenu) menu.classList.add('hidden');
+      });
+
+      // Toggle this one
+      optionsMenu.classList.toggle('hidden');
+  });
+
+  // Close menu if clicking inside short but NOT on the button
+  short.addEventListener('click', () => {
+      optionsMenu.classList.add('hidden');
+  });
+
+});
+
+// Close menu when clicking ANYWHERE outside
+document.addEventListener('click', () => {
+  document.querySelectorAll('.options-menu').forEach(menu => {
+      menu.classList.add('hidden');
+  });
+});
 
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.captionn-toggle').forEach(button => {
