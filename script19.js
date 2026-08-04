@@ -105,27 +105,65 @@ titleInput.addEventListener("input", () => {
 });
 
 
+const thumbnailInput = document.getElementById("thumbnailUpload");
+const thumbnailPreview = document.getElementById("thumbnailPreview");
+const videoPlayer = document.getElementById("videoPlayer");
 
-const thumbnailInput =
-document.getElementById("thumbnailUpload");
+thumbnailInput.addEventListener("change", function () {
 
-const thumbnailPreview =
-document.getElementById("thumbnailPreview");
+    const file = this.files[0];
 
-thumbnailInput.addEventListener("change", () => {
+    if (!file) return;
 
-    const file =
-    thumbnailInput.files[0];
+    const reader = new FileReader();
 
-    if(file){
+    reader.onload = function (e) {
 
-        thumbnailPreview.src =
-        URL.createObjectURL(file);
+        const image = e.target.result;
 
-    }
+        // Update upload preview
+        thumbnailPreview.src = image;
+
+        // Update video poster
+        videoPlayer.poster = image;
+
+        // Save for refresh
+        localStorage.setItem("videoThumbnail", image);
+
+    };
+
+    reader.readAsDataURL(file);
 
 });
 
+
+const saveBtn = document.getElementById("saveVideoBtn");
+
+saveBtn.addEventListener("click", () => {
+
+    // Disable button while saving
+    saveBtn.disabled = true;
+
+    // Show saving state
+    saveBtn.textContent = "Saving...";
+
+    // Simulate saving
+    setTimeout(() => {
+
+        // Show success state
+        saveBtn.textContent = "Saved!";
+
+        // Return to normal after 2 seconds
+        setTimeout(() => {
+
+            saveBtn.textContent = "Save Changes";
+            saveBtn.disabled = false;
+
+        }, 2000);
+
+    }, 1500);
+
+});
 
 const textarea = document.getElementById("videoDescription");
 

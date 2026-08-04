@@ -332,7 +332,7 @@
 
           <div class="containerr">
 
-            <a href="index4.html"><div class="profillee">
+            <a href="index15.html"><div class="profillee">
                 <img src="14.png" loading="lazy" alt="Profile">
                 <div class="profillee-name">
                   <span>Guest</span>
@@ -345,14 +345,16 @@
             </div>
           
                   
-            <div class="video">
-              <video preload="none" loading="lazy" loop autoplay muted playsinline controls preload="metadata" poster="Love death & robots.jpg">
-              <source src="LOVE DEATH + ROBOTS VOLUME 4 _ Official Trailer _ Netflix.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-              </video>
-              <img class="play-overlay" src="26.png" alt="Play Button" />
-          </div>
-            
+<video
+    id="videoPlayer"
+    poster="Love death & robots.jpg"
+    controls>
+
+    <source
+        src="LOVE DEATH + ROBOTS VOLUME 4 _ Official Trailer _ Netflix.mp4"
+        type="video/mp4">
+
+</video>  
           
           <div class="sectionn">
         
@@ -514,7 +516,7 @@
 <input
 type="text"
 id="videoTitleInput"
-placeholder="Enter video title">
+placeholder="LOVE DEATH + ROBOTS VOLUME 4 Official Trailer">
 
 <div class="settings-card">
 
@@ -890,10 +892,8 @@ This will reduce brain drain and position Africa not as a passive consumer of gl
 
 </div>
 
-<button class="save-video-btn">
-
-Save Changes
-
+<button class="save-video-btn" id="saveVideoBtn">
+    Save Changes
 </button>
 
 </div>
