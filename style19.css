@@ -158,6 +158,7 @@ html {
   --transition-timing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy spring effect */
 }
 
+
 /* Dark Mode Theme Variables (applied when a '.dark-mode' class is active on a parent) */
 .dark-mode {
   /* Background Colors */
@@ -1133,7 +1134,7 @@ flex-wrap: nowrap;
 /* ==== VIDEO CONTAINER (.video-container) ==== */
 /* This is the main wrapper for your video player and related content. */
 .sidebar {
-    display:block;
+    display:none;
     position: fixed;
     width:4.7%;
     max-width: 12em; /* Converted from 80px */
@@ -1335,7 +1336,7 @@ flex-wrap: nowrap;
   box-shadow: var(--color-shadow); /* Subtle shadow for depth */
   border: none; /* No border style */
   display: flex;
-  margin-left:3.5rem; /* Keeping original margin-left */
+  margin-left:0rem; /* Keeping original margin-left */
   flex-direction: column; /* Stack profile, caption, video, section vertically */
     justify-content: space-between; /* 🔑 balances content vertically */
   flex-grow: 1; /* Allows it to take up available space in the .video-container row (on desktop) */
@@ -1445,30 +1446,26 @@ flex-wrap: nowrap;
   margin: 0; /* Remove unnecessary margin */
 }
 /* No changes needed to your CSS for this fix. It's already correct. */
-
 /* ==== VIDEO PLAYER CONTAINER (.video) ==== */
 /* ==== VIDEO PLAYER CONTAINER (.video) ==== */
-.video {
-  position: relative;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 16 / 9;
-  background-color: var(--color-bg-dark-alt);
-  border-radius: var(--border-radius-md); /* Consistent medium rounded corners for the video player */
-  overflow: hidden;
-  margin-block-start: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.video{
+    position:relative;
+    overflow:hidden;
+    border-radius:12px;
 }
 
-/* ==== VIDEO ELEMENT (.video video) ==== */
-.video video {
-  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Remains 'contain' for full video visibility */
-  display: block;
+.video{
+    overflow:hidden;
+    border-radius:12px;
+    isolation:isolate;
+}
+
+.video video{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:contain;
+    border-radius:inherit;
 }
 
 /* ==== PLAY OVERLAY BUTTON (.play-overlay) ==== */
@@ -1482,6 +1479,15 @@ flex-wrap: nowrap;
   cursor: pointer;
   opacity: 0; /* Starts hidden as video autoplays */
   z-index: 10; /* Ensures it's above the video */
+}
+
+.play-overlay{
+    border-radius:12px;
+}
+
+.video{
+    border-radius:12px !important;
+    overflow:hidden !important;
 }
 
 /* ==== INTERACTION SECTION CONTAINER (.sectionn) ==== */
