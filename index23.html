@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<header>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0,
+  minimum-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+
+  <link rel="icon" href="icons/logo.png" type="image/x-icon">
+
+<title>
+Nettoon.com
+</title>
+
+<link rel="stylesheet" href="style23.css">
+<link rel=“stylesheet” type=”text/css” href=“https://seobli.com/wl/structure.css”>
+ 
+</header>
+
+<body>
+
+<main>
+
+
+<div class="payment-card">
+
+    <!-- HEADER -->
+    <div class="payment-header">
+        <h2>Subscription Payment</h2>
+        <p>Choose your preferred payment method.</p>
+    </div>
+
+
+    <!-- ============================= -->
+    <!-- PAYMENT METHOD: M-PESA -->
+    <!-- ============================= -->
+
+    <label class="payment-option active" data-method="mpesa">
+
+        <input
+            type="radio"
+            name="paymentMethod"
+            value="mpesa"
+            checked
+        >
+
+        <div class="payment-option-content">
+
+            <div class="payment-method-left">
+
+                <img
+                    src="M-Pesa"
+                    alt="M-Pesa"
+                    class="payment-logo mpesa-logo"
+                >
+
+                <div class="payment-method-text">
+                    <h3>M-Pesa</h3>
+                    <span>Mobile Money</span>
+                </div>
+
+            </div>
+
+            <div class="payment-radio">
+                ✓
+            </div>
+
+        </div>
+
+    </label>
+
+
+    <!-- ============================= -->
+    <!-- PAYMENT METHOD: CARD -->
+    <!-- ============================= -->
+
+    <label class="payment-option" data-method="card">
+
+        <input
+            type="radio"
+            name="paymentMethod"
+            value="card"
+        >
+
+        <div class="payment-option-content">
+
+            <div class="payment-method-left">
+
+                <img
+                    src="visa.jpg"
+                    alt="Debit and Credit Cards"
+                    class="payment-logo"
+                >
+
+                <div class="payment-method-text">
+                    <h3>Debit / Credit Card</h3>
+
+                    <span>
+                        Visa • Mastercard • Amex
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="payment-radio">
+                ✓
+            </div>
+
+        </div>
+
+    </label>
+
+
+    <!-- ============================= -->
+    <!-- PAYMENT METHOD: PAYSTACK -->
+    <!-- ============================= -->
+
+    <label class="payment-option" data-method="paystack">
+
+        <input
+            type="radio"
+            name="paymentMethod"
+            value="paystack"
+        >
+
+        <div class="payment-option-content">
+
+            <div class="payment-method-left">
+
+                <img
+                    src="Paystack.webp"
+                    alt="Paystack"
+                    class="payment-logo"
+                >
+
+                <div class="payment-method-text">
+
+                    <h3>Paystack</h3>
+
+                    <span>
+                        Secure online payment
+                    </span>
+
+                </div>
+
+            </div>
+
+            <div class="payment-radio">
+                ✓
+            </div>
+
+        </div>
+
+    </label>
+
+
+
+    <!-- ====================================== -->
+    <!-- M-PESA FORM -->
+    <!-- ====================================== -->
+
+    <div
+        class="payment-form"
+        id="mpesaPaymentForm"
+    >
+
+        <div class="form-heading">
+            <h3>Pay with M-Pesa</h3>
+
+            <p>
+                Enter your M-Pesa number and we'll send
+                a payment request to your phone.
+            </p>
+        </div>
+
+
+        <label for="mpesaPhone">
+            M-Pesa Phone Number
+        </label>
+
+        <div class="phone-input">
+
+            <span class="country-code">
+                +254
+            </span>
+
+            <input
+                type="tel"
+                id="mpesaPhone"
+                maxlength="9"
+                placeholder="712 345 678"
+                autocomplete="tel"
+            >
+
+        </div>
+
+        <small class="input-error" id="mpesaError"></small>
+
+
+        <button
+            type="button"
+            class="payment-action-button"
+            id="mpesaPayButton"
+        >
+            PAY WITH M-PESA
+        </button>
+
+    </div>
+
+
+
+    <!-- ====================================== -->
+    <!-- CARD FORM -->
+    <!-- ====================================== -->
+
+    <div
+        class="payment-form hidden"
+        id="cardPaymentForm"
+    >
+
+        <div class="form-heading">
+
+            <h3>Card Details</h3>
+
+            <p>
+                Enter your card details to continue.
+            </p>
+
+        </div>
+
+
+        <!-- CARDHOLDER -->
+
+        <label for="cardName">
+            Cardholder Name
+        </label>
+
+        <input
+            type="text"
+            id="cardName"
+            placeholder="Name on card"
+            autocomplete="cc-name"
+        >
+
+        <small
+            class="input-error"
+            id="cardNameError">
+        </small>
+
+
+
+        <!-- CARD NUMBER -->
+
+        <label for="cardNumber">
+            Card Number
+        </label>
+
+        <div class="card-number-wrapper">
+
+            <input
+                type="text"
+                id="cardNumber"
+                maxlength="19"
+                placeholder="1234 5678 9012 3456"
+                autocomplete="cc-number"
+            >
+
+            <span
+                id="cardType"
+                class="card-type">
+            </span>
+
+        </div>
+
+        <small
+            class="input-error"
+            id="cardNumberError">
+        </small>
+
+
+
+        <!-- EXPIRY + CVV -->
+
+        <div class="card-row">
+
+            <div class="card-field">
+
+                <label for="cardExpiry">
+                    Expiry Date
+                </label>
+
+                <input
+                    type="text"
+                    id="cardExpiry"
+                    maxlength="5"
+                    placeholder="MM/YY"
+                    autocomplete="cc-exp"
+                >
+
+                <small
+                    class="input-error"
+                    id="cardExpiryError">
+                </small>
+
+            </div>
+
+
+            <div class="card-field">
+
+                <label for="cardCvv">
+                    CVV
+                </label>
+
+                <input
+                    type="password"
+                    id="cardCvv"
+                    maxlength="4"
+                    placeholder="•••"
+                    autocomplete="cc-csc"
+                >
+
+                <small
+                    class="input-error"
+                    id="cardCvvError">
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="payment-action-button"
+            id="cardPayButton"
+        >
+            PAY WITH CARD
+        </button>
+
+    </div>
+
+
+
+    <!-- ====================================== -->
+    <!-- PAYSTACK FORM -->
+    <!-- ====================================== -->
+
+    <div
+        class="payment-form hidden"
+        id="paystackPaymentForm"
+    >
+
+        <div class="form-heading">
+
+            <h3>Pay with Paystack</h3>
+
+            <p>
+                Continue to Paystack's secure payment
+                checkout to complete your payment.
+            </p>
+
+        </div>
+
+
+        <label for="paystackEmail">
+            Email Address
+        </label>
+
+        <input
+            type="email"
+            id="paystackEmail"
+            placeholder="you@example.com"
+            autocomplete="email"
+        >
+
+        <small
+            class="input-error"
+            id="paystackEmailError">
+        </small>
+
+
+        <button
+            type="button"
+            class="payment-action-button"
+            id="paystackButton"
+        >
+            CONTINUE WITH PAYSTACK
+        </button>
+
+    </div>
+
+
+
+    <!-- ====================================== -->
+    <!-- SECURITY INFORMATION -->
+    <!-- ====================================== -->
+
+    <div class="payment-security">
+
+        <span>
+            🔒 Secure Payment
+        </span>
+
+        <span>
+            ✓ Protected Checkout
+        </span>
+
+    </div>
+
+
+    <!-- STATUS MESSAGE -->
+
+    <div
+        id="paymentStatus"
+        class="payment-status hidden">
+    </div>
+
+</div>
+
+       
+  <script src="script23.js"></script>
+  <script type="text/javascript" src="https://seobli.com/wl/structure.js"></script>
+</main>
+</body>
+</html>
