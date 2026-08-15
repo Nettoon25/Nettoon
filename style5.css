@@ -2216,6 +2216,259 @@ input {
   gap: 1.5vw; /* Flexible spacing */
 }
 
+/* =========================================
+   UPLOAD SETTINGS SECTION
+========================================= */
+
+.upload-settings-section {
+    width: 100%;
+    max-width: 650px;
+    margin: 30px auto;
+}
+
+.settings-title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+
+/* =========================================
+   VISIBILITY OPTIONS
+========================================= */
+
+.visibility-options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+
+.visibility-option {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 70px;
+
+    padding: 14px 18px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #3a3a3a;
+    border-radius: 12px;
+
+    background: #242424;
+
+    cursor: pointer;
+
+    transition: none;
+}
+
+
+/* Hide native radio */
+
+.visibility-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* Custom radio */
+
+.visibility-option .custom-radio {
+    flex: 0 0 34px;
+
+    width: 34px;
+    height: 34px;
+
+    border: 2px solid #aaa;
+    border-radius: 50%;
+
+    margin-right: 16px;
+
+    box-sizing: border-box;
+
+    position: relative;
+}
+
+
+/* Selected radio */
+
+.visibility-option input:checked + .custom-radio {
+    border: 2px solid red;
+}
+
+
+/* Inner selected circle */
+
+.visibility-option input:checked + .custom-radio::after {
+    content: "";
+
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+
+    background: red;
+
+    border-radius: 50%;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* Text */
+
+.visibility-content {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.visibility-content strong {
+    font-size: 1.05rem;
+    white-space: nowrap;
+}
+
+
+.visibility-content span {
+    font-size: 0.95rem;
+}
+
+
+/* Selected visibility card */
+
+.visibility-option:has(input:checked) {
+    border-color: red;
+}
+
+
+/* =========================================
+   PUBLISHING
+========================================= */
+
+.publishing-section {
+    margin-top: 25px;
+}
+
+
+.publishing-options {
+    display: flex;
+    flex-direction: column;
+
+    gap: 12px;
+
+    width: 100%;
+}
+
+
+/* Publishing option */
+
+.publishing-option {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+
+    min-height: 60px;
+
+    padding: 12px 18px;
+
+    box-sizing: border-box;
+
+    border: 1px solid #3a3a3a;
+    border-radius: 12px;
+
+    background: #242424;
+
+    cursor: pointer;
+}
+
+
+/* Hide native radio */
+
+.publishing-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* Custom radio */
+
+.publishing-option .custom-radio {
+    flex: 0 0 28px;
+
+    width: 28px;
+    height: 28px;
+
+    border: 2px solid #aaa;
+    border-radius: 50%;
+
+    margin-right: 16px;
+
+    position: relative;
+}
+
+
+/* Selected publishing option */
+
+.publishing-option input:checked + .custom-radio {
+    border-color: #1683ff;
+}
+
+
+/* Inner selected circle */
+
+.publishing-option input:checked + .custom-radio::after {
+    content: "";
+
+    position: absolute;
+
+    width: 14px;
+    height: 14px;
+
+    background: #1683ff;
+
+    border-radius: 50%;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+}
+
+
+/* Publishing text */
+
+.publishing-content {
+    display: flex;
+    align-items: center;
+
+    flex: 1;
+}
+
+
+.publishing-content strong {
+    font-size: 1rem;
+}
+
 /* 🗨️ Meta Section for Labels & Inputs */
 .meta {
   display: flex;

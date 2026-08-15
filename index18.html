@@ -17,87 +17,342 @@
 <body>
 
 <main>
+<!-- =========================================================
+     NETTOON SEARCHED PROFILE
+========================================================= -->
 
+<section class="searched-profile">
 
-<div id="socialMediaSettings" class="settings-section">
-  
-  <!-- Header -->
-  <div class="content-header">
-    Social Media Handles
-  </div>
-  <p class="settings-description">
-    Connect your creator identity across platforms. Your handles auto-save instantly and remain stored privately.
-  </p>
+    <!-- =========================
+         LEFT: PROFILE IMAGE
+    ========================== -->
 
-  <!-- SOCIAL FORM -->
-  <form id="socialMediaForm" class="settings-form social-form">
+    <div class="searched-profile-image">
 
-    <!-- Instagram -->
-    <div class="social-input-group">
-      <label for="instagramHandle">Instagram</label>
-      <div class="social-field">
-        <span class="social-prefix">@</span>
-        <input type="text" id="instagramHandle" placeholder="your_instagram">
-      </div>
+        <img
+            src="14.png"
+            alt="Guest profile"
+        >
+
     </div>
 
-    <!-- TikTok -->
-    <div class="social-input-group">
-      <label for="tiktokHandle">TikTok</label>
-      <div class="social-field">
-        <span class="social-prefix">@</span>
-        <input type="text" id="tiktokHandle" placeholder="your_tiktok">
-      </div>
+
+    <!-- =========================
+         RIGHT: PROFILE CONTENT
+    ========================== -->
+
+    <div class="searched-profile-content">
+
+        <!-- PROFILE HEADER -->
+
+        <div class="profile-header">
+
+            <div class="profile-name-section">
+
+                <h2>Guest</h2>
+
+                <span class="profile-username">
+                    @guest
+                </span>
+
+            </div>
+
+            <button
+                class="profile-options"
+                type="button"
+                aria-label="Profile options"
+            >
+                ⋮
+            </button>
+
+        </div>
+
+
+        <!-- PROFILE DESCRIPTION -->
+
+        <div class="profile-description">
+
+            <p>
+                Nettoon creator and animation enthusiast.
+                Welcome to my profile.
+            </p>
+
+        </div>
+
+
+        <!-- =================================
+             CONTENT TOGGLE TABS
+        ================================== -->
+
+        <div
+            class="profile-content-tabs"
+            role="tablist"
+            aria-label="Profile content"
+        >
+
+            <button
+                class="profile-tab active"
+                type="button"
+                data-content="videos"
+                role="tab"
+                aria-selected="true"
+            >
+                Videos
+            </button>
+
+            <button
+                class="profile-tab"
+                type="button"
+                data-content="series"
+                role="tab"
+                aria-selected="false"
+            >
+                Series
+            </button>
+
+            <button
+                class="profile-tab"
+                type="button"
+                data-content="shorts"
+                role="tab"
+                aria-selected="false"
+            >
+                Shorts
+            </button>
+
+        </div>
+
+
+        <!-- =================================
+             ONE-TIME VIDEOS
+        ================================== -->
+
+        <div
+            class="profile-content-panel active"
+            id="videos"
+            role="tabpanel"
+        >
+
+            <div class="profile-video-grid">
+
+                <a href="index3.html" class="profile-video-card">
+
+                    <div class="profile-thumbnail">
+
+                        <img
+                            src="Love death & robots.jpg"
+                            alt="Video thumbnail"
+                        >
+
+                    </div>
+
+                    <h3>
+                        LOVE DEATH + ROBOTS VOLUME 4
+                    </h3>
+
+                    <span>
+                        0 views
+                    </span>
+
+                </a>
+
+
+                <a href="index3.html" class="profile-video-card">
+
+                    <div class="profile-thumbnail">
+
+                        <img
+                            src="ADAM.png"
+                            alt="Video thumbnail"
+                        >
+
+                    </div>
+
+                    <h3>
+                        ADAM
+                    </h3>
+
+                    <span>
+                        0 views
+                    </span>
+
+                </a>
+
+
+                <a href="index3.html" class="profile-video-card">
+
+                    <div class="profile-thumbnail">
+
+                        <img
+                            src="Zygote.jpg"
+                            alt="Video thumbnail"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Zygote
+                    </h3>
+
+                    <span>
+                        0 views
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             SERIES
+        ================================== -->
+
+        <div
+            class="profile-content-panel"
+            id="series"
+            role="tabpanel"
+        >
+
+            <div class="profile-video-grid">
+
+                <a href="index3.html" class="profile-video-card">
+
+                    <div class="profile-thumbnail">
+
+                        <img
+                            src="Rakka_poster.jpg"
+                            alt="Series thumbnail"
+                        >
+
+                        <span class="episode-badge">
+                            10 Ep
+                        </span>
+
+                        <span class="season-badge">
+                            Sn 1
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Rakka
+                    </h3>
+
+                </a>
+
+
+                <a href="index3.html" class="profile-video-card">
+
+                    <div class="profile-thumbnail">
+
+                        <img
+                            src="firebase.webp"
+                            alt="Series thumbnail"
+                        >
+
+                        <span class="episode-badge">
+                            15 Ep
+                        </span>
+
+                        <span class="season-badge">
+                            Sn 2
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        Fire Base
+                    </h3>
+
+                </a>
+
+
+                <a href="index3.html" class="profile-video-card">
+
+                    <div class="profile-thumbnail">
+
+                        <img
+                            src="God Serengeti  Chicago.jpg"
+                            alt="Series thumbnail"
+                        >
+
+                        <span class="episode-badge">
+                            5 Ep
+                        </span>
+
+                        <span class="season-badge">
+                            Sn 4
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        God Serengeti
+                    </h3>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================
+             SHORTS
+        ================================== -->
+
+        <div
+            class="profile-content-panel"
+            id="shorts"
+            role="tabpanel"
+        >
+
+            <div class="profile-video-grid shorts-grid">
+
+                <a href="index3.html" class="profile-video-card">
+
+                    <div class="profile-thumbnail short-thumbnail">
+
+                        <img
+                            src="ADAM.png"
+                            alt="Short video thumbnail"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Animation Short
+                    </h3>
+
+                </a>
+
+
+                <a href="index3.html" class="profile-video-card">
+
+                    <div class="profile-thumbnail short-thumbnail">
+
+                        <img
+                            src="Zygote.jpg"
+                            alt="Short video thumbnail"
+                        >
+
+                    </div>
+
+                    <h3>
+                        Short Film
+                    </h3>
+
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <!-- YouTube -->
-    <div class="social-input-group">
-      <label for="youtubeHandle">YouTube</label>
-      <div class="social-field">
-        <span class="social-prefix">@</span>
-        <input type="text" id="youtubeHandle" placeholder="your_channel">
-      </div>
-    </div>
-
-    <!-- X -->
-    <div class="social-input-group">
-      <label for="xHandle">X (Twitter)</label>
-      <div class="social-field">
-        <span class="social-prefix">@</span>
-        <input type="text" id="xHandle" placeholder="your_x_handle">
-      </div>
-    </div>
-
-    <!-- Facebook -->
-    <div class="social-input-group">
-      <label for="facebookHandle">Facebook</label>
-      <div class="social-field">
-        <input type="text" id="facebookHandle" placeholder="facebook profile link or username">
-      </div>
-    </div>
-
-    <!-- LinkedIn -->
-    <div class="social-input-group">
-      <label for="linkedinHandle">LinkedIn</label>
-      <div class="social-field">
-        <input type="text" id="linkedinHandle" placeholder="linkedin profile">
-      </div>
-    </div>
-
-    <!-- Auto Save Status -->
-    <div class="auto-save-status">
-      ✔ Changes auto-save instantly
-    </div>
-
-  </form>
-
-  <!-- HIDDEN SAVED CONTAINER -->
-  <div id="savedSocialContainer" class="saved-social-container hidden">
-    <h4>Saved Social Handles</h4>
-    <ul id="savedSocialList"></ul>
-  </div>
-
-</div>
+</section>
 
  <script src="script18.js"></script>
 

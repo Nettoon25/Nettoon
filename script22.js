@@ -1094,3 +1094,69 @@ if (signinPopup) {
     }
   });
 }
+
+
+
+/* ===========================================
+   DELETE VIDEO
+=========================================== */
+
+const deletePopup = document.getElementById("shortsDeletePopup");
+const cancelDelete = document.getElementById("shortsCancelDelete");
+const confirmDelete = document.getElementById("shortsConfirmDelete");
+
+let selectedVideo = null;
+
+/* Open popup */
+
+document.querySelectorAll(".delete-trigger").forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        selectedVideo = btn.closest(".card");
+
+        deletePopup.classList.remove("hidden");
+
+    });
+
+});
+
+/* Cancel */
+
+cancelDelete.addEventListener("click", () => {
+
+    deletePopup.classList.add("hidden");
+
+    selectedVideo = null;
+
+});
+
+/* Confirm Delete */
+
+confirmDelete.addEventListener("click", () => {
+
+    if(selectedVideo){
+
+        selectedVideo.remove();   // Temporarily removes from page
+
+    }
+
+    deletePopup.classList.add("hidden");
+
+    selectedVideo = null;
+
+});
+
+/* Close outside */
+
+deletePopup.addEventListener("click",(e)=>{
+
+    if(e.target===deletePopup){
+
+        deletePopup.classList.add("hidden");
+
+        selectedVideo=null;
+
+    }
+
+});

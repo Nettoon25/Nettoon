@@ -492,3 +492,32 @@ document.querySelectorAll('.optionnn').forEach(option => {
     });
   });
 
+
+
+  const publishOptions =
+    document.querySelectorAll(
+        'input[name="publishType"]'
+    );
+
+const scheduleOptions =
+    document.getElementById(
+        "scheduleOptions"
+    );
+
+publishOptions.forEach(option => {
+
+    option.addEventListener("change", function () {
+
+        if (this.value === "scheduled") {
+
+            scheduleOptions.style.display = "block";
+
+        } else {
+
+            scheduleOptions.style.display = "none";
+
+        }
+
+    });
+
+});

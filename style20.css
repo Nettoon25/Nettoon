@@ -2364,7 +2364,40 @@ body.dark-mode .follow span {
 
   flex-shrink: 0;
 
+
+  /* Custom Scrollbar Styling (Webkit Browsers - Chrome, Safari) */
+  &::-webkit-scrollbar {
+    width: var(--scrollbar-width); /* Responsive scrollbar width using a variable */
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent; /* Transparent scrollbar track */
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb-color-light); /* Light mode scrollbar thumb color */
+    border-radius: var(--scrollbar-thumb-border-radius); /* Rounded scrollbar thumb */
+    border: 2px solid transparent; /* Border around the thumb to match background */
+  }
+
+  /* Fallback scrollbar styling (Firefox) */
+  scrollbar-width: thin; /* Thin scrollbar for Firefox */
+  scrollbar-color: var(--scrollbar-thumb-color-light) transparent; /* Firefox scrollbar color */
+
+  border-style:none;
 }
+
+/* Dark mode adjustments for .container-2 */
+.dark-mode .comment-container {
+  /* Dark mode scrollbar styling (Firefox) */
+  scrollbar-color: var(--scrollbar-thumb-color-dark) transparent; /* Dark mode scrollbar thumb color */
+}
+
+/* Dark mode custom scrollbar styling (Webkit Browsers) */
+.dark-mode .comment-container::-webkit-scrollbar-thumb {
+  background-color: var(--scrollbar-thumb-color-dark); /* Dark mode scrollbar thumb color */
+}
+
 
 .comment-container{
     display: none;
@@ -2380,15 +2413,7 @@ body.dark-mode .follow span {
   border-color: gray;
 }
 
-/* Scrollbar styling */
-.comment-container::-webkit-scrollbar {
-  width: 0.375rem;
-}
 
-.comment-container::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.4);
-  border-radius: 0.625rem;
-}
 /* ========================================================================== */
 /* COMMENT HEADER (.comments)                                                 */
 /* Styles for the "0 Comments" section at the top of the comment panel.       */

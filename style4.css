@@ -5068,12 +5068,7 @@ margin-left: 8px;
   border-style:none;
 }
 
-.Profile-description
-{
- /* No background color */
 
- 
-}
   .kontainer {
     background-color: transparent;
     width: clamp(20%, 23vw, 24%); 

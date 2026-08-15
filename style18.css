@@ -1,111 +1,518 @@
-/* ========================= */
-/* SOCIAL MEDIA SETTINGS */
-/* ========================= */
+/* =========================================================
+   NETTOON SEARCHED PROFILE
+========================================================= */
 
-.settings-section {
-  width: 100%;
-  padding: 1.5rem;
-  border-radius: 18px;
-  background: linear-gradient(145deg, #111111, #1b1b1b);
-  color: white;
-  margin-top: 2rem;
+.searched-profile {
+
+    width: 100%;
+    display: grid;
+
+    grid-template-columns:
+        280px
+        minmax(0, 1fr);
+
+    gap: 24px;
+
+    padding: 20px;
+
+    background: var(--color-bg-light);
+
+    border-radius: 12px;
+
+    box-sizing: border-box;
 }
 
-.settings-description {
-  color: #bdbdbd;
-  margin-bottom: 2rem;
+
+/* =========================================================
+   PROFILE IMAGE
+========================================================= */
+
+.searched-profile-image {
+
+    width: 280px;
+    height: 280px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    background: #e5e5e5;
+
+    flex-shrink: 0;
 }
 
-/* FORM */
-.social-form {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.2rem;
+
+.searched-profile-image img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
 }
 
-.social-input-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+
+/* =========================================================
+   RIGHT SIDE
+========================================================= */
+
+.searched-profile-content {
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
 }
 
-.social-input-group label {
-  font-weight: 600;
-  color: #ffd700;
+
+/* =========================================================
+   PROFILE HEADER
+========================================================= */
+
+.profile-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 8px;
 }
 
-.social-field {
-  display: flex;
-  align-items: center;
-  background: #1f1f1f;
-  border: 1px solid #333;
-  border-radius: 12px;
-  overflow: hidden;
+
+.profile-name-section {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
 }
 
-.social-prefix {
-  padding: 0 14px;
-  color: #ff4444;
-  font-weight: bold;
-  font-size: 1rem;
+
+.profile-name-section h2 {
+
+    margin: 0;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: var(--color-text-dark);
 }
 
-.social-field input {
-  flex: 1;
-  padding: 14px;
-  border: none;
-  background: transparent;
-  color: white;
-  outline: none;
+
+.profile-username {
+
+    font-size: 14px;
+
+    color: #777;
 }
 
-/* AUTO SAVE */
-.auto-save-status {
-  grid-column: 1 / -1;
-  margin-top: 1rem;
-  padding: 12px;
-  background: rgba(255, 215, 0, 0.08);
-  border: 1px solid rgba(255,215,0,0.2);
-  border-radius: 12px;
-  color: #ffd700;
-  font-weight: 600;
-  text-align: center;
+
+.profile-options {
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+    color: var(--color-text-dark);
 }
 
-.saved-social-container {
-  margin-top: 2rem;
-  width: 220px;
-  max-height: 400px;
-  overflow-y: auto;
-  position: absolute;
-  right: 0;
-  top: 20%;
-  background: #121212;
-  border-left: 3px solid #ffd700;
-  border-radius: 14px 0 0 14px;
-  padding: 1rem;
-  transform: translateX(105%);
-  transition: transform 0.4s ease;
-  z-index: 100;
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.profile-description {
+
+    max-height: 80px;
+
+    overflow-y: auto;
+
+    margin-bottom: 16px;
 }
 
-.saved-social-container.show {
-  transform: translateX(0);
-}
-.saved-social-container h4 {
-  color: #ff4444;
-  margin-bottom: 1rem;
+
+.profile-description p {
+
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+    color: var(--color-text-dark);
 }
 
-.saved-social-container ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+
+/* =========================================================
+   CONTENT TABS
+========================================================= */
+
+.profile-content-tabs {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    border-bottom: 1px solid #ddd;
+
+    margin-bottom: 16px;
 }
 
-.saved-social-container li {
-  padding: 10px 0;
-  border-bottom: 1px solid #2a2a2a;
-  color: #d3d3d3;
-  font-size: 0.9rem;
+
+.profile-tab {
+
+    border: none;
+
+    background: transparent;
+
+    padding: 10px 18px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    color: #777;
+
+    cursor: pointer;
+
+    border-bottom: 3px solid transparent;
+
+    transition:
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.profile-tab:hover {
+
+    color: #111;
+}
+
+
+.profile-tab.active {
+
+    color: #111;
+
+    border-bottom-color:
+        var(--color-brand-primary);
+}
+
+
+/* =========================================================
+   CONTENT PANELS
+========================================================= */
+
+.profile-content-panel {
+
+    display: none;
+}
+
+
+.profile-content-panel.active {
+
+    display: block;
+}
+
+
+/* =========================================================
+   VIDEO GRID
+========================================================= */
+
+.profile-video-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   VIDEO CARD
+========================================================= */
+
+.profile-video-card {
+
+    display: block;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    min-width: 0;
+}
+
+
+.profile-thumbnail {
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+
+    border-radius: 8px;
+
+    background: #ddd;
+}
+
+
+.profile-thumbnail img {
+
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+
+    transition: transform 0.25s ease;
+}
+
+
+.profile-video-card:hover
+.profile-thumbnail img {
+
+    transform: scale(1.03);
+}
+
+
+/* =========================================================
+   VIDEO TITLE
+========================================================= */
+
+.profile-video-card h3 {
+
+    margin: 8px 0 4px;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    color: var(--color-text-dark);
+}
+
+
+.profile-video-card > span {
+
+    font-size: 12px;
+
+    color: #777;
+}
+
+
+/* =========================================================
+   SERIES BADGES
+========================================================= */
+
+.episode-badge,
+.season-badge {
+
+    position: absolute;
+
+    bottom: 8px;
+
+    padding: 4px 7px;
+
+    border-radius: 4px;
+
+    background: rgba(0, 0, 0, 0.75);
+
+    color: white;
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+.episode-badge {
+
+    right: 8px;
+}
+
+
+.season-badge {
+
+    left: 8px;
+}
+
+
+/* =========================================================
+   SHORTS
+========================================================= */
+
+.shorts-grid {
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+}
+
+
+.short-thumbnail {
+
+    aspect-ratio: 9 / 16;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark-mode .searched-profile {
+
+    background: #181818;
+}
+
+
+body.dark-mode .profile-content-tabs {
+
+    border-bottom-color: #333;
+}
+
+
+body.dark-mode .profile-tab {
+
+    color: #999;
+}
+
+
+body.dark-mode .profile-tab:hover {
+
+    color: #fff;
+}
+
+
+body.dark-mode .profile-tab.active {
+
+    color: #fff;
+}
+
+
+body.dark-mode .profile-description p {
+
+    color: #ccc;
+}
+
+
+body.dark-mode .profile-name-section h2 {
+
+    color: #fff;
+}
+
+
+body.dark-mode .profile-options {
+
+    color: #fff;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .searched-profile {
+
+        grid-template-columns:
+            200px
+            minmax(0, 1fr);
+
+    }
+
+
+    .searched-profile-image {
+
+        width: 200px;
+
+        height: 200px;
+
+    }
+
+
+    .profile-video-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .searched-profile {
+
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+
+        padding: 14px;
+
+    }
+
+
+    .searched-profile-image {
+
+        width: 150px;
+
+        height: 150px;
+
+        margin: auto;
+
+    }
+
+
+    .profile-header {
+
+        align-items: flex-start;
+
+    }
+
+
+    .profile-content-tabs {
+
+        overflow-x: auto;
+
+        white-space: nowrap;
+
+    }
+
+
+    .profile-video-grid {
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 10px;
+
+    }
+
 }

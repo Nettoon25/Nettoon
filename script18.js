@@ -1,49 +1,69 @@
-// =========================
-// AUTO SAVE SOCIAL HANDLES
-// =========================
+/* =========================================================
+   NETTOON PROFILE CONTENT TABS
+========================================================= */
 
-const socialInputs = document.querySelectorAll("#socialMediaForm input");
-const savedContainer = document.getElementById("savedSocialContainer");
-const savedList = document.getElementById("savedSocialList");
+const profileTabs =
+    document.querySelectorAll(".profile-tab");
 
-// Load existing saved data
-window.addEventListener("DOMContentLoaded", () => {
-  socialInputs.forEach(input => {
-    const savedValue = localStorage.getItem(input.id);
-    if (savedValue) {
-      input.value = savedValue;
-    }
-  });
-  updateSavedHandles();
+const profilePanels =
+    document.querySelectorAll(".profile-content-panel");
+
+
+profileTabs.forEach(tab => {
+
+    tab.addEventListener("click", function () {
+
+        const selectedContent =
+            this.dataset.content;
+
+
+        /* Remove active state from all tabs */
+
+        profileTabs.forEach(item => {
+
+            item.classList.remove("active");
+
+            item.setAttribute(
+                "aria-selected",
+                "false"
+            );
+
+        });
+
+
+        /* Hide all content panels */
+
+        profilePanels.forEach(panel => {
+
+            panel.classList.remove("active");
+
+        });
+
+
+        /* Activate clicked tab */
+
+        this.classList.add("active");
+
+        this.setAttribute(
+            "aria-selected",
+            "true"
+        );
+
+
+        /* Show corresponding content */
+
+        const selectedPanel =
+            document.getElementById(
+                selectedContent
+            );
+
+
+        if (selectedPanel) {
+
+            selectedPanel.classList.add("active");
+
+        }
+
+    });
+
 });
-
-// Auto-save on input
-socialInputs.forEach(input => {
-  input.addEventListener("input", () => {
-    localStorage.setItem(input.id, input.value);
-    updateSavedHandles();
-  });
-});
-
-function updateSavedHandles() {
-  savedList.innerHTML = "";
-
-  socialInputs.forEach(input => {
-    const value = localStorage.getItem(input.id);
-
-    if (value && value.trim() !== "") {
-      const li = document.createElement("li");
-      li.textContent = `${input.previousElementSibling ? input.previousElementSibling.textContent : input.id}: ${value}`;
-      savedList.appendChild(li);
-    }
-  });
-
-  const hasData = [...socialInputs].some(input => localStorage.getItem(input.id)?.trim());
-  
-  if (hasData) {
-    savedContainer.classList.add("show");
-    savedContainer.classList.remove("hidden");
-  } else {
-    savedContainer.classList.remove("show");
-  }
-}
