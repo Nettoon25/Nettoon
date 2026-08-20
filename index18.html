@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=yes" />
 
   <link rel="icon" href="icons/logo.png" type="image/x-icon">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <title>Nettoon.com</title>
 
   <link rel="stylesheet" href="style18.css" />
@@ -17,334 +17,928 @@
 <body>
 
 <main>
-<!-- =========================================================
-     NETTOON SEARCHED PROFILE
-========================================================= -->
 
-<section class="searched-profile">
+  <body class="light-mode">
+    <div class="container">
+      <div class="Table">
+        <a href="index.html">
+          <div class="overlay-text">
+            <span class="net-text">NET</span><span class="toon-text">TOON</span>
+          </div>
+        </a>
+      </div>
+  
+      <div class="nav">
+        <!-- Search -->
+         
+ <div class="search">
+    <input
+        type="search"
+        id="search"
+        placeholder="Search Cartoons and Animations">
 
-    <!-- =========================
-         LEFT: PROFILE IMAGE
-    ========================== -->
+    <div class="search-dropdown hidden" id="searchDropdown">
 
-    <div class="searched-profile-image">
+        <!-- Search Result -->
+        <div class="search-result">
 
-        <img
-            src="14.png"
-            alt="Guest profile"
-        >
+            <img src="Moana-2-trailer-1068x471.png" alt="thumbnail">
 
-    </div>
+            <div class="search-result-info">
 
+                <span class="search-title">
+                    Moana 2 Official Trailer
+                </span>
 
-    <!-- =========================
-         RIGHT: PROFILE CONTENT
-    ========================== -->
-
-    <div class="searched-profile-content">
-
-        <!-- PROFILE HEADER -->
-
-        <div class="profile-header">
-
-            <div class="profile-name-section">
-
-                <h2>Guest</h2>
-
-                <span class="profile-username">
-                    @guest
+                <span class="search-creator">
+                    Disney Animation
                 </span>
 
             </div>
 
-            <button
-                class="profile-options"
-                type="button"
-                aria-label="Profile options"
-            >
-                ⋮
-            </button>
-
         </div>
 
+        <div class="search-result">
 
-        <!-- PROFILE DESCRIPTION -->
+            <img src="love death robots.jpg" alt="thumbnail">
 
-        <div class="profile-description">
+            <div class="search-result-info">
 
-            <p>
-                Nettoon creator and animation enthusiast.
-                Welcome to my profile.
-            </p>
+                <span class="search-title">
+                    Love Death + Robots Volume 4
+                </span>
 
-        </div>
-
-
-        <!-- =================================
-             CONTENT TOGGLE TABS
-        ================================== -->
-
-        <div
-            class="profile-content-tabs"
-            role="tablist"
-            aria-label="Profile content"
-        >
-
-            <button
-                class="profile-tab active"
-                type="button"
-                data-content="videos"
-                role="tab"
-                aria-selected="true"
-            >
-                Videos
-            </button>
-
-            <button
-                class="profile-tab"
-                type="button"
-                data-content="series"
-                role="tab"
-                aria-selected="false"
-            >
-                Series
-            </button>
-
-            <button
-                class="profile-tab"
-                type="button"
-                data-content="shorts"
-                role="tab"
-                aria-selected="false"
-            >
-                Shorts
-            </button>
-
-        </div>
-
-
-        <!-- =================================
-             ONE-TIME VIDEOS
-        ================================== -->
-
-        <div
-            class="profile-content-panel active"
-            id="videos"
-            role="tabpanel"
-        >
-
-            <div class="profile-video-grid">
-
-                <a href="index3.html" class="profile-video-card">
-
-                    <div class="profile-thumbnail">
-
-                        <img
-                            src="Love death & robots.jpg"
-                            alt="Video thumbnail"
-                        >
-
-                    </div>
-
-                    <h3>
-                        LOVE DEATH + ROBOTS VOLUME 4
-                    </h3>
-
-                    <span>
-                        0 views
-                    </span>
-
-                </a>
-
-
-                <a href="index3.html" class="profile-video-card">
-
-                    <div class="profile-thumbnail">
-
-                        <img
-                            src="ADAM.png"
-                            alt="Video thumbnail"
-                        >
-
-                    </div>
-
-                    <h3>
-                        ADAM
-                    </h3>
-
-                    <span>
-                        0 views
-                    </span>
-
-                </a>
-
-
-                <a href="index3.html" class="profile-video-card">
-
-                    <div class="profile-thumbnail">
-
-                        <img
-                            src="Zygote.jpg"
-                            alt="Video thumbnail"
-                        >
-
-                    </div>
-
-                    <h3>
-                        Zygote
-                    </h3>
-
-                    <span>
-                        0 views
-                    </span>
-
-                </a>
+                <span class="search-creator">
+                    Netflix
+                </span>
 
             </div>
 
         </div>
 
+        <div class="search-result">
 
-        <!-- =================================
-             SERIES
-        ================================== -->
+            <img src="kizazi.jpg" alt="thumbnail">
 
-        <div
-            class="profile-content-panel"
-            id="series"
-            role="tabpanel"
-        >
+            <div class="search-result-info">
 
-            <div class="profile-video-grid">
+                <span class="search-title">
+                    Kizazi Moto Generation Fire
+                </span>
 
-                <a href="index3.html" class="profile-video-card">
-
-                    <div class="profile-thumbnail">
-
-                        <img
-                            src="Rakka_poster.jpg"
-                            alt="Series thumbnail"
-                        >
-
-                        <span class="episode-badge">
-                            10 Ep
-                        </span>
-
-                        <span class="season-badge">
-                            Sn 1
-                        </span>
-
-                    </div>
-
-                    <h3>
-                        Rakka
-                    </h3>
-
-                </a>
-
-
-                <a href="index3.html" class="profile-video-card">
-
-                    <div class="profile-thumbnail">
-
-                        <img
-                            src="firebase.webp"
-                            alt="Series thumbnail"
-                        >
-
-                        <span class="episode-badge">
-                            15 Ep
-                        </span>
-
-                        <span class="season-badge">
-                            Sn 2
-                        </span>
-
-                    </div>
-
-                    <h3>
-                        Fire Base
-                    </h3>
-
-                </a>
-
-
-                <a href="index3.html" class="profile-video-card">
-
-                    <div class="profile-thumbnail">
-
-                        <img
-                            src="God Serengeti  Chicago.jpg"
-                            alt="Series thumbnail"
-                        >
-
-                        <span class="episode-badge">
-                            5 Ep
-                        </span>
-
-                        <span class="season-badge">
-                            Sn 4
-                        </span>
-
-                    </div>
-
-                    <h3>
-                        God Serengeti
-                    </h3>
-
-                </a>
+                <span class="search-creator">
+                    Disney Africa
+                </span>
 
             </div>
 
         </div>
 
+        <div class="search-empty hidden">
 
-        <!-- =================================
-             SHORTS
-        ================================== -->
+            No cartoons or animations found.
 
-        <div
-            class="profile-content-panel"
-            id="shorts"
-            role="tabpanel"
-        >
+        </div>
 
-            <div class="profile-video-grid shorts-grid">
+    </div>
 
-                <a href="index3.html" class="profile-video-card">
+    <a href="index12.html">
+        <img src="search.png" class="search-icon">
+    </a>
 
-                    <div class="profile-thumbnail short-thumbnail">
+    <span class="tooltip">
+        Search
+    </span>
 
-                        <img
-                            src="ADAM.png"
-                            alt="Short video thumbnail"
-                        >
+</div>
+        <div class="nav-actions"></div>
+        <!-- Upload -->
+        <a href="index5.html">
+          <div class="upload">
+            <img src="upload.png" alt="Upload Icon">
+            <div class="tooltip">Upload</div>
+          </div>
+        </a>
 
-                    </div>
+  
+     <!-- Notifications -->
+     <div class="Notifications" id="notification-icon">
+      <img src="sub-3.png" alt="Notifications Icon">
+      <div class="tooltip">Notifications</div>
+    </div>
 
-                    <h3>
-                        Animation Short
-                    </h3>
+    <!-- Notification Dropdown -->
+    <div class="Notification-container" id="notification-container">
+      <div class="Notification-header">
+        <span>5 Notifications</span>
+        <hr>
+      </div>
+    
+      <div class="Notification">
+        <div class="Content">
+          <!-- Row 1: Profile + username -->
+          <div class="User-profile">
+            <img src="14.png" alt="User Avatar">
+            <span class="username">Alkebulan</span>
+      
+            <div class="optionnn">
+              <img src="sidebar 3.png" alt="optionnn img" class="optionTrigger">
+      
+         <!-- Popup Menu -->
+<div class="popup-options">
+  <div class="popup-item">
+    <img src="delete.png" alt="Test Icon" >
 
-                </a>
+    <span>Delete this notification</span>
+  </div>
+  <div class="popup-item">
+    <img src="share.png" alt="Turn Off Icon">
+    <span>Turn off all notifications from Alkebulan</span>
+  </div>
+</div>
+
+            </div>
+          </div>
+    
+          <!-- Row 2: Message (left) + Thumbnail (right) -->
+          <div class="message-row">
+            <span class="text">Uploaded their new content.Check it out! : <b>ZINGLAR</b> </span>
+            <div class="video-thumb">
+              <img src="Donald Trump.PNG" alt="Video Thumbnail">
+            </div>
+          </div>
+          <div class="timer"><span>1 hour ago</span></div>
+        </div>
+
+      </div>
+
+      <div class="Notification">
+        <div class="Content">
+          <!-- Row 1: Profile + username -->
+          <div class="User-profile">
+            <img src="14.png" alt="User Avatar">
+            <span class="username">Nettoon</span>
+          
+            <div class="optionnn">
+              <img src="sidebar 3.png" alt="optionnn img" class="optionTrigger">
+      
+         <!-- Popup Menu -->
+<div class="popup-options">
+  <div class="popup-item">
+    <img src="delete.png" alt="Test Icon" >
+
+    <span>Delete this notification</span>
+  </div>
+  <div class="popup-item">
+    <img src="share.png" alt="Turn Off Icon">
+    <span>Turn off all notifications from Alkebulan</span>
+  </div>
+  <div class="popup-item">
+    <img src="report.png" alt="Report Icon">
+    <span>Report this notification</span>
+  </div>
+</div>
+
+            </div>
+          </div>
+    
+          <!-- Row 2: Message (left) + Thumbnail (right) -->
+          <div class="message-row">
+            <span class="text">commented on your video :<b>  OATS STUDIOS</b></span>
+            <div class="video-thumb">
+              <img src="Oats studios.png" alt="Video Thumbnail">
+            </div>
+          </div>
+          <div class="timer"><span>38 minutes ago</span></div>
+        </div>
+
+      </div>
+
+      <div class="Notification">
+        <div class="Content">
+          <!-- Row 1: Profile + username -->
+          <div class="User-profile">
+            <img src="14.png" alt="User Avatar">
+            <span class="username">Kenya</span>
+          
+            <div class="optionnn">
+              <img src="sidebar 3.png" alt="optionnn img" class="optionTrigger">
+      
+         <!-- Popup Menu -->
+<div class="popup-options">
+  <div class="popup-item">
+    <img src="delete.png" alt="Test Icon" >
+
+    <span>Delete this notification</span>
+  </div>
+  <div class="popup-item">
+    <img src="share.png" alt="Turn Off Icon">
+    <span>Turn off all notifications from Alkebulan</span>
+  </div>
+
+</div>
+
+            </div>
+          </div>
+    
+          <!-- Row 2: Message (left) + Thumbnail (right) -->
+          <div class="message-row">
+            <span class="text">liked your video :<b> ARCANE</b></span>
+            <div class="video-thumb">
+              <img src="Arcane.png" alt="Video Thumbnail">
+            </div>
+          </div>
+          <div class="timer"><span>3 weeks ago</span></div>
+        </div>
+
+      </div>
+
+      <div class="Notification">
+        <div class="Content">
+          <!-- Row 1: Profile + username -->
+          <div class="User-profile">
+            <img src="14.png" alt="User Avatar">
+            <span class="username">Africa</span>
+           
+            <div class="optionnn">
+              <img src="sidebar 3.png" alt="optionnn img" class="optionTrigger">
+      
+         <!-- Popup Menu -->
+<div class="popup-options">
+  <div class="popup-item">
+    <img src="delete.png" alt="Test Icon" >
+
+    <span>Delete this notification</span>
+  </div>
+  <div class="popup-item">
+    <img src="share.png" alt="Turn Off Icon">
+    <span>Turn off all notifications from Alkebulan</span>
+  </div>
+  <div class="popup-item">
+    <img src="report.png" alt="Report Icon">
+    <span>Report this notification</span>
+  </div>
+</div>
+
+            </div>
+          </div>
+    
+          <!-- Row 2: Message (left) + Thumbnail (right) -->
+          <div class="message-row">
+            <span class="text">mentioned you in their video : <b>Kizazi Moto : Generation Fire </b> </span>
+            <div class="video-thumb">
+              <img src="kizazi moto.jpg_large.jpg" alt="Video Thumbnail">
+            </div>
+          </div>
+          <div class="timer"><span>2 months ago</span></div>
+        </div>
+
+      </div>
+
+      <div class="Notification">
+        <div class="Content">
+          <!-- Row 1: Profile + username -->
+          <div class="User-profile">
+            <img src="14.png" alt="User Avatar">
+            <span class="username">Nairobi</span>
+           
+            <div class="optionnn">
+              <img src="sidebar 3.png" alt="optionnn img" class="optionTrigger">
+      
+         <!-- Popup Menu -->
+<div class="popup-options">
+  <div class="popup-item">
+    <img src="delete.png" alt="Test Icon" >
+
+    <span>Delete this notification</span>
+  </div>
+  <div class="popup-item">
+    <img src="share.png" alt="Turn Off Icon">
+    <span>Turn off all notifications from Alkebulan</span>
+  </div>
+  <div class="popup-item">
+    <img src="report.png" alt="Report Icon">
+    <span>Report this notification</span>
+  </div>
+</div>
+
+            </div>
+          </div>
+    
+          <!-- Row 2: Message (left) + Thumbnail (right) -->
+          <div class="message-row">
+            <span class="text">taged you in a video: <b>MOANA</b></span>
+            <div class="video-thumb">
+              <img src="Moana-2-trailer-1068x471.png" alt="Video Thumbnail">
+            </div>
+          </div>
+          <div class="timer"><span>1 hour ago</span></div>
+        </div>
+
+      </div>
+      
+    </div>
+  </div> <!-- end nav -->
 
 
-                <a href="index3.html" class="profile-video-card">
+      <!-- Account dropdown -->
+      <a href="#" class="account-dropdown">
+        <div class="Account">
+          <img src="14.png" alt="Account Icon">
+        </div>
+      </a>
+      <div class="dropdown-content" id="accountDropdown">
+        <ul>
+          <a href="index15.html"><li>
+            <div class="proofile">
+              <img src="14.png" alt="Profile Image">
+              <span>Guest</span>
+            </div>
+          </li></a>
+  
+          <a href="index8.html" style="display: none;"><li>
+            <div class="proofile">
+              <img src="categories.png" alt="Profile Image">
+              <span>Series Section</span>
+            </div>
+          </li></a>
+  
+          <a href="index17.html"><li>
+            <div class="proofile">
+              <img src="settings 2.png" alt="Profile Image">
+              <span>Settings</span>
+            </div>
+          </li></a>
+        </ul>
+      </div>
+    </div>
+    </div> <!-- end container -->
+  </body>
+  
+        
 
-                    <div class="profile-thumbnail short-thumbnail">
 
-                        <img
-                            src="Zygote.jpg"
-                            alt="Short video thumbnail"
-                        >
+           <div class="Segment"><span>Edit Series Upload</span></div>
+            
+<div class="video-container">
 
-                    </div>
+          <div class="containerr">
 
-                    <h3>
-                        Short Film
-                    </h3>
+            <a href="index15.html"><div class="profillee">
+                <img src="14.png" loading="lazy" alt="Profile">
+                <div class="profillee-name">
+                  <span>Guest</span>
+                </div>
+              </a>
+            </div></a>
+          
+            <div class="captionn">
+              <h3>Oat Studios</h3>
+            </div>
+          
+                  
+<div class="video">
 
-                </a>
+    <video
+        id="videoPlayer"
+        poster="Oats studios.png"
+        controls>
+
+        <source
+            src="ADAM_ Episode 2.mp4"
+            type="video/mp4">
+
+    </video>
+
+</div> 
+          
+          <div class="sectionn">
+        
+            <div class="viewss">
+              <img src="views.png" alt="Views Icon">
+              <span class="dislike-count">No views</span>
+            </div>
+        
+            <div class="commentss">
+              <img src="comment.png" alt="Comments Icon">
+              <span class="dislike-count">0</span>
+            </div>
+        
+            <div class="likess">
+              <img src="like.png" alt="Like Icon" class="like-icon default" />
+              <img src="like (3).png" alt="Liked Icon" class="like-icon active hidden" />
+              <span class="dislike-count">0</span>
+            </div>
+            
+            <div class="dislikee">
+              <img src="thumbs down.png" alt="Dislike Icon" class="dislike-icon default" />
+              <img src="dislike (1).png" alt="Disliked Icon" class="dislike-icon active hidden" />
+              <span class="dislike-count">0</span>
+            </div>
+            
+            <div class="timee">
+              <span for="text">Just now</span>
+            </div>
+
+            <div class="following">
+              <img src="9.png" alt="Views Icon">
+              <span class="dislike-count">0</span>
+            </div>
+        
+            <div class="follow">
+              <img src="add-user.png" alt="Follow Icon" class="follow-icon default" />
+              <img src="following 3.png" alt="Following Icon" class="follow-icon active hidden" />
+              <span class="follow-label">Follow</span>
+            </div>
+
+            <div class="option">
+              <img src="sidebar 6.png" alt="Options Icon">
+              <div class="option-popup hidden">
+                <div class="popup-item"><img src="share.png" /> Share</div>
+                <div class="popup-item" style="display: none;"><img src="download.png" /> Download</div>
+              <div class="popup-item" ><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item"><img src="report.png" /> Report</div>
+              </div>
+
+            </div> <!-- option -->
+            
+
+
+        </div> <!-- END sectionn -->
+
+
+<!-- ORANGE SECTION: SHARE POPUP -->
+<div class="share-popup-v2 hidden" id="sharePopupV2">
+  <div class="share-close-v2" id="shareCloseV2">✕</div>
+
+  <div class="share-scroll-v2">
+      <div class="share-item-v2"><img src="tiktok.png"><span>Tiktok</span></div>
+      <div class="share-item-v2"><img src="whatsapp.png"><span>Whatsapp</span></div>
+      <div class="share-item-v2"><img src="facebook.png"><span>Facebook</span></div>
+      <div class="share-item-v2"><img src="twitter.png"><span>X</span></div>
+      <div class="share-item-v2"><img src="copy link.png"><span>Copy Link</span></div>
+  </div>
+</div>
+
+<div class="playlist-popup-v2 hidden" id="playlistPopupV2">
+
+  <div class="playlist-header-v2">
+    Save to...
+    <span class="playlist-close-v2">✕</span>
+</div>
+
+<div class="playlist-list-v2" id="playlistListV2">
+
+    <label class="playlist-option-v2">
+        <input type="checkbox" class="playlist-check-v2">
+        <span class="playlist-name">Watch Later</span>
+        <span class="playlist-delete">✕</span>
+    </label>
+
+    <label class="playlist-option-v2">
+        <input type="checkbox" class="playlist-check-v2">
+        <span class="playlist-name">Favorites</span>
+        <span class="playlist-delete">✕</span>
+    </label>
+
+    <!-- Hidden Template -->
+    <label class="playlist-option-v2 playlist-template hidden">
+        <input type="checkbox" class="playlist-check-v2" checked>
+        <span class="playlist-name playlist-editable" contenteditable="true">Rename playlist</span>
+        <span class="playlist-delete">✕</span>
+    </label>
+</div>
+
+
+
+  <!-- ADD NEW -->
+  <div class="playlist-add-v2" id="addPlaylistBtnV2">+ New Playlist</div>
+
+</div>
+
+
+<div class="report-popup-v2 hidden" id="reportPopupV2">
+
+  <div class="report-header-v2">
+    Help us understand the issue.
+  We’ll assess it across all Community Guidelines.
+      <span class="report-close-v2" id="reportCloseV2">✕</span>
+  </div>
+
+  <label class="report-option-v2">
+      <input type="checkbox" class="report-check-v2"> Sexual content
+  </label>
+
+  <label class="report-option-v2">
+      <input type="checkbox" class="report-check-v2"> Violent or repulsive content
+  </label>
+
+  <label class="report-option-v2">
+      <input type="checkbox" class="report-check-v2"> Hateful or abusive content
+  </label>
+
+  <label class="report-option-v2">
+      <input type="checkbox" class="report-check-v2"> Harmful or dangerous acts
+  </label>
+
+  <label class="report-option-v2">
+      <input type="checkbox" class="report-check-v2"> Spam or misleading
+  </label>
+
+  <label class="report-option-v2">
+      <input type="checkbox" class="report-check-v2"> Child abuse
+  </label>
+
+  <div class="report-actions-v2">
+      <button class="report-cancel-v2">Cancel</button>
+      <button class="report-submit-v2" id="reportSubmitV2" disabled>Report</button>
+  </div>
+
+</div>
+
+
+       
+        </div> <!-- END containerr -->
+
+    
+  
+
+          <div class="container-2">
+          
+<div class="title"> 
+
+  <h3>Change Series title</h3>
+
+<input
+type="text"
+id="videoTitleInput"
+placeholder="LOVE DEATH + ROBOTS VOLUME 4 Official Trailer">
+
+<div class="settings-card">
+
+    <div class="settings-card-header">
+
+        <h3>Series Description</h3>
+
+    </div>
+
+    <textarea
+        id="videoDescription"
+        class="video-description"
+        maxlength="5000"
+        placeholder="Nettoon is more than just a video streaming platform; it is a cultural and technological movement poised to place Africa, and particularly Nairobi, Kenya, at the epicenter of the 21st-century digital revolution. As a platform dedicated exclusively to cartoons and animations, Nettoon taps into one of the fastest-growing and most influential entertainment industries in the world. But what makes it revolutionary is that it gives power back to African creators, animators, and storytellers. By creating a dedicated space where African animation can thrive, Nettoon opens the floodgates for diverse narratives, characters, and ideas to be shared globally.
+
+Africa has for too long been viewed through external lenses. Nettoon challenges this by allowing Africans to tell their own stories—ones filled with myth, innovation, humor, and lived experience. This will not only redefine how the world sees Africa but will inspire a generation of young creators to pursue careers in animation, storytelling, and technology. Based in Nairobi—a city already known for its innovation, fintech leadership, and vibrant startup culture—Nettoon is strategically positioned.Nairobi’s youthful population, growing internet penetration, and digital-savvy talent pool make it the perfect launchpad for a tech-powered cultural renaissance. As Nettoon gains traction globally, it will attract tech investors, animation studios, and media partners to Africa, catalyzing a creative economy worth billions. Moreover, Nettoon is not just a platform; it is an ecosystem. It creates jobs, educates users, encourages digital skills, and promotes Pan-African collaboration. Developers, voice actors, designers, and writers from all corners of the continent will find new opportunities.
+
+This will reduce brain drain and position Africa not as a passive consumer of global tech but as a producer and global player in the digital age. In a world increasingly shaped by media and content, platforms like Nettoon will dictate how cultures connect and evolve. As African animations inspire global audiences, the center of creative influence will shift. Nairobi won’t just be known for safaris or tech startups—it will be known as the birthplace of the 21st century’s digital cultural revolution. And when that happens, Nettoon will be at the heart of it. this century, Africa is not just rising—it is leading. And Nettoon is proof."></textarea>
+
+    <div class="description-footer">
+
+        <span id="descriptionCounter">
+            0 / 5000 Characters
+        </span>
+
+    </div>
+
+</div>
+
+<div class="thumbnail">
+  <h4>Change Series Thumbnail</h4>
+
+<div class="thumbnail-wrapper">
+
+    <img
+    id="thumbnailPreview"
+    src="Oats studios.png">
+
+    <label
+    for="thumbnailUpload"
+    class="thumbnail-upload">
+
+        <img src="camera.png">
+
+    </label>
+
+    <input
+    type="file"
+    id="thumbnailUpload"
+    accept="image/*"
+    hidden>
+
+</div>
+
+<!-- Visibility -->
+<div class="video-setting">
+
+    <label class="setting-title">
+        Visibility
+    </label>
+
+    <div class="visibility-options">
+
+        <label class="visibility-option">
+
+            <input
+                type="radio"
+                name="visibility"
+                value="public"
+                checked>
+
+            <div class="visibility-text">
+
+                <span class="visibility-name">
+                    Public
+                </span>
+
+                <span class="visibility-description">
+                    Anyone can watch this video.
+                </span>
+
+            </div>
+
+        </label>
+
+        <label class="visibility-option">
+
+            <input
+                type="radio"
+                name="visibility"
+                value="private">
+
+            <div class="visibility-text">
+
+                <span class="visibility-name">
+                    Private
+                </span>
+
+                <span class="visibility-description">
+                    Only you can view this video.
+                </span>
+
+            </div>
+
+        </label>
+
+    </div>
+
+    <!-- COMMENTS -->
+
+<div class="video-setting">
+
+    <label class="setting-title">
+        Comments
+    </label>
+
+    <div class="comment-settings">
+
+        <!-- Allow Comments -->
+
+        <label class="comment-option">
+
+            <div class="comment-text">
+
+                <span class="comment-name">
+                    Enable Comments
+                </span>
+
+                <span class="comment-description">
+                    Allow viewers to comment on this video.
+                </span>
+
+            </div>
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="enableComments"
+                    checked>
+
+                <span class="slider"></span>
+
+            </label>
+
+        </label>
+
+        <!-- Pin Creator -->
+
+        <label class="comment-option"style="display:none">
+
+            <div class="comment-text">
+
+                <span class="comment-name">
+                    Pin Creator Comment
+                </span>
+
+                <span class="comment-description">
+                    Display your comment at the top of the discussion.
+                </span>
+
+            </div>
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="pinCreatorComment">
+
+                <span class="slider"></span>
+
+            </label>
+
+        </label>
+
+    </div>
+
+</div>
+
+</div>
+<div class="settings-card" style="display:none">
+
+    <div class="settings-header">
+
+        <h3>Playlist</h3>
+
+        <p>Select where this video belongs.</p>
+
+    </div>
+
+    <div class="playlist-selector">
+
+        <!-- Closed State -->
+
+        <div class="playlist-selected">
+
+            <span class="selected-playlist-name">
+
+          Save to Playlist
+
+            </span>
+
+      
+
+        </div>
+
+        <!-- Dropdown -->
+
+        <div class="playlist-dropdown hidden">
+
+            <!-- Playlist -->
+
+            <label class="playlist-item">
+
+                <input
+                    type="radio"
+                    name="playlist"
+                    checked>
+
+                <img
+                    src="kizazi moto.jpg_large.jpg"
+                    class="playlist-cover">
+
+                <div class="playlist-info">
+
+                    <span class="playlist-title">
+
+                        Watch Later
+
+                    </span>
+
+                    <small>
+
+                        25 Videos
+
+                    </small>
+
+                </div>
+
+             
+
+            </label>
+
+            <!-- Playlist -->
+
+            <label class="playlist-item">
+
+                <input
+                    type="radio"
+                    name="playlist">
+
+                <img
+                    src="Oats studios.png"
+                    class="playlist-cover">
+
+                <div class="playlist-info">
+
+                    <span class="playlist-title">
+
+                        Disney Movies
+
+                    </span>
+
+                    <small>
+
+                        12 Videos
+
+                    </small>
+
+                </div>
+
+            </label>
+
+            <!-- Playlist -->
+
+            <label class="playlist-item">
+
+                <input
+                    type="radio"
+                    name="playlist">
+
+                <img
+                    src="Kenya.jpeg"
+                    class="playlist-cover">
+
+                <div class="playlist-info">
+
+                    <span class="playlist-title">
+
+                        African Animation
+
+                    </span>
+
+                    <small>
+
+                        8 Videos
+
+                    </small>
+
+                </div>
+
+            </label>
+
+            <!-- Create Playlist -->
+<button
+    class="new-playlist-btn"
+    id="newPlaylistBtn">
+
+    <span class="playlist-plus">+</span>
+
+    <span>Create New Playlist</span>
+
+</button>
+            <!-- Hidden Creator -->
+
+            <div
+                class="playlist-creator hidden"
+                id="playlistCreator">
+
+                <input
+                    type="text"
+                    id="playlistName"
+                    placeholder="Playlist name">
+
+                <div class="playlist-visibility">
+
+                    <label>
+
+                        <input
+                            type="radio"
+                            name="playlistVisibility"
+                            checked>
+
+                        Public
+
+                    </label>
+
+                    <label>
+
+                        <input
+                            type="radio"
+                            name="playlistVisibility">
+
+                        Private
+
+                    </label>
+
+                </div>
+
+                <div class="playlist-actions">
+
+                    <button
+                        class="cancel-playlist">
+
+                        Cancel
+
+                    </button>
+
+                    <button
+                        class="save-playlist">
+
+                        Save Playlist
+
+                    </button>
+
+                </div>
 
             </div>
 
@@ -352,10 +946,497 @@
 
     </div>
 
-</section>
+</div>
 
- <script src="script18.js"></script>
+<button class="save-video-btn" id="saveVideoBtn">
+    Save Changes
+</button>
 
-           </main>
-          </body>
-          </html>
+</div>
+</div>
+
+
+
+
+  
+
+  </div>
+
+</div>
+</div>
+
+
+ 
+          <div class="optionn">
+            <span> Oat Studios Series - 10 Episodes </span>
+          </div>
+        
+        <!-- Containers -->
+        <div id="container-1" class="container-1">
+
+
+       
+ <div class="kontainer">
+      <div class="profilee"> 
+        <a href="index4.html" class="profilee-img-wrapper">
+            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
+            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
+        </a>
+    
+        <div class="profilee-name">
+            <span>Guest</span>
+        </div>
+    
+        <div class="opttions">
+            <img src="sidebar 3.png" alt="Options Icon">
+    
+            <!-- OPTIONS POPUP -->
+            <div class="opttions-popup hidden">
+
+
+<div class="popup-item delete-trigger">
+  <img src="delete.png" />
+  <span>Delete Video</span>
+</div>
+            </div>
+        </div>
+    
+    
+    </div> <!-- END profilee -->
+    
+      <div class="caption">
+      <span>Ratatouille Official Trailer</span>
+      </div>
+      <a href="index22.html">
+        <div class="videoo">
+          <video
+            src=""
+            poster="Ratatouille.png" preload="metadata"></video>
+      <div class="overlay-textt">0.00</div>
+      </div></a>
+      <div class="sectiionn">
+        <div class="views">
+          <img src="views.png">
+          <span>No views</span>
+          </div>
+          <div class="time">
+            <span>Just now</span>
+          </div>
+      </div>
+      
+      </div>  
+
+           
+ <div class="kontainer">
+      <div class="profilee"> 
+        <a href="index4.html" class="profilee-img-wrapper">
+            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
+            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
+        </a>
+    
+        <div class="profilee-name">
+            <span>Guest</span>
+        </div>
+    
+        <div class="opttions">
+            <img src="sidebar 3.png" alt="Options Icon">
+    
+            <!-- OPTIONS POPUP -->
+            <div class="opttions-popup hidden">
+
+
+<div class="popup-item delete-trigger">
+  <img src="delete.png" />
+  <span>Delete Video</span>
+</div>
+            </div>
+        </div>
+    
+    
+    </div> <!-- END profilee -->
+      
+        <div class="caption">
+        <span>ALtered Carbon</span>
+        </div>
+       <a href="index22.html">
+          <div class="videoo">
+            <video
+              src=""
+              poster="k.png" preload="metadata"></video>
+        <div class="overlay-textt">0.00</div>
+        </div></a>
+        <div class="sectiionn">
+        <div class="views">
+        <img src="views.png">
+        <span>No views</span>
+        </div>
+        <div class="time">
+          <span>Just now</span>
+        </div>
+        
+        </div>
+        
+        </div>  
+
+         
+ <div class="kontainer">
+      <div class="profilee"> 
+        <a href="index4.html" class="profilee-img-wrapper">
+            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
+            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
+        </a>
+    
+        <div class="profilee-name">
+            <span>Guest</span>
+        </div>
+    
+        <div class="opttions">
+            <img src="sidebar 3.png" alt="Options Icon">
+    
+            <!-- OPTIONS POPUP -->
+            <div class="opttions-popup hidden">
+
+
+<div class="popup-item delete-trigger">
+  <img src="delete.png" />
+  <span>Delete Video</span>
+</div>
+            </div>
+        </div>
+    
+    
+    </div> <!-- END profilee -->
+        
+          <div class="caption">
+          <span>kizazi moto Official Trailer</span>
+          </div>
+         <a href="index22.html">
+            <div class="videoo">
+              <video
+                src=""
+                poster="kizazi moto.jpg_large.jpg" preload="metadata"></video>
+          <div class="overlay-textt">0.00</div>
+          </div></a>
+          <div class="sectiionn">
+          <div class="views">
+          <img src="views.png">
+          <span>No views</span>
+          </div>
+          <div class="time">
+            <span>Just now</span>
+          </div>
+          
+          </div>
+          
+          </div>  
+           
+ <div class="kontainer">
+      <div class="profilee"> 
+        <a href="index4.html" class="profilee-img-wrapper">
+            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
+            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
+        </a>
+    
+        <div class="profilee-name">
+            <span>Guest</span>
+        </div>
+    
+        <div class="opttions">
+            <img src="sidebar 3.png" alt="Options Icon">
+    
+            <!-- OPTIONS POPUP -->
+            <div class="opttions-popup hidden">
+
+
+<div class="popup-item delete-trigger">
+  <img src="delete.png" />
+  <span>Delete Video</span>
+</div>
+            </div>
+        </div>
+    
+    
+    </div> <!-- END profilee -->
+          
+            <div class="caption">
+            <span>Mekatilili Wa Menza</span>
+            </div>
+              <a href="index22.html">
+              <div class="videoo">
+                <video
+                  src=""
+                  poster="7.png" preload="metadata"></video>
+            <div class="overlay-textt">0.00</div>
+            </div></a>
+            <div class="sectiionn">
+            <div class="views">
+            <img src="views.png">
+            <span>No views</span>
+            </div>
+            <div class="time">
+              <span>Just now</span>
+            </div>
+            
+            </div>
+            
+            </div>  
+
+       
+ <div class="kontainer">
+      <div class="profilee"> 
+        <a href="index4.html" class="profilee-img-wrapper">
+            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
+            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
+        </a>
+    
+        <div class="profilee-name">
+            <span>Guest</span>
+        </div>
+    
+        <div class="opttions">
+            <img src="sidebar 3.png" alt="Options Icon">
+    
+            <!-- OPTIONS POPUP -->
+            <div class="opttions-popup hidden">
+
+
+<div class="popup-item delete-trigger">
+  <img src="delete.png" />
+  <span>Delete Video</span>
+</div>
+            </div>
+        </div>
+    
+    
+    </div> <!-- END profilee -->
+            
+          <div class="caption">
+          <span>Stupid DOG</span>
+          </div>
+        <a href="index22.html">
+            <div class="videoo">
+              <video
+                src=""
+                poster="13 (3).png" preload="metadata"></video>
+          <div class="overlay-textt">0.00</div>
+          </div></a>
+          <div class="sectiionn">
+          <div class="views">
+          <img src="views.png">
+          <span>No views</span>
+          </div>
+          <div class="time">
+            <span>Just now</span>
+          </div>
+          
+          </div>
+          
+          </div>  
+
+       
+ <div class="kontainer">
+      <div class="profilee"> 
+        <a href="index4.html" class="profilee-img-wrapper">
+            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
+            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
+        </a>
+    
+        <div class="profilee-name">
+            <span>Guest</span>
+        </div>
+    
+        <div class="opttions">
+            <img src="sidebar 3.png" alt="Options Icon">
+    
+            <!-- OPTIONS POPUP -->
+            <div class="opttions-popup hidden">
+
+
+<div class="popup-item delete-trigger">
+  <img src="delete.png" />
+  <span>Delete Video</span>
+</div>
+            </div>
+        </div>
+    
+    
+    </div> <!-- END profilee -->
+          
+            <div class="caption">
+            <span>The King who feared Nobody</span>
+            </div>
+          <a href="index22.html">
+              <div class="videoo">
+                <video
+                  src=""
+                  poster="8.png" preload="metadata"></video>
+            <div class="overlay-textt">0.00</div>
+            </div></a>
+            <div class="sectiionn">
+            <div class="views">
+            <img src="views.png">
+            <span>No views</span>
+            </div>
+            <div class="time">
+              <span>Just now</span>
+            </div>
+            
+            </div>
+            
+            </div>  
+
+       
+ <div class="kontainer">
+      <div class="profilee"> 
+        <a href="index4.html" class="profilee-img-wrapper">
+            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
+            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
+        </a>
+    
+        <div class="profilee-name">
+            <span>Guest</span>
+        </div>
+    
+        <div class="opttions">
+            <img src="sidebar 3.png" alt="Options Icon">
+    
+            <!-- OPTIONS POPUP -->
+            <div class="opttions-popup hidden">
+
+
+<div class="popup-item delete-trigger">
+  <img src="delete.png" />
+  <span>Delete Video</span>
+</div>
+            </div>
+        </div>
+    
+    
+    </div> <!-- END profilee -->
+            
+              <div class="caption">
+              <span>Secret Level</span>
+              </div>
+            <a href="index22.html">
+                <div class="videoo">
+                  <video
+                    src=""
+                    poster="12.png" preload="metadata"></video>
+              <div class="overlay-textt">0.00</div>
+              </div></a>
+              <div class="sectiionn">
+              <div class="views">
+              <img src="views.png">
+              <span>No views</span>
+              </div>
+              <div class="time">
+                <span>Just now</span>
+              </div>
+              
+              </div>
+              
+              </div>  
+
+                     
+ <div class="kontainer">
+      <div class="profilee"> 
+        <a href="index4.html" class="profilee-img-wrapper">
+            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
+            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
+        </a>
+    
+        <div class="profilee-name">
+            <span>Guest</span>
+        </div>
+    
+        <div class="opttions">
+            <img src="sidebar 3.png" alt="Options Icon">
+    
+            <!-- OPTIONS POPUP -->
+            <div class="opttions-popup hidden">
+
+
+<div class="popup-item delete-trigger">
+  <img src="delete.png" />
+  <span>Delete Video</span>
+</div>
+            </div>
+        </div>
+    
+    
+    </div> <!-- END profilee -->
+              
+                <div class="caption">
+                <span>LOVE DEATH + ROBOTS VOLUME 3 Official Trailer</span>
+                </div>
+           <a href="index22.html">
+                  <div class="videoo">
+                    <video
+                      src=""
+                      poster="2 (2).png" preload="metadata"></video>
+                <div class="overlay-textt">0.00</div>
+                </div></a>
+                <div class="sectiionn">
+                <div class="views">
+                <img src="views.png">
+                <span>No views</span>
+                </div>
+                <div class="time">
+                  <span>Just now</span>
+                </div>
+                
+                </div>
+                
+                </div>  
+
+
+  </div>
+
+
+<!-- SHORTS DELETE POPUP -->
+<div class="shorts-delete-popup hidden" id="shortsDeletePopup">
+
+  <div class="shorts-delete-box">
+
+    <h3>Delete Video?</h3>
+
+    <p>
+     This video will be removed from downloads
+    </p>
+
+    <div class="shorts-delete-actions">
+
+      <button
+        class="shorts-cancel-delete"
+        id="shortsCancelDelete">
+
+        Cancel
+
+      </button>
+
+      <button
+        class="shorts-confirm-delete"
+        id="shortsConfirmDelete">
+
+        Delete
+
+      </button>
+
+    </div>
+
+  </div>
+
+
+  
+        
+        
+        </div>
+        
+
+
+<script src="script18.js"></script>
+
+
+</main>
+</body>
+</html>

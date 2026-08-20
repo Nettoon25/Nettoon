@@ -1413,7 +1413,6 @@ body.dark-mode
   position: relative;
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 9;
   background-color: var(--color-bg-dark-alt);
   border-radius: var(--border-radius-md); /* Consistent medium rounded corners for the video player */
   overflow: hidden;

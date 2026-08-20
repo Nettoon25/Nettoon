@@ -1134,38 +1134,54 @@ flex-wrap: nowrap;
 }
 
 
-/* ==== Base Container ==== */
-.container-1 {
-  position: relative;
-  width: 100%;
-height: auto;
-  display: flex;
-  flex-direction: column;
-  background-color:transparent;
-  padding: 0px;
-  margin: 0;
-  box-sizing: border-box;
-  z-index: 2;
-  margin-top: 3.0rem;
-  border-radius: 0px;
-  border: 0.1px solid transparent;
-  padding-bottom: 0px;
-  padding-top:1rem;
-  border-style: ridge;
-    /* Scrolling Behavior */
-  overflow-y: auto; /* Enables vertical scrolling when content exceeds max-height */
-  overflow-x: hidden; /* Hides horizontal scrollbar */
-    /* Custom Scrollbar Styling (Webkit Browsers - Chrome, Safari) */
-  &::-webkit-scrollbar {
-    width: var(--scrollbar-width); /* Responsive scrollbar width using a variable */
-}
+:root {
+  /* ... existing variables ... */
+
+  /* Suggestions Bar & Category Pills */
+  --header-height: 3rem; /* Example: adjust to your actual header height */
+  --sidebar-width-plus-gap: 4.8%; /* Example: adjust based on your sidebar + gap */
+  --suggestions-bar-width: calc(100% - 4.9%); /* Example: adjust based on layout */
+  --suggestions-bar-height: 3rem; /* 48px */
+  --z-index-fixed-elements: 1000; /* Example: ensure it's higher than other content */
+
+  --category-pill-height: 1.875rem; /* 30px */
+  --border-radius-pill: 0.375rem; /* 6px */
+
+  /* Colors - Light Mode */
+  --color-bg-pill-light: #FAFAFA; /* Pale Grey default pill background */
+  --color-text-pill-light: #333; /* Dark Grey default pill text */
+  --color-bg-pill-hover-light: #E0E0E0; /* Lighter grey on hover */
+  --color-text-pill-hover-light: #333; /* Dark text on hover */
+  --color-bg-pill-active-light: black; /* **Black background for active in light mode** */
+  --color-text-pill-active-light: white; /* **White text for active in light mode** */
+
+  /* Colors - Dark Mode */
+  --color-bg-suggestions-dark: #202020; /* Dark background for the bar in dark mode */
+  --color-bg-pill-dark: #383838; /* Dark mode default pill background */
+  --color-text-pill-dark: white; /* White default pill text in dark mode */
+  --color-bg-pill-hover-dark: #555; /* Slightly lighter dark grey on hover */
+  --color-text-pill-hover-dark: white; /* White text on hover */
+  --color-bg-pill-active-dark: white; /* **White background for active in dark mode** */
+  --color-text-pill-active-dark: black; /* **Black text for active in dark mode** */
+
+  /* Responsive Variables for Suggestions Bar */
+  --suggestions-bar-width-md: calc(100% - 12%);
+  --suggestions-bar-left-md: 10%;
+  --suggestions-bar-width-sm: calc(100% - 15%);
+  --suggestions-bar-left-sm: 12%;
+  --suggestions-bar-height-sm: 3.5rem;
+  --suggestions-bar-width-xs: calc(100% - 18%);
+  --suggestions-bar-left-xs: 14%;
+  --suggestions-bar-height-xs: 3.2rem;
+
+  /* New font sizes (adjust as per your base font definitions) */
+  --font-size-base: 0.9375rem; /* 15px */
+  --font-size-sm: 0.875rem; /* 14px */
+  --font-size-xxs: 0.8125rem; /* 13px */
+
+  /* ... other existing variables ... */
 }
 
-
-.dark-mode .container-1
-{
-  border: 0.1px solid transparent;
-}
 
 /* ==== SUGGESTIONS BAR CONTAINER (.suggestionss) ==== */
 /* This fixed container holds the horizontal scrollable list of category pills,
@@ -1176,7 +1192,7 @@ height: auto;
     top: 9%; /* Vertically positioned below the header (adjust variable as needed) */
     /* Dynamic left positioning and width based on sidebar or main content area */
     left:0%; /* Example: 4.8% or specific width of sidebar + gap */
-    width:100%; /* Example: calc(100% - 4.9%) */
+    width:98.7%; /* Example: calc(100% - 4.9%) */
     height: var(--suggestions-bar-height); /* Fixed height (48px) for the bar */
     z-index:10; 
 
@@ -1310,54 +1326,6 @@ height: auto;
 }
 
 
-:root {
-  /* ... existing variables ... */
-
-  /* Suggestions Bar & Category Pills */
-  --header-height: 3rem; /* Example: adjust to your actual header height */
-  --sidebar-width-plus-gap: 4.8%; /* Example: adjust based on your sidebar + gap */
-  --suggestions-bar-width: calc(100% - 4.9%); /* Example: adjust based on layout */
-  --suggestions-bar-height: 3rem; /* 48px */
-  --z-index-fixed-elements: 1000; /* Example: ensure it's higher than other content */
-
-  --category-pill-height: 1.875rem; /* 30px */
-  --border-radius-pill: 0.375rem; /* 6px */
-
-  /* Colors - Light Mode */
-  --color-bg-pill-light: #FAFAFA; /* Pale Grey default pill background */
-  --color-text-pill-light: #333; /* Dark Grey default pill text */
-  --color-bg-pill-hover-light: #E0E0E0; /* Lighter grey on hover */
-  --color-text-pill-hover-light: #333; /* Dark text on hover */
-  --color-bg-pill-active-light: black; /* **Black background for active in light mode** */
-  --color-text-pill-active-light: white; /* **White text for active in light mode** */
-
-  /* Colors - Dark Mode */
-  --color-bg-suggestions-dark: #202020; /* Dark background for the bar in dark mode */
-  --color-bg-pill-dark: #383838; /* Dark mode default pill background */
-  --color-text-pill-dark: white; /* White default pill text in dark mode */
-  --color-bg-pill-hover-dark: #555; /* Slightly lighter dark grey on hover */
-  --color-text-pill-hover-dark: white; /* White text on hover */
-  --color-bg-pill-active-dark: white; /* **White background for active in dark mode** */
-  --color-text-pill-active-dark: black; /* **Black text for active in dark mode** */
-
-  /* Responsive Variables for Suggestions Bar */
-  --suggestions-bar-width-md: calc(100% - 12%);
-  --suggestions-bar-left-md: 10%;
-  --suggestions-bar-width-sm: calc(100% - 15%);
-  --suggestions-bar-left-sm: 12%;
-  --suggestions-bar-height-sm: 3.5rem;
-  --suggestions-bar-width-xs: calc(100% - 18%);
-  --suggestions-bar-left-xs: 14%;
-  --suggestions-bar-height-xs: 3.2rem;
-
-  /* New font sizes (adjust as per your base font definitions) */
-  --font-size-base: 0.9375rem; /* 15px */
-  --font-size-sm: 0.875rem; /* 14px */
-  --font-size-xxs: 0.8125rem; /* 13px */
-
-  /* ... other existing variables ... */
-}
-
 /* ✅ Responsive Adjustments */
 /* Tablet & Small Desktop Optimization */
 @media screen and (max-width: 1024px) {
@@ -1403,6 +1371,38 @@ height: auto;
 }
 
 
+/* ==== Base Container ==== */
+.container-1 {
+  position: relative;
+  width: 100%;
+height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color:hotpink;
+  padding: 0px;
+  margin: 0;
+  box-sizing: border-box;
+  z-index: 2;
+  margin-top: 3.0rem;
+  border-radius: 0px;
+  border: 0.1px solid transparent;
+  padding-bottom: 0px;
+  padding-top:1rem;
+  border-style: ridge;
+    /* Scrolling Behavior */
+  overflow-y: auto; /* Enables vertical scrolling when content exceeds max-height */
+  overflow-x: hidden; /* Hides horizontal scrollbar */
+    /* Custom Scrollbar Styling (Webkit Browsers - Chrome, Safari) */
+  &::-webkit-scrollbar {
+    width: var(--scrollbar-width); /* Responsive scrollbar width using a variable */
+}
+}
+
+
+.dark-mode .container-1
+{
+  border: 0.1px solid transparent;
+}
 
 
 /* ==== Scrollable Section ==== */
@@ -1497,7 +1497,7 @@ margin-bottom: 0px;
 
 .Playlist:first-of-type > .Segment:first-of-type {
   margin-top: 2rem;
-  background-color:violet;
+  background-color:green;
 
 }
 
@@ -1530,13 +1530,16 @@ filter: invert(1);
   display: flex;
   flex-direction: row;
   width: 100%;
-  background-color:forestgreen;
+  height:auto;
+  max-height:400px;
+  background-color:red;
   margin-bottom: 0rem;
   padding-bottom: 0px;
   padding: 0.5rem;
   gap: 1rem;
   border-radius: 8px;
   box-sizing: border-box;
+
 }
 
 /* Optional responsiveness */
@@ -1550,18 +1553,17 @@ filter: invert(1);
   flex: 1;
   margin-top: 0px;
   max-width: 45%;
-  background-color:purple;
+  background-color:transparent;
   margin-bottom: 0px;
   border-radius: 7px;
 }
-
 
 
 .Container
 {
 width: 100%;
 height: 100%; /* or a defined px/rem/vh */
-  background-color:red;
+  background-color:transparent;
 display: flex;
 flex-direction: row;
 margin-top: 0px;
@@ -1571,162 +1573,6 @@ padding-bottom: 0px;
 padding: 0px;
 border-radius: 7px;
 }
-
-
-
-.scroll-area {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  overflow:auto;
-  overflow-y:hidden;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  background-color:darkgoldenrod;
-  z-index: 0;
- padding-bottom: 0px;
- margin-bottom:0px;
-  gap: 1rem; /* Slight space between items */
-  padding: 0rem 0rem;
-  scrollbar-width: thin;
-  overflow-x:hidden;
-  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
-  /*scroll-snap-type: y mandatory;  changed to x for horizontal */
-}
-
-/* Dark mode adjustments */
-.dark-mode .scroll-area {
-  scrollbar-color: rgba(7, 4, 4, 0.5) grey;
-}
-
-
-
-.shorts {
-  position: relative;
-  width: 100%;           /* Takes full width of its designated column in layout */
-  max-width: 250px;      /* Limits the maximum width of the short video card */
-  aspect-ratio: 9 / 16;  /* Crucial: Ensures a vertical 9:16 aspect ratio for shorts */
-  /* Spacing & Appearance */
-  max-height: 50vh;
-  margin-left: 2.1rem; /* remove margin */
-  overflow: hidden;
-  border-radius: 12px;
-  flex-shrink: 0;
-  padding: 0px;
-  margin-bottom:1rem;
-  scroll-snap-align: start;
-  background-color: transparent;
-  border-style:none;
-}
-  
-  /* 🔷 Video Element */
-  .shorts video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 12px;
-    display: block;
-  }
-  
-
-
-/* Play overlay button */
-.play-overlay {
-  display: block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 40px;
-  height: 40px;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-  z-index: 0;
-}
-/*
-.dark-mode .play-overlay
-{
-  filter: invert(1);
-}
-  */
-
-/* ==== OVERLAY LINK (.overlay-link) ==== */
-/* This element provides a clickable area covering the entire video card for navigation. */
-.overlay-link {
-  position: absolute;    /* Positions the link absolutely within its parent `.shorts` */
-  inset: 0;              /* Shorthand for top: 0; right: 0; bottom: 0; left: 0; covers the entire parent */
-  z-index: 3;            /* Ensures it is on top of both the video and the play overlay for clickability */
-  /* NO TRANSITIONS as per user request */
-}
-
-/* ==== VIEWS OVERLAY (.views-overlay) ==== */
-.views-overlay {
-  position: absolute;
-  top:10px;           /* ⬆️ Move to the top */
-  left: 15px;          /* Slight inset from the left */
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
-  padding: 4px 8px;
-  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
-  z-index: 4;         /* Always above video and play button */
-}
-
-/* 👁️ Icon inside views overlay */
-.views-icon {
-  width: 17px;
-  height: 17px;
-  filter: invert(1); /* Keeps icon visible even if dark */
-}
-
-/* 🔢 Text inside views overlay */
-.views-text {
-  color: #fff;
-  font-size: 0.75rem;
-  font-weight: 500;
-  white-space: nowrap;
-}
-
-/* 🌙 Dark Mode Adjustments */
-.dark-mode .views-overlay {
-  background-color: rgba(0, 0, 0, 0.65); /* Slightly darker for better readability */
-}
-
-.dark-mode .views-text {
-  color: #f5f5f5;
-}
-
-.dark-mode .Playlist {
-  border: 1px solid transparent;
-}
-
-/* ==== Sidebar List ==== */
-.List {
-  width: 40%;
-  background-color: transparent;
-}
-
-
-/* ==== Right Content Section ==== */
-.right-section {
-  width: 58%;
-  background-color:transparent;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-  border-radius: 7px;
-  margin-right: 1%;
-  margin-top:0%;
-  padding: 0px;
-  height: 100%;
-  flex: 2;
-  margin-bottom: 0px;
-}
-
 
 
 .scroll-area {
@@ -1851,6 +1697,17 @@ border-radius: 7px;
 .dark-mode .views-text {
   color: #f5f5f5;
 }
+
+.dark-mode .Playlist {
+  border: 1px solid transparent;
+}
+
+/* ==== Sidebar List ==== */
+.List {
+  width: 40%;
+  background-color: transparent;
+}
+
 
 
 /* ⭐ Three Dots Options Button */
@@ -2082,11 +1939,10 @@ border-radius: 7px;
   
   /* Flex Container Properties */
   display: flex;         /* Enables a flexible layout for its content (caption text) */
-  align-items: center;   /* Vertically centers content within the container */
   justify-content: center; /* Horizontally centers content within the container */
   
   /* Appearance & Overflow */
-  background-color:pink; /* No background color, allowing parent's background to show */
+  background-color:transparent; /* No background color, allowing parent's background to show */
   overflow: hidden;    /* Hides any content that overflows the container boundaries */
   /* `background: scroll` is often default and not needed here for visual styling. */
   margin-bottom: 0%;
@@ -2182,7 +2038,7 @@ margin-top: 2.6%;
 /* ==== About Section ==== */
 .About {
   height: auto;
-  background-color:transparent;
+  background-color:blue;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -2201,9 +2057,9 @@ border-radius: 7px;
   width: 100%;
   height:100%;
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
+  scrollbar-color: rgba(0, 0, 0, 0.5);
   scroll-behavior: smooth;
-  background-color:transparent;
+  background-color:green;
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -2221,13 +2077,6 @@ padding: 0px;
  span
 {
   position: relative;
-margin-top: 3%;
-}
-
-/* 1st Playlist (Series) */
-.Playlist:nth-of-type(3) .description span
-{
-  background-color: transparent;
 margin-top: 3%;
 }
 
@@ -2289,18 +2138,22 @@ margin-top: 2rem;
 }
 
 .Playlist:nth-of-type(1) .playlist-item {
-  height: 320px;
+margin-top:1rem;
+  height: auto;
+  max-height: 725px;
+  background-color:blueviolet;
+  margin-bottom: 2rem;
   }
   
 
 .Playlist:nth-of-type(1) .kontainer {
-  background-color:red;
+  background-color:transparent;
   border-style: ridge;
   border-radius: 0%;
 }
 
 .Playlist:nth-of-type(1) .left-section {
-   background-color:pink;
+  background-color:transparent;
   height: 400px;
 max-height:275px;
 margin-top: 0.8rem;
@@ -2325,121 +2178,17 @@ border-radius: 7px;
 }
 
 .Playlist:nth-of-type(1) .right-section {
-  background-color:red;
+  background-color:transparent;
 height: 100%;
   border-radius: 7px;
 }
+
 
 
 .Playlist:nth-of-type(1) .About .description {
   background: transparent;
 
 }
-
-.Playlist:nth-of-type(2)  {
-height:auto;
-margin-top: 2rem;
-margin-bottom: 0rem;
-border-style: dotted;
-}
-
-
-/* 2nd Playlist (Shorts) */
-.Playlist:nth-of-type(2) .right-section {
-  background-color: transparent;
-}
-.Playlist:nth-of-type(2) .vidoes .cards {
-  border: 0px  solid transparent;
-}
-
-
-.Playlist:nth-of-type(3)  {
-  background-color:transparent;
-height: auto;
-    margin-bottom: 0rem;
-margin-top: 2rem;
-}
-
-.Playlist:nth-of-type(3) .playlist-item {
-  height: 450px;
-  }
-  
-
-.Playlist:nth-of-type(3) .kontainer {
-  background-color:transparent;
-
-}
-
-.Playlist:nth-of-type(3) .left-section {
-  background-color:transparent;
-height: auto;
-max-height:275px;
-margin-top: 5rem;
-border-radius: 7px;
-}
-
-.Playlist:nth-of-type(3) .right-section {
-  background-color:transparent;
-height: 100%;
-  border-radius: 7px;
-}
-
-
-.Playlist:nth-of-type(3) .left-section{
-  height: 400px;
-  }
-  
-
-.Playlist:nth-of-type(3) .About .description {
-  background: transparent;
-
-}
-
-
-
-.Playlist:nth-of-type(4)  {
-  background-color:transparent;
-height: 100px;
-    margin-bottom: 5rem;
-
-}
-
-.Playlist:nth-of-type(4) .playlist-item {
-  height: 450px;
-  }
-  
-
-.Playlist:nth-of-type(4) .kontainer {
-  background-color:transparent;
-
-}
-
-.Playlist:nth-of-type(4) .left-section {
-  background-color:transparent;
-height: auto;
-max-height:275px;
-margin-top: 5rem;
-border-radius: 7px;
-}
-
-.Playlist:nth-of-type(4) .right-section {
-  background-color:transparent;
-height: 100%;
-  border-radius: 7px;
-}
-
-
-.Playlist:nth-of-type(4) .left-section{
-  height: 400px;
-  }
-  
-
-.Playlist:nth-of-type(4) .About .description {
-  background: transparent;
-
-}
-
-
 .overlay-textttt {
   position: absolute;
   min-width: 10%;
@@ -3009,6 +2758,7 @@ border-radius: 7px;
     background: #e5e5e5;
 
     flex-shrink: 0;
+    margin-top:4rem;
 }
 
 
@@ -3488,6 +3238,70 @@ body.dark-mode .profile-options {
 }
 
 
+
+
+.Playlist:nth-of-type(2)  {
+  background-color:transparent;
+height: auto;
+margin-top: 2rem;
+    margin-bottom:0rem;
+}
+
+.Playlist:nth-of-type(2) .playlist-item {
+margin-top:1rem;
+  height: auto;
+  background-color:transparent;
+  margin-bottom: 2rem;
+  position:relative;
+  }
+  
+
+.Playlist:nth-of-type(2) .kontainer {
+  background-color:transparent;
+  border-style: ridge;
+  
+
+}
+
+.Playlist:nth-of-type(2) .left-section {
+  background-color:transparent;
+  height: 400px;
+max-height:275px;
+margin-top: 0.8rem;
+border-radius: 7px;
+}
+
+.Playlist .playlist-item:nth-of-type(2) .left-section .pichaa img {
+  /* Sizing */
+  width: 10%;        /* Relative width (20% of its parent container) */
+
+  height: auto;      /* Maintains aspect ratio, adjusting height based on width */
+  
+  /* Centering & Spacing */
+  display: block;    /* Ensures the image behaves as a block element for margin auto to work */
+  margin-inline: auto; /* Horizontally centers the image within its parent */
+
+  
+  /* Appearance */
+  border-radius: var(--border-radius-full); /* Creates a perfect circular shape (50%) */
+  object-fit: cover; /* Ensures the image covers the area without distortion, cropping if needed */
+  /* NO TRANSITIONS as per user request */
+}
+
+.Playlist:nth-of-type(2) .right-section {
+  background-color:transparent;
+height: 100%;
+  border-radius: 7px;
+}
+
+
+
+.Playlist:nth-of-type(2) .About .description {
+  background: transparent;
+
+}
+
+
  /* ===============================
    COLOR SYSTEM (Design Tokens)
 ================================= */
@@ -3904,9 +3718,9 @@ height: 100%;
 .container-1
 {
 
-  height: 92vh;
+  height: 93vh;
 }
-
+/*
 .Heading {
 top: 1rem;
 margin-bottom: 0px;
@@ -3918,6 +3732,8 @@ position: absolute;
 margin-top: 0px;
 
 }
+
+
 
 .Scroller
 {
@@ -3934,7 +3750,7 @@ padding-bottom: 23rem;
   
 
 
-  gap: 0rem; /* Slight space between items */
+  gap: 0rem; 
  
 }
 
@@ -3971,7 +3787,6 @@ border-style:none;
   height: 30px;
 
 }
-
 
 
 .Playlist:nth-of-type(2)  {
@@ -4014,11 +3829,11 @@ border-style: ridge;
   margin-top: 6rem;
 }
 
-/*
+
   .Playlist:nth-of-type(1) .kontainer {
   background-color:transparent;
 }
-*/
+
 
   .Playlist:nth-of-type(3) .kontainer {
 
@@ -4073,12 +3888,12 @@ padding-top: 0px;
   height: 100%;
 
 }
-/*
+
 .Container:nth-of-type(4)  {
 border-style:ridge;
    
 }
-*/
+
 
 .left-section
 {
@@ -4103,13 +3918,15 @@ position: relative;
 {
   background-color:transparent;
 }
+  
 
 .videoo video
 {
   height: auto;
 }
 
-}
+
+}*/
 
 
 /* Ultra-wide (1600px and up) */

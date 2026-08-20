@@ -2224,6 +2224,7 @@ input {
     width: 100%;
     max-width: 650px;
     margin: 30px auto;
+    background-color: green;
 }
 
 .settings-title {
@@ -2231,8 +2232,17 @@ input {
     margin-bottom: 15px;
     font-size: 1.5rem;
     font-weight: 700;
+        background-color: blue;
+        z-index:-1;
 }
 
+
+.settings-title h2
+{
+background-color:blue;
+z-index:-1;
+
+}
 
 /* =========================================
    VISIBILITY OPTIONS
