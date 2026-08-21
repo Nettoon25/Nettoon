@@ -1183,191 +1183,232 @@ flex-wrap: nowrap;
 }
 
 
-/* ==== SUGGESTIONS BAR CONTAINER (.suggestionss) ==== */
-/* This fixed container holds the horizontal scrollable list of category pills,
-   providing a persistent navigation element at the top of the content. */
-   .suggestionss {
-    /* Positioning */
-    position: fixed;       /* Keeps the suggestions bar fixed on screen while scrolling */
-    top: 9%; /* Vertically positioned below the header (adjust variable as needed) */
-    /* Dynamic left positioning and width based on sidebar or main content area */
-    left:0%; /* Example: 4.8% or specific width of sidebar + gap */
-    width:98.7%; /* Example: calc(100% - 4.9%) */
-    height: var(--suggestions-bar-height); /* Fixed height (48px) for the bar */
-    z-index:10; 
+/* =========================================================
+   SUGGESTIONS BAR
+========================================================= */
 
-    /* Flex Container Properties (for arranging category pills horizontally) */
-    display: flex;         /* Enables Flexbox for its children (.rectanglee pills) */
-    flex-wrap: nowrap;     /* Ensures pills stay in a single row, preventing wrapping */
-    justify-content: space-between; /* Aligns pills to the start, allowing for scroll */
-    align-items: center;   /* Vertically centers pills within the bar */
+.suggestionss {
+    position: fixed;
 
-    /* Appearance & Spacing */
-  background-color: var(--color-bg-light); /* Default background color for light mode */ 
-     padding-inline: var(--spacing-xs); /* Horizontal padding (16px) inside the bar */
-    gap: var(--spacing-md-half); /* **Increased spacing (15px) between individual category pills** */
+    top: 6.9%;
+    left: 0;
 
-    /* Scrolling for Horizontal Overflow */
-    overflow-x: auto;      /* Allows horizontal scrolling if pills exceed container width */
-    overflow-y: hidden;    /* Hides vertical scrollbar, as content is single row */
-    scrollbar-width: thin; /* Makes the scrollbar thinner (Firefox) */
-    scrollbar-color: var(--color-scrollbar-thumb) transparent; /* Custom scrollbar color (thumb and track) */
-    /* NO TRANSITIONS as per user request */
+    width: 98.7%;
+    height: var(--suggestions-bar-height);
+
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+
+    background-color: var(--color-bg-light);
+
+    padding-left: var(--spacing-xs);
+    padding-right: 8px;
+
+    gap: 8px;
+
+    box-sizing: border-box;
+
+    overflow: hidden;
 }
 
-/* Dark Mode adjustment for suggestions bar background */
-.dark-mode .suggestionss {
-    background-color: var(--color-bg-suggestions-dark); /* Dark background for dark mode */
-    scrollbar-color: var(--color-scrollbar-thumb-dark) var(--color-scrollbar-track-dark); /* Dark mode scrollbar colors */
-}/* ==== CATEGORY PILL (.rectanglee) ==== */
-/* Styles for an individual category suggestion pill (e.g., "Gaming", "Music"). */
+
+/* =========================================================
+   SCROLLABLE SUGGESTIONS
+========================================================= */
+
+.suggestions-scroll {
+
+    display: flex;
+    align-items: center;
+
+    gap: var(--spacing-md-half);
+
+    flex: 1;
+
+    min-width: 0;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        var(--color-scrollbar-thumb)
+        transparent;
+}
+
+
+/* =========================================================
+   CATEGORY PILL
+========================================================= */
+
 .rectanglee {
-  /* Flex Item Properties */
-  flex-shrink: 0;        /* Prevents pills from shrinking too much when space is limited */
-  flex-grow: 0;          /* Prevents pills from growing excessively */
-  min-width: 5rem;       /* Minimum width (80px) to ensure readability */
-  max-width: 12%;        /* Limits maximum width to prevent single pills from dominating */
 
-  /* Sizing & Appearance */
-  height: var(--category-pill-height); /* Fixed height (30px) for the pill */
-  background-color: #F5F5F5;
-  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
-  
-  /* Spacing & Positioning */
-  /* Consider if margin-top is needed, as align-items: center handles vertical positioning.
-     If it's for specific vertical alignment, use margin-block-start. */
-  margin-block-start: var(--spacing-xxs-half); /* Example: Top margin (5px), if specifically needed */
-  z-index: 0;            /* Default stacking context */
+    flex: 0 0 auto;
 
-  /* Content Layout */
-  display: flex;         /* Enables flexbox for centering text inside the pill */
-  justify-content: center; /* Horizontally centers the text */
-  align-items: center;   /* Vertically centers the text */
-  
-  /* Text Handling */
-  white-space: nowrap;     /* Prevents text from wrapping to a new line */
-  overflow: hidden;        /* Hides any overflowing text */
-  text-overflow: ellipsis; /* Adds "..." for truncated text */
-  
-  cursor: pointer;       /* Changes cursor to pointer to indicate clickability */
-  /* NO TRANSITIONS as per user request */
-}/* ==== CATEGORY PILL TEXT (.rectanglee span) ==== */
-/* Styles for the text content within each category pill. */
+    min-width: 5rem;
+    max-width: 12%;
+
+    height: var(--category-pill-height);
+
+    background-color: #f5f5f5;
+
+    border-radius: var(--border-radius-sm);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   CATEGORY TEXT
+========================================================= */
+
 .rectanglee span {
-  /* Flex Item Properties */
-  flex: 1;               /* Allows text to grow and fill available space within the pill */
 
-  /* Typography */
-  font-weight: var(--font-weight-bold); /* Bold font weight */
-  font-size: var(--font-size-base); /* Font size (15px) */
-  color: var(--color-text-pill-light); /* Default text color (Dark Grey) for light mode */
-  
-  /* Spacing & Alignment */
-  padding: var(--spacing-xxxs); /* Small padding (3px) around the text */
-  margin: 0;               /* Removes default margins */
-  text-align: center;      /* Centers the text within its flex container */
+    font-weight: var(--font-weight-bold);
 
-  /* Text Handling */
-  white-space: nowrap;     /* Prevents text wrapping */
-  overflow: hidden;        /* Hides overflowing text */
-  text-overflow: ellipsis; /* Truncates long text with ellipsis */
-  
-  cursor: pointer;       /* Inherits cursor style from parent (redundant but harmless) */
-  /* NO TRANSITIONS as per user request */
+    font-size: var(--font-size-base);
+
+    color: var(--color-text-pill-light);
+
+    padding: var(--spacing-xxxs);
+
+    text-align: center;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
 }
 
 
-/* ==== HOVER & ACTIVE STATES (Light Mode) ==== */
-/* These styles define the visual feedback for hovering over and selecting a category pill in light mode. */
-.rectanglee:hover {
-  background-color: grey; /* Hover background (Gray) */
+/* =========================================================
+   ACTIVE CATEGORY
+========================================================= */
 
-}
-
-.rectanglee:hover span {
-  color:white;
-}
-
-/* Active Style (Light Mode) - MODIFIED */
 .rectanglee.active {
-  background-color: var(--color-bg-pill-active-light); /* **Black background for active tab** */
+
+    background-color: #ff0000;
 }
 
 .rectanglee.active span {
-  color: var(--color-text-pill-active-light); /* **White text color for active tab** */
+
+    color: #ffffff;
 }
 
-/* ==== DARK MODE DEFAULTS & STATES ==== */
-/* These styles ensure the category pills adapt seamlessly to dark mode,
-   providing appropriate contrasts and active states. */
-   .dark-mode .rectanglee {
-    background-color: var(--color-bg-pill-dark); /* Dark mode default background */
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.rectanglee:hover {
+
+    background-color: #808080;
+}
+
+.rectanglee:hover span {
+
+    color: #ffffff;
+}
+
+
+/* =========================================================
+   FILTER BUTTON
+========================================================= */
+
+.filters {
+
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    padding: 8px;
+
+    position: relative;
+
+    z-index: 101;
+}
+
+
+/* Filter icon */
+
+.filters img {
+
+    width: 24px;
+    height: 24px;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* Filter hover */
+
+.filters:hover {
+
+    background-color: rgba(128,128,128,.15);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+.dark-mode .suggestionss {
+
+    background-color:
+        var(--color-bg-suggestions-dark);
+
+    scrollbar-color:
+        var(--color-scrollbar-thumb-dark)
+        var(--color-scrollbar-track-dark);
+}
+
+.dark-mode .rectanglee {
+
+    background-color: #262626;
 }
 
 .dark-mode .rectanglee span {
-    color: var(--color-text-pill-dark); /* Dark mode default text color (White) */
+
+    color: #ffffff;
 }
 
-.dark-mode .rectanglee:hover {
-    background-color: var(--color-bg-pill-hover-dark); /* Dark mode hover background */
-}
-
-.dark-mode .rectanglee:hover span {
-    color: var(--color-text-pill-hover-dark); /* Dark mode hover text color (White) */
-}
-
-/* Active Style (Dark Mode) - MODIFIED */
 .dark-mode .rectanglee.active {
-    background-color: var(--color-bg-pill-active-dark); /* **White background for active tab** */
+
+    background-color: #ff0000;
 }
 
-.dark-mode .rectanglee.active span {
-    color: var(--color-text-pill-active-dark); /* **Black text color for active tab** */
-}
+.dark-mode .filters {
 
-
-/* ✅ Responsive Adjustments */
-/* Tablet & Small Desktop Optimization */
-@media screen and (max-width: 1024px) {
-  .suggestionss {
-      /* Adjust width and left position to accommodate narrower screens */
-      width: calc(100% - 12%);
-      left: 0%;
-  }
-  .rectanglee {
-      /* Use clamp for more flexible width scaling on various screen sizes */
-      width: clamp(4.5rem, 9%, 10%);
-  }
-}
-
-/* Medium Tablets & Larger Phones */
-@media screen and (max-width: 768px) {
-  .suggestionss {
-      /* Further adjust width, left position, and height for smaller viewports */
-      width: calc(100% - 15%);
-      left: 1%;
-      height: 3.5rem;
-  }
-  .rectanglee {
-      /* Scale down pill width and font size */
-      width: clamp(4rem, 8%, 9%);
-      font-size: 0.875rem; /* Adjust text size for smaller screens */
-  }
-}
-
-/* Small Phones */
-@media screen and (max-width: 480px) {
-  .suggestionss {
-      /* Final adjustments for very small screens */
-      width: calc(100% - 18%);
-      left: 0%;
-      height: 3.2rem;
-  }
-  .rectanglee {
-      /* Fixed size for very small screens to ensure minimum readability */
-      width: 4rem;
-      font-size: 0.8125rem; /* Smaller text (13px) for tiny screens */
-  }
+    background-color: transparent;
 }
 
 

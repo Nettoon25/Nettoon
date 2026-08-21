@@ -321,3 +321,256 @@ profileTabs.forEach(tab => {
     });
 
 });
+
+
+
+/* =========================================================
+   SEARCH FILTER SYSTEM
+========================================================= */
+
+const filterButton =
+    document.getElementById("filterButton");
+
+const filterPopup =
+    document.getElementById("filterPopup");
+
+const filterClose =
+    document.getElementById("filterClose");
+
+const applyFilters =
+    document.getElementById("applyFilters");
+
+const clearFilters =
+    document.getElementById("clearFilters");
+
+
+/* =========================================================
+   OPEN FILTERS
+========================================================= */
+
+filterButton.addEventListener("click", function (event) {
+
+    event.stopPropagation();
+
+    const isHidden =
+        filterPopup.classList.contains("hidden");
+
+
+    if (isHidden) {
+
+        filterPopup.classList.remove("hidden");
+
+        filterPopup.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        filterButton.setAttribute(
+            "aria-expanded",
+            "true"
+        );
+
+    } else {
+
+        closeFilters();
+
+    }
+
+});
+
+
+/* =========================================================
+   CLOSE FILTERS
+========================================================= */
+
+function closeFilters() {
+
+    filterPopup.classList.add("hidden");
+
+    filterPopup.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+    filterButton.setAttribute(
+        "aria-expanded",
+        "false"
+    );
+}
+
+
+filterClose.addEventListener(
+    "click",
+    closeFilters
+);
+
+
+/* =========================================================
+   CLICK OUTSIDE
+========================================================= */
+
+document.addEventListener(
+    "click",
+    function (event) {
+
+        if (
+            !filterPopup.contains(event.target) &&
+            !filterButton.contains(event.target)
+        ) {
+
+            closeFilters();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   PREVENT POPUP CLICK FROM CLOSING IT
+========================================================= */
+
+filterPopup.addEventListener(
+    "click",
+    function (event) {
+
+        event.stopPropagation();
+
+    }
+);
+
+
+/* =========================================================
+   CLEAR FILTERS
+========================================================= */
+
+clearFilters.addEventListener(
+    "click",
+    function () {
+
+        const checkboxes =
+            filterPopup.querySelectorAll(
+                'input[type="checkbox"]'
+            );
+
+        const radios =
+            filterPopup.querySelectorAll(
+                'input[type="radio"]'
+            );
+
+
+        checkboxes.forEach(
+            checkbox => {
+                checkbox.checked = false;
+            }
+        );
+
+
+        radios.forEach(
+            radio => {
+                radio.checked = false;
+            }
+        );
+
+
+        document.getElementById(
+            "filterSort"
+        ).value = "relevance";
+
+    }
+);
+
+
+/* =========================================================
+   APPLY FILTERS
+========================================================= */
+
+applyFilters.addEventListener(
+    "click",
+    function () {
+
+        const selectedFilters = {
+
+            countries: [],
+
+            contentTypes: [],
+
+            uploadDate: null,
+
+            sortBy:
+                document.getElementById(
+                    "filterSort"
+                ).value
+
+        };
+
+
+        /* Countries */
+
+        filterPopup
+            .querySelectorAll(
+                '.filter-group:first-child input[type="checkbox"]:checked'
+            )
+            .forEach(input => {
+
+                selectedFilters.countries.push(
+                    input.value
+                );
+
+            });
+
+
+        /* Content types */
+
+        filterPopup
+            .querySelectorAll(
+                '.filter-group:nth-child(2) input[type="checkbox"]:checked'
+            )
+            .forEach(input => {
+
+                selectedFilters.contentTypes.push(
+                    input.value
+                );
+
+            });
+
+
+        /* Upload date */
+
+        const selectedDate =
+            filterPopup.querySelector(
+                'input[name="uploadDate"]:checked'
+            );
+
+
+        if (selectedDate) {
+
+            selectedFilters.uploadDate =
+                selectedDate.value;
+
+        }
+
+
+        console.log(
+            "Selected Nettoon search filters:",
+            selectedFilters
+        );
+
+
+        /*
+         * BACKEND SEARCH LOGIC WILL EVENTUALLY
+         * USE selectedFilters.
+         *
+         * Example:
+         *
+         * searchContent({
+         *     query: searchQuery,
+         *     filters: selectedFilters
+         * });
+         */
+
+
+        closeFilters();
+
+    }
+);
