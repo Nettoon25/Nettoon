@@ -1368,6 +1368,11 @@ flex-wrap: nowrap;
     display: block;
 }
 
+.dark-mode .filters img {
+
+ filter: invert(1);
+}
+
 
 /* Filter hover */
 
