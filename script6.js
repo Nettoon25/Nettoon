@@ -282,3 +282,37 @@ document.querySelectorAll('.playlist-dropdown').forEach(dropdown => {
       }
     });
   });
+
+
+  const episodeInput = document.getElementById("episodeNumber");
+
+
+// Restore previously entered episode number
+const savedEpisode = localStorage.getItem("nettoonEpisodeNumber");
+
+if (savedEpisode) {
+    episodeInput.value = savedEpisode;
+}
+
+
+// Automatically save whenever the creator changes the number
+episodeInput.addEventListener("input", function () {
+
+    const episodeNumber = this.value.trim();
+
+    if (episodeNumber === "") {
+        localStorage.removeItem("nettoonEpisodeNumber");
+        return;
+    }
+
+    // Make sure only positive whole numbers are saved
+    if (/^\d+$/.test(episodeNumber) && Number(episodeNumber) >= 1) {
+
+        localStorage.setItem(
+            "nettoonEpisodeNumber",
+            episodeNumber
+        );
+
+    }
+
+});
