@@ -1,2591 +1,833 @@
+/* =========================================
+   NETTOON CHILD / TEEN SIGNUP
+========================================= */
 
-/* ==== OPTION BUTTON/HEADER (.optionn) ==== */
-/* This likely serves as a sticky header or option bar within a scrolling container. */
-.optionn {
-  width: 100%; /* Ensures it spans the full width of its parent */
-  height: 1.5rem; /* Consistent height (30px converted to rem) *
-  background-color:#F5F5F5; /* Uses a variable for a pale gray background in light mode */
-  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
-  border: none; /* Removes any default border */
-   z-index: 1;
-  position:sticky; /* Keeps the element visible at the top when scrolling */
-  margin-top:3rem; /* Sticks it to the top edge of its scroll container */
-  display: flex; /* Uses flexbox for precise alignment of inner elements */
-  justify-content: space-between; /* Distributes space to align items to both ends (e.g., left and right) */
-  align-items: center; /* Vertically centers content within the option bar */
-margin-bottom: 15px;
-padding-top: 15px;
-background-color: #f0f0f0;
-padding-bottom: 15px;
-}
-
-.dark-mode .optionn {
-  background-color: #2a2d2f;
-}
-
-.optionn span
-{
-  font-weight: bold;
-  margin-left: 1rem;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 
-.dark-mode .optionn span {
-  color:white;
+html {
+    scroll-behavior: smooth;
 }
 
-/* ==== MAIN CONTENT GRID CONTAINER (.container-1) ==== */
-/* This container serves as the main grid for arranging individual video cards. */
-.container-1 {
-  /* Positioning */
-  position: absolute; /* Positions the grid relative to its parent, often <body> or a main wrapper */
-  width:100%; /* Occupies the remaining width after considering the sidebar and gap */
-  top: 6rem;        /* Positions the grid below the header and suggestions bar */
 
-  z-index:0; /* Ensures it's layered correctly below header/sidebar */
+body {
 
-  /* Sizing & Layout */
+    min-height: 100vh;
 
-  height: auto;       /* Allows height to adjust dynamically based on the content */
-  display: flex;      /* Enables Flexbox for arranging video cards within the grid */
-  flex-wrap: wrap;    /* Allows video cards to wrap to the next row when space runs out */
-  justify-content: flex-start; /* Aligns video cards to the start (left) of the container */
-  
-  /* Appearance & Spacing */
-  background-color: var(--color-bg-light); /* Default background color for light mode */
-  border-radius: var(--border-radius-none); /* No border radius, for a clean rectangular grid area */
-  border-style: none; /* Applied a 'ridge' border style as per your original code.
-                          Consider if a 'none' or a subtle 'solid' border from variables
-                          might be more visually appealing for a final product. */
-  overflow: hidden;   /* Hides any content that overflows the container boundaries */
-  margin: 0;          /* Removes default margins */
-  padding: var(--spacing-xs); /* Consistent internal padding (8px) for grid edges */
-  gap: var(--spacing-sm); /* Consistent spacing (16px) between video cards within the grid */
-  box-sizing: border-box; /* Ensures padding and border are included in the element's total size */
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    background: #f5f5f5;
+
+    color: #222;
+
+    overflow-x: hidden;
 }
 
-.container-1{
-    overflow-y:auto;
-   
-}
 
-/* Dark mode adjustment for the main content grid container */
-.dark-mode .container-1 {
-  background-color: transparent; /* Default background color for light mode */
-}
-  /* ==== INDIVIDUAL VIDEO CONTAINERS (.kontainer) ==== */
-  /* Each of these containers represents a single video card. */
- /* ==== INDIVIDUAL VIDEO CONTAINERS (.kontainer) ==== */
-/* ==== INDIVIDUAL VIDEO CONTAINERS (.kontainer) ==== */
-/* These containers are sized for a higher density of videos per row, ideal for a full uploads gallery. */
-.kontainer {
-  /* Positioning & Sizing */
-  position: relative;    /* Allows for precise positioning of child elements */
-  /* Fluid width: scales between 18% and 22% of its parent, aiming for 20% by default.
-     This enables 4-5 videos per row on larger screens. */
-  width: clamp(18%, 20vw, 22%); 
-  height: auto;          /* Height adjusts dynamically based on content and aspect ratio */
-  
-  /* Spacing & Appearance */
-  background-color:transparent;/* Light background for the video card */
-  border-radius: var(--border-radius-sm); /* Consistent small rounded corners (7px) */
-  cursor: pointer;       /* Indicates the element is clickable */
-  margin-inline-start: 2.7%; /* Left margin (1.8% of parent) for initial alignment */
-  margin-block-end:20px; /* Small bottom margin (4px) for spacing between rows */
-  padding-block-end: 0;  /* No bottom padding */
-  border-style: none;    /* Removes any default border style */
-  /* NO TRANSITIONS as per user request */
-}
+.signup-page {
 
-/* Dark mode adjustment for .kontainer background and shadow */
-.dark-mode .kontainer {
-  background-color: transparent; /* Darker background for dark mode */
-  /* Consider adding: box-shadow: var(--shadow-sm-dark); if needed for depth in dark mode */
-}
+    min-height: 100vh;
 
-/* ==== VIDEO THUMBNAILS (.kontainer img) ==== */
-/* These styles ensure video thumbnails fit perfectly within their smaller container,
-   maintaining aspect ratio and visual appeal. */
-   .kontainer img {
-    width: 100%;           /* Ensures the image fills the entire width of its parent container */
-    height: auto;          /* Maintains aspect ratio, adjusting height automatically */
-    border-radius: var(--border-radius-xs); /* Consistent small rounded corners (8px) matching parent */
-    object-fit: cover;     /* Ensures the image covers the area without distortion, cropping if necessary */
-    /* NO TRANSITIONS as per user request */
-}
+    width: 100%;
 
-.profilee {
-  /* Sizing & Layout */
-  width: 100%;       /* Spans the full width of its parent (.kontainer) */
-  height: 2.5rem;    /* Consistent height (40px) for uniform presentation */
-  max-width: 100%;   /* Ensures it doesn't exceed its parent's width */
-  
-  /* Flex Container Properties */
-  display: flex;         /* Enables a flexible, horizontal layout for its content (image and name) */
-  align-items: center;   /* Vertically centers the profile image and name within this container */
-  gap: var(--spacing-xs); /* Consistent spacing (8px) between the profile image and name */
-  
-  /* Appearance & Spacing */
-  background-color:transparent; /* No background color by default, relies on parent card */
-  border-radius: var(--border-radius-none); /* No border-radius for this container itself */
-  padding: 0;          /* Removes any default inner padding */
-  margin-block-end: 0; /* Removes bottom margin, allowing parent .kontainer to manage vertical spacing */
-}
+    display: flex;
 
-/* Dark mode adjustment for .profilee container */
-.dark-mode .profilee {
-  background-color: transparent; /* Remains transparent in dark mode */
-}
-/* ==== PROFILE IMAGE (.profilee img) ==== */
-/* Styles for the circular profile avatar image. */
-.profilee img {
-  /* Sizing & Shape */
-  width: 2.2rem;   /* Consistent width (35.2px) for the avatar */
-  height: 2.2rem;  /* Consistent height, maintaining aspect ratio for a perfect circle */
-  border-radius: var(--border-radius-full); /* Creates a perfect circular shape */
-  object-fit: cover; /* Ensures the image fills the area without distortion, cropping if needed */
-  
-  /* Spacing */
-  margin-block: var(--spacing-xxs); /* Consistent vertical margin (4px) for fine-tuning alignment */
-  margin-inline-start: 1%; /* Maintains a left margin relative to the container's width */
-  
-  /* Appearance */
-  background-color: transparent; /* Ensures transparent background for the image itself */
-  /* NO TRANSITIONS as per user request */
-}
+    flex-direction: column;
 
-/* Dark mode adjustment for profile image */
-.dark-mode .profilee img {
-  filter: invert(1); /* Inverts colors for better visibility on dark backgrounds */
-}
-/* ==== PROFILE NAME CONTAINER (.profilee-name) ==== */
-/* This container holds the profile name text. *//* ==== PROFILE NAME CONTAINER (.profilee-name) ==== */
-/* This flexible container holds the profile name text, managing its layout. */
-.profilee-name {
-  /* Flex Item Properties */
-  flex-grow: 1; /* Allows the container to take up all available horizontal space */
-  height: 100%; /* Fills the height of its parent (.profilee) */
-  
-  /* Flex Container Properties (for aligning the name text) */
-  display: flex;       /* Uses flexbox to align the name text */
-  align-items: center; /* Vertically centers the name text within this container */
-  
-  /* Overflow & Text Handling */
-  overflow: hidden;    /* Hides any text that overflows the container */
-  white-space: nowrap; /* Prevents the text from wrapping to a new line */
-  
-  /* Appearance */
-  background-color:transparent; /* No background, allowing parent's background to show */
-  border-radius: var(--border-radius-none); /* No border-radius */
-}
+    align-items: center;
 
-/* ==== PROFILE NAME TEXT (.profilee-name span) ==== */
-/* Styles for the actual profile name text, ensuring proper typography and truncation. */
-.profilee-name span {
-  /* Typography */
-  font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
-  font-size: var(--font-size-md); /* Responsive font size (24px) for clear legibility */
-  font-weight: 700; /* Bold font for prominence */
-  color: #36454F;
-  
-  /* Text Handling */
-  white-space: nowrap;     /* Prevents text wrapping */
-  overflow: hidden;        /* Hides overflowing text */
-  text-overflow: ellipsis; /* Displays "..." for truncated text */
-  max-width: 100%;         /* Ensures text doesn't push its parent container's width */
-  
-  /* Spacing */
-  padding: var(--spacing-xxs); /* Small responsive padding (4px) around the text */
-  margin-inline-start: 0; /* No left margin, relies on parent's gap for spacing */
-}
+    justify-content: flex-start;
 
-/* Dark mode adjustment for profile name text */
-.dark-mode .profilee-name span {
-  color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode */
-}
-/* 📱 TABLET/SMALL DESKTOP OPTIMIZATION (e.g., up to 768px wide) */
-@media screen and (max-width: 768px) {
-  .profilee {
-      /* Adjusted padding for more compact display on tablets. */
-      padding: var(--spacing-xxs) var(--spacing-sm); /* (4px vertical, 16px horizontal) */
-  }
-
-  .profilee img {
-      /* Maintained original size for consistency at this breakpoint, ensuring visibility. */
-      width: 2.2rem;
-      height: 2.2rem;
-  }
-
-  .profilee-name span {
-      /* Slightly smaller text for better fit on tablet screens. */
-      font-size: var(--font-size-xs); /* (16px) */
-  }
-}
-
-/* 📱 MOBILE OPTIMIZATION (e.g., up to 480px wide) */
-@media screen and (max-width: 480px) {
-  .profilee {
-      /* Ensures row layout and vertical centering (explicit for clarity, often default). */
-      flex-direction: row;
-      align-items: center;
-      /* Further adjusted padding for very small screens. */
-      padding: var(--spacing-xxs) var(--spacing-xs); /* (4px vertical, 8px horizontal) */
-  }
-
-  .profilee img {
-      /* Slightly smaller image for very compact mobile displays. */
-      width: var(--size-icon-md); /* (24px) - using a general icon size variable */
-      height: var(--size-icon-md); /* Maintains aspect ratio */
-  }
-
-  .profilee-name span {
-      /* Even smaller text for tiny mobile screens, prioritizing content fit. */
-      font-size: var(--font-size-sm); /* (14px) */
-  }
-}
-.opttions {
-  position: relative;
-  background-color:transparent;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.opttions img {
-  width: 15px;
-  height: 15px;
-  margin-top: 10px;
-  cursor: pointer;
-}
-
-/* === Popup Styling === */
-.opttions-popup {
-  position: absolute;
-  top: 0;
-  right: -1%;
-  transform: translate(-5% /* Center horizontally, float above */);
-  background-color: white;
-  border: 1px solid #ccc;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  z-index: 5000;
-  padding: 0.1rem 0.5rem;
-  min-width: 150px;
-  padding-bottom: 0px;
-}
-
-.dark-mode .opttions-popup
-{
-  background-color: #333;
-}
-
-.opttions-popup .popup-item {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0rem 0rem;
-  margin-top: 3px;
-  margin-bottom: 5px;
-  font-size: 0.7rem;
-  color: #111;
-  background-color: white;
-  border-radius: 0.4rem;
-  white-space: nowrap;
-  transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
-}
-.opttions-popup .popup-item:hover {
-  background-color: grey;
-  color: white;
-  transform: scale(1.05);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-.dark-mode .opttions-popup .popup-item:hover {
-  background-color: grey;
+    padding: 40px 20px;
 
 }
 
-/* === Icon Styling === */
-.opttions-popup .popup-item img {
-  width: 1.3rem;
-  height: 1.3rem;
-  object-fit: contain;
-  transition: filter 0.3s;
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
 }
 
-/* === Dark Mode === */
-.dark-mode .opttions-popup .popup-item {
-  background-color: #333;
-  color: white;
+
+.brand h1 {
+
+    font-size: 42px;
+
+    font-weight: 800;
+
+    letter-spacing: -2px;
+
 }
 
-.dark-mode .opttions-popup .popup-item img {
-  filter: invert(1) brightness(1.2);
+
+.brand .net {
+
+    color: #e31e24;
+
 }
+
+
+.brand .toon {
+
+    color: #f5c400;
+
+}
+
+
+.brand p {
+
+    margin-top: 6px;
+
+    font-size: 13px;
+
+    color: #777;
+
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.signup-card {
+
+    width: 100%;
+
+    max-width: 620px;
+
+    background: #ffffff;
+
+    border: 1px solid #e3e3e3;
+
+    border-radius: 18px;
+
+    padding: 32px;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.08);
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.signup-header {
+
+    text-align: center;
+
+    margin-bottom: 30px;
+
+}
+
+
+.signup-header h2 {
+
+    font-size: 26px;
+
+    font-weight: 700;
+
+}
+
+
+.signup-header p {
+
+    margin-top: 7px;
+
+    color: #777;
+
+}
+
+
+/* =========================================
+   FORM SECTION
+========================================= */
+
+.form-section {
+
+    margin-bottom: 28px;
+
+    padding-bottom: 25px;
+
+    border-bottom: 1px solid #eeeeee;
+
+}
+
+
+.form-section h3 {
+
+    font-size: 18px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.section-info {
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    color: #777;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* =========================================
+   FORM GROUP
+========================================= */
+
+.form-group {
+
+    margin-bottom: 20px;
+
+}
+
+
+.form-group label {
+
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+
+}
+
+
+.form-group input,
+.form-group select {
+
+    width: 100%;
+
+    height: 48px;
+
+    padding: 0 14px;
+
+    border: 1px solid #d8d8d8;
+
+    border-radius: 9px;
+
+    background: #fff;
+
+    color: #222;
+
+    font-size: 15px;
+
+    outline: none;
+
+}
+
+
+.form-group input:focus,
+.form-group select:focus {
+
+    border-color: #e31e24;
+
+    box-shadow:
+        0 0 0 3px rgba(227, 30, 36, 0.08);
+
+}
+
+
+.form-group small {
+
+    display: block;
+
+    margin-top: 6px;
+
+    color: #888;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================
+   ERROR
+========================================= */
+
+.error {
+
+    min-height: 18px;
+
+    margin-top: 5px;
+
+    color: #d71920;
+
+    font-size: 12px;
+
+}
+
+
+/* =========================================
+   AGE RESULT
+========================================= */
+
+.age-result {
+
+    padding: 14px;
+
+    border-radius: 9px;
+
+    background: #f7f7f7;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+
+}
+
+
+.age-result.child {
+
+    background: #fff8df;
+
+    border: 1px solid #f1d56a;
+
+}
+
+
+.age-result.adult {
+
+    background: #edf8f0;
+
+    border: 1px solid #a8d8b2;
+
+}
+
+
+/* =========================================
+   PARENT SECTION
+========================================= */
+
+.parent-section {
+
+    background: #fffaf0;
+
+    border: 1px solid #f0d98b;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+}
+
+
+.parent-badge {
+
+    display: inline-block;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: #f5c400;
+
+    color: #222;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+
+}
+
+
+.guardian-notice {
+
+    padding: 15px;
+
+    background: #fff;
+
+    border: 1px solid #eadfbf;
+
+    border-radius: 9px;
+
+    margin: 15px 0;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+.guardian-notice strong {
+
+    display: block;
+
+    margin-bottom: 5px;
+
+}
+
+
+/* =========================================
+   CHECKBOX
+========================================= */
+
+.checkbox-row {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    margin-top: 14px;
+
+    cursor: pointer;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+
+.checkbox-row input {
+
+    margin-top: 3px;
+
+    width: 16px;
+
+    height: 16px;
+
+    flex-shrink: 0;
+
+    accent-color: #e31e24;
+
+}
+
+
+.checkbox-row a {
+
+    color: #e31e24;
+
+    text-decoration: none;
+
+}
+
+
+.checkbox-row a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+.checkbox-row.optional {
+
+    color: #777;
+
+}
+
+
+/* =========================================
+   PRIVACY BOX
+========================================= */
+
+.privacy-box {
+
+    padding: 17px;
+
+    border-radius: 10px;
+
+    background: #f7f7f7;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+.privacy-box p {
+
+    margin-bottom: 10px;
+
+}
+
+
+.privacy-box ul {
+
+    padding-left: 20px;
+
+}
+
+
+.privacy-box li {
+
+    margin-bottom: 6px;
+
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.signup-button {
+
+    width: 100%;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 9px;
+
+    background: #e31e24;
+
+    color: #fff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+}
+
+
+.signup-button:hover:not(:disabled) {
+
+    background: #c9181e;
+
+}
+
+
+.signup-button:disabled {
+
+    background: #cfcfcf;
+
+    color: #888;
+
+    cursor: not-allowed;
+
+}
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+.login-link {
+
+    text-align: center;
+
+    margin-top: 18px;
+
+    font-size: 13px;
+
+    color: #777;
+
+}
+
+
+.login-link a {
+
+    color: #e31e24;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+}
+
+
+/* =========================================
+   PENDING MESSAGE
+========================================= */
+
+.pending-message {
+
+    text-align: center;
+
+    padding: 20px 0;
+
+}
+
+
+.success-icon {
+
+    width: 60px;
+
+    height: 60px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 50%;
+
+    background: #e8f6eb;
+
+    color: #24913b;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 30px;
+
+    font-weight: bold;
+
+}
+
+
+.pending-message h3 {
+
+    font-size: 22px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.pending-message p {
+
+    color: #777;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    margin-bottom: 10px;
+
+}
+
+
+.secondary-button {
+
+    margin-top: 15px;
+
+    padding: 11px 18px;
+
+    border: 1px solid #ddd;
+
+    background: #fff;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+footer {
+
+    display: flex;
+
+    gap: 18px;
+
+    margin-top: 25px;
+
+    font-size: 12px;
+
+    color: #888;
+
+}
+
+
+footer a {
+
+    color: #777;
+
+    text-decoration: none;
+
+}
+
+
+footer a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================
+   UTILITIES
+========================================= */
 
 .hidden {
-  display: none !important;
-}
-
-/* Reset unwanted icon housing styles */
-.opttions-popup .popup-item img,
-.shareee-popup .popup-item img,
-.metadata-popup .popup-item img,
-.optionn-popup .popup-item img,
-.share-popup .popup-item img {
-  width: 1.3rem;
-  height: 1.3rem;
-  object-fit: contain;
-  background: none !important;  /* Remove any background */
-  border: none !important;      /* Remove border */
-  padding: 0 !important;        /* Remove internal spacing */
-  border-radius: 0 !important;  /* Remove circular shape */
-  box-shadow: none !important;  /* Remove glow/shadow */
-}
-
-
-.share-popup {
-  position: absolute;
-  top: 60px;
-  right: 10px;
-  width: 340px;
-  height: 170px;
-  max-height: 180px;
-  background-color: #f0f0f0;
-  border-radius:7px;
-  padding: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-  display: flex;
-  flex-direction: column;   /* so close button + scroll container stack correctly */
-  overflow: visible;        /* IMPORTANT: prevent popup from scrolling */
-  z-index: 200;
-}
-
-/* DARK MODE */
-.dark-mode .share-popup {
-  background-color: #333;
-  color: white;
-}
-
-/* NEW: only this area scrolls */
-.share-scroll {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;         /* horizontal scrolling only */
-  overflow-y: hidden;
-  gap: 20px;
-  padding-top: 30px;        /* makes room for the close button */
-}
-
-/* SHARE ITEMS */
-.share-item {
-  width: 70px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  cursor: pointer;
-}
-
-.share-item img {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  background: transparent;
-  padding: 8px;
-}
-
-.share-item span {
-  margin-top: 8px;
-  color: var(--color-text-dark-contrast);
-  font-size: 13px;
-}
-
-/* FIXED CLOSE BUTTON */
-.share-close {
-  position: absolute;
-  top: 6px;
-  right: 8px;
-
-  font-size:18px;   /* ← resize here */
-  line-height: 0.5;
-  padding: 6px 9px;  /* ← resize clickable area */
-
-  color: white;
-  background-color: grey;
-  border-radius: 6px;
-  cursor: pointer;
-  z-index: 500;       /* stays above scroll items */
-}
-
-.share-close:hover {
-  background: rgba(0,0,0,0.2);
-}
-/* === PLAYLIST POPUP === */
-.playlist-popup {
-  position: absolute;
-  top: 60px;
-  right: 10px;
-  background: #ffffff;
-  width: 220px;
-  border-radius:7px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.18);
-  padding: 12px;
-  z-index: 100;
-}
-
-.dark-mode .playlist-popup {
-  background-color: #333;
-  color: white;
-}
-
-/* HEADER */
-.playlist-header {
-  font-weight: bold;
-  font-size: 15px;
-  margin-bottom: 12px;
-}
-
-/* WRAPPER FOR ALL PLAYLIST ITEMS */
-.playlist-list {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-/* === CHECKBOX OPTION === */
-.playlist-option {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 4px;
-  cursor: pointer;
-  border-radius: 6px;
-}
-
-.playlist-option:hover {
-  background: #ececec;
-}
-
-.dark-mode .playlist-option:hover {
-  background: #444;
-}
-
-/* Visible checkbox */
-.playlist-option input[type="checkbox"] {
-  width: 16px;
-  height: 16px;
-  cursor: pointer;
-  appearance: auto;
-}
-
-/* TEXT label */
-.playlist-option span {
-  font-size: 14px;
-}
-
-/* === NEW PLAYLIST BUTTON === */
-.playlist-add {
-  margin-top: 10px;
-  padding: 8px;
-  text-align: center;
-  background: #333;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  font-size: 14px;
-}
-
-/*
-.playlist-add:hover {
-  background:none;
-}*/
-
-
-.dark-mode .playlist-add {
-  background: #444;
-}
-
-.dark-mode .playlist-add:hover {
-  background: #555;
-}
-
-/* === EDITABLE INPUT FOR NEW PLAYLIST === */
-.playlist-input {
-  padding: 5px 8px;
-  font-size: 14px;
-  width: 100%;
-  border: 1px solid #bbb;
-  border-radius: 6px;
-  outline: none;
-}
-
-.dark-mode .playlist-input {
-  background: #555;
-  color: white;
-  border: 1px solid #777;
-}
-
-
-.report-popup {
-  position: absolute;
-  top: 20px;
-  right: 10px;
-  width: 360px;
-  background: #f0f0f0;
-  border-radius:7px;
-  padding: 20px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-  z-index: 300;
-  height: auto;      /* fixed consistent height */
-  overflow: hidden;   /* prevents scrollbars */
-  box-sizing: border-box;  /* prevents padding from increasing height */
-}
-
-
-
-.dark-mode .report-popup {
-  background: #222;
-  color: white;
-}
-
-/* Header */
-.report-header {
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 15px;
-  position: relative;
-}
-
-/* Close button */
-.report-close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  font-size: 20px;
-  cursor: pointer;
-  padding: 4px;
-  border-radius: 4px;
-}
-.report-close:hover {
-  background: rgba(255,255,255,0.1);
-}
-
-/* === CHECKBOX ITEMS === */
-.report-option {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 0;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-.report-option input[type="checkbox"] {
-  width: 18px;
-  height: 18px;
-  cursor: pointer;
-}
-
-/* Bottom buttons */
-.report-actions {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 15px;
-}
-
-.report-cancel {
-  border: none;
-  font-size: 14px;
-  cursor: pointer;
-  background: #333;
-  color: white;
-  border-radius: 7px;
-  padding: 5px;
-}
-
-.report-submit {
-  background-color: #f0f0f0;
-  color:black;
-  font-size: 14px;
-  border: none;
-  cursor: not-allowed;
-  transition: 0.2s;
-  border-radius: 7px;
-  padding: 5px;
-}
-
-.dark-mode .report-submit {
-  background-color: #333;
-  color:white;
-}
-
-/* === ACTIVE REPORT BUTTON === */
-.report-submit.active {
-  color:red;     /* YouTube blue */
-  cursor: pointer;
-  opacity: 1;
-}
-
-/* Force checkboxes to appear */
-.report-option input[type="checkbox"] {
-  appearance: auto !important;
-  -webkit-appearance: auto !important;
-  -moz-appearance: auto !important;
-
-  width: 18px !important;
-  height: 18px !important;
-
-  margin: 0;
-  padding: 0;
-  cursor: pointer;
-  position: relative;
-  z-index: 10;
-  opacity: 1 !important;
-}
-
-/* Make sure label behaves correctly */
-.report-option {
-  display: flex !important;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 0;
-  font-size: 15px;
-  cursor: pointer;
-}
-
-
-/* ==== CAPTION CONTAINER (.caption) ==== */
-/* This container holds the video title or description within a video card. */
-.caption {
-  /* Sizing & Layout */
-  width: 100%;       /* Ensures it spans the full width of its parent (.kontainer) */
-  height: 2.5rem;  /* Consistent height (30px) for single-line captions */
-  
-  /* Flex Container Properties */
-  display: flex;         /* Enables a flexible layout for its content (caption text) */
-  align-items: center;   /* Vertically centers content within the container */
-  justify-content: center; /* Horizontally centers content within the container */
-  
-  /* Appearance & Overflow */
-  background-color:transparent; /* No background color, allowing parent's background to show */
-  overflow: hidden;    /* Hides any content that overflows the container boundaries */
-  /* `background: scroll` is often default and not needed here for visual styling. */
-  margin-bottom: 0%;
-  /* Spacing */
-  padding: 0 var(--spacing-xs); /* Responsive horizontal padding (8px) for internal spacing */
-  /* NO TRANSITIONS as per user request */
-}
-
-/* Dark mode adjustment for .caption container */
-.dark-mode .caption {
-  background-color: transparent; /* Remains transparent in dark mode */
-}
-/* ==== CAPTION TEXT (.caption span) ==== */
-/* Styles for the actual text content of the caption. *//* ==== CAPTION TEXT (.caption span) ==== */
-/* Styles for the actual text content of the caption, ensuring readability and truncation. */
-.caption span {
-  font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
-  font-weight: var(--font-weight-bold); /* Bold font weight */
-  font-size: var(--font-size-sm-plus); /* Consistent font size (15.5px) */
-  color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
-  
-  /* Sizing & Flex Item Properties */
-  height: 100%; /* Fills the height of its parent container for vertical centering */
-  flex-grow: 1; /* Allows the text to grow and take available space */
-
-  /* Text Handling */
-  white-space: nowrap;     /* Prevents text from wrapping to the next line */
-  overflow: hidden;        /* Hides any text that extends beyond the element's bounds */
-  text-overflow: ellipsis; /* Displays "..." to indicate truncated text */
-  text-align: center;      /* Centers the text within its own allocated space */
-  max-width: 100%;         /* Ensures text doesn't push parent width */
-  
-  /* Spacing */
-margin-top: 10%;
-margin-bottom: 5%;
-  /* NO TRANSITIONS as per user request */
-}
-
-/* Dark mode adjustment for caption text */
-.dark-mode .caption span {
-  color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode */
-}
-/* Responsive Adjustments */
-@media screen and (max-width: 768px) {
-  .caption {
-    height: auto; /* Allows for multiple lines if necessary */
-    flex-wrap: wrap;
-    text-align: center;
-  }
-
-  .caption span {
-    font-size: 0.9375rem; /* Slightly smaller for mobile */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .caption {
-    height: auto;
-    padding: 0.3125rem; /* Adjusted for compact screens */
-  }
-
-  .caption span {
-    font-size: 0.875rem; /* Smaller font size */
-  }
-}
-
-
-/* ==== VIDEO PLAYER CONTAINER (.videoo) ==== */
-/* This container holds the video player, ensuring it's centered and manages overflow. */
-.videoo {
-  /* Positioning & Layout */
-  position: relative;    /* Allows for absolute positioning of children (e.g., overlay text) */
-  display: flex;         /* Enables Flexbox for centering video */
-  justify-content: center; /* Horizontally centers the video */
-  align-items: center;   /* Vertically centers the video */
-  overflow: hidden;      /* Hides any content that extends beyond the container's bounds */
-  
-  /* Sizing & Spacing */
-  width: 100%;           /* Spans the full width of its parent */
-  height: auto;          /* Height adjusts dynamically based on video content */
-  margin-block-start: var(--spacing-xxxs); /* Small top margin (1px) */
-  /* NO TRANSITIONS as per user request */
-}
-/* ==== VIDEO ELEMENT (.videoo video) ==== */
-/* Styles for the actual HTML <video> element, ensuring it fits its container elegantly. */
-.videoo video {
-  width: 100%;           /* Ensures the video fills the entire width of its parent */
-  height: var(--size-video-player-height); /* Consistent height (200px) */
-  object-fit: cover;     /* Ensures the video covers the area without distortion, cropping if necessary */
-  border-radius:7px; /* Consistent small rounded corners (7px) */
-  display: block;        /* Ensures the video behaves as a block element */
-  pointer-events: none;  /* Prevents clicks on the video itself, allowing overlays to capture events */
-  /* NO TRANSITIONS as per user request */
-}
-
-/* Dark mode adjustment for video element (if needed for filters) */
-.dark-mode .videoo video {
-  /* filter: brightness(0.8); if you want to slightly darken videos in dark mode */
-}
-
-/* Responsive Adjustments */
-@media screen and (max-width: 768px) {
-  .videoo video {
-    height: 10rem; /* Adjusted for tablets */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .videoo video {
-    height: 8.5rem; /* Adjusted for mobile */
-  }
-}/* ==== OVERLAY TEXT (.overlay-textt) ==== */
-/* This text overlay typically displays video duration or other quick information. */
-.overlay-textt {
-  position: absolute;
-  inset-inline-start: 2%;
-  inset-block-end: 4%;
-  min-width: 12%;
-  max-width: 25%;
-  height: auto;
-
-  /* Typography & Appearance */
-  background-color: rgba(0, 0, 0, 0.65);
-  color: white;
-  border-radius: var(--border-radius-sm);
-  padding: 3px 6px; /* ✅ More comfortable internal padding */
-  font-size: clamp(0.5rem, 1vw, 0.9rem);
-
-  /* Text Handling & Layout */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  word-break: break-word;
-}
-
-.videoo video.hide-video {
-  opacity: 0;
-}
-
-
-/* Mobile Adjustments */
-@media screen and (max-width: 768px) {
-  .overlay-textt {
-    max-width: 35%;
-    font-size: clamp(0.7rem, 2vw, 0.875rem);
-    bottom: 3.5%;
-    left: 3%;
-    padding: 4px 7px; /* Slightly bigger padding on mobile */
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .overlay-textt {
-    max-width: 45%;
-    font-size: 0.75rem;
-    padding: 5px 8px; /* Even larger padding for readability */
-    bottom: 3%;
-    left: 3%;
-  }
-}
-
-
-/* ==== META-DATA SECTION CONTAINER (.sectiionn) ==== */
-/* This container arranges meta-data elements (views, time, category) horizontally. */
-.sectiionn {
-  /* Layout Properties */
-  display: flex;         /* Enables a flexible, horizontal layout for its children */
-  flex-wrap: nowrap;     /* Ensures items stay in a single row, preventing unwanted wrapping */
-  justify-content: space-between; /* Distributes space to push items to the start and end */
-  align-items: center;   /* Vertically centers the items within this section */
-  
-  /* Sizing */
-  width: 100%;       /* Spans the full width of its parent (.kontainer) */
-  
-  /* Spacing & Appearance */
-  margin-block: var(--spacing-xxxs-half); /* Responsive vertical margin (0.8px) for spacing */
-  border-radius: var(--border-radius-sm); /* Consistent rounded edges (6px) for subtle styling */
-  gap: var(--spacing-xxs-half); /* Responsive spacing (3.2px) between elements within the section */
-  padding: 0;          /* Removes default inner padding, controlled by children's margins */
-  /* NO TRANSITIONS as per user request */
-}
-
-/* Dark mode adjustment for .sectiionn container */
-.dark-mode .sectiionn {
-  background-color: transparent; /* Remains transparent in dark mode */
-}
-/* ==== CHILD SECTIONS (.views, .time, .category) ==== */
-/* These individual sections within .sectiionn display specific data like views, time, or category. */
-.views,
-.time,
-.category {
-    /* Flex Item Properties (within .sectiionn) */
-    flex: 1 1 0; /* Default flex behavior: allows growing and shrinking from a 0 base width */
-    max-width: 33.3%; /* Limits the maximum width to ensure a balanced 3-column layout */
-    min-width: 0; /* Allows flex items to shrink below their content size, preventing overflow */
-
-    /* Sizing & Layout */
-    height: 1.8rem; /* Consistent height (28.8px) for all meta-data sections */
-    display: flex;         /* Uses flexbox for inner alignment of content (icon and text) */
-    align-items: center;   /* Vertically centers content within each section */
-    justify-content: center; /* Horizontally centers content by default */
-    
-    /* Appearance & Spacing */
-    background-color: transparent; /* Ensures transparent background */
-    margin-block: var(--spacing-xxxs-half); /* Responsive vertical margin (0.8px) */
-    border-radius: var(--border-radius-sm); /* Consistent rounded edges (6px) */
-    overflow: hidden;    /* Hides any overflowing content (e.g., long text) */
-    /* NO TRANSITIONS as per user request */
-}
-
-/* Specific styling for the .views section (e.g., for view count and icon) */
-.views {
-    flex: 0.8 1 0; /* MODIFIED: Makes 'views' section grow slightly less to accommodate icon */
-    justify-content: flex-start; /* Aligns content (icon and text) to the start (left) */
-    margin-inline-start: 0; /* Removes any default left margin, aligning to parent edge */
-    gap: var(--spacing-xxs); /* Responsive spacing (4px) between the icon and text */
-}
-
-/* Specific styling for the .time section (e.g., for upload time) */
-.time {
-    flex: 1.2 1 0; /* MODIFIED: Makes 'time' section grow slightly more, often for longer text */
-    justify-content: flex-end; /* Aligns content to the end (right) */
-}/* ==== IMAGE INSIDE VIEWS (.views img) ==== */
-/* Styles for the icon (e.g., eye icon) within the views section. */
-.views img {
-  /* Sizing & Responsiveness */
-  /* Fluid image width and height using clamp(): scales between 1rem (16px) and 1.5rem (24px) */
-  width: clamp(1rem, 1.8vw, 1.5rem);
-  height: clamp(1rem, 1.8vw, 1.5rem);
-  
-  /* Spacing */
-  margin-inline-start: var(--spacing-xxs); /* Responsive left margin (4px) to push icon slightly */
-
-  /* NO TRANSITIONS as per user request */
-}
-
-/* Dark mode adjustment for views icon */
-.dark-mode .views img {
-  filter: invert(1); /* Inverts colors for better visibility on dark backgrounds */
-}/* ==== TEXT CONTENT (.views span, .time span, .category span) ==== */
-/* Styles for the text labels within the views, time, and category sections. */
-.views span,
-.time span,
-.category span {
-    /* Typography */
-    font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
-    /* Fluid font size using clamp(): scales between 0.75rem (12px) and 0.875rem (14px) */
-    font-size: clamp(0.75rem, 1vw, 0.875rem);
-    color: var(--color-text-dark); /* Dark text color for light mode */
-    
-    /* Layout & Overflow */
-    display: flex;         /* Uses flexbox for inner alignment of text */
-    align-items: center;   /* Vertically centers text */
-    white-space: nowrap;   /* Prevents text from wrapping */
-    overflow: hidden;      /* Hides overflowing text */
-    text-overflow: ellipsis; /* Displays "..." for truncated text */
-    
-    /* Spacing */
-    margin: 0; /* Removes default margins for precise control */
-    /* NO TRANSITIONS as per user request */
-}
-
-/* Specific right margin for time text to ensure spacing from right edge */
-.time span {
-    margin-inline-end: var(--spacing-xs); /* Responsive right margin (8px) */
-}
-
-/* Dark mode adjustment for all meta-data text spans */
-.dark-mode .views span,
-.dark-mode .time span,
-.dark-mode .category span {
-    color: var(--color-dark-mode-text-primary); /* Lighter text color for dark mode */
-}
-
-/* 📱 TABLET/SMALL DESKTOP OPTIMIZATION (e.g., up to 768px wide) */
-@media screen and (max-width: 768px) {
-  .sectiionn {
-      flex-wrap: wrap;     /* Allows items to wrap to the next line for better spacing */
-      justify-content: center; /* Centers items when they wrap */
-      gap: var(--spacing-xxs); /* Adjusted spacing (4px) between wrapped elements */
-  }
-
-  .views,
-  .time,
-  .category {
-      flex: 1 1 100%; /* Each item takes full width when wrapped, displaying vertically */
-      max-width: 100%; /* Ensures they don't exceed container width */
-      justify-content: center; /* Centers content within each full-width item */
-  }
-
-  .views img {
-      max-width: 1.25rem; /* Limits image width to 20px for consistency */
-      height: 1.25rem; /* Maintains aspect ratio */
-  }
-}
-
-/* Base styles for all devices */
-body {
-  font-size: 16px;
-  /* Other base styles */
-}
-
-/* Extra large screens (≥1400px) */
-@media (min-width: 1400px) {
-  body {
-    font-size: 18px;
-    /* Additional styles for extra large screens */
-  }
-}
-
-
-.shorts-delete-popup {
-  position: fixed;
-  inset: 0;
-
-  background: rgba(0,0,0,0.65);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  z-index: 999999;
-}
 
-.shorts-delete-box {
-  width: 320px;
+    display: none !important;
 
-  background: #111111;
-
-  border-radius: 16px;
-
-  padding: 22px;
-
-  border: 1px solid #2b2b2b;
-
-  box-shadow: 0 0 30px rgba(0,0,0,0.4);
-}
-
-.shorts-delete-box h3 {
-  color: #ffffff;
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
-.shorts-delete-box p {
-  color: #bbbbbb;
-  font-size: 13px;
-  line-height: 1.5;
-}
-
-.shorts-delete-actions {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-
-  margin-top: 20px;
-}
-
-.shorts-cancel-delete,
-.shorts-confirm-delete {
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-
-  cursor: pointer;
-
-  font-size: 13px;
-  font-weight: 600;
-}
-
-.shorts-cancel-delete {
-  background: #2b2b2b;
-  color: #ffffff;
-}
-
-.shorts-confirm-delete {
-  background: #ff2e2e;
-  color: #ffffff;
-}
-
-
-/* Light Mode Styles */
-.light-mode {
-  background-color:  #FAFAFA; /* White background for Light Mode */
-  color: black; /* Black text for Light Mode */
-}
-
-/* Dark Mode Styles */
-.dark-mode {
-  background-color: #121212; /* Black background for Dark Mode */
-  color: white; /* White text for Dark Mode */
-}
-
-
-.dark-mode .sectiionn .views span,
-.dark-mode .sectiionn .time span,
-.dark-mode .sectiionn .category span
-
-
-{
-  color:white;
-
-}
-
-.dark-mode .sectiionn .views img
-
-
-{
-  filter: invert(1);
-
-}
-
-
-.dark-mode .sidebar{
-  background-color: #121212; 
-  }
-
-  .dark-mode .sidebar img
-  {
-    filter: invert(1);
-  
-  }
-
-.dark-mode .home
-{background-color:transparent;
-  }
-
-  .dark-mode .sidebar .home img
-
-
-{
-  filter: invert(1);
-
-}
-
-
-.dark-mode .home span{
-  color:#FFFFFF;
 }
-
 
-.dark-mode .container-1{
-  background-color: #121212; 
-  }
 
+/* =========================================
+   DARK MODE
+========================================= */
 
-.dark-mode .suggestionss{
-  background-color: #121212; 
-  }
+@media (prefers-color-scheme: dark) {
 
+    body {
 
-.dark-mode .rectanglee{
-  background-color: #2a2d2f;
-  }
-
-.dark-mode .rectanglee span{
-  color:#FFFFFF;
-}
+        background: #111;
 
+        color: #f2f2f2;
 
-  .dark-mode .profilee-name span{
-    color: #D3D3D3;
     }
 
-    .dark-mode .caption span{
-      color:white; 
-      }
 
-.dark-mode .container .nav{
-  background-color: #121212; 
-   }
+    .signup-card {
 
-   .dark-mode .container .Table{
-    background-color: #121212; 
-     }
+        background: #1d1d1d;
 
-     .dark-mode .container .Table .overlay-text{
-      background-color: #121212; 
-       }
+        border-color: #333;
+
+        box-shadow:
+            0 20px 60px rgba(0, 0, 0, 0.4);
+
+    }
 
 
-.dark-mode .container .search img,
-.dark-mode .container .upload img,
-.dark-mode .container .Notifications img,
-.dark-mode .container .Settings img
+    .brand p,
+    .signup-header p,
+    .section-info,
+    .form-group small,
+    .login-link {
 
-{
-  filter: invert(1);
+        color: #999;
 
-}
-
-:root {
-  --size-icon-md: 1.5rem;
-  --font-size-sm: 0.875rem;
-  --font-size-xs: 0.75rem;
-  --font-size-md: 1rem;
-  --spacing-xxs: 0.25rem;
-  --spacing-xs: 0.5rem;
-  --spacing-sm: 1rem;
-  --border-radius-full: 50%;
-  --font-family-primary: 'Arial', sans-serif;
-  --color-dark-mode-text-primary: #eee;
-}
+    }
 
 
-body {
-  /* Default styles for content, typography, base layout */
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 10px;
-  /* Example: Hide certain elements on very small screens */
-  .desktop-only-element {
-      display: none;
-  }
-}
+    .form-section {
 
-/* Small Mobile Devices (Portrait phones, e.g., 320px - 480px) */
-/* Targets devices like older iPhones, basic Android phones */
-@media (min-width: 320px) and (max-width: 480px) {
-  /* Adjustments for slightly larger phone screens */
-  body {
-      font-size: 15px;}
+        border-color: #333;
 
-      .container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 10;
-        width: 100%;
-        height: 3rem;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        background-color: pink;
-        padding: 0;
-        box-shadow: var(--shadow-md);
-      }
-    
-      .Table {
-        flex-grow: 5;
-        flex: 0 0 auto;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        margin-left: 2px;
-        padding-left: 8rem;
-        background-color: violet;
-      }
-    
-      .overlay-text {
-        font-size: 1rem;
-        padding: 0;
-        white-space: nowrap;
-        background-color: sandybrown;
-      }
-    
-      .nav {
-        flex-grow: 01;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 0.1rem;
-        padding-right: 0.1rem;
-        background-color: grey;
-        margin-left: 0rem;
-      }
-    
-      .search {
-        position: relative;
-        flex: 0.9;
-        height: 2.2rem;
-        background-color:forestgreen;
-        border: 0.5px solid #ccc;
-        border-radius: 5px;
-        margin: 0 auto;
-        padding: 0 0.5rem;
-        display: flex;
-        align-items: center;
-        box-shadow: none;
-        max-width: 100%;
-      }
-    
-      .search input[type="search"] {
-        flex: 1;
-        height: 100%;
-        font-size: 0.9rem;
-        padding: 0 0.5rem;
-        background-color: transparent;
-        border: none;
-        color: #333;
-        outline: none;
-      }
-    
-      .search .search-icon,
-      .clear-btn {
-        display: none; /* hide icons for compact header */
-      }
-    
-      .upload,
-      .Notifications,
-      .Account {
-        width: 2rem;
-        height: 2rem;
-        background-color: transparent;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-      }
+    }
 
-      
-      .upload,
-      .Notifications
-       {
-      display:none;
-      }
-    
-      .upload img,
-      .Notifications img,
-      .Account img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-      }
-    
-      .dropdown-content {
-        width: 90vw; /* Make dropdown full width on small screens */
-        right: 5%;
-      }
-    
-      .Notification-container {
-        width: 90vw;
-        max-height: 60vh;
-        right: 5%;
-        top: 3rem;
-        padding: 0.5rem;
-      }
-    
-      .dark-mode .container {
-        background-color: var(--color-dark-mode-bg-primary);
-        box-shadow: var(--shadow-dark-md);
-      }
-    
-      .dark-mode .search input[type="search"] {
+
+    .form-group input,
+    .form-group select {
+
+        background: #262626;
+
+        border-color: #444;
+
         color: #fff;
-      }
-    
-      .dark-mode .search input[type="search"]::placeholder {
-        color: #ccc;
-      }
-    
-      .dark-mode .Account img,
-      .dark-mode .upload img,
-      .dark-mode .Notifications img {
-        filter: invert(1);
-      }
 
-
-   .dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0.5%;
-  width: 90vw; /* Full-width on small screens */
-  max-width: 20rem;
-  max-height: 60vh;
-  background-color: #333;
-  box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
-  border-radius: 0.5em;
-  z-index: 30;
-  padding: 0rem 0; /* Much smaller vertical padding */
-  text-align: left;
-  align-items: flex-start;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.5) white;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 0.5rem 0.75rem; /* Reduced padding for a tighter feel */
-  text-decoration: none;
-  display: block;
-  font-size: 0.875rem;
-}
-
-/* Profile Section */
-.proofile {
-  width: 100%;
-  min-height: 2.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  background-color: white;
-  padding: 0.4rem 0.6rem; /* Reduced padding */
-  border-radius: 0.375rem;
-  margin: 0.3rem 0.5rem; /* Smaller margins */
-}
-
-/* Hover Effect */
-.proofile:hover {
-  background-color: grey;
-  color: white;
-  transform: scale(1.02);
-  cursor: pointer;
-  box-shadow: none;
-}
-
-/* Profile Image */
-.proofile img {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 50%;
-  margin-right: 0.4rem;
-}
-
-/* Profile Name */
-.proofile span {
-  font-weight: 600;
-  font-size: 0.85rem;
-  color: black;
-  margin-left: 0.2rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.proofile:hover span {
-  color: white;
-}
-
-/* Remove bullet points */
-.dropdown-content li {
-  list-style: none;
-}
-
-/* Mobile responsiveness */
-@media (max-width: 480px) {
-  .dropdown-content {
-    right: 2%;
-    width: 92vw;
-    padding: 0.25rem 0;
-  }
-
-  .proofile {
-    padding: 0.3rem 0.5rem;
-    margin: 0.2rem 0.4rem;
-  }
-
-  .proofile img {
-    width: 1.4rem;
-    height: 1.4rem;
-  }
-
-  .proofile span {
-    font-size: 0.8rem;
-  }
-
-  .dropdown-content a {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.8rem;
-  }
-}
-
-
-
-        .suggestionss {
-          position: fixed;
-          top: var(--header-height); /* Below header */
-          left: 0;
-          width: 100vw;
-          height: var(--suggestions-bar-height, 2.5rem);
-          display: flex;
-          flex-wrap: nowrap;
-          justify-content: flex-start;
-          align-items: center;
-          background-color: var(--color-bg-light);
-          gap: 0.5rem;
-          padding: 0 0.5rem;
-      
-          overflow-x: hidden; /* ✅ Allow horizontal scroll */
-          overflow-y: hidden;
-          scrollbar-width: thin;
-          scrollbar-color: var(--color-scrollbar-thumb) transparent;
-          z-index: 1;
-        }
-      
-        .rectanglee {
-          flex: 0 0 auto;             /* ✅ Prevent resize/shrink */
-          min-width: fit-content;     /* Only as wide as needed */
-          padding: 0.3rem 0.75rem;
-          height: 2rem;
-          background-color: var(--color-bg-pill-light);
-          border-radius: 5px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          font-size: 0.75rem;
-          cursor: pointer;
-        }
-      
-        .rectanglee span {
-          font-size: 0.75rem;
-          color: var(--color-text-pill-light);
-          padding: 0;
-          margin: 0;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          text-align: center;
-        }
-      
-        .dark-mode .suggestionss {
-          background-color: var(--color-bg-suggestions-dark);
-          scrollbar-color: var(--color-scrollbar-thumb-dark) var(--color-scrollbar-track-dark);
-        }
-      .sidebar
-      {
-        display: none;
-        background-color:sienna; /* Default background color for light mode */
-        width:5.5%;
-        z-index: -1;
-        justify-content: flex-start;
-      }
-      
-      .sidebar:hover {
-        width: 16.5%; /* Expands slightly on hover for better UX */
-      }
-      
-      .home
-      {
-        margin-left: 0px;
-      }
-      
-      .suggestionss
-      {
-        background-color: violet;
-      }
-      
-      .rectanglee
-      {
-        background-color: rebeccapurple;
-        font-weight: var(--font-weight-bold); /* Bold font weight */
-      }
-      /* 📱 MOBILE LAYOUT: Clean & Compact */
-
-.container-1 {
-  top: 6rem;
-  width: 100%;
-  left: 0;
-  background-color: grey;
-  border-radius: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0rem; /* Removed gap between kontainers */
-  padding: 0;
-  margin: 0;
-}
-
-.kontainer {
-  background-color: pink;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  border-radius: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-/* Profile section (image + name) */
-.profilee {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  background-color: darkcyan;
-  border-radius: 0;
-  margin: 0;
-  padding: 0.3rem 0.5rem;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.profilee img {
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  object-fit: cover;
-  margin: 0;
-  padding: 0;
-}
-
-.profilee-name {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
-.profilee-name span {
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin: 0;
-  padding: 0;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-/* Caption (title) */
-.caption {
-  height: 2rem;
-  background-color: fuchsia;
-  display: flex;
-  align-items: center;
-  padding: 0 0.5rem;
-  border-radius: 0;
-  margin: 0;
-}
-
-.caption span {
-  font-size: 0.8rem;
-  font-weight: 700;
-  font-family: var(--font-family-primary);
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-}
-
-/* Video Section */
-.videoo {
-  width: 100%;
-  height: auto;
-  background-color: black;
-  border-radius: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.videoo video {
-  width: 100%;
-  height: 14rem;
-  object-fit: cover;
-  border-radius: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.overlay-textt {
-
-padding: 5px;
-
-}
-
-.sectiion {
-  display: flex;
-  flex-wrap: nowrap;               /* ❗ Prevent wrapping */
-  justify-content: space-between;  /* Spread out items */
-  align-items: center;
-  width: 100%;
-  height: 2rem;
-  padding: 0;
-  margin: 0;
-  background-color: saddlebrown;
-  box-sizing: border-box;
-  gap: 0rem; /* Small gap between items */
-}
-
-/* All children share flex space equally */
-.views,
-.category,
-.time {
-  flex: 1 1 0;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  white-space: nowrap;
-  padding: 0.4rem 0.4rem;
-  height: 100%;
-  border-radius: 0;
-  box-sizing: border-box;
-}
-
-/* Alignments */
-.views     { justify-content: flex-start;  background-color: violet; }
-.category  { justify-content: center;      background-color: transparent; }
-.time      { justify-content: flex-end;    background-color: seagreen; }
-
-/* Icon sizing (inside .views) */
-.views img {
-  width: 5rem;
-
-  object-fit: contain;
-  margin-right: 0.2rem;
-}
-
-/* Text styling */
-.views span,
-.category span,
-.time span {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--color-text-dark-alt, #fff);
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-}
-
-/* Medium Mobile Devices / Small Tablets (Landscape phones, small tablets, e.g., 481px - 768px) */
-/* Targets devices like larger smartphones in landscape, smaller iPads in portrait */
-@media (min-width: 481px) and (max-width: 768px) {
-  body {
-      font-size: 16px;
-  }
-  .container
-  {
-    background-color: saddlebrown;
-  }
-
-  .nav
-  {
-    background-color: darkkhaki;
-    margin-left: 0px;
-  }
-  
-  .Table {
-    /* Flex Item Properties within .container */
-    flex: 0 0 20%; /* Prevents growing/shrinking and sets initial base width to 15% of parent */
-    height: 100%; /* Matches the height of its parent (.container) */
-  
-    background-color: violet; /* Transparent background for the logo section */
-  
-    inset-inline-start: 0px; /* Aligns to the start (left) edge of the container */
-  }
-  
-  .overlay-text
-  {
-    background-color: darkblue;
-    font-size: 0.9rem;
-    
-  }
-  
-  .search
-  {
-    background-color: seagreen;
-    height:30px;
-  }
-
-  .upload
-  {
-    background-color: transparent;
-    width: 3vw;
-    height: 3vw;
-  }
-  
-  .Notifications
-  {
-    background-color: transparent;
-    width: 3vw;
-    height: 3vw;
-  }
-  
-  .Account 
-  {
-    background-color: transparent;
-    width: 3vw;
-    height: 3vw;
-  }
-  
-  .upload
-  {
-    background-color: transparent;
-    width: 3vw;
-    height: 3vw;
-  }
-  
-  
-  .upload img {
-    width: 100%;
-    height:  100%;
-    margin: 0 auto;
-  }
-  
-  .Notifications img {
-    width: 100%;
-    height:  100%;
-    margin: 0 auto;
-  }
-  
-  
-  .Account img {
-    width: 100%;
-    height:  100%;
-  margin: 0 auto;
-  }
-  
-  .dropdown-content {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0.5%;
-    z-index:40;
-    width: 30%;}
-    
-
-  .suggestionss
-  {
-    width:100%; /* Occupies the remaining width after considering the sidebar and gap */
-    left: 0%;  
-    gap:5px;
-    z-index: 1;
-    overflow-y: hidden;
-    overflow-x: hidden;
-    background-color: transparent;
-  }
-  
-  .rectanglee span
-  {
-    font-size: clamp(0.75rem, 0.75vw, 0.75rem); 
-  }
-  
-  .sidebar
-  {
-    background-color:sienna; /* Default background color for light mode */
-    width:7%;
-  
-    justify-content: flex-start;
-  }
-  
-  .sidebar:hover {
-    width: 28%; /* Expands slightly on hover for better UX */
-  }
-  
-  .home
-  {
-    margin-left: 0px;
-  }
-  
-  .suggestionss
-  {
-    background-color: violet;
-    z-index: 10;
-  }
-  
-  .rectanglee
-  {
-    background-color: rebeccapurple;
-    font-weight: var(--font-weight-bold); /* Bold font weight */
-  }
-  
-    .container-1
-    {
-      top: 6.6rem;
-      width: calc(100% - 5.8%); /* Occupies the remaining width after considering the sidebar and gap */
-      left: 5.6%;  
-        /* Positions the grid below the header and suggestions bar */
-            /* Aligns it to the right of the sidebar, maintaining a consistent gap */
-      background-color:indianred;
-    gap: 0.6rem;
-    }
-    
-    .kontainer
-    {
-      background-color:grey;
-      width: clamp(48%, 58%, 48%);
-    margin-left: 5px;
-    }
-    
-    .caption
-  {
-    height: 2rem;  /* Consistent height (30px) for single-line captions */
-    background-color: fuchsia;
-  }
-  
-    .caption span
-    {
-      font-size: 13px; /* Responsive font size (0.96875rem approx 15.5px) */
-      font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
-      font-weight: 700; /* Bold font for prominence */
-    }
-  
-    
-    .videoo {
-      width: 100%;
-      height: auto;
-    }
-    
-    .videoo video {
-      width: 100%;
-      height: 10rem; /* 200px */
-    
     }
 
- 
-.sectiion {
-  background-color: saddlebrown;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem; /* Adds breathing room between .views and .time */
-  padding-inline: 0.1rem; /* Adds horizontal padding */
-  margin-block: 0.1rem; /* Adds vertical margin */
-}
 
-.views,
-.time {
-  flex: 1;
-  min-width: 40%;
-  max-width: 50%;
-  height: 1.8rem;
-  background-color: transparent;
-  padding-inline: 0.2rem;
-  border-radius: 0.375rem;
-  display: flex;
-  align-items: center;
-  overflow: hidden;
-  white-space: nowrap;
-}
+    .age-result {
 
-.views {
-  background-color: violet;
-  justify-content: flex-start;
-  gap: 0.5rem;
-}
+        background: #262626;
 
-.time {
-  background-color: seagreen;
-  justify-content: flex-end;
-}
-
-  /* Views Icon */
-  .views img {
-    width: clamp(1.5rem, 1.5vw, 1.5rem); /* Responsive width for icons, scaling between 18px and 30px */
-    height: clamp(1.5rem, 1.5vw, 1.5rem); /* Responsive height for icons, maintaining aspect ratio */}
-
-/* Optional: Ensure icons/text scale nicely */
-.views span,
-.time span {
-  font-size: var(--font-size-sm);
-  color: var(--color-text-dark-alt);
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.dark-mode .views span,
-.dark-mode .time span {
-  color: var(--color-text-light-alt);
-}
-
-
-
-}
-
-/* Tablets / Small Laptops (e.g., 769px - 1024px) */
-/* Targets devices like iPads in landscape, smaller laptops, or larger tablets */
-@media (min-width: 769px) and (max-width: 1024px) {
-  body {
-      font-size: 17px;
-  }
-
-
-  .container
-  {
-    background-color: var(--color-bg-light); /* Default background color for light mode */
-  }
-
-
-
-.nav
-{
-  background-color: transparent;
-}
-
-.overlay-text
-{
-  font-size: 1.1rem;
-}
-
-
-.upload
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-}
-
-.Notifications
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-}
-
-.Account 
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-}
-
-
-.upload
-{
-  background-color: transparent;
-  height: 2.8rem;
-}
-
-    /* Notifications Icon */
-    .Notifications {
-      margin-right: 2.8rem;
     }
-    
-    .Notifications img {
-      width: 1.9rem;
-      height: 1.9rem;
+
+
+    .parent-section {
+
+        background: #262015;
+
+        border-color: #5c4d25;
+
     }
-      
-    .upload img {
-      width: 2.7rem;
-      height: 2.7rem;
-    margin-top: 0px;
+
+
+    .guardian-notice {
+
+        background: #252525;
+
+        border-color: #4a432f;
+
     }
-      
-
-.Account img {
-  width: 100%;
-  height:  100%;
-margin: 0 auto;
-}
 
 
-.dropdown-content 
-{
-  z-index: 20;
-}
+    .privacy-box {
 
-.suggestionss
-{
-  width:94.3%; /* Occupies the remaining width after considering the sidebar and gap */
-  left: 5.7%;  
-  gap:5px;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  background-color: var(--color-bg-light);
-  z-index: 2;
-}
+        background: #262626;
 
-.rectanglee
-{
-  background-color: transparent;
-  font-weight: var(--font-weight-bold); /* Bold font weight */
-  font-size: clamp(0.75rem, 0.75vw, 0.75rem); 
-}
+    }
 
 
-.sidebar
-{
-  background-color: var(--color-bg-light); /* Default background color for light mode */
-  width:5.5%;
-  z-index: 1;
-}
+    .secondary-button {
 
-.sidebar:hover {
-  width: 16.5%; /* Expands slightly on hover for better UX */
-}
+        background: #262626;
 
-.home
-{
-  margin-left: 0px;
-}
+        color: #fff;
 
-  .container-1
-  {
-    top: 6.1rem;
-    width: calc(100% - 5.8%); /* Occupies the remaining width after considering the sidebar and gap */
-    left: 5.6%;  
-      /* Positions the grid below the header and suggestions bar */
-          /* Aligns it to the right of the sidebar, maintaining a consistent gap */
-    background-color:transparent;
-  gap: 0.6rem;
-  }
-  
-  .kontainer
-  {
-    background-color:transparent;
-    width: clamp(28%, 37%, 32%);
-  margin-left: 5px;
-  }
-  
-  .caption
-{
-  height: 2rem;  /* Consistent height (30px) for single-line captions */
-  background-color:transparent;
-}
+        border-color: #444;
 
-  .caption span
-  {
-    font-size: 13px; /* Responsive font size (0.96875rem approx 15.5px) */
-    font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
-    font-weight: 700; /* Bold font for prominence */
-  }
-
-  
-  .videoo {
-    width: 100%;
-    height: auto;
-  }
-  
-  .videoo video {
-    width: 100%;
-    height: 12rem; /* 200px */
-  
-  }
-
-  .overlay-textt
-  {
-    height: 30px;
-  }
-
-.report-popup
-{
-  height: auto;   
-}
-
-}
-
-/* Desktops / Medium Laptops (e.g., 1025px - 1279px) */
-/* Standard desktop monitor size */
-@media (min-width: 1025px) and (max-width: 1279px) {
-  body {
-      font-size: 18px;
-  }
-
-  .container
-  {
-    background-color: var(--color-bg-light); /* Default background color for light mode */
-  }
-
-.nav
-{
-  background-color: transparent;
-}
-
-.overlay-text
-{
-  font-size: 1.2rem;
-  margin-left: 0.25rem;
-}
-
-
-.upload
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-}
-
-.Notifications
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-}
-
-.Account 
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-}
-
-.upload
-{
-  background-color: transparent;
-  width: 3vw;
-  height: 3vw;
-}
-
-
-.upload img {
-  width: 100%;
-  height:  100%;
-  margin: 0 auto;
-}
-
-.Notifications img {
-  width: 100%;
-  height:  100%;
-  margin: 0 auto;
-}
-
-
-.Account img {
-  width: 100%;
-  height:  100%;
-margin: 0 auto;
-}
-
-.dropdown-content
-{
-  top: 100%;
-  right: 0.5%;
-  width: 24%;
-  min-width: 10em;
-  max-height: 20em;
-  padding: 2px 3px;
-}
-
-
-.dropdown-content a {
-  padding: 2px 3px;
-}
-
-/* Profile Section */
-.proofile {
-  width: 100%;
-  min-height: 1.875em; /* 30px */
-  padding: 0.1em; /* 10px */
-
-}
-
-.proofile span
-{
-  font-size: 15px;
-}
-
-.suggestionss
-{
-  gap:10px;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  background-color: transparent;
-}
-
-.rectanglee span
-{
-  font-size: 0.7rem; /* Adjust for better fit */
-}
-
-
-.sidebar
-{
-  background-color: var(--color-bg-light); /* Default background color for light mode */
-  width:5.5%; 
-}
-
-.sidebar:hover {
-  width: 15%; /* Expands slightly on hover for better UX */
-}
-
-.home
-{
-  margin-left: 5px;
-}
-
-  .container-1
-  {
-    background-color:transparent;
-  gap: 0.5rem;
-  margin: 0 auto; /* ✅ Centers the block */
-  }
-  
-.kontainer
-{
-  background-color: transparent;
-  width: clamp(20%, 23vw, 24%); 
-margin-left: 8px;
-}
-
-.profilee img {
-  width: 2rem; /* 35px converted to rem */
-  height: 2rem;
-  margin-top: 6px;
-  margin-left: 2px;
-}
-
-
-  .profilee-name 
-  {
-    background-color: transparent;
-    margin-top: 0px;
-  }
-
-  .profilee-name span
-  {
-    margin-top: 1px;
-  }
-
-
-  .opttions img {
-    width: 17px;
-    height: 17px;
-    margin-top: 0px;
-   
-  }
-  
-
-/* === Popup Styling === */
-.opttions-popup {
-  padding: 0.5rem 0.5rem;
-  min-width: 150px;
+    }
 
 }
 
 
-.opttions-popup .popup-item {
+/* =========================================
+   MOBILE
+========================================= */
 
-  gap: 0.4rem;
-  padding: 0.3rem 0.3rem;
-  margin-top: 3px;
-  margin-bottom: 5px;
-  font-size: 0.7rem;
+@media (max-width: 600px) {
 
-}
+    .signup-page {
 
+        padding: 25px 12px;
 
-
-.caption
-{
-  height: 2rem;  /* Consistent height (30px) for single-line captions */
-  background-color: transparent;
-}
-
-  .caption span
-  {
-    font-size: 13px; /* Responsive font size (0.96875rem approx 15.5px) */
-    font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
-    font-weight: 700; /* Bold font for prominence */
-  }
-  .videoo {
-    width: 100%;
-    height: auto;
-  }
-  
-  .videoo video {
-    width: 100%;
-    height: 10.5rem; /* 200px */
-  
-  }
-  
-  
-}
-
-/* Large Desktops / High-Resolution Screens (e.g., 1280px - 1599px) */
-/* For larger monitors or dual-monitor setups */
-@media (min-width: 1280px) and (max-width: 1599px) {
+    }
 
 
-  /* Notifications Icon */
-.Notifications {
-  margin-right: 4rem;
-}
+    .signup-card {
 
-.Notifications img {
-  width: 1.9rem;
-  height: 1.9rem;
-}
-  .suggestionss
-{
-  
-border-style:none;
+        padding: 22px 18px;
 
-}
+        border-radius: 14px;
 
-.sidebar
-{
-  background-color: var(--color-bg-light); /* Default background color for light mode */
-
-border-style:none;}
+    }
 
 
-.container-1
-{
-border-style:none;
+    .brand h1 {
 
-  top: 6rem;        /* Positions the grid below the header and suggestions bar */
+        font-size: 36px;
 
-  background-color: var(--color-bg-light); /* Default background color for light mode */}
+    }
 
 
+    .signup-header h2 {
 
-  .caption span {
-    font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
-    font-weight: 700;
-    font-size: 0.9rem; /* 15.5px */
-    color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
-  }  
+        font-size: 22px;
 
-  .caption span {
-    font-family: var(--font-family-primary); /* Ensures consistent, high-quality font */
-    font-weight: 700;
-    font-size: 0.9rem; /* 15.5px */
-    color: var(--color-text-dark-contrast); /* Dark text color for light mode, using a variable */
-  }  
-
-  .videoo {
-  position: relative; /* Allows for absolute positioning of child elements (e.g., controls, overlays) */
-  width: 100%; /* Spans the full width of its parent container */
-  height: auto; /* Height adjusts based on the video's aspect ratio and object-fit */
-
-}
-
-/* ==== VIDEO ELEMENT INSIDE .videoo (.videoo video) ==== */
-/* Styles for the HTML <video> tag itself. */
-.videoo video {
-  width: 100%; /* Ensures the video fills the container's width */
-  /* height: 14rem; Consistent height (200px converted to rem) */
- 
-      border-radius: 0.4375rem; /* 7px */
-}
-
-.report-popup
-{
-  height: auto;   
-}
+    }
 
 
-  .kontainer {
-    background-color: transparent;
-    width: clamp(20%, 23vw, 24%); 
-    margin-left: 0.35rem; /* Let the gap do the spacing */
-  }
+    footer {
 
-  .profilee
-  {
-    background-color: transparent;
-  }
+        flex-wrap: wrap;
 
-.caption
-{
-  background-color: transparent;
-}
+        justify-content: center;
 
-
-  .profilee img {
-    width: 2rem; /* 35px converted to rem */
-    height: 2rem;
-    margin-top: 6px;
-    margin-left: 2px;
-  }
-
-  .profilee-name 
-  {
-    background-color: transparent;
-    margin-top: 0px;
-  }
-
-  .profilee-name span
-  {
-    margin-top: 1px;
-  }
-
-
-  .opttions img {
-    width: 17px;
-    height: 17px;
-    margin-top: 0px;
-   
-  }
-
-}
-/* Ultra-wide Displays (e.g., 1600px and up) */
-/* For very large monitors, TVs, or multi-monitor environments */
-@media (min-width: 1600px) {
-  body {
-      font-size: 19px;}
-
-  .container
-  {
-    background-color: var(--color-bg-light); /* Default background color for light mode */
-  }
-  
-  .Table
-  {
-    background-color: transparent;
-  }
-  
-  .overlay-text
-  {
-    background-color: transparent;
-    font-size: 1.5rem;
-  }
-  
-  .nav
-  {
-    background-color: transparent;
-  }
-  
-  .search input[type="search"] {
-  
-    min-height: 20px;
-    max-height: 25px;
-  
-  }
-  
-  
-  .upload
-  {
-    background-color: transparent;
-    width: 2.5vw;
-    height: 2.5vw;
-  }
-  
-  .Notifications
-  {
-    background-color: transparent;
-    width: 2vw;
-    height: 2vw;
-      margin-right: 90px;
-  }
-  
-  .Account 
-  {
-    background-color: transparent;
-    width: 2vw;
-    height: 2vw;
-  }
-  
-  
-  
-  .upload img {
-    width: 100%;
-    height:  100%;
-    margin: 0 auto;
-  }
-  
-  .Notifications img {
-    width: 100%;
-    height:  100%;
-    margin: 0 auto;
-  }
-  
-  
-  
-  .Account img {
-    width: 100%;
-    height:  100%;
-  margin: 0 auto;
-  }
-  
-  
-
-.suggestionss
-{
-   top: 5.1%; /* Vertically positioned below the header (adjust variable as needed) */
-    /* Dynamic left positioning and width based on sidebar or main content area */
-
-  gap:20px;
-    z-index: 1;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  background-color:transparent;
-  border-style:none;
-  justify-content: flex-start;
-}
-
-
-.sidebar
-{
-  background-color: var(--color-bg-light); /* Default background color for light mode */
-
-   z-index: 1;
-      border-style:none;
-}
-
-.sidebar:hover {
-  width: 15%; /* Expands slightly on hover for better UX */
-}
-
-.home
-{
-  margin-left: 5px;
-}
-
-  .container-1
-  {
-    background-color: transparent;
-  gap: 0.8rem;
-
-  top: 6.1rem;        /* Positions the grid below the header and suggestions bar */
-
-  border-style:none;
-  }
-  
-  .kontainer
-  {
-      border-style:none;
-    width: clamp(18%, 28%, 18%);
-    margin-left: 1rem;
-   border-radius: 0.4375rem;
-     background-color: transparent;
-  }
-
-    .views
-  {
-    background-color: transparent;
-  }
-
-
-.views img {
-  width: clamp(24px, 4.5vw, 30px);
-  height: clamp(24px, 4.5vw, 30px);
-  
-  border-radius: 50%;
-  object-fit: cover;
-}
-
-
+    }
 
 }
