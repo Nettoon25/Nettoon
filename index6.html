@@ -765,7 +765,7 @@
 
   <!-- Upload Button -->
   <div class="upload-btn-wrapper">
-    <a href="#"><button type="submit">Upload Video</button></a>
+    <a href="#"><button type="submit">Publish Series</button></a>
   </div>
 
 </div> <!-- ✅ END newContent -->
@@ -837,21 +837,8 @@
       <!-- Episode Preview -->
       <div class="preview-container"></div>
 
-      <!-- Delete button -->
-      <div class="delete" style="display: none;">
-        <span class="delete-btn">Delete Episode</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Add Episode Button -->
-  <div class="Episodes">
-    <div class="Add">
-      <span id="addEpisodeBtn">Add Episode</span>
-    </div>
-  </div>
-
-  <!-- Upper Section (Metadata) -->
+      
+ <!-- Upper Section (Metadata) -->
   <div class="upper-container">
     <div class="metadata-group">
       <label for="genre">Genre</label>
@@ -928,21 +915,6 @@
     </div>
 
 
-
-
-  <div class="metadata-group">
-    <label>Save to Playlist</label>
-    <select id="Playlist">
-        <option>Create New Playlist</option>
-        <option>Teen X</option>
-        <option>Afrilens</option>
-        <option>Nettoon</option>
-        <option>Kenya</option>
-    </select>
-</div>
-  
-
-
   <!-- Allow Comments -->
   <div class="meta">
     <p>Allow comments</p>
@@ -957,9 +929,87 @@
   </div>
 
 
+      <!-- =========================================================
+     EPISODE RELEASE SCHEDULING
+     ========================================================= -->
+<div class="episode-release">
+
+  <div class="release-title">
+    <h3>Episode Release</h3>
+    <span class="release-status">Not scheduled</span>
+  </div>
+
+  <div class="release-controls">
+
+    <!-- Release Date -->
+    <div class="release-field">
+      <label>Release Date</label>
+
+      <input
+        type="date"
+        class="episode-release-date"
+      >
+    </div>
+
+    <!-- Release Time -->
+    <div class="release-field">
+      <label>Release Time</label>
+
+      <input
+        type="time"
+        class="episode-release-time"
+      >
+    </div>
+
+    <!-- Schedule Button -->
+    <button
+      type="button"
+      class="update-schedule-btn"
+    >
+      Update Schedule
+    </button>
+
+  </div>
+
+  <!-- Current Schedule Information -->
+  <div class="episode-schedule-info">
+
+    <span class="schedule-message">
+      No release schedule has been set.
+    </span>
+
+    <button
+      type="button"
+      class="cancel-schedule-btn"
+      hidden
+    >
+      Cancel
+    </button>
+
+  </div>
+
+</div>
+
+
+      <!-- Delete button -->
+      <div class="delete" style="display: none;">
+        <span class="delete-btn">Delete Episode</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Episode Button -->
+  <div class="Episodes">
+    <div class="Add">
+      <span id="addEpisodeBtn">Add Episode</span>
+    </div>
+  </div>
+
+ 
+
   <!-- Upload Button -->
   <div class="upload-btn-wrapper">
-    <a href="#"><button type="submit">Upload Video</button></a>
+    <a href="#"><button type="submit">Publish Series</button></a>
   </div>
 </div>
 
