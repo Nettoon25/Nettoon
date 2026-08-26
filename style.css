@@ -335,7 +335,7 @@ body::-webkit-scrollbar-thumb {
 /* Styles for the "NET" part of the logo title, using a background clipped to text. */
 .net-text {
   /* Background Clip for Text Effect */
-  background: red; /* Uses the vibrant brand primary color (red) */
+  background:#ff2638;; /* Uses the vibrant brand primary color (red) */
   -webkit-background-clip: text;           /* Clips the background to the shape of the text */
   -webkit-text-fill-color: transparent;    /* Makes the text transparent to reveal the clipped background */
   

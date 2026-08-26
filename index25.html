@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nettoon Youth Account</title>
+
+    <link rel="stylesheet" href="style25.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <div class="signup-card">
+
+        <div class="brand">
+            <span class="net">NET</span><span class="toon">TOON</span>
+        </div>
+
+        <div class="header">
+            <h1>Create your Nettoon account</h1>
+
+            <p>
+                Welcome! Nettoon is designed to be a safe place
+                to discover cartoons and animation.
+            </p>
+        </div>
+
+        <!-- STEP INDICATOR -->
+
+        <div class="steps">
+
+            <div class="step active" data-step="1">
+                <span>1</span>
+                Your Account
+            </div>
+
+            <div class="line"></div>
+
+            <div class="step" data-step="2">
+                <span>2</span>
+                Your Interests
+            </div>
+
+            <div class="line"></div>
+
+            <div class="step" data-step="3">
+                <span>3</span>
+                Parent/Guardian
+            </div>
+
+        </div>
+
+
+        <!-- FORM -->
+
+        <form id="youthSignupForm" novalidate>
+
+            <!-- STEP 1 -->
+
+            <section class="form-step active" id="step1">
+
+                <div class="privacy-notice">
+
+                    <strong>Privacy first</strong>
+
+                    <p>
+                            Nettoon is designed to collect only the
+                            information necessary to provide the service
+                            and protect its users.
+                        </p>
+
+                        <ul>
+
+                             <li>
+                                Your real name does not need to appear
+                                on your public profile.
+                             </li>
+
+                            <li>
+                                Your date of birth is not displayed
+                                publicly.
+                            </li>
+
+                            <li>
+                                Your account will use child/teen
+                                privacy protections where applicable.
+                            </li>
+
+                            <li>
+                                We will not ask for your school,
+                                home address or unnecessary personal
+                                information during signup.
+                            </li>
+
+                        </ul>
+
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="username">
+                        Username
+                    </label>
+
+                    <input
+                        type="text"
+                        id="username"
+                        name="username"
+                        maxlength="30"
+                        autocomplete="username"
+                        placeholder="e.g. SkyToon24"
+                        required
+                    >
+
+                    <small>
+                        Choose a nickname. Don't use your real name,
+                        school name or address.
+                    </small>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="password">
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        minlength="10"
+                        autocomplete="new-password"
+                        required
+                    >
+
+                    <div class="password-strength">
+
+                        <div id="strengthBar"></div>
+
+                    </div>
+
+                    <small>
+                        Use at least 10 characters.
+                    </small>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="dob">
+                        Date of birth
+                    </label>
+
+                    <input
+                        type="date"
+                        id="dob"
+                        name="dob"
+                        required
+                    >
+
+                    <small>
+                        We use your date of birth to provide
+                        age-appropriate experiences and safety settings.
+                    </small>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="country">
+                        Country / Region
+                    </label>
+
+                    <select
+                        id="country"
+                        name="country"
+                        required
+                    >
+
+                        <option value="">
+                            Select your country
+                        </option>
+
+                        <option value="KE">Kenya</option>
+                        <option value="NG">Nigeria</option>
+                        <option value="ZA">South Africa</option>
+                        <option value="GH">Ghana</option>
+                        <option value="UG">Uganda</option>
+                        <option value="TZ">Tanzania</option>
+                        <option value="RW">Rwanda</option>
+
+                        <option value="US">United States</option>
+                        <option value="CA">Canada</option>
+
+                        <option value="GB">
+                            United Kingdom
+                        </option>
+
+                        <option value="AU">
+                            Australia
+                        </option>
+
+                        <option value="BR">
+                            Brazil
+                        </option>
+
+                        <option value="CN">
+                            China
+                        </option>
+
+                        <option value="IN">
+                            India
+                        </option>
+
+                        <option value="JP">
+                            Japan
+                        </option>
+
+                        <option value="DE">
+                            Germany
+                        </option>
+
+                        <option value="FR">
+                            France
+                        </option>
+
+                        <option value="OTHER">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div
+                    class="age-result"
+                    id="ageResult"
+                    hidden
+                ></div>
+
+
+                <button
+                    type="button"
+                    class="primary-btn"
+                    id="continueStep1"
+                >
+                    Continue
+                </button>
+
+            </section>
+
+
+            <!-- STEP 2 -->
+
+            <section
+                class="form-step"
+                id="step2"
+            >
+
+                <div class="section-title">
+
+                    <h2>What do you enjoy?</h2>
+
+                    <p>
+                        Choose a few interests to help Nettoon
+                        recommend animation you may enjoy.
+                    </p>
+
+                </div>
+
+
+                <div class="interest-grid">
+
+                    <label class="interest">
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="comedy"
+                        >
+                        <span>😂 Comedy</span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="action"
+                        >
+                        <span>⚡ Action</span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="adventure"
+                        >
+                        <span>🗺️ Adventure</span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="fantasy"
+                        >
+                        <span>🪄 Fantasy</span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="anime"
+                        >
+                        <span>🎌 Anime</span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="science"
+                        >
+                        <span>🔬 Science</span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="education"
+                        >
+                        <span>📚 Educational</span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="music"
+                        >
+                        <span>🎵 Music</span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="african-stories"
+                        >
+                        <span>🌍 African Stories</span>
+                    </label>
+
+
+                    <label class="interest">
+                        <input
+                            type="checkbox"
+                            name="interests"
+                            value="technology"
+                        >
+                        <span>💻 Technology</span>
+                    </label>
+
+                </div>
+
+
+                <p class="optional">
+                    Interests are optional.
+                </p>
+
+
+                <div class="button-row">
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        id="backStep2"
+                    >
+                        Back
+                    </button>
+
+                    <button
+                        type="button"
+                        class="primary-btn"
+                        id="continueStep2"
+                    >
+                        Continue
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- STEP 3 -->
+
+            <section
+                class="form-step"
+                id="step3"
+            >
+
+                <div class="guardian-box">
+
+                    <div class="guardian-icon">
+                        🛡️
+                    </div>
+
+                    <h2>
+                        Parent or Guardian Approval
+                    </h2>
+
+                    <p>
+                        Because this is a youth account,
+                        a parent or legal guardian must approve
+                        the account before it can be activated.
+                    </p>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="guardianName">
+                        Parent / Guardian Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="guardianName"
+                        name="guardianName"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="guardianEmail">
+                        Parent / Guardian Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="guardianEmail"
+                        name="guardianEmail"
+                        autocomplete="email"
+                        required
+                    >
+
+                    <small>
+                        We'll send the parent/guardian a separate
+                        verification and consent request.
+                    </small>
+
+                </div>
+
+
+                <div class="field">
+
+                    <label for="relationship">
+                        Relationship
+                    </label>
+
+                    <select
+                        id="relationship"
+                        name="relationship"
+                        required
+                    >
+
+                        <option value="">
+                            Select relationship
+                        </option>
+
+                        <option value="parent">
+                            Parent
+                        </option>
+
+                        <option value="legal-guardian">
+                            Legal Guardian
+                        </option>
+
+                        <option value="other-authorized-adult">
+                            Other Authorized Adult
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="consent-box">
+
+                    <label class="check-row">
+
+                        <input
+                            type="checkbox"
+                            id="guardianDeclaration"
+                            required
+                        >
+
+                        <span>
+                            I confirm that I am the parent,
+                            legal guardian, or authorized adult
+                            responsible for this young person
+                            and that the information I have provided
+                            is accurate.
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="privacy-links">
+
+                    <a href="/privacy">
+                        Privacy Policy
+                    </a>
+
+                    <a href="/youth-privacy">
+                        Youth Privacy Notice
+                    </a>
+
+                    <a href="/parent-guide">
+                        Parent Guide
+                    </a>
+
+                    <a href="/terms">
+                        Terms of Service
+                    </a>
+
+                </div>
+
+
+                <div class="button-row">
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        id="backStep3"
+                    >
+                        Back
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="primary-btn"
+                        id="submitSignup"
+                    >
+                        Send Parent Approval Request
+                    </button>
+
+                </div>
+
+            </section>
+
+        </form>
+
+
+        <div
+            id="successMessage"
+            class="success-message"
+            hidden
+        >
+
+            <div class="success-icon">
+                ✓
+            </div>
+
+            <h2>
+                Almost there!
+            </h2>
+
+            <p>
+                We've sent an approval request to the
+                parent or guardian.
+            </p>
+
+            <p>
+                The Nettoon account will not be activated
+                until the required approval process is completed.
+            </p>
+
+        </div>
+
+
+        <div class="footer-note">
+
+            <p>
+                Nettoon is committed to protecting young people's
+                privacy and safety.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="script25.js"></script>
+
+</body>
+</html>

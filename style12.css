@@ -1206,7 +1206,7 @@ flex-wrap: nowrap;
     padding-left: var(--spacing-xs);
     padding-right: 8px;
 
-    gap: 8px;
+    gap: 14px;
 
     box-sizing: border-box;
 
@@ -2320,7 +2320,7 @@ border-radius: 7px;
   .kontainer {
     position: relative;
     width: clamp(100%, 30%, 32%);
-    height: auto;
+    height: 100px;
     background-color:black;
     border-radius: 0.5rem;
     cursor: pointer;
