@@ -366,7 +366,6 @@
 
 <input
     type="number"
-    id="episodeNumber"
     name="episodeNumber"
     class="episode-input"
     min="1"
@@ -391,26 +390,14 @@
           <img src="image-upload.png" alt="Click to upload thumbnail" class="upload-poster">
           <input type="file" class="file-input" accept="image/*">
         </div>
+
+        
       </div>
 
       <!-- Episode Preview -->
       <div class="preview-container"></div>
 
-      <!-- Delete button -->
-      <div class="delete" style="display: none;">
-        <span class="delete-btn">Delete Episode</span>
-      </div>
-    </div>
-  </div>
-
-  <!-- Add Episode Button -->
-  <div class="Episodes">
-    <div class="Add">
-      <span id="addEpisodeBtn">Add Episode</span>
-    </div>
-  </div>
-
-  <!-- Upper Section -->
+        <!-- Upper Section -->
   <div class="upper-container">
 
     <!-- Genre -->
@@ -494,19 +481,6 @@
     </div>
 
 
-
-  </div> <!-- end lower-container -->
-  <div class="metadata-group">
-    <label>Save to Playlist</label>
-    <select id="Playlist">
-        <option>Create New Playlist</option>
-        <option>Teen X</option>
-        <option>Afrilens</option>
-        <option>Nettoon</option>
-        <option>Kenya</option>
-    </select>
-</div>
-
   <!-- Allow Comments -->
   <div class="meta">
     <p>Allow comments</p>
@@ -520,12 +494,282 @@
     </div>
   </div>
 
+      <!-- =========================================================
+     EPISODE RELEASE SCHEDULING
+     ========================================================= -->
+<div class="episode-release">
+
+  <div class="release-title">
+    <h3>Episode Release</h3>
+    <span class="release-status">Not scheduled</span>
+  </div>
+
+  <div class="release-controls">
+
+    <!-- Release Date -->
+    <div class="release-field">
+      <label>Release Date</label>
+
+      <input
+        type="date"
+        class="episode-release-date"
+      >
+    </div>
+
+    <!-- Release Time -->
+    <div class="release-field">
+      <label>Release Time</label>
+
+      <input
+        type="time"
+        class="episode-release-time"
+      >
+    </div>
+
+    <!-- Schedule Button -->
+    <button
+      type="button"
+      class="update-schedule-btn"
+    >
+      Update Schedule
+    </button>
+
+  </div>
+
+  <!-- Current Schedule Information -->
+  <div class="episode-schedule-info">
+
+    <span class="schedule-message">
+      No release schedule has been set.
+    </span>
+
+    <button
+      type="button"
+      class="cancel-schedule-btn"
+      hidden
+    >
+      Cancel
+    </button>
+
+  </div>
+
+</div>
+
+      <!-- Delete button -->
+      <div class="delete" style="display: none;">
+        <span class="delete-btn">Delete Episode</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Episode Button -->
+  <div class="Episodes">
+    <div class="Add">
+      <span id="addEpisodeBtn">Add Episode</span>
+    </div>
+
+
+  </div>
+
+<!-- =========================================================
+     SERIES RELEASE TIMELINE
+     ========================================================= -->
+
+<div class="release-timeline-container">
+
+  <div class="timeline-header">
+
+    <div>
+      <h3>Release Timeline</h3>
+
+      <p>
+        Your planned episode releases.
+      </p>
+    </div>
+
+  </div>
+
+
+  <!-- Timeline Items -->
+  <div
+    class="release-timeline"
+    id="releaseTimeline"
+  >
+
+    <!-- JavaScript will insert scheduled episodes here -->
+
+    <div class="timeline-empty">
+      No episodes have been scheduled yet.
+    </div><!-- =========================================================
+     SERIES RELEASE TIMELINE
+     ========================================================= -->
+
+<div class="release-timeline-container">
+
+  <!-- Header -->
+  <div class="timeline-header">
+
+    <div class="timeline-title-area">
+      <div class="timeline-icon">
+        <span>◷</span>
+      </div>
+
+      <div>
+        <h3>Release Timeline</h3>
+        <p>Your planned episode releases.</p>
+      </div>
+    </div>
+
+    <div class="timeline-status">
+      <span class="status-dot"></span>
+      <span>Live Schedule</span>
+    </div>
+
+  </div>
+
+
+  <!-- Timeline Content -->
+  <div class="release-timeline-wrapper">
+
+    <div
+      class="release-timeline"
+      id="releaseTimeline"
+    >
+
+      <!-- JavaScript inserts scheduled episodes here -->
+
+      <div class="timeline-empty">
+
+        <div class="empty-icon">
+          ◷
+        </div>
+
+        <h4>No episodes scheduled</h4>
+
+        <p>
+          Schedule your episodes and they will appear
+          here in chronological order.
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Timeline Statistics -->
+  <div class="timeline-stats">
+
+    <!-- Total Episodes -->
+    <div class="timeline-stat">
+
+      <div class="stat-icon total-icon">
+        ▤
+      </div>
+
+      <div class="stat-content">
+        <span>Total Episodes</span>
+
+        <strong id="totalEpisodes">
+          0
+        </strong>
+      </div>
+
+    </div>
+
+
+    <!-- Scheduled -->
+    <div class="timeline-stat">
+
+      <div class="stat-icon scheduled-icon">
+        ◷
+      </div>
+
+      <div class="stat-content">
+        <span>Scheduled</span>
+
+        <strong id="scheduledEpisodes">
+          0
+        </strong>
+      </div>
+
+    </div>
+
+
+    <!-- Ready -->
+    <div class="timeline-stat">
+
+      <div class="stat-icon ready-icon">
+        ✓
+      </div>
+
+      <div class="stat-content">
+        <span>Ready to Publish</span>
+
+        <strong id="readyEpisodes">
+          0
+        </strong>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+  </div>
+
+
+  <!-- Timeline Statistics -->
+  <div class="timeline-stats">
+
+    <div class="timeline-stat">
+
+      <span>Total Episodes</span>
+
+      <strong id="totalEpisodes">
+        0
+      </strong>
+
+    </div>
+
+
+    <div class="timeline-stat">
+
+      <span>Scheduled</span>
+
+      <strong id="scheduledEpisodes">
+        0
+      </strong>
+
+    </div>
+
+
+    <div class="timeline-stat">
+
+      <span>Ready to Publish</span>
+
+      <strong id="readyEpisodes">
+        0
+      </strong>
+
+    </div>
+
+  </div>
+
+  
+</div>
+
+
+
   <!-- Upload Button -->
   <div class="upload-btn-wrapper">
     <a href="#"><button type="submit">Upload Video</button></a>
   </div>
 
 </div> <!-- ✅ END newContent -->
+</div>
 
         <!-- ✅ EXISTING TAB -->
 <div id="existingContent" class="tab-content" role="tabpanel">

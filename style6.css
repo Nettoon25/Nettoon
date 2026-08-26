@@ -3090,6 +3090,849 @@ h3 {
   }
 }
 
+/* =========================================================
+   EPISODE RELEASE SCHEDULING
+   ========================================================= */
+
+.episode-release {
+  width: 100%;
+  margin-top: 1.2rem;
+  padding: 1rem;
+  box-sizing: border-box;
+
+  background: #171717;
+
+  border: 1px solid #333;
+  border-radius: 8px;
+
+  color: #fff;
+}
+
+
+/* ---------------------------------------------------------
+   TITLE
+   --------------------------------------------------------- */
+
+.release-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 1rem;
+}
+
+.release-title h3 {
+  margin: 0;
+
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.release-status {
+  font-size: 0.78rem;
+
+  padding: 0.3rem 0.55rem;
+
+  border-radius: 4px;
+
+  background: #2a2a2a;
+  color: #aaa;
+}
+
+
+/* Scheduled state */
+
+.episode-release.is-scheduled
+.release-status {
+  background: rgba(0, 200, 83, 0.15);
+  color: #00c853;
+}
+
+
+/* ---------------------------------------------------------
+   CONTROLS
+   --------------------------------------------------------- */
+
+.release-controls {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr)
+    auto;
+
+  gap: 0.7rem;
+
+  align-items: end;
+}
+
+
+.release-field {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 0.4rem;
+}
+
+
+.release-field label {
+  font-size: 0.8rem;
+
+  font-weight: 600;
+
+  color: #ddd;
+}
+
+
+.release-field input {
+  width: 100%;
+
+  height: 44px;
+
+  box-sizing: border-box;
+
+  padding: 0 0.75rem;
+
+  border: 1px solid #3b3b3b;
+
+  border-radius: 6px;
+
+  background: #202020;
+
+  color: #fff;
+
+  font-size: 0.9rem;
+
+  outline: none;
+}
+
+
+.release-field input:focus {
+  border-color: #777;
+}
+
+
+/* ---------------------------------------------------------
+   UPDATE BUTTON
+   --------------------------------------------------------- */
+
+.update-schedule-btn {
+  height: 44px;
+
+  padding: 0 1rem;
+
+  border: none;
+
+  border-radius: 6px;
+
+  background: #ff0000;
+
+  color: #fff;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  white-space: nowrap;
+}
+
+
+.update-schedule-btn:hover {
+  background: #d90000;
+}
+
+
+/* ---------------------------------------------------------
+   SCHEDULE INFORMATION
+   --------------------------------------------------------- */
+
+.episode-schedule-info {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  margin-top: 0.65rem;
+
+  padding: 0.7rem;
+
+  border-radius: 6px;
+
+  background: #202020;
+
+  font-size: 0.8rem;
+
+  color: #aaa;
+}
+
+
+.schedule-message {
+  flex: 1;
+}
+
+
+
+.cancel-schedule-btn {
+  border: 1px solid #772222;
+
+  background: #351616;
+
+  color: #ff6666;
+
+  padding: 0.4rem 0.65rem;
+
+  border-radius: 5px;
+
+  cursor: pointer;
+}
+
+
+.cancel-schedule-btn:hover {
+  background: #4a1c1c;
+}
+
+
+/* =========================================================
+   SERIES RELEASE TIMELINE
+   ========================================================= */
+
+.release-timeline-container {
+  width: 100%;
+  max-width: 720px;
+
+  background: #171717;
+
+  border: 1px solid #303030;
+  border-radius: 12px;
+
+  overflow: hidden;
+
+  color: #ffffff;
+
+  box-sizing: border-box;
+
+  margin-top: 20px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.timeline-header {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 20px;
+
+  border-bottom: 1px solid #303030;
+
+  box-sizing: border-box;
+}
+
+
+/* Left side */
+
+.timeline-title-area {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+}
+
+
+/* Timeline icon */
+
+.timeline-icon {
+  width: 38px;
+  height: 38px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #242424;
+
+  border: 1px solid #383838;
+
+  border-radius: 9px;
+
+  flex-shrink: 0;
+}
+
+.timeline-icon span {
+  font-size: 20px;
+  color: #ff3b30;
+}
+
+
+/* Heading */
+
+.timeline-header h3 {
+  margin: 0;
+
+  font-size: 17px;
+
+  font-weight: 700;
+
+  color: #ffffff;
+}
+
+
+/* Description */
+
+.timeline-header p {
+  margin: 4px 0 0;
+
+  font-size: 12px;
+
+  color: #9b9b9b;
+}
+
+
+/* =========================================================
+   LIVE SCHEDULE STATUS
+   ========================================================= */
+
+.timeline-status {
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  padding: 6px 10px;
+
+  background: #202020;
+
+  border: 1px solid #303030;
+
+  border-radius: 20px;
+
+  font-size: 11px;
+
+  color: #bdbdbd;
+
+  white-space: nowrap;
+}
+
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+
+  background: #22c55e;
+
+  border-radius: 50%;
+
+  display: block;
+}
+
+
+/* =========================================================
+   TIMELINE WRAPPER
+   ========================================================= */
+
+.release-timeline-wrapper {
+  width: 100%;
+
+  padding: 20px;
+
+  box-sizing: border-box;
+
+  max-height: 430px;
+
+  overflow-y: auto;
+}
+
+
+/* Custom scrollbar */
+
+.release-timeline-wrapper::-webkit-scrollbar {
+  width: 5px;
+}
+
+.release-timeline-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.release-timeline-wrapper::-webkit-scrollbar-thumb {
+  background: #444;
+
+  border-radius: 10px;
+}
+
+
+/* Firefox */
+
+.release-timeline-wrapper {
+  scrollbar-width: thin;
+  scrollbar-color: #444 transparent;
+}
+
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.release-timeline {
+  position: relative;
+
+  width: 100%;
+
+  box-sizing: border-box;
+}
+
+
+/*
+   Vertical timeline line.
+   It appears only when timeline items exist.
+*/
+
+.release-timeline.has-items::before {
+  content: "";
+
+  position: absolute;
+
+  left: 9px;
+  top: 10px;
+  bottom: 10px;
+
+  width: 2px;
+
+  background: #383838;
+}
+
+
+/* =========================================================
+   TIMELINE EPISODE ITEM
+   ========================================================= */
+
+.release-timeline-item {
+  position: relative;
+
+  display: flex;
+
+  width: 100%;
+
+  margin-bottom: 14px;
+
+  box-sizing: border-box;
+}
+
+
+/* Timeline point */
+
+.release-timeline-marker {
+  position: relative;
+
+  width: 20px;
+
+  min-width: 20px;
+
+  display: flex;
+
+  justify-content: center;
+
+  padding-top: 17px;
+
+  z-index: 2;
+}
+
+
+.release-timeline-marker::before {
+  content: "";
+
+  width: 9px;
+  height: 9px;
+
+  background: #ff3b30;
+
+  border: 3px solid #171717;
+
+  border-radius: 50%;
+
+  box-shadow: 0 0 0 1px #ff3b30;
+}
+
+
+/* =========================================================
+   EPISODE CARD
+   ========================================================= */
+
+.release-episode-card {
+  flex: 1;
+
+  margin-left: 12px;
+
+  padding: 14px 16px;
+
+  background: #202020;
+
+  border: 1px solid #353535;
+
+  border-radius: 9px;
+
+  box-sizing: border-box;
+
+  min-width: 0;
+}
+
+
+/* Episode heading */
+
+.release-episode-top {
+  display: flex;
+
+  align-items: flex-start;
+
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+
+.release-episode-title {
+  margin: 0;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  color: #ffffff;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   STATUS BADGE
+   ========================================================= */
+
+.release-status {
+  flex-shrink: 0;
+
+  padding: 4px 8px;
+
+  border-radius: 5px;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+.release-status.scheduled {
+  color: #ffb4ae;
+
+  background: rgba(255, 59, 48, 0.12);
+
+  border: 1px solid rgba(255, 59, 48, 0.25);
+}
+
+
+.release-status.ready {
+  color: #86efac;
+
+  background: rgba(34, 197, 94, 0.12);
+
+  border: 1px solid rgba(34, 197, 94, 0.25);
+}
+
+
+.release-status.published {
+  color: #93c5fd;
+
+  background: rgba(59, 130, 246, 0.12);
+
+  border: 1px solid rgba(59, 130, 246, 0.25);
+}
+
+
+/* =========================================================
+   RELEASE DATE
+   ========================================================= */
+
+.release-episode-date {
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 8px;
+
+  font-size: 11px;
+
+  color: #a9a9a9;
+}
+
+
+.release-episode-date .date-icon {
+  font-size: 13px;
+
+  color: #ff3b30;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.timeline-empty {
+  min-height: 190px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 30px 20px;
+
+  box-sizing: border-box;
+}
+
+
+.empty-icon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 12px;
+
+  background: #222222;
+
+  border: 1px solid #353535;
+
+  border-radius: 50%;
+
+  font-size: 22px;
+
+  color: #777777;
+}
+
+
+.timeline-empty h4 {
+  margin: 0;
+
+  font-size: 14px;
+
+  color: #eeeeee;
+}
+
+
+.timeline-empty p {
+  max-width: 320px;
+
+  margin: 7px 0 0;
+
+  font-size: 11px;
+
+  line-height: 1.5;
+
+  color: #777777;
+}
+
+
+/* =========================================================
+   STATISTICS
+   ========================================================= */
+
+.timeline-stats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  border-top: 1px solid #303030;
+
+  background: #141414;
+}
+
+
+/* Individual stat */
+
+.timeline-stat {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 15px;
+
+  min-width: 0;
+
+  box-sizing: border-box;
+}
+
+
+/* Vertical separators */
+
+.timeline-stat + .timeline-stat {
+  border-left: 1px solid #303030;
+}
+
+
+/* =========================================================
+   STAT ICONS
+   ========================================================= */
+
+.stat-icon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 7px;
+
+  font-size: 14px;
+
+  background: #222222;
+}
+
+
+.total-icon {
+  color: #d1d5db;
+}
+
+
+.scheduled-icon {
+  color: #ff6b61;
+}
+
+
+.ready-icon {
+  color: #4ade80;
+}
+
+
+/* =========================================================
+   STAT CONTENT
+   ========================================================= */
+
+.stat-content {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+}
+
+
+.stat-content span {
+  font-size: 10px;
+
+  color: #8b8b8b;
+
+  white-space: nowrap;
+}
+
+
+.stat-content strong {
+  font-size: 17px;
+
+  line-height: 1;
+
+  color: #ffffff;
+}
+
+
+/* =========================================================
+   RESPONSIVE SCHEDULING
+   ========================================================= */
+
+@media screen and (max-width: 700px) {
+
+  .release-controls {
+
+    grid-template-columns: 1fr;
+  }
+
+
+  .update-schedule-btn {
+
+    width: 100%;
+  }
+
+
+  .timeline-stats {
+
+    grid-template-columns: 1fr;
+  }
+
+
+  .timeline-stat {
+
+    border-right: none;
+
+    border-bottom: 1px solid #333;
+  }
+
+
+  .timeline-stat:last-child {
+
+    border-bottom: none;
+  }
+
+}
+
+
+@media screen and (max-width: 480px) {
+
+  .episode-release {
+
+    padding: 0.8rem;
+  }
+
+
+  .release-title {
+
+    align-items: flex-start;
+
+    gap: 0.5rem;
+
+    flex-direction: column;
+  }
+
+
+  .episode-schedule-info {
+
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+
+  .cancel-schedule-btn {
+
+    width: 100%;
+  }
+
+}
+
 /* 📦 Metadata Main Container */
 .metadata-container {
   position: relative;

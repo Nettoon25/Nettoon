@@ -1,0 +1,1813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nettoon — Series Upload</title>
+
+<style>
+/* =========================================================
+   NETTOON SERIES UPLOAD
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --nettoon-red: #ff0000;
+  --nettoon-yellow: #fff000;
+
+  --bg: #111111;
+  --panel: #181818;
+  --panel-2: #202020;
+  --panel-3: #282828;
+
+  --border: #353535;
+
+  --text: #ffffff;
+  --muted: #a8a8a8;
+
+  --green: #21c45b;
+  --orange: #ff7a00;
+  --blue: #3b82f6;
+
+  --radius: 10px;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* =========================================================
+   PAGE
+   ========================================================= */
+
+.series-upload-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.upload-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 20px;
+}
+
+.brand {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.brand .net {
+  color: var(--nettoon-red);
+}
+
+.brand .toon {
+  color: var(--nettoon-yellow);
+}
+
+.header-title h1 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.header-title p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* =========================================================
+   MAIN GRID
+   ========================================================= */
+
+.upload-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.65fr)
+    minmax(320px, 0.85fr);
+
+  gap: 20px;
+
+  align-items: start;
+}
+
+/* =========================================================
+   PANELS
+   ========================================================= */
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.panel-header {
+  padding: 15px 18px;
+  border-bottom: 1px solid var(--border);
+}
+
+.panel-header h2 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.panel-header p {
+  margin: 5px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.panel-body {
+  padding: 18px;
+}
+
+/* =========================================================
+   SERIES DETAILS
+   ========================================================= */
+
+.series-details {
+  margin-bottom: 20px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.form-group.full {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+
+  background: #202020;
+  color: white;
+
+  border: 1px solid #3a3a3a;
+  border-radius: 7px;
+
+  padding: 11px 12px;
+
+  font-size: 14px;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: var(--nettoon-red);
+}
+
+textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+.series-cover {
+  display: grid;
+  grid-template-columns: 130px 1fr;
+  gap: 15px;
+  align-items: center;
+}
+
+.cover-preview {
+  width: 130px;
+  height: 75px;
+
+  border-radius: 7px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #272727,
+      #111111
+    );
+
+  border: 1px dashed #555;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--muted);
+  font-size: 11px;
+  text-align: center;
+}
+
+/* =========================================================
+   SEASON BAR
+   ========================================================= */
+
+.season-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 15px;
+}
+
+.season-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.season-title h2 {
+  margin: 0;
+  font-size: 17px;
+}
+
+.season-badge {
+  background: var(--panel-3);
+  border: 1px solid var(--border);
+
+  padding: 5px 9px;
+
+  border-radius: 5px;
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+button {
+  font-family: inherit;
+}
+
+.btn {
+  border: 0;
+  border-radius: 7px;
+
+  padding: 10px 15px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.btn-primary {
+  background: var(--nettoon-red);
+  color: white;
+}
+
+.btn-secondary {
+  background: var(--panel-3);
+  color: white;
+  border: 1px solid var(--border);
+}
+
+.btn-green {
+  background: var(--green);
+  color: white;
+}
+
+.btn-danger {
+  background: #3a1515;
+  color: #ff7272;
+  border: 1px solid #652323;
+}
+
+/* =========================================================
+   EPISODE LIST
+   ========================================================= */
+
+.episode-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* =========================================================
+   EPISODE CARD
+   ========================================================= */
+
+.episode-card {
+  background: #1d1d1d;
+
+  border: 1px solid var(--border);
+
+  border-radius: 9px;
+
+  overflow: hidden;
+}
+
+.episode-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 12px 14px;
+
+  background: #222222;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.episode-number {
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.episode-status {
+  font-size: 11px;
+
+  padding: 5px 8px;
+
+  border-radius: 20px;
+
+  background: #333;
+  color: var(--muted);
+}
+
+.status-ready {
+  background: rgba(59, 130, 246, 0.15);
+  color: #76a9ff;
+}
+
+.status-scheduled {
+  background: rgba(33, 196, 91, 0.15);
+  color: #4ee27d;
+}
+
+.status-published {
+  background: rgba(255, 122, 0, 0.15);
+  color: #ff9b43;
+}
+
+.episode-card-body {
+  padding: 14px;
+}
+
+/* =========================================================
+   EPISODE GRID
+   ========================================================= */
+
+.episode-grid {
+  display: grid;
+
+  grid-template-columns:
+    110px
+    minmax(180px, 1fr)
+    150px
+    150px;
+
+  gap: 12px;
+
+  align-items: end;
+}
+
+.episode-thumbnail {
+  width: 110px;
+  height: 70px;
+
+  border-radius: 6px;
+
+  background: #111;
+
+  border: 1px dashed #444;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #777;
+
+  font-size: 11px;
+}
+
+.episode-actions {
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 8px;
+
+  margin-top: 14px;
+}
+
+/* =========================================================
+   SCHEDULING AREA
+   ========================================================= */
+
+.schedule-section {
+  margin-top: 15px;
+
+  padding-top: 15px;
+
+  border-top: 1px solid var(--border);
+}
+
+.schedule-row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr auto;
+
+  gap: 10px;
+
+  align-items: end;
+}
+
+.schedule-state {
+  margin-top: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #151515;
+
+  border-radius: 6px;
+
+  padding: 9px 10px;
+
+  font-size: 12px;
+}
+
+.schedule-state span {
+  color: var(--muted);
+}
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.timeline-panel {
+  position: sticky;
+  top: 20px;
+}
+
+.timeline {
+  position: relative;
+
+  padding-left: 25px;
+}
+
+.timeline::before {
+  content: "";
+
+  position: absolute;
+
+  left: 7px;
+  top: 5px;
+  bottom: 5px;
+
+  width: 2px;
+
+  background: #333;
+}
+
+.timeline-item {
+  position: relative;
+
+  padding-bottom: 18px;
+}
+
+.timeline-dot {
+  position: absolute;
+
+  left: -24px;
+  top: 3px;
+
+  width: 14px;
+  height: 14px;
+
+  border-radius: 50%;
+
+  background: #444;
+
+  border: 3px solid var(--panel);
+}
+
+.timeline-item.scheduled .timeline-dot {
+  background: var(--green);
+}
+
+.timeline-item.published .timeline-dot {
+  background: var(--orange);
+}
+
+.timeline-content {
+  background: #202020;
+
+  border: 1px solid var(--border);
+
+  border-radius: 7px;
+
+  padding: 11px;
+}
+
+.timeline-episode {
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.timeline-date {
+  margin-top: 5px;
+
+  color: var(--muted);
+
+  font-size: 11px;
+}
+
+.timeline-status {
+  display: inline-block;
+
+  margin-top: 7px;
+
+  font-size: 10px;
+
+  padding: 4px 7px;
+
+  border-radius: 4px;
+
+  background: #333;
+}
+
+/* =========================================================
+   PUBLISHING SUMMARY
+   ========================================================= */
+
+.publish-summary {
+  margin-top: 20px;
+
+  border-top: 1px solid var(--border);
+
+  padding-top: 15px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 8px 0;
+
+  font-size: 12px;
+}
+
+.summary-row span:last-child {
+  font-weight: 700;
+}
+
+/* =========================================================
+   BOTTOM ACTIONS
+   ========================================================= */
+
+.bottom-actions {
+  margin-top: 20px;
+
+  display: flex;
+  justify-content: flex-end;
+
+  gap: 10px;
+}
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.empty-state {
+  text-align: center;
+
+  padding: 30px 10px;
+
+  color: var(--muted);
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .upload-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline-panel {
+    position: relative;
+    top: 0;
+  }
+}
+
+@media (max-width: 700px) {
+
+  .series-upload-page {
+    padding: 10px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-group.full {
+    grid-column: auto;
+  }
+
+  .episode-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .episode-thumbnail {
+    width: 100%;
+    height: 140px;
+  }
+
+  .schedule-row {
+    grid-template-columns: 1fr;
+  }
+
+  .series-cover {
+    grid-template-columns: 1fr;
+  }
+
+  .cover-preview {
+    width: 100%;
+    height: 150px;
+  }
+
+  .upload-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="series-upload-page">
+
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+
+  <header class="upload-header">
+
+    <div class="brand">
+      <span class="net">NET</span><span class="toon">TOON</span>
+    </div>
+
+    <div class="header-title">
+      <h1>Create a Series</h1>
+      <p>Upload episodes individually and plan your release schedule.</p>
+    </div>
+
+  </header>
+
+
+  <!-- =====================================================
+       MAIN LAYOUT
+       ===================================================== -->
+
+  <main class="upload-layout">
+
+
+    <!-- ===================================================
+         LEFT SIDE
+         =================================================== -->
+
+    <section>
+
+
+      <!-- ================================================
+           SERIES DETAILS
+           ================================================ -->
+
+      <div class="panel series-details">
+
+        <div class="panel-header">
+          <h2>Series Information</h2>
+          <p>Enter the information that will represent the entire series.</p>
+        </div>
+
+        <div class="panel-body">
+
+          <div class="series-cover">
+
+            <div class="cover-preview">
+              Series Cover
+            </div>
+
+            <div class="form-grid">
+
+              <div class="form-group">
+                <label>Series Title</label>
+
+                <input
+                  type="text"
+                  id="seriesTitle"
+                  placeholder="e.g. Adam: The Mirror"
+                >
+              </div>
+
+              <div class="form-group">
+                <label>Season</label>
+
+                <select id="seasonNumber">
+
+                  <option value="1">
+                    Season 1
+                  </option>
+
+                  <option value="2">
+                    Season 2
+                  </option>
+
+                  <option value="3">
+                    Season 3
+                  </option>
+
+                  <option value="4">
+                    Season 4
+                  </option>
+
+                </select>
+
+              </div>
+
+              <div class="form-group full">
+
+                <label>Series Description</label>
+
+                <textarea
+                  id="seriesDescription"
+                  placeholder="Tell viewers what this series is about..."
+                ></textarea>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================================================
+           EPISODES
+           ================================================ -->
+
+      <div class="panel">
+
+        <div class="panel-header">
+
+          <div class="season-bar">
+
+            <div class="season-title">
+
+              <h2>Episodes</h2>
+
+              <span
+                class="season-badge"
+                id="seasonBadge"
+              >
+                Season 1
+              </span>
+
+            </div>
+
+            <button
+              class="btn btn-primary"
+              id="addEpisodeBtn"
+            >
+              + Add Episode
+            </button>
+
+          </div>
+
+          <p>
+            Each episode has its own upload, metadata,
+            engagement data and release schedule.
+          </p>
+
+        </div>
+
+        <div class="panel-body">
+
+          <div
+            class="episode-list"
+            id="episodeList"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ================================================
+           FINAL ACTIONS
+           ================================================ -->
+
+      <div class="bottom-actions">
+
+        <button
+          class="btn btn-secondary"
+          id="saveDraftBtn"
+        >
+          Save Series Draft
+        </button>
+
+        <button
+          class="btn btn-green"
+          id="publishSeriesBtn"
+        >
+          Publish Series
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- ===================================================
+         RIGHT SIDE — TIMELINE
+         =================================================== -->
+
+    <aside class="panel timeline-panel">
+
+      <div class="panel-header">
+
+        <h2>Release Timeline</h2>
+
+        <p>
+          Your planned episode releases.
+        </p>
+
+      </div>
+
+      <div class="panel-body">
+
+        <div
+          class="timeline"
+          id="timeline"
+        ></div>
+
+
+        <!-- ================================================
+             SUMMARY
+             ================================================ -->
+
+        <div class="publish-summary">
+
+          <div class="summary-row">
+            <span>Total Episodes</span>
+            <span id="totalEpisodes">0</span>
+          </div>
+
+          <div class="summary-row">
+            <span>Scheduled</span>
+            <span id="scheduledEpisodes">0</span>
+          </div>
+
+          <div class="summary-row">
+            <span>Ready to Publish</span>
+            <span id="readyEpisodes">0</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </aside>
+
+  </main>
+
+</div>
+
+
+<script>
+
+/* =========================================================
+   NETTOON SERIES UPLOAD LOGIC
+   ========================================================= */
+
+const episodeList =
+  document.getElementById("episodeList");
+
+const timeline =
+  document.getElementById("timeline");
+
+const addEpisodeBtn =
+  document.getElementById("addEpisodeBtn");
+
+const seasonNumber =
+  document.getElementById("seasonNumber");
+
+const seasonBadge =
+  document.getElementById("seasonBadge");
+
+const totalEpisodes =
+  document.getElementById("totalEpisodes");
+
+const scheduledEpisodes =
+  document.getElementById("scheduledEpisodes");
+
+const readyEpisodes =
+  document.getElementById("readyEpisodes");
+
+
+let episodes = JSON.parse(
+  localStorage.getItem("nettoonSeriesEpisodes") || "[]"
+);
+
+
+/* =========================================================
+   CREATE EPISODE
+   ========================================================= */
+
+function createEpisode() {
+
+  const episodeNumber =
+    episodes.length + 1;
+
+  const episode = {
+
+    id: Date.now(),
+
+    number: episodeNumber,
+
+    title:
+      `Episode ${episodeNumber}`,
+
+    description: "",
+
+    video: "",
+
+    date: "",
+
+    time: "",
+
+    status: "Ready"
+
+  };
+
+  episodes.push(episode);
+
+  saveData();
+
+  renderEpisodes();
+
+  renderTimeline();
+}
+
+
+/* =========================================================
+   RENDER EPISODES
+   ========================================================= */
+
+function renderEpisodes() {
+
+  episodeList.innerHTML = "";
+
+  if (episodes.length === 0) {
+
+    episodeList.innerHTML = `
+      <div class="empty-state">
+        No episodes added yet.<br>
+        Click <strong>+ Add Episode</strong> to begin.
+      </div>
+    `;
+
+    updateSummary();
+
+    return;
+  }
+
+
+  episodes.forEach((episode, index) => {
+
+    const card =
+      document.createElement("div");
+
+    card.className = "episode-card";
+
+    card.dataset.id = episode.id;
+
+
+    card.innerHTML = `
+
+      <div class="episode-card-header">
+
+        <span class="episode-number">
+          Episode ${episode.number}
+        </span>
+
+        <span
+          class="episode-status
+          ${episode.status === "Scheduled"
+            ? "status-scheduled"
+            : ""}
+          "
+        >
+          ${episode.status}
+        </span>
+
+      </div>
+
+
+      <div class="episode-card-body">
+
+        <div class="episode-grid">
+
+          <div class="episode-thumbnail">
+            Video
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Episode Title
+            </label>
+
+            <input
+              type="text"
+              class="episode-title"
+              value="${escapeHTML(episode.title)}"
+              placeholder="Episode title"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Episode Number
+            </label>
+
+            <input
+              type="number"
+              class="episode-number-input"
+              min="1"
+              value="${episode.number}"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>
+              Video File
+            </label>
+
+            <input
+              type="file"
+              class="episode-video"
+              accept="video/*"
+            >
+
+          </div>
+
+        </div>
+
+
+        <!-- =============================================
+             EPISODE DESCRIPTION
+             ============================================= -->
+
+        <div
+          class="form-group"
+          style="margin-top:14px;"
+        >
+
+          <label>
+            Episode Description
+          </label>
+
+          <textarea
+            class="episode-description"
+            placeholder="Describe this episode..."
+          >${escapeHTML(episode.description)}</textarea>
+
+        </div>
+
+
+        <!-- =============================================
+             SCHEDULE
+             ============================================= -->
+
+        <div class="schedule-section">
+
+          <div
+            style="
+              font-size:13px;
+              font-weight:700;
+              margin-bottom:10px;
+            "
+          >
+            Episode Release
+          </div>
+
+
+          <div class="schedule-row">
+
+            <div class="form-group">
+
+              <label>
+                Release Date
+              </label>
+
+              <input
+                type="date"
+                class="episode-date"
+                value="${episode.date}"
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label>
+                Release Time
+              </label>
+
+              <input
+                type="time"
+                class="episode-time"
+                value="${episode.time}"
+              >
+
+            </div>
+
+
+            <button
+              class="btn btn-primary schedule-btn"
+            >
+              ${episode.status === "Scheduled"
+                ? "Update Schedule"
+                : "Schedule Episode"}
+            </button>
+
+          </div>
+
+
+          <div class="schedule-state">
+
+            <span>
+              ${getScheduleText(episode)}
+            </span>
+
+            ${
+              episode.status === "Scheduled"
+              ?
+              `<button
+                 class="btn btn-danger cancel-schedule"
+                 style="padding:6px 9px;"
+               >
+                 Cancel
+               </button>`
+              :
+              ""
+            }
+
+          </div>
+
+        </div>
+
+
+        <!-- =============================================
+             EPISODE ACTIONS
+             ============================================= -->
+
+        <div class="episode-actions">
+
+          <button
+            class="btn btn-secondary save-episode"
+          >
+            Save Episode
+          </button>
+
+          <button
+            class="btn btn-danger delete-episode"
+          >
+            Remove Episode
+          </button>
+
+        </div>
+
+      </div>
+    `;
+
+
+    episodeList.appendChild(card);
+
+
+    /* ===================================================
+       FIELD EVENTS
+       =================================================== */
+
+    const titleInput =
+      card.querySelector(".episode-title");
+
+    const numberInput =
+      card.querySelector(".episode-number-input");
+
+    const descriptionInput =
+      card.querySelector(".episode-description");
+
+
+    titleInput.addEventListener(
+      "input",
+      () => {
+
+        episode.title =
+          titleInput.value;
+
+        saveData();
+
+        renderTimeline();
+      }
+    );
+
+
+    numberInput.addEventListener(
+      "change",
+      () => {
+
+        episode.number =
+          Number(numberInput.value);
+
+        saveData();
+
+        renderEpisodes();
+
+        renderTimeline();
+      }
+    );
+
+
+    descriptionInput.addEventListener(
+      "input",
+      () => {
+
+        episode.description =
+          descriptionInput.value;
+
+        saveData();
+      }
+    );
+
+
+    /* ===================================================
+       SCHEDULE EPISODE
+       =================================================== */
+
+    const scheduleBtn =
+      card.querySelector(".schedule-btn");
+
+
+    scheduleBtn.addEventListener(
+      "click",
+      () => {
+
+        const date =
+          card.querySelector(".episode-date").value;
+
+        const time =
+          card.querySelector(".episode-time").value;
+
+
+        if (!date || !time) {
+
+          alert(
+            "Please select both a release date and release time."
+          );
+
+          return;
+        }
+
+
+        const selectedDate =
+          new Date(`${date}T${time}`);
+
+
+        const now =
+          new Date();
+
+
+        if (selectedDate <= now) {
+
+          alert(
+            "The scheduled release must be in the future."
+          );
+
+          return;
+        }
+
+
+        episode.date = date;
+
+        episode.time = time;
+
+        episode.status = "Scheduled";
+
+
+        saveData();
+
+        renderEpisodes();
+
+        renderTimeline();
+
+      }
+    );
+
+
+    /* ===================================================
+       CANCEL SCHEDULE
+       =================================================== */
+
+    const cancelBtn =
+      card.querySelector(".cancel-schedule");
+
+
+    if (cancelBtn) {
+
+      cancelBtn.addEventListener(
+        "click",
+        () => {
+
+          episode.date = "";
+
+          episode.time = "";
+
+          episode.status = "Ready";
+
+          saveData();
+
+          renderEpisodes();
+
+          renderTimeline();
+
+        }
+      );
+
+    }
+
+
+    /* ===================================================
+       SAVE EPISODE
+       =================================================== */
+
+    const saveBtn =
+      card.querySelector(".save-episode");
+
+
+    saveBtn.addEventListener(
+      "click",
+      () => {
+
+        episode.title =
+          titleInput.value;
+
+        episode.number =
+          Number(numberInput.value);
+
+        episode.description =
+          descriptionInput.value;
+
+        saveData();
+
+        alert(
+          `Episode ${episode.number} saved.`
+        );
+
+      }
+    );
+
+
+    /* ===================================================
+       DELETE EPISODE
+       =================================================== */
+
+    const deleteBtn =
+      card.querySelector(".delete-episode");
+
+
+    deleteBtn.addEventListener(
+      "click",
+      () => {
+
+        const confirmed =
+          confirm(
+            `Remove Episode ${episode.number}?`
+          );
+
+
+        if (!confirmed) return;
+
+
+        episodes =
+          episodes.filter(
+            item =>
+              item.id !== episode.id
+          );
+
+
+        /* Re-number episodes */
+
+        episodes.forEach(
+          (item, index) => {
+
+            item.number =
+              index + 1;
+
+          }
+        );
+
+
+        saveData();
+
+        renderEpisodes();
+
+        renderTimeline();
+
+      }
+    );
+
+  });
+
+
+  updateSummary();
+}
+
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+function renderTimeline() {
+
+  timeline.innerHTML = "";
+
+
+  if (episodes.length === 0) {
+
+    timeline.innerHTML = `
+      <div class="empty-state">
+        Your release timeline will appear here.
+      </div>
+    `;
+
+    return;
+  }
+
+
+  const sorted =
+    [...episodes].sort(
+      (a, b) => {
+
+        if (!a.date) return 1;
+
+        if (!b.date) return -1;
+
+        return new Date(
+          `${a.date}T${a.time}`
+        ) -
+        new Date(
+          `${b.date}T${b.time}`
+        );
+
+      }
+    );
+
+
+  sorted.forEach(
+    episode => {
+
+      const item =
+        document.createElement("div");
+
+      item.className =
+        "timeline-item " +
+        (
+          episode.status === "Scheduled"
+          ? "scheduled"
+          : ""
+        );
+
+
+      let releaseText =
+        "Release date not scheduled";
+
+
+      if (
+        episode.date &&
+        episode.time
+      ) {
+
+        const date =
+          new Date(
+            `${episode.date}T${episode.time}`
+          );
+
+
+        releaseText =
+          date.toLocaleString(
+            undefined,
+            {
+              dateStyle: "medium",
+              timeStyle: "short"
+            }
+          );
+
+      }
+
+
+      item.innerHTML = `
+
+        <div class="timeline-dot"></div>
+
+        <div class="timeline-content">
+
+          <div class="timeline-episode">
+
+            Episode ${episode.number}
+
+            ${
+              episode.title
+              ? ` — ${escapeHTML(episode.title)}`
+              : ""
+            }
+
+          </div>
+
+          <div class="timeline-date">
+
+            ${releaseText}
+
+          </div>
+
+          <span class="timeline-status">
+
+            ${episode.status}
+
+          </span>
+
+        </div>
+      `;
+
+
+      timeline.appendChild(item);
+
+    }
+  );
+}
+
+
+/* =========================================================
+   SCHEDULE TEXT
+   ========================================================= */
+
+function getScheduleText(episode) {
+
+  if (
+    episode.status === "Scheduled" &&
+    episode.date &&
+    episode.time
+  ) {
+
+    const date =
+      new Date(
+        `${episode.date}T${episode.time}`
+      );
+
+
+    return `
+      Scheduled for
+      ${date.toLocaleString(
+        undefined,
+        {
+          dateStyle: "medium",
+          timeStyle: "short"
+        }
+      )}
+    `;
+
+  }
+
+
+  return "Not scheduled — publish whenever you're ready.";
+}
+
+
+/* =========================================================
+   SUMMARY
+   ========================================================= */
+
+function updateSummary() {
+
+  totalEpisodes.textContent =
+    episodes.length;
+
+
+  scheduledEpisodes.textContent =
+    episodes.filter(
+      e => e.status === "Scheduled"
+    ).length;
+
+
+  readyEpisodes.textContent =
+    episodes.filter(
+      e => e.status === "Ready"
+    ).length;
+}
+
+
+/* =========================================================
+   SEASON CHANGE
+   ========================================================= */
+
+seasonNumber.addEventListener(
+  "change",
+  () => {
+
+    seasonBadge.textContent =
+      `Season ${seasonNumber.value}`;
+
+  }
+);
+
+
+/* =========================================================
+   ADD EPISODE
+   ========================================================= */
+
+addEpisodeBtn.addEventListener(
+  "click",
+  createEpisode
+);
+
+
+/* =========================================================
+   SAVE DATA
+   ========================================================= */
+
+function saveData() {
+
+  localStorage.setItem(
+    "nettoonSeriesEpisodes",
+    JSON.stringify(episodes)
+  );
+
+}
+
+
+/* =========================================================
+   SAVE SERIES DRAFT
+   ========================================================= */
+
+document
+  .getElementById("saveDraftBtn")
+  .addEventListener(
+    "click",
+    () => {
+
+      const series = {
+
+        title:
+          document.getElementById(
+            "seriesTitle"
+          ).value,
+
+        season:
+          seasonNumber.value,
+
+        description:
+          document.getElementById(
+            "seriesDescription"
+          ).value,
+
+        episodes
+
+      };
+
+
+      localStorage.setItem(
+        "nettoonSeriesDraft",
+        JSON.stringify(series)
+      );
+
+
+      alert(
+        "Series draft saved."
+      );
+
+    }
+  );
+
+
+/* =========================================================
+   PUBLISH SERIES
+   ========================================================= */
+
+document
+  .getElementById("publishSeriesBtn")
+  .addEventListener(
+    "click",
+    () => {
+
+      if (episodes.length === 0) {
+
+        alert(
+          "Add at least one episode before publishing the series."
+        );
+
+        return;
+
+      }
+
+
+      const unscheduled =
+        episodes.filter(
+          episode =>
+            episode.status !== "Scheduled"
+        );
+
+
+      if (unscheduled.length > 0) {
+
+        const proceed =
+          confirm(
+            `${unscheduled.length} episode(s) are not scheduled. Continue?`
+          );
+
+
+        if (!proceed) return;
+
+      }
+
+
+      alert(
+        "Series is ready for publishing."
+      );
+
+    }
+  );
+
+
+/* =========================================================
+   HTML ESCAPE
+   ========================================================= */
+
+function escapeHTML(value) {
+
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+
+/* =========================================================
+   INITIAL LOAD
+   ========================================================= */
+
+renderEpisodes();
+
+renderTimeline();
+
+</script>
+
+</body>
+</html>
