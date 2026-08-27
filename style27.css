@@ -220,3 +220,16 @@ margin-bottom:1rem;
 .placeholder-card strong{font-size:18px}
 .placeholder-card span{color:var(--muted);line-height:1.5}
 .nav a{cursor:pointer}
+/* VIDEO EDIT MODAL - blends with the existing Creator Studio modal system */
+.video-edit-modal{width:min(620px,92vw)}
+.modal-subtitle{margin:5px 0 0;color:var(--muted);font-size:11px;font-weight:500}
+.edit-content-preview{display:flex;align-items:center;gap:12px;padding:12px;background:#111216;border:1px solid #25272d;border-radius:9px;margin-bottom:18px}
+.edit-thumb{width:58px;height:38px;display:grid;place-items:center;background:#202127;border-radius:6px;color:var(--accent);flex-shrink:0}
+.edit-content-preview strong,.edit-content-preview span{display:block}
+.edit-content-preview strong{font-size:13px}
+.edit-content-preview span{margin-top:4px;color:var(--muted);font-size:10px}
+.edit-fields-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.video-edit-modal textarea{width:100%;box-sizing:border-box;resize:vertical;min-height:95px;background:#0e0f12;border:1px solid var(--border);color:#fff;border-radius:8px;padding:11px;outline:none;font:inherit;font-size:12px}
+.edit-check{display:flex;align-items:center;gap:8px;color:#c9ccd2;font-size:12px;font-weight:700;margin-top:4px}
+.edit-check input{accent-color:var(--accent)}
+@media(max-width:650px){.edit-fields-grid{grid-template-columns:1fr}.video-edit-modal{width:92vw}}
