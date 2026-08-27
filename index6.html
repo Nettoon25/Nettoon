@@ -323,6 +323,21 @@
     <h3>Series Title</h3>
     <input type="text" placeholder="Enter Series title">
   </div>
+  
+ <label for="episodeNumber">
+Season
+</label>
+
+<input
+    type="number"
+    name="episodeNumber"
+    class="episode-input"
+    min="1"
+    step="1"
+    placeholder="Enter episode number"
+    autocomplete="off"
+>
+  
 
   <!-- Series Description -->
   <div class="Description">
@@ -349,6 +364,7 @@
 
   <!-- Preview Output (NEW ONLY) -->
   <div class="preview-container" id="newSeriesThumbnailPreview"></div>
+
 </div>
 
   <!-- Episodes Wrapper -->
@@ -561,46 +577,18 @@
       </div>
     </div>
   </div>
-
-  <!-- Add Episode Button -->
-  <div class="Episodes">
-    <div class="Add">
-      <span id="addEpisodeBtn">Add Episode</span>
-    </div>
-
-
-  </div>
-
 <!-- =========================================================
-     SERIES RELEASE TIMELINE
+     ADD EPISODE
      ========================================================= -->
 
-<div class="release-timeline-container">
-
-  <div class="timeline-header">
-
-    <div>
-      <h3>Release Timeline</h3>
-
-      <p>
-        Your planned episode releases.
-      </p>
-    </div>
-
+<div class="Episodes">
+  <div class="Add">
+    <span id="addEpisodeBtn">Add Episode</span>
   </div>
+</div>
 
 
-  <!-- Timeline Items -->
-  <div
-    class="release-timeline"
-    id="releaseTimeline"
-  >
-
-    <!-- JavaScript will insert scheduled episodes here -->
-
-    <div class="timeline-empty">
-      No episodes have been scheduled yet.
-    </div><!-- =========================================================
+<!-- =========================================================
      SERIES RELEASE TIMELINE
      ========================================================= -->
 
@@ -610,6 +598,7 @@
   <div class="timeline-header">
 
     <div class="timeline-title-area">
+
       <div class="timeline-icon">
         <span>◷</span>
       </div>
@@ -618,6 +607,7 @@
         <h3>Release Timeline</h3>
         <p>Your planned episode releases.</p>
       </div>
+
     </div>
 
     <div class="timeline-status">
@@ -661,7 +651,6 @@
   <!-- Timeline Statistics -->
   <div class="timeline-stats">
 
-    <!-- Total Episodes -->
     <div class="timeline-stat">
 
       <div class="stat-icon total-icon">
@@ -671,15 +660,12 @@
       <div class="stat-content">
         <span>Total Episodes</span>
 
-        <strong id="totalEpisodes">
-          0
-        </strong>
+        <strong id="totalEpisodes">0</strong>
       </div>
 
     </div>
 
 
-    <!-- Scheduled -->
     <div class="timeline-stat">
 
       <div class="stat-icon scheduled-icon">
@@ -689,15 +675,12 @@
       <div class="stat-content">
         <span>Scheduled</span>
 
-        <strong id="scheduledEpisodes">
-          0
-        </strong>
+        <strong id="scheduledEpisodes">0</strong>
       </div>
 
     </div>
 
 
-    <!-- Ready -->
     <div class="timeline-stat">
 
       <div class="stat-icon ready-icon">
@@ -707,9 +690,7 @@
       <div class="stat-content">
         <span>Ready to Publish</span>
 
-        <strong id="readyEpisodes">
-          0
-        </strong>
+        <strong id="readyEpisodes">0</strong>
       </div>
 
     </div>
@@ -718,58 +699,20 @@
 
 </div>
 
-  </div>
 
+<!-- =========================================================
+     PUBLISH SERIES
+     ========================================================= -->
 
-  <!-- Timeline Statistics -->
-  <div class="timeline-stats">
-
-    <div class="timeline-stat">
-
-      <span>Total Episodes</span>
-
-      <strong id="totalEpisodes">
-        0
-      </strong>
-
-    </div>
-
-
-    <div class="timeline-stat">
-
-      <span>Scheduled</span>
-
-      <strong id="scheduledEpisodes">
-        0
-      </strong>
-
-    </div>
-
-
-    <div class="timeline-stat">
-
-      <span>Ready to Publish</span>
-
-      <strong id="readyEpisodes">
-        0
-      </strong>
-
-    </div>
-
-  </div>
-
-  
+<div class="upload-btn-wrapper">
+  <button type="submit">
+    Publish Series
+  </button>
 </div>
 
-
-
-  <!-- Upload Button -->
-  <div class="upload-btn-wrapper">
-    <a href="#"><button type="submit">Publish Series</button></a>
-  </div>
-
+</div>
+<!-- END newContent -->
 </div> <!-- ✅ END newContent -->
-</div>
 
         <!-- ✅ EXISTING TAB -->
 <div id="existingContent" class="tab-content" role="tabpanel">
@@ -1006,11 +949,10 @@
   </div>
 
  
-
-  <!-- Upload Button -->
-  <div class="upload-btn-wrapper">
-    <a href="#"><button type="submit">Publish Series</button></a>
-  </div>
+<div class="upload-btn-wrapper">
+  <button type="submit">
+    Publish Series
+  </button>
 </div>
 
             

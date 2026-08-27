@@ -195,7 +195,7 @@ body {
 
   /* Overflow & Scrolling Behavior */
   overflow-x: hidden; /* Prevents horizontal scrollbar, crucial for responsive designs */
-  overflow-y: auto;   /* Allows vertical scrolling when content exceeds viewport height */
+  overflow-y:hidden;   /* Allows vertical scrolling when content exceeds viewport height */
   -webkit-overflow-scrolling: touch; /* Enhances smooth scrolling on iOS devices */
 
   /* Custom Scrollbar Styling (Firefox) */
@@ -942,362 +942,6 @@ flex-wrap: nowrap;
   color: #aaa;
 }
 
-
-.Theme {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.Theme img {
-  width: 1.6875em;
-  height: 1.6875em;
-  border-radius: 50%;
-  margin-left: 1em;
-}
-.Account {
-  position: relative;
-  width: 3vw;
-  height: 3vw;
-  background-color: transparent;
-  margin-top: 0.3125rem; /* 5px */
-  margin-right: 1rem;     /* 16px */
-  margin-bottom: 0.1875rem; /* 3px */
-  display: flex;
-  align-items: center;
-  border-radius: 50%;
-  float: right;
-}
-
-.Account img {
-  width: 2vw;
-  height: 2vw;
-  margin-left: 0.4rem; /* 5px */
-  border-radius: 50%;
-  object-fit: cover; /* Ensures proper scaling inside circle */
-}
-
-/* Dark mode adjustment */
-.dark-mode .Account img {
-  filter: invert(1);
-}
-
-/* Dropdown wrapper */
-.account-dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  top: 100%;
-  right: 0.5%;
-  width: 24%;
-  min-width: 11.25em;
-  max-height: 25em;
-  background-color: #333;
-  box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
-  border-radius: 0.5em;
-  z-index: 30;
-  padding: 0em 0;
-  text-align: left;
-  align-items: flex-start;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.5) white;
-}
-
-.dropdown-content a {
-  
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block; /* Make links block elements */
-}
-
-.account-dropdown:hover .dropdown-content {
-  display: flex;
-  flex-direction: column;
-}
-
-
-/* Profile Section */
-.proofile {
-  width: 100%;
-  min-height: 1.875em; /* 30px */
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  background-color: white;
-  padding: 0.625em; /* 10px */
-  border-radius: 0.4375em; /* 7px */
-  max-width: 90%;
-  margin: 0 auto;
-}
-
-/* Hover Effect */
-.proofile:hover {
-  background-color: grey; /* Subtle purple hover effect */
-  color: white;
-  transform: scale(1.05);
-  cursor: pointer;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-
-
-/* Profile Image */
-.proofile img {
-  width: 1.6875em; /* 27px */
-  height: 1.6875em;
-  border-radius: 50%;
-  margin-right: 0.625em; /* 10px */
-}
-
-/* Profile Name */
-.proofile span {
-  font-weight: bold;
-  font-size: 0.875em; /* 14px */
-  color: black;
-  margin-left: 0.3125em; /* 5px */
-  text-align: left;
-  max-width: 100%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  transition: color 0.3s ease-in-out;
-}
-
-/* Change text color on hover */
-.proofile:hover span{
-  color: white;
-}
-
-
-.dropdown-content li {
-  list-style: none; /* Remove bullet points */
-}
-
-
-
-.tooltip {
-  position: absolute;
-  top: 100%; /* Show below the upload icon */
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #333;
-  color: white;
-  padding: 0.4em 0.6em;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  white-space: nowrap;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-  z-index: 10;
-}
-
-
-/* Tooltip Hover Effect */
-.upload:hover .tooltip, 
-.Notifications:hover .tooltip, 
-.Account:hover .tooltip {
-  visibility: visible;
-  opacity: 1;
-  transform: translateX(-50%) translateY(0);
-}
-
-/* Responsive Adjustments */
-@media screen and (max-width: 768px) {
-  .tooltip {
-    font-size: 0.75em; /* Reduce text size on smaller screens */
-    padding: 0.4em 0.6em;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .tooltip {
-    font-size: 0.6875em; /* Further reduce size for compact screens */
-    bottom: -1.75rem; /* Adjust positioning */
-  }
-}/* 🔥 Overlay Background (Blurs Everything Behind) */
-/* 🌟 Overlay */
-.upload-overlay {
-  position: fixed;
-  top: 3rem;  /* start below header (header = 3rem height) */
-  left: 0;
-  right: 0;
-  bottom: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background-color:transparent;
-  backdrop-filter: blur(4px); /* Optional blur for polish */
-  overflow-y: auto; 
-  padding: 2rem 0;  /* 2rem spacing top and bottom inside overlay */
-}
-
-/* 🌟 Upload Container */
-.upload-container {
-  width: 90vw;
-  max-width: 60rem;
-  max-height: calc(100vh - 3rem - 4rem); 
-  /* 100vh minus header height (3rem) minus 2rem top + 2rem bottom spacing */
-
-  margin: auto 0;
-
-  display: flex;
-  flex-direction: column;
-  background-color: #fff;
-  padding: 2rem;
-  border-radius: 0.8rem;
-  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.3);
-
-  opacity: 0;
-  transform: translateY(-3.125rem);
-  animation: popIn 0.5s ease-out forwards;
-  scrollbar-color:#ff5722;
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-
-
-/* 🎯 Center titles only */
-.upload-container h2 {
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-/* 🌙 Dark Mode */
-.dark-mode .upload-container {
-  background-color: #222;
-  color: #eee;
-}
-
-/* 🎬 Pop-in Animation (clean, single version) */
-@keyframes popIn {
-  from {
-    opacity: 0;
-    transform: translateY(-3.125rem); /* ~50px */
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* 📱 Mobile Optimization */
-@media (max-width: 48rem) { /* 768px → rem */
-  .upload-container {
-    width: 95vw;
-    padding: 1.5rem;
-    gap: 1rem;
-  }
-}
-
-/* 📱 Mobile Optimization */
-@media (max-width: 768px) {
-  .upload-container {
-    width: 95vw;
-    padding: 1.5rem;
-    gap: 1rem;
-  }
-}/* 🌙 Dark Mode */
-.dark-mode .upload-container {
-  background-color: #222;
-  border: 0.1rem solid #444;
-  color: #eee;
-}
-
-/* 🎨 Title Section Styling */
-.title {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-
-.title h3 {
-  font-size: 1.5rem;  /* ~24px */
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-.dark-mode .title h3 {
-  color: #ddd; /* softer contrast in dark mode */
-}
-
-.title input {
-  width: 90%;
-  padding: 0.625rem; /* 10px → rem */
-  border: 0.063rem solid #ccc; /* 1px */
-  border-radius: 0.3125rem; /* 5px */
-  font-size: 1rem; /* ~16px */
-  background-color: #fff;
-  color: #333;
-  transition: border 0.2s ease, box-shadow 0.2s ease;
-}
-
-.title input:focus {
-  outline: none;
-  border-color: #007bff;
-  box-shadow: 0 0 0.25rem rgba(0, 123, 255, 0.5);
-}
-
-.dark-mode .title input {
-  background-color: #333;
-  border: 0.063rem solid #555;
-  color: #eee;
-}
-
-/* ✅ NEW TAB SYSTEM STYLES */
-/* 🎯 Sticky Upload Container Header */
-.upload-container h2 {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #fff;
-  color: #e60000; /* brighter red for readability */
-  text-align: center;        /* centers text */
-  width: 100%;               /* relative width */
-  margin: 0;
-  padding: 0.6rem;           /* responsive spacing */
-  font-size: 1.4rem;         /* scales with root font size */
-  font-weight: 700;
-  line-height: 1.4;          /* improves readability */
-  z-index: 10;
-  border-radius: 0.5rem 0.5rem 0 0; /* smoother rounded top edges */
-  transition: background 0.3s ease, color 0.3s ease; /* smooth theme switch */
-}
-
-/* 🌙 Dark Mode Styling */
-.dark-mode .upload-container h2 {
-  background-color: #222;
-  border-bottom: 0.1rem solid #444;
-  color: #ffea00; /* softer yellow for better dark mode contrast */
-}
-
-/* 📱 Responsive Scaling */
-@media (max-width: 768px) {
-  .upload-container h2 {
-    font-size: 1.25rem;  /* scales down */
-    padding: 0.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .upload-container h2 {
-    font-size: 1.1rem;
-    padding: 0.4rem;
-  }
-}
 /* 🌐 Main Section (Top Bar Navigation) */
 .Section {
   width: 100%;
@@ -2212,7 +1856,34 @@ flex-wrap: nowrap;
   margin-right: 0.5rem;
 }
 
+.content {
+  flex: 1;
+  padding: 30px;
+  background: transparent;
+  overflow-y: auto;
+}
 
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
+.content-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.4rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+.content-header i {
+  color: #ff4444;
+}
 
 .Content .timer
 {
@@ -2448,6 +2119,364 @@ body.dark-mode
   }
 }
 
+}
+
+
+
+.Theme {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Theme img {
+  width: 1.6875em;
+  height: 1.6875em;
+  border-radius: 50%;
+  margin-left: 1em;
+}
+.Account {
+  position: relative;
+  width: 3vw;
+  height: 3vw;
+  background-color: transparent;
+  margin-top: 0.3125rem; /* 5px */
+  margin-right: 1rem;     /* 16px */
+  margin-bottom: 0.1875rem; /* 3px */
+  display: flex;
+  align-items: center;
+  border-radius: 50%;
+  float: right;
+}
+
+.Account img {
+  width: 2vw;
+  height: 2vw;
+  margin-left: 0.4rem; /* 5px */
+  border-radius: 50%;
+  object-fit: cover; /* Ensures proper scaling inside circle */
+}
+
+/* Dark mode adjustment */
+.dark-mode .Account img {
+  filter: invert(1);
+}
+
+/* Dropdown wrapper */
+.account-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0.5%;
+  width: 24%;
+  min-width: 11.25em;
+  max-height: 25em;
+  background-color: #333;
+  box-shadow: 0px 0.5em 1em rgba(0, 0, 0, 0.2);
+  border-radius: 0.5em;
+  z-index: 30;
+  padding: 0em 0;
+  text-align: left;
+  align-items: flex-start;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) white;
+}
+
+.dropdown-content a {
+  
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block; /* Make links block elements */
+}
+
+.account-dropdown:hover .dropdown-content {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Profile Section */
+.proofile {
+  width: 100%;
+  min-height: 1.875em; /* 30px */
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background-color: white;
+  padding: 0.625em; /* 10px */
+  border-radius: 0.4375em; /* 7px */
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+/* Hover Effect */
+.proofile:hover {
+  background-color: grey; /* Subtle purple hover effect */
+  color: white;
+  transform: scale(1.05);
+  cursor: pointer;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* Profile Image */
+.proofile img {
+  width: 1.6875em; /* 27px */
+  height: 1.6875em;
+  border-radius: 50%;
+  margin-right: 0.625em; /* 10px */
+}
+
+/* Profile Name */
+.proofile span {
+  font-weight: bold;
+  font-size: 0.875em; /* 14px */
+  color: black;
+  margin-left: 0.3125em; /* 5px */
+  text-align: left;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.3s ease-in-out;
+}
+
+/* Change text color on hover */
+.proofile:hover span{
+  color: white;
+}
+
+
+.dropdown-content li {
+  list-style: none; /* Remove bullet points */
+}
+
+
+
+.tooltip {
+  position: absolute;
+  top: 100%; /* Show below the upload icon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: white;
+  padding: 0.4em 0.6em;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10;
+}
+
+
+/* Tooltip Hover Effect */
+.upload:hover .tooltip, 
+.Notifications:hover .tooltip, 
+.Account:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+  .tooltip {
+    font-size: 0.75em; /* Reduce text size on smaller screens */
+    padding: 0.4em 0.6em;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .tooltip {
+    font-size: 0.6875em; /* Further reduce size for compact screens */
+    bottom: -1.75rem; /* Adjust positioning */
+  }
+}/* 🔥 Overlay Background (Blurs Everything Behind) */
+/* 🌟 Overlay */
+.upload-overlay {
+  position: fixed;
+  top: 3rem;  /* start below header (header = 3rem height) */
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color:transparent;
+  backdrop-filter: blur(4px); /* Optional blur for polish */
+  overflow-y: auto; 
+  padding: 0rem 0;  /* 2rem spacing top and bottom inside overlay */
+}
+
+/* 🌟 Upload Container */
+.upload-container {
+  width: 90vw;
+  max-width: 60rem;
+  max-height: calc(100vh - 3rem - 4rem); 
+  /* 100vh minus header height (3rem) minus 2rem top + 2rem bottom spacing */
+
+  margin: auto 0;
+
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 0rem;
+  border-radius: 0.8rem;
+  box-shadow: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.3);
+
+  opacity: 0;
+  transform: translateY(-3.125rem);
+  animation: popIn 0.5s ease-out forwards;
+  scrollbar-color:#ff5722;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+
+/* 🎯 Center titles only */
+.upload-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+/* 🌙 Dark Mode */
+.dark-mode .upload-container {
+  background-color: #222;
+  color: #eee;
+}
+
+/* 🎬 Pop-in Animation (clean, single version) */
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: translateY(-3.125rem); /* ~50px */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📱 Mobile Optimization */
+@media (max-width: 48rem) { /* 768px → rem */
+  .upload-container {
+    width: 95vw;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+}
+
+/* 📱 Mobile Optimization */
+@media (max-width: 768px) {
+  .upload-container {
+    width: 95vw;
+    padding: 1.5rem;
+    gap: 1rem;
+  }
+}/* 🌙 Dark Mode */
+.dark-mode .upload-container {
+  background-color: #222;
+  border: 0.1rem solid #444;
+  color: #eee;
+}
+
+/* 🎨 Title Section Styling */
+.title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.title h3 {
+  font-size: 1.5rem;  /* ~24px */
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.dark-mode .title h3 {
+  color: #ddd; /* softer contrast in dark mode */
+}
+
+.title input {
+  width: 90%;
+  padding: 0.625rem; /* 10px → rem */
+  border: 0.063rem solid #ccc; /* 1px */
+  border-radius: 0.3125rem; /* 5px */
+  font-size: 1rem; /* ~16px */
+  background-color: #fff;
+  color: #333;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+}
+
+.title input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0.25rem rgba(0, 123, 255, 0.5);
+}
+
+.dark-mode .title input {
+  background-color: #333;
+  border: 0.063rem solid #555;
+  color: #eee;
+}
+
+/* ✅ NEW TAB SYSTEM STYLES */
+/* 🎯 Sticky Upload Container Header */
+.upload-container h2 {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  color: #e60000; /* brighter red for readability */
+  text-align: center;        /* centers text */
+  width: 100%;               /* relative width */
+  margin: 0;
+  padding: 0.6rem;           /* responsive spacing */
+  font-size: 1.4rem;         /* scales with root font size */
+  font-weight: 700;
+  line-height: 1.4;          /* improves readability */
+  z-index: 10;
+  border-radius: 0.5rem 0.5rem 0 0; /* smoother rounded top edges */
+  transition: background 0.3s ease, color 0.3s ease; /* smooth theme switch */
+}
+
+/* 🌙 Dark Mode Styling */
+.dark-mode .upload-container h2 {
+  background-color: #222;
+  border-bottom: 0.1rem solid #444;
+  color: #ffea00; /* softer yellow for better dark mode contrast */
+}
+
+/* 📱 Responsive Scaling */
+@media (max-width: 768px) {
+  .upload-container h2 {
+    font-size: 1.25rem;  /* scales down */
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-container h2 {
+    font-size: 1.1rem;
+    padding: 0.4rem;
+  }
 }
 
 /* Base tab styles */
@@ -4714,15 +4743,22 @@ button:focus-visible {
 }
 
 .upload-btn-wrapper {
+  position: relative;
   display: flex;
-  justify-content: center; /* centers horizontally */
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   margin-top: 1.5rem;
+  margin-bottom: 2rem;
+  clear: both;
+  z-index: 1;
 }
 
 .upload-btn-wrapper button {
   width: 50%;
   max-width: 18.75rem;
 }
+
 
 
 /* 📱 Mobile & Small Screens */
@@ -5242,6 +5278,8 @@ min-height: 500px;
 .body
 {
   background-color: white;
+    overflow-y:hidden;
+    overflow-x: hidden;
 }
 
   .upload-container
