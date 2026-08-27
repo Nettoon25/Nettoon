@@ -2681,27 +2681,148 @@ body.dark-mode
   border-color: #66aaff;
   background-color: #2a2a2a;
 }
-/* 🎯 Episode Dropdown */
-.episode-dropdown {
+
+/* =========================================================
+   SEASON FIELD — FULL WIDTH
+   ========================================================= */
+
+.season-field {
   width: 100%;
-  max-width: 85%;
-  padding: 0.6rem 0.9rem;              /* relative units */
-  font-size: 1rem;
-  border: 0.1rem solid #ccc;
-  border-radius: 0.5rem;
-  background-color: #fff;
-  margin: 1.5rem 0 2.5rem;             /* replaces top + bottom margins */
+  max-width: none;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
-  transition: border-color 0.3s ease, background-color 0.3s ease;
+  margin: 0;
+  padding: 0;
 }
 
-/* 🌙 Dark Mode Dropdown */
-.dark-mode .episode-dropdown {
-  background-color: #222;
-  border: 0.1rem solid #555;
-  color: #eee;
+.season-field label {
+  width: 100%;
+  display: block;
+  margin: 0 0 6px 0;
+  padding: 0;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
 }
 
+.season-select {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  height: 42px;
+
+  display: block;
+  box-sizing: border-box;
+
+  padding: 0 40px 0 16px;
+
+  border: 1px solid #3d3d3d;
+  border-radius: 7px;
+
+  background-color: #1f1f1f;
+  color: #fff;
+
+  font-size: 14px;
+  cursor: pointer;
+  outline: none;
+}
+
+.season-select:focus {
+  border-color: #555;
+}
+
+.season-select option {
+  background-color: #1f1f1f;
+  color: #fff;
+}
+/* =========================================================
+   EPISODE NUMBER — FULL WIDTH
+   ========================================================= */
+
+.episode-number-field {
+  width: 100%;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.episode-number-field label {
+  width: 100%;
+  display: block;
+
+  margin: 0 0 6px 0;
+  padding: 0;
+
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.episode-input {
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+
+  height: 42px;
+
+  display: block;
+  box-sizing: border-box;
+
+  padding: 0 16px;
+
+  border: 1px solid #3d3d3d;
+  border-radius: 7px;
+
+  background-color: #1f1f1f;
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 500;
+
+  outline: none;
+}
+
+/* Placeholder */
+.episode-input::placeholder {
+  color: #a0a0a0;
+}
+
+/* Focus */
+.episode-input:focus {
+  border-color: #555;
+  outline: none;
+}
+
+/* Remove browser number spinners */
+.episode-input::-webkit-inner-spin-button,
+.episode-input::-webkit-outer-spin-button {
+  margin: 0;
+}
+
+/* Firefox */
+.episode-input {
+  appearance: textfield;
+}
+
+
+/* =========================================================
+   MAKE SURE THE FIELD CAN USE THE ENTIRE EPISODE WIDTH
+   ========================================================= */
+
+.Episodess {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.Episodess .episode-number-field {
+  width: 100%;
+  max-width: 100%;
+}
 /* 🏷️ Labels */
 label {
   display: block;

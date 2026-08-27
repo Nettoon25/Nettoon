@@ -323,20 +323,25 @@
     <h3>Series Title</h3>
     <input type="text" placeholder="Enter Series title">
   </div>
-  
- <label for="episodeNumber">
-Season
-</label>
+  <div class="season-field">
 
-<input
-    type="number"
-    name="episodeNumber"
-    class="episode-input"
-    min="1"
-    step="1"
-    placeholder="Enter episode number"
-    autocomplete="off"
->
+  <label for="seasonNumber">
+    Season
+  </label>
+
+  <select
+    id="seasonNumber"
+    name="seasonNumber"
+    class="season-select"
+  >
+    <option value="1">Season 1</option>
+    <option value="2">Season 2</option>
+    <option value="3">Season 3</option>
+    <option value="4">Season 4</option>
+    <option value="5">Season 5</option>
+  </select>
+
+</div>
   
 
   <!-- Series Description -->
@@ -375,20 +380,24 @@ Season
         <h3>Episode Title</h3>
         <input type="text" placeholder="Enter Episode title">
       </div>
+<div class="episode-number-field">
 
- <label for="episodeNumber">
+  <label for="episodeNumber">
     Episode Number:
-</label>
+  </label>
 
-<input
+  <input
     type="number"
+    id="episodeNumber"
     name="episodeNumber"
     class="episode-input"
     min="1"
     step="1"
     placeholder="Enter episode number"
     autocomplete="off"
->
+  >
+
+</div>
 
       <div class="Description">
         <h3>Episode Description</h3>
@@ -735,6 +744,25 @@ Season
     <option value="5">Kobe Bryant Documentary</option>
   </select>
 
+  <div class="season-field">
+
+  <label for="seasonNumber">
+    Season
+  </label>
+
+  <select
+    id="seasonNumber"
+    name="seasonNumber"
+    class="season-select"
+  >
+    <option value="1">Season 1</option>
+    <option value="2">Season 2</option>
+    <option value="3">Season 3</option>
+    <option value="4">Season 4</option>
+    <option value="5">Season 5</option>
+  </select>
+
+</div>
 
   <!-- Episodes Wrapper -->
   <div id="episodesWrapper">
@@ -745,11 +773,15 @@ Season
         <input type="text" placeholder="Enter Episode title">
       </div>
 
-<label for="episodeNumber">
-    Episode Number:
-</label>
 
-<input
+
+<div class="episode-number-field">
+
+  <label for="episodeNumber">
+    Episode Number:
+  </label>
+
+  <input
     type="number"
     id="episodeNumber"
     name="episodeNumber"
@@ -758,7 +790,9 @@ Season
     step="1"
     placeholder="Enter episode number"
     autocomplete="off"
->
+  >
+
+</div>
       <div class="Description">
         <h3>Episode Description</h3>
         <textarea placeholder="Enter Episode description (Optional)"></textarea>
