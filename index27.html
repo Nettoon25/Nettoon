@@ -14,7 +14,7 @@
 <div class="app">
 <aside class="sidebar">
   <div class="brand"><span>NET</span><b class="brandtext">TOON</b></div>
-  <div class="creator"><div class="avatar">N</div><div><b>Creator Studio</b><small>Nettoon Creator</small></div></div>
+  <div class="creator"><div class="avatar">N</div><div><b>Creator Studio</b><small>Guest</small></div></div>
   <div class="nav-title">Studio</div>
   <nav class="nav">
     <a href="#dashboard" data-view="dashboard"><span>▣</span><span>Dashboard</span></a>
@@ -104,7 +104,7 @@
 
   <section class="studio-view" id="contentView">
   <section class="top">
-    <div><div class="eyebrow">Content Management</div><h1 class="title">Scheduled Content</h1><div class="subtitle">Manage every release you have scheduled. Change release times, publish immediately, or cancel a schedule without losing the uploaded content.</div></div>
+    <div><h1 class="title">Content Management</h1><div class="subtitle">Manage every release you have scheduled. Change release times, publish immediately, or cancel a schedule without losing the uploaded content.</div></div>
     <button class="publish" onclick="goUpload()">＋ Upload Content</button>
   </section>
 
@@ -118,8 +118,8 @@
 
 
   <section class="stats">
+      <div class="stat"><div class="num">12</div><div class="label">Published</div></div>
     <div class="stat scheduled"><div class="num" id="scheduledCount">5</div><div class="label">Scheduled</div></div>
-    <div class="stat"><div class="num">12</div><div class="label">Published</div></div>
     <div class="stat"><div class="num">3</div><div class="label">Drafts</div></div>
     <div class="stat"><div class="num">1</div><div class="label">Processing</div></div>
     <div class="stat"><div class="num">0</div><div class="label">Failed</div></div>
@@ -127,8 +127,8 @@
 
     <div class="toolbar">
       <div class="tabs" id="tabs">
+             <button class="tab" data-filter="published">Published</button>
         <button class="tab active" data-filter="scheduled">Scheduled</button>
-        <button class="tab" data-filter="published">Published</button>
         <button class="tab" data-filter="draft">Drafts</button>
         <button class="tab" data-filter="private">Private</button>
         <button class="tab" data-filter="processing">Processing</button>
