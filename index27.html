@@ -17,10 +17,10 @@
   <div class="creator"><div class="avatar">N</div><div><b>Creator Studio</b><small>Guest</small></div></div>
   <div class="nav-title">Studio</div>
   <nav class="nav">
-    <a href="#dashboard" data-view="dashboard"><span>▣</span><span>Dashboard</span></a>
+    <a href="#dashboard" data-view="dashboard"  style=display:none;><span>▣</span><span>Dashboard</span></a>
     <a href="index5.html" ><span>＋</span><span>Upload</span></a>
-    <a href="#content" data-view="content" class="active"><span>◷</span><span>Content</span></a>
-    <a href="#analytics" data-view="analytics"><span>◉</span><span>Analytics</span></a>
+    <a href="#content" data-view="content" class="active" ><span>◷</span><span>Content</span></a>
+    <a href="#analytics" data-view="analytics"  style=display:none;><span>◉</span><span>Analytics</span></a>
   </nav>
   <div class="nav-title">Account</div>
   <nav class="nav"><a href="index17.html" ><span>⚙</span><span>Settings</span></a></nav>
@@ -104,8 +104,8 @@
 
   <section class="studio-view" id="contentView">
   <section class="top">
-    <div><h1 class="title">Content Management</h1><div class="subtitle">Manage every release you have scheduled. Change release times, publish immediately, or cancel a schedule without losing the uploaded content.</div></div>
-    <button class="publish" onclick="goUpload()">＋ Upload Content</button>
+    <div><h1 class="title">Content Management</h1><div class="subtitle">Manage every video you have uploaded. Publish immediately, change release times, cancel a schedule without losing the uploaded content and delete unwanted videos.</div></div>
+  
   </section>
 
   <section class="panel">
@@ -121,8 +121,8 @@
       <div class="stat"><div class="num">12</div><div class="label">Published</div></div>
     <div class="stat scheduled"><div class="num" id="scheduledCount">5</div><div class="label">Scheduled</div></div>
     <div class="stat"><div class="num">3</div><div class="label">Drafts</div></div>
-    <div class="stat"><div class="num">1</div><div class="label">Processing</div></div>
-    <div class="stat"><div class="num">0</div><div class="label">Failed</div></div>
+    <div class="stat" style=display:none;><div class="num">1</div><div class="label">Processing</div></div>
+    <div class="stat"  style=display:none;><div class="num">0</div><div class="label">Failed</div></div>
   </section>
 
     <div class="toolbar">
@@ -131,8 +131,8 @@
         <button class="tab active" data-filter="scheduled">Scheduled</button>
         <button class="tab" data-filter="draft">Drafts</button>
         <button class="tab" data-filter="private">Private</button>
-        <button class="tab" data-filter="processing">Processing</button>
-        <button class="tab" data-filter="failed">Failed</button>
+        <button class="tab" data-filter="processing"  style=display:none;>Processing</button>
+        <button class="tab" data-filter="failed"  style=display:none;>Failed</button>
       </div>
       <div class="search"><span>⌕</span><input id="search" type="search" placeholder="Search content..." /></div>
       <div class="controls"><select class="control" id="sort"><option value="soonest">Soonest first</option><option value="latest">Latest first</option><option value="title">Title A–Z</option></select></div>
