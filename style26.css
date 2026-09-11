@@ -1,0 +1,359 @@
+/* =================================
+   NETTOON PAYMENT CARD
+================================= */
+
+.nettoon-payment-card {
+    width: 100%;
+    max-width: 520px;
+    margin: 30px auto;
+    padding: 28px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,0.08);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: #111827;
+}
+
+
+/* Header */
+
+.payment-header {
+    margin-bottom: 22px;
+}
+
+.payment-header h2 {
+    margin: 0 0 7px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.payment-header p {
+    margin: 0;
+    color: #6b7280;
+    font-size: 14px;
+}
+
+
+/* Selected plan */
+
+.selected-plan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 18px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 12px;
+
+    margin-bottom: 25px;
+}
+
+.small-label {
+    display: block;
+
+    font-size: 11px;
+
+    color: #6b7280;
+
+    margin-bottom: 5px;
+
+    text-transform: uppercase;
+}
+
+.selected-plan strong {
+    font-size: 16px;
+}
+
+.selected-price {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.selected-price small {
+    color: #6b7280;
+    font-size: 12px;
+}
+
+
+/* Inputs */
+
+.payment-section {
+    margin-bottom: 25px;
+}
+
+.payment-section label {
+    display: block;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    margin-bottom: 7px;
+
+    color: #374151;
+}
+
+.payment-section input {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 13px 14px;
+
+    margin-bottom: 15px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.payment-section input:focus {
+    border-color: #ef4444;
+
+    box-shadow:
+        0 0 0 3px rgba(239,68,68,0.10);
+}
+
+
+/* Payment methods */
+
+.payment-section h3 {
+    font-size: 15px;
+
+    margin-bottom: 12px;
+}
+
+.payment-methods {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.payment-method {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 15px;
+
+    background: white;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    text-align: left;
+
+    transition:
+        transform 0.15s,
+        border-color 0.15s,
+        box-shadow 0.15s;
+}
+
+.payment-method:hover {
+
+    transform: translateY(-1px);
+
+    border-color: #ef4444;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,0.06);
+}
+
+
+/* Icons */
+
+.payment-icon {
+
+    width: 44px;
+    height: 44px;
+
+    border-radius: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-weight: 800;
+
+    flex-shrink: 0;
+}
+
+.mpesa-icon {
+    background: #dff7e5;
+
+    color: #087f23;
+
+    font-size: 20px;
+}
+
+.card-icon {
+
+    background: #eef2ff;
+
+    font-size: 20px;
+}
+
+
+/* Text */
+
+.payment-method-text {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+    flex: 1;
+}
+
+.payment-method-text strong {
+    font-size: 14px;
+}
+
+.payment-method-text span {
+
+    font-size: 12px;
+
+    color: #6b7280;
+}
+
+
+/* Arrow */
+
+.payment-arrow {
+
+    font-size: 20px;
+
+    color: #9ca3af;
+}
+
+
+/* Security */
+
+.secure-payment {
+
+    display: flex;
+
+    gap: 10px;
+
+    padding: 14px;
+
+    background: #f9fafb;
+
+    border-radius: 10px;
+
+    margin-bottom: 20px;
+}
+
+.secure-payment span {
+    font-size: 18px;
+}
+
+.secure-payment strong {
+
+    font-size: 12px;
+}
+
+.secure-payment p {
+
+    margin: 3px 0 0;
+
+    font-size: 11px;
+
+    color: #6b7280;
+
+    line-height: 1.4;
+}
+
+
+/* Total */
+
+.payment-total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-top: 18px;
+
+    border-top: 1px solid #e5e7eb;
+
+    font-size: 14px;
+}
+
+.payment-total strong {
+
+    font-size: 20px;
+}
+
+
+/* Status */
+
+.payment-status {
+
+    margin-top: 15px;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    font-size: 13px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .nettoon-payment-card {
+
+        margin: 15px;
+
+        padding: 20px;
+
+        border-radius: 14px;
+    }
+
+    .selected-plan {
+
+        align-items: flex-start;
+
+        gap: 15px;
+
+        flex-direction: column;
+    }
+}

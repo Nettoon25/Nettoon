@@ -1792,3 +1792,76 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
+
+const seriesData = {
+  1: {
+    name: "Rick and Morty",
+    thumbnail: "rick-and-morty.jpg",
+    episodes: 10
+  },
+
+  2: {
+    name: "Oats Studio Sn 1",
+    thumbnail: "Oats studios.png",
+    episodes: 8
+  },
+
+  3: {
+    name: "Delta 2",
+    thumbnail: "delta-2.jpg",
+    episodes: 6
+  },
+
+  4: {
+    name: "Secret Level",
+    thumbnail: "secret-level.jpg",
+    episodes: 15
+  },
+
+  5: {
+    name: "Kobe Bryant Documentary",
+    thumbnail: "kobe-bryant.jpg",
+    episodes: 5
+  }
+};
+
+
+document.getElementById("seriesSelect").addEventListener("change", function () {
+
+  const seriesId = this.value;
+  const container = document.getElementById("selectedSeries");
+
+  if (!seriesId || !seriesData[seriesId]) {
+    container.style.display = "none";
+    container.innerHTML = "";
+    return;
+  }
+
+  const series = seriesData[seriesId];
+
+  container.innerHTML = `
+    <div class="series-card">
+
+      <img
+        src="${series.thumbnail}"
+        alt="${series.name}"
+        class="series-thumbnail"
+      >
+
+      <div class="series-info">
+
+        <div class="series-name">
+          ${series.name}
+        </div>
+
+        <div class="series-episodes">
+          ${series.episodes} Episodes
+        </div>
+
+      </div>
+
+    </div>
+  `;
+
+  container.style.display = "block";
+});
