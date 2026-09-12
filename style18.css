@@ -317,7 +317,7 @@ body::-webkit-scrollbar-thumb {
   
   /* Typography */
   font-family: var(--font-family-primary); /* Uses the primary brand font */
-  font-size: 0.9em; /* Sets the base font size for the logo text (24px) */
+  font-size: 0.8em; /* Sets the base font size for the logo text (24px) */
   font-weight: var(--font-weight-extrabold); /* Extra bold for prominence */
   
   /* Text Handling */
@@ -1372,7 +1372,7 @@ flex-wrap: nowrap;
   box-shadow: var(--color-shadow); /* Subtle shadow for depth */
   border: none; /* No border style */
   display: flex;
-  margin-left:0rem; /* Keeping original margin-left */
+  margin-left:1rem; /* Keeping original margin-left */
   flex-direction: column; /* Stack profile, caption, video, section vertically */
     justify-content: space-between; /* 🔑 balances content vertically */
   flex-grow: 1; /* Allows it to take up available space in the .video-container row (on desktop) */
@@ -4131,7 +4131,7 @@ margin-bottom: 5%;
   position: relative;
 
   width: 100%;
-  height: var(--size-video-player-height);
+  height:30%;
 
   margin: 0;
   padding: 0;
