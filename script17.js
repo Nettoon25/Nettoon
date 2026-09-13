@@ -1299,3 +1299,199 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
+
+
+const countrySelect = document.getElementById("twofaCountry");
+const phoneInput = document.getElementById("twofaPhoneNumber");
+
+const phoneFormats = {
+  KE: "7XX XXX XXX",
+  UG: "7XX XXX XXX",
+  TZ: "7XX XXX XXX",
+  RW: "7XX XXX XXX",
+  BI: "XX XX XX XX",
+  ET: "9XX XXX XXX",
+  ZA: "XX XXX XXXX",
+  NG: "8XX XXX XXXX",
+  GH: "XX XXX XXXX",
+  US: "(XXX) XXX-XXXX",
+  CA: "(XXX) XXX-XXXX",
+  GB: "XXXX XXX XXX",
+  IN: "XXXXX XXXXX",
+  AU: "4XX XXX XXX",
+  DE: "XXX XXXXXXXX",
+  FR: "X XX XX XX XX",
+  AE: "5X XXX XXXX",
+  SA: "5X XXX XXXX"
+};
+
+countrySelect.addEventListener("change", function () {
+  const country = this.value;
+
+  phoneInput.placeholder =
+    phoneFormats[country] || "Phone Number";
+
+  phoneInput.focus();
+});
+
+// Initial placeholder
+phoneInput.placeholder = phoneFormats[countrySelect.value];
+
+
+
+// =========================================================
+// NETTOON SUBSCRIPTION CANCELLATION
+// =========================================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  const cancelButton =
+    document.getElementById("cancelSubscriptionBtn");
+
+  if (!cancelButton) return;
+
+
+  // =======================================================
+  // CHECK SAVED SUBSCRIPTION STATE
+  // =======================================================
+
+  const subscriptionCancelled =
+    localStorage.getItem(
+      "nettoon_subscription_cancelled"
+    );
+
+
+  // =======================================================
+  // APPLY CANCELLED STATE
+  // =======================================================
+
+  function showCancelledState() {
+
+    cancelButton.textContent =
+      "Subscription Canceled";
+
+    cancelButton.classList.add(
+      "subscription-cancelled"
+    );
+
+  }
+
+
+  // =======================================================
+  // APPLY ACTIVE STATE
+  // =======================================================
+
+  function showActiveState() {
+
+    cancelButton.textContent =
+      "Cancel Subscription";
+
+    cancelButton.classList.remove(
+      "subscription-cancelled"
+    );
+
+  }
+
+
+  // =======================================================
+  // RESTORE STATE AFTER PAGE REFRESH
+  // =======================================================
+
+  if (subscriptionCancelled === "true") {
+
+    showCancelledState();
+
+  }
+
+
+  // =======================================================
+  // HOVER EFFECT FOR CANCELLED SUBSCRIPTION
+  // =======================================================
+
+  cancelButton.addEventListener(
+    "mouseenter",
+    () => {
+
+      if (
+        cancelButton.classList.contains(
+          "subscription-cancelled"
+        )
+      ) {
+
+        cancelButton.textContent =
+          "Undo Cancellation";
+
+      }
+
+    }
+  );
+
+
+  // =======================================================
+  // MOUSE LEAVES BUTTON
+  // =======================================================
+
+  cancelButton.addEventListener(
+    "mouseleave",
+    () => {
+
+      if (
+        cancelButton.classList.contains(
+          "subscription-cancelled"
+        )
+      ) {
+
+        cancelButton.textContent =
+          "Subscription Canceled";
+
+      }
+
+    }
+  );
+
+
+  // =======================================================
+  // BUTTON CLICK
+  // =======================================================
+
+  cancelButton.addEventListener(
+    "click",
+    () => {
+
+
+      // ---------------------------------------------------
+      // IF ALREADY CANCELLED → UNDO CANCELLATION
+      // ---------------------------------------------------
+
+      if (
+        cancelButton.classList.contains(
+          "subscription-cancelled"
+        )
+      ) {
+
+        localStorage.removeItem(
+          "nettoon_subscription_cancelled"
+        );
+
+        showActiveState();
+
+        return;
+
+      }
+
+
+      // ---------------------------------------------------
+      // OTHERWISE → CANCEL SUBSCRIPTION
+      // ---------------------------------------------------
+
+      localStorage.setItem(
+        "nettoon_subscription_cancelled",
+        "true"
+      );
+
+      showCancelledState();
+
+    }
+  );
+
+});
