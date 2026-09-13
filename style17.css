@@ -2518,6 +2518,8 @@ body.compact-mode .content-section {
 
   font-weight: 600;
 
+  margin-left:1rem;
+
   margin-bottom: 0.4rem;
 }
 
@@ -2874,6 +2876,127 @@ body.compact-mode .content-section {
 
 .dark-mode .transactions-table th { background:#333; color:#fff; }
 .dark-mode .transactions-table td { background:#222; color:#ddd; }
+
+
+
+
+/* Plan title */
+.plan-header {
+  margin-bottom: 16px;
+}
+
+.plan-label {
+  display: inline-block;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+
+  color: #aaa;
+}
+
+/* Main price */
+.plan-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 4px;
+
+  margin-bottom: 6px;
+}
+
+.plan-price .currency {
+  font-size: 17px;
+  font-weight: 600;
+  color: #ddd;
+}
+
+.plan-price .amount {
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 800;
+  color: #fff;
+}
+
+.plan-price .period {
+  font-size: 14px;
+  color: #aaa;
+}
+
+/* Divider */
+.plan-divider {
+  height: 1px;
+  background: #444;
+  margin: 20px 0;
+}
+
+/* Annual price */
+.annual-plan {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.annual-price {
+  font-size: 20px;
+  font-weight: 700;
+  color: #eee;
+}
+
+.annual-period {
+  font-size: 13px;
+  color: #999;
+}
+
+/* Savings */
+.plan-savings {
+  margin: 18px 0 22px;
+}
+
+.plan-savings span {
+  display: inline-block;
+
+  padding: 6px 12px;
+
+  border-radius: 20px;
+
+  background: rgba(46, 204, 113, 0.12);
+  color: #55d98a;
+
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Select button */
+.plan-select-btn {
+  width: 100%;
+  height: 42px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #ff4545;
+  color: #fff;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease,
+    box-shadow 0.2s ease;
+}
+
+.plan-select-btn:hover {
+  background: #ff3333;
+  box-shadow: 0 4px 12px rgba(255, 69, 69, 0.25);
+}
+
+.plan-select-btn:active {
+  transform: scale(0.98);
+}
 
 /* ===== Modal (overlay + content) =====
    Keep both overlay and content selectors so either pattern works. */
