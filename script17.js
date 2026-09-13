@@ -554,3 +554,748 @@ legalTabs.forEach(tab => {
 
     });
 });
+
+
+/* =========================================================
+   NETTOON — TWO FACTOR AUTHENTICATION
+   ========================================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  /* =======================================================
+     ELEMENTS
+     ======================================================= */
+
+  const toggle =
+    document.getElementById("twoFactorToggle");
+
+  const setup =
+    document.getElementById("twoFactorSetup");
+
+  const phoneRadio =
+    document.getElementById("twofaPhone");
+
+  const emailRadio =
+    document.getElementById("twofaEmail");
+
+  const phoneGroup =
+    document.getElementById("twofaPhoneGroup");
+
+  const emailGroup =
+    document.getElementById("twofaEmailGroup");
+
+  const phoneInput =
+    document.getElementById("twofaPhoneNumber");
+
+  const emailInput =
+    document.getElementById("twofaEmailAddress");
+
+  const sendButton =
+    document.getElementById("twofaSendCode");
+
+  const verification =
+    document.getElementById("twofaVerification");
+
+  const codeInput =
+    document.getElementById("twofaCode");
+
+  const verifyButton =
+    document.getElementById("twofaVerifyCode");
+
+  const resendButton =
+    document.getElementById("twofaResendCode");
+
+  const verificationMessage =
+    document.getElementById(
+      "twofaVerificationMessage"
+    );
+
+  const success =
+    document.getElementById("twofaSuccess");
+
+  const activeMethod =
+    document.getElementById("twofaActiveMethod");
+
+  const changeMethod =
+    document.getElementById("twofaChangeMethod");
+
+
+  /* =======================================================
+     LOCAL STORAGE
+     ======================================================= */
+
+  const saved2FA =
+    localStorage.getItem("nettoon_2fa_enabled");
+
+  const savedMethod =
+    localStorage.getItem("nettoon_2fa_method");
+
+  const savedContact =
+    localStorage.getItem("nettoon_2fa_contact");
+
+
+  /* =======================================================
+     INITIAL STATE
+     ======================================================= */
+
+  if (saved2FA === "true") {
+
+    toggle.checked = true;
+
+    setup.hidden = false;
+
+  }
+
+
+  if (savedMethod === "phone") {
+
+    phoneRadio.checked = true;
+
+    showPhoneMethod();
+
+  }
+
+
+  if (savedMethod === "email") {
+
+    emailRadio.checked = true;
+
+    showEmailMethod();
+
+  }
+
+
+  if (
+    saved2FA === "true" &&
+    savedMethod
+  ) {
+
+    showSuccessState();
+
+  }
+
+
+  /* =======================================================
+     TOGGLE 2FA
+     ======================================================= */
+
+  toggle.addEventListener(
+    "change",
+    () => {
+
+      if (toggle.checked) {
+
+        setup.hidden = false;
+
+        localStorage.setItem(
+          "nettoon_2fa_enabled",
+          "true"
+        );
+
+      } else {
+
+        disable2FA();
+
+      }
+
+    }
+  );
+
+
+  /* =======================================================
+     PHONE METHOD
+     ======================================================= */
+
+  phoneRadio.addEventListener(
+    "change",
+    () => {
+
+      if (phoneRadio.checked) {
+
+        showPhoneMethod();
+
+      }
+
+    }
+  );
+
+
+  /* =======================================================
+     EMAIL METHOD
+     ======================================================= */
+
+  emailRadio.addEventListener(
+    "change",
+    () => {
+
+      if (emailRadio.checked) {
+
+        showEmailMethod();
+
+      }
+
+    }
+  );
+
+
+  /* =======================================================
+     SHOW PHONE
+     ======================================================= */
+
+  function showPhoneMethod() {
+
+    phoneGroup.hidden = false;
+
+    emailGroup.hidden = true;
+
+    sendButton.hidden = false;
+
+    verification.hidden = true;
+
+    success.hidden = true;
+
+    if (savedMethod === "phone" && savedContact) {
+
+      phoneInput.value = savedContact;
+
+    }
+
+  }
+
+
+  /* =======================================================
+     SHOW EMAIL
+     ======================================================= */
+
+  function showEmailMethod() {
+
+    emailGroup.hidden = false;
+
+    phoneGroup.hidden = true;
+
+    sendButton.hidden = false;
+
+    verification.hidden = true;
+
+    success.hidden = true;
+
+    if (savedMethod === "email" && savedContact) {
+
+      emailInput.value = savedContact;
+
+    }
+
+  }
+
+
+  /* =======================================================
+     SEND VERIFICATION CODE
+     ======================================================= */
+
+  sendButton.addEventListener(
+    "click",
+    () => {
+
+      let method = null;
+
+      let contact = "";
+
+
+      /* PHONE */
+
+      if (phoneRadio.checked) {
+
+        method = "phone";
+
+        contact =
+          phoneInput.value.trim();
+
+
+        if (!isValidPhone(contact)) {
+
+          alert(
+            "Please enter a valid phone number."
+          );
+
+          phoneInput.focus();
+
+          return;
+
+        }
+
+      }
+
+
+      /* EMAIL */
+
+      else if (emailRadio.checked) {
+
+        method = "email";
+
+        contact =
+          emailInput.value.trim();
+
+
+        if (!isValidEmail(contact)) {
+
+          alert(
+            "Please enter a valid email address."
+          );
+
+          emailInput.focus();
+
+          return;
+
+        }
+
+      }
+
+
+      else {
+
+        alert(
+          "Please select a verification method."
+        );
+
+        return;
+
+      }
+
+
+      /*
+       * Save selected method locally.
+       */
+
+      localStorage.setItem(
+        "nettoon_2fa_method",
+        method
+      );
+
+      localStorage.setItem(
+        "nettoon_2fa_contact",
+        contact
+      );
+
+
+      /*
+       * Show verification screen.
+       */
+
+      verification.hidden = false;
+
+      codeInput.value = "";
+
+      codeInput.focus();
+
+
+      if (method === "phone") {
+
+        verificationMessage.textContent =
+          "A verification code will be sent to your phone.";
+
+      } else {
+
+        verificationMessage.textContent =
+          "A verification code will be sent to your email.";
+
+      }
+
+
+      /*
+       * IMPORTANT:
+       *
+       * This is where your backend/API will send
+       * the real SMS or email.
+       */
+
+      sendVerificationCode(
+        method,
+        contact
+      );
+
+    }
+  );
+
+
+  /* =======================================================
+     VERIFY CODE
+     ======================================================= */
+
+  verifyButton.addEventListener(
+    "click",
+    () => {
+
+      const code =
+        codeInput.value.trim();
+
+
+      if (!/^\d{6}$/.test(code)) {
+
+        alert(
+          "Please enter the 6-digit verification code."
+        );
+
+        codeInput.focus();
+
+        return;
+
+      }
+
+
+      /*
+       * REAL IMPLEMENTATION:
+       *
+       * This code should be sent to your backend.
+       *
+       * Your backend verifies the code and returns
+       * success/failure.
+       */
+
+      verifyVerificationCode(code);
+
+    }
+  );
+
+
+  /* =======================================================
+     RESEND CODE
+     ======================================================= */
+
+  resendButton.addEventListener(
+    "click",
+    () => {
+
+      const method =
+        localStorage.getItem(
+          "nettoon_2fa_method"
+        );
+
+      const contact =
+        localStorage.getItem(
+          "nettoon_2fa_contact"
+        );
+
+
+      if (!method || !contact) {
+
+        alert(
+          "Please select your verification method first."
+        );
+
+        return;
+
+      }
+
+
+      sendVerificationCode(
+        method,
+        contact
+      );
+
+    }
+  );
+
+
+  /* =======================================================
+     CHANGE METHOD
+     ======================================================= */
+
+  changeMethod.addEventListener(
+    "click",
+    () => {
+
+      success.hidden = true;
+
+      verification.hidden = true;
+
+      phoneGroup.hidden = true;
+
+      emailGroup.hidden = true;
+
+      sendButton.hidden = true;
+
+      phoneRadio.checked = false;
+
+      emailRadio.checked = false;
+
+    }
+  );
+
+
+  /* =======================================================
+     PHONE VALIDATION
+     ======================================================= */
+
+  function isValidPhone(phone) {
+
+    /*
+     * Allows:
+     *
+     * +254712345678
+     * 0712345678
+     */
+
+    return /^(\+254|0)\d{9}$/.test(
+      phone.replace(/\s/g, "")
+    );
+
+  }
+
+
+  /* =======================================================
+     EMAIL VALIDATION
+     ======================================================= */
+
+  function isValidEmail(email) {
+
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+      email
+    );
+
+  }
+
+
+  /* =======================================================
+     SEND VERIFICATION CODE
+     ======================================================= */
+
+  async function sendVerificationCode(
+    method,
+    contact
+  ) {
+
+    /*
+     * FRONTEND PLACEHOLDER
+     *
+     * Replace this section with a request
+     * to your Nettoon backend.
+     */
+
+
+    console.log(
+      "Requesting verification code:",
+      {
+        method,
+        contact
+      }
+    );
+
+
+    /*
+     * Example future API request:
+     *
+     * const response = await fetch(
+     *   "/api/auth/2fa/send",
+     *   {
+     *     method: "POST",
+     *     headers: {
+     *       "Content-Type":
+     *         "application/json"
+     *     },
+     *     body: JSON.stringify({
+     *       method,
+     *       contact
+     *     })
+     *   }
+     * );
+     */
+
+
+    verificationMessage.textContent =
+      method === "phone"
+        ? "A verification code has been sent to your phone."
+        : "A verification code has been sent to your email.";
+
+  }
+
+
+  /* =======================================================
+     VERIFY CODE
+     ======================================================= */
+
+  async function verifyVerificationCode(code) {
+
+    /*
+     * REAL BACKEND VERIFICATION GOES HERE.
+     */
+
+
+    console.log(
+      "Verifying 2FA code:",
+      code
+    );
+
+
+    /*
+     * Example future API request:
+     *
+     * const response = await fetch(
+     *   "/api/auth/2fa/verify",
+     *   {
+     *     method: "POST",
+     *     headers: {
+     *       "Content-Type":
+     *         "application/json"
+     *     },
+     *     body: JSON.stringify({
+     *       code
+     *     })
+     *   }
+     * );
+     */
+
+
+    /*
+     * TEMPORARY FRONTEND SUCCESS
+     *
+     * This allows you to test the interface.
+     *
+     * REMOVE this simulated success when
+     * connecting your real backend.
+     */
+
+    showSuccessState();
+
+  }
+
+
+  /* =======================================================
+     SUCCESS STATE
+     * ======================================================= */
+
+  function showSuccessState() {
+
+    const method =
+      localStorage.getItem(
+        "nettoon_2fa_method"
+      );
+
+    const contact =
+      localStorage.getItem(
+        "nettoon_2fa_contact"
+      );
+
+
+    verification.hidden = true;
+
+    phoneGroup.hidden = true;
+
+    emailGroup.hidden = true;
+
+    sendButton.hidden = true;
+
+    success.hidden = false;
+
+
+    let methodText = "";
+
+
+    if (method === "phone") {
+
+      methodText =
+        `SMS verification is active for ${maskPhone(contact)}.`;
+
+    }
+
+    if (method === "email") {
+
+      methodText =
+        `Email verification is active for ${maskEmail(contact)}.`;
+
+    }
+
+
+    activeMethod.textContent =
+      methodText;
+
+    localStorage.setItem(
+      "nettoon_2fa_enabled",
+      "true"
+    );
+
+  }
+
+
+  /* =======================================================
+     DISABLE 2FA
+     ======================================================= */
+
+  function disable2FA() {
+
+    setup.hidden = true;
+
+    verification.hidden = true;
+
+    success.hidden = true;
+
+    phoneGroup.hidden = true;
+
+    emailGroup.hidden = true;
+
+    sendButton.hidden = true;
+
+
+    localStorage.removeItem(
+      "nettoon_2fa_enabled"
+    );
+
+    localStorage.removeItem(
+      "nettoon_2fa_method"
+    );
+
+    localStorage.removeItem(
+      "nettoon_2fa_contact"
+    );
+
+  }
+
+
+  /* =======================================================
+     MASK PHONE
+     ======================================================= */
+
+  function maskPhone(phone) {
+
+    if (!phone) return "";
+
+    const clean =
+      phone.replace(/\s/g, "");
+
+    return clean.slice(0, 4)
+      + "••••"
+      + clean.slice(-2);
+
+  }
+
+
+  /* =======================================================
+     MASK EMAIL
+     ======================================================= */
+
+  function maskEmail(email) {
+
+    if (!email) return "";
+
+    const parts =
+      email.split("@");
+
+    if (parts.length !== 2) {
+      return email;
+    }
+
+    const name = parts[0];
+
+    const domain = parts[1];
+
+    const visible =
+      name.length > 2
+        ? name.slice(0, 2)
+        : name.slice(0, 1);
+
+    return visible
+      + "••••@"
+      + domain;
+
+  }
+
+});

@@ -543,17 +543,254 @@
       </div>
       <small id="passwordMatchMessage"></small>
     </div>
+<!-- =========================================================
+     NETTOON — TWO FACTOR AUTHENTICATION
+     ========================================================= -->
 
-        <!-- Platform Alerts -->
-    <div class="form-group">
-      <label>Enable 2 Factor Authentification</label>
-      <div class="toggle-option">
-        <span>2FA (SMS / Authenticator)</span>
-        <label class="switch">
-          <input type="checkbox" id="systemAlerts" checked>
-          <span class="slider round"></span>
-        </label>
-      </div>      </div>
+<div class="form-group nettoon-2fa-section">
+
+  <label class="twofa-main-label">
+    Enable 2 Factor Authentication
+  </label>
+
+  <!-- Main Toggle -->
+<div class="toggle-option">
+
+  <span>Protect your account with 2FA</span>
+
+  <label class="switch">
+    <input
+      type="checkbox"
+      id="twoFactorToggle"
+    >
+
+    <span class="slider round"></span>
+  </label>
+
+</div>
+
+
+  <!-- =======================================================
+       2FA SETUP PANEL
+       ======================================================= -->
+
+  <div
+    class="twofa-setup"
+    id="twoFactorSetup"
+    hidden
+  >
+
+    <div class="twofa-heading">
+
+      <strong>Choose your verification method</strong>
+
+      <p>
+        We'll use this method whenever Nettoon needs to verify
+        your identity.
+      </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         METHOD SELECTION
+         ===================================================== -->
+
+    <div class="twofa-methods">
+
+      <label class="twofa-method">
+
+        <input
+          type="radio"
+          name="twofaMethod"
+          value="phone"
+          id="twofaPhone"
+        >
+
+        <div class="twofa-method-content">
+
+          <strong>Phone Number</strong>
+
+          <span>
+            Receive a verification code by SMS.
+          </span>
+
+        </div>
+
+      </label>
+
+
+      <label class="twofa-method">
+
+        <input
+          type="radio"
+          name="twofaMethod"
+          value="email"
+          id="twofaEmail"
+        >
+
+        <div class="twofa-method-content">
+
+          <strong>Another Email Address</strong>
+
+          <span>
+            Receive a verification code by email.
+          </span>
+
+        </div>
+
+      </label>
+
+    </div>
+
+
+    <!-- =====================================================
+         PHONE INPUT
+         ===================================================== -->
+
+    <div
+      class="twofa-input-group"
+      id="twofaPhoneGroup"
+      hidden
+    >
+
+      <label for="twofaPhoneNumber">
+        Phone Number
+      </label>
+
+      <input
+        type="tel"
+        id="twofaPhoneNumber"
+        placeholder="+254 7XX XXX XXX"
+        autocomplete="tel"
+      >
+
+    </div>
+
+
+    <!-- =====================================================
+         EMAIL INPUT
+         ===================================================== -->
+
+    <div
+      class="twofa-input-group"
+      id="twofaEmailGroup"
+      hidden
+    >
+
+      <label for="twofaEmailAddress">
+        Another Email Address
+      </label>
+
+      <input
+        type="email"
+        id="twofaEmailAddress"
+        placeholder="example@email.com"
+        autocomplete="email"
+      >
+
+    </div>
+
+
+    <!-- =====================================================
+         SEND CODE
+         ===================================================== -->
+
+    <button
+      type="button"
+      class="twofa-send-btn"
+      id="twofaSendCode"
+      hidden
+    >
+      Send Verification Code
+    </button>
+
+
+    <!-- =====================================================
+         VERIFICATION
+         ===================================================== -->
+
+    <div
+      class="twofa-verification"
+      id="twofaVerification"
+      hidden
+    >
+
+      <label for="twofaCode">
+        Verification Code
+      </label>
+
+      <input
+        type="text"
+        id="twofaCode"
+        inputmode="numeric"
+        maxlength="6"
+        placeholder="Enter 6-digit code"
+        autocomplete="one-time-code"
+      >
+
+      <p id="twofaVerificationMessage">
+        Enter the 6-digit code we sent you.
+      </p>
+
+      <button
+        type="button"
+        class="twofa-verify-btn"
+        id="twofaVerifyCode"
+      >
+        Verify Code
+      </button>
+
+      <button
+        type="button"
+        class="twofa-resend-btn"
+        id="twofaResendCode"
+      >
+        Resend Code
+      </button>
+
+    </div>
+
+
+    <!-- =====================================================
+         VERIFIED STATE
+         ===================================================== -->
+
+    <div
+      class="twofa-success"
+      id="twofaSuccess"
+      hidden
+    >
+
+      <div class="twofa-success-icon">
+        ✓
+      </div>
+
+      <div>
+
+        <strong>
+          2FA is enabled
+        </strong>
+
+        <span id="twofaActiveMethod">
+          Your account is protected.
+        </span>
+
+      </div>
+
+      <button
+        type="button"
+        id="twofaChangeMethod"
+        class="twofa-change-btn"
+      >
+        Change Method
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
 
     <!-- Save Button -->
     <button type="submit" class="save-btn" style="display: none;">Save Changes</button>
