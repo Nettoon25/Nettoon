@@ -1,184 +1,1189 @@
 <!DOCTYPE html>
 <html lang="en">
+
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Nettoon Creator Studio</title>
-  <link rel="stylesheet" href="style27.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=yes" />
 
+  <link rel="icon" href="icons/logo.png" type="image/x-icon">
 
-</style>
+  <title>Nettoon.com</title>
+
+  <link rel="stylesheet" href="style27.css" />
+
 </head>
+
 <body>
 
-<div class="app">
-<aside class="sidebar">
-  <div class="brand"><span>NET</span><b class="brandtext">TOON</b></div>
-  <div class="creator"><div class="avatar">N</div><div><b>Creator Studio</b><small>Guest</small></div></div>
-  <div class="nav-title">Studio</div>
-  <nav class="nav">
-    <a href="#dashboard" data-view="dashboard"  style=display:none;><span>▣</span><span>Dashboard</span></a>
-    <a href="index5.html" ><span>＋</span><span>Upload</span></a>
-    <a href="#content" data-view="content" class="active" ><span>◷</span><span>Content</span></a>
-    <a href="#analytics" data-view="analytics"  style=display:none;><span>◉</span><span>Analytics</span></a>
-  </nav>
-  <div class="nav-title">Account</div>
-  <nav class="nav"><a href="index17.html" ><span>⚙</span><span>Settings</span></a></nav>
-</aside>
+<main>
 
-<main class="main">
-  <section class="studio-view dashboard-view" id="dashboardView">
-<section class="dashboard-section" id="dashboardSection">
-  <div class="dashboard-header">
-    <div>
-      <h1>Dashboard</h1>
-      <p>Overview of your content, audience, publishing activity and earnings.</p>
-    </div>
+  <body class="light-mode">
+    <div class="container">
+      <div class="Table">
+        <a href="index.html">
+          <div class="overlay-text">
+            <span class="net-text">NET</span><span class="toon-text">TOON</span>
+          </div>
+        </a>
+      </div>
   
-  </div>
+      <div class="nav">
+        <!-- Search -->
+         
+ <div class="search">
+    <input
+        type="search"
+        id="search"
+        placeholder="Search Cartoons and Animations">
 
-  <div class="dashboard-stats">
-    <div class="dashboard-stat-card"><div class="stat-top"><span>Total Views</span><span class="stat-icon">◉</span></div><strong>128.4K</strong><small class="positive">↑ 12.8% <span>vs last 28 days</span></small></div>
-    <div class="dashboard-stat-card"><div class="stat-top"><span>Watch Time</span><span class="stat-icon">◷</span></div><strong>9,842 hrs</strong><small class="positive">↑ 8.4% <span>vs last 28 days</span></small></div>
-    <div class="dashboard-stat-card"><div class="stat-top"><span>Subscribers</span><span class="stat-icon">♟</span></div><strong>4,821</strong><small class="positive">↑ 326 <span>this month</span></small></div>
-    <div class="dashboard-stat-card"><div class="stat-top"><span>Estimated Earnings</span><span class="stat-icon">◆</span></div><strong>$1,284.60</strong><small class="positive">↑ 14.2% <span>vs last month</span></small></div>
-  </div>
+    <div class="search-dropdown hidden" id="searchDropdown">
 
-  <div class="dashboard-grid">
-    <div class="panel dashboard-panel">
-      <div class="panel-heading"><div><h2>Performance Overview</h2><p class="panel-description">Your channel performance over the selected period.</p></div><select class="dashboard-select"><option>Last 28 days</option><option>Last 7 days</option><option>Last 90 days</option><option>This year</option></select></div>
-      <div class="chart-placeholder"><div class="chart-y"><span>40K</span><span>30K</span><span>20K</span><span>10K</span><span>0</span></div><div class="chart-area"><div class="chart-grid-line"></div><div class="chart-grid-line"></div><div class="chart-grid-line"></div><div class="chart-grid-line"></div><svg viewBox="0 0 700 240" preserveAspectRatio="none" class="performance-chart"><polyline points="0,190 70,165 140,175 210,130 280,145 350,95 420,115 490,75 560,90 630,48 700,62"></polyline><circle cx="700" cy="62" r="5"></circle></svg><div class="chart-x"><span>Aug 1</span><span>Aug 8</span><span>Aug 15</span><span>Aug 22</span><span>Aug 26</span></div></div></div>
+        <!-- Search Result -->
+        <div class="search-result">
+
+            <img src="Moana-2-trailer-1068x471.png" alt="thumbnail">
+
+            <div class="search-result-info">
+
+                <span class="search-title">
+                    Moana 2 Official Trailer
+                </span>
+
+                <span class="search-creator">
+                    Disney Animation
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="search-result">
+
+            <img src="love death robots.jpg" alt="thumbnail">
+
+            <div class="search-result-info">
+
+                <span class="search-title">
+                    Love Death + Robots Volume 4
+                </span>
+
+                <span class="search-creator">
+                    Netflix
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="search-result">
+
+            <img src="kizazi.jpg" alt="thumbnail">
+
+            <div class="search-result-info">
+
+                <span class="search-title">
+                    Kizazi Moto Generation Fire
+                </span>
+
+                <span class="search-creator">
+                    Disney Africa
+                </span>
+
+            </div>
+
+        </div>
+
+        <div class="search-empty hidden">
+
+            No cartoons or animations found.
+
+        </div>
+
     </div>
 
-    <div class="panel dashboard-panel">
-      <div class="panel-heading"><div><h2>Content Snapshot</h2><p class="panel-description">Current state of your library.</p></div></div>
-      <div class="content-snapshot"><div><span>Published</span><strong>42</strong></div><div><span>Scheduled</span><strong>7</strong></div><div><span>Drafts</span><strong>5</strong></div><div><span>Processing</span><strong>2</strong></div><div><span>Private</span><strong>3</strong></div><div><span>Failed</span><strong class="warning-number">1</strong></div></div>
-    </div>
-  </div>
+    <a href="index12.html">
+        <img src="search.png" class="search-icon">
+    </a>
 
-  <div class="panel">
-    <div class="panel-heading"><div><h2>Content Performance</h2><p class="panel-description">See how your different content formats are performing.</p></div><button class="secondary-btn" type="button">View Content</button></div>
-    <div class="content-performance">
-      <div class="format-card"><div class="format-icon">▶</div><div class="format-info"><strong>One-time Videos</strong><span id="performanceVideoCount">0 in library</span></div><div class="format-metric"><strong>64.2K</strong><span>views</span></div></div>
-      <div class="format-card"><div class="format-icon">▤</div><div class="format-info"><strong>Series</strong><span id="performanceSeriesCount">0 in library</span></div><div class="format-metric"><strong>51.8K</strong><span>views</span></div></div>
-      <div class="format-card"><div class="format-icon">⚡</div><div class="format-info"><strong>Shorts</strong><span id="performanceShortCount">0 in library</span></div><div class="format-metric"><strong>12.4K</strong><span>views</span></div></div>
-    </div>
-  </div>
+    <span class="tooltip">
+        Search
+    </span>
 
-  <div class="dashboard-grid">
-    <div class="panel">
-      <div class="panel-heading"><div><h2>Top Content</h2><p class="panel-description">Your best-performing content.</p></div><button class="secondary-btn" type="button">View All</button></div>
-      <div class="top-content-list">
-        <div class="top-content-row"><span class="rank">01</span><div class="content-thumb">▶</div><div class="content-details"><strong>The African Future</strong><span>Series · Episode 1</span></div><div class="content-result"><strong>32.4K</strong><span>views</span></div></div>
-        <div class="top-content-row"><span class="rank">02</span><div class="content-thumb">▶</div><div class="content-details"><strong>The Beginning</strong><span>One-time Video</span></div><div class="content-result"><strong>21.7K</strong><span>views</span></div></div>
-        <div class="top-content-row"><span class="rank">03</span><div class="content-thumb">⚡</div><div class="content-details"><strong>Behind the Animation</strong><span>Short</span></div><div class="content-result"><strong>14.8K</strong><span>views</span></div></div>
-      </div>
-    </div>
+</div>
+        <div class="nav-actions"></div>
+        <!-- Upload -->
+        <a href="index5.html">
+          <div class="upload">
+            <img src="upload.png" alt="Upload Icon">
+            <div class="tooltip">Upload</div>
+          </div>
+        </a>
 
-    <div class="panel">
-      <div class="panel-heading"><div><h2>Upcoming Releases</h2><p class="panel-description">What is scheduled next.</p></div><button class="secondary-btn" type="button">Manage</button></div>
-      <div class="upcoming-list">
-        <div class="upcoming-row"><div class="upcoming-date"><strong>26</strong><span>AUG</span></div><div class="upcoming-details"><strong>Episode 2 — The Awakening</strong><span>Series · 7:00 PM EAT</span></div><span class="status-badge scheduled">Scheduled</span></div>
-        <div class="upcoming-row"><div class="upcoming-date"><strong>28</strong><span>AUG</span></div><div class="upcoming-details"><strong>Behind the Scenes</strong><span>Short · 7:00 PM EAT</span></div><span class="status-badge scheduled">Scheduled</span></div>
-        <div class="upcoming-row"><div class="upcoming-date"><strong>30</strong><span>AUG</span></div><div class="upcoming-details"><strong>Episode 3 — The Resistance</strong><span>Series · 7:00 PM EAT</span></div><span class="status-badge scheduled">Scheduled</span></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="dashboard-grid">
-    <div class="panel">
-      <div class="panel-heading"><div><h2>Audience Overview</h2><p class="panel-description">Understand who is watching your content.</p></div></div>
-      <div class="audience-stats"><div><span>Returning viewers</span><strong>68%</strong></div><div><span>New viewers</span><strong>32%</strong></div><div><span>Avg. view duration</span><strong>8:42</strong></div><div><span>Engagement rate</span><strong>7.8%</strong></div></div>
-      <div class="audience-bar"><div style="width:68%"></div></div>
-      <div class="audience-legend"><span><i></i> Returning viewers</span><span><i></i> New viewers</span></div>
-    </div>
-
-    <div class="panel">
-      <div class="panel-heading"><div><h2>Earnings</h2><p class="panel-description">Estimated creator revenue.</p></div><button class="secondary-btn" type="button">View Revenue</button></div>
-      <div class="earnings-main"><strong>$1,284.60</strong><span class="positive">↑ 14.2% this month</span></div>
-      <div class="earnings-breakdown"><div><span>Advertising</span><strong>$1,024.20</strong></div><div><span>Other revenue</span><strong>$260.40</strong></div></div>
-    </div>
-  </div>
-</section>
-  </section>
-
-  <section class="studio-view" id="contentView">
-  <section class="top">
-    <div><h1 class="title">Content Management</h1><div class="subtitle">Manage every video you have uploaded. Publish immediately, change release times, cancel a schedule without losing the uploaded content and delete unwanted videos.</div></div>
   
-  </section>
-
-  <section class="panel">
-
-    <div class="type-summary">
-      <div class="type-card"><div class="left"><div class="icon">▶</div><div><strong>One-time Videos</strong><small>Standalone releases</small></div></div><div class="count-big" id="summaryVideo">0</div></div>
-      <div class="type-card"><div class="left"><div class="icon">▤</div><div><strong>Series</strong><small>Episodes & recurring releases</small></div></div><div class="count-big" id="summarySeries">0</div></div>
-      <div class="type-card"><div class="left"><div class="icon">⚡</div><div><strong>Shorts</strong><small>Short-form animation</small></div></div><div class="count-big" id="summaryShort">0</div></div>
+     <!-- Notifications -->
+     <div class="Notifications" id="notification-icon">
+      <img src="sub-3.png" alt="Notifications Icon">
+      <div class="tooltip">Notifications</div>
     </div>
 
-
-  <section class="stats">
-      <div class="stat"><div class="num">12</div><div class="label">Published</div></div>
-    <div class="stat scheduled"><div class="num" id="scheduledCount">5</div><div class="label">Scheduled</div></div>
-    <div class="stat"><div class="num">3</div><div class="label">Drafts</div></div>
-    <div class="stat" style=display:none;><div class="num">1</div><div class="label">Processing</div></div>
-    <div class="stat"  style=display:none;><div class="num">0</div><div class="label">Failed</div></div>
-  </section>
-
-    <div class="toolbar">
-      <div class="tabs" id="tabs">
-             <button class="tab" data-filter="published">Published</button>
-        <button class="tab active" data-filter="scheduled">Scheduled</button>
-        <button class="tab" data-filter="draft">Drafts</button>
-        <button class="tab" data-filter="private">Private</button>
-        <button class="tab" data-filter="processing"  style=display:none;>Processing</button>
-        <button class="tab" data-filter="failed"  style=display:none;>Failed</button>
+    <!-- Notification Dropdown -->
+    <div class="Notification-container" id="notification-container">
+      <div class="Notification-header">
+        <span>5 Notifications</span>
+        <hr>
       </div>
-      <div class="search"><span>⌕</span><input id="search" type="search" placeholder="Search content..." /></div>
-      <div class="controls"><select class="control" id="sort"><option value="soonest">Soonest first</option><option value="latest">Latest first</option><option value="title">Title A–Z</option></select></div>
-    </div>
+    
+      <div class="Notification">
+        <div class="Content">
+          <!-- Row 1: Profile + username -->
+          <div class="User-profile">
+            <img src="14.png" alt="User Avatar">
+            <span class="username">Alkebulan</span>
+      
+            <div class="optionnn">
+              <img src="sidebar 3.png" alt="optionnn img" class="optionTrigger">
+      
+         <!-- Popup Menu -->
+<div class="popup-options">
+  <div class="popup-item">
+    <img src="delete.png" alt="Test Icon" >
 
-    <div class="table-wrap">
-      <table class="table"><thead><tr><th>Content</th><th>Release</th><th>Status</th><th>Schedule</th><th>Actions</th></tr></thead><tbody id="rows"></tbody></table>
-      <div class="empty" id="empty"><strong>No content found</strong><span>Try another search or select a different content status.</span></div>
-    </div>
-    <div class="pagination"><span id="resultCount">Showing 5 scheduled items</span><div class="pagebuttons"><button class="page active">1</button><button class="page">2</button><button class="page">›</button></div></div>
-  </section>
-</section>
-
-  <section class="studio-view placeholder-view" id="uploadView" data-placeholder="true">
-    <div class="placeholder-inner">
-      <div class="eyebrow">Studio</div><h1 class="title">Upload</h1>
-      <div class="subtitle">Your complete Nettoon upload workflow will live here, separate from Content management.</div>
-      <div class="placeholder-card"><strong>Upload Workspace</strong><span>This is an independent tab. It does not share the Content page.</span></div>
-    </div>
-  </section>
-  <section class="studio-view placeholder-view" id="analyticsView" data-placeholder="true">
-    <div class="placeholder-inner"><div class="eyebrow">Studio</div><h1 class="title">Analytics</h1><div class="subtitle">A dedicated analytics workspace for views, watch time, retention, audience and revenue.</div><div class="placeholder-card"><strong>Analytics Workspace</strong><span>This section is isolated from Dashboard and Content.</span></div></div>
-  </section>
-  <section class="studio-view placeholder-view" id="commentsView" data-placeholder="true">
-    <div class="placeholder-inner"><div class="eyebrow">Studio</div><h1 class="title">Comments</h1><div class="subtitle">Manage comments, moderation, replies and creator interactions from a dedicated workspace.</div><div class="placeholder-card"><strong>Comments Workspace</strong><span>This section is isolated from the Content management page.</span></div></div>
-  </section>
-  <section class="studio-view placeholder-view" id="earningsView" data-placeholder="true">
-    <div class="placeholder-inner"><div class="eyebrow">Account</div><h1 class="title">Earnings</h1><div class="subtitle">A dedicated financial workspace for advertising revenue, creator earnings, payouts and settlements.</div><div class="placeholder-card"><strong>Earnings Workspace</strong><span>This section is isolated from Dashboard and Content.</span></div></div>
-  </section>
-  <section class="studio-view placeholder-view" id="settingsView" data-placeholder="true">
-    <div class="placeholder-inner"><div class="eyebrow">Account</div><h1 class="title">Settings</h1><div class="subtitle">Manage your creator profile, account preferences, privacy, security and channel settings.</div><div class="placeholder-card"><strong>Settings Workspace</strong><span>This section is isolated from all Studio pages.</span></div></div>
-  </section>
-  <section class="studio-view placeholder-view" id="helpView" data-placeholder="true">
-    <div class="placeholder-inner"><div class="eyebrow">Account</div><h1 class="title">Help</h1><div class="subtitle">Access Nettoon Creator support, documentation and troubleshooting resources.</div><div class="placeholder-card"><strong>Help Workspace</strong><span>This section is isolated from the rest of Creator Studio.</span></div></div>
-  </section>
-
-</main>
+    <span>Delete this notification</span>
+  </div>
+  <div class="popup-item">
+    <img src="share.png" alt="Turn Off Icon">
+    <span>Turn off all notifications from Alkebulan</span>
+  </div>
 </div>
 
-<div class="overlay" id="editOverlay"><div class="modal"><div class="modal-head"><h3>Edit Schedule</h3><button class="close" onclick="closeModal('editOverlay')">×</button></div><div class="modal-body"><p>Change when <b id="editTitle"></b> becomes publicly available. Editing the schedule does not create a new upload.</p><div class="field"><label>Release date</label><input id="editDate" type="date"></div><div class="field"><label>Release time</label><input id="editTime" type="time"></div><div class="field"><label>Visibility</label><select id="editVisibility"><option>Public</option><option>Private</option></select></div></div><div class="modal-actions"><button class="btn" onclick="closeModal('editOverlay')">Keep Current</button><button class="btn primary" onclick="saveSchedule()">Save Schedule</button></div></div></div>
-<div class="overlay" id="videoEditOverlay"><div class="modal video-edit-modal"><div class="modal-head"><div><h3>Edit Video</h3><p class="modal-subtitle">Update your existing content without creating a new upload.</p></div><button class="close" onclick="closeModal('videoEditOverlay')">×</button></div><div class="modal-body"><div class="edit-content-preview"><div class="edit-thumb">▶</div><div><strong id="videoEditName">Video</strong><span id="videoEditMeta">One-time Video</span></div></div><div class="field"><label>Title</label><input id="videoEditTitle" type="text" maxlength="120"></div><div class="field"><label>Description</label><textarea id="videoEditDescription" rows="4" placeholder="Tell viewers about this content..."></textarea></div><div class="edit-fields-grid"><div class="field"><label>Genre</label><select id="videoEditGenre"><option>Comedy</option><option>Adventure</option><option>Fantasy</option><option>Action</option><option>Science Fiction</option><option>Drama</option><option>Horror</option><option>Animation</option></select></div><div class="field"><label>Visibility</label><select id="videoEditVisibility"><option>Public</option><option>Private</option></select></div></div><label class="edit-check"><input id="videoEditComments" type="checkbox" checked> Allow comments</label></div><div class="modal-actions"><button class="btn" onclick="closeModal('videoEditOverlay')">Cancel</button><button class="btn primary" onclick="saveVideoEdit()">Save Changes</button></div></div></div>
-<div class="overlay" id="confirmOverlay"><div class="modal"><div class="modal-head"><h3 id="confirmTitle">Confirm action</h3><button class="close" onclick="closeModal('confirmOverlay')">×</button></div><div class="modal-body"><p id="confirmText"></p></div><div class="modal-actions"><button class="btn" onclick="closeModal('confirmOverlay')">Go Back</button><button class="btn danger" id="confirmBtn">Confirm</button></div></div></div>
-<div class="toast" id="toast"></div>
+            </div>
+          </div>
+    
+          <!-- Row 2: Message (left) + Thumbnail (right) -->
+          <div class="message-row">
+            <span class="text">Uploaded their new content.Check it out! : <b>ZINGLAR</b> </span>
+            <div class="video-thumb">
+              <img src="Donald Trump.PNG" alt="Video Thumbnail">
+            </div>
+          </div>
+          <div class="timer"><span>1 hour ago</span></div>
+        </div>
+
+      </div>
+
+      <div class="Notification">
+        <div class="Content">
+          <!-- Row 1: Profile + username -->
+          <div class="User-profile">
+            <img src="14.png" alt="User Avatar">
+            <span class="username">Nettoon</span>
+          
+            <div class="optionnn">
+              <img src="sidebar 3.png" alt="optionnn img" class="optionTrigger">
+      
+         <!-- Popup Menu -->
+<div class="popup-options">
+  <div class="popup-item">
+    <img src="delete.png" alt="Test Icon" >
+
+    <span>Delete this notification</span>
+  </div>
+  <div class="popup-item">
+    <img src="share.png" alt="Turn Off Icon">
+    <span>Turn off all notifications from Alkebulan</span>
+  </div>
+  <div class="popup-item">
+    <img src="report.png" alt="Report Icon">
+    <span>Report this notification</span>
+  </div>
+</div>
+
+            </div>
+          </div>
+    
+          <!-- Row 2: Message (left) + Thumbnail (right) -->
+          <div class="message-row">
+            <span class="text">commented on your video :<b>  OATS STUDIOS</b></span>
+            <div class="video-thumb">
+              <img src="Oats studios.png" alt="Video Thumbnail">
+            </div>
+          </div>
+          <div class="timer"><span>38 minutes ago</span></div>
+        </div>
+
+      </div>
+
+      <div class="Notification">
+        <div class="Content">
+          <!-- Row 1: Profile + username -->
+          <div class="User-profile">
+            <img src="14.png" alt="User Avatar">
+            <span class="username">Kenya</span>
+          
+            <div class="optionnn">
+              <img src="sidebar 3.png" alt="optionnn img" class="optionTrigger">
+      
+         <!-- Popup Menu -->
+<div class="popup-options">
+  <div class="popup-item">
+    <img src="delete.png" alt="Test Icon" >
+
+    <span>Delete this notification</span>
+  </div>
+  <div class="popup-item">
+    <img src="share.png" alt="Turn Off Icon">
+    <span>Turn off all notifications from Alkebulan</span>
+  </div>
+
+</div>
+
+            </div>
+          </div>
+    
+          <!-- Row 2: Message (left) + Thumbnail (right) -->
+          <div class="message-row">
+            <span class="text">liked your video :<b> ARCANE</b></span>
+            <div class="video-thumb">
+              <img src="Arcane.png" alt="Video Thumbnail">
+            </div>
+          </div>
+          <div class="timer"><span>3 weeks ago</span></div>
+        </div>
+
+      </div>
+
+      <div class="Notification">
+        <div class="Content">
+          <!-- Row 1: Profile + username -->
+          <div class="User-profile">
+            <img src="14.png" alt="User Avatar">
+            <span class="username">Africa</span>
+           
+            <div class="optionnn">
+              <img src="sidebar 3.png" alt="optionnn img" class="optionTrigger">
+      
+         <!-- Popup Menu -->
+<div class="popup-options">
+  <div class="popup-item">
+    <img src="delete.png" alt="Test Icon" >
+
+    <span>Delete this notification</span>
+  </div>
+  <div class="popup-item">
+    <img src="share.png" alt="Turn Off Icon">
+    <span>Turn off all notifications from Alkebulan</span>
+  </div>
+  <div class="popup-item">
+    <img src="report.png" alt="Report Icon">
+    <span>Report this notification</span>
+  </div>
+</div>
+
+            </div>
+          </div>
+    
+          <!-- Row 2: Message (left) + Thumbnail (right) -->
+          <div class="message-row">
+            <span class="text">mentioned you in their video : <b>Kizazi Moto : Generation Fire </b> </span>
+            <div class="video-thumb">
+              <img src="kizazi moto.jpg_large.jpg" alt="Video Thumbnail">
+            </div>
+          </div>
+          <div class="timer"><span>2 months ago</span></div>
+        </div>
+
+      </div>
+
+      <div class="Notification">
+        <div class="Content">
+          <!-- Row 1: Profile + username -->
+          <div class="User-profile">
+            <img src="14.png" alt="User Avatar">
+            <span class="username">Nairobi</span>
+           
+            <div class="optionnn">
+              <img src="sidebar 3.png" alt="optionnn img" class="optionTrigger">
+      
+         <!-- Popup Menu -->
+<div class="popup-options">
+  <div class="popup-item">
+    <img src="delete.png" alt="Test Icon" >
+
+    <span>Delete this notification</span>
+  </div>
+  <div class="popup-item">
+    <img src="share.png" alt="Turn Off Icon">
+    <span>Turn off all notifications from Alkebulan</span>
+  </div>
+  <div class="popup-item">
+    <img src="report.png" alt="Report Icon">
+    <span>Report this notification</span>
+  </div>
+</div>
+
+            </div>
+          </div>
+    
+          <!-- Row 2: Message (left) + Thumbnail (right) -->
+          <div class="message-row">
+            <span class="text">taged you in a video: <b>MOANA</b></span>
+            <div class="video-thumb">
+              <img src="Moana-2-trailer-1068x471.png" alt="Video Thumbnail">
+            </div>
+          </div>
+          <div class="timer"><span>1 hour ago</span></div>
+        </div>
+
+      </div>
+      
+    </div>
+  </div> <!-- end nav -->
 
 
+      <!-- Account dropdown -->
+      <a href="#" class="account-dropdown">
+        <div class="Account">
+          <img src="14.png" alt="Account Icon">
+        </div>
+      </a>
+      <div class="dropdown-content" id="accountDropdown">
+        <ul>
+          <a href="index15.html"><li>
+            <div class="proofile">
+              <img src="14.png" alt="Profile Image">
+              <span>Guest</span>
+            </div>
+          </li></a>
+  
+          <a href="index8.html"><li>
+            <div class="proofile">
+              <img src="categories.png" alt="Profile Image">
+              <span>Series Section</span>
+            </div>
+          </li></a>
+  
+          <a href="index17.html"><li>
+            <div class="proofile">
+              <img src="settings 2.png" alt="Profile Image">
+              <span>Settings</span>
+            </div>
+          </li></a>
+        </ul>
+      </div>
+    </div>
+    </div> <!-- end container -->
+  </body>
 
-<script src="script27.js"></script>
+  <main class="content-page">
+
+    <!-- =========================================================
+         PAGE HEADER
+    ========================================================== -->
+
+    <section class="page-header">
+
+      <div>
+        <h1>Content Management</h1>
+
+        <p>
+          Manage every video you have uploaded. Publish immediately,
+          change release times, cancel a schedule without losing the
+          uploaded content, and delete unwanted videos.
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         CONTENT TYPE SELECTOR
+    ========================================================== -->
+
+    <section class="content-type-grid">
+
+      <button
+        class="content-type-card active"
+        type="button"
+        data-content-type="one-time"
+      >
+
+        <div class="content-type-icon">
+          ▶
+        </div>
+
+        <div class="content-type-info">
+
+          <strong>
+            One-time Videos
+          </strong>
+
+          <span
+            id="one-time-count"
+          >
+            0
+          </span>
+
+          <small>
+            Standalone releases
+          </small>
+
+        </div>
+
+      </button>
+
+
+      <button
+        class="content-type-card"
+        type="button"
+        data-content-type="series"
+      >
+
+        <div class="content-type-icon">
+          ▤
+        </div>
+
+        <div class="content-type-info">
+
+          <strong>
+            Series
+          </strong>
+
+          <span
+            id="series-count"
+          >
+            0
+          </span>
+
+          <small>
+            Episodes & recurring releases
+          </small>
+
+        </div>
+
+      </button>
+
+
+      <button
+        class="content-type-card"
+        type="button"
+        data-content-type="shorts"
+      >
+
+        <div class="content-type-icon">
+          ◉
+        </div>
+
+        <div class="content-type-info">
+
+          <strong>
+            Shorts
+          </strong>
+
+          <span
+            id="shorts-count"
+          >
+            0
+          </span>
+
+          <small>
+            Short-form animation
+          </small>
+
+        </div>
+
+      </button>
+
+    </section>
+
+
+    <!-- =========================================================
+         SUMMARY
+    ========================================================== -->
+
+    <section class="summary-grid">
+
+      <div class="summary-card">
+
+        <span>
+          Published
+        </span>
+
+        <strong id="summary-published">
+          0
+        </strong>
+
+      </div>
+
+
+      <div class="summary-card">
+
+        <span>
+          Drafts
+        </span>
+
+        <strong id="summary-drafts">
+          0
+        </strong>
+
+      </div>
+
+
+      <div class="summary-card">
+
+        <span>
+          Processing
+        </span>
+
+        <strong id="summary-processing">
+          0
+        </strong>
+
+      </div>
+
+
+      <div class="summary-card">
+
+        <span>
+          Failed
+        </span>
+
+        <strong id="summary-failed">
+          0
+        </strong>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         CONTENT MANAGEMENT PANEL
+    ========================================================== -->
+
+    <section class="management-panel">
+
+
+      <!-- =======================================================
+           STATUS NAVIGATION
+      ======================================================== -->
+
+      <div
+        class="status-navigation"
+        id="status-navigation"
+      >
+
+        <!-- JS creates these dynamically -->
+
+      </div>
+
+
+      <!-- =======================================================
+           TOOLBAR
+      ======================================================== -->
+
+      <div class="management-toolbar">
+
+        <div class="search-wrapper">
+
+          <span class="search-icon">
+            ⌕
+          </span>
+
+          <input
+            type="search"
+            id="content-search"
+            placeholder="Search content..."
+          >
+
+        </div>
+
+
+        <select
+          id="sort-content"
+          class="sort-select"
+        >
+
+          <option value="soonest">
+            Soonest first
+          </option>
+
+          <option value="latest">
+            Latest first
+          </option>
+
+          <option value="title">
+            Title A-Z
+          </option>
+
+          <option value="views">
+            Most views
+          </option>
+
+        </select>
+
+      </div>
+
+
+      <!-- =======================================================
+           TABLE
+      ======================================================== -->
+
+      <div class="content-table-wrapper">
+
+        <table class="content-table">
+
+          <thead>
+
+            <tr>
+
+              <th>
+                CONTENT
+              </th>
+
+              <th>
+                RELEASE
+              </th>
+
+              <th>
+                STATUS
+              </th>
+
+              <th>
+                VIEWS
+              </th>
+
+              <th>
+                ACTIONS
+              </th>
+
+            </tr>
+
+          </thead>
+
+          <tbody
+            id="content-table-body"
+          >
+
+          </tbody>
+
+        </table>
+
+      </div>
+
+
+      <!-- =======================================================
+           EMPTY STATE
+      ======================================================== -->
+
+      <div
+        class="empty-state hidden"
+        id="empty-state"
+      >
+
+        <div class="empty-icon">
+          ◌
+        </div>
+
+        <h3>
+          No content found
+        </h3>
+
+        <p>
+          Try another search or select a different content status.
+        </p>
+
+      </div>
+
+
+      <!-- =======================================================
+           PAGINATION
+      ======================================================== -->
+
+      <div class="pagination-area">
+
+        <span id="pagination-info">
+          Showing 0 of 0 items
+        </span>
+
+        <div class="pagination-buttons">
+
+          <button
+            type="button"
+            id="previous-page"
+            class="pagination-button"
+          >
+            ‹
+          </button>
+
+          <div
+            id="page-numbers"
+            class="page-numbers"
+          ></div>
+
+          <button
+            type="button"
+            id="next-page"
+            class="pagination-button"
+          >
+            ›
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- ===========================================================
+       VIEW MODAL
+  ============================================================ -->
+
+  <div
+    class="modal-backdrop hidden"
+    id="view-modal"
+  >
+
+    <div class="modal modal-large">
+
+      <div class="modal-header">
+
+        <div>
+          <span class="modal-eyebrow">
+            CONTENT PREVIEW
+          </span>
+
+          <h2 id="view-modal-title">
+            View Video
+          </h2>
+        </div>
+
+        <button
+          type="button"
+          class="modal-close"
+          data-close-modal="view-modal"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <div
+        class="view-content"
+        id="view-content"
+      ></div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ===========================================================
+       EDIT MODAL
+  ============================================================ -->
+
+  <div
+    class="modal-backdrop hidden"
+    id="edit-modal"
+  >
+
+    <div class="modal">
+
+      <div class="modal-header">
+
+        <div>
+
+          <h2>
+            Edit Video
+          </h2>
+
+          <p>
+            Update your existing content without creating a new upload.
+          </p>
+
+        </div>
+
+        <button
+          type="button"
+          class="modal-close"
+          data-close-modal="edit-modal"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <form id="edit-form">
+
+        <input
+          type="hidden"
+          id="edit-id"
+        >
+
+
+        <!-- MEDIA PREVIEW -->
+
+        <div class="edit-media-preview">
+
+          <div
+            class="video-preview-art"
+            id="edit-preview-art"
+          >
+            ▶
+          </div>
+
+          <div>
+
+            <strong id="edit-preview-title">
+              Behind the Scenes
+            </strong>
+
+            <span id="edit-preview-meta">
+              One-time Video • 06:12
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <!-- TITLE -->
+
+        <div class="form-group">
+
+          <label for="edit-title">
+            Title
+          </label>
+
+          <input
+            type="text"
+            id="edit-title"
+            required
+          >
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+
+        <div class="form-group">
+
+          <label for="edit-description">
+            Description
+          </label>
+
+          <textarea
+            id="edit-description"
+            rows="5"
+          ></textarea>
+
+        </div>
+
+
+        <!-- GENRE -->
+
+        <div class="form-group">
+
+          <label for="edit-genre">
+            Genre
+          </label>
+
+          <select id="edit-genre">
+
+            <option value="Comedy">
+              Comedy
+            </option>
+
+            <option value="Adventure">
+              Adventure
+            </option>
+
+            <option value="Fantasy">
+              Fantasy
+            </option>
+
+            <option value="Action">
+              Action
+            </option>
+
+            <option value="Science Fiction">
+              Science Fiction
+            </option>
+
+            <option value="Drama">
+              Drama
+            </option>
+
+            <option value="Horror">
+              Horror
+            </option>
+
+            <option value="Animation">
+              Animation
+            </option>
+
+          </select>
+
+        </div>
+
+
+        <!-- VISIBILITY -->
+
+        <div class="form-group">
+
+          <label>
+            Visibility
+          </label>
+
+          <div class="radio-group">
+
+            <label class="radio-option">
+
+              <input
+                type="radio"
+                name="visibility"
+                value="Public"
+                id="visibility-public"
+              >
+
+              <span>
+                Public
+              </span>
+
+            </label>
+
+
+            <label class="radio-option">
+
+              <input
+                type="radio"
+                name="visibility"
+                value="Private"
+                id="visibility-private"
+              >
+
+              <span>
+                Private
+              </span>
+
+            </label>
+
+          </div>
+
+        </div>
+
+
+        <!-- COMMENTS -->
+
+        <div class="checkbox-row">
+
+          <input
+            type="checkbox"
+            id="edit-comments"
+          >
+
+          <label for="edit-comments">
+            Allow comments
+          </label>
+
+        </div>
+
+
+        <!-- BUTTONS -->
+
+        <div class="modal-actions">
+
+          <button
+            type="button"
+            class="button button-secondary"
+            data-close-modal="edit-modal"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="button button-primary"
+          >
+            Save Changes
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- ===========================================================
+       SCHEDULE MODAL
+  ============================================================ -->
+
+  <div
+    class="modal-backdrop hidden"
+    id="schedule-modal"
+  >
+
+    <div class="modal">
+
+      <div class="modal-header">
+
+        <div>
+
+          <h2>
+            Schedule Publishing
+          </h2>
+
+          <p>
+            Choose when this content should become public.
+          </p>
+
+        </div>
+
+        <button
+          type="button"
+          class="modal-close"
+          data-close-modal="schedule-modal"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <form id="schedule-form">
+
+        <input
+          type="hidden"
+          id="schedule-id"
+        >
+
+        <div class="form-group">
+
+          <label for="schedule-date">
+            Release date and time
+          </label>
+
+          <input
+            type="datetime-local"
+            id="schedule-date"
+            required
+          >
+
+        </div>
+
+
+        <div class="modal-actions">
+
+          <button
+            type="button"
+            class="button button-secondary"
+            data-close-modal="schedule-modal"
+          >
+            Cancel
+          </button>
+
+          <button
+            type="submit"
+            class="button button-primary"
+          >
+            Save Schedule
+          </button>
+
+        </div>
+
+      </form>
+
+    </div>
+
+  </div>
+
+
+  <!-- ===========================================================
+       CONFIRMATION MODAL
+  ============================================================ -->
+
+  <div
+    class="modal-backdrop hidden"
+    id="confirm-modal"
+  >
+
+    <div class="modal modal-small">
+
+      <div class="modal-header">
+
+        <div>
+
+          <span class="modal-eyebrow">
+            CONFIRM ACTION
+          </span>
+
+          <h2 id="confirm-title">
+            Are you sure?
+          </h2>
+
+        </div>
+
+        <button
+          type="button"
+          class="modal-close"
+          data-close-modal="confirm-modal"
+        >
+          ×
+        </button>
+
+      </div>
+
+
+      <p
+        class="confirm-message"
+        id="confirm-message"
+      ></p>
+
+
+      <div class="modal-actions">
+
+        <button
+          type="button"
+          class="button button-secondary"
+          data-close-modal="confirm-modal"
+        >
+          Cancel
+        </button>
+
+        <button
+          type="button"
+          class="button button-danger"
+          id="confirm-action"
+        >
+          Confirm
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- ===========================================================
+       TOAST
+  ============================================================ -->
+
+  <div
+    id="toast"
+    class="toast"
+  ></div>
+
+
+  <script src="script27.js"></script>
+
 </body>
 </html>
