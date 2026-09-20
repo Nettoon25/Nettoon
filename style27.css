@@ -190,7 +190,7 @@ body::-webkit-scrollbar-thumb {
   
   /* Typography */
   font-family: var(--font-family-primary); /* Uses the primary brand font */
-  font-size: 1.1em; /* Sets the base font size for the logo text (24px) */
+  font-size: 1.4em; /* Sets the base font size for the logo text (24px) */
   font-weight: var(--font-weight-extrabold); /* Extra bold for prominence */
   
   /* Text Handling */
