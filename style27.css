@@ -3346,37 +3346,68 @@ body.dark-mode .studio-profile-image img {
 }
 
 
-body {
-  /* Default styles for content, typography, base layout */
-  font-size: 14px;
-  line-height: 1.5;
-  padding: 10px;
-  /* Example: Hide certain elements on very small screens */
-  .desktop-only-element {
-      display: none;
-  }
+/* =========================================================
+   SERIES / EPISODES
+========================================================= */
+
+.episode-container-row > td {
+  padding: 0 !important;
 }
 
-
-
-/* Large Desktops / High-Resolution Screens (e.g., 1280px - 1599px) */
-/* For larger monitors or dual-monitor setups */
-@media (min-width: 1280px) and (max-width: 1599px) {
-
-    .Table {
- width: 100%;
-    }
-
-       .container {
- width: 100%;
-    }
-
-  /* Notifications Icon */
-.Notifications {
-  margin-right: 4rem;
+.episode-container {
+  width: 100%;
+  overflow-x: auto;
 }
 
-.Notifications img {
-  width: 1.9rem;
-  height: 1.9rem;
-}}
+.episode-list {
+  width: 100%;
+}
+
+.episode-table {
+  width: 100%;
+  min-width: 1050px;
+  border-collapse: collapse;
+}
+
+.episode-row {
+  min-width: 1050px;
+}
+
+.episode-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.episode-number {
+  width: 30px;
+  flex: 0 0 30px;
+  text-align: center;
+  color: var(--muted-2);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.episode-information {
+  min-width: 0;
+}
+
+.episode-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 10px;
+  width: max-content;
+  min-width: max-content;
+  white-space: nowrap;
+}
+
+.episode-actions button {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.episode-row td:last-child {
+  white-space: nowrap;
+}
