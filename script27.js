@@ -1,58 +1,116 @@
-
-
 // ======================= THEME TOGGLE =======================
+
 document.addEventListener("DOMContentLoaded", () => {
+
   const themeToggle = document.getElementById("themeToggle");
+
   const lightImg = document.getElementById("theme-toggle-light");
   const darkImg = document.getElementById("theme-toggle-dark");
 
   function setTheme(mode) {
+
     if (mode === "dark") {
+
       document.body.classList.add("dark-mode");
       document.body.classList.remove("light-mode");
-      themeToggle.checked = true;
+
+      if (themeToggle) {
+        themeToggle.checked = true;
+      }
+
     } else {
+
       document.body.classList.add("light-mode");
       document.body.classList.remove("dark-mode");
-      themeToggle.checked = false;
+
+      if (themeToggle) {
+        themeToggle.checked = false;
+      }
     }
   }
 
+
   function toggleAndSave() {
-    const newMode = themeToggle.checked ? "dark" : "light";
+
+    const newMode = themeToggle.checked
+      ? "dark"
+      : "light";
+
     setTheme(newMode);
+
     localStorage.setItem("theme", newMode);
   }
 
-  // Initialize from storage or system
+
+  // Load saved theme
   const stored = localStorage.getItem("theme");
+
+
   if (stored) {
+
     setTheme(stored);
+
   } else {
-    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+
+    const prefersDark =
+      window.matchMedia("(prefers-color-scheme: dark)").matches;
+
     setTheme(prefersDark ? "dark" : "light");
   }
 
-  themeToggle.addEventListener("change", toggleAndSave);
 
-  // Fallback if icons fail
+  if (themeToggle) {
+    themeToggle.addEventListener(
+      "change",
+      toggleAndSave
+    );
+  }
+
+
+  // Image fallback
   function fallbackImage(imgEl, faClass) {
+
     if (!imgEl) return;
+
     imgEl.addEventListener("error", () => {
+
       const i = document.createElement("i");
+
       i.className = faClass;
-      i.style.width = imgEl.style.width || "20px";
-      i.style.height = imgEl.style.height || "20px";
+
+      i.style.width =
+        imgEl.style.width || "20px";
+
+      i.style.height =
+        imgEl.style.height || "20px";
+
       imgEl.replaceWith(i);
     });
-    if (imgEl.complete && imgEl.naturalWidth === 0) {
-      imgEl.dispatchEvent(new Event("error"));
+
+
+    if (
+      imgEl.complete &&
+      imgEl.naturalWidth === 0
+    ) {
+
+      imgEl.dispatchEvent(
+        new Event("error")
+      );
     }
   }
-  fallbackImage(lightImg, "fa-solid fa-sun");
-  fallbackImage(darkImg, "fa-solid fa-moon");
-});
 
+
+  fallbackImage(
+    lightImg,
+    "fa-solid fa-sun"
+  );
+
+  fallbackImage(
+    darkImg,
+    "fa-solid fa-moon"
+  );
+
+});
 
 
 document.querySelector(".account-dropdown").onclick = function(event) {

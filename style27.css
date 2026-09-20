@@ -50,132 +50,6 @@ html {
 /* and future-proofing your UI across the entire application.                */
 /* ========================================================================== */
 
-:root {
-  /* ---------------------------------------------------------------------- */
-  /* Spacing System (using 'rem' for scalable and consistent dimensions)    */
-  /* Defines a modular scale for all internal and external spacing,         */
-  /* padding, and margins, ensuring visual harmony and predictability.      */
-  /* ---------------------------------------------------------------------- */
-  --spacing-xxxs: 0.125rem; /* 2px - For very fine adjustments */
-  --spacing-xxs: 0.25rem;   /* 4px */
-  --spacing-xs: 0.5rem;     /* 8px */
-  --spacing-sm: 1rem;       /* 16px */
-  --spacing-md: 1.5rem;     /* 24px */
-  --spacing-lg: 2rem;       /* 32px */
-  --spacing-xl: 3rem;       /* 48px */
-  --spacing-xxl: 4rem;      /* 64px */
-  --spacing-xxxl: 6rem;     /* 96px - For large sections */
-
-  /* ---------------------------------------------------------------------- */
-  /* Color Palette (organized for Light Mode and Dark Mode theming)         */
-  /* Provides a comprehensive set of semantic colors for various UI states. */
-  /* ---------------------------------------------------------------------- */
-
-  /* Brand/Accent Colors (adapt as per your brand guidelines) */
-  --color-brand-primary: #ff5722; /* A vibrant orange for primary actions/accents */
-  --color-brand-secondary: #007bff; /* A complementary blue for secondary elements */
-  --color-brand-accent: #673ab7; /* A complementary purple for highlights */
-
-  /* Text Colors */
-  --color-text-light: #f8f9fa; /* Text color for dark backgrounds */
-  --color-text-dark: #212529;  /* Default text color for light backgrounds (high contrast) */
-  --color-text-muted: #6c757d; /* Lighter text for secondary information/placeholders */
-
-  /* Background Colors */
-  --color-bg-light: #ffffff; /* Default background for most content (white) */
-  --color-bg-light-alt: #f8f9fa; /* Slightly off-white for subtle section separation */
-  --color-bg-overlay: rgba(0, 0, 0, 0.7); /* For modals, popups, etc. */
-
-  /* Border & Shadow Colors */
-  --color-border-light: #e0e0e0; /* Light border color for light mode */
-  --color-shadow-light: rgba(0, 0, 0, 0.1); /* Subtle shadow for light mode */
-
-  /* Dark Mode Counterparts (These will be updated by a '.dark-mode' class) */
-  --color-dark-mode-bg-primary: #121212; /* Primary dark background */
-  --color-dark-mode-bg-secondary: #1e1e1e; /* Secondary dark background for sections/cards */
-  --color-dark-mode-text-primary: #e0e0e0; /* Light text for dark backgrounds */
-  --color-dark-mode-text-secondary: #b0b0b0; /* Muted light text for dark backgrounds */
-  --color-dark-mode-border: #333333; /* Darker borders for dark mode */
-  --color-dark-mode-shadow: rgba(0, 0, 0, 0.3); /* More pronounced shadow for dark mode */
-  --color-dark-mode-accent-overlay: rgba(255, 255, 255, 0.08); /* Subtle highlight in dark mode */
-
-  /* ---------------------------------------------------------------------- */
-  /* Typography System (Scalable font sizes and line heights)               */
-  /* Defines a clear hierarchy for text elements, ensuring readability      */
-  /* and visual balance across different screen sizes.                      */
-  /* ---------------------------------------------------------------------- */
-
-  --font-family-primary: 'Poppins', sans-serif; /* Main content font, modern & legible */
-  --font-family-secondary: 'Segoe UI', sans-serif; /* Alternative/fallback font */
-  --font-family-display: 'Montserrat', sans-serif; /* Optional: For bold headings/branding */
-
-  /* Fluid Font Sizes (using clamp() for responsive scaling) */
-  /* These variables define the min, preferred (viewport-based), and max font sizes */
-  --font-size-xxs: clamp(0.75rem, 0.9vw, 0.875rem); /* ~12px to 14px */
-  --font-size-xs: clamp(0.875rem, 1.1vw, 1rem);     /* ~14px to 16px */
-  --font-size-sm: clamp(1rem, 1.2vw, 1.125rem);    /* ~16px to 18px */
-  --font-size-base: clamp(1rem, 1.3vw, 1.25rem);    /* ~16px to 20px (default body text) */
-  --font-size-md: clamp(1.125rem, 1.5vw, 1.5rem);  /* ~18px to 24px */
-  --font-size-lg: clamp(1.25rem, 1.8vw, 1.75rem);  /* ~20px to 28px */
-  --font-size-xl: clamp(1.5rem, 2.2vw, 2rem);      /* ~24px to 32px */
-  --font-size-xxl: clamp(2rem, 3vw, 2.5rem);       /* ~32px to 40px */
-  --font-size-heading: clamp(2.5rem, 4vw, 3.5rem); /* ~40px to 56px - for main headings */
-
-  /* Line Heights for Readability */
-  --line-height-text: 1.6; /* Optimal line height for body text */
-  --line-height-heading: 1.2; /* Tighter line height for headings */
-  --line-height-tight: 1.0; /* For very compact text */
-
-  /* Font Weights */
-  --font-weight-light: 300;
-  --font-weight-regular: 400;
-  --font-weight-medium: 500;
-  --font-weight-semibold: 600;
-  --font-weight-bold: 700;
-  --font-weight-extrabold: 800;
-
-  /* ---------------------------------------------------------------------- */
-  /* Layout & Component Standards                                           */
-  /* Defines reusable properties for common UI elements and structural layout.*/
-  /* ---------------------------------------------------------------------- */
-
-  --container-max-width: 1440px; /* Maximum width for main content containers */
-  --border-radius-sm: 0.25rem; /* Small rounded corners (4px) */
-  --border-radius-md: 0.5rem;  /* Medium rounded corners (8px) - default for cards/buttons */
-  --border-radius-lg: 1rem;    /* Large rounded corners (16px) */
-  --border-radius-full: 50%;   /* For perfect circles (e.g., avatars) */
-
-  /* Box Shadows (subtle depth for UI elements) */
-  --shadow-sm: 0 1px 3px var(--color-shadow-light); /* Light, subtle shadow */
-  --shadow-md: 0 4px 6px var(--color-shadow-light); /* Medium depth shadow */
-  --shadow-lg: 0 8px 15px var(--color-shadow-light); /* Deeper shadow */
-
-  /* Transitions (for smooth UI interactions) */
-  --transition-duration-fast: 0.15s;
-  --transition-duration-normal: 0.3s;
-  --transition-duration-slow: 0.5s;
-  --transition-timing-ease: ease-in-out; /* Standard easing function */
-  --transition-timing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy spring effect */
-}
-
-/* Dark Mode Theme Variables (applied when a '.dark-mode' class is active on a parent) */
-.dark-mode {
-  /* Background Colors */
-  --color-bg-light: var(--color-dark-mode-bg-primary); /* Overrides light background */
-  --color-bg-light-alt: var(--color-dark-mode-bg-secondary);
-
-  /* Text Colors */
-  --color-text-dark: var(--color-dark-mode-text-primary);
-  --color-text-muted: var(--color-dark-mode-text-secondary);
-
-  /* Border & Shadow Colors */
-  --color-border-light: var(--color-dark-mode-border);
-  --color-shadow-light: var(--color-dark-mode-shadow);
-}/* ========================================================================== */
-/* GENERAL BODY STYLING                                                       */
-/* Defines the foundational styles for the entire document body.              */
-/* ========================================================================== */
-
 body {
   /* Layout & Sizing */
   display: flex;         /* Enables Flexbox for full-page layout */
@@ -278,8 +152,7 @@ body::-webkit-scrollbar-thumb {
 
 /* Dark Mode adjustment for the main header container */
 .dark-mode .container {
-  background-color: var(--color-dark-mode-bg-primary); /* Darker background for dark mode */
-  box-shadow: var(--shadow-dark-md); /* More pronounced shadow in dark mode */
+
 }
 
 
@@ -1318,24 +1191,37 @@ flex-wrap: nowrap;
   }
 }
 
-
 /* ============================================================
-   ROOT
+   NETTOON THEME SYSTEM
 ============================================================ */
 
 :root {
 
-  --bg: #09090b;
-  --panel: #111114;
-  --panel-2: #151519;
-  --panel-3: #1b1b20;
+  /* ----------------------------------------------------------
+     LIGHT MODE DEFAULTS
+  ---------------------------------------------------------- */
 
-  --border: #29292f;
-  --border-light: #34343c;
+  --bg: #fafafa;
 
-  --text: #f4f4f5;
-  --muted: #a1a1aa;
-  --muted-2: #71717a;
+  --surface: #ffffff;
+  --surface-2: #f5f5f5;
+  --surface-3: #eeeeee;
+
+  --text: #111111;
+  --muted: #666666;
+  --muted-2: #777777;
+
+  --border: #dddddd;
+  --border-light: #eeeeee;
+
+  --input-bg: #ffffff;
+  --input-text: #111111;
+
+  --shadow: rgba(0, 0, 0, 0.10);
+
+  /* ----------------------------------------------------------
+     BRAND COLORS
+  ---------------------------------------------------------- */
 
   --red: #ef4444;
   --red-dark: #b91c1c;
@@ -1347,41 +1233,124 @@ flex-wrap: nowrap;
   --orange: #f97316;
   --purple: #a855f7;
 
-  --radius: 14px;
-  --radius-small: 9px;
+  /* ----------------------------------------------------------
+     EXISTING DESIGN TOKENS
+  ---------------------------------------------------------- */
 
-  --shadow:
-    0 20px 50px rgba(0, 0, 0, 0.35);
+  --color-brand-primary: #ff5722;
+  --color-brand-secondary: #007bff;
+  --color-brand-accent: #673ab7;
+
+  --color-text-light: #f8f9fa;
+  --color-text-dark: #111111;
+  --color-text-muted: #666666;
+
+  --color-bg-light: #fafafa;
+  --color-bg-light-alt: #f5f5f5;
+
+  --color-bg-overlay: rgba(0, 0, 0, 0.7);
+
+  --color-border-light: #dddddd;
+  --color-shadow-light: rgba(0, 0, 0, 0.10);
+
+  /* ----------------------------------------------------------
+     TYPOGRAPHY
+  ---------------------------------------------------------- */
+
+  --font-family-primary: 'Poppins', sans-serif;
+  --font-family-secondary: 'Segoe UI', sans-serif;
+  --font-family-display: 'Montserrat', sans-serif;
+
+  --font-size-xxs: clamp(0.75rem, 0.9vw, 0.875rem);
+  --font-size-xs: clamp(0.875rem, 1.1vw, 1rem);
+  --font-size-sm: clamp(1rem, 1.2vw, 1.125rem);
+  --font-size-base: clamp(1rem, 1.3vw, 1.25rem);
+  --font-size-md: clamp(1.125rem, 1.5vw, 1.5rem);
+  --font-size-lg: clamp(1.25rem, 1.8vw, 1.75rem);
+  --font-size-xl: clamp(1.5rem, 2.2vw, 2rem);
+  --font-size-xxl: clamp(2rem, 3vw, 2.5rem);
+  --font-size-heading: clamp(2.5rem, 4vw, 3.5rem);
+
+  --line-height-text: 1.6;
+  --line-height-heading: 1.2;
+  --line-height-tight: 1;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* ----------------------------------------------------------
+     LAYOUT
+  ---------------------------------------------------------- */
+
+  --container-max-width: 1440px;
+
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-radius-full: 50%;
+
+  --spacing-xxxs: 0.125rem;
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-xxl: 4rem;
+  --spacing-xxxl: 6rem;
+
+  --shadow-sm: 0 1px 3px var(--shadow);
+  --shadow-md: 0 4px 6px var(--shadow);
+  --shadow-lg: 0 8px 15px var(--shadow);
+
+  --transition-duration-fast: 0.15s;
+  --transition-duration-normal: 0.3s;
+  --transition-duration-slow: 0.5s;
+
+  --transition-timing-ease: ease-in-out;
 }
 
 
 /* ============================================================
-   RESET
+   DARK MODE
 ============================================================ */
 
-* {
-  box-sizing: border-box;
+body.dark-mode {
+
+  --bg: #09090b;
+
+  --surface: #111114;
+  --surface-2: #151519;
+  --surface-3: #1b1b20;
+
+  --text: #f4f4f5;
+  --muted: #a1a1aa;
+  --muted-2: #71717a;
+
+  --border: #29292f;
+  --border-light: #34343c;
+
+  --input-bg: #202026;
+  --input-text: #ffffff;
+
+  --shadow: rgba(0, 0, 0, 0.40);
+
+
+  /* Existing variables */
+
+  --color-text-dark: #f4f4f5;
+  --color-text-muted: #a1a1aa;
+
+  --color-bg-light: #09090b;
+  --color-bg-light-alt: #111114;
+
+  --color-border-light: #29292f;
+  --color-shadow-light: rgba(0, 0, 0, 0.40);
 }
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  margin: 0;
-  background: var(--bg);
-  color: var(--text);
-
-  font-family:
-    Inter,
-    ui-sans-serif,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-}
-
 
 /* ============================================================
    BUTTON RESET
@@ -1396,6 +1365,269 @@ textarea {
 
 button {
   cursor: pointer;
+}
+
+/* ============================================================
+   CREATOR STUDIO
+============================================================ */
+
+.creator-studio {
+  display: grid;
+  grid-template-columns: 250px minmax(0, 1fr);
+
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+/* ============================================================
+   CREATOR STUDIO SIDEBAR
+============================================================ */
+
+.creator-studio-sidebar {
+  width: 250px;
+  min-height: 100vh;
+
+  padding: 25px 14px;
+
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+
+  position: sticky;
+  top: 0;
+  align-self: start;
+}
+
+
+/* ============================================================
+   SIDEBAR HEADER
+============================================================ */
+
+.studio-sidebar-header {
+  padding: 0 12px 25px;
+   margin-top: 2rem;
+}
+
+.studio-sidebar-header h2 {
+  margin: 0;
+
+  color: var(--text);
+
+  font-size: 20px;
+  font-weight: 750;
+
+  letter-spacing: -0.03em;
+}
+
+
+/* ============================================================
+   CREATOR PROFILE
+============================================================ */
+
+.studio-profile {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  margin-bottom: 18px;
+  padding: 10px;
+
+  gap: 10px;
+
+  background: transparent;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+/* ============================================================
+   PROFILE IMAGE
+============================================================ */
+
+.studio-profile-image {
+  width: 6.25rem;
+  height: 6.25rem;
+
+  flex-shrink: 0;
+}
+
+/* IMAGE */
+
+.studio-profile-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+/* INVERT PROFILE IMAGE IN DARK MODE */
+
+body.dark-mode .studio-profile-image img {
+  filter: invert(1);
+}
+
+/* PROFILE INFORMATION */
+
+.studio-profile-info {
+  min-width: 0;
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 2px;
+}
+
+.studio-profile-info strong {
+  overflow: hidden;
+
+  color: var(--text);
+
+  font-size: 13px;
+  font-weight: 600;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+/* PROFILE ARROW */
+
+.studio-profile-arrow {
+  flex-shrink: 0;
+
+  color: var(--muted-2);
+
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* ============================================================
+   SIDEBAR NAVIGATION
+============================================================ */
+
+.studio-navigation {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+ 
+}
+
+
+/* ============================================================
+   NAVIGATION ITEM
+============================================================ */
+
+.studio-nav-item {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  min-height: 44px;
+
+  padding: 10px 12px;
+
+  gap: 11px;
+
+  color: var(--muted);
+  background: transparent;
+
+  border-radius: 0px;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 550;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.studio-nav-item {
+  color: var(--muted);
+}
+/* ============================================================
+   NAVIGATION ICON
+============================================================ */
+
+.studio-nav-icon {
+  width: 22px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  flex-shrink: 0;
+
+  color: var(--muted-2);
+
+  font-size: 15px;
+}
+
+
+/* ============================================================
+   HOVER
+============================================================ */
+
+.studio-nav-item:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+.studio-nav-item:hover .studio-nav-icon {
+  color: var(--text);
+}
+
+
+/* ============================================================
+   ACTIVE
+============================================================ */
+
+.studio-nav-item.active {
+  color: var(--text);
+  background: var(--surface-3);
+}
+
+.studio-nav-item.active .studio-nav-icon {
+  color: var(--text);
+}
+
+
+/* ============================================================
+   DIVIDERS
+============================================================ */
+
+.studio-nav-divider {
+  height: 1px;
+
+  margin: 12px 6px;
+
+  background: var(--border);
+}
+
+
+/* ============================================================
+   MAIN STUDIO AREA
+============================================================ */
+
+.creator-studio-main {
+  min-width: 0;
+  width: 100%;
+}
+
+
+/* ============================================================
+   CONTENT PAGE INSIDE STUDIO
+============================================================ */
+
+.creator-studio-main .content-page {
+  width: min(1500px, calc(100% - 40px));
+  margin: 0 auto;
 }
 
 
@@ -1469,7 +1701,7 @@ button {
 
   border: 1px solid var(--border);
 
-  border-radius: var(--radius);
+  border-radius: 12px;
 
   text-align: left;
 
@@ -1558,7 +1790,8 @@ button {
 
   border: 1px solid var(--border);
 
-  border-radius: var(--radius);
+
+  border-radius: 12px;
 }
 
 .summary-card span {
@@ -1589,7 +1822,8 @@ button {
 
   border: 1px solid var(--border);
 
-  border-radius: var(--radius);
+ 
+  border-radius: 12px;
 
   box-shadow: var(--shadow);
 }
@@ -2935,6 +3169,8 @@ button {
 }
 
 
+
+
 /* ============================================================
    RESPONSIVE
 ============================================================ */
@@ -3030,3 +3266,78 @@ button {
   }
 
 }
+
+
+
+
+.dark-mode .container .nav{
+  background-color: #121212; 
+   }
+
+   .dark-mode .container .Table{
+    background-color: #121212; 
+     }
+
+     .dark-mode .container .Table .overlay-text{
+      background-color: #121212; 
+       }
+
+
+.dark-mode .container .search img,
+.dark-mode .container .upload img,
+.dark-mode .container .Notifications img,
+.dark-mode .container .Settings img
+
+{
+  filter: invert(1);
+
+}
+
+:root {
+  --size-icon-md: 1.5rem;
+  --font-size-sm: 0.875rem;
+  --font-size-xs: 0.75rem;
+  --font-size-md: 1rem;
+  --spacing-xxs: 0.25rem;
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --border-radius-full: 50%;
+  --font-family-primary: 'Arial', sans-serif;
+  --color-dark-mode-text-primary: #eee;
+}
+
+
+body {
+  /* Default styles for content, typography, base layout */
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 10px;
+  /* Example: Hide certain elements on very small screens */
+  .desktop-only-element {
+      display: none;
+  }
+}
+
+
+
+/* Large Desktops / High-Resolution Screens (e.g., 1280px - 1599px) */
+/* For larger monitors or dual-monitor setups */
+@media (min-width: 1280px) and (max-width: 1599px) {
+
+    .Table {
+ width: 100%;
+    }
+
+       .container {
+ width: 100%;
+    }
+
+  /* Notifications Icon */
+.Notifications {
+  margin-right: 4rem;
+}
+
+.Notifications img {
+  width: 1.9rem;
+  height: 1.9rem;
+}}
