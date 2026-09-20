@@ -2029,6 +2029,45 @@ body.dark-mode .studio-profile-image img {
   vertical-align: middle;
 }
 
+/* ============================================================
+   EPISODE ACTIONS
+   Keep all episode actions on ONE horizontal line
+============================================================ */
+
+.content-table .episode-row .actions {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  align-items: center;
+
+  gap: 8px;
+
+  white-space: nowrap;
+
+  width: max-content;
+  min-width: max-content;
+}
+
+
+/* Never allow episode action buttons to shrink or wrap */
+
+.content-table .episode-row .actions button {
+  flex: 0 0 auto;
+
+  white-space: nowrap;
+}
+
+
+/* ============================================================
+   EPISODE TABLE ROW
+   Allow horizontal space when needed
+============================================================ */
+
+.content-table .episode-row td:last-child {
+  white-space: nowrap;
+}
+
 
 /* ============================================================
    EXPANDED SERIES PARENT ROW
