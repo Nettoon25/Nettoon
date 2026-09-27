@@ -412,52 +412,44 @@
   <div class="container-1 content-container">
 
     <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
+      <div class="profilee" style="display: none;"> 
+      <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
     
-        <div class="profilee-name">
-            <span>Guest</span>
-        </div>
-    
-        <div class="opttions">
-            <img src="sidebar 3.png" alt="Options Icon">
-    
-            <!-- OPTIONS POPUP -->
-            <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-                     <div class="popup-item"><img src="playlist.png" />Add to playlist</div>
-                <a href="index19.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Video</span>
-</a>
+      <div class="profilee-name">
+        <span>Guest</span>
+      </div>
+  
+    </div>
+      <div class="caption">
+      <span>LOVE DEATH + ROBOTS VOLUME 4</span>
+      <div class="opttions">
+        <img src="sidebar 3.png" alt="Options Icon">
 
-<div class="popup-item delete-trigger">
-  <img src="delete.png" />
-  <span>Delete Video</span>
-</div>
-            </div>
+        <!-- OPTIONS POPUP -->
+        <div class="opttions-popup hidden">
+            <div class="popup-item"><img src="share.png" /> Share</div>
+            <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+            <div class="popup-item"><img src="report.png" /> Report</div>
         </div>
-    
-        <!-- SHARE POPUP (corrected position) -->
-        <div class="share-popup hidden" id="sharePopup">
-    
-            <!-- FIXED CLOSE BUTTON -->
-            <div class="share-close" id="shareClose">✕</div>
-    
-            <!-- Scrollable icons wrapper -->
-            <div class="share-scroll">
-                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-            </div>
-    
-        </div> <!-- END share-popup -->
-    
+    </div>
+
+    <!-- SHARE POPUP (corrected position) -->
+    <div class="share-popup hidden" id="sharePopup">
+
+        <!-- FIXED CLOSE BUTTON -->
+        <div class="share-close" id="shareClose">✕</div>
+
+        <!-- Scrollable icons wrapper -->
+        <div class="share-scroll">
+            <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+            <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+            <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+            <div class="share-item"><img src="twitter.png"><span>X</span></div>
+            <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+        </div>
+
+    </div> <!-- END share-popup -->
+
 <!-- PLAYLIST POPUP -->
 <div class="playlist-popup hidden" id="playlistPopup">
 
@@ -468,13 +460,13 @@
 
 <!-- Default items -->
 <label class="playlist-option">
-    <input type="checkbox" class="playlist-check">
-    <span>Watch Later</span>
+<input type="checkbox" class="playlist-check">
+<span>Watch Later</span>
 </label>
 
 <label class="playlist-option">
-    <input type="checkbox" class="playlist-check">
-    <span>Favorites</span>
+<input type="checkbox" class="playlist-check">
+<span>Favorites</span>
 </label>
 
 </div>
@@ -484,12 +476,51 @@
 
 </div>
 
+<!-- REPORT POPUP -->
+<div class="report-popup hidden" id="reportPopup">
 
-    
-    </div> <!-- END profilee -->
-    
-      <div class="caption">
-      <span>LOVE DEATH + ROBOTS VOLUME 4 Official Trailer</span>
+<div class="report-header">
+Report image or title
+<span class="report-close" id="reportClose">✕</span>
+</div>
+
+<label class="report-option">
+<input type="checkbox" class="report-check">
+Sexual content
+</label>
+
+<label class="report-option">
+<input type="checkbox" class="report-check">
+Violent or repulsive content
+</label>
+
+<label class="report-option">
+<input type="checkbox" class="report-check">
+Hateful or abusive content
+</label>
+
+<label class="report-option">
+<input type="checkbox" class="report-check">
+Harmful or dangerous acts
+</label>
+
+<label class="report-option">
+<input type="checkbox" class="report-check">
+Spam or misleading
+</label>
+
+<label class="report-option">
+<input type="checkbox" class="report-check">
+Child abuse
+</label>
+
+<div class="report-actions">
+<button class="report-cancel">Cancel</button>
+<button class="report-submit" id="reportSubmit" disabled>Report</button>
+</div>
+
+</div>
+
       </div>
       <a href="index2.html">
         <div class="videoo">
@@ -510,85 +541,116 @@
       
       </div>  
 
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
-        <div class="profilee-name">
-            <span>Guest</span>
-        </div>
-    
-        <div class="opttions">
-            <img src="sidebar 3.png" alt="Options Icon">
-    
-            <!-- OPTIONS POPUP -->
-            <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-                     <div class="popup-item"><img src="playlist.png" />Add to playlist</div>
-                <a href="index19.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png" />
-  <span>Delete Video</span>
-</div>
-            </div>
-        </div>
-    
-        <!-- SHARE POPUP (corrected position) -->
-        <div class="share-popup hidden" id="sharePopup">
-    
-            <!-- FIXED CLOSE BUTTON -->
-            <div class="share-close" id="shareClose">✕</div>
-    
-            <!-- Scrollable icons wrapper -->
-            <div class="share-scroll">
-                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-            </div>
-    
-        </div> <!-- END share-popup -->
-    
-<!-- PLAYLIST POPUP -->
-<div class="playlist-popup hidden" id="playlistPopup">
-
-<div class="playlist-header">Save to...</div>
-
-<!-- PLAYLIST LIST WRAPPER -->
-<div class="playlist-list" id="playlistList">
-
-<!-- Default items -->
-<label class="playlist-option">
-    <input type="checkbox" class="playlist-check">
-    <span>Watch Later</span>
-</label>
-
-<label class="playlist-option">
-    <input type="checkbox" class="playlist-check">
-    <span>Favorites</span>
-</label>
-
-</div>
-
-<!-- ADD NEW PLAYLIST BUTTON -->
-<div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
-
-</div>
-
-
-    
-    </div> <!-- END profilee -->
+      <div class="kontainer">
+        <div class="profilee" style="display: none;"> 
+        <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
       
+        <div class="profilee-name">
+          <span>Guest</span>
+        </div>
+    
+      </div>
         <div class="caption">
-        <span>ALtered Carbon</span>
+        <span>ALtered Carbon </span>
+        <div class="opttions">
+          <img src="sidebar 3.png" alt="Options Icon">
+  
+          <!-- OPTIONS POPUP -->
+          <div class="opttions-popup hidden">
+              <div class="popup-item"><img src="share.png" /> Share</div>
+              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item"><img src="report.png" /> Report</div>
+          </div>
+      </div>
+  
+      <!-- SHARE POPUP (corrected position) -->
+      <div class="share-popup hidden" id="sharePopup">
+  
+          <!-- FIXED CLOSE BUTTON -->
+          <div class="share-close" id="shareClose">✕</div>
+  
+          <!-- Scrollable icons wrapper -->
+          <div class="share-scroll">
+              <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+              <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+              <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+              <div class="share-item"><img src="twitter.png"><span>X</span></div>
+              <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+          </div>
+  
+      </div> <!-- END share-popup -->
+  
+  <!-- PLAYLIST POPUP -->
+  <div class="playlist-popup hidden" id="playlistPopup">
+  
+  <div class="playlist-header">Save to...</div>
+  
+  <!-- PLAYLIST LIST WRAPPER -->
+  <div class="playlist-list" id="playlistList">
+  
+  <!-- Default items -->
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Watch Later</span>
+  </label>
+  
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Favorites</span>
+  </label>
+  
+  </div>
+  
+  <!-- ADD NEW PLAYLIST BUTTON -->
+  <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+  
+  </div>
+  
+  <!-- REPORT POPUP -->
+  <div class="report-popup hidden" id="reportPopup">
+  
+  <div class="report-header">
+  Report image or title
+  <span class="report-close" id="reportClose">✕</span>
+  </div>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Sexual content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Violent or repulsive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Hateful or abusive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Harmful or dangerous acts
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Spam or misleading
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Child abuse
+  </label>
+  
+  <div class="report-actions">
+  <button class="report-cancel">Cancel</button>
+  <button class="report-submit" id="reportSubmit" disabled>Report</button>
+  </div>
+  
+  </div>
+  
         </div>
         <a href="index2.html">
           <div class="videoo">
@@ -610,33 +672,25 @@
         
         </div>  
 
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
-        <div class="profilee-name">
+        <div class="kontainer">
+          <div class="profilee" style="display: none;"> 
+          <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
+        
+          <div class="profilee-name">
             <span>Guest</span>
+          </div>
+      
         </div>
-    
-        <div class="opttions">
+          <div class="caption">
+          <span>kizazi moto Official Trailer</span>
+          <div class="opttions">
             <img src="sidebar 3.png" alt="Options Icon">
     
             <!-- OPTIONS POPUP -->
             <div class="opttions-popup hidden">
                 <div class="popup-item"><img src="share.png" /> Share</div>
-                     <div class="popup-item"><img src="playlist.png" />Add to playlist</div>
-                <a href="index19.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png" />
-  <span>Delete Video</span>
-</div>
+                <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+                <div class="popup-item"><img src="report.png" /> Report</div>
             </div>
         </div>
     
@@ -657,38 +711,77 @@
     
         </div> <!-- END share-popup -->
     
-<!-- PLAYLIST POPUP -->
-<div class="playlist-popup hidden" id="playlistPopup">
-
-<div class="playlist-header">Save to...</div>
-
-<!-- PLAYLIST LIST WRAPPER -->
-<div class="playlist-list" id="playlistList">
-
-<!-- Default items -->
-<label class="playlist-option">
+    <!-- PLAYLIST POPUP -->
+    <div class="playlist-popup hidden" id="playlistPopup">
+    
+    <div class="playlist-header">Save to...</div>
+    
+    <!-- PLAYLIST LIST WRAPPER -->
+    <div class="playlist-list" id="playlistList">
+    
+    <!-- Default items -->
+    <label class="playlist-option">
     <input type="checkbox" class="playlist-check">
     <span>Watch Later</span>
-</label>
-
-<label class="playlist-option">
+    </label>
+    
+    <label class="playlist-option">
     <input type="checkbox" class="playlist-check">
     <span>Favorites</span>
-</label>
-
-</div>
-
-<!-- ADD NEW PLAYLIST BUTTON -->
-<div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
-
-</div>
-
-
+    </label>
     
-    </div> <!-- END profilee -->
-        
-          <div class="caption">
-          <span>kizazi moto Official Trailer</span>
+    </div>
+    
+    <!-- ADD NEW PLAYLIST BUTTON -->
+    <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+    
+    </div>
+    
+    <!-- REPORT POPUP -->
+    <div class="report-popup hidden" id="reportPopup">
+    
+    <div class="report-header">
+    Report image or title
+    <span class="report-close" id="reportClose">✕</span>
+    </div>
+    
+    <label class="report-option">
+    <input type="checkbox" class="report-check">
+    Sexual content
+    </label>
+    
+    <label class="report-option">
+    <input type="checkbox" class="report-check">
+    Violent or repulsive content
+    </label>
+    
+    <label class="report-option">
+    <input type="checkbox" class="report-check">
+    Hateful or abusive content
+    </label>
+    
+    <label class="report-option">
+    <input type="checkbox" class="report-check">
+    Harmful or dangerous acts
+    </label>
+    
+    <label class="report-option">
+    <input type="checkbox" class="report-check">
+    Spam or misleading
+    </label>
+    
+    <label class="report-option">
+    <input type="checkbox" class="report-check">
+    Child abuse
+    </label>
+    
+    <div class="report-actions">
+    <button class="report-cancel">Cancel</button>
+    <button class="report-submit" id="reportSubmit" disabled>Report</button>
+    </div>
+    
+    </div>
+    
           </div>
           <a href="index2.html">
             <div class="videoo">
@@ -711,86 +804,116 @@
           </div>  
     
     
-         
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
-        <div class="profilee-name">
-            <span>Guest</span>
-        </div>
-    
-        <div class="opttions">
-            <img src="sidebar 3.png" alt="Options Icon">
-    
-            <!-- OPTIONS POPUP -->
-            <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-                     <div class="popup-item"><img src="playlist.png" />Add to playlist</div>
-                <a href="index19.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png" />
-  <span>Delete Video</span>
-</div>
-            </div>
-        </div>
-    
-        <!-- SHARE POPUP (corrected position) -->
-        <div class="share-popup hidden" id="sharePopup">
-    
-            <!-- FIXED CLOSE BUTTON -->
-            <div class="share-close" id="shareClose">✕</div>
-    
-            <!-- Scrollable icons wrapper -->
-            <div class="share-scroll">
-                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-            </div>
-    
-        </div> <!-- END share-popup -->
-    
-<!-- PLAYLIST POPUP -->
-<div class="playlist-popup hidden" id="playlistPopup">
-
-<div class="playlist-header">Save to...</div>
-
-<!-- PLAYLIST LIST WRAPPER -->
-<div class="playlist-list" id="playlistList">
-
-<!-- Default items -->
-<label class="playlist-option">
-    <input type="checkbox" class="playlist-check">
-    <span>Watch Later</span>
-</label>
-
-<label class="playlist-option">
-    <input type="checkbox" class="playlist-check">
-    <span>Favorites</span>
-</label>
-
-</div>
-
-<!-- ADD NEW PLAYLIST BUTTON -->
-<div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
-
-</div>
-
-
-    
-    </div> <!-- END profilee -->
+          <div class="kontainer">
+            <div class="profilee" style="display: none;"> 
+            <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
           
+            <div class="profilee-name">
+              <span>Guest</span>
+            </div>
+        
+          </div>
             <div class="caption">
-            <span>Mekatilili Wa Menza</span>
+            <span>Mekatilili Wa Menza </span>
+            <div class="opttions">
+              <img src="sidebar 3.png" alt="Options Icon">
+      
+              <!-- OPTIONS POPUP -->
+              <div class="opttions-popup hidden">
+                  <div class="popup-item"><img src="share.png" /> Share</div>
+                  <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+                  <div class="popup-item"><img src="report.png" /> Report</div>
+              </div>
+          </div>
+      
+          <!-- SHARE POPUP (corrected position) -->
+          <div class="share-popup hidden" id="sharePopup">
+      
+              <!-- FIXED CLOSE BUTTON -->
+              <div class="share-close" id="shareClose">✕</div>
+      
+              <!-- Scrollable icons wrapper -->
+              <div class="share-scroll">
+                  <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+                  <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+                  <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+                  <div class="share-item"><img src="twitter.png"><span>X</span></div>
+                  <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+              </div>
+      
+          </div> <!-- END share-popup -->
+      
+      <!-- PLAYLIST POPUP -->
+      <div class="playlist-popup hidden" id="playlistPopup">
+      
+      <div class="playlist-header">Save to...</div>
+      
+      <!-- PLAYLIST LIST WRAPPER -->
+      <div class="playlist-list" id="playlistList">
+      
+      <!-- Default items -->
+      <label class="playlist-option">
+      <input type="checkbox" class="playlist-check">
+      <span>Watch Later</span>
+      </label>
+      
+      <label class="playlist-option">
+      <input type="checkbox" class="playlist-check">
+      <span>Favorites</span>
+      </label>
+      
+      </div>
+      
+      <!-- ADD NEW PLAYLIST BUTTON -->
+      <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+      
+      </div>
+      
+      <!-- REPORT POPUP -->
+      <div class="report-popup hidden" id="reportPopup">
+      
+      <div class="report-header">
+      Report image or title
+      <span class="report-close" id="reportClose">✕</span>
+      </div>
+      
+      <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Sexual content
+      </label>
+      
+      <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Violent or repulsive content
+      </label>
+      
+      <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Hateful or abusive content
+      </label>
+      
+      <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Harmful or dangerous acts
+      </label>
+      
+      <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Spam or misleading
+      </label>
+      
+      <label class="report-option">
+      <input type="checkbox" class="report-check">
+      Child abuse
+      </label>
+      
+      <div class="report-actions">
+      <button class="report-cancel">Cancel</button>
+      <button class="report-submit" id="reportSubmit" disabled>Report</button>
+      </div>
+      
+      </div>
+      
             </div>
             <a href="index2.html">
               <div class="videoo">
@@ -813,86 +936,117 @@
             </div>  
 
 
-           
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
-        <div class="profilee-name">
-            <span>Guest</span>
-        </div>
-    
-        <div class="opttions">
-            <img src="sidebar 3.png" alt="Options Icon">
-    
-            <!-- OPTIONS POPUP -->
-            <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-                     <div class="popup-item"><img src="playlist.png" />Add to playlist</div>
-                <a href="index19.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png" />
-  <span>Delete Video</span>
-</div>
-            </div>
-        </div>
-    
-        <!-- SHARE POPUP (corrected position) -->
-        <div class="share-popup hidden" id="sharePopup">
-    
-            <!-- FIXED CLOSE BUTTON -->
-            <div class="share-close" id="shareClose">✕</div>
-    
-            <!-- Scrollable icons wrapper -->
-            <div class="share-scroll">
-                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-            </div>
-    
-        </div> <!-- END share-popup -->
-    
-<!-- PLAYLIST POPUP -->
-<div class="playlist-popup hidden" id="playlistPopup">
-
-<div class="playlist-header">Save to...</div>
-
-<!-- PLAYLIST LIST WRAPPER -->
-<div class="playlist-list" id="playlistList">
-
-<!-- Default items -->
-<label class="playlist-option">
-    <input type="checkbox" class="playlist-check">
-    <span>Watch Later</span>
-</label>
-
-<label class="playlist-option">
-    <input type="checkbox" class="playlist-check">
-    <span>Favorites</span>
-</label>
-
-</div>
-
-<!-- ADD NEW PLAYLIST BUTTON -->
-<div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
-
-</div>
-
-    
-    </div> <!-- END profilee -->
+            <div class="kontainer">
+              <div class="profilee" style="display: none;"> 
+              <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
             
-          <div class="caption">
-          <span>Stupid DOG</span>
-          </div>
+              <div class="profilee-name">
+                <span>Guest</span>
+              </div>
+          
+            </div>
+              <div class="caption">
+              <span>Stupid DOG </span>
+              <div class="opttions">
+                <img src="sidebar 3.png" alt="Options Icon">
+        
+                <!-- OPTIONS POPUP -->
+                <div class="opttions-popup hidden">
+                    <div class="popup-item"><img src="share.png" /> Share</div>
+                    <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+                    <div class="popup-item"><img src="report.png" /> Report</div>
+                </div>
+            </div>
+        
+            <!-- SHARE POPUP (corrected position) -->
+            <div class="share-popup hidden" id="sharePopup">
+        
+                <!-- FIXED CLOSE BUTTON -->
+                <div class="share-close" id="shareClose">✕</div>
+        
+                <!-- Scrollable icons wrapper -->
+                <div class="share-scroll">
+                    <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+                    <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+                    <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+                    <div class="share-item"><img src="twitter.png"><span>X</span></div>
+                    <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+                </div>
+        
+            </div> <!-- END share-popup -->
+        
+        <!-- PLAYLIST POPUP -->
+        <div class="playlist-popup hidden" id="playlistPopup">
+        
+        <div class="playlist-header">Save to...</div>
+        
+        <!-- PLAYLIST LIST WRAPPER -->
+        <div class="playlist-list" id="playlistList">
+        
+        <!-- Default items -->
+        <label class="playlist-option">
+        <input type="checkbox" class="playlist-check">
+        <span>Watch Later</span>
+        </label>
+        
+        <label class="playlist-option">
+        <input type="checkbox" class="playlist-check">
+        <span>Favorites</span>
+        </label>
+        
+        </div>
+        
+        <!-- ADD NEW PLAYLIST BUTTON -->
+        <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+        
+        </div>
+        
+        <!-- REPORT POPUP -->
+        <div class="report-popup hidden" id="reportPopup">
+        
+        <div class="report-header">
+        Report image or title
+        <span class="report-close" id="reportClose">✕</span>
+        </div>
+        
+        <label class="report-option">
+        <input type="checkbox" class="report-check">
+        Sexual content
+        </label>
+        
+        <label class="report-option">
+        <input type="checkbox" class="report-check">
+        Violent or repulsive content
+        </label>
+        
+        <label class="report-option">
+        <input type="checkbox" class="report-check">
+        Hateful or abusive content
+        </label>
+        
+        <label class="report-option">
+        <input type="checkbox" class="report-check">
+        Harmful or dangerous acts
+        </label>
+        
+        <label class="report-option">
+        <input type="checkbox" class="report-check">
+        Spam or misleading
+        </label>
+        
+        <label class="report-option">
+        <input type="checkbox" class="report-check">
+        Child abuse
+        </label>
+        
+        <div class="report-actions">
+        <button class="report-cancel">Cancel</button>
+        <button class="report-submit" id="reportSubmit" disabled>Report</button>
+        </div>
+        
+        </div>
+        
+              </div>
           <a href="index2.html">
             <div class="videoo">
               <video
@@ -915,85 +1069,117 @@
 
 
           
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
+      <div class="kontainer">
+        <div class="profilee" style="display: none;"> 
+        <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
+      
         <div class="profilee-name">
-            <span>Guest</span>
+          <span>Guest</span>
         </div>
     
+      </div>
+        <div class="caption">
+        <span>The King who feared Nobody </span>
         <div class="opttions">
-            <img src="sidebar 3.png" alt="Options Icon">
-    
-            <!-- OPTIONS POPUP -->
-            <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-                     <div class="popup-item"><img src="playlist.png" />Add to playlist</div>
-                <a href="index19.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png" />
-  <span>Delete Video</span>
-</div>
-            </div>
+          <img src="sidebar 3.png" alt="Options Icon">
+  
+          <!-- OPTIONS POPUP -->
+          <div class="opttions-popup hidden">
+              <div class="popup-item"><img src="share.png" /> Share</div>
+              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item"><img src="report.png" /> Report</div>
+          </div>
+      </div>
+  
+      <!-- SHARE POPUP (corrected position) -->
+      <div class="share-popup hidden" id="sharePopup">
+  
+          <!-- FIXED CLOSE BUTTON -->
+          <div class="share-close" id="shareClose">✕</div>
+  
+          <!-- Scrollable icons wrapper -->
+          <div class="share-scroll">
+              <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+              <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+              <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+              <div class="share-item"><img src="twitter.png"><span>X</span></div>
+              <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+          </div>
+  
+      </div> <!-- END share-popup -->
+  
+  <!-- PLAYLIST POPUP -->
+  <div class="playlist-popup hidden" id="playlistPopup">
+  
+  <div class="playlist-header">Save to...</div>
+  
+  <!-- PLAYLIST LIST WRAPPER -->
+  <div class="playlist-list" id="playlistList">
+  
+  <!-- Default items -->
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Watch Later</span>
+  </label>
+  
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Favorites</span>
+  </label>
+  
+  </div>
+  
+  <!-- ADD NEW PLAYLIST BUTTON -->
+  <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+  
+  </div>
+  
+  <!-- REPORT POPUP -->
+  <div class="report-popup hidden" id="reportPopup">
+  
+  <div class="report-header">
+  Report image or title
+  <span class="report-close" id="reportClose">✕</span>
+  </div>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Sexual content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Violent or repulsive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Hateful or abusive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Harmful or dangerous acts
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Spam or misleading
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Child abuse
+  </label>
+  
+  <div class="report-actions">
+  <button class="report-cancel">Cancel</button>
+  <button class="report-submit" id="reportSubmit" disabled>Report</button>
+  </div>
+  
+  </div>
+  
         </div>
-    
-        <!-- SHARE POPUP (corrected position) -->
-        <div class="share-popup hidden" id="sharePopup">
-    
-            <!-- FIXED CLOSE BUTTON -->
-            <div class="share-close" id="shareClose">✕</div>
-    
-            <!-- Scrollable icons wrapper -->
-            <div class="share-scroll">
-                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-            </div>
-    
-        </div> <!-- END share-popup -->
-    
-<!-- PLAYLIST POPUP -->
-<div class="playlist-popup hidden" id="playlistPopup">
-
-<div class="playlist-header">Save to...</div>
-
-<!-- PLAYLIST LIST WRAPPER -->
-<div class="playlist-list" id="playlistList">
-
-<!-- Default items -->
-<label class="playlist-option">
-    <input type="checkbox" class="playlist-check">
-    <span>Watch Later</span>
-</label>
-
-<label class="playlist-option">
-    <input type="checkbox" class="playlist-check">
-    <span>Favorites</span>
-</label>
-
-</div>
-
-<!-- ADD NEW PLAYLIST BUTTON -->
-<div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
-
-</div>
-
-
-    </div> <!-- END profilee -->
-          
-            <div class="caption">
-            <span>The King who feared Nobody</span>
-            </div>
             <a href="index2.html">
               <div class="videoo">
                 <video
@@ -1015,85 +1201,116 @@
             </div>  
 
 
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
-        <div class="profilee-name">
-            <span>Guest</span>
-        </div>
-    
-        <div class="opttions">
-            <img src="sidebar 3.png" alt="Options Icon">
-    
-            <!-- OPTIONS POPUP -->
-            <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-                     <div class="popup-item"><img src="playlist.png" />Add to playlist</div>
-                <a href="index19.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png" />
-  <span>Delete Video</span>
-</div>
-            </div>
-        </div>
-    
-        <!-- SHARE POPUP (corrected position) -->
-        <div class="share-popup hidden" id="sharePopup">
-    
-            <!-- FIXED CLOSE BUTTON -->
-            <div class="share-close" id="shareClose">✕</div>
-    
-            <!-- Scrollable icons wrapper -->
-            <div class="share-scroll">
-                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-            </div>
-    
-        </div> <!-- END share-popup -->
-    
-<!-- PLAYLIST POPUP -->
-<div class="playlist-popup hidden" id="playlistPopup">
-
-<div class="playlist-header">Save to...</div>
-
-<!-- PLAYLIST LIST WRAPPER -->
-<div class="playlist-list" id="playlistList">
-
-<!-- Default items -->
-<label class="playlist-option">
-    <input type="checkbox" class="playlist-check">
-    <span>Watch Later</span>
-</label>
-
-<label class="playlist-option">
-    <input type="checkbox" class="playlist-check">
-    <span>Favorites</span>
-</label>
-
-</div>
-
-<!-- ADD NEW PLAYLIST BUTTON -->
-<div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
-
-</div>
-
-
-    
-    </div> <!-- END profilee -->
+            <div class="kontainer">
+              <div class="profilee" style="display: none;"> 
+              <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
             
+              <div class="profilee-name">
+                <span>Guest</span>
+              </div>
+          
+            </div>
               <div class="caption">
-              <span>Secret Level</span>
+              <span>Secret Level </span>
+              <div class="opttions">
+                <img src="sidebar 3.png" alt="Options Icon">
+        
+                <!-- OPTIONS POPUP -->
+                <div class="opttions-popup hidden">
+                    <div class="popup-item"><img src="share.png" /> Share</div>
+                    <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+                    <div class="popup-item"><img src="report.png" /> Report</div>
+                </div>
+            </div>
+        
+            <!-- SHARE POPUP (corrected position) -->
+            <div class="share-popup hidden" id="sharePopup">
+        
+                <!-- FIXED CLOSE BUTTON -->
+                <div class="share-close" id="shareClose">✕</div>
+        
+                <!-- Scrollable icons wrapper -->
+                <div class="share-scroll">
+                    <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+                    <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+                    <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+                    <div class="share-item"><img src="twitter.png"><span>X</span></div>
+                    <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+                </div>
+        
+            </div> <!-- END share-popup -->
+        
+        <!-- PLAYLIST POPUP -->
+        <div class="playlist-popup hidden" id="playlistPopup">
+        
+        <div class="playlist-header">Save to...</div>
+        
+        <!-- PLAYLIST LIST WRAPPER -->
+        <div class="playlist-list" id="playlistList">
+        
+        <!-- Default items -->
+        <label class="playlist-option">
+        <input type="checkbox" class="playlist-check">
+        <span>Watch Later</span>
+        </label>
+        
+        <label class="playlist-option">
+        <input type="checkbox" class="playlist-check">
+        <span>Favorites</span>
+        </label>
+        
+        </div>
+        
+        <!-- ADD NEW PLAYLIST BUTTON -->
+        <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+        
+        </div>
+        
+        <!-- REPORT POPUP -->
+        <div class="report-popup hidden" id="reportPopup">
+        
+        <div class="report-header">
+        Report image or title
+        <span class="report-close" id="reportClose">✕</span>
+        </div>
+        
+        <label class="report-option">
+        <input type="checkbox" class="report-check">
+        Sexual content
+        </label>
+        
+        <label class="report-option">
+        <input type="checkbox" class="report-check">
+        Violent or repulsive content
+        </label>
+        
+        <label class="report-option">
+        <input type="checkbox" class="report-check">
+        Hateful or abusive content
+        </label>
+        
+        <label class="report-option">
+        <input type="checkbox" class="report-check">
+        Harmful or dangerous acts
+        </label>
+        
+        <label class="report-option">
+        <input type="checkbox" class="report-check">
+        Spam or misleading
+        </label>
+        
+        <label class="report-option">
+        <input type="checkbox" class="report-check">
+        Child abuse
+        </label>
+        
+        <div class="report-actions">
+        <button class="report-cancel">Cancel</button>
+        <button class="report-submit" id="reportSubmit" disabled>Report</button>
+        </div>
+        
+        </div>
+        
               </div>
               <a href="index2.html">
                 <div class="videoo">
@@ -1116,85 +1333,117 @@
               </div>  
 
               
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
+      <div class="kontainer">
+        <div class="profilee" style="display: none;"> 
+        <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
+      
         <div class="profilee-name">
-            <span>Guest</span>
+          <span>Guest</span>
         </div>
     
+      </div>
+        <div class="caption">
+        <span>LOVE DEATH + ROBOTS VOLUME 3 </span>
         <div class="opttions">
-            <img src="sidebar 3.png" alt="Options Icon">
-    
-            <!-- OPTIONS POPUP -->
-            <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-                     <div class="popup-item"><img src="playlist.png" />Add to playlist</div>
-                <a href="index19.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png" />
-  <span>Delete Video</span>
-</div>
-            </div>
+          <img src="sidebar 3.png" alt="Options Icon">
+  
+          <!-- OPTIONS POPUP -->
+          <div class="opttions-popup hidden">
+              <div class="popup-item"><img src="share.png" /> Share</div>
+              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item"><img src="report.png" /> Report</div>
+          </div>
+      </div>
+  
+      <!-- SHARE POPUP (corrected position) -->
+      <div class="share-popup hidden" id="sharePopup">
+  
+          <!-- FIXED CLOSE BUTTON -->
+          <div class="share-close" id="shareClose">✕</div>
+  
+          <!-- Scrollable icons wrapper -->
+          <div class="share-scroll">
+              <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+              <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+              <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+              <div class="share-item"><img src="twitter.png"><span>X</span></div>
+              <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+          </div>
+  
+      </div> <!-- END share-popup -->
+  
+  <!-- PLAYLIST POPUP -->
+  <div class="playlist-popup hidden" id="playlistPopup">
+  
+  <div class="playlist-header">Save to...</div>
+  
+  <!-- PLAYLIST LIST WRAPPER -->
+  <div class="playlist-list" id="playlistList">
+  
+  <!-- Default items -->
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Watch Later</span>
+  </label>
+  
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Favorites</span>
+  </label>
+  
+  </div>
+  
+  <!-- ADD NEW PLAYLIST BUTTON -->
+  <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+  
+  </div>
+  
+  <!-- REPORT POPUP -->
+  <div class="report-popup hidden" id="reportPopup">
+  
+  <div class="report-header">
+  Report image or title
+  <span class="report-close" id="reportClose">✕</span>
+  </div>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Sexual content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Violent or repulsive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Hateful or abusive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Harmful or dangerous acts
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Spam or misleading
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Child abuse
+  </label>
+  
+  <div class="report-actions">
+  <button class="report-cancel">Cancel</button>
+  <button class="report-submit" id="reportSubmit" disabled>Report</button>
+  </div>
+  
+  </div>
+  
         </div>
-    
-        <!-- SHARE POPUP (corrected position) -->
-        <div class="share-popup hidden" id="sharePopup">
-    
-            <!-- FIXED CLOSE BUTTON -->
-            <div class="share-close" id="shareClose">✕</div>
-    
-            <!-- Scrollable icons wrapper -->
-            <div class="share-scroll">
-                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-            </div>
-    
-        </div> <!-- END share-popup -->
-    
-<!-- PLAYLIST POPUP -->
-<div class="playlist-popup hidden" id="playlistPopup">
-
-<div class="playlist-header">Save to...</div>
-
-<!-- PLAYLIST LIST WRAPPER -->
-<div class="playlist-list" id="playlistList">
-
-<!-- Default items -->
-<label class="playlist-option">
-    <input type="checkbox" class="playlist-check">
-    <span>Watch Later</span>
-</label>
-
-<label class="playlist-option">
-    <input type="checkbox" class="playlist-check">
-    <span>Favorites</span>
-</label>
-
-</div>
-
-<!-- ADD NEW PLAYLIST BUTTON -->
-<div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
-
-</div>
-
-    
-    </div> <!-- END profilee -->
-              
-                <div class="caption">
-                <span>LOVE DEATH + ROBOTS VOLUME 3 Official Trailer</span>
-                </div>
                 <a href="index2.html">
                   <div class="videoo">
                     <video
@@ -1221,59 +1470,117 @@
   <div class="container-5 content-container" style="display: none;">
 
 
-                 
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
-        <div class="profilee-name">
-            <span>Guest</span>
-        </div>
-    
-        <div class="opttions">
-            <img src="sidebar 3.png" alt="Options Icon">
-    
-            <!-- OPTIONS POPUP -->
-            <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
 
-
-               <a href="index18.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Series Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png">
-  Delete Video
-</div>
-            </div>
-        </div>
+    <div class="kontainer">
+      <div class="profilee" style="display: none;"> 
+      <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
     
-        <!-- SHARE POPUP (corrected position) -->
-        <div class="share-popup hidden" id="sharePopup">
-    
-            <!-- FIXED CLOSE BUTTON -->
-            <div class="share-close" id="shareClose">✕</div>
-    
-            <!-- Scrollable icons wrapper -->
-            <div class="share-scroll">
-                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-            </div>
-    
-        </div> <!-- END share-popup -->
-
-    </div> <!-- END profilee -->
-    
+      <div class="profilee-name">
+        <span>Guest</span>
+      </div>
+  
+    </div>
       <div class="caption">
       <span>Oats studios </span>
+      <div class="opttions">
+        <img src="sidebar 3.png" alt="Options Icon">
+
+        <!-- OPTIONS POPUP -->
+        <div class="opttions-popup hidden">
+            <div class="popup-item"><img src="share.png" /> Share</div>
+            <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+            <div class="popup-item"><img src="report.png" /> Report</div>
+        </div>
+    </div>
+
+    <!-- SHARE POPUP (corrected position) -->
+    <div class="share-popup hidden" id="sharePopup">
+
+        <!-- FIXED CLOSE BUTTON -->
+        <div class="share-close" id="shareClose">✕</div>
+
+        <!-- Scrollable icons wrapper -->
+        <div class="share-scroll">
+            <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+            <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+            <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+            <div class="share-item"><img src="twitter.png"><span>X</span></div>
+            <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+        </div>
+
+    </div> <!-- END share-popup -->
+
+<!-- PLAYLIST POPUP -->
+<div class="playlist-popup hidden" id="playlistPopup">
+
+<div class="playlist-header">Save to...</div>
+
+<!-- PLAYLIST LIST WRAPPER -->
+<div class="playlist-list" id="playlistList">
+
+<!-- Default items -->
+<label class="playlist-option">
+<input type="checkbox" class="playlist-check">
+<span>Watch Later</span>
+</label>
+
+<label class="playlist-option">
+<input type="checkbox" class="playlist-check">
+<span>Favorites</span>
+</label>
+
+</div>
+
+<!-- ADD NEW PLAYLIST BUTTON -->
+<div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+
+</div>
+
+<!-- REPORT POPUP -->
+<div class="report-popup hidden" id="reportPopup">
+
+<div class="report-header">
+Report image or title
+<span class="report-close" id="reportClose">✕</span>
+</div>
+
+<label class="report-option">
+<input type="checkbox" class="report-check">
+Sexual content
+</label>
+
+<label class="report-option">
+<input type="checkbox" class="report-check">
+Violent or repulsive content
+</label>
+
+<label class="report-option">
+<input type="checkbox" class="report-check">
+Hateful or abusive content
+</label>
+
+<label class="report-option">
+<input type="checkbox" class="report-check">
+Harmful or dangerous acts
+</label>
+
+<label class="report-option">
+<input type="checkbox" class="report-check">
+Spam or misleading
+</label>
+
+<label class="report-option">
+<input type="checkbox" class="report-check">
+Child abuse
+</label>
+
+<div class="report-actions">
+<button class="report-cancel">Cancel</button>
+<button class="report-submit" id="reportSubmit" disabled>Report</button>
+</div>
+
+</div>
+
       </div>
       <a href="index3.html">
       <div class="videoo">
@@ -1302,60 +1609,117 @@
       </div>
 
 
-                  
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
-        <div class="profilee-name">
-            <span>Guest</span>
-        </div>
-    
-        <div class="opttions">
-            <img src="sidebar 3.png" alt="Options Icon">
-    
-            <!-- OPTIONS POPUP -->
-            <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-
-<a href="index18.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Series Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png">
-  Delete Video
-</div>
-            </div>
-        </div>
-    
-        <!-- SHARE POPUP (corrected position) -->
-        <div class="share-popup hidden" id="sharePopup">
-    
-            <!-- FIXED CLOSE BUTTON -->
-            <div class="share-close" id="shareClose">✕</div>
-    
-            <!-- Scrollable icons wrapper -->
-            <div class="share-scroll">
-                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-            </div>
-    
-        </div> <!-- END share-popup -->
-
-    </div> <!-- END profilee -->
-    
+      <div class="kontainer">
+        <div class="profilee" style="display: none;"> 
+        <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
       
-      <div class="caption">
-      <span>The witcher </span>
+        <div class="profilee-name">
+          <span>Guest</span>
+        </div>
+    
       </div>
+        <div class="caption">
+        <span>The witcher</span>
+        <div class="opttions">
+          <img src="sidebar 3.png" alt="Options Icon">
+  
+          <!-- OPTIONS POPUP -->
+          <div class="opttions-popup hidden">
+              <div class="popup-item"><img src="share.png" /> Share</div>
+              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item"><img src="report.png" /> Report</div>
+          </div>
+      </div>
+  
+      <!-- SHARE POPUP (corrected position) -->
+      <div class="share-popup hidden" id="sharePopup">
+  
+          <!-- FIXED CLOSE BUTTON -->
+          <div class="share-close" id="shareClose">✕</div>
+  
+          <!-- Scrollable icons wrapper -->
+          <div class="share-scroll">
+              <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+              <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+              <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+              <div class="share-item"><img src="twitter.png"><span>X</span></div>
+              <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+          </div>
+  
+      </div> <!-- END share-popup -->
+  
+  <!-- PLAYLIST POPUP -->
+  <div class="playlist-popup hidden" id="playlistPopup">
+  
+  <div class="playlist-header">Save to...</div>
+  
+  <!-- PLAYLIST LIST WRAPPER -->
+  <div class="playlist-list" id="playlistList">
+  
+  <!-- Default items -->
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Watch Later</span>
+  </label>
+  
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Favorites</span>
+  </label>
+  
+  </div>
+  
+  <!-- ADD NEW PLAYLIST BUTTON -->
+  <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+  
+  </div>
+  
+  <!-- REPORT POPUP -->
+  <div class="report-popup hidden" id="reportPopup">
+  
+  <div class="report-header">
+  Report image or title
+  <span class="report-close" id="reportClose">✕</span>
+  </div>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Sexual content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Violent or repulsive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Hateful or abusive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Harmful or dangerous acts
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Spam or misleading
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Child abuse
+  </label>
+  
+  <div class="report-actions">
+  <button class="report-cancel">Cancel</button>
+  <button class="report-submit" id="reportSubmit" disabled>Report</button>
+  </div>
+  
+  </div>
+  
+        </div>
       <a href="index3.html">
       <div class="videoo">
         <video
@@ -1382,59 +1746,117 @@
       
       </div>
 
-                    
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
-        <div class="profilee-name">
-            <span>Guest</span>
-        </div>
-    
-        <div class="opttions">
-            <img src="sidebar 3.png" alt="Options Icon">
-    
-            <!-- OPTIONS POPUP -->
-            <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-
-            <a href="index18.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Series Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png">
-  Delete Video
-</div>
-            </div>
-        </div>
-    
-        <!-- SHARE POPUP (corrected position) -->
-        <div class="share-popup hidden" id="sharePopup">
-    
-            <!-- FIXED CLOSE BUTTON -->
-            <div class="share-close" id="shareClose">✕</div>
-    
-            <!-- Scrollable icons wrapper -->
-            <div class="share-scroll">
-                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-            </div>
-    
-        </div> <!-- END share-popup -->
-
-    </div> <!-- END profilee -->
-    
+                  
+      <div class="kontainer">
+        <div class="profilee" style="display: none;"> 
+        <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
       
+        <div class="profilee-name">
+          <span>Guest</span>
+        </div>
+    
+      </div>
         <div class="caption">
-        <span>Delta 2</span>
+        <span>Delta 2 </span>
+        <div class="opttions">
+          <img src="sidebar 3.png" alt="Options Icon">
+  
+          <!-- OPTIONS POPUP -->
+          <div class="opttions-popup hidden">
+              <div class="popup-item"><img src="share.png" /> Share</div>
+              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item"><img src="report.png" /> Report</div>
+          </div>
+      </div>
+  
+      <!-- SHARE POPUP (corrected position) -->
+      <div class="share-popup hidden" id="sharePopup">
+  
+          <!-- FIXED CLOSE BUTTON -->
+          <div class="share-close" id="shareClose">✕</div>
+  
+          <!-- Scrollable icons wrapper -->
+          <div class="share-scroll">
+              <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+              <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+              <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+              <div class="share-item"><img src="twitter.png"><span>X</span></div>
+              <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+          </div>
+  
+      </div> <!-- END share-popup -->
+  
+  <!-- PLAYLIST POPUP -->
+  <div class="playlist-popup hidden" id="playlistPopup">
+  
+  <div class="playlist-header">Save to...</div>
+  
+  <!-- PLAYLIST LIST WRAPPER -->
+  <div class="playlist-list" id="playlistList">
+  
+  <!-- Default items -->
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Watch Later</span>
+  </label>
+  
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Favorites</span>
+  </label>
+  
+  </div>
+  
+  <!-- ADD NEW PLAYLIST BUTTON -->
+  <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+  
+  </div>
+  
+  <!-- REPORT POPUP -->
+  <div class="report-popup hidden" id="reportPopup">
+  
+  <div class="report-header">
+  Report image or title
+  <span class="report-close" id="reportClose">✕</span>
+  </div>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Sexual content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Violent or repulsive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Hateful or abusive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Harmful or dangerous acts
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Spam or misleading
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Child abuse
+  </label>
+  
+  <div class="report-actions">
+  <button class="report-cancel">Cancel</button>
+  <button class="report-submit" id="reportSubmit" disabled>Report</button>
+  </div>
+  
+  </div>
+  
         </div>
         <a href="index3.html">
         <div class="videoo">
@@ -1464,59 +1886,116 @@
   
   
         
-                       
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
+      <div class="kontainer">
+        <div class="profilee" style="display: none;"> 
+        <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
+      
         <div class="profilee-name">
-            <span>Guest</span>
+          <span>Guest</span>
         </div>
     
-        <div class="opttions">
-            <img src="sidebar 3.png" alt="Options Icon">
-    
-            <!-- OPTIONS POPUP -->
-            <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-
-     <a href="index18.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Series Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png">
-  Delete Video
-</div>
-            </div>
-        </div>
-    
-        <!-- SHARE POPUP (corrected position) -->
-        <div class="share-popup hidden" id="sharePopup">
-    
-            <!-- FIXED CLOSE BUTTON -->
-            <div class="share-close" id="shareClose">✕</div>
-    
-            <!-- Scrollable icons wrapper -->
-            <div class="share-scroll">
-                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-            </div>
-    
-        </div> <!-- END share-popup -->
-
-    </div> <!-- END profilee -->
-    
-        
+      </div>
         <div class="caption">
         <span>Afrofuse Sn 3</span>
+        <div class="opttions">
+          <img src="sidebar 3.png" alt="Options Icon">
+  
+          <!-- OPTIONS POPUP -->
+          <div class="opttions-popup hidden">
+              <div class="popup-item"><img src="share.png" /> Share</div>
+              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item"><img src="report.png" /> Report</div>
+          </div>
+      </div>
+  
+      <!-- SHARE POPUP (corrected position) -->
+      <div class="share-popup hidden" id="sharePopup">
+  
+          <!-- FIXED CLOSE BUTTON -->
+          <div class="share-close" id="shareClose">✕</div>
+  
+          <!-- Scrollable icons wrapper -->
+          <div class="share-scroll">
+              <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+              <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+              <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+              <div class="share-item"><img src="twitter.png"><span>X</span></div>
+              <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+          </div>
+  
+      </div> <!-- END share-popup -->
+  
+  <!-- PLAYLIST POPUP -->
+  <div class="playlist-popup hidden" id="playlistPopup">
+  
+  <div class="playlist-header">Save to...</div>
+  
+  <!-- PLAYLIST LIST WRAPPER -->
+  <div class="playlist-list" id="playlistList">
+  
+  <!-- Default items -->
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Watch Later</span>
+  </label>
+  
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Favorites</span>
+  </label>
+  
+  </div>
+  
+  <!-- ADD NEW PLAYLIST BUTTON -->
+  <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+  
+  </div>
+  
+  <!-- REPORT POPUP -->
+  <div class="report-popup hidden" id="reportPopup">
+  
+  <div class="report-header">
+  Report image or title
+  <span class="report-close" id="reportClose">✕</span>
+  </div>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Sexual content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Violent or repulsive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Hateful or abusive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Harmful or dangerous acts
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Spam or misleading
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Child abuse
+  </label>
+  
+  <div class="report-actions">
+  <button class="report-cancel">Cancel</button>
+  <button class="report-submit" id="reportSubmit" disabled>Report</button>
+  </div>
+  
+  </div>
+  
         </div>
         <a href="index3.html">
         <div class="videoo">
@@ -1545,34 +2024,25 @@
         </div>
   
 
-                                
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
-        <div class="profilee-name">
+        <div class="kontainer">
+          <div class="profilee" style="display: none;"> 
+          <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
+        
+          <div class="profilee-name">
             <span>Guest</span>
+          </div>
+      
         </div>
-    
-        <div class="opttions">
+          <div class="caption">
+          <span>Love,death and Robots sn 1 </span>
+          <div class="opttions">
             <img src="sidebar 3.png" alt="Options Icon">
     
             <!-- OPTIONS POPUP -->
             <div class="opttions-popup hidden">
                 <div class="popup-item"><img src="share.png" /> Share</div>
-                
-           <a href="index18.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Series Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png">
-  Delete Video
-</div>
+                <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+                <div class="popup-item"><img src="report.png" /> Report</div>
             </div>
         </div>
     
@@ -1592,13 +2062,79 @@
             </div>
     
         </div> <!-- END share-popup -->
-
-    </div> <!-- END profilee -->
     
-        
-      <div class="caption">
-      <span>Love,death and Robots sn 1 </span>
-      </div>
+    <!-- PLAYLIST POPUP -->
+    <div class="playlist-popup hidden" id="playlistPopup">
+    
+    <div class="playlist-header">Save to...</div>
+    
+    <!-- PLAYLIST LIST WRAPPER -->
+    <div class="playlist-list" id="playlistList">
+    
+    <!-- Default items -->
+    <label class="playlist-option">
+    <input type="checkbox" class="playlist-check">
+    <span>Watch Later</span>
+    </label>
+    
+    <label class="playlist-option">
+    <input type="checkbox" class="playlist-check">
+    <span>Favorites</span>
+    </label>
+    
+    </div>
+    
+    <!-- ADD NEW PLAYLIST BUTTON -->
+    <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+    
+    </div>
+    
+    <!-- REPORT POPUP -->
+    <div class="report-popup hidden" id="reportPopup">
+    
+    <div class="report-header">
+    Report image or title
+    <span class="report-close" id="reportClose">✕</span>
+    </div>
+    
+    <label class="report-option">
+    <input type="checkbox" class="report-check">
+    Sexual content
+    </label>
+    
+    <label class="report-option">
+    <input type="checkbox" class="report-check">
+    Violent or repulsive content
+    </label>
+    
+    <label class="report-option">
+    <input type="checkbox" class="report-check">
+    Hateful or abusive content
+    </label>
+    
+    <label class="report-option">
+    <input type="checkbox" class="report-check">
+    Harmful or dangerous acts
+    </label>
+    
+    <label class="report-option">
+    <input type="checkbox" class="report-check">
+    Spam or misleading
+    </label>
+    
+    <label class="report-option">
+    <input type="checkbox" class="report-check">
+    Child abuse
+    </label>
+    
+    <div class="report-actions">
+    <button class="report-cancel">Cancel</button>
+    <button class="report-submit" id="reportSubmit" disabled>Report</button>
+    </div>
+    
+    </div>
+    
+          </div>
       <a href="index3.html">
       <div class="videoo">
         <video
@@ -1626,59 +2162,118 @@
       </div>
 
 
-                      
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
-        <div class="profilee-name">
-            <span>Guest</span>
-        </div>
-    
-        <div class="opttions">
-            <img src="sidebar 3.png" alt="Options Icon">
-    
-            <!-- OPTIONS POPUP -->
-            <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-<a href="index18.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Series Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png">
-  Delete Video
-</div>
-            </div>
-        </div>
-    
-        <!-- SHARE POPUP (corrected position) -->
-        <div class="share-popup hidden" id="sharePopup">
-    
-            <!-- FIXED CLOSE BUTTON -->
-            <div class="share-close" id="shareClose">✕</div>
-    
-            <!-- Scrollable icons wrapper -->
-            <div class="share-scroll">
-                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-            </div>
-    
-        </div> <!-- END share-popup -->
-
-    </div> <!-- END profilee -->
-    
+        
+      <div class="kontainer">
+        <div class="profilee" style="display: none;"> 
+        <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
       
-      <div class="caption">
-      <span>Rick and Morty Sn8 </span>
+        <div class="profilee-name">
+          <span>Guest</span>
+        </div>
+    
       </div>
+        <div class="caption">
+        <span>Rick and Morty Sn8 </span>
+        <div class="opttions">
+          <img src="sidebar 3.png" alt="Options Icon">
+  
+          <!-- OPTIONS POPUP -->
+          <div class="opttions-popup hidden">
+              <div class="popup-item"><img src="share.png" /> Share</div>
+              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item"><img src="report.png" /> Report</div>
+          </div>
+      </div>
+  
+      <!-- SHARE POPUP (corrected position) -->
+      <div class="share-popup hidden" id="sharePopup">
+  
+          <!-- FIXED CLOSE BUTTON -->
+          <div class="share-close" id="shareClose">✕</div>
+  
+          <!-- Scrollable icons wrapper -->
+          <div class="share-scroll">
+              <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+              <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+              <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+              <div class="share-item"><img src="twitter.png"><span>X</span></div>
+              <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+          </div>
+  
+      </div> <!-- END share-popup -->
+  
+  <!-- PLAYLIST POPUP -->
+  <div class="playlist-popup hidden" id="playlistPopup">
+  
+  <div class="playlist-header">Save to...</div>
+  
+  <!-- PLAYLIST LIST WRAPPER -->
+  <div class="playlist-list" id="playlistList">
+  
+  <!-- Default items -->
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Watch Later</span>
+  </label>
+  
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Favorites</span>
+  </label>
+  
+  </div>
+  
+  <!-- ADD NEW PLAYLIST BUTTON -->
+  <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+  
+  </div>
+  
+  <!-- REPORT POPUP -->
+  <div class="report-popup hidden" id="reportPopup">
+  
+  <div class="report-header">
+  Report image or title
+  <span class="report-close" id="reportClose">✕</span>
+  </div>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Sexual content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Violent or repulsive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Hateful or abusive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Harmful or dangerous acts
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Spam or misleading
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Child abuse
+  </label>
+  
+  <div class="report-actions">
+  <button class="report-cancel">Cancel</button>
+  <button class="report-submit" id="reportSubmit" disabled>Report</button>
+  </div>
+  
+  </div>
+  
+        </div>
       <a href="index3.html">
       <div class="videoo">
         <video
@@ -1707,58 +2302,118 @@
 
 
       
-                      
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
+                  
+      <div class="kontainer">
+        <div class="profilee" style="display: none;"> 
+        <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
+      
         <div class="profilee-name">
-            <span>Guest</span>
+          <span>Guest</span>
         </div>
     
-        <div class="opttions">
-            <img src="sidebar 3.png" alt="Options Icon">
-    
-            <!-- OPTIONS POPUP -->
-            <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-      <a href="index18.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png">
-  Delete Video
-</div>
-            </div>
-        </div>
-    
-        <!-- SHARE POPUP (corrected position) -->
-        <div class="share-popup hidden" id="sharePopup">
-    
-            <!-- FIXED CLOSE BUTTON -->
-            <div class="share-close" id="shareClose">✕</div>
-    
-            <!-- Scrollable icons wrapper -->
-            <div class="share-scroll">
-                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-            </div>
-    
-        </div> <!-- END share-popup -->
-
-    </div> <!-- END profilee -->
-    
-      <div class="caption">
-      <span>Kobe Bryant Documentary</span>
       </div>
+        <div class="caption">
+        <span>Kobe Bryant Documentary </span>
+        <div class="opttions">
+          <img src="sidebar 3.png" alt="Options Icon">
+  
+          <!-- OPTIONS POPUP -->
+          <div class="opttions-popup hidden">
+              <div class="popup-item"><img src="share.png" /> Share</div>
+              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item"><img src="report.png" /> Report</div>
+          </div>
+      </div>
+  
+      <!-- SHARE POPUP (corrected position) -->
+      <div class="share-popup hidden" id="sharePopup">
+  
+          <!-- FIXED CLOSE BUTTON -->
+          <div class="share-close" id="shareClose">✕</div>
+  
+          <!-- Scrollable icons wrapper -->
+          <div class="share-scroll">
+              <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+              <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+              <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+              <div class="share-item"><img src="twitter.png"><span>X</span></div>
+              <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+          </div>
+  
+      </div> <!-- END share-popup -->
+  
+  <!-- PLAYLIST POPUP -->
+  <div class="playlist-popup hidden" id="playlistPopup">
+  
+  <div class="playlist-header">Save to...</div>
+  
+  <!-- PLAYLIST LIST WRAPPER -->
+  <div class="playlist-list" id="playlistList">
+  
+  <!-- Default items -->
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Watch Later</span>
+  </label>
+  
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Favorites</span>
+  </label>
+  
+  </div>
+  
+  <!-- ADD NEW PLAYLIST BUTTON -->
+  <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+  
+  </div>
+  
+  <!-- REPORT POPUP -->
+  <div class="report-popup hidden" id="reportPopup">
+  
+  <div class="report-header">
+  Report image or title
+  <span class="report-close" id="reportClose">✕</span>
+  </div>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Sexual content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Violent or repulsive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Hateful or abusive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Harmful or dangerous acts
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Spam or misleading
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Child abuse
+  </label>
+  
+  <div class="report-actions">
+  <button class="report-cancel">Cancel</button>
+  <button class="report-submit" id="reportSubmit" disabled>Report</button>
+  </div>
+  
+  </div>
+  
+        </div>
       <a href="index3.html">
       <div class="videoo">
         <video
@@ -1786,60 +2441,117 @@
       </div>
 
 
+      <div class="kontainer">
+        <div class="profilee" style="display: none;"> 
+        <a href="index4.html"><img src="14.png" alt="Profile Image"></a>
       
-                        
- <div class="kontainer">
-      <div class="profilee"> 
-        <a href="index4.html" class="profilee-img-wrapper">
-            <img src="14.png" alt="Placeholder Image" class="profilee-img placeholder" id="profileePlaceholder">
-            <img src="Gdansk.jpg" alt="Profile Image" class="profilee-img uploaded" id="profileeActual" style="display: none;">
-        </a>
-    
         <div class="profilee-name">
-            <span>Guest</span>
+          <span>Guest</span>
         </div>
     
-        <div class="opttions">
-            <img src="sidebar 3.png" alt="Options Icon">
-    
-            <!-- OPTIONS POPUP -->
-            <div class="opttions-popup hidden">
-                <div class="popup-item"><img src="share.png" /> Share</div>
-                <a href="index18.html" class="popup-item edit-link">
-  <img src="Edit.png" />
-  <span>Edit Series Video</span>
-</a>
-
-<div class="popup-item delete-trigger">
-  <img src="delete.png">
-  Delete Video
-</div>
-            </div>
-        </div>
-    
-        <!-- SHARE POPUP (corrected position) -->
-        <div class="share-popup hidden" id="sharePopup">
-    
-            <!-- FIXED CLOSE BUTTON -->
-            <div class="share-close" id="shareClose">✕</div>
-    
-            <!-- Scrollable icons wrapper -->
-            <div class="share-scroll">
-                <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
-                <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
-                <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
-                <div class="share-item"><img src="twitter.png"><span>X</span></div>
-                <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
-            </div>
-    
-        </div> <!-- END share-popup -->
-
-    </div> <!-- END profilee -->
-    
-      
-      <div class="caption">
-      <span>love death and robots sn2</span>
       </div>
+        <div class="caption">
+        <span>love death and robots sn2 </span>
+        <div class="opttions">
+          <img src="sidebar 3.png" alt="Options Icon">
+  
+          <!-- OPTIONS POPUP -->
+          <div class="opttions-popup hidden">
+              <div class="popup-item"><img src="share.png" /> Share</div>
+              <div class="popup-item"><img src="playlist.png" /> Add to Playlist</div>
+              <div class="popup-item"><img src="report.png" /> Report</div>
+          </div>
+      </div>
+  
+      <!-- SHARE POPUP (corrected position) -->
+      <div class="share-popup hidden" id="sharePopup">
+  
+          <!-- FIXED CLOSE BUTTON -->
+          <div class="share-close" id="shareClose">✕</div>
+  
+          <!-- Scrollable icons wrapper -->
+          <div class="share-scroll">
+              <div class="share-item"><img src="tiktok.png"><span>Tiktok</span></div>
+              <div class="share-item"><img src="whatsapp.png"><span>Whatsapp</span></div>
+              <div class="share-item"><img src="facebook.png"><span>Facebook</span></div>
+              <div class="share-item"><img src="twitter.png"><span>X</span></div>
+              <div class="share-item"><img src="copy link.png"><span>Copy Link</span></div>
+          </div>
+  
+      </div> <!-- END share-popup -->
+  
+  <!-- PLAYLIST POPUP -->
+  <div class="playlist-popup hidden" id="playlistPopup">
+  
+  <div class="playlist-header">Save to...</div>
+  
+  <!-- PLAYLIST LIST WRAPPER -->
+  <div class="playlist-list" id="playlistList">
+  
+  <!-- Default items -->
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Watch Later</span>
+  </label>
+  
+  <label class="playlist-option">
+  <input type="checkbox" class="playlist-check">
+  <span>Favorites</span>
+  </label>
+  
+  </div>
+  
+  <!-- ADD NEW PLAYLIST BUTTON -->
+  <div class="playlist-add" id="addPlaylistBtn">+ New Playlist</div>
+  
+  </div>
+  
+  <!-- REPORT POPUP -->
+  <div class="report-popup hidden" id="reportPopup">
+  
+  <div class="report-header">
+  Report image or title
+  <span class="report-close" id="reportClose">✕</span>
+  </div>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Sexual content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Violent or repulsive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Hateful or abusive content
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Harmful or dangerous acts
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Spam or misleading
+  </label>
+  
+  <label class="report-option">
+  <input type="checkbox" class="report-check">
+  Child abuse
+  </label>
+  
+  <div class="report-actions">
+  <button class="report-cancel">Cancel</button>
+  <button class="report-submit" id="reportSubmit" disabled>Report</button>
+  </div>
+  
+  </div>
+  
+        </div>
       <a href="index3.html">
       <div class="videoo">
         <video
