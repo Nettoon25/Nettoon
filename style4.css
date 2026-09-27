@@ -2977,7 +2977,7 @@ border-style:none;
 /* This section displays the account owner's profile image and name at the top of each video card. */
 .profilee {
   /* Layout & Sizing */
-  display: flex;         /* Enables Flexbox for horizontal arrangement of profile image and name */
+  display:none;         /* Enables Flexbox for horizontal arrangement of profile image and name */
   align-items: center;   /* Vertically centers the items */
   width: 100%;           /* Spans the full width of its parent */
   max-width: 100%;       /* Ensures it doesn't exceed parent width */
