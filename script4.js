@@ -141,25 +141,84 @@ document.addEventListener('click', () => {
   }
   
 
-  document.addEventListener('DOMContentLoaded', () => {
-    // For container-3 follow
-    document.querySelectorAll('.container-3 .follow').forEach(followBox => {
-      const followDefaultImg = followBox.querySelector('.follow-icon.default');
-      const followActiveImg = followBox.querySelector('.follow-icon.active');
-      const followLabel = followBox.querySelector('.follow-label:not(.active)');
-      const followingLabel = followBox.querySelector('.follow-label.active');
-      let isFollowing = false;
+document.addEventListener('DOMContentLoaded', () => {
 
-      followBox.addEventListener('click', () => {
-        isFollowing = !isFollowing;
-        followDefaultImg.classList.toggle('hidden', isFollowing);
-        followActiveImg.classList.toggle('hidden', !isFollowing);
-        followLabel.classList.toggle('hidden', isFollowing);
-        followingLabel.classList.toggle('hidden', !isFollowing);
-      });
+  document.querySelectorAll('.container-3 .follow').forEach(followBox => {
+
+    // Follow button elements
+    const followDefaultImg = followBox.querySelector('.follow-icon.default');
+    const followActiveImg = followBox.querySelector('.follow-icon.active');
+
+    const followLabel = followBox.querySelector('.follow-label:not(.active)');
+    const followingLabel = followBox.querySelector('.follow-label.active');
+
+    // Find the following count belonging to this container
+    const container = followBox.closest('.container-3');
+    const followingCount = container?.querySelector('.following span');
+
+    // Remember whether this user is currently following
+    let isFollowing = false;
+
+    // Click event
+    followBox.addEventListener('click', () => {
+
+      // Toggle follow state
+      isFollowing = !isFollowing;
+
+      // --------------------------------
+      // FOLLOWING COUNT
+      // --------------------------------
+      if (followingCount) {
+
+        // Get the current number
+        let currentCount = parseInt(
+          followingCount.textContent.trim(),
+          10
+        ) || 0;
+
+        if (isFollowing) {
+          // Follow → increase by 1
+          currentCount += 1;
+        } else {
+          // Unfollow → decrease by 1
+          currentCount = Math.max(0, currentCount - 1);
+        }
+
+        // Display the new number
+        followingCount.textContent = currentCount;
+      }
+
+      // --------------------------------
+      // FOLLOW ICON
+      // --------------------------------
+      followDefaultImg.classList.toggle(
+        'hidden',
+        isFollowing
+      );
+
+      followActiveImg.classList.toggle(
+        'hidden',
+        !isFollowing
+      );
+
+      // --------------------------------
+      // FOLLOW LABEL
+      // --------------------------------
+      followLabel.classList.toggle(
+        'hidden',
+        isFollowing
+      );
+
+      followingLabel.classList.toggle(
+        'hidden',
+        !isFollowing
+      );
+
     });
+
   });
 
+});
 
 
           document.addEventListener('DOMContentLoaded', function () {
